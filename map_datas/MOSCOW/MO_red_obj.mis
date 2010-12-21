@@ -1,0 +1,31 @@
+[MAIN]
+  MAP Moscow/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  0_Static vehicles.planes.Plane$LI_2 1 32249.88 23963.83 330.00 0.0
+  1_Static vehicles.planes.Plane$LI_2 1 43753.55 58145.66 330.00 0.0
+  2_Static vehicles.planes.Plane$LI_2 1 33182.06 73135.68 240.00 0.0
+  3_Static vehicles.planes.Plane$LI_2 1 29341.79 111851.33 190.00 0.0
+  4_Static vehicles.planes.Plane$LI_2 1 49986.59 123298.82 449.100 0.0
+  5_Static vehicles.planes.Plane$LI_2 1 71421.48 100241.59 330.00 0.0
+  6_Static vehicles.planes.Plane$LI_2 1 41870.57 156821.13 215.00 0.0
+  7_Static vehicles.planes.Plane$LI_2 1 87826.41 22541.66 285.00 0.0
+  8_Static vehicles.planes.Plane$LI_2 1 91097.55 45959.21 340.00 0.0
+  9_Static vehicles.planes.Plane$LI_2 1 118820.36 37690.05 420.00 0.0
+  10_Static vehicles.planes.Plane$LI_2 1 127560.52 45747.33 495.00 0.0
+  11_Static vehicles.planes.Plane$LI_2 1 135540.80 27013.89 360.00 0.0
+  12_Static vehicles.planes.Plane$LI_2 1 161889.45 66466.22 200.00 0.0
+  13_Static vehicles.planes.Plane$LI_2 1 175100.35 71179.23 330.00 0.0
+  14_Static vehicles.planes.Plane$LI_2 1 121540.39 74363.81 509.100 0.0
+  15_Static vehicles.planes.Plane$LI_2 1 162481.39 102691.31 495.00 0.0
+  16_Static vehicles.planes.Plane$LI_2 1 175454.58 136976.51 315.00 0.0
+  17_Static vehicles.planes.Plane$LI_2 1 121489.05 151603.83 180.00 0.0
+  18_Static vehicles.planes.Plane$LI_2 1 126327.21 129505.43 360.00 0.0
+  19_Static vehicles.planes.Plane$LI_2 1 108075.82 96079.19 430.00 0.0
+[Buildings]
+[Bridge]
+[House]

@@ -1,0 +1,29 @@
+[MAIN]
+  MAP Stgrad/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 21408.09 115226.01 375.00 0.0
+  10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 10429.34 141730.59 180.00 0.0
+  10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 61393.69 162309.53 420.00 0.0
+  10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 16684.13 42553.63 330.00 0.0
+  10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 50049.00 19251.42 270.00 0.0
+  10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 54363.65 79485.22 425.00 0.0
+  10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 86760.41 27071.58 190.00 0.0
+  10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 105586.91 16312.11 420.00 0.0
+  10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 134728.25 38287.64 434.10 0.0
+  10009_Static vehicles.planes.Plane$JU_52_3MG4E 2 170085.80 45161.77 295.00 0.0
+  10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 175671.69 82967.25 240.00 0.0
+  10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 139876.92 91573.41 225.00 0.0
+  10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 126304.34 92411.10 390.00 0.0
+  10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 91595.26 73081.51 240.00 0.0
+  10014_Static vehicles.planes.Plane$JU_52_3MG4E 2 87811.17 86515.81 360.00 0.0
+  10015_Static vehicles.planes.Plane$JU_52_3MG4E 2 88662.24 95051.09 270.00 0.0
+  10016_Static vehicles.planes.Plane$JU_52_3MG4E 2 73495.19 129221.52 300.00 0.0
+  10017_Static vehicles.planes.Plane$JU_52_3MG4E 2 141785.36 124673.21 485.00 0.0
+  10018_Static vehicles.planes.Plane$JU_52_3MG4E 2 133426.72 135875.85 355.00 0.0
+  10019_Static vehicles.planes.Plane$JU_52_3MG4E 2 163332.99 148350.04 225.00 0.0
+  

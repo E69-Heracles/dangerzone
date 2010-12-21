@@ -1,0 +1,19 @@
+[MAIN]
+MAP Normandy/load2.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 74485.65 61953.45 360.00 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 116502.44 87252.32 350.00 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 108840.97 98159.55 210.00 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 105880.55 15068.18 485.00 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 38434.57 29568.14 374.88 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 4107.92 99765.67 539.88 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 146853.31 52051.76 359.88 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 142752.74 97895.13 189.88 0.0
+[Buildings]
+[Bridge]
+[House]

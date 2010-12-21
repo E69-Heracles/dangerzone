@@ -1,0 +1,25 @@
+[MAIN]
+MAP Balaton/load_w.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 71834.20 29786.25 314.92 0.0
+ 10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 53961.62 128315.67 339.96 0.0
+ 10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 59509.23 120917.14 449.96 0.0
+ 10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 117738.32 80864.87 284.96 0.0
+ 10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 153769.79 46970.08 314.96 0.0
+ 10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 154275.77 35312.24 494.96 0.0
+ 10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 157775.84 80710.31 419.96 0.0
+ 10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 182140.17 117917.86 314.96 0.0
+ 10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 159018.39 112610.76 494.96 0.0
+ 10009_Static vehicles.planes.Plane$JU_52_3MG4E 2 149488.57 103480.10 314.96 0.0
+ 10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 118531.13 122738.42 224.96 0.0
+ 10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 105286.02 140293.29 224.96 0.0
+ 10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 129510.86 165305.51 509.96 0.0
+ 10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 153001.66 151716.54 464.96 0.0
+[Buildings]
+[Bridge]
+[House]

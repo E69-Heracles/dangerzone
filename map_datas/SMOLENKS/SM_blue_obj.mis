@@ -1,0 +1,31 @@
+[MAIN]
+  MAP Smolensk/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 3972.24 148847.07 495.00 0.0
+10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 11366.65 55367.80 425.00 0.0
+10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 47363.05 11430.72 184.100 0.0
+10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 57803.86 13135.58 320.00 0.0
+10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 57352.55 55842.26 410.00 0.0
+10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 57954.41 99800.14 524.100 0.0
+10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 46533.12 130765.22 360.00 0.0
+10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 58345.25 135579.95 225.00 0.0
+10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 62955.73 124177.65 405.00 0.0
+1009_Static vehicles.planes.Plane$JU_52_3MG4E 2 80837.51 144994.45 414.100 0.0
+10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 100456.41 105076.34 300.00 0.0
+10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 96065.71 26191.70 225.00 0.0
+10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 141530.01 19151.54 180.00 0.0
+10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 71191.67 58735.65 225.00 0.0
+10014_Static vehicles.planes.Plane$JU_52_3MG4E 2 77800.04 74906.17 360.00 0.0
+10015_Static vehicles.planes.Plane$JU_52_3MG4E 2 136851.28 107828.70 449.100 0.0
+10016_Static vehicles.planes.Plane$JU_52_3MG4E 2 153603.36 96421.24 315.00 0.0
+10017_Static vehicles.planes.Plane$JU_52_3MG4E 2 158027.57 85879.54 305.00 0.0
+10018_Static vehicles.planes.Plane$JU_52_3MG4E 2 178297.29 47804.52 240.00 0.0
+10019_Static vehicles.planes.Plane$JU_52_3MG4E 2 183624.99 52662.79 519.100 0.0
+[Buildings]
+[Bridge]
+[House]

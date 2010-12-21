@@ -1,0 +1,82 @@
+[MAIN]
+  MAP Normandy/load2.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[Wing]
+  6GvIAP02
+  6GvIAP03
+[6GvIAP02]
+  Planes 1
+  Skill 1
+  Class air.B_17G
+  Fuel 100
+  weapons default
+[6GvIAP02_Way]
+  NORMFLY 77076.72 62276.41 1500.00 300.00
+  NORMFLY 76725.69 61926.02 1500.00 300.00
+  NORMFLY 76732.84 61925.08 1500.00 300.00
+  NORMFLY 77058.47 62250.87 1500.00 300.00
+  NORMFLY 77030.53 62209.45 1500.00 300.00
+  NORMFLY 76822.43 62001.35 1500.00 300.00
+  NORMFLY 76833.99 62004.88 1500.00 300.00
+  NORMFLY 76880.88 62052.09 1500.00 300.00
+[6GvIAP03]
+  Planes 1
+  Skill 1
+  Class air.B_17G
+  Fuel 100
+  weapons default
+[6GvIAP03_Way]
+  NORMFLY 77058.31 62304.31 2000.00 300.00
+  NORMFLY 77069.66 62307.34 2000.00 300.00
+  NORMFLY 77108.26 62263.45 2000.00 300.00
+  NORMFLY 77107.50 62254.37 2000.00 300.00
+  NORMFLY 77029.55 62163.55 2000.00 300.00
+  NORMFLY 77029.55 62153.71 2000.00 300.00
+  NORMFLY 76894.84 62218.04 2000.00 300.00
+  NORMFLY 76894.84 62212.74 2000.00 300.00
+  NORMFLY 76782.08 62206.69 2000.00 300.00
+  NORMFLY 76785.11 62204.42 2000.00 300.00
+  NORMFLY 76787.38 62061.38 2000.00 300.00
+  NORMFLY 76788.89 62054.57 2000.00 300.00
+  NORMFLY 76828.25 61969.81 2000.00 300.00
+  NORMFLY 76832.03 61966.78 2000.00 300.00
+  NORMFLY 76748.03 61906.100 2000.00 300.00
+  NORMFLY 76748.03 61913.05 2000.00 300.00
+  NORMFLY 76676.89 61934.100 2000.00 300.00
+  NORMFLY 76679.16 61931.21 2000.00 300.00
+[NStationary]
+  0_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 77229.52 62587.25 360.00 0.0
+  1_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 53945.30 73549.92 360.00 0.0
+  2_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 89352.10 30440.20 360.00 0.0
+  3_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 110339.69 95756.50 360.00 0.0
+  4_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 16196.40 75920.07 360.00 0.0
+  5_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 27224.52 55508.55 360.00 0.0
+  6_Static vehicles.aeronautics.Aeronautics$ObservBalloon_90m 2 101271.53 15947.93 360.00 0.0
+  7_Static vehicles.stationary.Campfire$CampfireAirfield 0 76939.13 62086.18 360.00 0.0
+  8_Static vehicles.stationary.Campfire$CampfireAirfield 0 77911.10 62266.25 360.00 0.0
+  9_Static vehicles.stationary.Campfire$CampfireAirfield 0 77688.83 63303.41 360.00 0.0
+  10_Static vehicles.stationary.Campfire$CampfireAirfield 0 15126.31 76103.24 360.00 0.0
+  11_Static vehicles.stationary.Campfire$CampfireAirfield 0 26559.41 55123.28 360.00 0.0
+  12_Static vehicles.stationary.Campfire$CampfireAirfield 0 89896.33 30801.79 360.00 0.0
+  13_Static vehicles.stationary.Campfire$CampfireAirfield 0 91612.94 30503.67 360.00 0.0
+  14_Static vehicles.stationary.Campfire$CampfireAirfield 0 88325.89 31210.98 360.00 0.0
+  15_Static vehicles.stationary.Campfire$CampfireAirfield 0 103548.59 15012.42 360.00 0.0
+  16_Static vehicles.stationary.Campfire$CampfireAirfield 0 101341.32 17020.24 360.00 0.0
+  17_Static vehicles.stationary.Campfire$CampfireAirfield 0 100402.03 14226.39 360.00 0.0
+  18_Static vehicles.stationary.Campfire$CampfireAirfield 0 28366.11 54702.46 360.00 0.0
+  19_Static vehicles.stationary.Campfire$CampfireAirfield 0 27657.48 56392.39 360.00 0.0
+  21_Static vehicles.stationary.Campfire$CampfireAirfield 0 16265.06 75239.85 360.00 0.0
+  22_Static vehicles.stationary.Campfire$CampfireAirfield 0 54427.62 74109.38 360.00 0.0
+  23_Static vehicles.stationary.Campfire$CampfireAirfield 0 55014.97 73130.47 360.00 0.0
+  24_Static vehicles.stationary.Campfire$CampfireAirfield 0 54036.05 72934.69 360.00 0.0
+  25_Static vehicles.stationary.Campfire$CampfireAirfield 0 113760.95 95561.49 360.00 0.0
+  26_Static vehicles.stationary.Campfire$CampfireAirfield 0 110898.99 95884.88 360.00 0.0
+  27_Static vehicles.stationary.Campfire$CampfireAirfield 0 112881.87 97730.60 360.00 0.0
+  20_Static vehicles.stationary.Campfire$CampfireAirfield 0 114830.05 97034.67 360.00 0.0
+[Buildings]
+[Bridge]
+[House]

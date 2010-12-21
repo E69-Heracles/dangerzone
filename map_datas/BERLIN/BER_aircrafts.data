@@ -1,0 +1,547 @@
+# army,pais_task,external_name,human_flyable,class.air,def_weapons,def_fuel,def_alt,def_speed:tasks,numero,
+
+
+#---red sqds
+
+rusfig=176IAP,3IAK,7IAP,4IAP;
+rusjab=11IAP,7IAP,4IAP;
+rusbom=34BAP,40BAP,80BAP;
+rustrp=34BAP,40BAP,80BAP;
+usafig=USA_FG_035_FS_041z,USA_FG_054_FS_042z,USA_FG_015_FS_048z,USA_FG_024_FS_003z;
+usajab=USA_BG_042_BS_075z,USA_BG_030_BS_030z;
+usabom=USA_BG_XXX_BS_349z,USA_BG_003_BS_008z;
+usatrp=USA_BG_XXX_BS_349z,USA_BG_003_BS_008z;
+
+#-------
+
+#LA5-F  4/300
+#1,rusfig,LA-5F,1,air.LA_5F,default,100,2500,400:I,4,
+#1,rusfig,LA-5F,1,air.LA_5F,default,100,2500,400:ER,4,
+#1,rusfig,LA-5F,1,air.LA_5F,default,100,2500,400:EBA,4,
+#1,rusfig,LA-5F,1,air.LA_5F,default,100,2500,400:EBD,4,
+#1,rusfig,LA-5F,1,air.LA_5F,default,100,2500,400:ESU,4,
+#1,rusfig,LA-5F,1,air.LA_5F,2xFAB100,100,2500,400:ET,4,
+
+#LA5-FN 22/300
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,5000,400:I,629,
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,2500,400:ER,629,
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,5000,400:EBA,629,
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,2500,400:EBD,6299,
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,2500,400:ESU,6299,
+1,rusfig,La-5FN,1,air.LA_5FN,default,100,2500,400:ET,629,
+
+#LA7  16/300
+1,rusfig,La-7,1,air.LA_7,default,100,5000,400:I,1467,
+1,rusfig,La-7,1,air.LA_7,default,100,2500,400:ER,1467,
+1,rusfig,La-7,1,air.LA_7,default,100,5000,400:EBA,1467,
+1,rusfig,La-7,1,air.LA_7,default,100,2500,400:EBD,1467,
+1,rusfig,La-7,1,air.LA_7,default,100,2500,400:ESU,1467,
+1,rusfig,La-7,1,air.LA_7,default,100,2500,400:ET,1467,
+
+#TEMPEST5
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,5000,400:I,500,
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,2500,400:ER,500,
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,5000,400:EBA,500,
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,2500,400:EBD,500,
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,2500,400:ESU,500,
+1,rusfig,TEMPEST5,1,air.TEMPEST5,default,100,2500,400:ET,500,
+
+#LA7-3xB  16/300
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,5000,400:I,360,
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,2500,400:ER,360,
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,5000,400:EBA,360,
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,2500,400:EBD,360,
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,2500,400:ESU,360,
+1,rusfig,La-7-3xB,1,air.LA_7B20,default,100,2500,400:ET,360,
+
+#P39-N1 1/300
+#1,rusfig,P-39N1,1,air.P_39N,extra,100,2500,400:I,1,
+#1,rusfig,P-39N1,1,air.P_39N,extra,100,2500,400:ER,1,
+#1,rusfig,P-39N1,1,air.P_39N,extra,100,2500,400:EBA,1,
+#1,rusfig,P-39N1,1,air.P_39N,extra,100,2500,400:EBD,1,
+#1,rusfig,P-39N1,1,air.P_39N,extra,100,2500,400:ESU,1,
+#1,rusfig,P-39N1,1,air.P_39N,1xFAB250,100,2500,400:ET,1,
+
+#P39-Q1 4/300
+#1,rusfig,P-39Q1,1,air.P_39Q1,default,100,2500,400:I,4,
+#1,rusfig,P-39Q1,1,air.P_39Q1,default,100,2500,400:ER,4,
+#1,rusfig,P-39Q1,1,air.P_39Q1,default,100,2500,400:EBA,4,
+#1,rusfig,P-39Q1,1,air.P_39Q1,default,100,2500,400:EBD,4,
+#1,rusfig,P-39Q1,1,air.P_39Q1,default,100,2500,400:ESU,4,
+#1,rusfig,P-39Q1,1,air.P_39Q1,1xFAB250,100,2500,400:ET,4,
+
+#P39-Q10 15/300
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,5000,400:I,300,
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,2500,400:ER,300,
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,5000,400:EBA,300,
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,2500,400:EBD,300,
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,2500,400:ESU,300,
+1,rusfig,P-39Q10,1,air.P_39Q10,default,100,2500,400:ET,300,
+
+#P51-D20 15/300
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,5000,400:I,643,
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,2500,400:ER,643,
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,5000,400:EBA,643,
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,2500,400:EBD,643,
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,2500,400:ESU,643,
+1,usafig,P-51D20NA,1,air.P_51D20NA,default,100,2500,400:ET,643,
+
+#P-63C 15/300
+1,usafig,P-63C,1,air.P_63C,default,100,5000,400:I,548,
+1,usafig,P-63C,1,air.P_63C,default,100,2500,400:ER,548,
+1,usafig,P-63C,1,air.P_63C,default,100,5000,400:EBA,548,
+1,usafig,P-63C,1,air.P_63C,default,100,2500,400:EBD,548,
+1,usafig,P-63C,1,air.P_63C,default,100,2500,400:ESU,548,
+1,usafig,P-63C,1,air.P_63C,default,100,2500,400:ET,548,
+
+#Yak-9D 25/300
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:I,25,
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:EBA,25,
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:EBD,25,
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:ESU,25,
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:ER,25,
+#1,rusfig,Yak-9D,1,air.YAK_9D,default,100,3000,400:ET,25,
+
+#Yak-9T 10/300
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,5000,400:I,400,
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,5000,400:EBA,400,
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,2500,400:EBD,400,
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,2500,400:ESU,400,
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,2500,400:ER,400,
+1,rusfig,Yak-9T,1,air.YAK_9T,default,100,2500,400:ET,400,
+
+#Yak-9M 21/300
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,5000,400:I,600,
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,5000,400:EBA,600,
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,2500,400:EBD,600,
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,2500,400:ESU,600,
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,2500,400:ER,600,
+1,rusfig,Yak-9M,1,air.YAK_9M,default,100,2500,400:ET,600,
+
+#Yak-9K 21/300
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,5000,400:I,193,
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,5000,400:EBA,193,
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,2500,400:EBD,193,
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,2500,400:ESU,193,
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,2500,400:ER,193,
+1,rusfig,Yak-9K,1,air.YAK_9K,default,100,2500,400:ET,193,
+
+#Yak-9U 17/300
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,5000,400:I,725,
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,5000,400:EBA,725,
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,2500,400:EBD,725,
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,2500,400:ESU,725,
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,2500,400:ER,725,
+1,rusfig,Yak-9U,1,air.YAK_9U,default,100,2500,400:ET,725,
+
+#Yak-9UT 17/300
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,5000,400:I,524,
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,5000,400:EBA,524,
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,2500,400:EBD,524,
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,2500,400:ESU,524,
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,2500,400:ER,524,
+1,rusfig,Yak-9UT,1,air.YAK_9UT,default,100,2500,400:ET,524,
+
+
+#Yak-3 12/300
+1,rusfig,Yak-3,1,air.YAK_3,default,100,5000,400:I,1111,
+1,rusfig,Yak-3,1,air.YAK_3,default,100,5000,400:EBA,1111,
+1,rusfig,Yak-3,1,air.YAK_3,default,100,2500,400:EBD,1111,
+1,rusfig,Yak-3,1,air.YAK_3,default,100,2500,400:ESU,1111,
+1,rusfig,Yak-3,1,air.YAK_3,default,100,2500,400:ER,1111,
+1,rusfig,Yak-3,1,air.YAK_3,default,100,2500,400:ET,1111,
+
+
+
+
+
+
+#Pe-8 1/300
+#1,rusbom,Pe-8,0,air.PE_8,4xFAB1000,100,2500,350:BD,1,
+
+#IL- 1943 23mm  86/300
+1,rusbom,IL-2 1943 23mm,1,air.IL_2Type3,2xFAB250,100,1500,350:BD,1050,
+1,rusbom,IL-2 1943 23mm,1,air.IL_2Type3,2xFAB250,100,1500,350:BA,1050,
+
+#IL- 1943 37mm  5/300
+1,rusbom,IL-2 1943 37mm,1,air.IL_2Type3M,2xFAB1004RS132,100,1500,350:BD,250,
+1,rusbom,IL-2 1943 37mm,1,air.IL_2Type3M,2xFAB1004RS132,100,1500,350:BA,250,
+
+#A-20 VVS:  7/300
+1,rusbom,A-20G,1,air.A_20G,1x10002x500,50,4000,350:BA,872,
+#1,rusbom,A-20G,1,air.A_20G,1x10002x500,50,1000,350:BD,872,
+1,rustrp,A-20G,1,air.A_20G,default,100,2000,350:SUM,872,
+
+
+# IL 4 DB3B 8/300
+1,rusbom,IL-4-DB3B,0,air.IL_4_DB3B,3fab250,50,4000,350:BA,393,
+#1,rusbom,IL-4-DB3B,0,air.IL_4_DB3B,3fab500,100,1000,350:BD,393,
+1,rustrp,IL-4-DB3B,0,air.IL_4_DB3B,default,100,2000,350:SUM,393,
+
+#PE2 1942 series 110 4/300
+#1,rusbom,PE-2 S110,0,air.PE_2SERIES110,2fab500,100,3000,380:BA,4,
+#1,rusbom,PE-2 S110,0,air.PE_2SERIES110,2fab500,100,1000,380:BD,4,
+
+# PE2 series 359  10/300
+1,rusbom,PE-2 S359,1,air.PE_2SERIES359,2fab500,100,1500,380:BA,300,
+1,rusbom,PE-2 S359,1,air.PE_2SERIES359,2fab500,100,1500,380:BD,300,
+
+# MOSQUITO6
+1,rusbom,MOSQUITO6,1,air.MOSQUITO6,4x500,100,1500,380:BA,300,
+1,rusbom,MOSQUITO6,1,air.MOSQUITO6,4x500,100,1500,380:BD,300,
+
+#Tu-2S 10/300
+1,rusbom,Tu-2S,0,air.TU_2S,2fab1000,100,4000,350:BA,203,
+#1,rusbom,Tu-2S,0,air.TU_2S,2fab1000,100,1000,350:BD,203,
+1,rustrp,Tu-2S,0,air.TU_2S,default,100,2000,350:SUM,203,
+
+#TB3 4M 34R
+#1,rustrp,TB3-4M-34R,1,air.TB_3_4M_34R,default,50,1000,180:SUM,1,
+
+#P38-L  6/300
+1,usajab,P-38L,1,air.P_38L,2x1000,100,1500,350:BD,340,
+1,usajab,P-38L,1,air.P_38L,2x1000,100,1500,350:BA,340,
+
+#P38-L Late  6/300
+1,usajab,P-38L Late,1,air.P_38LLate,2x1000,100,1500,350:BD,330,
+1,usajab,P-38L Late,1,air.P_38LLate,2x1000,100,1500,350:BA,330,
+
+#P51-B 1/300
+#1,usafig,P-51B,1,air.P_51B,default,100,4000,400:I,1,
+#1,usafig,P-51B,1,air.P_51B,default,100,4000,400:EBA,1,
+#1,usafig,P-51B,1,air.P_51B,default,100,4000,400:EBD,1,
+#1,usafig,P-51B,1,air.P_51B,default,100,4000,400:ESU,1,
+#1,usafig,P-51B,1,air.P_51B,2x500,100,4000,400:ET,1,
+#1,usafig,P-51B,1,air.P_51B,default,100,4000,400:ER,1,
+
+#P51-C 2/300
+#1,usafig,P-51C,1,air.P_51C,default,100,4000,400:I,2,
+#1,usafig,P-51C,1,air.P_51C,default,100,4000,400:EBA,2,
+#1,usafig,P-51C,1,air.P_51C,default,100,4000,400:EBD,2,
+#1,usafig,P-51C,1,air.P_51C,default,100,4000,400:ESU,2,
+#1,usafig,P-51C,1,air.P_51C,2x500,100,4000,400:ET,2,
+#1,usafig,P-51C,1,air.P_51C,default,100,4000,400:ER,2,
+
+
+
+#P51-D5 3/300
+#1,usafig,P-51D5NT,1,air.P_51D5NT,default,100,4000,400:I,3,
+#1,usafig,P-51D5NT,1,air.P_51D5NT,default,100,4000,400:EBA,3,
+#1,usafig,P-51D5NT,1,air.P_51D5NT,default,100,4000,400:EBD,3,
+#1,usafig,P-51D5NT,1,air.P_51D5NT,default,100,4000,400:ESU,3,
+#1,usafig,P-51D5NT,1,air.P_51D5NT,2x500,100,4000,400:ET,3,
+#1,usafig,P-51D5NT,1,air.P_51D5NT,default,100,4000,400:ER,3,
+
+#P47D-10 1/300
+#1,usajab,P-47D10,1,air.P_47D10,1x10006x45,100,3000,350:BD,1,
+#1,usafig,P-47D10,1,air.P_47D10,default,100,4000,400:I,1,
+#1,usafig,P-47D10,1,air.P_47D10,default,100,4000,400:EBA,1,
+#1,usafig,P-47D10,1,air.P_47D10,default,100,4000,400:EBD,1,
+#1,usafig,P-47D10,1,air.P_47D10,default,100,4000,400:ESU,1,
+#1,usafig,P-47D10,1,air.P_47D10,1x1000,100,4000,400:ET,1,
+#1,usafig,P-47D10,1,air.P_47D10,default,100,4000,400:ER,1,
+
+#P47D-22 2/300
+#1,usajab,P-47D22,1,air.P_47D22,2x5006x45,100,3000,350:BD,2,
+#1,usafig,P-47D22,1,air.P_47D22,default,100,4000,400:I,2,
+#1,usafig,P-47D22,1,air.P_47D22,default,100,4000,400:EBA,2,
+#1,usafig,P-47D22,1,air.P_47D22,default,100,4000,400:EBD,2,
+#1,usafig,P-47D22,1,air.P_47D22,default,100,4000,400:ESU,2,
+#1,usafig,P-47D22,1,air.P_47D22,2x500,100,4000,400:ET,2,
+#1,usafig,P-47D22,1,air.P_47D22,default,100,4000,400:ER,2,
+
+#P47D-27 2/300
+1,usajab,P-47D27,1,air.P_47D27,1x1000,100,1500,350:BD,530,
+1,usafig,P-47D27,1,air.P_47D27,default,100,5000,400:I,530,
+1,usajab,P-47D27,1,air.P_47D27,1x1000,100,1500,400:BA,530,
+1,usafig,P-47D27,1,air.P_47D27,default,100,2500,400:EBD,530,
+
+
+#B-17G 1/300
+1,usabom,B-17G,0,air.B_17G,8x1000,50,4000,350:BA,200,
+1,usatrp,B-17G,0,air.B_17G,default,100,2000,350:SUM,200,
+
+#B-25J1 2/300
+1,usabom,B-25J1,1,air.B_25J1,2x1000lbs,50,4000,350:BA,303,
+1,usatrp,B-25J1,1,air.B_25J1,default,100,2000,350:SUM,303,
+
+#B-24J100 2/300
+1,usabom,B-24J100,0,air.B_24J100,16x500,50,4000,350:BA,200,
+1,usatrp,B-24J100,0,air.B_24J100,default,100,2000,350:SUM,200,
+
+
+#B-29 2/300
+1,usabom,B-29,0,air.B_29,12x1600,50,4000,350:BA,384,
+1,usatrp,B-29,0,air.B_29,default,100,2000,350:SUM,384,
+
+
+#Li-2
+1,rustrp,Li-2,0,air.LI_2,default,100,2000,320:SUM,345,
+
+#-------------------BLUE Sqads  Stalingrado.
+gerfig=I_JG3,II_JG3,I_JG27,II_JG27,III_JG27,Stab_JG52,I_JG5_2,II_JG5_2,III_JG5_2;
+gerjab=I_LG2,III_KG27a;
+gerbom=Stab_KG27a,I_KG27a,II_KG27a,III_KG27a,Stab_KG51a,I_KG51a,II_KG51a,III_KG51a,Stab_KG53a,I_KG53a,II_KG53a,III_KG53a,Stab_KG55a;
+gertrp=KGrzbV102a;
+
+#-------------------BLUE AIRCRAFTS
+
+
+#Me262A1-a German, 7/300
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,5000,600:I,732,
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,5000,600:EBA,732,
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,2500,600:EBD,732,
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,2500,600:ESU,732,
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,2500,600:ET,732,
+2,gerfig,Me262A1,1,air.ME_262A1A,default,100,2500,600:ER,732,
+
+
+#Me262A2-a German, 10/300
+2,gerfig,Me262A2,1,air.ME_262A2A,default,100,5000,600:I,150,
+2,gerjab,Me262A2,1,air.ME_262A2A,2xSC250,100,1500,600:BD,150,
+2,gerjab,Me262A2,1,air.ME_262A2A,2xSC250,100,1500,600:BA,150,
+2,gerjab,Me262A2,1,air.ME_262A2A,2xSC250,100,2500,600:EBD,150,
+
+
+#He-162A2 1/300
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,4000,450:I,1,
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,4000,450:EBA,1,
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,4000,450:EBD,1,
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,4000,450:ESU,1,
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,1000,450:ET,1,
+#2,gerfig,He-162A2,1,air.HE_162A2,default,100,4000,450:ER,1,
+##
+
+#109-G10 German 20/300
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,5000,400:I,419,
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,5000,400:EBA,419,
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,2500,400:EBD,419,
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,2500,400:ESU,419,
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,2500,400:ET,419,
+2,gerfig,BF-109G10,1,air.BF_109G10,default,100,2500,400:ER,419,
+##
+
+
+#109-G14 German 32/300
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,5000,400:I,1602,
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,5000,400:EBA,1602,
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,2500,400:EBD,1602,
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,2500,400:ESU,1602,
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,2500,400:ET,1602,
+2,gerfig,BF-109G14,1,air.BF_109G14,default,100,2500,400:ER,1602,
+##
+
+
+#109-K4 German 20/300
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,5000,400:I,527,
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,5000,400:EBA,527,
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,2500,400:EBD,527,
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,2500,400:ESU,527,
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,2500,400:ET,527,
+2,gerfig,BF-109K4,1,air.BF_109K4,default,100,2500,400:ER,527,
+
+
+#BF-110G2: 4/300
+2,gerbom,BF-110G2,1,air.BF_110G2,r3m2sc500,50,1500,380:BA,1480,
+2,gerbom,BF-110G2,1,air.BF_110G2,r3m2sc500,50,1500,380:BD,1480,
+
+
+# HE 111 H6 30/300
+2,gerbom,HE-111H6,1,air.HE_111H6,2SC1000,50,4000,380:BA,1288,
+#2,gerbom,HE-111H6,1,air.HE_111H6,2SC1000,50,1000,380:BD,1288,
+2,gertrp,HE-111H6,1,air.HE_111H6,default,50,2000,380:SUM,1288,
+
+#Me210(410) 5/300
+2,gerbom,Me-210-Zerst,0,air.ME_210CA1ZSTR,default,75,1000,380:BA,40,
+2,gerbom,Me-210-Zerst,0,air.ME_210CA1ZSTR,default,75,1000,380:BD,40,
+
+#Fw200
+2,gertrp,Fw200,0,air.FW_200C3U4,default,50,1000,320:SUM,400,
+2,gerbom,Fw200,0,air.FW_200C3U4,2sc1800,50,3000,320:BA,400,
+
+#Me-323
+2,gertrp,ME-323,0,air.ME_323,default,50,2000,220:SUM,215,
+
+#JU 88 4/200
+2,gerbom,JU-88A4,1,air.JU_88A4,2xSC1000,50,4000,380:BA,867,
+#2,gerbom,JU-88A4,1,air.JU_88A4,2xSC1000,50,1000,380:BD,867,
+2,gertrp,JU-88A4,1,air.JU_88A4,default,100,2000,380:SUM,867,
+
+# JU 87 D5 9/300
+2,gerbom,JU-87D5,1,air.JU_87D5,1xSC1800,50,2000,380:BA,720,
+2,gerbom,JU-87D5,1,air.JU_87D5,1xSC500,50,2000,380:BD,720,
+
+# JU 87 G1 8/300
+2,gerbom,JU-87G1,1,air.JU_87G1,default,50,1000,380:BA,80,
+2,gerbom,JU-87G1,1,air.JU_87G1,default,50,1000,380:BD,80,
+
+
+# HS-129B2 17/300
+#2,gerbom,HS-129B2,0,air.HS_129B2,R4-1xSC250,50,4000,350:BA,17,
+#2,gerbom,HS-129B2,0,air.HS_129B2,Wa-1xBK37,50,2500,350:BD,17,
+
+#HS-129B3 7,5 cm 3/300
+#2,gerbom,HS-129B3Wa,0,air.HS_129B3Wa,default,50,4000,350:BA,3,
+#2,gerbom,HS-129B3Wa,0,air.HS_129B3Wa,default,50,2500,350:BD,3,
+
+# FW-190 A8 15/300
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,5000,400:EBA,1375,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,2500,400:EBD,1375,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,2500,400:ESU,1375,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,2500,400:ER,1375,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,5000,400:I,1375,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,2500,400:ET,1375,
+
+# FW-190 A9 15/300
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,5000,400:EBA,1085,
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,2500,400:EBD,1085,
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,2500,400:ESU,1085,
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,2500,400:ER,1085,
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,5000,400:I,1085,
+2,gerfig,FW-190A9,1,air.FW_190A9,default,100,2500,400:ET,1085,
+
+
+# FW-190 F8 59/300
+2,gerjab,FW-190F8,1,air.FW_190F8,1sc500,100,1000,400:BD,130,
+2,gerfig,FW-190F8,1,air.FW_190F8,1sc500,100,1500,400:BA,130,
+2,gerjab,FW-190F8,1,air.FW_190F8,default,50,2500,400:EBD,130,
+2,gerjab,FW-190F8,1,air.FW_190F8,default,50,5000,400:I,130,
+
+# DO-335 A0 
+2,gerjab,DO_335A0,1,air.DO_335A0,1sc1000,100,1000,400:BD,400,
+2,gerfig,DO_335A0,1,air.DO_335A0,1sc1000,100,1500,400:BA,400,
+2,gerjab,DO_335A0,1,air.DO_335A0,default,50,2500,400:EBD,400,
+2,gerjab,DO_335A0,1,air.DO_335A0,default,50,5000,400:I,400,
+
+#Fw-190D9 20/200
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,5000,400:EBA,474,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,2500,400:EBD,474,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,2500,400:ESU,474,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,2500,400:ER,474,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,5000,400:I,474,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,2500,400:ET,474,
+
+
+#Fw-190D9Late 15/200
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,5000,400:EBA,1423,
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,2500,400:EBD,1423,
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,2500,400:ESU,1423,
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,2500,400:ER,1423,
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,5000,400:I,1423,
+2,gerfig,FW-190D9 Late,1,air.FW_190D9LATE,default,100,2500,400:ET,1423,
+
+#Ta-152H1 2/200
+2,gerfig,Ta-152H1,1,air.TA_152H1,default,100,5000,400:EBA,463,
+2,gerfig,Ta-152H1,1,air.TA_152H1,default,100,2500,400:EBD,463,
+2,gerfig,Ta-152H1,1,air.TA_152H1,default,100,2500,400:ESU,463,
+2,gerfig,Ta-152H1,1,air.TA_152H1,default,100,5000,400:I,463,
+2,gerfig,Ta-152H1,1,air.TA_152H1,default,100,2500,400:ET,463,
+
+2,gertrp,JU-52,0,air.JU_52_3MG4E,default,100,2000,350:SUM,130,
+
+
+
+
+#STATIC AIRCRAFTS:
+#STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
+
+
+
+ST101,1,Yak-3,vehicles.planes.Plane$YAK_3,15:52
+ST102,1,Yak-9M,vehicles.planes.Plane$YAK_9M,15:80
+ST103,1,Yak-9T,vehicles.planes.Plane$YAK_9T,15:99
+ST104,1,Yak-9U,vehicles.planes.Plane$YAK_9U,15:133
+ST105,1,Yak-9UT,vehicles.planes.Plane$YAK_9UT,15:157
+ST106,1,Yak-9K,vehicles.planes.Plane$YAK_9K,15:166
+ST107,1,La-7,vehicles.planes.Plane$LA_7,15:257
+ST108,1,P-51D20NA,vehicles.planes.Plane$P_51D20NA,15:287
+ST109,1,La-5FN,vehicles.planes.Plane$LA_5FN,15:333
+ST110,1,P-63C,vehicles.planes.Plane$P_63C5,15:358
+ST111,1,P-47D27,vehicles.planes.Plane$P_47D27,20:383
+ST112,1,P-39Q10,vehicles.planes.Plane$P_39Q10,15:397
+ST113,1,P-38L,vehicles.planes.Plane$P_38L,25:413
+ST114,1,P-38L Late,vehicles.planes.Plane$P_38LLate,25:429
+ST115,1,B-17G,vehicles.planes.Plane$B_17G,35:438
+ST116,1,B-25J1,vehicles.planes.Plane$B_25J1,35:447
+ST117,1,La-7-3xB,vehicles.planes.Plane$LA_7-3XB,15:451
+ST118,1,B-29,vehicles.planes.Plane$B_29,45:455
+ST119,1,A-20G,vehicles.planes.Plane$A_20G,35:482
+ST120,1,IL-2 1943 23mm,vehicles.planes.Plane$IL_2Type3,25:531
+ST121,1,IL-2 1943 37mm,vehicles.planes.Plane$IL_2Type3M,25:543
+ST122,1,IL-4-DB3B,vehicles.planes.Plane$IL_4_DB3B,35:574
+ST123,1,Li-2,vehicles.planes.Plane$LI_2,35:590
+ST124,1,PE-2 S359,vehicles.planes.Plane$PE_2SERIES359,25:618
+ST125,1,Tu-2S,vehicles.planes.Plane$TU_2S,35:650
+ST126,1,PE-2 S110,vehicles.planes.Plane$PE_2SERIES110,25:750
+ST127,1,LaGG-3S66,vehicles.planes.Plane$LAGG_3SERIES66,15:950
+ST128,1,ZIS6 fuel,vehicles.stationary.Stationary$ZIS6_fuel,15:1000
+
+
+ST201,2,BF-109G10,vehicles.planes.Plane$BF_109G10,15:19
+ST202,2,BF-109G14,vehicles.planes.Plane$BF_109G14,15:103
+ST203,2,BF-109K4,vehicles.planes.Plane$BF_109K4,15:167
+ST204,2,BF-110G2,vehicles.planes.Plane$BF_110G2,25:236
+ST205,2,FW-190A8,vehicles.planes.Plane$FW_190A8,15:300
+ST206,2,FW-190A9,vehicles.planes.Plane$FW_190A9,15:350
+ST207,2,FW-190D9,vehicles.planes.Plane$FW_190D9,15:372
+ST208,2,FW-190F8,vehicles.planes.Plane$FW_190F8,15:397
+ST209,2,FW-190D9 Late,vehicles.planes.Plane$FW_190D9LATE,15:463
+ST210,2,Ta-152H1,vehicles.planes.Plane$TA_152H1,20:465
+ST211,2,Me262A1,vehicles.planes.Plane$ME_262A1A,15:504
+ST212,2,Me262A2,vehicles.planes.Plane$ME_262A2A,15:516
+ST213,2,Me-210-Zerst,vehicles.planes.Plane$ME_210CA1ZSTR,25:518
+
+
+ST214,2,HE-111H6,vehicles.planes.Plane$HE_111H6,35:582
+ST215,2,JU-52,vehicles.planes.Plane$JU_52_3MG4E,35:593
+
+ST216,2,JU-87D5,vehicles.planes.Plane$JU_87D5,25:626
+ST217,2,JU-87G1,vehicles.planes.Plane$JU_87G1,25:630
+ST218,2,JU-88A4,vehicles.planes.Plane$JU_88A4,35:645
+ST219,2,ME-323,vehicles.planes.Plane$ME_323,60:650
+ST220,2,JU-87D3,vehicles.planes.Plane$JU_87D3,25:750
+ST221,2,BF-109G6,vehicles.planes.Plane$BF_109G6,15:950
+ST222,2,Opel Fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:1000
+
+
+
+
+#STATIC VEHICLES:
+#STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
+# 90%vehiculos en gral +    4%fuel +   +  3%radio + 3%medic
+
+
+SV101,1,GAZ67,vehicles.stationary.Stationary$GAZ67,10:100
+SV102,1,GAZ67t,vehicles.stationary.Stationary$GAZ67t,10:200
+SV103,1,GAZ_M1,vehicles.stationary.Stationary$GAZ_M1,10:300
+SV104,1,ZIS5_PC,vehicles.stationary.Stationary$ZIS5_PC,10:400
+SV105,1,StudebeckerTruck,vehicles.stationary.Stationary$StudebeckerTruck,10:550
+SV106,1,StudebeckerRocket,vehicles.stationary.Stationary$StudebeckerRocket,10:650
+SV107,1,Katyusha,vehicles.stationary.Stationary$Katyusha,10:750
+SV109,1,ZIS5_AA,vehicles.stationary.Stationary$ZIS5_AA,10:825
+SV112,1,BA_10,vehicles.stationary.Stationary$BA_10,10:900
+#90% up to here
+SV108,1,ZIS6_fuel,vehicles.stationary.Stationary$ZIS6_fuel,10:940
+#up line is 4% fuel
+SV113,1,ZIS5_radio,vehicles.stationary.Stationary$ZIS5_radio,10:970
+SV114,1,ZIS5_medic,vehicles.stationary.Stationary$ZIS5_medic,10:1000
+#up lines are 3%radio and  3%medic
+
+#alemanes igual
+
+SV207,2,VW82,vehicles.stationary.Stationary$VW82,10:100
+SV208,2,VW82t,vehicles.stationary.Stationary$VW82t,10:200
+SV209,2,OpelKadett,vehicles.stationary.Stationary$OpelKadett,10:260
+SV210,2,OpelBlitz36S,vehicles.stationary.Stationary$OpelBlitz36S,10:340
+SV211,2,OpelBlitz6700A,vehicles.stationary.Stationary$OpelBlitz6700A,10:440
+SV212,2,Kettenkrad,vehicles.stationary.Stationary$Kettenkrad,10:500
+SV213,2,RSO,vehicles.stationary.Stationary$RSO,10:580
+SV214,2,OpelBlitzMaultier,vehicles.stationary.Stationary$OpelBlitzMaultier,10:680
+SV215,2,OpelBlitzMaultierRocket,vehicles.stationary.Stationary$OpelBlitzMaultierRocket,10:820
+SV216,2,OpelBlitzMaultierAA,vehicles.stationary.Stationary$OpelBlitzMaultierAA,10:900
+#90% up to here
+SV217,2,OpelBlitz6700A_fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,10:940
+#up line is 4% fuel
+SV218,2,OpelBlitz6700A_radio,vehicles.stationary.Stationary$OpelBlitz6700A_radio,10:970
+SV219,2,OpelBlitz6700A_medic,vehicles.stationary.Stationary$OpelBlitz6700A_medic,10:1000
+#up lines are 3%radio and  3%medic

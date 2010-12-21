@@ -1,0 +1,161 @@
+
+V1.4 -> V1.5  change list:
+
+
+- Smolensk template: fixed tolochin city status line, some sectors nonatacable and some
+                     tank wp updates.
+- sqd_file.php: correct display Co names and Xo names if they have "<" and ">" chars.
+- sqd_file.php: changes in display sqd name and more verifications on input fields chars.
+- config.pl: fixed smolenk polane selection: delete  Pe2-S84 and  add Pe2-S359
+- medals.php: now displyas some german medals withour swastica in case user dont allow
+              german images
+- images: New medals without swastica. (not complete set)
+- create.php: fix on display names containing "<" and ">" chars in names.
+- pilot.php: now displays amount of tanks killed.
+- pilot.php: add link to points graphics flow.
+- SM_000.bmp:  beter display of Belyi ciy name.
+- SM_imap.data: add ATL tags fot html 4.01 validation
+
+- database: new tables to support up to 6 slots on mission creation stage
+- Create.php: support for 6 slots on mission creation stage
+- take_slot.pl: support for 6 slots on mission creation stage
+- leave_slot.pl: support for 6 slots on mission creation stage
+- new templates: Balaton
+- template fix: Smolenk
+- plot1.pl: added disco and bailed information to plots
+- plot1_L100.pl:  same as plot1.pl but only plot last 100 missions
+- plot4.pl: plot points evolution
+- write_rec.pl:  writes recomendations to be displayed at mission planning stage
+- make_attack_page.pl: changes on how data is displayed (add colors based on damage status)
+- make_front_image.pl: changes on colors display
+- delete_pilot.pl : now deletes all entries, exept the times pilot was downed by other pilot
+
+-badc_gen_2.pl: generator is changed to version 2. Many changes not listed here.
+-badc_par_2.pl: parser is changed to version 2.   Many changes not listed here.
+-config.pl: config file now hold several more options:
+
+
+  $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
+  $AF_VDAY_RECOVER=20; # % recovery of AF on each virtual day
+  $CT_VDAY_RECOVER=15; # % recovery of CITY on each virtual day
+  $AF_PLANE_LOST_DAM=0.50; # damage to AF per each plane lost
+  $AF_PILOT_LOST_DAM=0.75; # damage to AF per each pilot MIA or KIA
+
+   new semaphore files to stop one ot the scripts without locking the other
+   to be used to manuall stop one of them.
+
+  $parser_stop="_par.stop";
+  $gen_stop="_gen.stop";
+
+-rep_input.php: reports now are done by this file (not more .html) and display last
+                missions not reported by user
+-host_rank.php: display host statictics
+-most php files was changed to dislpay new stats, medals, links to ne plot graphs
+but basically remains the same.
+
+- New medals done by Baikal
+
+
+V1.3 -> V1.4  change list:
+
+- config.pl: add smolensk variables.
+
+- generator: Add radio silence support.
+- generator: better notification when name or passwd for download mission is changed.
+- generator: changes on lock detection.
+- generator: BD now has 2 groups of 2 planes, ant target to 2 different triplet
+  tanks. because this, BD has to have different squad names, so templates has to define at
+  least 2 differnet names for bomber and jabos squadron, or generator will loop infinite.
+- generator: city taget area reduced from 1100 meters to 600 in smolensk map.
+- generator:  fork proccess to avoid interupts form user.
+- generator: correct a bug on airfield selection to be suplied in case of AI_SUPLY
+- generator: chaged distance between groups of tanks and stop places
+
+- parser: changes on report order verifications, fork proccess to avoid interupts form user.
+- parser: correct a problem with tanks limits when attacked sector changed side in middle of mission
+- parser: changes in points and medals.
+- parser: avoid captured if safe in base. (for close to front bases)
+- parser: changes on make_imake. Now image has suply circles using Bresenham algorithm. Done at report time.
+- parser: fix a bug that allowed to not hosts or superuser to report a mission.
+- parser: changes on lock detection and information printed when reporting.
+- parser: detection of army territeroy based on coordinates
+- parser: distance to friend territory
+- parser: captured probability based on bailing  zone and distance to friend zone
+- parser: corrected problem on calculation of souvival planes (bad regex on crash events)
+- parser: detection of parachute landing on ground
+- parser: 1 minute tolerance from mission start to use smoke (accidental turning on)
+- parser: unsuplyed sectors with TTL=0 now changes side to closest suply army
+- parser: changes on warning logs (warn.txt) to display mission to report.
+- parser: loging into warn.txt capture probability and luck to escape
+- parser: solved problem of disco in countdown, where pilot is replaced by AI plane.
+- parser: add information into points description about experience reset on disco/killed/captured
+
+
+- make_front_image.pl: changes on make_imake. Now image has suply circles using Bresenham algorithm.
+- make_attack_page.pl: Changed to delete suplay image link (no longer need)
+- take_slot.pl: now do not display suply map. no longer needed.
+- vote_planning.pl: fix exit status for players not been Co/Xo.
+- medals.php: (NEW) display pilot medals
+- pilot.php: LINK to medals page.
+- credits.html: update greetings on Soviet/German awards by Vladimir Shilnikov, Baikal and LLv26_Pihi
+- create.php: display mission in progress less than 2 hours (was 5 hours)
+- create.php: add a link to view fron map
+- ref_map.html: deleted make suply image option, no longer needed.
+- all_pilots.php: added best runs stats.
+- rep_input.html: redirects to rep_input.php
+- rep_input.php: read user name from cookie, and display last unreported missions
+- gen_opts_31.pl:  changes to allow human bombers over request limit
+- take_slot.pl:   changes to allow human bombers over request limit
+- html/images: Soviet and german awards 
+- new_tables.sql : minor changes to make compatible with other MySql versions
+- votes_tbl.sql:  minor changes to make compatible with other MySql versions
+
+
+V1.2 -> V1.3  change list:
+- parser: change in new day recovery damage calculation
+- parser: to allow front makers be up to 3km from center, to solve some glitches.
+- parser: search friend markers upt to 17 km, on searching isolated sectors.
+
+- generator: fix on some  briefings
+- generator: added hungarian, usa and britanic squadrons detection.
+- generator: now ESU tas is not considered any more EBA. Changes on aircrafts.data are needed.
+- generator: add suport for different champ types. (from config.ini)
+- generator: placing more frontline markers on missions to avoid rare peaks close to big un-atacable areas.
+- generator: updated to understand AI flag on fighters  from take_slot.pl 
+- generator: New speed to calculate time limit for suply task (now using B-25).
+
+- leaveslot.pl allows super usert to delete slots.
+- leaveslot.pl host game now can delete request from both sides.
+- takeslot.pl: updated to allow set AI flag on fighters
+- gen_opts_31.pl: updated to understan AI flag on fighters
+- HTML: fixed incorrect encoding on refresh pages
+- plot1.pl: fixed a bug making cgi script fail if pilot is registered but has 0 missions.
+- sqd_reg.pl:  reads option from config.ini  to require or not a auth code for squadron register.
+- Planetable: Stalingrad plane tables for default bombloads.
+- Templates: Updated Stalingrad Templates to fix some glitches.
+- Templates: Add Kursk Templates
+- Template tools: Fixed stage_2.pl to correct work with big maps.
+- Added voting system againt plannig rights.
+
+
+V1.1 -> v1.2 change list:
+
+-pilot.php now shows mission listing ordered by mission report, so stats are in concordance to mission listing.
+-Image information for frontmap and suply images is now included on config.pl, and images now can have not-squared sectors (pixel count)
+-attack tanks and defense tanks objects can be set on config.pl
+-AAA on defense champs can be enabled or disabled from config.pl
+-added documentation on template creation, and some utility to help on template making.
+-parser lock removed before print link to mission result.
+
+
+v1.0 ->  v1.1 change list:
+
+- changes on almost all .pl files to avoid used only once warning messages 
+- fix a bug on sqd_reg.pl incorrect db table name.
+- original map datas folder only contains the files that are changed by parser
+  no need to waste space with other files, already present on cgi-bin folder.
+
+
+
+v1.0 : Initial release
+

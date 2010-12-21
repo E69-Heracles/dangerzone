@@ -1,0 +1,207 @@
+		body {
+			margin:0px;
+			background-color: #f2f6f8;
+			font-family : Verdana;
+		}
+		
+		table {
+			font-size: 12px;
+			font-family : Verdana;
+			color: #282a3a;
+		}
+		
+		table.rndtable {
+  	 	margin: 0 auto;
+	    padding: 20px;
+	    text-align: left;
+ 			border-spacing: 0;
+	    background-color: #fff;
+	    border: 1px double #aaaaff;
+	    white-space: nowrap;
+
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;		  			
+		}
+		
+		table.modal_rndtable {
+			position: absolute;
+  	 	margin: 0 auto;
+	    padding: 20px;
+ 			border-spacing: 0;
+	    background-color: #fff;
+	    border: 1px double #aaaaff;
+	    white-space: nowrap;
+
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;	
+		}		
+		
+		table.modal_last_missions	{
+			position: absolute;
+  	 	margin: 0 auto;
+	    padding: 40px;
+ 			border-spacing: 0;
+	    background-color: #fff;
+	    border: 1px double #aaaaff;
+
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;	
+		}		
+		
+		img.modal_map {
+			position: absolute;		
+  	 	margin: 0 auto;
+	    padding: 40px;
+ 			border-spacing: 0;
+	    background-color: #fff;
+	    border: 1px double #aaaaff;
+
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;	
+		}		
+		
+		table.rndtable_nohover {
+  	 	margin: 0 auto;
+	    padding: 20px;
+	    text-align: left;
+ 			border-spacing: 0;
+	    background-color: #fff;
+	    border: 1px double #aaaaff;
+	    white-space: nowrap;
+
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;		  			
+		}		
+		
+		table.rndtable tr:hover {
+			background-color: #a8a8b5;
+		}
+		
+		table.rndtable tr.odd:hover {
+			background-color: #a8a8b5; 
+		}
+				
+		table.rndtable tr{
+			background-color: #ded0d0;
+		}
+		
+		table.rndtable tr.odd {
+			background-color: #d0ded0;
+		}
+		
+		table.rndtable tr.first {
+			background-color: #ffffff;
+		}		
+		
+		
+		input {
+			border: 1px solid #9999ee;
+			color: #222277;
+			//background-color: #eeeeff;
+		}
+		
+		td.ltr70C {
+			border-bottom: 1px solid #888888;
+			padding-left:3px;
+			padding-right:3px;
+			white-space: nowrap;
+		}
+
+		a {
+			#color: #8d2400;
+			color: #ad4400;
+			text-decoration:none;
+		}
+		
+		a:hover {
+			text-decoration:underline; 
+		}
+		
+		.menu {
+			font-size: 9px;
+			color: #ffffff;
+		}
+		
+		a.menu {
+			color: #ffffff;
+			font-weight:normal;
+			text-decoration:none;
+		}
+		
+		a.menu:hover {
+			text-decoration:underline; 
+		}
+		
+		.menu-text {
+		  position: absolute;
+		  visibility: hidden;
+  	 	margin: 0 auto;
+	    color: #fff;
+	    padding-left: 20px;
+	    padding-right: 20px;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    text-align: left;
+	    background-color: #fff;
+	    border: 2px double #aaaaff;
+ 
+	    /* Do rounding (native in Firefox and Safari) */
+	    -webkit-border-radius: 15px;
+   	 	-moz-border-radius: 15px;		  		  
+		}
+		
+		.submenu-text {
+			font-size: 12px;
+			font-weight: bold;		
+			color: #282a3a;
+			background-color: #ffffff;
+		}		
+		
+		
+		.section_header {
+			background-image:url('../images/section_header_bck.gif');
+		}
+		
+		.section_header_txt {
+			font-size: 18px;
+			font-weight: bold;
+			color: #8d2400;
+		}
+				
+		.section_subheader {
+			background-image:url('../images/section_subheader_bck.gif');
+		}		
+		
+		.section_subheader_txt {
+			font-size: 14px;
+			font-weight: bold;			
+		}		
+		
+		.header {
+			background-image:url('../images/header_bck.gif');
+		}
+		
+		.footer {
+			background-image:url('../images/footer_bck.gif');
+		}
+				
+		.main {
+			background-image:url('../images/main_bck.gif');
+			background-repeat: repeat-x;
+		}
+		
+		#dhtmltooltip{
+			position: absolute;
+			width: 150px;
+			border: 2px solid black;
+			padding: 2px;
+			background-color: yellow;
+			font-size: 70%;
+			visibility: hidden;
+			z-index: 100;
+		}

@@ -1,0 +1,145 @@
+#escuadrillas alemanas
+
+gerfig=Stab_JG26,Stab_JG54,8_JG5,I_JG3,I_JG27;
+gerjab=14Jabo_JG5,8_JG5;
+gerbom=I_KG27a,II_KG26a,II_KG27a,III_KG53a,Stab_KG53a;
+gertrp=KGrzbV102a;
+
+#gerfig=I_JG3;
+#gerjab=14Jabo_JG5;
+#gerbom=I_KG;
+
+
+#escuadrillas americanas e inglesas
+
+rusbom=B_8AF_100BG_349BS,B_8AF_381BG_532BS,B_8AF_385BG_549BS;
+rusjab=8AF_004FG_334FS,8AF_355FG_357FS,9AF_362FG_378FS,548SquadronRAF;
+rusfig=8AF_004FG_335FS,8AF_004FG_336FS,8AF_362FG_377FS,8AF_357FG_363FS,34Squadronfc,548SquadronRAF;
+rustrp=B_8AF_100BG_349BS;
+
+
+#rusbom=B_8AF_100BG_349BS;
+#rusjab=8AF_004FG_334FS;
+#rusfig=8AF_004FG_335FS;
+
+
+
+2,gerfig,FW-190A8,1,air.FW_190A8,r22mk108,100,3000,400:I,30,
+2,gerjab,FW-190A8,1,air.FW_190A8,1sc500,100,1500,400:BA,75,
+2,gerjab,FW-190A8,1,air.FW_190A8,1sc500,100,1500,400:BD,75,
+
+2,gerfig,FW-190A9,1,air.FW_190A9,r22mk108,100,3000,400:I,30,
+2,gerjab,FW-190A9,1,air.FW_190A9,1sc500,100,1500,400:BA,75,
+2,gerjab,FW-190A9,1,air.FW_190A9,1sc500,100,1500,400:BD,75,
+
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,3000,400:I,30,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,3000,400:EBA,30,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,3000,400:ESU,30,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,3000,400:EBD,30,
+2,gerfig,FW-190D9,1,air.FW_190D9,default,100,3000,400:ET,30,
+
+2,gerfig,BF109-K4,1,air.BF_109K4,default,100,3000,400:I,15,
+2,gerfig,BF109-K4,1,air.BF_109K4,default,100,3000,400:EBA,15,
+2,gerfig,BF109-K4,1,air.BF_109K4,default,100,3000,400:ESU,15,
+2,gerfig,BF109-K4,1,air.BF_109K4,default,100,3000,400:EBD,15,
+2,gerfig,BF109-K4,1,air.BF_109K4,default,100,3000,400:ET,15,
+
+2,gerfig,BF109-G14,1,air.BF_109G14,default,100,3000,400:I,90,
+2,gerfig,BF109-G14,1,air.BF_109G14,default,100,3000,400:EBA,90,
+2,gerfig,BF109-G14,1,air.BF_109G14,default,100,3000,400:ESU,90,
+2,gerfig,BF109-G14,1,air.BF_109G14,default,100,3000,400:EBD,90,
+2,gerfig,BF109-G14,1,air.BF_109G14,default,100,3000,400:ET,90,
+
+2,gerfig,BF109-G10,1,air.BF_109G10,default,100,3000,400:I,90,
+2,gerfig,BF109-G10,1,air.BF_109G10,default,100,3000,400:EBA,105,
+2,gerfig,BF109-G10,1,air.BF_109G10,default,100,3000,400:ESU,105,
+2,gerfig,BF109-G10,1,air.BF_109G10,default,100,3000,400:EBD,105,
+2,gerfig,BF109-G10,1,air.BF_109G10,default,100,3000,400:ET,105,
+
+2,gerfig,BF109-G6Late,1,air.BF_109G6Late,U3-MK108,100,3000,400:I,15,
+2,gerfig,BF109-G6Late,1,air.BF_109G6Late,U3-MK108,100,3000,400:EBA,60,
+2,gerfig,BF109-G6Late,1,air.BF_109G6Late,U3-MK108,100,3000,400:ESU,60,
+2,gerfig,BF109-G6Late,1,air.BF_109G6Late,U3-MK108,100,3000,400:EBD,60,
+2,gerfig,BF109-G6Late,1,air.BF_109G6Late,U3-MK108,100,3000,400:ET,60,
+
+
+2,gerjab,BF110-G2,1,air.BF_110G2,r4_,100,1500,400:BD,150,
+2,gerjab,BF110-G2,1,air.BF_110G2,r3m2sc500,100,1500,400:BA,120,
+
+2,gerbom,HE-111-H6,1,air.HE_111H6,4xSC500,100,2500,350:BA,20,
+
+2,gerbom,JU-88-A4,0,air.JU_88A4,4xSC500,100,2500,350:BA,10,
+
+2,gertrp,JU-52,0,air.JU_52_3MG4E,default,100,2000,350:SUM,300,
+
+1,rusfig,SPITFIRE IX-HF,1,air.SPITFIRE9EHF,default,100,3000,400:I,70,
+1,rusfig,SPITFIRE IX-HF,1,air.SPITFIRE9EHF,default,100,3000,400:EBA,85,
+1,rusfig,SPITFIRE IX-HF,1,air.SPITFIRE9EHF,default,100,3000,400:ESU,85,
+1,rusfig,SPITFIRE IX-HF,1,air.SPITFIRE9EHF,default,100,3000,400:EBD,85,
+1,rusfig,SPITFIRE IX-HF,1,air.SPITFIRE9EHF,default,100,3000,400:ET,85,
+
+1,rusfig,SPITFIRE IX-LF(CW),1,air.SPITFIRE9ECLP,default,100,3000,400:I,100,
+1,rusfig,SPITFIRE IX-LF(CW),1,air.SPITFIRE9ECLP,default,100,3000,400:EBA,130,
+1,rusfig,SPITFIRE IX-LF(CW),1,air.SPITFIRE9ECLP,default,100,3000,400:ESU,130,
+1,rusfig,SPITFIRE IX-LF(CW),1,air.SPITFIRE9ECLP,default,100,3000,400:EBD,130,
+1,rusfig,SPITFIRE IX-LF(CW),1,air.SPITFIRE9ECLP,default,100,3000,400:ET,130,
+
+1,rusfig,P-51-D20,1,air.P_51D20NA,default,100,3000,400:I,70,
+1,rusfig,P-51-D20,1,air.P_51D20NA,default,100,3000,400:EBA,85,
+1,rusfig,P-51-D20,1,air.P_51D20NA,default,100,3000,400:ESU,85,
+1,rusfig,P-51-D20,1,air.P_51D20NA,default,100,3000,400:EBD,85,
+1,rusfig,P-51-D20,1,air.P_51D20NA,default,100,3000,400:ET,85,
+
+
+1,rusjab,P-47-D27,1,air.P_47D27,2x5006x45,100,1500,400:BA,150,
+1,rusjab,P-47-D27,1,air.P_47D27,2x5006x45,100,1500,400:BD,150,
+1,rusfig,P-47-D27,1,air.P_47D27,default,100,3000,400:I,30,
+
+1,rusfig,P-38L,1,air.P_38L,default,100,3000,400:I,20,
+1,rusjab,P-38L,1,air.P_38L,2xtreen2x500,100,1500,400:BA,90,
+1,rusjab,P-38L,1,air.P_38L,2xtreen2x500,100,1500,400:BD,100,
+
+1,rusfig,P-38J,1,air.P_38J,default,100,3000,400:I,10,
+1,rusjab,P-38J,1,air.P_38J,2x3n2x500,100,1500,400:BD,50,
+1,rusjab,P-38J,1,air.P_38J,2x3n2x500,100,1500,400:BA,30,
+
+1,rustrp,C-47,0,air.C_47,default,100,2000,350:SUM,45,
+
+1,rusbom,B-25-J1,1,air.B_25J1,6x500lbs,100,2500,350:BA,5,
+
+1,rusbom,B-24-J100,0,air.B_24J100,16x500,100,2500,350:BA,5,
+
+1,rusbom,A-20G,1,air.A_20G,1x10002x500,100,2500,350:BA,5,
+
+1,rusbom,B-17G,0,air.B_17G,16x500,100,2500,350:BA,15,
+
+
+#static planes
+
+ST101,1,P-38J,vehicles.planes.Plane$P_38J,20:100
+ST102,1,P-38L,vehicles.planes.Plane$P_38L,20:200
+ST103,1,P-47D-27,vehicles.planes.Plane$P_47D27,15:400
+ST104,1,B-17G,vehicles.planes.Plane$B_17G,35:450
+ST105,1,B-25-J1,vehicles.planes.Plane$B_25J1,25:500
+ST106,1,P-51-D20,vehicles.planes.Plane$P_51D20NA,15:725
+ST107,1,P-51-D5,vehicles.planes.Plane$P_51D5NT,15:975
+ST108,1,C-47,vehicles.planes.Plane$C_47,35:1000
+ST201,2,FW-190A8,vehicles.planes.Plane$FW_190A8,15:400
+ST202,2,BF109-G10,vehicles.planes.Plane$BF109_G10,15:800
+ST203,2,BF110-G2,vehicles.planes.Plane$BF_110G2,20:900
+ST204,2,HE-111-H6,vehicles.planes.Plane$HE_110H6,30:925
+ST205,2,JU-88-A4,vehicles.planes.Plane$JU_88A4,25:975
+ST206,2,JU-52,vehicles.planes.Plane$JU_52_3MG4E,25:1000
+
+
+#static vehicles
+
+SV101,1,Willis,vehicles.stationary.Stationary$WillisMB_US,10:350
+SV102,1,Diamond Truck,vehicles.stationary.Stationary$DiamondT_US,15:650
+SV103,1,Chevy Radio,vehicles.stationary.Stationary$Chevrolet_radio_US,10:700
+SV104,1,M3 Halftrack,vehicles.stationary.Stationary$M3_Halftrack,15:850
+SV105,1,Chevy Truck,vehicles.stationary.Stationary$Chevrolet_flatbed,15:1000
+SV201,2,Kuebelwagen,vehicles.stationary.Stationary$VW82,10:350
+SV202,2,Opel Truck,vehicles.stationary.Stationary$OpelBlitz36S,15:700
+SV203,2,Fuel Truck,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:900
+SV201,2,Opel Radio,vehicles.stationary.Stationary$OpelBlitz6700A_radio,15:1000

@@ -1,0 +1,1728 @@
+parser warnings and errors -  visible from web site, for a fast check.
+----------------------------------------------------------------------badc_00001 Soviets recover sector(s) by ttl J.12 J.13 J.14 J.15 J.16 K.6
+badc_00001 German recover sector(s) by ttl K.7 O.2 P.2 Q.1
+badc_00002 Soviets recover sector(s) by ttl J.12 J.13 J.14 J.15 J.16 K.6
+badc_00002 German recover sector(s) by ttl K.7 L.7 O.2 P.2 Q.1
+badc_00008 German lost sector(s) isolated L.7
+badc_00009 <<*** 09:10:49 Ala13_Mertons captured at [ 121184.95 , 31025.46 ]
+*** Ala13_Mertons rescued failled
+badc_00014 _00010 1/JSpan_Wind ESCAPED Bailed on friend territory
+badc_00013 _00011 +FAE_Cazador ESCAPED Bailed on friend territory
+badc_00016 <<*** 10:01:15 E69_carlos captured at [ 102470.625 , 80388.016 ]
+*** E69_carlos rescued failled
+badc_00017 _00014 RedEye_Miji ESCAPED Bailed on friend territory
+badc_00017 _00014 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00017 _00014 SG1_Arode ESCAPED Bailed on friend territory
+badc_00017 <<*** 10:43:20 SG1_Mino captured at [ 123496.63 , 32563.15 ]
+*** SG1_Mino rescued failled
+badc_00019 _00015 +FAE_Cormoran ESCAPED cap: 3 luck: 21
+badc_00020 _00016 +FAE_Cormoran ESCAPED Bailed on friend territory
+badc_00024 <<*** 13:51:53 HR_Eusecbr captured at [ 123636.25 , 22581.18 ]
+*** HR_Eusecbr rescued failled
+badc_00024 _00019 HR_Red_Tag ESCAPED Bailed on friend territory
+badc_00026 _00020 RedEye_Miji ESCAPED Bailed on friend territory
+badc_00027 <<*** 14:00:02 SG1_Fran captured at [ 119314.42 , 42424.547 ]
+*** SG1_Fran rescued failled
+badc_00028 _00022 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00028 <<*** 14:23:39 SG1_sKor!a captured at [ 104342.21 , 94275.31 ]
+*** SG1_sKor!a rescued failled
+badc_00030 German lost sector(s) isolated M.5
+badc_00031 <<*** 15:34:12 1/JSpan_Zabdi captured at [ 133833.9 , 34001.76 ]
+*** 1/JSpan_Zabdi rescued failled
+badc_00031 <<*** 15:35:09 1/JSpan_Horrido captured at [ 111101.92 , 51277.52 ]
+*** 1/JSpan_Horrido rescued failled
+badc_00032 <<*** 15:32:01 SG1_sKor!a captured at [ 89805.52 , 78630.94 ]
+*** SG1_sKor!a rescued failled
+badc_00034 <<*** 16:37:41 1/JSpan_Zabdi captured at [ 116971.55 , 44364.31 ]
+*** 1/JSpan_Zabdi rescued failled
+badc_00033 <<*** 16:15:37 HR_Eldamar captured at [ 128619.38 , 21127.197 ]
+*** HR_Eldamar rescued failled
+badc_00039 _00030 AH_Thor ESCAPED cap: -3 luck: 12
+badc_00041 _00032 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00041 <<*** 06:44:39 AA_BullSkin captured at [ 140731.31 , 22190.133 ]
+*** AA_BullSkin rescued failled
+badc_00042 Soviets recover sector(s) by ttl P.2 Q.1
+badc_00042 German recover sector(s) by ttl K.6 N.3
+badc_00043 German recover sector(s) by ttl J.12 P.2
+badc_00044 German recover sector(s) by ttl Q.1
+badc_00045 <<*** 08:43:11 +62/EA_bAlli captured at [ 125074.8 , 31301.6 ]
+*** +62/EA_bAlli rescued failled
+badc_00045 Soviets recover sector(s) by ttl J.9
+badc_00047 _00038 III/JG52_Torpe ESCAPED Bailed on friend territory
+badc_00049 _00039 E69_cvchavo ESCAPED Bailed on friend territory
+badc_00050 <<*** 10:16:20 15.Span_Valalo captured at [ 125111.63 , 28554.893 ]
+--- 10:09:50 SG1_Majo landed at [ 123210.34 , 27204.55 ] inside 5km limit
+--- 10:19:51 15.Span_Angel14 landed at [ 125104.05 , 28810.93 ] inside 5km limit
+--- 10:23:10 15.Span_Chajas landed at [ 125097.44 , 28045.025 ] inside 5km limit
+- 10:27:05 15.Span_Chajas take off at [ 125251.766 , 28922.926 ] 
+- distance to land place: 510 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:36980
+- land_secs:37390
+- toff_secs:37625
+- start walk:37330
+- stop walk=37605
+- walk time=275
+- wounded=0 > walk speed=5 m/s > walk distance=1375 meters
+- Distance inside range or 2 minutes walk time
+- Looking for 15.Span_Chajas return to base: Found!
+*** 15.Span_Valalo rescued by 15.Span_Chajas
+badc_00050 <<*** 10:13:02 SG1_Majo captured at [ 123164.78 , 27207.625 ]
+--- 10:16:06 15.Span_Valalo landed at [ 125088.01 , 28516.736 ] inside 5km limit
+--- 10:19:51 15.Span_Angel14 landed at [ 125104.05 , 28810.93 ] inside 5km limit
+--- 10:23:10 15.Span_Chajas landed used in other event
+*** SG1_Majo rescued failled
+badc_00051 <<*** 10:33:22 SG1_Austin21 captured at [ 92158.46 , 80903.52 ]
+*** SG1_Austin21 rescued failled
+badc_00051 German recover sector(s) by ttl O.3
+badc_00052 <<*** 10:50:31 15.Span_Angel14 captured at [ 146768.42 , 26960.92 ]
+*** 15.Span_Angel14 rescued failled
+badc_00052 Soviets recover sector(s) by ttl Q.1
+badc_00052 German recover sector(s) by ttl N.4
+badc_00054 German recover sector(s) by ttl K.7 K.8
+badc_00055 German recover sector(s) by ttl Q.1
+badc_00061 _00046 RedEye_Belcebu ESCAPED Bailed on friend territory
+badc_00061 _00046 15.Span_Angel14 ESCAPED Bailed on friend territory
+badc_00062 _00047 RedEye_Tumu ESCAPED cap: 3 luck: 97
+badc_00064 <<*** 13:41:40 SG1_Mino captured at [ 124395.67 , 42882.25 ]
+*** SG1_Mino rescued failled
+badc_00065 _00050 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00065 <<*** 13:45:54 SG1_Bravido captured at [ 112378.2 , 45118.316 ]
+--- 13:51:34 SG1_Sturmbomber landed at [ 112732.055 , 46057.477 ] inside 5km limit
+--- 13:54:50 Ala11_Canduski landed at [ 108855.234 , 46130.9 ] inside 5km limit
+- 13:55:56 Ala11_Canduski take off at [ 108858.72 , 46886.2 ] 
+- distance to land place: 3665 meters
+- distance to toff place: 2438 meters
+- distance used to walk: 2438 meters
+- captured secs:49554
+- land_secs:50090
+- toff_secs:50156
+- start walk:50030
+- stop walk=50136
+- walk time=106
+- wounded=0 > walk speed=5 m/s > walk distance=530 meters
+- Not enought time to walk
+*** SG1_Bravido rescued failled
+badc_00065 German recover sector(s) by ttl L.6 M.6 N.6
+badc_00066 _00051 RedEye_Tumu ESCAPED cap: 0 luck: 99
+badc_00066 <<*** 14:45:49 rEd69_Pirutoko captured at [ 136269.27 , 57154.48 ]
+*** rEd69_Pirutoko rescued failled
+badc_00066 Soviets recover sector(s) by ttl L.6 M.6 N.6
+badc_00067 <<*** 14:54:27 =gRiJ=Aty2 captured at [ 95890.14 , 79027.305 ]
+*** =gRiJ=Aty2 rescued failled
+badc_00067 Soviets lost sector(s) isolated L.4
+badc_00068 German recover sector(s) by ttl L.6 M.6 N.6
+badc_00069 <<*** 15:45:50 00_Check captured at [ 145674.33 , 22428.496 ]
+--- 15:44:15 G21_Necrov landed at [ 141608.02 , 21841.025 ] inside 5km limit
+*** 00_Check rescued failled
+badc_00069 _00054 +FAE_Cazador ESCAPED Bailed on friend territory
+badc_00070 Soviets lost sector(s) isolated N.3
+badc_00070 Soviets recover sector(s) by ttl N.6
+badc_00071 <<*** 16:19:14 Ala7_Atila captured at [ 124830.805 , 49645.66 ]
+*** Ala7_Atila rescued failled
+badc_00071 German recover sector(s) by ttl N.6
+badc_00073 _00058 =gRiJ=Xavi ESCAPED cap: 45 luck: 90
+badc_00073 Soviets recover sector(s) by ttl J.12
+badc_00074 <<*** 17:54:10 rEd69_Pirutoko captured at [ 89152.09 , 91346.81 ]
+--- 18:13:25 =gRiJ=DarkAngel landed at [ 89177.87 , 91309.195 ] inside 5km limit
+- 18:16:23 =gRiJ=DarkAngel take off at [ 89838.82 , 91255.266 ] 
+- distance to land place: 50 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:64450
+- land_secs:65605
+- toff_secs:65783
+- start walk:65545
+- stop walk=65763
+- walk time=218
+- wounded=0 > walk speed=5 m/s > walk distance=1090 meters
+- Distance inside range or 2 minutes walk time
+- Looking for =gRiJ=DarkAngel return to base: Found!
+*** rEd69_Pirutoko rescued by =gRiJ=DarkAngel
+badc_00076 _00061 =gRiJ=Aty2 ESCAPED cap: 30 luck: 31
+badc_00077 German recover sector(s) by ttl Q.2
+badc_00078 <<*** 07:19:58 rEd69_sinko captured at [ 124954.96 , 40198.67 ]
+*** rEd69_sinko rescued failled
+badc_00079 _00064 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00079 _00064 +FAE_ZULU ESCAPED cap: 36 luck: 96
+badc_00080 German recover sector(s) by ttl L.7
+badc_00081 _00066 =gRiJ=DarkAngel ESCAPED Bailed on friend territory
+badc_00081 Soviets recover sector(s) by ttl K.7 K.8
+badc_00082 German recover sector(s) by ttl M.7
+badc_00083 _00068 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00084 <<*** 09:57:35 RedEye_Miji captured at [ 124492.36 , 63208.504 ]
+*** RedEye_Miji rescued failled
+badc_00084 <<*** 09:59:14 RedEye_Chusby captured at [ 122604.25 , 53940.324 ]
+*** RedEye_Chusby rescued failled
+badc_00084 Soviets recover sector(s) by ttl M.7
+badc_00085 Soviets recover sector(s) by ttl L.7
+badc_00086 German recover sector(s) by ttl L.7
+badc_00087 Soviets recover sector(s) by ttl L.7
+badc_00088 German recover sector(s) by ttl M.7
+badc_00089 _00074 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00089 _00074 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00089 <<*** 11:39:35 RedEye_Chusby captured at [ 127897.28 , 54441.062 ]
+--- 11:58:55 rEd69_Pirutoko landed at [ 125856.43 , 54449.92 ] inside 5km limit
+*** RedEye_Chusby rescued failled
+badc_00089 Soviets recover sector(s) by ttl Q.2
+badc_00090 _00075 RedEye_Kancer ESCAPED Bailed on friend territory
+badc_00090 German recover sector(s) by ttl Q.2
+badc_00091 _00076 +FAE_ZULU CAPTURED cap: 63 luck: 18
+badc_00093 German recover sector(s) by ttl L.7
+badc_00094 German recover sector(s) by ttl N.7
+badc_00095 <<*** 13:54:56 =gRiJ=Sarmiento captured at [ 70646.11 , 97523.664 ]
+--- 13:50:27 =gRiJ=DarkAngel landed at [ 72362.234 , 99720.29 ] inside 5km limit
+*** =gRiJ=Sarmiento rescued failled
+badc_00095 <<*** 13:50:38 =gRiJ=DarkAngel captured at [ 72341.08 , 99760.42 ]
+*** =gRiJ=DarkAngel rescued failled
+badc_00097 _00081 rEd69_Pirutoko ESCAPED cap: -3 luck: 67
+badc_00097 <<*** 14:49:06 Ala13REstampida captured at [ 91445.73 , 45404.266 ]
+*** Ala13REstampida rescued failled
+badc_00097 German recover sector(s) by ttl J.9 K.7 K.8
+badc_00098 <<*** 14:48:04 +FAE_Aguila captured at [ 103716.375 , 93651.32 ]
+*** +FAE_Aguila rescued failled
+badc_00100 German recover sector(s) by ttl K.11
+badc_00102 <<*** 16:09:43 G21_Torpe captured at [ 99731.016 , 90769.61 ]
+*** G21_Torpe rescued failled
+badc_00102 _00085 rEd69_Pirutoko ESCAPED cap: 0 luck: 91
+badc_00103 <<*** 16:13:19 Ala7_West=C= captured at [ 103239.9 , 93388.695 ]
+*** Ala7_West=C= rescued failled
+badc_00103 Soviets recover sector(s) by ttl O.4
+badc_00104 Soviets recover sector(s) by ttl K.11
+badc_00107 Soviets recover sector(s) by ttl N.7
+badc_00110 _00091 15.Span_Angel14 ESCAPED Bailed on friend territory
+badc_00110 _00091 15.Span_Chajas CAPTURED cap: 3 luck: 1
+badc_00110 German recover sector(s) by ttl L.8 N.7 O.4 O.6 P.3 P.4 P.6 Q.3 Q.4 Q.5 R.2 R.3 R.4 R.5 S.2 S.3 S.4
+badc_00113 <<*** 07:46:19 RedEye_Kancer captured at [ 100019.734 , 73683.766 ]
+*** RedEye_Kancer rescued failled
+badc_00113 _00094 1/JSpan_Wind ESCAPED Bailed on friend territory
+badc_00113 _00094 1/JSpan_Zabdi ESCAPED Bailed on friend territory
+badc_00113 Soviets recover sector(s) by ttl J.9 K.7 K.8 L.8
+badc_00115 <<*** 08:37:20 FAE_ZULU captured at [ 121666.68 , 64762.195 ]
+*** FAE_ZULU rescued failled
+badc_00116 <<*** 08:54:27 AA_GUSTAV captured at [ 173025.64 , 60165.305 ]
+*** AA_GUSTAV rescued failled
+badc_00116 Soviets recover sector(s) by ttl N.7
+badc_00119 _00100 =gRiJ=Xavi ESCAPED Bailed on friend territory
+badc_00119 _00100 +FAE_Cormoran CAPTURED cap: 27 luck: 15
+badc_00119 _00100 AA_Pepe-pips ESCAPED cap: 63 luck: 94
+badc_00119 Soviets recover sector(s) by ttl J.11
+badc_00120 German recover sector(s) by ttl J.11
+badc_00121 <<*** 10:53:20 =gRiJ=casimiro captured at [ 148679.34 , 39467.383 ]
+*** =gRiJ=casimiro rescued failled
+badc_00121 _00102 =gRiJ=Xavi ESCAPED cap: 24 luck: 64
+badc_00121 <<*** 10:49:58 =gRiJ=Ruso captured at [ 155438.38 , 47851.504 ]
+*** =gRiJ=Ruso rescued failled
+badc_00121 _00102 Ala11_Sama ESCAPED Bailed on friend territory
+badc_00122 _00103 FAE_ZULU ESCAPED Bailed on friend territory
+badc_00122 _00103 AA_GUSTAV ESCAPED Bailed on friend territory
+badc_00123 <<*** 11:44:52 rEd69_Sinko captured at [ 74579.24 , 96554.016 ]
+*** rEd69_Sinko rescued failled
+badc_00123 Soviets recover sector(s) by ttl J.11
+badc_00125 Soviets recover sector(s) by ttl L.7 M.7
+badc_00125 German recover sector(s) by ttl Q.6
+badc_00126 German recover sector(s) by ttl J.11
+badc_00136 German recover sector(s) by ttl L.7 M.7
+badc_00137 _00110 G21_Supongo CAPTURED cap: 36 luck: 28
+badc_00137 _00110 rEd69_Sinko ESCAPED cap: 57 luck: 67
+badc_00137 _00110 AA_Pepe-pips ESCAPED Bailed on friend territory
+badc_00137 German recover sector(s) by ttl N.7
+badc_00138 _00111 =gRiJ=BlueEagle ESCAPED Bailed on friend territory
+badc_00138 <<*** 14:32:01 III/JG52_Supong captured at [ 158150.81 , 63373.656 ]
+*** III/JG52_Supong rescued failled
+badc_00138 Soviets recover sector(s) by ttl O.4 O.6 P.3 P.4 P.6 Q.3 Q.4 Q.5 R.2 R.3 R.4 R.5 S.2 S.3 S.4
+badc_00139 <<*** 14:49:04 AA_GUSTAV captured at [ 152733.53 , 42725.33 ]
+*** AA_GUSTAV rescued failled
+badc_00143 <<*** 15:56:21 rEd69_Sinko captured at [ 147397.66 , 44385.348 ]
+*** rEd69_Sinko rescued failled
+badc_00147 Soviets recover sector(s) by ttl L.7
+badc_00149 Soviets recover sector(s) by ttl N.7
+badc_00149 German recover sector(s) by ttl L.7
+badc_00150 _00118 SG1_Bravido ESCAPED Bailed on friend territory
+badc_00150 Soviets recover sector(s) by ttl O.5
+badc_00152 _00120 HR_nen ESCAPED Bailed on friend territory
+badc_00152 German recover sector(s) by ttl K.7 K.8
+badc_00153 <<*** 06:42:58 SG1_Mino captured at [ 149889.17 , 38363.55 ]
+--- 06:51:45 +FAE_Cormoran landed at [ 150417.66 , 39031.516 ] inside 5km limit
+--- 06:54:01 E69_Botijo landed at [ 150220.4 , 38788.457 ] inside 5km limit
+--- 06:55:45 SG1_Okaebarrero landed at [ 151622.42 , 38354.242 ] inside 5km limit
+*** SG1_Mino rescued failled
+badc_00153 <<*** 06:56:29 SG1_Okaebarrero captured at [ 151601.5 , 38388.28 ]
+--- 06:51:45 +FAE_Cormoran landed at [ 150417.66 , 39031.516 ] inside 5km limit
+--- 06:54:01 E69_Botijo landed at [ 150220.4 , 38788.457 ] inside 5km limit
+*** SG1_Okaebarrero rescued failled
+badc_00153 <<*** 06:52:28 +FAE_Cormoran captured at [ 150360.36 , 39045.133 ]
+--- 06:54:01 E69_Botijo landed at [ 150220.4 , 38788.457 ] inside 5km limit
+--- 06:55:45 SG1_Okaebarrero landed at [ 151622.42 , 38354.242 ] inside 5km limit
+*** +FAE_Cormoran rescued failled
+badc_00153 German recover sector(s) by ttl P.3
+badc_00154 _00122 RedEye_Kancer ESCAPED Bailed on friend territory
+badc_00154 _00122 AA_GUSTAV ESCAPED Bailed on friend territory
+badc_00155 <<*** 07:26:43 RedEye_Tumu captured at [ 99784.91 , 51216.383 ]
+*** RedEye_Tumu rescued failled
+badc_00157 <<*** 07:33:31 +FAE_ZULU captured at [ 165260.81 , 71079.47 ]
+--- 07:39:55 SG1_Sturmbomber landed at [ 165899.19 , 71861.16 ] inside 5km limit
+- 07:43:08 SG1_Sturmbomber take off at [ 165899.75 , 70694.305 ] 
+- distance to land place: 1009 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:27211
+- land_secs:27595
+- toff_secs:27788
+- start walk:27535
+- stop walk=27768
+- walk time=233
+- wounded=1 > walk speed=2 m/s > walk distance=466 meters
+- Distance inside range or 2 minutes walk time
+- Looking for SG1_Sturmbomber return to base: Found!
+*** +FAE_ZULU rescued by SG1_Sturmbomber
+badc_00157 Soviets recover sector(s) by ttl K.7 K.8 P.3
+badc_00158 German recover sector(s) by ttl P.3
+badc_00159 <<*** 08:48:18 SG1_Mino captured at [ 162051.31 , 61580.52 ]
+*** SG1_Mino rescued failled
+badc_00159 Soviets recover sector(s) by ttl P.3
+badc_00162 _00129 Ala7_aita ESCAPED cap: 48 luck: 96
+badc_00168 _00130 Ala7_aita ESCAPED cap: -3 luck: 13
+badc_00168 _00130 E69_Vulcanel ESCAPED Bailed on friend territory
+badc_00169 _00131 Ala7_West=C= ESCAPED cap: 54 luck: 95
+badc_00169 _00131 Ala7_aita CAPTURED cap: 60 luck: 25
+badc_00169 <<*** 10:24:56 Ala7_javier73 captured at [ 77088.08 , 126787.63 ]
+*** Ala7_javier73 rescued failled
+badc_00171 _00132 rEd69_Pirutoko ESCAPED Bailed on friend territory
+badc_00171 German recover sector(s) by ttl P.3
+badc_00173 _00134 rEd69_Pirutoko ESCAPED cap: 24 luck: 59
+badc_00173 Soviets recover sector(s) by ttl J.11
+badc_00173 German recover sector(s) by ttl N.7
+badc_00174 _00135 rEd69_Pirutoko ESCAPED Bailed on friend territory
+badc_00174 Soviets recover sector(s) by ttl N.7
+badc_00175 Soviets recover sector(s) by ttl P.3
+badc_00175 German recover sector(s) by ttl K.7 K.8 L.8
+badc_00176 <<*** 13:05:29 E69_espiral captured at [ 154770.23 , 46382.12 ]
+*** E69_espiral rescued failled
+badc_00177 Soviets recover sector(s) by ttl L.8
+badc_00177 German recover sector(s) by ttl J.11
+badc_00178 _00139 AA_Pepe-pips ESCAPED Bailed on friend territory
+badc_00179 Soviets recover sector(s) by ttl K.7 K.8
+badc_00180 German recover sector(s) by ttl P.3
+badc_00181 Soviets recover sector(s) by ttl P.3
+badc_00182 Soviets recover sector(s) by ttl Q.2
+badc_00183 <<*** 16:04:17 E69_Outlaw captured at [ 98454.68 , 95756.84 ]
+*** E69_Outlaw rescued failled
+badc_00183 German lost sector(s) isolated K.10
+badc_00183 German recover sector(s) by ttl J.10 K.9 K.11 L.9 L.10
+badc_00184 <<*** 16:01:17 rEd69_Sinko captured at [ 110636.77 , 87792.19 ]
+*** rEd69_Sinko rescued failled
+badc_00184 Soviets recover sector(s) by ttl J.10 K.9 K.11 L.9 L.10
+badc_00184 German recover sector(s) by ttl N.7
+badc_00185 Soviets recover sector(s) by ttl L.7 N.7
+badc_00185 German recover sector(s) by ttl Q.2
+badc_00186 <<*** 16:55:02 =gRiJ=SaoS captured at [ 136949.7 , 55844.914 ]
+*** =gRiJ=SaoS rescued failled
+badc_00186 _00147 =gRiJ=Xavi ESCAPED cap: 45 luck: 99
+badc_00187 _00148 E69_Bowman ESCAPED Bailed on friend territory
+badc_00187 Soviets recover sector(s) by ttl Q.2
+badc_00188 _00149 =gRiJ=SaoS ESCAPED Bailed on friend territory
+badc_00189 German recover sector(s) by ttl Q.2
+badc_00191 _00151 Ala11_Canduski CAPTURED cap: 87 luck: 43
+badc_00191 Soviets recover sector(s) by ttl Q.2
+badc_00192 German recover sector(s) by ttl L.7
+badc_00193 <<*** 07:15:08 RedEye_Tumu captured at [ 128846.836 , 45110.836 ]
+--- 07:15:49 =gRiJ=Cerbero landed at [ 127826.37 , 44861.62 ] inside 5km limit
+- 07:19:58 =gRiJ=Cerbero take off at [ 127102.41 , 45551.027 ] 
+- distance to land place: 1050 meters
+- distance to toff place: 299 meters
+- distance used to walk: 299 meters
+- captured secs:26108
+- land_secs:26149
+- toff_secs:26398
+- start walk:26149
+- stop walk=26378
+- walk time=229
+- wounded=2 > walk speed=1 m/s > walk distance=229 meters
+- Distance inside range or 2 minutes walk time
+- Looking for =gRiJ=Cerbero return to base: Found!
+*** RedEye_Tumu rescued by =gRiJ=Cerbero
+badc_00193 German recover sector(s) by ttl Q.2
+badc_00196 _00156 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00196 German recover sector(s) by ttl N.7
+badc_00197 Soviets recover sector(s) by ttl I.15 I.16
+badc_00199 _00158 Ala7_javier73 ESCAPED Bailed on friend territory
+badc_00199 <<*** 09:09:17 III/JG52_Torpe captured at [ 155433.52 , 47281.082 ]
+*** III/JG52_Torpe rescued failled
+badc_00199 <<*** 09:12:32 E69_limber captured at [ 161795.22 , 41384.145 ]
+*** E69_limber rescued failled
+badc_00200 Soviets recover sector(s) by ttl I.14 L.7 N.7
+badc_00202 <<*** 10:26:28 HRc_Piconero captured at [ 126594.445 , 67862.39 ]
+--- 10:26:44 rEd69_jumulo landed at [ 129225.016 , 70572.2 ] inside 5km limit
+*** HRc_Piconero rescued failled
+badc_00202 _00161 rEd69_Pirutoko ESCAPED cap: 3 luck: 30
+badc_00203 _00162 RedEye_Tumu ESCAPED cap: 30 luck: 52
+badc_00203 _00162 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00203 _00162 rEd69_Pirutoko ESCAPED cap: 18 luck: 59
+badc_00203 _00162 HRc_Piconero ESCAPED cap: 18 luck: 70
+badc_00203 <<*** 10:43:45 waca captured at [ 125069.87 , 47297.7 ]
+*** waca rescued failled
+badc_00205 _00164 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00205 German lost sector(s) isolated M.8
+badc_00206 _00165 =gRiJ=SaoS ESCAPED Bailed on friend territory
+badc_00211 _00167 =gRiJ=SaoS ESCAPED Bailed on friend territory
+badc_00211 <<*** 12:52:28 III/JG52_Tuckie captured at [ 117774.01 , 17793.832 ]
+--- 13:09:35 +FAE_ZULU landed at [ 117414.29 , 19188.15 ] inside 5km limit
+- 13:12:21 +FAE_ZULU take off at [ 116948.62 , 19672.738 ] 
+- distance to land place: 1439 meters
+- distance to toff place: 552 meters
+- distance used to walk: 552 meters
+- captured secs:46348
+- land_secs:47375
+- toff_secs:47541
+- start walk:47315
+- stop walk=47521
+- walk time=206
+- wounded=1 > walk speed=2 m/s > walk distance=412 meters
+- Distance inside range or 2 minutes walk time
+- Looking for +FAE_ZULU return to base: Found!
+*** III/JG52_Tuckie rescued by +FAE_ZULU
+badc_00211 German recover sector(s) by ttl K.16
+badc_00215 <<*** 13:32:51 =gRiJ=OTO captured at [ 84528.586 , 100643.945 ]
+*** =gRiJ=OTO rescued failled
+badc_00216 _00170 =gRiJ=Aty2 ESCAPED Bailed on friend territory
+badc_00216 _00170 +FAE_Cormoran ESCAPED Bailed on friend territory
+badc_00217 <<*** 14:33:50 [JASP]-Deux captured at [ 84304.734 , 28943.973 ]
+*** [JASP]-Deux rescued failled
+badc_00219 <<*** 15:17:34 Ala7_Virusao captured at [ 83032.3 , 23916.385 ]
+*** Ala7_Virusao rescued failled
+badc_00219 _00173 RedEye_Apre ESCAPED Bailed on friend territory
+badc_00219 _00173 ESV_cbhierro ESCAPED cap: 24 luck: 95
+badc_00221 _00175 RedEye_Tumu ESCAPED cap: 0 luck: 86
+badc_00221 _00175 AA_GUSTAV ESCAPED Bailed on friend territory
+badc_00222 <<*** 16:13:13 rEd69_Sinko captured at [ 89107.234 , 25305.53 ]
+*** rEd69_Sinko rescued failled
+badc_00223 _00177 Ala7_West=C= ESCAPED cap: -3 luck: 89
+badc_00223 _00177 +FAE_Cormoran ESCAPED Bailed on friend territory
+badc_00223 _00177 +FAE_ZULU ESCAPED Bailed on friend territory
+badc_00224 _00178 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00224 _00178 HRc_Piconero ESCAPED cap: 15 luck: 32
+badc_00227 _00181 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00227 _00181 hrC_pICONERO ESCAPED Bailed on friend territory
+badc_00227 <<*** 06:35:41 SG1_Mino captured at [ 93828.66 , 17255.11 ]
+--- 06:52:35 SG1_Sturmbomber landed at [ 93714.555 , 16114.627 ] inside 5km limit
+*** SG1_Mino rescued failled
+badc_00228 _00182 HRc_Wevo ESCAPED Bailed on friend territory
+badc_00230 <<*** 07:43:46 Ala7_javier73 captured at [ 74373.62 , 31284.9 ]
+*** Ala7_javier73 rescued failled
+badc_00231 <<*** 08:18:25 Ala7_Atila captured at [ 74570.8 , 32645.455 ]
+*** Ala7_Atila rescued failled
+badc_00231 _00185 Ala7_West=C= ESCAPED cap: -3 luck: 80
+badc_00232 _00187 rEd69_Hellboy ESCAPED Bailed on friend territory
+badc_00234 <<*** 09:18:25 rEd69_kumvira captured at [ 72514.91 , 49941.535 ]
+*** rEd69_kumvira rescued failled
+badc_00239 _00189 +FAE_Cuervo ESCAPED Bailed on friend territory
+badc_00240 <<*** 09:55:58 III/JG52_Torpe captured at [ 106242.51 , 22834.191 ]
+*** III/JG52_Torpe rescued failled
+badc_00241 _00191 Ala7_West=C= ESCAPED cap: 9 luck: 34
+badc_00242 <<*** 10:46:21 E69_carlos captured at [ 141942.89 , 21929.303 ]
+*** E69_carlos rescued failled
+badc_00248 <<*** 11:38:43 E69_espiral captured at [ 113126.92 , 10766.62 ]
+*** E69_espiral rescued failled
+badc_00249 _00195 E69_Alado. ESCAPED Bailed on friend territory
+badc_00250 <<*** 12:25:30 E69_carlos captured at [ 105123.945 , 21377.889 ]
+*** E69_carlos rescued failled
+badc_00251 <<*** 12:41:29 Ala7_aita captured at [ 81366.8 , 32271.102 ]
+*** Ala7_aita rescued failled
+badc_00253 <<*** 13:46:47 Ala7_Hispano captured at [ 96346.234 , 20547.703 ]
+*** Ala7_Hispano rescued failled
+badc_00253 <<*** 13:32:16 +FAE_Cormoran captured at [ 100763.625 , 10938.264 ]
+*** +FAE_Cormoran rescued failled
+badc_00253 _00199 +FAE_Cuervo ESCAPED Bailed on friend territory
+badc_00253 <<*** 13:46:53 E69_Outlaw captured at [ 104170.73 , 18922.855 ]
+*** E69_Outlaw rescued failled
+badc_00255 German recover sector(s) by ttl M.1
+badc_00256 <<*** 14:29:21 rEd69_jumulo captured at [ 84171.91 , 22022.705 ]
+*** rEd69_jumulo rescued failled
+badc_00256 German recover sector(s) by ttl M.1 J.1
+badc_00257 <<*** 15:00:58 1/JSpan_Horrido captured at [ 104955.16 , 25951.604 ]
+--- 14:59:48 E69_espiral landed at [ 106571.11 , 25748.975 ] inside 5km limit
+*** 1/JSpan_Horrido rescued failled
+badc_00257 German recover sector(s) by ttl M.1
+badc_00258 <<*** 15:02:42 rEd69_jumulo captured at [ 100199.98 , 24074.816 ]
+*** rEd69_jumulo rescued failled
+badc_00258 German recover sector(s) by ttl M.1
+badc_00259 <<*** 15:47:18 Ala11_Sama captured at [ 146008.38 , 25685.154 ]
+*** Ala11_Sama rescued failled
+badc_00259 <<*** 15:43:38 +FAE_Cormoran captured at [ 141255.61 , 37150.62 ]
+*** +FAE_Cormoran rescued failled
+badc_00259 German recover sector(s) by ttl M.1
+badc_00260 _00205 Ala7_West=C= ESCAPED cap: 3 luck: 56
+badc_00260 German recover sector(s) by ttl M.1
+badc_00261 German recover sector(s) by ttl M.1
+badc_00262 German lost sector(s) isolated M.1
+badc_00262 Soviets recover sector(s) by ttl J.1
+badc_00264 _00209 Ala7_Virusao ESCAPED cap: 9 luck: 79
+badc_00264 <<*** 17:13:56 ESV_Spinone captured at [ 40224.656 , 15236.173 ]
+*** ESV_Spinone rescued failled
+badc_00264 <<*** 17:13:28 Ala7_aita captured at [ 41619.816 , 15738.471 ]
+*** Ala7_aita rescued failled
+badc_00264 <<*** 17:16:50 HRc_Piconero captured at [ 58876.43 , 29565.36 ]
+*** HRc_Piconero rescued failled
+badc_00265 <<*** 17:48:45 Ala7_Hispano captured at [ 98278.87 , 23203.742 ]
+--- 18:02:34 Ala7_Atila landed at [ 97854.28 , 18749.135 ] inside 5km limit
+*** Ala7_Hispano rescued failled
+badc_00265 <<*** 18:02:43 Ala7_Atila captured at [ 97913.016 , 18745.564 ]
+*** Ala7_Atila rescued failled
+badc_00265 _00210 AA_Pepe-pips ESCAPED Bailed on friend territory
+badc_00265 <<*** 17:45:12 AA_BullSkin captured at [ 103567.77 , 18709.861 ]
+*** AA_BullSkin rescued failled
+badc_00266 German recover sector(s) by ttl K.1 L.1 M.1 J.1
+badc_00268 _00213 =gRiJ=casimiro ESCAPED Bailed on friend territory
+badc_00268 <<*** 06:56:32 Ala13_BaronKaOs captured at [ 123546.27 , 34455.105 ]
+*** Ala13_BaronKaOs rescued failled
+badc_00270 _00214 rEd69_Sinko ESCAPED cap: 0 luck: 17
+badc_00271 <<*** 08:18:22 AA_BullSkin captured at [ 130380.96 , 37479.973 ]
+--- 08:27:25 AA_Pepe-pips landed at [ 132823.22 , 40825.44 ] inside 5km limit
+- 08:29:14 AA_Pepe-pips take off at [ 132191.23 , 40206.85 ] 
+- distance to land place: 4142 meters
+- distance to toff place: 1773 meters
+- distance used to walk: 1773 meters
+- captured secs:29902
+- land_secs:30445
+- toff_secs:30554
+- start walk:30385
+- stop walk=30534
+- walk time=149
+- wounded=0 > walk speed=5 m/s > walk distance=745 meters
+- Distance inside range or 2 minutes walk time
+- Looking for AA_Pepe-pips return to base: Found!
+*** AA_BullSkin rescued by AA_Pepe-pips
+badc_00272 _00216 Ala7_West=C= ESCAPED cap: 18 luck: 66
+badc_00272 _00216 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00272 German recover sector(s) by ttl M.2 M.3
+badc_00273 _00217 RedEye_Miji ESCAPED cap: 12 luck: 65
+badc_00274 _00218 Ala11_Sama ESCAPED Bailed on friend territory
+badc_00275 <<*** 09:41:33 AA_BullSkin captured at [ 127132.86 , 42406.98 ]
+*** AA_BullSkin rescued failled
+badc_00278 _00221 Ala7_Atila ESCAPED Bailed on friend territory
+badc_00278 _00221 rEd69_Sinko ESCAPED cap: 3 luck: 74
+badc_00278 <<*** 10:30:03 Ala7_Virusao captured at [ 105454.18 , 18722.547 ]
+*** Ala7_Virusao rescued failled
+badc_00278 <<*** 10:33:22 Ala7_javier73 captured at [ 109000.49 , 19238.922 ]
+--- 10:29:55 Ala7_Virusao landed at [ 105485.32 , 18697.26 ] inside 5km limit
+*** Ala7_javier73 rescued failled
+badc_00279 <<*** 10:30:55 III/JG52_Supong captured at [ 101126.99 , 37125.844 ]
+*** III/JG52_Supong rescued failled
+badc_00280 _00223 Ala7_aita ESCAPED cap: 18 luck: 64
+badc_00280 Soviets lost sector(s) isolated K.3
+badc_00282 _00225 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00282 _00225 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00283 German recover sector(s) by ttl N.1 N.2 N.3 O.1 O.2 O.4 P.1 P.2 P.3 Q.1 Q.2 R.1
+badc_00284 _00227 III/JG52_Supong ESCAPED cap: 12 luck: 51
+badc_00285 <<*** 13:04:02 rEd69_Accipiter captured at [ 141388.44 , 30311.215 ]
+*** rEd69_Accipiter rescued failled
+badc_00285 _00228 Ala7_aita CAPTURED cap: 87 luck: 0
+badc_00285 _00228 Ala7_West=C= CAPTURED cap: 93 luck: 72
+badc_00285 German recover sector(s) by ttl R.2
+badc_00286 _00229 Ala7_ICB CAPTURED cap: 39 luck: 27
+badc_00286 <<*** 13:56:16 III/JG52_Supong captured at [ 80956.336 , 72246.64 ]
+*** III/JG52_Supong rescued failled
+badc_00289 _00230 E69_Alado. ESCAPED Bailed on friend territory
+badc_00290 German recover sector(s) by ttl N.5 O.5 S.1
+badc_00292 _00233 rEd69_Sinko ESCAPED cap: 15 luck: 55
+badc_00294 _00235 1/JSpan_PESO ESCAPED cap: 6 luck: 21
+badc_00294 <<*** 15:28:14 E69_limber captured at [ 82105.01 , 85135.84 ]
+*** E69_limber rescued failled
+badc_00296 _00237 Ala7_Hispano ESCAPED cap: 6 luck: 83
+badc_00296 _00237 rEd69_Sinko ESCAPED cap: 21 luck: 24
+badc_00296 _00237 RedEye_Tumu ESCAPED cap: 33 luck: 76
+badc_00296 _00237 ESV_Spinone ESCAPED cap: 15 luck: 75
+badc_00297 <<*** 17:00:17 Ala7_Atila captured at [ 77338.27 , 80532.33 ]
+*** Ala7_Atila rescued failled
+badc_00301 <<*** 17:44:14 E69_espiral captured at [ 109141.44 , 53207.87 ]
+--- 17:48:10 1/JSpan_Avis landed at [ 105903.516 , 50725.484 ] inside 5km limit
+- 17:58:52 1/JSpan_Avis take off at [ 105893.375 , 49792.246 ] 
+- distance to land place: 4079 meters
+- distance to toff place: 3213 meters
+- distance used to walk: 3213 meters
+- captured secs:63854
+- land_secs:64090
+- toff_secs:64732
+- start walk:64030
+- stop walk=64712
+- walk time=682
+- wounded=0 > walk speed=5 m/s > walk distance=3410 meters
+- Distance inside range or 2 minutes walk time
+- Looking for 1/JSpan_Avis return to base: Found!
+*** E69_espiral rescued by 1/JSpan_Avis
+badc_00303 _00241 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00306 _00244 rEd69_Sinko ESCAPED cap: 39 luck: 54
+badc_00306 _00244 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00307 <<*** 08:11:14 rEd69_Jack_Aub captured at [ 133036.97 , 31052.96 ]
+--- 08:00:16 Ala7_aita landed at [ 132235.38 , 30858.701 ] inside 5km limit
+--- 08:09:13 Ala7_javier73 landed at [ 130320.66 , 30962.422 ] inside 5km limit
+*** rEd69_Jack_Aub rescued failled
+badc_00307 <<*** 08:09:41 Ala7_javier73 captured at [ 130314.12 , 30912.676 ]
+--- 08:00:16 Ala7_aita landed at [ 132235.38 , 30858.701 ] inside 5km limit
+--- 08:10:49 rEd69_Jack_Aub landed at [ 133081.3 , 31067.838 ] inside 5km limit
+*** Ala7_javier73 rescued failled
+badc_00307 <<*** 07:55:56 Ala7_West=C= captured at [ 136044.2 , 26756.703 ]
+--- 08:11:46 EV401_Wolf landed at [ 137751.84 , 26801.393 ] inside 5km limit
+- 08:26:48 EV401_Wolf take off at [ 136832.3 , 27422.307 ] 
+- distance to land place: 1708 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:28556
+- land_secs:29506
+- toff_secs:30408
+- start walk:29446
+- stop walk=30388
+- walk time=942
+- wounded=0 > walk speed=5 m/s > walk distance=4710 meters
+- Distance inside range or 2 minutes walk time
+- Looking for EV401_Wolf return to base: Found!
+*** Ala7_West=C= rescued by EV401_Wolf
+badc_00309 _00246 rEd69_Sinko ESCAPED cap: 24 luck: 67
+badc_00309 _00246 Ala7_West=C= ESCAPED cap: 18 luck: 43
+badc_00309 Soviets recover sector(s) by ttl N.5 O.5
+badc_00311 <<*** 08:44:10 rEd69_Deliver captured at [ 144411.55 , 28315.863 ]
+*** rEd69_Deliver rescued failled
+badc_00312 German recover sector(s) by ttl Q.3
+badc_00313 _00250 rEd69_Deliver ESCAPED Bailed on friend territory
+badc_00313 <<*** 09:10:59 rEd69_Mudito captured at [ 138905.47 , 29963.924 ]
+*** rEd69_Mudito rescued failled
+badc_00313 German recover sector(s) by ttl O.5
+badc_00314 _00251 E69_limber ESCAPED Bailed on friend territory
+badc_00314 German recover sector(s) by ttl N.5
+badc_00316 <<*** 10:16:37 Ala7_aita captured at [ 139995.45 , 30794.367 ]
+*** Ala7_aita rescued failled
+badc_00316 <<*** 10:17:19 Ala7_West=C= captured at [ 138795.17 , 31862.803 ]
+--- 10:16:24 Ala7_aita landed at [ 139955.77 , 30823.215 ] inside 5km limit
+*** Ala7_West=C= rescued failled
+badc_00316 <<*** 10:20:00 Ala7_javier73 captured at [ 140199.34 , 28165.598 ]
+--- 10:16:24 Ala7_aita landed at [ 139955.77 , 30823.215 ] inside 5km limit
+*** Ala7_javier73 rescued failled
+badc_00317 <<*** 10:41:47 =gRiJ=Cerbero captured at [ 152750.25 , 34040.168 ]
+*** =gRiJ=Cerbero rescued failled
+badc_00317 _00253 =gRiJ=Xavi ESCAPED cap: -6 luck: 11
+badc_00318 <<*** 11:26:48 =gRiJ=Aty2 captured at [ 135028.34 , 29230.049 ]
+*** =gRiJ=Aty2 rescued failled
+badc_00319 <<*** 12:13:05 rEd69_Filo captured at [ 145153.94 , 46329.824 ]
+*** rEd69_Filo rescued failled
+badc_00319 <<*** 12:12:02 rEd69_jumulo captured at [ 143726.64 , 37452.883 ]
+*** rEd69_jumulo rescued failled
+badc_00320 German recover sector(s) by ttl S.2
+badc_00321 <<*** 12:26:22 E69_oli captured at [ 97051.41 , 96772.92 ]
+*** E69_oli rescued failled
+badc_00322 German recover sector(s) by ttl P.5 Q.4 R.3 R.4 S.3 S.4 S.5
+badc_00323 _00259 rEd69_Sinko ESCAPED cap: 48 luck: 81
+badc_00324 <<*** 14:22:39 AA_BullSkin captured at [ 162583.73 , 50193.043 ]
+*** AA_BullSkin rescued failled
+badc_00326 _00262 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00326 <<*** 15:02:41 AA_BullSkin captured at [ 138230.72 , 88684.99 ]
+--- 15:05:35 AA_Pepe-pips landed at [ 137853.28 , 89086.375 ] inside 5km limit
+- 15:10:54 AA_Pepe-pips take off at [ 139181.1 , 89079.95 ] 
+- distance to land place: 550 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:54161
+- land_secs:54335
+- toff_secs:54654
+- start walk:54275
+- stop walk=54634
+- walk time=359
+- wounded=0 > walk speed=5 m/s > walk distance=1795 meters
+- Distance inside range or 2 minutes walk time
+- Looking for AA_Pepe-pips return to base: Found!
+*** AA_BullSkin rescued by AA_Pepe-pips
+badc_00327 <<*** 15:03:22 SG1_Mino captured at [ 77063.6 , 92845.03 ]
+*** SG1_Mino rescued failled
+badc_00327 <<*** 15:04:16 Ala13_florete captured at [ 74106.59 , 96116.37 ]
+--- 15:18:33 Ala13_Itacus landed at [ 71477.93 , 95888.99 ] inside 5km limit
+--- 15:21:26 SG1_Majo landed at [ 73084.66 , 95895.516 ] inside 5km limit
+*** Ala13_florete rescued failled
+badc_00329 _00264 Ala7_aita ESCAPED Bailed on friend territory
+badc_00330 _00265 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00330 <<*** 15:40:26 AA_BullSkin captured at [ 137649.3 , 80179.88 ]
+*** AA_BullSkin rescued failled
+badc_00331 _00266 TM-El_Matador ESCAPED Bailed on friend territory
+badc_00331 _00266 1/JSpan_Wind ESCAPED Bailed on friend territory
+badc_00331 _00266 1/JSpan_PESO ESCAPED Bailed on friend territory
+badc_00333 _00268 RedEye_Miji ESCAPED Bailed on friend territory
+badc_00333 <<*** 16:59:56 1/JSpan_Wind captured at [ 134651.67 , 55262.254 ]
+*** 1/JSpan_Wind rescued failled
+badc_00334 _00269 Ala7_Atila ESCAPED cap: 24 luck: 98
+badc_00336 _00271 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00336 _00271 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00336 <<*** 06:24:12 E69_Outlaw captured at [ 128591.21 , 96436.47 ]
+*** E69_Outlaw rescued failled
+badc_00336 <<*** 06:23:25 E69_espiral captured at [ 119064.29 , 120201.33 ]
+*** E69_espiral rescued failled
+badc_00337 _00272 Ala7_aita ESCAPED Bailed on friend territory
+badc_00337 _00272 ESV_cbhierro ESCAPED Bailed on friend territory
+badc_00338 _00273 HR_Naglfar ESCAPED cap: -3 luck: 29
+badc_00338 German recover sector(s) by ttl K.15
+badc_00339 _00274 rEd69_Jack_Aub ESCAPED Bailed on friend territory
+badc_00339 <<*** 07:51:42 G21_Torpe captured at [ 168390.38 , 43915.457 ]
+--- 07:55:03 HR_Naglfar landed at [ 170115.83 , 45364.938 ] inside 5km limit
+--- 07:55:12 HRc_Ruskov landed at [ 169842.44 , 45063.242 ] inside 5km limit
+--- 07:55:31 rEd69_Sinko landed at [ 169966.44 , 45494.54 ] inside 5km limit
+--- 07:57:25 TM-El_Matador landed at [ 170399.2 , 46078.26 ] inside 5km limit
+*** G21_Torpe rescued failled
+badc_00340 _00275 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00340 German recover sector(s) by ttl R.5
+badc_00341 _00276 E69_carlos CAPTURED cap: 66 luck: 63
+badc_00341 Soviets recover sector(s) by ttl K.15
+badc_00342 _00277 SG1_Bravido ESCAPED Bailed on friend territory
+badc_00342 _00277 E69_cvchavo ESCAPED cap: 78 luck: 81
+badc_00344 _00279 FAE_ZULU ESCAPED Bailed on friend territory
+badc_00344 <<*** 09:59:55 +FAE_Cormoran captured at [ 172114.66 , 59984.703 ]
+*** +FAE_Cormoran rescued failled
+badc_00345 _00280 FAE_ZULU ESCAPED cap: 3 luck: 32
+badc_00346 _00281 CN_Kanarien ESCAPED Bailed on friend territory
+badc_00347 <<*** 11:09:45 SG1_Bravido captured at [ 112697.945 , 42582.844 ]
+--- 11:27:01 SG1_Majo landed at [ 109305.55 , 41698.508 ] inside 5km limit
+--- 11:30:33 E69_Patrel landed at [ 109172.21 , 41824.703 ] inside 5km limit
+*** SG1_Bravido rescued failled
+badc_00347 <<*** 11:27:30 SG1_Majo captured at [ 109265.92 , 41688.957 ]
+--- 11:09:31 SG1_Bravido landed at [ 112700.266 , 42527.63 ] inside 5km limit
+--- 11:30:33 E69_Patrel landed at [ 109172.21 , 41824.703 ] inside 5km limit
+*** SG1_Majo rescued failled
+badc_00350 _00284 Ala7_Virusao ESCAPED cap: 9 luck: 97
+badc_00350 <<*** 11:41:49 III/JG52_Tuckie captured at [ 178846.27 , 83064.47 ]
+*** III/JG52_Tuckie rescued failled
+badc_00350 <<*** 11:48:41 E69_espiral captured at [ 179689.33 , 76060.95 ]
+*** E69_espiral rescued failled
+badc_00351 _00285 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00352 _00286 Ala7_Piconero ESCAPED Bailed on friend territory
+badc_00352 Soviets recover sector(s) by ttl M.5
+badc_00354 _00288 RedEye_Tumu ESCAPED cap: 24 luck: 29
+badc_00355 _00289 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00356 _00290 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00356 <<*** 14:24:01 E69_Outlaw captured at [ 139032.44 , 77363.734 ]
+*** E69_Outlaw rescued failled
+badc_00356 <<*** 14:30:24 E69_Patrel captured at [ 145340.17 , 83185.69 ]
+*** E69_Patrel rescued failled
+badc_00356 <<*** 14:27:17 Ala13_BaronKaOs captured at [ 142470.36 , 81125.914 ]
+--- 14:29:22 E69_Patrel landed at [ 145299.89 , 83191.58 ] inside 5km limit
+*** Ala13_BaronKaOs rescued failled
+badc_00356 German recover sector(s) by ttl K.15
+badc_00357 _00291 RedEye_Topper ESCAPED Bailed on friend territory
+badc_00357 <<*** 14:22:41 SG1_Mino captured at [ 119489.41 , 132465.22 ]
+*** SG1_Mino rescued failled
+badc_00357 Soviets recover sector(s) by ttl K.15
+badc_00358 _00292 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00358 _00292 =gRiJ=BaLroG ESCAPED Bailed on friend territory
+badc_00359 <<*** 15:13:38 =gRiJ=Oto captured at [ 153111.16 , 19299.055 ]
+*** =gRiJ=Oto rescued failled
+badc_00360 <<*** 15:43:44 Ala11_Canduski captured at [ 152922.53 , 61179.453 ]
+*** Ala11_Canduski rescued failled
+badc_00360 _00294 15.Span_KeBrAn ESCAPED Bailed on friend territory
+badc_00361 <<*** 15:57:32 rEd69_Pirutoko captured at [ 170058.12 , 55307.824 ]
+*** rEd69_Pirutoko rescued failled
+badc_00362 _00296 Ala7_West=C= ESCAPED cap: 30 luck: 95
+badc_00363 _00297 rEd69_Sinko CAPTURED cap: 21 luck: 18
+badc_00363 _00297 Ala7_aita ESCAPED cap: 39 luck: 74
+badc_00364 _00298 E69_espiral ESCAPED Bailed on friend territory
+badc_00365 _00299 Ala13R_Peneque ESCAPED Bailed on friend territory
+badc_00365 _00299 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00365 _00299 15.Span_KeBrAn CAPTURED cap: 54 luck: 44
+badc_00366 <<*** 18:11:06 RedEye_Tumu captured at [ 170307.19 , 62543.637 ]
+*** RedEye_Tumu rescued failled
+badc_00366 _00300 rEd69_Pirutoko ESCAPED cap: 12 luck: 58
+badc_00366 German recover sector(s) by ttl K.15
+badc_00367 <<*** 06:28:57 rEd69_kumvira captured at [ 162862.81 , 59625.7 ]
+*** rEd69_kumvira rescued failled
+badc_00367 <<*** 06:23:24 rEd69_Patrel captured at [ 177332.44 , 59195.48 ]
+*** rEd69_Patrel rescued failled
+badc_00367 <<*** 06:17:01 III/JG52_Supong captured at [ 153710.52 , 51172.46 ]
+*** III/JG52_Supong rescued failled
+badc_00368 _00302 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00369 _00303 Ala7_West=C= ESCAPED cap: -3 luck: 94
+badc_00369 _00303 Ala7_aita ESCAPED Bailed on friend territory
+badc_00369 Soviets recover sector(s) by ttl P.5 Q.4 R.3 R.4 S.2 S.3 S.4 S.5
+badc_00370 _00304 rEd69_Accipiter ESCAPED Bailed on friend territory
+badc_00370 _00304 Ala7_Hispano ESCAPED Bailed on friend territory
+badc_00370 _00304 Ala7_aita ESCAPED Bailed on friend territory
+badc_00371 _00305 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00371 <<*** 07:54:05 FAE_Cuervo captured at [ 169799.53 , 59283.344 ]
+*** FAE_Cuervo rescued failled
+badc_00371 _00305 15.Span_KeBrAn CAPTURED cap: 90 luck: 3
+badc_00371 German recover sector(s) by ttl P.5 Q.4 R.3 R.4 S.2 S.3 S.4 S.5
+badc_00373 <<*** 08:48:50 VCP_LaRocco captured at [ 113281.914 , 49844.027 ]
+*** VCP_LaRocco rescued failled
+badc_00373 _00306 =gRiJ=SaoS CAPTURED cap: 84 luck: 52
+badc_00373 <<*** 08:41:37 =gRiJ=Pollopio captured at [ 139593.0 , 22710.764 ]
+*** =gRiJ=Pollopio rescued failled
+badc_00373 Soviets recover sector(s) by ttl N.5 O.5
+badc_00374 _00307 Ala7_West=C= ESCAPED cap: 21 luck: 73
+badc_00374 _00307 Ala7_Hispano ESCAPED cap: 30 luck: 56
+badc_00375 <<*** 09:09:57 rEd69_kumvira captured at [ 167183.34 , 48263.49 ]
+*** rEd69_kumvira rescued failled
+badc_00375 _00308 Ala7_aita ESCAPED Bailed on friend territory
+badc_00375 German recover sector(s) by ttl N.5 O.5
+badc_00377 _00309 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00379 _00312 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00381 _00314 rEd69_kixot ESCAPED Bailed on friend territory
+badc_00382 _00315 +FAE_Cormoran CAPTURED cap: 51 luck: 11
+badc_00382 <<*** 12:15:07 III/JG52_Mirlin captured at [ 170796.5 , 71831.29 ]
+*** III/JG52_Mirlin rescued failled
+badc_00383 _00316 RedEye_Tumu ESCAPED cap: 3 luck: 84
+badc_00383 <<*** 12:36:34 AA_Absolute captured at [ 177109.4 , 81362.1 ]
+*** AA_Absolute rescued failled
+badc_00384 _00317 Ala7_Piconero ESCAPED Bailed on friend territory
+badc_00384 Soviets lost sector(s) isolated Q.5
+badc_00384 Soviets recover sector(s) by ttl L.5
+badc_00385 _00318 1/JSpan_Horrido ESCAPED cap: 45 luck: 83
+badc_00385 Soviets recover sector(s) by ttl M.5
+badc_00386 _00319 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00386 _00319 rEd69_Pirutoko CAPTURED cap: 57 luck: 46
+badc_00386 <<*** 13:39:27 rEd69_Wasilekux captured at [ 176535.36 , 44004.387 ]
+*** rEd69_Wasilekux rescued failled
+badc_00386 Soviets recover sector(s) by ttl K.15
+badc_00389 _00322 Ala7_aita CAPTURED cap: 54 luck: 45
+badc_00391 _00324 RedEye_Miji ESCAPED Bailed on friend territory
+badc_00391 <<*** 15:47:49 Ala13_Itacus captured at [ 126161.086 , 43542.617 ]
+*** Ala13_Itacus rescued failled
+badc_00392 _00325 rEd69_Wasilekux ESCAPED cap: 45 luck: 70
+badc_00395 <<*** 17:10:00 rEd69_Patrel captured at [ 65808.29 , 93875.7 ]
+*** rEd69_Patrel rescued failled
+badc_00395 _00327 +FAE_ZULU ESCAPED Bailed on friend territory
+badc_00396 <<*** 17:12:28 AA_BullSkin captured at [ 108585.58 , 97871.945 ]
+*** AA_BullSkin rescued failled
+badc_00397 _00329 rEd69_Novato ESCAPED Bailed on friend territory
+badc_00397 _00329 Ala7_Atila ESCAPED Bailed on friend territory
+badc_00397 _00329 SG1_Majo CAPTURED cap: 63 luck: 31
+badc_00398 _00330 1/JSpan_Zabdi ESCAPED cap: 12 luck: 95
+badc_00398 Soviets recover sector(s) by ttl K.14
+badc_00399 _00331 Ala7_West=C= ESCAPED cap: -3 luck: 18
+badc_00400 _00332 Ala7_West=C= ESCAPED cap: 3 luck: 6
+badc_00400 _00332 rEd69_Pirutoko ESCAPED Bailed on friend territory
+badc_00403 _00335 Ala7_aita ESCAPED Bailed on friend territory
+badc_00403 _00335 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00403 _00335 15.Span_KeBrAn ESCAPED Bailed on friend territory
+badc_00404 _00336 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00404 _00336 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00404 _00336 Ala7_aita ESCAPED Bailed on friend territory
+badc_00404 <<*** 08:30:44 SG1_Mino captured at [ 83193.49 , 76196.11 ]
+--- 08:48:26 E69_Vulcanel landed at [ 83949.84 , 77519.93 ] inside 5km limit
+--- 08:54:13 1/JSpan_Wind landed at [ 86755.336 , 76843.18 ] inside 5km limit
+- 09:03:14 1/JSpan_Wind take off at [ 87125.37 , 76375.34 ] 
+- distance to land place: 3620 meters
+- distance to toff place: 2435 meters
+- distance used to walk: 2435 meters
+- captured secs:30644
+- land_secs:32053
+- toff_secs:32594
+- start walk:31993
+- stop walk=32574
+- walk time=581
+- wounded=0 > walk speed=5 m/s > walk distance=2905 meters
+- Distance inside range or 2 minutes walk time
+- Looking for 1/JSpan_Wind return to base: Found!
+*** SG1_Mino rescued by 1/JSpan_Wind
+badc_00404 <<*** 08:49:25 E69_Vulcanel captured at [ 84006.84 , 77540.96 ]
+--- 08:54:13 1/JSpan_Wind landed used in other event
+*** E69_Vulcanel rescued failled
+badc_00405 <<*** 08:31:12 E69_aspren captured at [ 113273.17 , 93926.73 ]
+*** E69_aspren rescued failled
+badc_00406 _00338 rEd69_Sinko ESCAPED cap: 6 luck: 75
+badc_00406 _00338 rEd69_Pirutoko ESCAPED Bailed on friend territory
+badc_00407 _00339 Ala7_Hispano ESCAPED cap: 30 luck: 49
+badc_00407 _00339 E69_carlos ESCAPED Bailed on friend territory
+badc_00408 _00340 Ala7_West=C= ESCAPED cap: 3 luck: 55
+badc_00408 _00340 rEd69_jumulo ESCAPED cap: 27 luck: 90
+badc_00411 _00343 rEd69_jumulo ESCAPED cap: 18 luck: 98
+badc_00411 _00343 rEd69_Pirutoko ESCAPED cap: 0 luck: 85
+badc_00412 _00344 =gRiJ=Aty2 ESCAPED cap: 3 luck: 79
+badc_00417 _00349 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00417 _00349 Ala13_BaronKaOs ESCAPED Bailed on friend territory
+badc_00417 Soviets recover sector(s) by ttl J.13
+badc_00418 _00350 rEd69_Sinko ESCAPED cap: 15 luck: 34
+badc_00418 <<*** 14:15:23 Ala7_ICB captured at [ 89413.266 , 88420.35 ]
+*** Ala7_ICB rescued failled
+badc_00421 <<*** 15:19:02 E69_Patrel captured at [ 95753.25 , 49598.344 ]
+*** E69_Patrel rescued failled
+badc_00421 _00353 E69_Qpassa ESCAPED Bailed on friend territory
+badc_00422 _00354 Ala7_West=C= ESCAPED cap: -3 luck: 61
+badc_00422 _00354 Ala7_Maritum=W= ESCAPED Bailed on friend territory
+badc_00422 _00354 Ala7_Atila ESCAPED cap: 12 luck: 26
+badc_00423 _00355 rEd69_Pirutoko ESCAPED cap: -3 luck: 66
+badc_00424 _00356 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00425 _00357 Ala7_ICB ESCAPED Bailed on friend territory
+badc_00425 _00357 III/JG52_Supong ESCAPED cap: 6 luck: 34
+badc_00429 _00361 Ala7_aita ESCAPED Bailed on friend territory
+badc_00429 _00361 Ala7_Wasat ESCAPED Bailed on friend territory
+badc_00429 _00361 TM-El_Matador ESCAPED Bailed on friend territory
+badc_00431 _00363 Ala7_aita ESCAPED Bailed on friend territory
+badc_00431 _00363 E69_aspren ESCAPED cap: 27 luck: 85
+badc_00432 <<*** 07:53:02 =gRiJ=SaoS captured at [ 87496.09 , 80183.695 ]
+*** =gRiJ=SaoS rescued failled
+badc_00433 _00365 Ala7_West=C= ESCAPED cap: -6 luck: 32
+badc_00436 _00368 rEd69_Sinko ESCAPED cap: 15 luck: 59
+badc_00438 _00370 Ala7_Piconero ESCAPED Bailed on friend territory
+badc_00438 <<*** 10:26:22 Ala13_Estampida captured at [ 82174.516 , 85147.234 ]
+--- 10:19:25 III/JG52_Bore landed at [ 82238.3 , 85095.65 ] inside 5km limit
+--- 10:28:45 15.Span_KeBrAn landed at [ 78281.59 , 85135.86 ] inside 5km limit
+*** Ala13_Estampida rescued failled
+badc_00438 <<*** 10:23:49 III/JG52_Bore captured at [ 82260.625 , 85146.3 ]
+--- 10:26:07 Ala13_Estampida landed at [ 82180.87 , 85112.13 ] inside 5km limit
+--- 10:28:45 15.Span_KeBrAn landed at [ 78281.59 , 85135.86 ] inside 5km limit
+*** III/JG52_Bore rescued failled
+badc_00439 <<*** 10:32:31 rEd69_Patrel captured at [ 84624.734 , 94834.8 ]
+*** rEd69_Patrel rescued failled
+badc_00441 _00372 RedEye_Miji ESCAPED Bailed on friend territory
+badc_00441 <<*** 10:57:15 E69_espiral captured at [ 101146.0 , 70876.81 ]
+*** E69_espiral rescued failled
+badc_00442 _00373 rEd69_Chapas ESCAPED Bailed on friend territory
+badc_00442 <<*** 11:28:00 CN_Kanarien captured at [ 91299.664 , 77864.01 ]
+*** CN_Kanarien rescued failled
+badc_00442 _00373 Ala13_Estampida ESCAPED cap: 15 luck: 63
+badc_00442 German recover sector(s) by ttl L.5
+badc_00445 _00376 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00445 _00376 Ala7_Piconero ESCAPED Bailed on friend territory
+badc_00447 _00378 rEd69_Sinko ESCAPED cap: 18 luck: 87
+badc_00448 _00379 Ala7_West=C= ESCAPED cap: 0 luck: 52
+badc_00448 <<*** 13:42:12 SG1_Mino captured at [ 90450.21 , 48804.688 ]
+*** SG1_Mino rescued failled
+badc_00450 _00381 rEd69_Sinko ESCAPED cap: 6 luck: 46
+badc_00455 _00385 Ala7_West=C= CAPTURED cap: 21 luck: 11
+badc_00455 _00385 rEd69_jumulo CAPTURED cap: 12 luck: 2
+badc_00455 _00385 Ala7_javier73 ESCAPED cap: 18 luck: 97
+badc_00455 German recover sector(s) by ttl K.5 J.5
+badc_00459 <<*** 16:26:26 Ala7_West=C= captured at [ 80559.17 , 94254.61 ]
+*** Ala7_West=C= rescued failled
+badc_00459 _00388 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00460 _00389 E69_Qpassa ESCAPED cap: 6 luck: 36
+badc_00462 _00390 rEd69_Sinko ESCAPED cap: 15 luck: 48
+badc_00462 _00390 +FAE_ZULU ESCAPED cap: 6 luck: 85
+badc_00463 <<*** 07:38:39 rEd69_Mudito captured at [ 89302.945 , 88913.7 ]
+*** rEd69_Mudito rescued failled
+badc_00463 _00391 SG1_Bravido ESCAPED Bailed on friend territory
+badc_00464 _00392 RedEye_Miji ESCAPED cap: 24 luck: 58
+badc_00467 <<*** 10:32:53 Ala7_javier73 captured at [ 91575.42 , 77787.97 ]
+*** Ala7_javier73 rescued failled
+badc_00468 <<*** 12:53:07 Ala11_Canduski captured at [ 95624.484 , 66611.46 ]
+*** Ala11_Canduski rescued failled
+badc_00469 <<*** 13:34:19 +FAE_Cormoran captured at [ 108851.56 , 100254.08 ]
+--- 13:40:04 Ala11_Lobo landed at [ 108431.48 , 101481.54 ] inside 5km limit
+*** +FAE_Cormoran rescued failled
+badc_00469 <<*** 13:38:57 E69_Txelin captured at [ 114539.836 , 94964.33 ]
+*** E69_Txelin rescued failled
+badc_00469 <<*** 13:44:39 AA_Absolute captured at [ 116747.84 , 100350.7 ]
+*** AA_Absolute rescued failled
+badc_00471 <<*** 16:09:46 rEd69_Filo captured at [ 99969.69 , 75091.3 ]
+*** rEd69_Filo rescued failled
+badc_00472 _00399 Ala13REstampida ESCAPED Bailed on friend territory
+badc_00474 _00401 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00475 _00402 Ala7_aita CAPTURED cap: 12 luck: 9
+badc_00476 _00403 1/JSpan_Avis ESCAPED Bailed on friend territory
+badc_00478 _00405 15.Span_KeBrAn ESCAPED Bailed on friend territory
+badc_00478 _00405 E69_Qpassa CAPTURED cap: 87 luck: 58
+badc_00480 _00407 Ala7_West=C= ESCAPED Bailed on friend territory
+badc_00480 _00407 Ala7_Maritum=W= ESCAPED Bailed on friend territory
+badc_00481 _00408 rEd69_Sinko CAPTURED cap: 15 luck: 1
+badc_00481 German recover sector(s) by ttl L.6
+badc_00482 <<*** 17:03:03 E69_aspren captured at [ 100366.164 , 93428.31 ]
+*** E69_aspren rescued failled
+badc_00482 German recover sector(s) by ttl I.6
+badc_00483 German recover sector(s) by ttl I.7
+badc_00484 German recover sector(s) by ttl J.7
+badc_00485 _00412 15.Span_KeBrAn ESCAPED Bailed on friend territory
+badc_00485 _00412 E69_carlos CAPTURED cap: 36 luck: 7
+badc_00485 German recover sector(s) by ttl K.7
+badc_00486 <<*** 10:22:06 23_Badboy captured at [ 96261.14 , 79455.29 ]
+*** 23_Badboy rescued failled
+badc_00486 German recover sector(s) by ttl K.15
+badc_00487 <<*** 11:10:19 Ala7_West=C= captured at [ 89427.57 , 76172.96 ]
+--- 11:10:10 Ala7_Hispano landed at [ 92147.55 , 73030.27 ] inside 5km limit
+*** Ala7_West=C= rescued failled
+badc_00487 _00414 rEd69_Sinko ESCAPED cap: 3 luck: 10
+badc_00488 _00415 nokiatune2 ESCAPED Bailed on friend territory
+badc_00488 _00415 E69_espiral ESCAPED Bailed on friend territory
+badc_00488 _00415 1/JSpan_Avis ESCAPED cap: 3 luck: 52
+badc_00491 _00418 +FAE_Popeye ESCAPED Bailed on friend territory
+badc_00492 _00419 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00492 _00419 Ala7_Atila ESCAPED Bailed on friend territory
+badc_00492 _00419 rEd69_Soec ESCAPED Bailed on friend territory
+badc_00492 _00419 Ala7_aita ESCAPED Bailed on friend territory
+badc_00492 _00419 rEd69_jumulo ESCAPED Bailed on friend territory
+badc_00492 _00419 Ala13_BaronKaOs ESCAPED cap: 15 luck: 34
+badc_00493 _00420 TM_El_Matador ESCAPED Bailed on friend territory
+badc_00494 _00421 Ala7_Hispano ESCAPED Bailed on friend territory
+badc_00495 _00422 rEd69_Soec ESCAPED cap: -3 luck: 48
+badc_00496 <<*** 10:09:22 Ala7_Piconero captured at [ 95125.91 , 89642.75 ]
+*** Ala7_Piconero rescued failled
+badc_00496 _00423 SG1_Perrenegger ESCAPED Bailed on friend territory
+badc_00496 German recover sector(s) by ttl J.11
+badc_00497 _00424 Ala7_Atila ESCAPED Bailed on friend territory
+badc_00497 _00424 Ala11_Canduski ESCAPED Bailed on friend territory
+badc_00498 _00425 rEd69_jumulo ESCAPED Bailed on friend territory
+badc_00498 _00425 +FAE_ZULU ESCAPED cap: 66 luck: 79
+badc_00498 _00425 AA_Pepe-pips ESCAPED Bailed on friend territory
+badc_00500 _00427 Ala7_Piconero ESCAPED Bailed on friend territory
+badc_00500 _00427 +FAE_ZULU CAPTURED cap: 21 luck: 5
+badc_00501 _00428 TM_El_Matador ESCAPED cap: 6 luck: 25
+badc_00501 _00428 +FAE_ZULU CAPTURED cap: 72 luck: 45
+badc_00504 _00431 Ala11_Canduski ESCAPED cap: 75 luck: 93
+badc_00507 _00433 rEd69_Sinko ESCAPED cap: 3 luck: 89
+badc_00507 <<*** 10:26:16 rEd69_Accipiter captured at [ 89039.24 , 88304.52 ]
+*** rEd69_Accipiter rescued failled
+badc_00507 _00433 Ala13R_Yanes ESCAPED Bailed on friend territory
+badc_00509 <<*** 12:21:40 Ala7_aita captured at [ 94445.52 , 85275.31 ]
+*** Ala7_aita rescued failled
+badc_00509 _00435 AH_Thor ESCAPED Bailed on friend territory
+badc_00509 German recover sector(s) by ttl L.7 M.6
+badc_00510 German recover sector(s) by ttl O.6
+badc_00511 _00437 Ala7_Atila ESCAPED Bailed on friend territory
+badc_00511 Soviets recover sector(s) by ttl N.6
+badc_00512 _00438 Ala7_ICB ESCAPED Bailed on friend territory
+badc_00512 _00438 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00512 _00438 AA_BullSkin ESCAPED Bailed on friend territory
+badc_00512 Soviets recover sector(s) by ttl N.6
+badc_00513 _00439 CN_Kanarien ESCAPED cap: 6 luck: 31
+badc_00513 <<*** 17:00:59 EV401_Wolf captured at [ 104977.664 , 100459.95 ]
+*** EV401_Wolf rescued failled
+badc_00513 Soviets recover sector(s) by ttl N.6
+badc_00514 Soviets recover sector(s) by ttl N.6
+badc_00514 German recover sector(s) by ttl J.13 J.12
+badc_00526 <<*** 10:44:06 ESV_cbhierro captured at [ 119280.75 , 34757.844 ]
+*** ESV_cbhierro rescued failled
+badc_00529 _00446 FAE_Pinguino ESCAPED cap: 3 luck: 15
+badc_00531 _00448 15.Span_Angel14 ESCAPED cap: 12 luck: 21
+badc_00532 _00449 AH_Thor ESCAPED Bailed on friend territory
+badc_00533 _00450 SG1_Majo ESCAPED cap: 0 luck: 80
+badc_00533 _00450 SG1_sKor!a ESCAPED cap: 3 luck: 4
+badc_00533 _00450 AH_Thor ESCAPED Bailed on friend territory
+badc_00534 _00451 23_Badboy CAPTURED cap: 33 luck: 7
+badc_00534 _00451 RedEye_Tumu ESCAPED cap: 33 luck: 37
+badc_00535 <<*** 09:22:30 rEd69_Jack_Aub captured at [ 105171.83 , 37233.75 ]
+*** rEd69_Jack_Aub rescued failled
+badc_00535 _00452 23_Badboy ESCAPED cap: 33 luck: 62
+badc_00536 <<*** 10:53:38 FAE_Cormoran captured at [ 100527.83 , 40874.754 ]
+*** FAE_Cormoran rescued failled
+badc_00536 _00453 rEd69_Jack_Aub ESCAPED cap: 15 luck: 75
+badc_00537 _00454 rEd69_Jack_Aub CAPTURED cap: 33 luck: 7
+badc_00540 _00457 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00541 _00458 AH_Thor ESCAPED cap: 6 luck: 53
+badc_00541 _00458 AA_BullSkin ESCAPED cap: 27 luck: 64
+badc_00541 <<*** 16:37:52 CN_Kanarien captured at [ 112020.61 , 119407.77 ]
+*** CN_Kanarien rescued failled
+badc_00541 <<*** 16:43:03 E69_kOgollo captured at [ 106419.414 , 100984.27 ]
+*** E69_kOgollo rescued failled
+badc_00544 _00461 Ala13R_Baron ESCAPED cap: -6 luck: 44
+badc_00546 <<*** 10:42:06 AA_BullSkin captured at [ 100520.18 , 54212.312 ]
+*** AA_BullSkin rescued failled
+badc_00546 _00463 AH_Thor ESCAPED cap: 0 luck: 51
+badc_00548 <<*** 13:10:15 Ala13R_fazer captured at [ 100947.91 , 39750.91 ]
+*** Ala13R_fazer rescued failled
+badc_00548 <<*** 13:08:24 FAE_Cormoran captured at [ 95790.12 , 31009.494 ]
+--- 13:16:07 FAE_ZULU landed at [ 95721.09 , 30591.955 ] inside 5km limit
+- 13:19:55 FAE_ZULU take off at [ 96313.09 , 32933.434 ] 
+- distance to land place: 423 meters
+- distance to toff place: 493 meters
+- distance used to walk: 423 meters
+- captured secs:47304
+- land_secs:47767
+- toff_secs:47995
+- start walk:47707
+- stop walk=47975
+- walk time=268
+- wounded=0 > walk speed=5 m/s > walk distance=1340 meters
+- Distance inside range or 2 minutes walk time
+- Looking for FAE_ZULU return to base: Found!
+*** FAE_Cormoran rescued by FAE_ZULU
+badc_00548 _00465 Ala11_Canduski CAPTURED cap: 78 luck: 73
+badc_00551 _00468 Ala7_Piconero CAPTURED cap: 33 luck: 21
+badc_00551 _00468 AA_Absolute ESCAPED cap: 15 luck: 80
+badc_00552 _00469 rEd69_Sinko ESCAPED cap: 15 luck: 84
+badc_00557 _00473 SG1_sKor!a ESCAPED Bailed on friend territory
+badc_00559 _00475 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00559 Soviets recover sector(s) by ttl K.1
+badc_00560 Soviets recover sector(s) by ttl J.5 K.2 L.2 L.3
+badc_00560 German recover sector(s) by ttl J.7 J.8
+badc_00564 <<*** 17:49:25 AA_GUSTAV captured at [ 128185.83 , 96627.47 ]
+*** AA_GUSTAV rescued failled
+badc_00565 _00480 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00565 Soviets recover sector(s) by ttl L.5
+badc_00566 _00481 E111_Mirlin ESCAPED cap: 3 luck: 89
+badc_00566 _00481 Ala13R_florete ESCAPED cap: 6 luck: 48
+badc_00566 _00481 III/JG52_Supong ESCAPED cap: 3 luck: 52
+badc_00567 German recover sector(s) by ttl J.5
+badc_00569 <<*** 10:48:28 AHR_MOHAWK captured at [ 106755.734 , 37595.86 ]
+*** AHR_MOHAWK rescued failled
+badc_00569 _00483 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00569 <<*** 10:58:02 1/JSpan_Juank captured at [ 113969.7 , 61904.2 ]
+*** 1/JSpan_Juank rescued failled
+badc_00569 Soviets recover sector(s) by ttl J.5
+badc_00570 _00484 E69_espiral ESCAPED Bailed on friend territory
+badc_00570 _00484 1/JSpan_Juank CAPTURED cap: 27 luck: 1
+badc_00570 German recover sector(s) by ttl J.5
+badc_00572 <<*** 12:38:42 AH_Thor captured at [ 125745.945 , 81054.29 ]
+*** AH_Thor rescued failled
+badc_00575 _00488 ESV_Jap ESCAPED Bailed on friend territory
+badc_00577 <<*** 17:23:03 Ala13_Abm captured at [ 127343.664 , 53408.793 ]
+*** Ala13_Abm rescued failled
+badc_00578 Soviets recover sector(s) by ttl J.12
+badc_00579 _00491 Ala13R_florete ESCAPED cap: 6 luck: 34
+badc_00579 German recover sector(s) by ttl K.2
+badc_00580 Soviets recover sector(s) by ttl K.2 K.5
+badc_00581 _00493 1/JSpan_PESO ESCAPED cap: 9 luck: 60
+badc_00582 Soviets recover sector(s) by ttl J.5 L.4
+badc_00584 _00496 E69_espiral ESCAPED Bailed on friend territory
+badc_00585 _00497 E69_oli ESCAPED Bailed on friend territory
+badc_00590 _00501 AH_Thor ESCAPED Bailed on friend territory
+badc_00590 German recover sector(s) by ttl J.5 K.2
+badc_00594 _00503 rEd69_jumulo ESCAPED cap: -3 luck: 39
+badc_00594 German recover sector(s) by ttl J.6
+badc_00598 _00505 FAE_Popeye ESCAPED cap: 69 luck: 82
+badc_00598 Soviets recover sector(s) by ttl K.2
+badc_00599 _00506 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00599 _00506 SG1_Mino ESCAPED Bailed on friend territory
+badc_00601 <<*** 16:39:38 Ala13R_Poike captured at [ 104031.25 , 23211.613 ]
+*** Ala13R_Poike rescued failled
+badc_00602 <<*** 17:37:56 E69_oli captured at [ 119334.93 , 35798.68 ]
+*** E69_oli rescued failled
+badc_00602 _00509 E69_jumulo ESCAPED Bailed on friend territory
+badc_00603 _00510 SG1_Arode ESCAPED Bailed on friend territory
+badc_00604 _00511 FAE_Cormoran ESCAPED cap: 9 luck: 13
+badc_00604 _00511 1/JSpan_Avis ESCAPED Bailed on friend territory
+badc_00604 _00511 AH_Thor ESCAPED Bailed on friend territory
+badc_00605 _00512 E69_espiral CAPTURED cap: 30 luck: 18
+badc_00605 Soviets recover sector(s) by ttl H.10 I.9 I.10 I.11
+badc_00606 _00513 Ala13R_florete ESCAPED Bailed on friend territory
+badc_00606 _00513 AA_Absolute ESCAPED cap: 9 luck: 70
+badc_00606 _00513 E69_Sinko CAPTURED cap: 39 luck: 34
+badc_00607 German recover sector(s) by ttl H.10
+badc_00608 <<*** 12:50:21 1/JSpan_Zabdi captured at [ 84869.43 , 91659.55 ]
+*** 1/JSpan_Zabdi rescued failled
+badc_00608 Soviets recover sector(s) by ttl H.10
+badc_00609 Soviets recover sector(s) by ttl H.9
+badc_00609 German recover sector(s) by ttl K.2
+badc_00610 Soviets recover sector(s) by ttl K.2
+badc_00612 _00519 RedEye_Jir CAPTURED cap: 3 luck: 1
+badc_00612 _00519 AA_Absolute ESCAPED Bailed on friend territory
+badc_00612 _00519 AH_Thor ESCAPED Bailed on friend territory
+badc_00613 _00520 FAE_ZULU ESCAPED Bailed on friend territory
+badc_00613 _00520 RedEye_Jir ESCAPED Bailed on friend territory
+badc_00613 _00520 AH_Thor ESCAPED cap: 3 luck: 11
+badc_00613 Soviets recover sector(s) by ttl J.6
+badc_00615 _00522 rEd69_Sinko CAPTURED cap: 84 luck: 81
+badc_00615 <<*** 08:46:01 EV401_Wolf captured at [ 111840.72 , 45826.062 ]
+--- 08:39:20 E69_espiral landed at [ 108431.72 , 49120.66 ] inside 5km limit
+*** EV401_Wolf rescued failled
+badc_00618 _00525 AH_Thor ESCAPED cap: 24 luck: 74
+badc_00618 _00525 AA_Absolute ESCAPED cap: 6 luck: 21
+badc_00619 _00526 AH_Thor ESCAPED cap: 36 luck: 48
+badc_00619 German recover sector(s) by ttl K.2
+badc_00621 Soviets recover sector(s) by ttl K.2
+badc_00622 _00529 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00623 German recover sector(s) by ttl K.2
+badc_00624 Soviets recover sector(s) by ttl H.11 J.8
+badc_00625 <<*** 08:49:55 SG1_Sturmbomber captured at [ 112921.73 , 45293.055 ]
+*** SG1_Sturmbomber rescued failled
+badc_00626 Soviets recover sector(s) by ttl J.5
+badc_00628 Soviets recover sector(s) by ttl I.5 K.5
+badc_00629 _00536 AH_Thor ESCAPED Bailed on friend territory
+badc_00631 _00538 AA_BullSkin ESCAPED cap: 33 luck: 45
+badc_00631 German recover sector(s) by ttl H.11
+badc_00633 <<*** 18:09:05 ESV_Spinone captured at [ 100189.49 , 31608.22 ]
+*** ESV_Spinone rescued failled
+badc_00633 Soviets recover sector(s) by ttl L.4
+badc_00633 German recover sector(s) by ttl I.5
+badc_00635 _00542 Ala13R_Baron ESCAPED Bailed on friend territory
+badc_00635 <<*** 09:13:27 1/JSpan_Juank captured at [ 112617.47 , 51023.047 ]
+*** 1/JSpan_Juank rescued failled
+badc_00635 Soviets recover sector(s) by ttl I.5
+badc_00637 German recover sector(s) by ttl I.5
+badc_00639 _00546 AA_Absolute CAPTURED cap: 132 luck: 63
+badc_00640 Soviets recover sector(s) by ttl K.2
+badc_00641 Soviets recover sector(s) by ttl I.5
+badc_00641 German recover sector(s) by ttl K.2
+badc_00642 German recover sector(s) by ttl I.5
+badc_00644 _00551 FAE_Cormoran CAPTURED cap: 132 luck: 34
+badc_00644 Soviets recover sector(s) by ttl I.5
+badc_00645 German recover sector(s) by ttl I.5
+badc_00647 <<*** 11:32:00 FAE_ZULU captured at [ 107590.44 , 36566.94 ]
+--- 11:41:38 AHR_MOHAWK landed at [ 109512.7 , 37118.266 ] inside 5km limit
+- 11:44:52 AHR_MOHAWK take off at [ 108698.07 , 36306.086 ] 
+- distance to land place: 1999 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:41520
+- land_secs:42098
+- toff_secs:42292
+- start walk:42038
+- stop walk=42272
+- walk time=234
+- wounded=0 > walk speed=5 m/s > walk distance=1170 meters
+- Distance inside range or 2 minutes walk time
+- Looking for AHR_MOHAWK return to base: Found!
+*** FAE_ZULU rescued by AHR_MOHAWK
+badc_00647 _00554 AA_BullSkin ESCAPED Bailed on friend territory
+badc_00647 Soviets recover sector(s) by ttl I.5 K.2
+badc_00648 _00555 E69_oli ESCAPED Bailed on friend territory
+badc_00652 <<*** 17:10:52 ESV_Jap captured at [ 93800.414 , 28806.117 ]
+*** ESV_Jap rescued failled
+badc_00654 Soviets recover sector(s) by ttl J.1
+badc_00655 Soviets recover sector(s) by ttl J.13
+badc_00659 _00566 Ala11_Canduski ESCAPED cap: -3 luck: 70
+badc_00659 <<*** 14:15:50 III/JG52_Supong captured at [ 99266.44 , 90413.305 ]
+*** III/JG52_Supong rescued failled
+badc_00659 Soviets recover sector(s) by ttl I.4 J.2 J.3
+badc_00660 German recover sector(s) by ttl H.9 H.10
+badc_00664 _00571 FAE_ZULU ESCAPED cap: 9 luck: 57
+badc_00665 _00572 FAE_ZULU ESCAPED cap: 9 luck: 13
+badc_00665 _00572 FAE_Cormoran ESCAPED cap: -3 luck: 73
+badc_00665 _00572 23_Badboy ESCAPED cap: 3 luck: 10
+badc_00665 Soviets recover sector(s) by ttl J.4
+badc_00668 _00575 FAE_Coyote ESCAPED Bailed on friend territory
+badc_00669 _00576 rEd69_jumulo ESCAPED cap: -6 luck: 58
+badc_00669 _00576 SG1_Mino ESCAPED Bailed on friend territory
+badc_00670 _00577 00_Check ESCAPED cap: 12 luck: 53
+badc_00671 <<*** 15:54:20 FAE_Cormoran captured at [ 106670.55 , 152639.34 ]
+--- 16:06:50 RedEye_Tumu landed at [ 106501.875 , 151061.61 ] inside 5km limit
+- 16:16:51 RedEye_Tumu take off at [ 106613.3 , 150196.84 ] 
+- distance to land place: 1586 meters
+- distance to toff place: 943 meters
+- distance used to walk: 943 meters
+- captured secs:57260
+- land_secs:58010
+- toff_secs:58611
+- start walk:57950
+- stop walk=58591
+- walk time=641
+- wounded=0 > walk speed=5 m/s > walk distance=3205 meters
+- Distance inside range or 2 minutes walk time
+- Looking for RedEye_Tumu return to base: Found!
+*** FAE_Cormoran rescued by RedEye_Tumu
+badc_00672 _00579 E69_oli ESCAPED Bailed on friend territory
+badc_00672 _00579 AH_Thor ESCAPED Bailed on friend territory
+badc_00673 <<*** 18:07:01 FAE_Cazador captured at [ 75549.586 , 120568.85 ]
+*** FAE_Cazador rescued failled
+badc_00673 _00580 Ala13R_Baron ESCAPED Bailed on friend territory
+badc_00674 _00581 FAE_ZULU ESCAPED cap: 9 luck: 95
+badc_00674 Soviets recover sector(s) by ttl J.7
+badc_00675 _00582 FAE_ZULU ESCAPED Bailed on friend territory
+badc_00676 _00583 rEd69_Qpassa ESCAPED cap: 27 luck: 85
+badc_00678 _00585 AH_Thor ESCAPED Bailed on friend territory
+badc_00679 Soviets recover sector(s) by ttl I.1
+badc_00680 _00587 AA_GUSTAV ESCAPED cap: 45 luck: 61
+badc_00681 _00588 FAE_Cuervo ESCAPED Bailed on friend territory
+badc_00681 _00588 rEd69_Qpassa ESCAPED Bailed on friend territory
+badc_00681 _00588 AA_GUSTAV ESCAPED cap: 0 luck: 11
+badc_00682 _00589 ESV_Spinone ESCAPED Bailed on friend territory
+badc_00682 _00589 AA_GUSTAV CAPTURED cap: 51 luck: 47
+badc_00682 Soviets recover sector(s) by ttl I.2 I.3
+badc_00684 Soviets recover sector(s) by ttl K.14
+badc_00685 _00592 rEd69_Sinko ESCAPED cap: 6 luck: 87
+badc_00685 <<*** 08:38:40 rEd69_oli captured at [ 81626.875 , 109142.555 ]
+*** rEd69_oli rescued failled
+badc_00685 _00592 SG1_Majo ESCAPED Bailed on friend territory
+badc_00687 _00594 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00696 _00595 Ala13R_Baron ESCAPED cap: 12 luck: 26
+badc_00696 Soviets recover sector(s) by ttl J.12 J.13 J.14 J.15 J.16 K.6
+badc_00696 German recover sector(s) by ttl K.7 L.7 O.2 P.2 Q.1
+badc_00698 _00597 AA_Absolute ESCAPED cap: 9 luck: 35
+badc_00698 <<*** 15:11:49 E69_espiral captured at [ 125071.73 , 39964.742 ]
+*** E69_espiral rescued failled
+badc_00699 _00598 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00699 Soviets recover sector(s) by ttl P.2 Q.1
+badc_00701 _00600 FAE_ZULU CAPTURED cap: 33 luck: 15
+badc_00701 _00600 Ala13R_Baron CAPTURED cap: 27 luck: 3
+badc_00701 _00600 AA_GUSTAV ESCAPED Bailed on friend territory
+badc_00704 German recover sector(s) by ttl P.2 Q.1
+badc_00706 <<*** 09:14:34 III/JG52_Abm captured at [ 109024.32 , 86961.53 ]
+*** III/JG52_Abm rescued failled
+badc_00708 _00604 FAE_ZULU ESCAPED cap: 0 luck: 38
+badc_00712 _00607 ESV_Spinone ESCAPED cap: -3 luck: 41
+badc_00713 <<*** 16:29:00 rEd69_Filo captured at [ 92736.14 , 92929.664 ]
+*** rEd69_Filo rescued failled
+badc_00715 _00610 Pupo ESCAPED Bailed on friend territory
+badc_00715 Soviets recover sector(s) by ttl Q.1
+badc_00717 _00611 00_Lukather ESCAPED Bailed on friend territory
+badc_00717 Soviets recover sector(s) by ttl P.2
+badc_00718 <<*** 09:13:37 AHR_MOHAWK captured at [ 120069.46 , 22386.479 ]
+*** AHR_MOHAWK rescued failled
+badc_00719 <<*** 09:48:41 III/JG52_Supong captured at [ 118004.79 , 43870.86 ]
+*** III/JG52_Supong rescued failled
+badc_00720 _00614 E69_carlos ESCAPED Bailed on friend territory
+badc_00723 _00617 Pupo ESCAPED cap: 0 luck: 97
+badc_00726 <<*** 18:37:07 rEd69_oli captured at [ 117813.48 , 23392.201 ]
+*** rEd69_oli rescued failled
+badc_00728 _00622 AA_BullSkin ESCAPED cap: -3 luck: 38
+badc_00729 _00623 rEd69_manfred ESCAPED Bailed on friend territory
+badc_00731 _00625 rEd69_Juanta ESCAPED cap: 9 luck: 42
+badc_00732 German recover sector(s) by ttl K.6 N.3
+badc_00733 German recover sector(s) by ttl L.6 M.6
+badc_00734 German recover sector(s) by ttl L.5 M.4
+badc_00737 _00629 rEd69_oli ESCAPED Bailed on friend territory
+badc_00737 _00629 SG1_Majo CAPTURED cap: 57 luck: 0
+badc_00739 Soviets recover sector(s) by ttl L.7
+badc_00739 German recover sector(s) by ttl P.2 Q.1
+badc_00740 _00631 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00740 German recover sector(s) by ttl N.4 O.3
+badc_00742 Soviets recover sector(s) by ttl O.3 P.2 Q.1
+badc_00745 Soviets recover sector(s) by ttl J.9
+badc_00745 German recover sector(s) by ttl O.3
+badc_00750 Soviets recover sector(s) by ttl J.10 J.11
+badc_00751 Soviets recover sector(s) by ttl O.3
+badc_00749 _00637 SG1_Sturmbomber ESCAPED Bailed on friend territory
+badc_00752 _00638 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00752 <<*** 15:06:40 E69_espiral captured at [ 145714.3 , 53670.54 ]
+*** E69_espiral rescued failled
+badc_00752 <<*** 15:02:12 E69_Outlaw captured at [ 154330.98 , 47563.684 ]
+*** E69_Outlaw rescued failled
+badc_00752 German recover sector(s) by ttl O.3 P.2
+badc_00753 _00639 FAE_Cormoran ESCAPED cap: 6 luck: 89
+badc_00755 Soviets recover sector(s) by ttl I.9 K.7 P.2
+badc_00756 <<*** 09:35:28 E69_carlos captured at [ 149956.72 , 44721.652 ]
+--- 09:27:16 Pupo landed at [ 150844.14 , 44747.016 ] inside 5km limit
+*** E69_carlos rescued failled
+badc_00756 German recover sector(s) by ttl N.6 P.2 Q.1
+badc_00758 _00644 23_Badboy ESCAPED Bailed on friend territory
+badc_00758 <<*** 11:24:53 E69_espiral captured at [ 150832.72 , 39606.125 ]
+*** E69_espiral rescued failled
+badc_00761 _00647 rEd69_Filo CAPTURED cap: 54 luck: 22
+badc_00761 Soviets recover sector(s) by ttl G.9
+badc_00765 _00650 ESV_Spinone ESCAPED Bailed on friend territory
+badc_00765 _00650 FAE_ZULU ESCAPED Bailed on friend territory
+badc_00769 _00652 FAE_Cormoran CAPTURED cap: 66 luck: 34
+badc_00769 _00652 E69_oli ESCAPED Bailed on friend territory
+badc_00772 _00653 rEd69_Sinko ESCAPED cap: 9 luck: 76
+badc_00772 <<*** 09:58:24 FAE_Cormoran captured at [ 45569.164 , 61494.656 ]
+*** FAE_Cormoran rescued failled
+badc_00773 _00654 Ala13_BaronKaOs ESCAPED cap: -6 luck: 22
+badc_00773 <<*** 11:27:48 E69_espiral captured at [ 79231.57 , 96417.24 ]
+*** E69_espiral rescued failled
+badc_00773 <<*** 11:30:58 III/JG52_Supong captured at [ 105544.78 , 92129.73 ]
+--- 11:32:01 =gRiJ=Toro landed at [ 108597.125 , 91890.945 ] inside 5km limit
+*** III/JG52_Supong rescued failled
+badc_00773 <<*** 11:24:01 SG1_Mino captured at [ 107575.85 , 93920.88 ]
+--- 11:32:01 =gRiJ=Toro landed at [ 108597.125 , 91890.945 ] inside 5km limit
+*** SG1_Mino rescued failled
+badc_00774 <<*** 12:04:25 III/JG52_Centa captured at [ 103435.06 , 86463.72 ]
+*** III/JG52_Centa rescued failled
+badc_00775 <<*** 14:39:49 FAE_Cormoran captured at [ 117059.234 , 44673.664 ]
+*** FAE_Cormoran rescued failled
+badc_00775 _00656 FAE_ZULU ESCAPED cap: 3 luck: 90
+badc_00775 Soviets recover sector(s) by ttl H.9 I.10 I.11
+badc_00776 _00657 AA_BullSkin CAPTURED cap: 36 luck: 16
+badc_00777 German recover sector(s) by ttl N.5
+badc_00778 _00659 Pupo ESCAPED cap: 81 luck: 87
+badc_00788 <<*** 12:36:03 rEd69_Sinko captured at [ 67205.04 , 111226.95 ]
+*** rEd69_Sinko rescued failled
+badc_00789 <<*** 14:24:22 E69_oli captured at [ 70412.78 , 90092.17 ]
+*** E69_oli rescued failled
+badc_00798 <<*** 18:41:06 rEd69_alfjinete captured at [ 66378.85 , 104903.82 ]
+*** rEd69_alfjinete rescued failled
+badc_00798 <<*** 18:28:30 E69_Patrel captured at [ 73291.164 , 98648.03 ]
+*** E69_Patrel rescued failled
+badc_00799 _00671 E69_cvchavo ESCAPED Bailed on friend territory
+badc_00800 <<*** 08:49:22 rEd69_manfred captured at [ 120014.46 , 38643.07 ]
+*** rEd69_manfred rescued failled
+badc_00801 _00673 E69_oli ESCAPED Bailed on friend territory
+badc_00801 _00673 Pupo ESCAPED Bailed on friend territory
+badc_00808 _00675 Ala13_BaronKaOs ESCAPED Bailed on friend territory
+badc_00808 <<*** 12:22:04 E69_espiral captured at [ 137656.31 , 93347.555 ]
+--- 12:29:49 E69_atch landed at [ 140410.34 , 92870.875 ] inside 5km limit
+*** E69_espiral rescued failled
+badc_00808 Soviets recover sector(s) by ttl H.11 I.12
+badc_00811 Soviets recover sector(s) by ttl G.10 G.11
+badc_00812 _00678 E69_oli ESCAPED cap: 18 luck: 68
+badc_00813 <<*** 17:43:46 E69_carlos captured at [ 163711.0 , 77264.23 ]
+*** E69_carlos rescued failled
+badc_00816 _00680 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00816 _00680 E69_Botijo CAPTURED cap: 63 luck: 11
+badc_00816 German recover sector(s) by ttl L.7
+badc_00817 Soviets recover sector(s) by ttl L.7
+badc_00818 Soviets recover sector(s) by ttl H.12 I.13
+badc_00820 _00684 E69_oli ESCAPED Bailed on friend territory
+badc_00820 German recover sector(s) by ttl O.4 O.6 P.3 P.4 P.6 Q.2 Q.3 Q.4 Q.5 R.2 R.3 R.4 R.5 S.2 S.3 S.4
+badc_00821 _00685 rEd69_Alado ESCAPED cap: 24 luck: 33
+badc_00821 Soviets recover sector(s) by ttl J.7
+badc_00821 German recover sector(s) by ttl L.7
+badc_00822 _00686 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00824 German recover sector(s) by ttl G.9
+badc_00825 Soviets recover sector(s) by ttl G.9
+badc_00825 German recover sector(s) by ttl Q.6
+badc_00827 _00691 rEd69_oli ESCAPED Bailed on friend territory
+badc_00830 <<*** 11:07:54 E69_carlos captured at [ 163084.12 , 66489.24 ]
+*** E69_carlos rescued failled
+badc_00830 German recover sector(s) by ttl O.7
+badc_00831 <<*** 12:59:52 rEd69_antiguo captured at [ 46349.855 , 104190.97 ]
+*** rEd69_antiguo rescued failled
+badc_00831 Soviets recover sector(s) by ttl F.14 H.14 I.14
+badc_00831 German recover sector(s) by ttl R.6
+badc_00833 Soviets recover sector(s) by ttl F.14
+badc_00834 _00697 E69_oli ESCAPED Bailed on friend territory
+badc_00834 Soviets lost sector(s) isolated F.14
+badc_00834 German recover sector(s) by ttl H.12 H.14
+badc_00836 Soviets recover sector(s) by ttl I.15 I.16
+badc_00837 _00699 Ala13R_Baron ESCAPED Bailed on friend territory
+badc_00837 German recover sector(s) by ttl G.9 H.12
+badc_00838 German lost sector(s) isolated H.12
+badc_00838 Soviets recover sector(s) by ttl F.14 G.9 G.14 H.14
+badc_00838 German recover sector(s) by ttl S.6
+badc_00839 <<*** 08:27:50 E69_espiral captured at [ 70045.36 , 95422.12 ]
+*** E69_espiral rescued failled
+badc_00839 Soviets recover sector(s) by ttl L.7
+badc_00841 <<*** 10:21:05 rEd69_Starbuck captured at [ 32887.363 , 123257.96 ]
+*** rEd69_Starbuck rescued failled
+badc_00841 German recover sector(s) by ttl L.7
+badc_00843 <<*** 12:40:04 E69_metaliving captured at [ 166045.97 , 65346.81 ]
+*** E69_metaliving rescued failled
+badc_00844 German recover sector(s) by ttl M.7
+badc_00845 Soviets recover sector(s) by ttl S.6
+badc_00847 _00709 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00847 <<*** 17:15:32 Pupo captured at [ 52912.586 , 118991.32 ]
+*** Pupo rescued failled
+badc_00850 German recover sector(s) by ttl S.6
+badc_00851 Soviets recover sector(s) by ttl S.6
+badc_00851 German recover sector(s) by ttl G.9
+badc_00852 <<*** 11:11:14 rEd69_Accipiter captured at [ 33047.543 , 122587.15 ]
+*** rEd69_Accipiter rescued failled
+badc_00855 Soviets recover sector(s) by ttl G.9
+badc_00856 German lost sector(s) isolated H.10
+badc_00856 German recover sector(s) by ttl G.9
+badc_00858 _00719 E69_Heracles ESCAPED Bailed on friend territory
+badc_00858 _00719 Ala11_Canduski ESCAPED Bailed on friend territory
+badc_00859 German lost sector(s) isolated Q.8
+badc_00859 German recover sector(s) by ttl N.7 S.6 S.7
+badc_00860 Soviets recover sector(s) by ttl S.6 S.7
+badc_00860 German recover sector(s) by ttl F.12
+badc_00862 Soviets recover sector(s) by ttl F.12
+badc_00863 <<*** 12:13:27 E69-Oldcrow captured at [ 40954.36 , 125478.58 ]
+*** E69-Oldcrow rescued failled
+badc_00863 _00724 E69_Novato ESCAPED Bailed on friend territory
+badc_00864 Soviets recover sector(s) by ttl A.13 B.11 B.12 B.13 B.14
+badc_00865 <<*** 13:51:41 E69_Outlaw captured at [ 35187.887 , 123997.625 ]
+*** E69_Outlaw rescued failled
+badc_00865 Soviets recover sector(s) by ttl C.12 C.13 C.14 D.14 E.14
+badc_00866 <<*** 14:26:13 rEd69_Hellboy captured at [ 46146.395 , 103705.39 ]
+--- 14:27:06 rEd69_Starbuck landed at [ 45481.13 , 102899.734 ] inside 5km limit
+*** rEd69_Hellboy rescued failled
+badc_00866 German lost sector(s) isolated D.13
+badc_00866 German recover sector(s) by ttl A.13 B.11 B.12 B.13 B.14 C.12 C.13 C.14 D.14 E.14 F.12
+badc_00867 <<*** 16:04:58 Pupo captured at [ 38363.355 , 120839.29 ]
+*** Pupo rescued failled
+badc_00867 Soviets recover sector(s) by ttl A.13 B.11 B.12 B.13 B.14 C.11 C.12 C.13 C.14 D.10 D.11 D.14 E.10 E.14 F.11 F.12
+badc_00868 Soviets recover sector(s) by ttl A.14
+badc_00869 German recover sector(s) by ttl I.9 J.7 K.7
+badc_00871 _00732 RedSun_Tumu ESCAPED Bailed on friend territory
+badc_00872 _00733 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00875 _00736 Puporojo ESCAPED cap: 0 luck: 62
+badc_00875 Soviets recover sector(s) by ttl I.9 J.7 K.7
+badc_00876 Soviets recover sector(s) by ttl G.9
+badc_00877 _00738 rEd69_Hellboy ESCAPED Bailed on friend territory
+badc_00877 Soviets recover sector(s) by ttl B.15
+badc_00877 German recover sector(s) by ttl G.9
+badc_00879 Soviets recover sector(s) by ttl G.9
+badc_00881 German recover sector(s) by ttl I.9 J.7 K.7 L.8
+badc_00882 _00742 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_00883 Soviets recover sector(s) by ttl I.9 J.7 K.7 L.8
+badc_00884 <<*** 11:07:48 E69_Bucaral captured at [ 72785.76 , 52500.89 ]
+*** E69_Bucaral rescued failled
+badc_00884 <<*** 11:00:47 E69_metaliving captured at [ 92295.85 , 72540.836 ]
+*** E69_metaliving rescued failled
+badc_00884 _00744 AA_BullSkin ESCAPED cap: 30 luck: 68
+badc_00884 _00744 SG1_Gunkan ESCAPED Bailed on friend territory
+badc_00886 <<*** 14:23:14 E69_oli captured at [ 94448.52 , 80619.23 ]
+*** E69_oli rescued failled
+badc_00886 Soviets recover sector(s) by ttl L.7
+badc_00887 Soviets recover sector(s) by ttl C.10
+badc_00887 German recover sector(s) by ttl L.7
+badc_00888 _00748 Pupo ESCAPED cap: 24 luck: 73
+badc_00888 <<*** 15:54:31 E69Osiris65 captured at [ 92906.83 , 79432.805 ]
+*** E69Osiris65 rescued failled
+badc_00891 <<*** 07:39:52 Pupo captured at [ 73910.43 , 84653.016 ]
+*** Pupo rescued failled
+badc_00891 <<*** 07:32:49 E69_malaRky captured at [ 68953.03 , 96865.63 ]
+*** E69_malaRky rescued failled
+badc_00893 _00753 VCP_LaRocco ESCAPED Bailed on friend territory
+badc_00894 _00754 puporojo ESCAPED Bailed on friend territory
+badc_00894 _00754 rEd69_Jack_Aub ESCAPED Bailed on friend territory
+badc_00894 _00754 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_00895 _00755 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_00896 <<*** 14:14:15 rEd69_Sinko captured at [ 38086.19 , 62094.47 ]
+*** rEd69_Sinko rescued failled
+badc_00898 _00758 rEd69_Starbuck CAPTURED cap: 54 luck: 10
+badc_00898 <<*** 16:26:29 E69_Bucaral captured at [ 29507.031 , 76642.62 ]
+*** E69_Bucaral rescued failled
+badc_00898 <<*** 16:25:49 rEd69_Juanta captured at [ 34941.312 , 76644.305 ]
+*** rEd69_Juanta rescued failled
+badc_00900 Soviets recover sector(s) by ttl C.15 D.15 E.15
+badc_00901 German recover sector(s) by ttl P.7 S.6
+badc_00902 Soviets recover sector(s) by ttl P.7 S.6
+badc_00906 _00765 rEd69_Jack_Aub ESCAPED Bailed on friend territory
+badc_00907 Soviets recover sector(s) by ttl A.16 B.16 C.16
+badc_00907 German recover sector(s) by ttl P.7 S.6
+badc_00908 _00767 rEd69_Jack_Aub CAPTURED cap: 51 luck: 18
+badc_00909 _00768 rEd69_Sinko ESCAPED cap: 36 luck: 91
+badc_00909 _00768 rEd69_Starbuck ESCAPED cap: 51 luck: 94
+badc_00910 <<*** 17:08:04 rEd69_Sinko captured at [ 25823.568 , 86603.23 ]
+*** rEd69_Sinko rescued failled
+badc_00910 Soviets recover sector(s) by ttl P.7 S.6
+badc_00911 <<*** 18:18:49 RedEye_Edu captured at [ 53999.71 , 62312.582 ]
+*** RedEye_Edu rescued failled
+badc_00911 _00770 RedEye_Miji CAPTURED cap: 75 luck: 19
+badc_00911 Soviets recover sector(s) by ttl F.9
+badc_00912 <<*** 07:40:37 rEd69_Hellboy captured at [ 66541.06 , 149267.39 ]
+--- 07:35:48 rEd69_Starbuck landed at [ 69816.36 , 149492.52 ] inside 5km limit
+*** rEd69_Hellboy rescued failled
+badc_00912 <<*** 07:36:04 rEd69_Starbuck captured at [ 69856.56 , 149501.17 ]
+*** rEd69_Starbuck rescued failled
+badc_00912 _00771 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00912 <<*** 07:40:34 E69_jumulo captured at [ 164081.23 , 77100.49 ]
+*** E69_jumulo rescued failled
+badc_00912 German recover sector(s) by ttl P.7 S.6
+badc_00913 _00772 rEd69_Sinko CAPTURED cap: 87 luck: 62
+badc_00914 Soviets recover sector(s) by ttl P.7 S.6
+badc_00915 _00774 Ala13_BaronKaOs ESCAPED Bailed on friend territory
+badc_00915 German recover sector(s) by ttl P.7 S.6
+badc_00916 <<*** 12:44:52 Pupo captured at [ 165721.11 , 60870.59 ]
+*** Pupo rescued failled
+badc_00916 Soviets recover sector(s) by ttl P.7 S.6
+badc_00917 <<*** 14:44:28 rEd69_Juanta captured at [ 134730.55 , 28375.13 ]
+*** rEd69_Juanta rescued failled
+badc_00917 German recover sector(s) by ttl P.7 S.6
+badc_00918 _00777 rEd69_antiguo ESCAPED cap: 0 luck: 74
+badc_00918 _00777 E69_Rayonant ESCAPED Bailed on friend territory
+badc_00918 Soviets recover sector(s) by ttl E.9 P.7 S.6
+badc_00919 _00778 rEd69_Vulcanel ESCAPED cap: 42 luck: 65
+badc_00920 <<*** 17:53:07 rEd69_Hellboy captured at [ 63789.664 , 154883.97 ]
+--- 17:43:31 rEd69_Gusanako landed at [ 64648.535 , 154034.3 ] inside 5km limit
+*** rEd69_Hellboy rescued failled
+badc_00920 <<*** 17:44:04 rEd69_Gusanako captured at [ 64616.98 , 154018.42 ]
+--- 17:52:45 rEd69_Hellboy landed at [ 63732.91 , 154913.0 ] inside 5km limit
+*** rEd69_Gusanako rescued failled
+badc_00920 _00779 rEd69_Sinko ESCAPED cap: 33 luck: 45
+badc_00920 <<*** 17:49:24 rEd69_Advan captured at [ 157401.34 , 39260.312 ]
+*** rEd69_Advan rescued failled
+badc_00920 German recover sector(s) by ttl H.16 P.7 S.6
+badc_00921 German lost sector(s) isolated H.16
+badc_00921 Soviets recover sector(s) by ttl F.15 F.16
+badc_00922 Soviets recover sector(s) by ttl D.9
+badc_00922 German recover sector(s) by ttl R.7 S.7 S.8
+badc_00924 _00783 SG1_sKor!a ESCAPED Bailed on friend territory
+badc_00924 _00783 Ala13_BaronKaOs ESCAPED Bailed on friend territory
+badc_00924 <<*** 09:53:40 E69_carlos captured at [ 30934.92 , 86077.766 ]
+*** E69_carlos rescued failled
+badc_00925 <<*** 12:02:16 FAE_Cormoran captured at [ 25189.646 , 86250.22 ]
+*** FAE_Cormoran rescued failled
+badc_00926 _00785 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_00928 <<*** 15:21:23 rEd69_Qpassa captured at [ 168279.12 , 71430.69 ]
+*** rEd69_Qpassa rescued failled
+badc_00929 Soviets recover sector(s) by ttl P.7 R.7 S.6 S.7 S.8
+badc_00930 Soviets recover sector(s) by ttl O.7 R.6
+badc_00930 German recover sector(s) by ttl I.9 J.7 J.9 K.7 K.8
+badc_00931 <<*** 18:18:41 rEd69_RAFA captured at [ 91565.19 , 84971.555 ]
+*** rEd69_RAFA rescued failled
+badc_00932 _00791 E69_espiral ESCAPED cap: 12 luck: 20
+badc_00932 _00791 E69_Pupo ESCAPED Bailed on friend territory
+badc_00932 Soviets recover sector(s) by ttl H.8 I.7 I.9 J.7 J.9 K.7 K.8
+badc_00934 <<*** 08:35:43 rEd69_oli captured at [ 92543.07 , 46903.113 ]
+*** rEd69_oli rescued failled
+badc_00934 German recover sector(s) by ttl I.7
+badc_00936 <<*** 10:37:47 rEd69_Juanta captured at [ 38633.61 , 65506.18 ]
+*** rEd69_Juanta rescued failled
+badc_00936 _00793 RedEye_Miji ESCAPED cap: 15 luck: 34
+badc_00936 <<*** 10:45:59 E69_Pupo captured at [ 42713.97 , 71017.89 ]
+*** E69_Pupo rescued failled
+badc_00938 <<*** 11:28:36 E69_cvchavo captured at [ 37045.336 , 102299.01 ]
+*** E69_cvchavo rescued failled
+badc_00939 _00795 rEd69_antiguo ESCAPED cap: 18 luck: 95
+badc_00939 Soviets recover sector(s) by ttl N.7
+badc_00940 Soviets recover sector(s) by ttl C.9
+badc_00941 _00797 SG1_Gunkan ESCAPED Bailed on friend territory
+badc_00942 <<*** 16:06:36 E69_carlos captured at [ 98244.25 , 78672.484 ]
+*** E69_carlos rescued failled
+badc_00942 _00798 Ala13_Estampida CAPTURED cap: 63 luck: 62
+badc_00943 _00799 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_00943 German lost sector(s) isolated J.8
+badc_00943 German recover sector(s) by ttl I.9 J.7 J.9 K.7 K.8
+badc_00944 Soviets recover sector(s) by ttl I.9 J.7 J.9 K.7 K.8
+badc_00945 Soviets recover sector(s) by ttl L.7 M.7
+badc_00945 German recover sector(s) by ttl C.9 O.7
+badc_00947 <<*** 10:15:38 E69_oli captured at [ 46359.816 , 99893.836 ]
+*** E69_oli rescued failled
+badc_00947 _00803 SG1_Gunkan ESCAPED Bailed on friend territory
+badc_00947 German recover sector(s) by ttl D.9
+badc_00948 Soviets recover sector(s) by ttl O.7
+badc_00949 _00805 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_00949 Soviets recover sector(s) by ttl G.8
+badc_00950 <<*** 13:16:12 VCP_Avis captured at [ 165360.78 , 45281.81 ]
+*** VCP_Avis rescued failled
+badc_00950 _00806 rEd69_Sinko ESCAPED Bailed on friend territory
+badc_00950 <<*** 13:23:39 E69_Pupo captured at [ 64577.504 , 78080.34 ]
+*** E69_Pupo rescued failled
+badc_00950 German recover sector(s) by ttl G.8
+badc_00955 <<*** 08:06:03 rEd69_Starbuck captured at [ 29230.547 , 79196.07 ]
+*** rEd69_Starbuck rescued failled
+badc_00955 German recover sector(s) by ttl E.8
+badc_00956 Soviets recover sector(s) by ttl D.9
+badc_00957 _00813 rEd69_Sinko ESCAPED cap: 45 luck: 45
+badc_00957 <<*** 10:12:21 rEd69_Hellboy captured at [ 43615.79 , 74430.62 ]
+*** rEd69_Hellboy rescued failled
+badc_00957 _00813 rEd69_Advan CAPTURED cap: 72 luck: 36
+badc_00957 _00813 E69_Limber ESCAPED Bailed on friend territory
+badc_00958 <<*** 11:34:40 rEd69_antiguo captured at [ 155479.2 , 46076.734 ]
+*** rEd69_antiguo rescued failled
+badc_00958 German recover sector(s) by ttl D.9
+badc_00959 _00815 E69_metaliving ESCAPED cap: -3 luck: 6
+badc_00959 Soviets lost sector(s) isolated P.5
+badc_00959 Soviets recover sector(s) by ttl O.5 O.6 P.4 P.6 Q.3 Q.4 Q.5 R.2 R.3 R.4 R.5 S.2 S.3 S.4
+badc_00960 German recover sector(s) by ttl O.5 O.6 O.7 P.4 P.6 Q.3 Q.4 Q.5 R.2 R.3 R.4 R.5 R.6 S.2 S.3 S.4
+badc_00962 _00818 E69_oli CAPTURED cap: 51 luck: 48
+badc_00965 <<*** 07:51:43 rEd69_Accipiter captured at [ 131251.17 , 59215.59 ]
+*** rEd69_Accipiter rescued failled
+badc_00968 Soviets recover sector(s) by ttl R.6
+badc_00969 <<*** 12:49:51 +FAE_Cormoran captured at [ 89340.87 , 81987.96 ]
+*** +FAE_Cormoran rescued failled
+badc_00970 German recover sector(s) by ttl R.6
+badc_00971 <<*** 15:10:22 rEd69_McField captured at [ 76505.48 , 56107.47 ]
+*** rEd69_McField rescued failled
+badc_00971 German recover sector(s) by ttl H.8
+badc_00972 _00828 E69_Pupo ESCAPED Bailed on friend territory
+badc_00972 Soviets recover sector(s) by ttl H.8
+badc_00973 _00829 rEd69_Sinko ESCAPED cap: 18 luck: 85
+badc_00973 _00829 rEd69_Advan ESCAPED cap: 18 luck: 35
+badc_00974 German recover sector(s) by ttl H.8 I.7
+badc_00975 _00831 rEd69_Juanta ESCAPED cap: 18 luck: 38
+badc_00976 Soviets recover sector(s) by ttl H.8
+badc_00977 _00833 E69_kakuton ESCAPED cap: 0 luck: 38
+badc_00978 <<*** 11:45:57 rEd69_McField captured at [ 155095.58 , 43913.3 ]
+*** rEd69_McField rescued failled
+badc_00980 <<*** 13:11:37 E69_espiral captured at [ 73707.586 , 73256.08 ]
+--- 13:32:08 E69_cvchavo landed at [ 77509.62 , 70010.42 ] inside 5km limit
+*** E69_espiral rescued failled
+badc_00980 Soviets recover sector(s) by ttl I.7
+badc_00982 German recover sector(s) by ttl P.7 S.6
+badc_00983 <<*** 16:52:14 rEd69_antiguo captured at [ 115090.8 , 43163.63 ]
+*** rEd69_antiguo rescued failled
+badc_00984 _00839 rEd69_Gusanako CAPTURED cap: 39 luck: 26
+badc_00984 Soviets recover sector(s) by ttl P.7 S.6
+badc_00985 _00840 E69_oli ESCAPED Bailed on friend territory
+badc_00985 German recover sector(s) by ttl L.7 M.7
+badc_00986 <<*** 07:49:12 rEd69_McField captured at [ 69581.984 , 55095.418 ]
+*** rEd69_McField rescued failled
+badc_00986 _00841 E69_Vulcanel ESCAPED Bailed on friend territory
+badc_00986 Soviets recover sector(s) by ttl O.7 R.6
+badc_00986 German recover sector(s) by ttl I.7
+badc_00987 _00842 E69_kakuton ESCAPED Bailed on friend territory
+badc_00988 <<*** 10:06:14 rEd69_antiguo captured at [ 114973.336 , 43829.9 ]
+*** rEd69_antiguo rescued failled
+badc_00989 _00844 rEd69_antiguo ESCAPED cap: 9 luck: 46
+badc_00989 <<*** 11:44:01 E69_kakuton captured at [ 159537.56 , 73707.16 ]
+*** E69_kakuton rescued failled
+badc_00989 Soviets recover sector(s) by ttl I.7
+badc_00989 German recover sector(s) by ttl O.7
+badc_00990 Soviets recover sector(s) by ttl L.7 M.7
+badc_00991 German recover sector(s) by ttl R.6
+badc_00993 _00847 RedEye_Tumu ESCAPED Bailed on friend territory
+badc_00993 _00847 rEd69_jumulo ESCAPED cap: 42 luck: 53
+badc_00994 <<*** 16:34:18 E69_Petrescu captured at [ 96949.99 , 78799.94 ]
+*** E69_Petrescu rescued failled
+badc_00994 Soviets recover sector(s) by ttl D.9
+badc_00994 German recover sector(s) by ttl I.7
+badc_00995 _00849 E69_Petrescu ESCAPED Bailed on friend territory
+badc_00996 <<*** 18:40:43 rEd69_Starbuck captured at [ 76499.86 , 52532.062 ]
+*** rEd69_Starbuck rescued failled
+badc_00996 _00850 E69_carlos ESCAPED Bailed on friend territory
+badc_00997 _00851 E69_kakuton CAPTURED cap: 24 luck: 6
+badc_00998 _00852 E69_Qpassa ESCAPED Bailed on friend territory
+badc_00999 <<*** 09:45:12 rEd69_Juanta captured at [ 155265.27 , 42473.145 ]
+--- 09:52:31 rEd69_Jack_Aub landed at [ 155241.42 , 42341.45 ] inside 5km limit
+- 09:56:27 rEd69_Jack_Aub take off at [ 155268.34 , 43038.383 ] 
+- distance to land place: 133 meters
+- distance to toff place: 50 meters
+- distance used to walk: 50 meters
+- captured secs:35112
+- land_secs:35551
+- toff_secs:35787
+- start walk:35491
+- stop walk=35767
+- walk time=276
+- wounded=0 > walk speed=5 m/s > walk distance=1380 meters
+- Distance inside range or 2 minutes walk time
+- Looking for rEd69_Jack_Aub return to base: Found!
+*** rEd69_Juanta rescued by rEd69_Jack_Aub
+badc_01000 Soviets recover sector(s) by ttl O.4 O.5 O.7 P.4 Q.3 Q.4 Q.5 Q.6 R.2 R.3 R.4 R.5 R.6 S.2 S.3 S.4
+badc_01001 <<*** 12:56:22 E69_espiral captured at [ 107878.875 , 70685.52 ]
+*** E69_espiral rescued failled
+badc_01001 German recover sector(s) by ttl J.7 K.7
+badc_01002 Soviets recover sector(s) by ttl J.7 K.7
+badc_01004 Soviets recover sector(s) by ttl P.3
+badc_01004 German recover sector(s) by ttl J.7 K.7
+badc_01005 German recover sector(s) by ttl L.7
+badc_01006 _00860 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_01007 _00861 E69_carlos ESCAPED Bailed on friend territory
+badc_01007 Soviets recover sector(s) by ttl L.7
+badc_01008 <<*** 09:29:43 rEd69_Bucaral captured at [ 118831.44 , 39793.473 ]
+*** rEd69_Bucaral rescued failled
+badc_01008 _00862 E69_Vulcanel ESCAPED Bailed on friend territory
+badc_01008 Soviets recover sector(s) by ttl J.7 K.7 Q.2
+badc_01012 <<*** 13:50:45 rEd69_arcus captured at [ 46510.88 , 68693.93 ]
+*** rEd69_arcus rescued failled
+badc_01012 <<*** 13:52:46 Ala13REstampida captured at [ 48960.188 , 69648.77 ]
+*** Ala13REstampida rescued failled
+badc_01012 _00866 E69_oli CAPTURED cap: 81 luck: 47
+badc_01013 _00867 III/JG52_Supong CAPTURED cap: 39 luck: 22
+badc_01013 Soviets recover sector(s) by ttl N.6
+badc_01013 German recover sector(s) by ttl M.7
+badc_01014 _00868 rEd69_Gusanako ESCAPED Bailed on friend territory
+badc_01014 _00868 III/JG52_Centa ESCAPED Bailed on friend territory
+badc_01014 <<*** 15:53:16 E69_Outlaw captured at [ 155134.38 , 42537.613 ]
+*** E69_Outlaw rescued failled
+badc_01014 Soviets recover sector(s) by ttl Q.1
+badc_01014 German recover sector(s) by ttl L.7
+badc_01015 German recover sector(s) by ttl N.6 Q.1
+badc_01016 Soviets recover sector(s) by ttl L.7 M.7
+badc_01017 German recover sector(s) by ttl L.7 M.7
+badc_01018 <<*** 08:26:54 rEd69_McField captured at [ 121164.14 , 40654.844 ]
+*** rEd69_McField rescued failled
+badc_01018 _00872 rEd69_antiguo ESCAPED Bailed on friend territory
+badc_01018 _00872 rEd69_kumvira CAPTURED cap: 51 luck: 6
+badc_01018 Soviets recover sector(s) by ttl L.7 M.7
+badc_01019 _00873 rEd69_kumvira ESCAPED Bailed on friend territory
+badc_01019 <<*** 10:29:18 rEd69_Gusanako captured at [ 138281.0 , 20604.475 ]
+*** rEd69_Gusanako rescued failled
+badc_01019 <<*** 10:24:42 rEd69_Accipiter captured at [ 130096.58 , 30036.416 ]
+*** rEd69_Accipiter rescued failled
+badc_01019 <<*** 10:18:22 rEd69_antiguo captured at [ 141466.92 , 20837.936 ]
+--- 10:28:46 rEd69_Gusanako landed at [ 138218.88 , 20620.984 ] inside 5km limit
+*** rEd69_antiguo rescued failled
+badc_01019 _00873 SG1_Gunkan ESCAPED Bailed on friend territory
+badc_01020 <<*** 11:46:33 rEd69_Hellboy captured at [ 82230.45 , 52485.95 ]
+*** rEd69_Hellboy rescued failled
+badc_01020 _00874 III/JG52_Supong ESCAPED Bailed on friend territory
+badc_01022 <<*** 13:43:23 rEd69_McField captured at [ 88463.33 , 57392.344 ]
+*** rEd69_McField rescued failled
+badc_01022 German recover sector(s) by ttl I.9 J.7 K.7 K.8 L.7
+badc_01023 <<*** 14:52:48 rEd69_McField captured at [ 90589.34 , 70360.984 ]
+--- 14:52:29 rEd69_Gusanako landed at [ 92470.97 , 69517.83 ] inside 5km limit
+*** rEd69_McField rescued failled
+badc_01023 <<*** 14:52:43 rEd69_Gusanako captured at [ 92410.57 , 69541.33 ]
+--- 14:52:35 rEd69_McField landed at [ 90575.93 , 70327.836 ] inside 5km limit
+*** rEd69_Gusanako rescued failled
+badc_01023 Soviets recover sector(s) by ttl I.9
+badc_01024 <<*** 16:17:05 E69_oli captured at [ 110432.75 , 84793.13 ]
+*** E69_oli rescued failled
+badc_01025 <<*** 17:55:49 rEd69_manfred captured at [ 96688.57 , 78744.26 ]
+*** rEd69_manfred rescued failled
+badc_01026 Soviets recover sector(s) by ttl J.7 K.7 K.8
+badc_01027 <<*** 08:01:15 rEd69_manfred captured at [ 90909.055 , 74910.87 ]
+--- 08:09:07 rEd69_Juanta landed at [ 90856.06 , 75810.1 ] inside 5km limit
+*** rEd69_manfred rescued failled
+badc_01028 _00882 AA_BullSkin ESCAPED Bailed on friend territory
+badc_01028 Soviets recover sector(s) by ttl J.7 K.7 K.8
+badc_01029 <<*** 10:29:08 rEd69_Sinko captured at [ 95058.74 , 72495.02 ]
+*** rEd69_Sinko rescued failled
+badc_01029 <<*** 10:22:28 rEd69_antiguo captured at [ 95585.94 , 76898.016 ]
+*** rEd69_antiguo rescued failled
+badc_01029 German lost sector(s) isolated J.8
+badc_01029 German recover sector(s) by ttl J.7 K.7 K.8
+badc_01030 <<*** 11:51:45 rEd69_manfred captured at [ 92625.05 , 51605.855 ]
+*** rEd69_manfred rescued failled
+badc_01030 <<*** 12:01:13 E69_Heracles captured at [ 103316.98 , 95187.27 ]
+*** E69_Heracles rescued failled
+badc_01030 <<*** 12:03:15 1/JSpan_Avis captured at [ 107785.63 , 98728.945 ]
+*** 1/JSpan_Avis rescued failled
+badc_01030 Soviets recover sector(s) by ttl J.7 K.7 K.8

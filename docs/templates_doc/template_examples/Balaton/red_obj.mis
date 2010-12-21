@@ -1,0 +1,25 @@
+[MAIN]
+MAP Balaton/load_w.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 71834.20 29786.25 314.92 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 53961.62 128315.67 339.96 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 59509.23 120917.14 449.96 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 117738.32 80864.87 284.96 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 153769.79 46970.08 314.96 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 154275.77 35312.24 494.96 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 157775.84 80710.31 419.96 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 182140.17 117917.86 314.96 0.0
+ 8_Static vehicles.planes.Plane$LI_2 1 159018.39 112610.76 494.96 0.0
+ 9_Static vehicles.planes.Plane$LI_2 1 149488.57 103480.10 314.96 0.0
+ 10_Static vehicles.planes.Plane$LI_2 1 118531.13 122738.42 224.96 0.0
+ 11_Static vehicles.planes.Plane$LI_2 1 105286.02 140293.29 224.96 0.0
+ 12_Static vehicles.planes.Plane$LI_2 1 129510.86 165305.51 509.96 0.0
+ 13_Static vehicles.planes.Plane$LI_2 1 153001.66 151716.54 464.96 0.0
+[Buildings]
+[Bridge]
+[House]

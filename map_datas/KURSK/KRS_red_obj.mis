@@ -1,0 +1,34 @@
+[MAIN]
+MAP Kursk/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 24922.05 160372.10 184.10 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 10542.71 115399.72 225.06 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 44223.22 100356.95 375.00 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 41364.40 78918.13 249.94 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 55634.80 54306.40 359.94 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 110390.50 63907.65 464.94 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 114136.17 86463.82 320.00 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 91674.73 102561.76 360.00 0.0
+ 8_Static vehicles.planes.Plane$LI_2 1 81220.92 127801.17 404.82 0.0
+ 9_Static vehicles.planes.Plane$LI_2 1 94687.79 139246.98 359.76 0.0
+ 10_Static vehicles.planes.Plane$LI_2 1 89767.65 145325.21 283.56 0.0
+ 11_Static vehicles.planes.Plane$LI_2 1 95805.76 157568.35 298.37 0.0
+ 12_Static vehicles.planes.Plane$LI_2 1 165823.30 120103.94 448.49 0.0
+ 13_Static vehicles.planes.Plane$LI_2 1 126691.52 96853.59 253.44 0.0
+ 14_Static vehicles.planes.Plane$LI_2 1 137999.48 77075.20 273.44 0.0
+ 15_Static vehicles.planes.Plane$LI_2 1 174871.60 97585.31 533.44 0.0
+ 16_Static vehicles.planes.Plane$LI_2 1 181677.68 90692.97 413.38 0.0
+ 17_Static vehicles.planes.Plane$LI_2 1 183393.73 49043.43 463.44 0.0
+ 18_Static vehicles.planes.Plane$LI_2 1 150500.26 21112.40 373.38 0.0
+ 19_Static vehicles.planes.Plane$LI_2 1 111861.18 31228.69 298.44 0.0
+ 20_Static vehicles.planes.Plane$LI_2 1 103098.86 22715.12 388.44 0.0
+ 21_Static vehicles.planes.Plane$LI_2 1 35278.66 21809.65 358.32 0.0
+ 22_Static vehicles.planes.Plane$LI_2 1 165170.04 140172.79 373.44 0.0
+[Buildings]
+[Bridge]
+[House]

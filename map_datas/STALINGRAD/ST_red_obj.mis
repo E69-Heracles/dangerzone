@@ -1,0 +1,31 @@
+[MAIN]
+  MAP Stgrad/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  0_Static vehicles.planes.Plane$LI_2 1 21408.09 115226.01 375.00 0.0
+  1_Static vehicles.planes.Plane$LI_2 1 10429.34 141730.59 180.00 0.0
+  2_Static vehicles.planes.Plane$LI_2 1 61393.69 162309.53 420.00 0.0
+  3_Static vehicles.planes.Plane$LI_2 1 16684.13 42553.63 330.00 0.0
+  4_Static vehicles.planes.Plane$LI_2 1 50049.00 19251.42 270.00 0.0
+  5_Static vehicles.planes.Plane$LI_2 1 54363.65 79485.22 425.00 0.0
+  6_Static vehicles.planes.Plane$LI_2 1 86760.41 27071.58 190.00 0.0
+  7_Static vehicles.planes.Plane$LI_2 1 105586.91 16312.11 420.00 0.0
+  8_Static vehicles.planes.Plane$LI_2 1 134728.25 38287.64 434.10 0.0
+  9_Static vehicles.planes.Plane$LI_2 1 170085.80 45161.77 295.00 0.0
+  10_Static vehicles.planes.Plane$LI_2 1 175671.69 82967.25 240.00 0.0
+  11_Static vehicles.planes.Plane$LI_2 1 139876.92 91573.41 225.00 0.0
+  12_Static vehicles.planes.Plane$LI_2 1 126304.34 92411.10 390.00 0.0
+  13_Static vehicles.planes.Plane$LI_2 1 91595.26 73081.51 240.00 0.0
+  14_Static vehicles.planes.Plane$LI_2 1 87811.17 86515.81 360.00 0.0
+  15_Static vehicles.planes.Plane$LI_2 1 88662.24 95051.09 270.00 0.0
+  16_Static vehicles.planes.Plane$LI_2 1 73495.19 129221.52 300.00 0.0
+  17_Static vehicles.planes.Plane$LI_2 1 141785.36 124673.21 485.00 0.0
+  18_Static vehicles.planes.Plane$LI_2 1 133426.72 135875.85 355.00 0.0
+  19_Static vehicles.planes.Plane$LI_2 1 163332.99 148350.04 225.00 0.0
+[Buildings]
+[Bridge]
+[House]

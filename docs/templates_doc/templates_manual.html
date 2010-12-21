@@ -1,0 +1,1162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+      <META HTTP-EQUIV="PRAGMA" CONTENT="no-cache">
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <link rel="stylesheet" type="text/css" href="./images/badc.css">
+      <title>Templates</title>
+</head>
+<body>
+
+
+
+<div id="hoja">
+
+  <a href="/index.html"><img border="0" src="./images/logo.gif"  alt="regresar" style="margin-left: 40px; margin-top: 0px" ></a>
+  <br><br><br><br>
+
+<div id="nomenu">
+
+<h1>Badc Templates</h1>
+
+<br><br><br>
+
+<ul>
+<li><a href="#overview">1. Template files overview</a><br></li>
+<li><a href="#placedesc">2. Places Templates description</a><br></li>
+<li><a href="#creating">3. Creating templates</a><br></li>
+<li>&nbsp;&nbsp;&nbsp;<a href="#stage1">3.1 First stage</a><br></li>
+<li>&nbsp;&nbsp;&nbsp;<a href="#stage2">3.2 Second stage</a><br></li>
+<li>&nbsp;&nbsp;&nbsp;<a href="#stage3">3.3 Third stage</a><br></li>
+<li><a href="#aircrafts">4. Aircrafts</a><br></li>
+<li><a href="#images">5. Images</a><br></li>
+<li><a href="#end">6. Final configuration</a><br></li>
+<li><a href="#comments">7. Comments</a><br></li>
+</ul>
+
+
+<pre>
+
+
+
+
+
+</pre>
+
+
+
+<a id="overview"></a> 
+<h2>1. Template files overview</h2>
+
+
+
+Templates in badc is not a single file, they are many, and they are build in diferent way.<br><br>
+
+<p>
+<b>geo_obj.data</b> : Holds most important data. It has 4 main group data:<br>
+1) The airfields localization, their damage, the park places, army owner, code name, etc <br>
+2) Sector coordinates, type (atackable or not), TTL, army owner, etc <br>
+3) City name, coordinates, damage, suply radius, spot Zones, army owner, etc...<br>
+4) A list of relation on city and sectors, to know wich sectors has a city and will be not
+attacable till city has 50% damage<br>
+
+
+<p>
+<b>city.mis</b> : this is a mission file created using FMB (Full Mission Builder). It is
+the more time consuming file. Here you determine wich cityes are part of the campaign, and
+make the spot Zones. Each of this spot zone is an atacable place. This file indicates what
+types of objects will be place, and where they will be placed. It NOT has the objects. The
+indicators are a combination of aircrafts way points of differen altitudes to represent
+different objects. (I will explain later). Later generator will put objects "under" those
+WP lines.
+
+<p>
+<b>tanks_wp.mis</b> : This is the tank placement template. Each serctor of 10x10 km needs
+to have 2 or more "points". Later the genator will use 2 of those "points" to place champs
+and initial 9-tank-group. As you see 2 points at least are needed. More is better, so
+generator will have more combination of 2 points to pick from, making more umpredictable
+where champs /moving tanks are placed. Those "points" are static tanks, really do not
+matter what type the object is, the generator will look objects coordinates (the points).
+On sectors where is impossible to place 2 tank places, the sector will be un-attacable.
+
+<p>
+<b>red_obj.mis</b> : A mission that holds one LI-2 per airfield. Nothing more.
+
+<p>
+<b>blue_obj.mis</b> : Same, but with JU-52, and objects numbers starts with 10000.
+
+<p>
+<b>frontline.mis</b>: This file holds the frontline status. It has one flag per square,
+exept for the unattacable sectors.
+
+<p>
+<b>aircraft.data</b>: This file has the information of plane aviables, type, tasks, airclass, etc etc.
+
+<p>
+<b>imap.data </b>: This file is a HTML image image to aid target selection at mission
+creation time. It holds the setors names (and aditionally fields and city names) to be
+displayed as a popup when placing mouse over front image.
+
+<p>
+To create templates for a map, all files described above has to be written, each file has
+particular conditions to meet. The templates files at firt impresion looks very complex,
+but they are not.<br>
+
+<pre>
+
+
+
+
+
+</pre>
+
+<a id="placedesc"></a> 
+<h2>2. Places templates description</h2>
+
+<p>
+I provide in this guide a explanation file by file and some tools to semi-automate template
+creation. But before start looking onto each file I  better explain the difference between
+"static objects templates" and "places template".
+
+<p>
+<b>Static objects templates</b> are files created with FMB, they have all the objects of
+the map. Usually it holds thouthands of cars, planes, AAA, trains, etc. all spread on a
+particular map. Later, when you attack a place, mission generator looks for a set of
+objects close to that place you attack, "copy" them and "paste" into the mission it is
+created.<br>
+
+<p>
+This system has advantages and disdvantages. They are easy to build, can take several hours
+to build them, but later are easy to use for generator program with "copy and paste". The
+disadvantage is that you cant change object types, you need a red template and a blue
+template, the objects are all at the same place and after several attacks to same place
+people can know where is the AAA and where are the jackpots (best place to bomb).
+
+<p>Badc uses 2 static objects templates files: red_obj.mis and blue_obj.mis. They only
+hold static planes to place on airbases, 1 per base, and used only to make bases display
+correct color on maps. (no white bases).
+
+
+<p>
+<b>Places templates</b>:  This templates  <b>do not</b> have objects that later will be on
+mission. They have the "places" where we like to have objects placed. Later the generator
+will insert the objects in correct place into the mission we are generating. Thats all.
+
+<p>
+The paces templates are not hard to make, it only needs some convetion (rules) on how
+those places are marked, to later the generator understand where and how the objects has
+to be inserted. Badc uses "place" templates for airbases, tank waypoints and city targets.
+Lets see a general example, later we will see each template details rules.
+
+<p>
+Lets say we are creating a <b>static template</b> for an airfield, we place several
+planes, and can look like this:<br><br>
+
+
+<center>
+<img src="./images/01.jpg"><br>
+</center>
+
+<p>
+After those planes are selected (type) and placed, we have to rotate them one by one and
+later align them. Now, lets use the same airfiled, and use the "place template" idea. We
+want to have some planes aligned in 2 lines, like is showed in next image:<br><br>
+
+
+<center>
+<img src="./images/02.jpg">
+</center>
+
+<p> So later the generator will insert planes like whow next image (they are correct lined up and
+rotated, maybe not visible because image size): <br><br>
+
+
+<center>
+<img src="./images/03.jpg">
+</center>
+
+<p>So, <b>how do we make those lines</b> to later the generator place the objects? We use
+an aircraft (any flyable) and we set waypoints, this way we "draw" lines. Maybe You can
+not undestand this the first time you read, but is very easy. When you place a flight, FMB
+writes the coordinates of the way points. Placing the waypoints and "drawing" a line with
+a plane will make 2 things: tell us where the coordinates are and show us where the
+objects will be placed.<br><br>
+
+
+Lets see a working example, next image shows several waypoints where I like to place some
+planes. I use B-17 aircraft to "draw" those waypoints:<br><br>
+
+
+<center>
+<img src="./images/04.jpg">
+</center>
+
+<p>
+Next image shows how aircrafts are placed:<br><br>
+
+
+
+<center>
+<img src="./images/05.jpg">
+</center>
+
+<p>
+Compare last 2 images, look the <b>direction</b> of waypoints and how planes are
+placed. You will notice that planes always are placed with nose pointing to the right of
+the lines. When I say "right" I mean: imagine you stand up on WP0 and look on direction to
+WP1, the planes will be looking to the "right" of that direction.<br><br>
+
+For easy understand I combine those 2 images into a single one and drawed a big red arrow
+of the "right" direction. When you make templates you will not see the planes, and you
+have to create this image in your mind:<br><br>
+
+
+
+<center>
+<img src="./images/04_and_05.jpg">
+</center>
+
+<p> This way <b>place templates</b> works. You just use a mission to place flights, you
+never place the objects. Trust that later the generator will use that file with flight
+waypoints to read the coordinates and place the objects as you wish. You can use any plane
+to "draw" places, it does not matters the army or the type of the plane. Generator will
+place red static planes if later that base is soviet, or place blue static planes if the
+base is on german side. Be sure to understand all to this point before read next tips.
+
+<p>
+To avoid using many flyiable planes and to speed up template creation, we use <b>same</b>
+flight to make several places. How? well, generator will look into <b>pairs</b> of
+waypoints because we know a line is defined by 2 points. So, when you create you places
+you can keep adding points using same flight like show next image:<br><br>
+
+
+<center>
+<img src="./images/06.jpg">
+</center>
+
+<p> Those waypoints indicates 3 places: place planes from WP0 to WP1, place planes from WP2 to WP3,
+place planes from WP4 to WP5. When you "draw" those waypoints you have to keep pairs of
+waypoints. I say to myself when I make those templates: <br><br>
+
+
+placing WP0 I think: planes <b>from here</b><br>
+placing WP1 I think: <b>to here</b><br>
+placing WP2 I think: planes <b>from here</b><br>
+placing WP3 I think: <b>to here</b><br>
+placing WP4 I think: planes <b>from here</b><br>
+placing WP5 I think: <b>to here</b><br><br>
+
+As you can see, you are free to select srating point between places. In this example, the
+lines between WP1 and WP2 will not define a place, its just a relocating line and you have
+to ignore it. Same goes for line btween WP3 and WP4.<br>
+
+<p>Really is is very simple after you try several times. Next image shows how planes are
+located using the places showed in previous image:<br><br>
+
+<center>
+<img src="./images/07.jpg">
+</center>
+
+<p> And next image is the combination of both of them, showing what you have to "imagine"
+at the moment you "darw" your templates. Remember, it is <b>VERY</b> important you use
+pairs or waypoints, because they define the lines. Just remember to use "from here" - "to
+here" nemotechnic. <br><br>
+
+<center>
+<img src="./images/06_and_07.jpg">
+</center>
+
+<pre>
+
+
+
+
+
+</pre>
+
+
+<a id="creating"></a> 
+<h2>3. Creating templates</h2>
+
+To create a template for a map mean you have to create several files. You can make by hand
+each of them, but this will usually introduce several mistakes, because lots of
+corrdinates has to be written and a mistake on one coordinate will produce incorrect
+missions. So, I provide some tools to create templates in a semi-automatic way. 
+
+<p>We create templates in several <b>stages</b> (or steps), because some stages needs data from previous
+stages. For example, the Geo_obj.data contains  four (4) main gruopg of data. One of those
+gropus are the sector definitions, and to write the sectors definition you need to have
+the tank waypoints. And tank waypoints will be made using a template created after
+finishing "stage 1", where we define airfields and park places. Dont worry now about this,
+the only important thing now is to know that there are several "stages".
+
+<p>This semi-automatic template creation uses perl scripts. So you need to have perl
+installed. If you dont have perl, it will not be possible to make templates as I describe
+in this manual. 
+
+<p>The process of template creation need you to work with FMB, and time to time run some
+scripts, so to make things easy, create a folder under FB/missions. I usually name the
+forlder with the name of the map templates im building, do for example to make normandie1
+templates I have a folder: <b>"D:\Ubi&nbsp;Soft\IL-2&nbsp;Sturmovik&nbsp;Forgotten&nbsp;Battles\Missions\normandie1"</b>
+where I place all the perl scrips and where I will hold template files. Once thy are
+finished I rename them, adding a 2 or 3 letter code before each file to easy recgnition.
+
+<p>copy all the scrips provided with this manual into a folder you like.
+
+
+<pre>
+
+
+</pre>
+<a id="stage1"></a> 
+<h3>3.1 First Stage</h3>
+
+<p>Lets start building templates for Normandie1 map. As described before I place all
+scripts into a new folder called normandie. Then I start IL2FB, and load map
+"normandie1". The first thing to do is to place a object "airfield champfire" on the
+most right-top corner, better just a bit <b>outside</b> last sector number/letter (if you
+can, if not place as far you can on top-right of map). This will be used
+by scripts to determine the limits of map. Save this file as <b>"initial.mis"</b>. This
+file now will provide important data: the limits of the map and the map name.<br><br>
+
+<center>
+<img src="./images/S1_01.jpg">
+</center>
+
+<p> Abobe image shows the "airfield champfire" localization for normandie1 map. This map
+has at top-right coordinates named O-10, so the "airfield champfire" is located at P-11
+sector. Of course, P-11  cordinates are not displayed on FMB. This top right square will
+have different coordinates on different maps.
+
+<p>
+This new file <b>initial.mis</b> will hold the data of airfields, besides  other
+information I told. For each airfield on map we like to use for campaign, we need to
+colect several information: The coordinates of the location, the 2 headings for take off
+and landing, the orientation of runway, the "places" where we will like to put parked
+planes and the place for a static plane to be used a airfield army identification.
+
+<p>All this data is colected by adding 3 objects to each airfiels:
+<ol>
+<li>The first object will be a static JU-52, place it somewhere you like.<br></li>
+<li>The second object is a flight (any plane, I use B-17) with 2 way points: way point 0 is a
+<b>takeoff</b> and waypoint 1 is a <b>landing</b>. This flight will provide information on coordinates
+for taking off and landing places, and allso will provide "center location" of an
+airfield, and runway headings.</li>
+<li>The last object is a flight, a <b>different one</b> (any plane, but I use B17 again)
+that will hold the parking places for aircrafts, as described in section "Places
+templates". You can add up to 9 places, that is up to 18 waypoints. Remember the
+orientation to the "right" and the nemothecnic "from_here to here".</li>
+</ol>
+
+<p>
+When you have all this 3 object placed, you select other airfield and repeat process
+adding a new JU-52, a B17 with 2 waypoints (one take-off other landing), and other B17 to
+"draw" the parking places. Next image shows a screen shot with those 3 objects for an
+airfield.<br><br>
+
+
+<center>
+<img src="./images/S1_02.jpg">
+</center>
+
+
+<p>Time to time you will like to check how planes are placed, if the orientation is
+correct, if you have correct pairs of WP for the park places, and so on. To see a preview
+of your work, run the script "view_bases.pl". This script will read your "initial.mis"
+file and create a new file called "preview_bases.mis". Load this file into FMB and check
+how planes are placed. This script will print an error if you have even (not pairs) amount
+of waypoints. The preview will only display german planes, like if the base is under
+german control, later the generator will place greman or soviet planes.
+
+<p>Remember to keep working on "initial.mis". It is <b>a common mistake to load the
+preview, and then keep adding Ju-52, park places and toff/land WP to the preview
+mission.</b> The preview mission is just that, a mission to look how yor waypoints will be
+read by generator. The important file is "initial.mis". After you inspect the preview
+mission remmenber to <b>load back "initial.mis"</b> to keep working on.
+
+<p>Next picture is how you see a base in preview_base.mis.  Notice that the static JU-52
+will not be showed. The preview mission only display the "aircrafts park places".<br><br>
+
+
+<center>
+<img src="./images/S1_03.jpg">
+</center>
+
+
+<p>This is how looks an error message when you try to make a preview and the waypoints
+amount are not pairs. When this happens you have to load "initial.mis" on FMB and search
+where is located the problem. A recomendation is to do a preview every time you finish a
+base. So if there is a problem with pairs WP, the problem will be always in the last base
+you was working.  Aditionally, error will display what line number is the one making even
+waypoints, so if you like you can manual delete that line, by editing "initial.mis" in a
+text editor. (not recomended, better look the WP in FMB).<br><br>
+
+<center>
+<img src="./images/S1_04.jpg">
+</center>
+
+<p>This is all we need to finish first stage, a "initial.mis" with a champfire, and each
+base with 3 objects. Once you are used to make this bases, each base will not take more
+than a couple of minutes. The way I work in doing first adding the filedchamp, the I add
+all JU-52 to all bases I like to use, so they are a visual aid to find bases. Later I add
+all take-off and landing waypoints using a B-17 for each base. This way, when I look all
+the map, I have to see "something blue" (the ju-52) and "something red" (the b17
+waypoints). Finally I add the parking places to each base, doing some previews time to
+time.
+
+<p>If you look into the initial.mis I provide as example you will see frontline
+markers. You do not need them yet. Is something we will add in next stages, explained
+later.
+
+<p>Now we are ready to run 1_stage.pl script. (run in a cmd window: perl -w
+1_stage.pl). This will create 5 files:
+<ol>
+<li><b>blue_obj.mis</b>: One JU-52 per base, on places indicated by the JU-52. This file is ready to use.</li>
+<li><b>red_obj.mis</b>: One Li-2 per base, on places indicated by the JU-52. This file is ready to use.</li>
+<li><b>tank_wp.mis</b>: A initial template for tanks, we have to work on this on next stage.</li>
+<li><b>city.mis</b>: A empty template where we will add cityes to attack and targets on next stage.</li>
+<li><b>geo_obj.data</b>: is a partial content of this file, where now hold all airfields
+descriptions, park places, headings, damage, etc etc.</li>
+</ol>
+
+<p> If you are curious, you can look into geo_obj.data just created, there you can see
+several lines with the onformation of each airfield. For example this are the lines
+representing the airfiled is showded on above example images . That information is: airfield
+general information (first line), Heading coordinates (AF06:Hx), followed by several lines with
+parking places coordinates and angle for plane placements (AF06:Px)<br><br>
+
+
+<pre>
+             AF06,aerodromo--D03,38788.61,29109.76,2,-D,03,2,0:2
+             AF06:H1,38048.61,28764.76,
+             AF06:H2,39530.43,29455.75,
+             AF06:P1,38451.23,29622.01,38526.13,29846.98,378,
+             AF06:P2,38509.59,29613.09,38578.11,29816.26,378,
+             AF06:P3,39102.59,29655.61,39159.29,29544.57,152,
+             AF06:P4,39185.28,29124.04,38982.10,29024.82,243,
+             AF06:P5,38386.74,29213.82,38443.44,29383.92,378,
+             AF06:P6,38625.36,29535.12,38665.52,29639.07,381,
+             #--- End AF06 (aerodromo--D03)
+</pre>
+
+<p>Don worry if you dont understand this information, you dont need to understand it to
+keep woring on templates. <br><br>
+
+
+<pre>
+
+
+</pre>
+<a id="stage2"></a> 
+<h3>3.2 Second Stage</h3>
+
+This stage is the one it takes more time, because we have to work on the tanks waypoints
+template and the city template. I will divide into 2 parts "A and B" for each one of them.
+
+<h4><u>A- Tank wp template</u></h4>
+
+<p>The tank template holds "points" where generator will later place a defense champ (some static
+objects, AAA, and static tanks) or a group of moving tanks (the attacking group). Each
+sector needs at least 2 "points" so it will be possible to place both goups, one in each
+point. More points places are welcome, so generator later can pick diferent combinations
+of them, making missions less repetitive. The amount of "points" recomended for each
+sector is up to 5, and no less than 3 to make some variations on selection.
+
+<p>There are some sectors where tanks can not move. For example sea, lagoons, sectors
+covered by forest, etc.  On this sectors we will place 0 points, that is, there will be no
+starting points, and sectors become un-attacable.
+
+<p> Go to FMB and load the mission "tank_wp.mis" created on first stage. You will see
+something like this (showed only a small part):<br><br>
+
+
+<center>
+<img src="./images/S2_01.jpg">
+</center>
+
+<p> You can see on <b>all</b> sectors 5 tanks,  one on each corner and one more in sector
+center. This file is created in this way for speed edit. Is more easy to delete and move
+objects alrready lpaced on mission. Each of those static tanks you see are the
+"points". Like on paking places we use flight for later place objects, here we use a
+static tank to indicate the coordinates of where a camp, or a group of moving tanks will
+be placed. In that image I named sectors with numbers 1 to 4, just for easy reference on
+this manual.
+
+<p>Previous image shows 4 sectors. The very first thing to do is delete all 5 points from
+unattacable sectors(sea, lagoons and only forest sectors). Later, you have to relocate
+points based on simple rules. The points (actually tanks on this template) needs to be not
+very close. All of them has to be inside the sector, no river, lagoon, city or forest has to
+intercept their path. If you cant place all 5 of them, try deleting some of them for easy
+find correct places. Next image shows how edited those points. Sector named 1 is
+un-attacable (sea) and deleted all 5 points. Sector named 2 has 4 points, sector named 3
+has 5 points and sector named 4 has only 3 points: <br><br>
+
+<center>
+<img src="./images/S2_02.jpg">
+</center>
+
+<p>As you can see, all points meet requeriments. Now I will show a mage with incorrect
+point placement. I will add some lines to conect them, and place a red dot over green
+lines to show a problem. Those lines have to be done in your mind when you are moving
+points.<br><br>
+
+
+<center>
+<img src="./images/S2_03.jpg">
+</center>
+
+<p>
+Sector named as 1 has one point in other side of river. Sector named 2 has poins incorrect
+placed because the run into a city. Sector named 3 are correct, but two points are too
+close, so is recomended to move one of them a bit away, like the red line show. Sector
+named 4 has two paths runing into forest. On next image I show how this points are
+corrected:<br><br>
+
+<center>
+<img src="./images/S2_04.jpg">
+</center>
+
+<p>You have to check sector by sector point placement. Make sure that sectors has at least
+2 waypoints, but a minimum of 3 is recomended. Also be sure to not place points outside
+sector. For work more confortable, zoom in and out so the grid lines only display 10x10
+squares. It is also recomndable for areas with hils and mountains to look exacltly the
+place you are placing a point, so you avoid to place them on hill precipices.
+
+<p>This template takes some time, when you are used to work with it, you can make several
+sectors in a minute. The more important thing is to make unatacable the sectors that cant
+hold tanks points. The other sectors can be edited or corrected later (problem with hills,
+or a point on other side of river, etc..)
+
+<br>
+<br>
+<br>
+<h4><u>B- City template</u></h4>
+
+<p> Now we start with city template. This template will hold the cityes that will like to
+include as targets. Only one city per sector. City cant be closer to 10km each
+other. Load city.mis into FMB. The first thing to do is to place a "observation ballon
+90m" object over each city we like to include. This way we easy check that we dont place 2
+city too close. Next image shows how the template looks after adding several cityes. The
+lines are drawed only to show the distance you have check <br><br>
+
+<center>
+<img src="./images/S2_05.jpg">
+</center>
+
+<p>After you finish, you have to zoom close to each city and add several "champfires"
+objects. Each champfire will be an "attacable zone", add at least one and up to 9
+zones for each city. All places marked with a fire (zones) has to be close to the city,
+never place them in a distance bigger than 5 km. Also, each target place zone needs to be
+1 km or more seperated from any other zone. So, you leave room to place objects and not
+overlap them. Next image shows a city with 3 zones (3 fires), all of them inside 5km
+limit, and all of them seperated at least 1km from other fires.<br><br>
+
+<center>
+<img src="./images/S2_06.jpg">
+</center>
+
+<p>Place more zones on more important cityes (5 or 6 is ok) and less zones  on small towns
+(2 or 3 is ok). Once you finish placing fire zone markers, you have to place objects on
+each of them. Next images shows one zone with objects and remaining others still empty. <br><br>
+<center>
+<img src="./images/S2_07.jpg">
+</center>
+
+<p>The way to place objects is very simmilar to the method described as "place
+templates". In fact, is the same with a few more options.  You have to draw pair of
+waypoints. Those pair of waypoints indicates the line where objects will be placed.
+But now we have a extra fearture. Using the <b>altitude</b> of the wp we can indicate
+different objects types. Think like the waypoints is a pencil, and the altitude is the
+pencil type. So, with different altitudes we can "draw" diferent objects.
+
+<ul>
+<li>Wp at 500 meters are vehicles paralell to draw line.</li>
+<li>Wp at 1000 meters are vehicles rotated to "right" to draw line.</li>
+<li>Wp at 1500 meters are trains paralel to to draw line, and locomotive is placed on
+first wp, last wagon is placed on next wp.</li>
+<li>Wp at 2000 meters are AAA, only one AAA per pair of wp is used.</li>
+
+<p>Again, no matter what plane you use to draw places. But now is very important to use
+the correct <b>altitude</b> to represent the objects you want to place. Usually I use a
+german plane (blue wp) to "draw" the AAA places, and I use a red flight to "draw" vehicles
+places. And usually for each zone I use diferent flights for diferent targtes. For
+example, with one B17 I draw all vehicles parallel to lines (WP altitude 500). I place
+about 10 up to 20 waypoints, so I "draw" 5 to 10 places. Then I insert a new B17 flight,
+set Wp alt to 1000 and place several vehicles rotated to "right". If there is a railroad,
+i inser a new B17 flight, set wp to 1500 and add all trains. Finally I add a german flight
+(any, usually I use JU-87) and insert several AAA places. Next image shows how a target
+looks. <br><br>
+
+<center>
+<img src="./images/S2_08.jpg">
+</center>
+
+<p> As before, you have a script to preview how targets will be read by generator. This
+script is called "view_city.pl" and will read city.mis (the file you are working on) and
+create a new file called "preview_city.mis". After adding one or more zones, run the
+script and then load into FMB the preview mission. Check how targets are placed, if all
+what you planned to add is in correct place, etc... Later go back and load again
+"city.mis". Like before, dont make the mistake to keep adding zones into the preview
+mission. This script also will tell if there was a porblem with even (not pair)
+waypoints. Next image shows the previe of the zone showed before as example.<br><br>
+
+<center>
+<img src="./images/S2_09.jpg">
+</center>
+
+<p> And this next image shows the combination of previous 2 images, there you can see the
+objects placed on the lines you are drawin. This is what you have to try imagine when
+adding points. Note that all targets on preview are red objects, but later, generator will
+place correct army places based on who is the ownler of the city. <br><br>
+
+<center>
+<img src="./images/S2_10.jpg">
+</center>
+
+<p> Ok, now we are ready to run 2nd stage script. This script will read both templates
+(tanks_wp and city templates) and <b>add information to geo_obj.data file</b>. The
+information added is:
+
+Sector information, lines like:<br><br>
+<pre>
+                          SEC-E08,sector--E08,45000,75000,30,1:0
+                          SEC-E09,sector--E09,45000,85000,30,1:3 
+			  etc...
+</pre><br>
+
+City information, lines like:<br><br>
+<pre>
+			  # Name  F08
+			  SUC02,SUM-city-F08,53945.30,73549.92,-,-,-,-,-:0
+			  CT02,city-F08,53945.30,73549.92,25,tipo,TOTAL_ZONES_HERE,0,25:0
+			  CT02Z0:54427.62,74109.38,1
+			  CT02Z1:55014.97,73130.47,1
+			  CT02Z2:54036.05,72934.69,1
+</pre><br>
+
+Sector and city relations, lines like:<br><br>
+
+<pre>
+			  poblado,city-H07,sector--H07
+			  poblado,city-F08,sector--F08
+			  poblado,city-I04,sector--I04
+</pre><br>
+
+
+
+<a id="stage3"></a> 
+<h3>3.3 Third Stage</h3>
+
+This last stage is the customization of your templates. The geo_obj.data file is almost
+complete but it needs customization. Edit the file with a text editor. You will see that
+there are no names for the cityes. And that is because they have to be written
+manually. For each city-XXX  find the city name in FMB and replace. I recomend you to use
+global search and replace, this way, avoid mistake writing names. Really does not matter
+if the city name is incorrect, but it has to be incorrect in all places.
+
+<p> For example, city on normadie1 map, at sector-F08 is <b>Bayeux</b> so we make this
+changes on geo_obj.data:<br><br>
+
+
+Initial lines afected:<br>
+<pre>
+			  # Name  F08
+			  SUC02,SUM-city-F08,53945.30,73549.92,-,-,-,-,-:0
+			  CT02,city-F08,53945.30,73549.92,25,tipo,TOTAL_ZONES_HERE,0,25:0
+			  CT02Z0:54427.62,74109.38,1
+			  CT02Z1:55014.97,73130.47,1
+			  CT02Z2:54036.05,72934.69,1
+			  .
+			  .(other lines)
+			  .
+			  poblado,city-F08,sector--F08
+			  .
+			  .
+</pre><br>
+
+Now looks this way:<br><br>
+<pre>
+			  # Bayeux  F08
+			  SUC02,SUM-Bayeux,53945.30,73549.92,-,-,-,-,-:0
+			  CT02,Bayeux,53945.30,73549.92,40,tipo,3,0,40:0
+			  CT02Z0:54427.62,74109.38,1
+			  CT02Z1:55014.97,73130.47,1
+			  CT02Z2:54036.05,72934.69,1
+			  .
+			  .
+			  .
+			  poblado,Bayeux,sector--F08
+			  .
+			  .
+</pre><br>
+
+<p>Notice I changed the text "TOTAL_ZONES_HERE" by the amount of zones, this case is
+3. Aditionally I like to set Bayeux with a max suply radius of 40 kilometer instead of 25
+km default. So I changed both "25 values" to 40. Those values are the max suply radius
+and the current suplay radius (because damage is 0 both values are equal).<br>
+
+<p>Once you finish adding all names and seting correct amount of zones and initial suply
+radius, you have to define what will be the initial frontline of campaign and make all
+objects on goe_obj.data file be "sincronized" to the initial frontline.
+
+<p>To acomplish this, load the "initial.mis" and place some blue/red front markers. Save
+the file and finally run the 3_stage.pl script. This script will read the frontline you
+just set on initial.mis and will create a frontline.mis template. It also will sincronize
+the geo_obj.data file.
+
+Now, we are almost done.
+
+<pre>
+
+
+
+
+
+
+</pre>
+
+
+
+<a id="aircrafts"></a> 
+<h2>4. Aircrafts</h2>
+
+<p>The aircraft.data file has the definition for each aircraft you are interested to place
+into campaign. Also this file holds information on squadron names and static planes and
+static vehicles. Lines starting with a numeral (#)are ignored.
+
+<p>There is no automatic way to create this file, so open a new file in text editor and 
+write them following next indications and later save it as aircrafts.data.
+
+<p>Next lines indicates that russian fighters squadron can be 176IAP or 3IAK. Selection will
+be random. Jabo task will have 11IAP squadron and Transports(suply) and bombers (suply)
+will be 34BAP squadron. For german fighters will be from I_JG3,II_JG3,I_JG27
+squadrons,bombers will use Stab_KG27a,I_KG27a,II_KG27a,III_KG53a squadrons, and so
+on. Other lines like this describe diferent squadrons for other country/task
+combinations. When there is more than one definition, a random one is picked. At least one
+squadron must be present for a existent country+task definition. 
+
+<pre>
+##--red sqds 
+rusfig=176IAP,3IAK;
+rusjab=11IAP;
+rusbom=34BAP;
+rustrp=34BAP;
+
+gerfig=I_JG3,II_JG3,I_JG27;
+gerjab=I_LG2;
+gerbom=Stab_KG27a,I_KG27a,II_KG27a,III_KG53a;
+gertrp=KGrzbV102a;
+
+romfig=Eskadrila54;
+romjab=Eskadrila54;
+rombom=Eskadrila54;
+
+</pre>
+
+The squadron names cant be any you like. <b>They have to be exactly the same used by FB game</b>. If you
+plan to add sqadron names, be sure they are aviable on FB.
+
+Later, this file contains plane description and are comma seperated values a colon the
+task and plane amount. The fields are in order:<br><br>
+<pre>
+army, country+task, name of plane, class air, loadout, fuel, crusier alt, crusier speed : task, number,
+</pre><br><br>
+
+Army: 1 for allied 2 for axis. The country+task (romfig, gerjab, rusfig, hunfig, itajab,
+etc..) is a combination of : 3 leter for country + 3 leters for role. Later is used to get
+a squadron name like III_JG52 or 84IAP etc.. Note, currently only 3 nations are suported
+(rus,ger and rom) this has to be explanded on badc_gen_1.pl to other nations. Other filesd
+are self explanatory.
+
+<p>The tasks are:<br><br>
+
+BA : <b>B</b>omber <b>A</b>ttack. Group of bombers attacking city or airfields.<br>
+SUM: <b>SU</b>ply <b>M</b>ission. Group of transport planes, doing suply mission task<br>
+BD: <b>B</b>omber <b>D</b>efend. Group og defending bombers, attacking the incoming enemy tanks<br>
+
+EBA: <b>E</b>scort <b>BA</b> bombers<br>
+ESU: <b>E</b>scort <b>SU</b>ply transports<br>
+EBD: <b>E</b>scort <b>BD</b> bombers<br>
+
+ET: <b>E</b>scort <b>T</b>anks. When you attack a sector, planes doing air cover and intercept <b>enemy BD</b><br>
+INT: <b>INT</b>ercept. In general, intercept enemy Suply transports and enemy BA.<br>
+<br>
+
+The number is the amount of planes of that type and and is equal for each entry. (not manadatory)
+Here is how looks a entry for a P-40 bomber/fighter:<br>
+(NOTE INTERCEPT TAK IS A SINGLE "I" not "INT" as described above) <br><br>
+<pre>
+                   # P40-E 
+                   1,rusjab,P-40E,1,air.P_40E,500lb,100,3000,400:BD,6,
+                   1,rusfig,P-40E,1,air.P_40E,500lb,100,3000,400:ET,6,
+                   1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBA,6,
+                   1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBD,6,
+                   1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:ER,6,
+                   1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:I,6,
+</pre>
+
+
+
+
+<p>To get classair names, open FMB, load any small map, for example online1. Then insert a
+plane you like to get the air class name. Let say FW190-A8, so insert a flight of that
+plane with weapons default. Then insert another one FW190-A8 and set this one with a bomb
+load you like to use, for example SC500.  Save the mission whith any name, for example
+call it airnames.mis (you can insert more flights of other airclass you will need).
+
+Open this mission with a text editor, you will see something like this:<br><br>
+
+
+
+<pre>
+[MAIN]
+  MAP Net1Summer/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[Wing]
+  g0101
+  g0100
+[g0101]
+  Planes 1
+  Skill 1
+  Class air.FW_190A8
+  Fuel 100
+  weapons default
+[g0101_Way]
+  NORMFLY 15421.69 25085.94 500.00 300.00
+[g0100]
+  Planes 1
+  Skill 1
+  Class air.FW_190A8
+  Fuel 100
+  weapons 1sc500
+[g0100_Way]
+  NORMFLY 15421.69 23440.96 500.00 300.00
+[NStationary]
+[Buildings]
+[Bridge]
+[House]
+</pre>
+
+<p>There you can see that the class air is: <b>air.FW_190A8</b><br>
+The default loadout is <b>default</b><br>
+The bombload loadout is: <b>1sc500</b><br>
+
+
+
+<p>Ok, lets build this FW190-A8 entry using default loadouts, and 1SC500 bomb for bomber
+defense (BD) , and set 45/300 planes.  First write a single line, for intercept
+task:<br><br>
+
+
+<pre>
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+</pre>
+
+<p>Those values are:<br>
+2 = axis side<br>
+gerfig = 3 leters country + 3 leters code<br>
+FW-190A8 = is the name of the plane to be displayed on briefings, reports and stats<br>
+1 = because is human flyable<br>
+air.FW_190A8 = is the class air you just find as explainded above<br>
+default = is the loadout<br>
+100 = is the fuel load<br>
+3000 = is the crousier altitude<br>
+400 = is the criusier speed<br>
+: is a separator<br>
+I = intercpet task (NOTE that is a single letter, not 3 letter  "INT") <br>
+45 is the plane amount number<br>
+, final comma<br><br>
+
+<p>When you have that line, copy and paste several lines (4 more) to get this:<br><br>
+
+<pre>
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+</pre>
+<br>
+
+<p>Finaly change so you have EBA EBD ET BD tasks, set 1sc500 loadout for ET and BD tasks.
+reduce crusier altitude to 1000 meters and set gerjab code for defensive bombing (BD): I
+usually add a comented (#) line with the name and other info at begining:<br><br>
+
+<pre>
+# FW-190A8   45/300 planes as Pirx table for map bla-bla at year xxxx ...
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:I,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:EBA,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,default,100,3000,400:EBD,45,
+2,gerfig,FW-190A8,1,air.FW_190A8,1sc500,100,3000,400:ET,45,
+2,gerjab,FW-190A8,1,air.FW_190A8,1sc500,100,1000,400:BD,45,
+</pre>
+<br>
+
+<p>If you investigate other load outs, you will know that mk108 guns on FW-190A8 is named
+"r22mk108" so you maybe like to add those for intercept task. Just change default by
+r22mk108 on Intercpet task line, so it looks this way:<br><br>
+
+<pre>
+2,gerfig,FW-190A8,1,air.FW_190A8,r22mk108,100,3000,400:I,45,
+</pre>
+
+<p>Repeat this method for other planes. I usually make a mission (airnames.mis) where I insert all planes I will need with several loadouts. So later I open the mission to read all air.class data and all loadouts I need. In your case, maybe you need P51, P38, P47, 109-G6, B25 etc etc... place all of them on you airnames.mis using FMB.
+
+
+<p>Later on this file we have static planes distribution and static vehicles distributions.
+The static planes line are like this:<br><br>
+
+<pre>
+                   ST100,1,I153,vehicles.planes.Plane$I_153_M62,15:150
+		   ST101,1,I16,vehicles.planes.Plane$I_16TYPE24,15:350
+		   ST102,1,IL2,vehicles.planes.Plane$IL_2_1940Late,20:400
+		   ST103,1,LaGG3,vehicles.planes.Plane$LAGG_3SERIES4,15:500
+</pre>
+And the fields are: <br><br>
+
+STx+ 2 numbers: x=1 for allied and x=2 for axis static planes<br>
+army<br>
+external name (for reports)<br>
+the FB object name<br>
+the aproximate wingspan of object<br>
+:number.<br>
+
+<p> The number are acumulative values, and last static plane has to have the number 1000.
+they have to be in order, for the example avobe: we have 150 I-153 per 1000 planes, the we
+have 200 (350-150) I-16type24, the we have 50 (400-350) Il2 1940, then we have 100
+(500-400) LaGG3 and so on. Notice that mixed with staic planes we have some fuel trucks,
+they will be placed like planes, simulating fuel loading. 
+
+Finally the static vehicles definition. This is almost the same like static planes, useing
+acumulative values frecuency up to 1000. Here some examples for blue side vehicles<br><br>
+
+<pre>
+                   SV201,2,VW82,vehicles.stationary.Stationary$VW82,15:80
+		   SV202,2,VW82t,vehicles.stationary.Stationary$VW82t,15:160
+		   SV203,2,OpelKadett,vehicles.stationary.Stationary$OpelKadett,15:260
+		   SV204,2,OpelBlitz36S,vehicles.stationary.Stationary$OpelBlitz36S,15:340
+		   SV205,2,OpelBlitz6700A,vehicles.stationary.Stationary$OpelBlitz6700A,15:440
+		   SV206,2,Kettenkrad,vehicles.stationary.Stationary$Kettenkrad,15:500
+</pre>
+
+And the fields are: <br><br>
+
+SVx+ 2 numbers: x=1 for allied and x=2 for axis static planes<br>
+army<br>
+external name (for reports)<br>
+the FB object name<br>
+the aproximate wingspan of object<br>
+:number.<br>
+
+
+<pre>
+
+
+
+
+
+
+
+</pre>
+
+<a id="images"></a> 
+<h2>4. Images</h2>
+
+<p>The image to be used is BMP 24bits/pix image you have to make with a program of
+preference. Take several screenshots to the map in the FMB. Later edit and resize to get
+900 pixels with. You can use other sizes, but is not recomended more than 900 width because
+performance and server load. Smaller can be to hard to see information. Always use
+a divisible by 4 width, because scripts do not handle padding. Add to the image the names of
+the cityes. Lets call this image NM1.BMP.  Later use a tool to create the image map file
+(lets call it imap.data). GIMP has a nice imagemap editor.
+
+<p>When you build the image, count how many pixels per sector you have. Later you need
+that information to be written into config.pl (explained later). For example, if your
+image has 900 pixels width and the map has 15 sectors, the count for pixels per sectors is
+60. Maybe one less because maps have partial sectors at end, where are cordinates.
+
+<p>The image map is just a html file, pointing to the image (not this one, point to a
+default "front.jpg" ) and later the map definition, like this:<br>
+
+<pre>
+
+   &lt;br&gt;
+   &lt;p&gt; Use the map to find the name of the area of attack &lt;/p&gt;
+   &lt;IMG SRC="/images/front.jpg" WIDTH=xxx HEIGHT=xxx BORDER=0 alt="" USEMAP="#map"&gt;
+   &lt;MAP NAME="map"&gt;
+   &lt;AREA SHAPE="RECT" COORDS="0,31,46,77" HREF="./no_click.html" alt="sector--A16"&gt;
+   .
+   . (other imap lines)
+   .
+   &lt;/MAP&gt;
+</pre>
+
+Note that you have to set width and height. usually the imagemap tool does that.
+
+
+<pre>
+
+
+
+
+
+
+</pre>
+
+
+
+<a id="end"></a> 
+<h2>6. Final configuration</h2>
+
+
+Once you have all the files, is time to rename files, so they become unique. Using a
+ combination of 2 or 3 letters will be ok. So we rename for normandie1 using NM1:<br><br>
+
+<pre>
+initial.mis    -&gt; NM1_initial.mis  (this is not longer used, but saveit just in case)
+geo_obj.data   -&gt; NM1_geo_obj.data
+red_obj.mis    -&gt; NM1_red_obj.mis
+blue_obj.mis   -&gt; NM1_blue_obj.mis
+tank_wp.mis    -&gt; NM1_tank_wp.mis 
+city.mis       -&gt; NM1_city.mis
+frontline.mis  -&gt; NM1_frontline.mis
+aircrafts.data -&gt; NM1_aircrafts.data
+NM1.BMP        -&gt; NM1_000.BMP  (000 is just to say it is original map image).
+imap.data      -&gt; NM1_imap.data
+</pre>
+
+
+<p>Now you have to add this map information to the config.pl file. First define a map name ($MAP_NAME_LONG), a
+short text with some clear info of map. After that several lines has to be included inside
+a if condition: <br>
+1) The map image information<br>
+2) The tank types to be used as defense and attack for both armyes, and AAA precense<br>
+3) The file names for this map.
+4) The plane list to be used on this map. (for takeslot.pl form printing)
+
+The MAP_NAME_LOAD (in our example is Normandy/load2.ini) can be extracted by looking into
+any template just created. Open with a text editor and dind the line that starts with
+"MAP" then copy the information it follows.
+
+<pre>
+$MAP_NAME_LONG="Normandie. June 1944";
+
+if ( $MAP_NAME_LONG eq "Normandie. June 1944") {
+
+    # 1 . map image information
+    $ANCHO=900;      # NM1_000.bmp image width in pixels
+    $ALTO=600;       # NM1_000.bmp image height in pixels
+    $H_BLOCK_PIX=60; # horizontal sector size in pixels
+    $V_BLOCK_PIX=60; # vertical sector size in pixeles
+    $LETRAS=16;      # map sector letters, 1 in excess (Normandie1 last is O, that is 15)
+    $NUMEROS=11;     # map sector numbers, 1 in excess (Normandie1 last number is 10)
+
+    # 2. tank types and aaa placement
+    $ALLIED_TANKS_ATTK="Armor.3-BT7";
+    $AXIS_TANKS_ATTK="Armor.3-PzIIIG";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$BT7"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIG"; # notice "escaped $" 
+    $AAA_IN_CHAMPS=0;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
+
+    # 3. file names 
+    $GEOGRAFIC_COORDINATES="NM1_geo_obj.data";
+    $FRONT_LINE="NM1_frontline.mis";
+    $RED_OBJ_FILE="NM1_red_obj.mis";
+    $BLUE_OBJ_FILE="NM1_blue_obj.mis";
+    $CITY_PLACES="NM1_city.mis";
+    $TANKS_WP="NM1_tank_wp.mis";  
+    $FRONT_IMAGE="NM1_000.bmp";
+    $IMAP_DATA="NM1_imap.data";
+    $MAP_NAME_LOAD="Normandy/load2.ini";
+    $FLIGHTS_DEF="MM1_aircrafts.data";  
+
+    # 4 . data for takeslot.pl planes names shuld be the exact same used in aircrafts.data)
+    @VVS_SUM_PLANES=("Li-2","TB3-4M-34R");
+    @VVS_BA_PLANES=("IL2 series1","IL2 series2","SB-2M100A","SB2-M103","SU-2","TB3-4M-34R");
+    @VVS_AI_PLANES=("Li-2","IL-4-DB3B","PE-2 1940","R-10","SB-2M100A","SB2-M103","SU-2");
+    @LW_SUM_PLANES=("HE-111H2","JU-52");
+    @LW_BA_PLANES=("BF-110C4B","HE-111H2","JU-87B2","JU-88A4");
+    @LW_AI_PLANES=("JU-52","BF-110C4B","JU-88A4");
+}
+</pre>
+
+<p>The values on VVS_SUM_PLANES, VVS_BA_PLANES, VVS_AI_PLANES are the suply allowed
+planes, the bomber attack planes and the AI planes list.Same goes for LW_* fields with
+axis planes. All this values are used on take_slot.pl to make the plane selection form at
+creation of missison. The names of the planes needs to be <b>exactly</b> the same as is
+writed on aircrafts.data file. The ones I printe in example are not for normandie, they
+are just an example.
+
+<p>When you set the  ATTACK tanks types, be sure to include in a variable name called
+(TANK_REGEX) a string to identify them. For example if you add KV1 tanks, you have to make
+this line:  <br><br>
+
+<pre>
+$TANK_REGEX="Pz|T34|ValentineII|BT7|M4A2|T70"; # tank string identification use | as separator
+</pre>
+
+look now like: <br><br>
+
+
+<pre>
+$TANK_REGEX="Pz|T34|ValentineII|BT7|M4A2|T70|KV1"; # tank string identification use | as separator
+</pre>
+
+<p>Notice that defence tanks names, the static ones, has an escaped $, by adding a backslash
+before $.For example, the FB object name for a static BT7 is:
+<b>vehicles.artillery.Artillery$BT7</b> and you have to add the backslash before the $
+simbol, like this: <b>vehicles.artillery.Artillery\$BT7</b>.
+
+
+
+<pre>
+
+
+
+
+
+
+</pre>
+
+<a id="comments"></a> 
+<h2>7. Comments</h2>
+
+<p>For sure the templates take longs to be done, and several files has to be edited, created
+and changed. After all files are done, you have to test if they are correct, for example,
+all planes are used, all city and suply city targets are present, the front image and
+suply image are correclty created, and so on.
+
+<p>I will release more templates, the ones we will use in bellum: Kursk, Smolenk and
+Balaton. I will not make more templates that the mentioned before. All questions are
+welcome and for sure I will help to any with template building. At least to the ones they
+prove have spent some time to understand this manual (besides my bad english) :).
+
+<p>Use the Bellum forum for questions (<a
+href="http://il2fb-bellum.com.ar/foro">http://il2fb-bellum.com.ar/foro</a>) and help with
+problems with templates you are making (If possible provide files you are working on).
+
+<p>
+<b>Note:</b> I know that small FB maps can work with badc, but I really dont know if
+generator/parser can handle big maps, those that has 2 letters per sector. (finland,
+crimea, etc..)
+
+<p> Thats all. :)
+
+
+<pre>
+
+
+
+
+</pre>
+
+
+
+<br></div><br></div>
+</body>
+</html>

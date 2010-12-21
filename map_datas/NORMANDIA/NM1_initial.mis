@@ -1,0 +1,510 @@
+[MAIN]
+  MAP Normandy/load2.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[Wing]
+  usa0101
+  usa0110
+  usa0111
+  usa0112
+  usa0113
+  usa0120
+  usa0121
+  usa0122
+  usa0123
+  usa0130
+  usa0131
+  usa0132
+  usa0133
+  15AF_31FG_307FS00
+  15AF_31FG_307FS01
+  15AF_31FG_307FS02
+  15AF_31FG_307FS03
+  15AF_31FG_307FS10
+  15AF_31FG_307FS11
+  15AF_31FG_307FS12
+  15AF_31FG_307FS13
+  usa0100
+  15AF_31FG_307FS20
+  15AF_31FG_307FS21
+  usa0102
+  usa0103
+  15AF_31FG_307FS22
+  15AF_31FG_307FS23
+  15AF_31FG_307FS30
+  15AF_31FG_307FS31
+  15AF_31FG_307FS32
+  15AF_31FG_307FS33
+  15AF_31FG_308FS00
+  15AF_31FG_308FS01
+  15AF_31FG_308FS02
+  15AF_31FG_308FS03
+  15AF_31FG_308FS10
+  15AF_31FG_308FS11
+  15AF_31FG_308FS12
+  15AF_31FG_308FS13
+  15AF_31FG_308FS20
+  15AF_31FG_308FS21
+[usa0101]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0101_Way]
+  NORMFLY 116319.28 86804.37 500.00 300.00 &0
+  NORMFLY 116197.60 86630.59 500.00 300.00 &0
+[usa0110]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0110_Way]
+  NORMFLY 116945.88 86275.92 500.00 300.00 &0
+  NORMFLY 116781.01 86387.21 500.00 300.00 &0
+[usa0111]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0111_Way]
+  NORMFLY 117274.83 87285.68 500.00 300.00 &0
+  NORMFLY 117321.51 87003.49 500.00 300.00 &0
+[usa0112]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0112_Way]
+  TAKEOFF 115887.04 87294.47 0 0 &0
+  LANDING 117447.45 86346.64 0 0 &0
+[usa0113]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0113_Way]
+  TAKEOFF 145706.20 52275.41 0 0 &0
+  LANDING 147240.34 52138.80 0 0 &0
+[usa0120]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0120_Way]
+  NORMFLY 147070.88 51994.70 500.00 300.00 &0
+  NORMFLY 146872.43 52013.02 500.00 300.00 &0
+[usa0121]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0121_Way]
+  NORMFLY 146673.31 52961.40 500.00 300.00 &0
+  NORMFLY 146540.84 52848.07 500.00 300.00 &0
+[usa0122]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0122_Way]
+  TAKEOFF 106459.52 16110.60 0 0 &0
+  LANDING 105578.07 14851.75 0 0 &0
+[usa0123]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0123_Way]
+  NORMFLY 105904.48 15017.93 500.00 300.00 &0
+  NORMFLY 105833.08 14919.24 500.00 300.00 &0
+  NORMFLY 105800.60 14887.01 500.00 300.00 &0
+  NORMFLY 105759.18 14914.54 500.00 300.00 &0
+[usa0130]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0130_Way]
+  TAKEOFF 74052.41 61107.64 0 0 &0
+  LANDING 74611.62 62643.96 0 0 &0
+[usa0131]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0131_Way]
+  NORMFLY 73716.67 62009.34 500.00 300.00 &0
+  NORMFLY 73649.02 62157.47 500.00 300.00 &0
+[usa0132]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0132_Way]
+  NORMFLY 74601.34 62161.44 500.00 300.00 &0
+  NORMFLY 74522.23 61944.19 500.00 300.00 &0
+[usa0133]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0133_Way]
+  TAKEOFF 39530.43 29455.75 0 0 &0
+  LANDING 38048.61 28764.76 0 0 &0
+[15AF_31FG_307FS00]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS00_Way]
+  NORMFLY 38443.07 29601.96 500.00 300.00 &0
+  NORMFLY 38522.46 29814.96 500.00 300.00 &0
+[15AF_31FG_307FS01]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS01_Way]
+  NORMFLY 39173.82 29135.42 500.00 300.00 &0
+  NORMFLY 38969.76 29043.61 500.00 300.00 &0
+[15AF_31FG_307FS02]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS02_Way]
+  TAKEOFF 4341.81 99539.94 0 0 &0
+  LANDING 2731.65 99823.86 0 0 &0
+[15AF_31FG_307FS03]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS03_Way]
+  NORMFLY 3563.42 100299.23 500.00 300.00 &0
+  NORMFLY 3693.61 100384.60 500.00 300.00 &0
+[15AF_31FG_307FS10]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS10_Way]
+  NORMFLY 3864.69 99468.63 500.00 300.00 &0
+  NORMFLY 3633.97 99514.09 500.00 300.00 &0
+[15AF_31FG_307FS11]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS11_Way]
+  TAKEOFF 142330.77 96503.56 0 0 &0
+  LANDING 142599.92 98030.02 0 0 &0
+[15AF_31FG_307FS12]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS12_Way]
+  NORMFLY 141928.94 96737.19 500.00 300.00 &0
+  NORMFLY 141977.38 96976.96 500.00 300.00 &0
+  NORMFLY 142104.78 96957.84 500.00 300.00 &0
+  NORMFLY 142072.65 96814.84 500.00 300.00 &0
+[15AF_31FG_307FS13]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS13_Way]
+  NORMFLY 142748.44 97880.81 500.00 300.00 &0
+  NORMFLY 142722.54 97733.100 500.00 300.00 &0
+[usa0100]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0100_Way]
+  NORMFLY 145968.95 52081.48 500.00 300.00 &0
+  NORMFLY 145870.17 52088.83 500.00 300.00 &0
+[15AF_31FG_307FS20]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS20_Way]
+  NORMFLY 3570.22 100170.54 500.00 300.00 &0
+  NORMFLY 3515.31 100250.46 500.00 300.00 &0
+[15AF_31FG_307FS21]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS21_Way]
+  NORMFLY 3769.71 100425.55 500.00 300.00 &0
+  NORMFLY 3840.48 100332.21 500.00 300.00 &0
+[usa0102]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0102_Way]
+  NORMFLY 73624.25 62229.18 500.00 300.00 &0
+  NORMFLY 73754.44 62288.91 500.00 300.00 &0
+[usa0103]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[usa0103_Way]
+  NORMFLY 73846.33 61978.01 500.00 300.00 &0
+  NORMFLY 73755.97 61938.19 500.00 300.00 &0
+[15AF_31FG_307FS22]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS22_Way]
+  NORMFLY 74350.21 62435.94 500.00 300.00 &0
+  NORMFLY 74307.33 62316.48 500.00 300.00 &0
+[15AF_31FG_307FS23]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS23_Way]
+  NORMFLY 38535.100 29529.63 500.00 300.00 &0
+  NORMFLY 38452.86 29561.26 500.00 300.00 &0
+[15AF_31FG_307FS30]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS30_Way]
+  NORMFLY 38561.75 29850.41 500.00 300.00 &0
+  NORMFLY 38680.20 29809.21 500.00 300.00 &0
+[15AF_31FG_307FS31]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS31_Way]
+  NORMFLY 39215.76 29498.14 500.00 300.00 &0
+  NORMFLY 39095.89 29443.14 500.00 300.00 &0
+[15AF_31FG_307FS32]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS32_Way]
+  NORMFLY 106062.82 15272.99 500.00 300.00 &0
+  NORMFLY 105999.90 15181.17 500.00 300.00 &0
+[15AF_31FG_307FS33]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_307FS33_Way]
+  NORMFLY 105482.48 15012.78 500.00 300.00 &0
+  NORMFLY 105555.60 15102.90 500.00 300.00 &0
+[15AF_31FG_308FS00]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS00_Way]
+  NORMFLY 117057.20 86330.00 500.00 300.00 &0
+  NORMFLY 117002.17 86261.23 500.00 300.00 &0
+[15AF_31FG_308FS01]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS01_Way]
+  NORMFLY 116737.38 86429.73 500.00 300.00 &0
+  NORMFLY 116800.100 86517.42 500.00 300.00 &0
+[15AF_31FG_308FS02]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS02_Way]
+  NORMFLY 116157.93 86586.20 500.00 300.00 &0
+  NORMFLY 116078.83 86646.38 500.00 300.00 &0
+[15AF_31FG_308FS03]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS03_Way]
+  NORMFLY 115898.29 86875.07 500.00 300.00 &0
+  NORMFLY 115874.22 87000.59 500.00 300.00 &0
+[15AF_31FG_308FS10]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS10_Way]
+  NORMFLY 116526.76 87305.38 500.00 300.00 &0
+  NORMFLY 116650.99 87328.94 500.00 300.00 &0
+[15AF_31FG_308FS11]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS11_Way]
+  NORMFLY 142690.65 97948.51 500.00 300.00 &0
+  NORMFLY 142769.90 97933.71 500.00 300.00 &0
+[15AF_31FG_308FS12]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS12_Way]
+  NORMFLY 142287.44 97186.52 500.00 300.00 &0
+  NORMFLY 142175.98 97113.37 500.00 300.00 &0
+[15AF_31FG_308FS13]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS13_Way]
+  NORMFLY 146512.36 52943.20 500.00 300.00 &0
+  NORMFLY 146611.16 53027.08 500.00 300.00 &0
+[15AF_31FG_308FS20]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS20_Way]
+  NORMFLY 145781.94 52078.46 500.00 300.00 &0
+  NORMFLY 145788.43 52166.71 500.00 300.00 &0
+[15AF_31FG_308FS21]
+  Planes 1
+  Skill 1
+  Class air.A_20G
+  Fuel 100
+  weapons default
+[15AF_31FG_308FS21_Way]
+  NORMFLY 146787.62 51984.07 500.00 300.00 &0
+  NORMFLY 146795.33 52074.87 500.00 300.00 &0
+[NStationary]
+  0_Static vehicles.stationary.Campfire$CampfireAirfield 0 151380.81 101020.58 360.00 0.0
+  2_Static vehicles.planes.Plane$JU_52_3MG4E 2 116801.07 87326.78 359.10 0.0 null
+  3_Static vehicles.planes.Plane$JU_52_3MG4E 2 105939.55 15104.60 359.10 0.0 null
+  4_Static vehicles.planes.Plane$JU_52_3MG4E 2 146328.26 52435.13 359.10 0.0 null
+  5_Static vehicles.planes.Plane$JU_52_3MG4E 2 74157.31 62446.70 359.10 0.0 null
+  6_Static vehicles.planes.Plane$JU_52_3MG4E 2 39087.50 29618.75 359.10 0.0 null
+  7_Static vehicles.planes.Plane$JU_52_3MG4E 2 4060.69 99904.40 359.10 0.0 null
+  8_Static vehicles.planes.Plane$JU_52_3MG4E 2 142611.55 97246.32 359.10 0.0 null
+[Buildings]
+[Bridge]
+[House]
+[FrontMarker]
+  FrontMarker0 99300.10 98984.66 1
+  FrontMarker1 99174.96 85317.62 1
+  FrontMarker2 98715.04 80732.69 1
+  FrontMarker3 88855.33 80926.52 1
+  FrontMarker4 89589.12 50698.65 1
+  FrontMarker5 68098.91 48575.68 1
+  FrontMarker6 68756.24 21937.99 1
+  FrontMarker7 61149.15 20717.33 1
+  FrontMarker8 59381.90 668.08 1
+  FrontMarker9 60615.27 668.08 2
+  FrontMarker10 71914.98 18867.52 2
+  FrontMarker11 61026.39 18346.39 2
+  FrontMarker12 61026.39 5498.78 2
+  FrontMarker13 71180.47 48732.57 2
+  FrontMarker14 89799.33 49165.52 2
+  FrontMarker15 91398.14 78832.94 2
+  FrontMarker16 101059.55 79501.01 2
+  FrontMarker17 100622.46 85319.29 2
+  FrontMarker18 100571.18 98980.48 2
+  FrontMarker19 94761.38 80758.61 1
+  FrontMarker20 94743.46 78701.16 2
+  FrontMarker21 98708.57 78583.57 2
+  FrontMarker22 90768.19 73728.86 2
+  FrontMarker23 90662.76 65255.97 2
+  FrontMarker24 90864.23 57859.19 2
+  FrontMarker25 85973.64 48697.14 2
+  FrontMarker26 74814.32 48901.38 2
+  FrontMarker27 70909.32 45063.50 2
+  FrontMarker28 70979.13 31083.94 2
+  FrontMarker29 70179.59 26288.88 2
+  FrontMarker30 67037.41 18338.80 2
+  FrontMarker31 58919.39 5550.17 1
+  FrontMarker32 58970.78 18294.10 1
+  FrontMarker33 67008.07 20764.92 1
+  FrontMarker34 69274.27 26340.40 1
+  FrontMarker35 67874.18 34313.58 1
+  FrontMarker36 68481.31 44984.16 1
+  FrontMarker37 74832.92 50494.09 1
+  FrontMarker38 85942.56 50750.64 1
+  FrontMarker39 89126.55 65257.86 1
+  FrontMarker40 88867.41 73717.83 1
+  FrontMarker41 70731.74 21903.13 2
+  FrontMarker42 90136.36 50346.32 2
+  FrontMarker43 71186.10 50700.90 1
+  FrontMarker44 88249.26 78721.98 1
+  FrontMarker45 91408.76 80576.29 1
+  FrontMarker46 70670.23 28790.12 2
+  FrontMarker47 68385.98 30708.41 1
+  FrontMarker48 70666.90 27796.98 2
+  FrontMarker49 68732.62 28429.47 1
+  FrontMarker50 71357.51 34539.76 2
+  FrontMarker51 71224.21 40121.30 2
+  FrontMarker52 68135.05 40208.57 1
+  FrontMarker53 71663.98 36049.30 2
+  FrontMarker54 67604.57 36044.80 1
+  FrontMarker55 90143.21 49911.69 2
+  FrontMarker56 89868.44 50145.62 1
+  FrontMarker57 89592.48 54040.03 1
+  FrontMarker58 89560.36 52407.81 1
+  FrontMarker59 89655.40 51058.52 1
+  FrontMarker60 90152.45 54048.19 2
+  FrontMarker61 90168.60 52439.51 2
+  FrontMarker62 90089.25 51026.26 2
+  FrontMarker63 88941.36 57843.57 1
+  FrontMarker64 101221.39 80748.32 2
