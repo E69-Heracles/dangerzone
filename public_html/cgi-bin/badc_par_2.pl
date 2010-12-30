@@ -2994,7 +2994,7 @@ sub print_mis_objetive_result(){
 	while(<GEO_OBJ>) {
 	    # SEC-Q04,sector--Q04,165000,35000,30,1:1
 	    if ($_ =~ m/[^,]+,$red_target,[^,]+,[^,]+,([^,]+),([01]):2/){ # sector atacado azul 
-		if ($2==1 || $1>=$TTL_SUPPLYED) { # CON suministro
+		if ($2==1 || $1>=$TTL_WITH_DEF) { # CON suministro
 		    $tank_dead_limit=4; # matan 5 taques y no se gana el sector
 		} 
 		last;
@@ -3210,7 +3210,7 @@ sub print_mis_objetive_result(){
 	while(<GEO_OBJ>) {
 	    # SEC-Q04,sector--Q04,165000,35000,30,1:1
 	    if ($_ =~ m/^[^ ]+,$blue_target,[^,]+,[^,]+,([^,]+),([01]):1/){ # sector atacado rojo 
-		if ($2==1 || $1 >= $TTL_SUPPLYED ) { # CON suministro
+		if ($2==1 || $1 >= $TTL_WITH_DEF ) { # CON suministro
 		    $tank_dead_limit=4; # matan 5 taques y no se gana el sector
 		} 
 		last;
