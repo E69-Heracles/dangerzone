@@ -1822,9 +1822,8 @@ sub bombers_wp($$$$) {
     if ($grplst[0] eq "BD" || $grplst[0] eq "EBD" ){ # si se trata de BD = enemigos mandan tanques...(guarda!! uso def [0])
 	if ($player==1) { # si es vuelo es rojo
 	    if ($RED_ATTK_TACTIC==1) { #si los rojos  enviaron tanques
-		$red_tanks_groups++;
-		$tgt_name=$red_tanks_groups."_Chief 1"; # $red_tanks_groups apunta al primer grupo tank blue
-		$tgt_name_2=($red_tanks_groups+2)."_Chief 1"; 
+		$tgt_name=($red_tanks_groups+1)."_Chief 1"; # $red_tanks_groups apunta al primer grupo tank blue
+		$tgt_name_2=($red_tanks_groups+3)."_Chief 1"; 
 	    }
 	    else {
 		$tgt_name="0_Chief 1"; #  si no hay tankes rojos los azules empiezan en 0
