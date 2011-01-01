@@ -3003,7 +3003,7 @@ sub print_mis_objetive_result(){
 	
 	seek LOG, 0, 0;
 	while(<LOG>) {
-	    if ($_=~  m/([0-9:]+) [012]_Chief[0-9] destroyed by ([^ ]+) at ([^ ]+) ([^ ]+)/){
+	    if ($_=~  m/([0-9:]+) [0123]_Chief[0-9] destroyed by ([^ ]+) at ([^ ]+) ([^ ]+)/){
 		if ( (get_segundos($1)-get_segundos($stime_str))  <= 2400 ){ # 40 minutos
 		    ($by,$obj_army)=get_name($2);
 		    ($plane_by,$obj_army)=get_plane($2);
@@ -3202,7 +3202,7 @@ sub print_mis_objetive_result(){
 	$tank_killed=0;
 	$tank_dead_limit=7; # defaulf: matan 8 taques y no se gana el sector
 
-	if ($redchf) {$bchf="345";} # guarda check asd cambiar . pre-supone que siempre hay 3 grupos de tanques - CAMBIAR
+	if ($redchf) {$bchf="456";} # guarda check asd cambiar . pre-supone que siempre hay 3 grupos de tanques - CAMBIAR
 	else {$bchf="012";}
 	
 
