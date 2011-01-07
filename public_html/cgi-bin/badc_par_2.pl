@@ -37,6 +37,12 @@ sub get_mis_result_points($$);
 sub detect_massive_disco();
 sub search_for_rescuer($$$$$$);
 sub print_pilot_actions();
+sub sum_array(@);
+sub is_human($);
+sub plane_role($);
+sub add_losts_planes_and_pilots_by_task(@);
+sub calc_airfield_losts_damage($$$$$);
+sub print_airfield_losts_report();
 sub eventos_aire();
 sub eventos_tierra();
 sub read_mis_details();
@@ -52,12 +58,20 @@ sub draw_octants ($$$$$$$);
 sub draw_circle ($$$$);
 sub make_image();
 sub make_attack_page();
+sub printdebug($);
+
+
+sub printdebug($) {
+    my $log = shift (@_);
+    if ($DZDEBUG) {
+    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . $log . "\n";	
+    }
+}
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
     return (sqrt(($x1-$x2)**2+($y1-$y2)**2));
 }
-
 
 # param pilot code 
 sub get_task($){
@@ -534,6 +548,7 @@ sub build_pilot_list(){
 		}
 		push (@pilot_list,[$hlname,$plane,$seat,$pos,$wing,$army,$task,$experience]);
 		$hpilots++;
+		print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "build_pilot_list(): Added $hlname,$plane,$seat,$pos,$wing,$army,$task,$experience  \n\n";
 	    }
 	}
       SKIP:
@@ -2364,7 +2379,216 @@ sub print_pilot_actions(){
 	}
     }
 }
+## @Heracles@20110101@
+## Calcula el sumatorio de los valores de un array.
+## Parametro: @array
+sub sum_array(@) {
+    my $count;
+    
+    foreach (@_) {
+	$count += $_;
+    }
+    
+    return $count;
+}
 
+## @Heracles@20110101@
+## Retorna true si el piloto es humano.
+## Parametro : $plane
+sub is_human($) {
+    my ($my_plane) = shift @_;
+     
+    for ($i = 0; $i<$hpilots; $i++) {
+	if ($pilot_list[$i][1] eq $my_plane) {
+	    return 1;
+	}
+    }
+   
+    return 0;
+}
+
+## @Heracles@20110102@
+## Retorna el rol del avión "BOMBER", "FIGHTER", "SUM"
+## BOMBER TASKS: BA, BD
+## FIGHTER TASKS: EBA, ESU, EBD, ET, INT
+## SUM TASKS: SUM
+## Parametros: $task
+sub plane_role($) {
+    my ($my_task) = shift @_;
+    
+    my $role = 
+        (($my_task eq ("BA")) || ($my_task eq ("BD"))) ? "BOMBER" :
+        (($my_task eq ("EBA")) || ($my_task eq ("ESU")) || ($my_task eq ("EBD")) || ($my_task eq ("ET")) || ($my_task eq ("I"))) ? "FIGHTER" :
+        (($my_task eq ("SUM"))) ? "SUM" : "NOROLE";
+    
+    return $role;
+}
+
+
+## @Heracles@20110101@
+## Añade un avion perdido al subtotal segun su tipo de tarea.
+## Parametro: @lost_planes, $plane, $task
+sub add_losts_planes_and_pilots_by_task(@) {
+    my ($ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum, $my_plane, $my_task) = @_;
+    
+    my @planes_lost = (0, 0, 0, 0, 0, 0);
+    my $role_damage;
+
+    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes(): Called with " . @_ . " parameters\n\n";
+    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes(): Called with $ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum, $my_plane, $my_task\n\n";
+
+    if (is_human($my_plane)) {
+	@planes_lost =
+	    ( plane_role($my_task) eq "BOMBER" ) ? ($ia_fighter, $ia_bomber, $ia_sum, $human_fighter, ++$human_bomber, $human_sum) :
+	    ( plane_role($my_task) eq "FIGHTER" ) ? ($ia_fighter, $ia_bomber, $ia_sum, ++$human_fighter, $human_bomber, $human_sum) :
+	    ( plane_role($my_task) eq "SUM" ) ? ($ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, ++$human_sum) :
+		($ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum);
+    }
+    else {
+	@planes_lost =
+	    ( plane_role($my_task) eq "BOMBER" ) ? ($ia_fighter, ++$ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum) :
+	    ( plane_role($my_task) eq "FIGHTER" ) ? (++$ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum) :
+	    ( plane_role($my_task) eq "SUM" ) ? ($ia_fighter, $ia_bomber, ++$ia_sum, $human_fighter, $human_bomber, $human_sum) :
+		($ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum);	
+    }
+    
+    if (is_human($my_plane)) {
+	$role_damage =
+	    ( plane_role($my_task) eq "BOMBER" ) ? 'human_type_bomber' :
+	    ( plane_role($my_task) eq "FIGHTER" ) ? 'human_type_fighter' :
+	    ( plane_role($my_task) eq "SUM" ) ? 'human_type_sum' :
+		'human_type_sum';	
+    }
+    else {
+	$role_damage =
+	    ( plane_role($my_task) eq "BOMBER" ) ? 'ia_type_bomber' :
+	    ( plane_role($my_task) eq "FIGHTER" ) ? 'ia_type_fighter' :
+	    ( plane_role($my_task) eq "SUM" ) ? 'ia_type_sum' :
+		'ia_type_sum';	
+    }
+    
+    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes() Return with: $my_task : $planes_lost[0], $planes_lost[1], $planes_lost[2], $planes_lost[3], $planes_lost[4], $planes_lost[5]. Role : $role_damage\n\n";
+    return ($role_damage, @planes_lost);
+}
+
+## @Heracles@20100103
+## Calcula el daño sobre un aeródromo provocado por las bajas de aviones y pilotos
+## Parametros: $af, $af_damage_orig, $af_code, $_[3] (geo_obj af line), $_[4] (af_captured)
+sub calc_airfield_losts_damage($$$$$) {
+    my ($my_af, $my_af_damage, $my_af_code) = @_;
+    
+    my $my_damage = 0.0;
+    my $my_total_damage = 0.0;
+    my @my_af_lost =
+	($my_af eq "R1") ? @red_af1_lost :
+	($my_af eq "R2") ? @red_af2_lost :
+	($my_af eq "B1") ? @blue_af1_lost :
+	    @blue_af2_lost;
+    my @my_af_kia =
+	($my_af eq "R1") ? @red_af1_kia :
+	($my_af eq "R2") ? @red_af2_kia :
+	($my_af eq "B1") ? @blue_af1_kia :
+	    @blue_af2_kia;
+    my $my_army =
+	($my_af eq "R1") ? 1 :
+	($my_af eq "R2") ? 1 :
+	($my_af eq "B1") ? 2 :
+	    2;	
+
+    $my_damage = (($my_af_lost[0]*$role_damage{ia_lost_fighter})+($my_af_lost[1]*$role_damage{ia_lost_bomber})+($my_af_lost[2]*$role_damage{ia_lost_sum}));
+    printdebug("calc_airfield_losts_damage(): $my_af ia lost : $my_damage");
+    
+    $my_damage += (($my_af_lost[3]*$role_damage{human_lost_fighter})+($my_af_lost[4]*$role_damage{human_lost_bomber})+($my_af_lost[5]*$role_damage{human_lost_sum}));
+    printdebug("calc_airfield_losts_damage(): $my_af human lost : $my_damage");    
+    
+    $my_damage += (($my_af_kia[0]*$role_damage{ia_kia_fighter})+($my_af_kia[1]*$role_damage{ia_kia_bomber})+($my_af_kia[2]*$role_damage{ia_kia_sum}));
+    printdebug("calc_airfield_losts_damage(): $my_af ia kia : $my_damage");    
+    
+    $my_damage += (($my_af_kia[3]*$role_damage{human_kia_fighter})+($my_af_kia[4]*$role_damage{human_kia_bomber})+($my_af_kia[5]*$role_damage{human_kia_sum}));
+    printdebug("calc_airfield_losts_damage(): $my_af human kia : $my_damage");    
+    
+    $my_total_damage = (($my_af_damage*1.0) + $my_damage);
+    printdebug("calc_airfield_losts_damage(): $my_af total : $my_damage, airfield new damage : $my_total_damage");    
+    
+    printdebug("calc_airfield_losts_damage(): GEO_OBJ : $_[3]");
+    if ($my_total_damage > 100) {$my_total_damage = 100;}
+    if ( $_[3] !~ s/^($my_af_code,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:$my_army/$1,$my_total_damage:$my_army/) { 
+    
+        $_[4] = 1;
+	# if regex fail is because army is not my_army : AF captured
+	# if ($my_af eq 'R1') { $red_af1_captured = 1;}
+	# if ($my_af eq 'R2') { $red_af2_captured = 1;}
+	# if ($my_af eq 'B1') { $blue_af1_captured = 1;}
+	# if ($my_af eq 'B2') { $blue_af2_captured = 1;}
+    }
+    
+    return $my_damage;
+}
+
+## @Heracles@20110104@
+## Presenta un infome de perdidas de aeródromo
+## Parametros : $color, $af_name, @af_lost_print_list
+sub print_airfield_losts_report(@) {
+    
+    my $color = shift(@_);
+    my $color2 = shift(@_);
+    my ($af_name) = shift(@_);
+    my @af_lost_print_list = @_;
+    my $i = 0;
+    my $j = 0;
+    my $k = 0;
+    
+    print HTML_REP "<p><br><br>\n";
+    print HTML_REP "<center><h3>Airfield $af_name Losts Report:</h3></center>\n\n";
+    print HTML_REP "<center>\n<table border=1>\n";
+    print HTML_REP "  <tr bgcolor=\"#ffffff\">\n";
+    print HTML_REP "    <td class=\"ltr70\">Pilot</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">plane</td>\n";    
+    print HTML_REP "    <td class=\"ltr70\">task</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">lost</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">%</td>\n";
+    print HTML_REP "  </tr>\n";
+    
+    for ( $i = 0; $i <= $#af_lost_print_list; $i++ ) {
+
+	printdebug("print_airfield_losts_report(): $af_lost_print_list[$i][0] : $af_lost_print_list[$i][1] : $af_lost_print_list[$i][2] : $af_lost_print_list[$i][3]\n");	
+	
+	if ($af_lost_print_list[$i][0] ne 'KILLED') {
+	    $j++;
+            if (($j/2)-int($j/2)){print HTML_REP "  <tr bgcolor=\"" . $color . "\">\n";}
+	    else {print HTML_REP "  <tr bgcolor=\"" . $color2 . "\">\n";}
+	
+	    my $my_pilot_name = $af_lost_print_list[$i][0];
+	    my $my_plane_type = $af_lost_print_list[$i][1];
+	    my $my_plane_name = $af_lost_print_list[$i][2];
+	    my $my_task = $af_lost_print_list[$i][3];
+	    my $my_damage = $af_lost_print_list[$i][4];
+	    my $my_lost = 'Plane';
+	    
+	    for ( $k = 0; $k <= $#af_lost_print_list; $k++ ) {
+		
+		if ($af_lost_print_list[$k][0] eq 'KILLED') {
+		    if ( $af_lost_print_list[$i][2] eq $af_lost_print_list[$k][2]) {
+		        $my_damage += $af_lost_print_list[$k][4];
+			$my_lost = 'Pilot';
+			
+			printdebug("print_airfield_losts_report(): KILLED : $af_lost_print_list[$k][2]. Adding $af_lost_print_list[$k][4] damage.\n");				
+		    }
+		}
+	    }
+	    
+	    print HTML_REP "    <td class=\"ltr70\">$my_pilot_name</td>\n";
+	    print HTML_REP "    <td class=\"ltr70\">$my_plane_type</td>\n";
+	    print HTML_REP "    <td class=\"ltr70\">$my_task</td>\n";
+	    print HTML_REP "    <td class=\"ltr70\">$my_lost</td>\n";	
+	    print HTML_REP "    <td class=\"ltr70\">$my_damage %</td>\n";
+	    print HTML_REP "  </tr>\n";
+	}
+    }
+  
+    print HTML_REP "</table>\n\n";
+    print HTML_REP "</center>\n";
+}
 
 sub eventos_aire(){
     my $i=0;
@@ -2445,6 +2669,13 @@ REP4
     my $in;
     my $task_killer="";
     my $task_killed="";
+    
+    my @red_af1_lost_print_list = ();
+    my @red_af2_lost_print_list = ();
+    my @blue_af1_lost_print_list = ();
+    my @blue_af2_lost_print_list = ();
+    
+    my $role;
 
     seek LOG, 0, 0;
     while(<LOG>) {
@@ -2577,12 +2808,31 @@ REP4
 	    #	    wasfriend          CHAR(3),
 	    $dbh->do("INSERT INTO $air_events_tbl VALUES (?,?,?,?,?,?,?)",undef,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$plane_by,$to,$plane_to,$wasfriend);
 
+	    my $my_plane = $2;
 
-	    if ($base_AF eq $red_af1_code) { $red_af1_lost++;}
-	    if ($base_AF eq $red_af2_code) { $red_af2_lost++;}
-	    if ($base_AF eq $blue_af1_code) { $blue_af1_lost++;}
-	    if ($base_AF eq $blue_af2_code) { $blue_af2_lost++;}
-
+	    if ($base_AF eq $red_af1_code) {
+		($role, @red_af1_lost) = add_losts_planes_and_pilots_by_task(@red_af1_lost, $my_plane, get_task($my_plane));
+		$role =~ s/type/lost/;
+		push (@red_af1_lost_print_list, [$html_to, $plane_to, $my_plane, get_task($my_plane), $role_damage{$role}]);
+	    }
+	    if ($base_AF eq $red_af2_code) {
+		($role, @red_af2_lost) = add_losts_planes_and_pilots_by_task(@red_af2_lost, $my_plane, get_task($my_plane));
+		$role =~ s/type/lost/;		
+		push (@red_af2_lost_print_list, [$html_to, $plane_to, $my_plane, get_task($my_plane), $role_damage{$role}]);		
+	    }
+	    if ($base_AF eq $blue_af1_code) {
+		($role, @blue_af1_lost) = add_losts_planes_and_pilots_by_task(@blue_af1_lost, $my_plane, get_task($my_plane));
+		$role =~ s/type/lost/;		
+		push (@blue_af1_lost_print_list, [$html_to, $plane_to, $my_plane, get_task($my_plane), $role_damage{$role}]);		
+	    }
+	    if ($base_AF eq $blue_af2_code) {
+		($role, @blue_af2_lost) = add_losts_planes_and_pilots_by_task(@blue_af2_lost, $my_plane, get_task($my_plane));
+		$role =~ s/type/lost/;		
+		push (@blue_af2_lost_print_list, [$html_to, $plane_to, $my_plane, get_task($my_plane), $role_damage{$role}]);		
+	    }
+	    
+	    printdebug ("eventos_aire(): name : $html_to, plane : $my_plane, role : $role");
+	    
 	    if ($to_army==1) {$icon="../images/blue_dot.gif";}
 	    if ($to_army==2) {$icon="../images/red_dot.gif";}
 	    my $icon_left_pos= int(($down_x/$MAP_RIGHT)* $ANCHO)-2;
@@ -2634,18 +2884,37 @@ REP4
 		}
 		if ($continue) { 
 		    $base_AF=get_base_AF($plane);
-		    if ($base_AF eq $red_af1_code) { $red_af1_kia++;}
-		    if ($base_AF eq $red_af2_code) { $red_af2_kia++;}
-		    if ($base_AF eq $blue_af1_code) { $blue_af1_kia++;}
-		    if ($base_AF eq $blue_af2_code) { $blue_af2_kia++;}
+		    if ($base_AF eq $red_af1_code) {
+			($role, @red_af1_kia) = add_losts_planes_and_pilots_by_task(@red_af1_kia, $plane, get_task($plane));
+			$role =~ s/type/kia/;
+			push (@red_af1_lost_print_list, ['KILLED', '', $plane, '', $role_damage{$role}]);
+		    }
+		    if ($base_AF eq $red_af2_code) {
+			($role, @red_af2_kia) = add_losts_planes_and_pilots_by_task(@red_af2_kia, $plane, get_task($plane));
+			$role =~ s/type/kia/;			
+			push (@red_af2_lost_print_list, ['KILLED', '', $plane, '', $role_damage{$role}]);
+		    }
+		    if ($base_AF eq $blue_af1_code) {
+			($role, @blue_af1_kia) = add_losts_planes_and_pilots_by_task(@blue_af1_kia, $plane, get_task($plane));
+			$role =~ s/type/kia/;			
+			push (@blue_af1_lost_print_list, ['KILLED', '', $plane, '', $role_damage{$role}]);
+		    }
+		    if ($base_AF eq $blue_af2_code) {
+			($role, @blue_af2_kia) = add_losts_planes_and_pilots_by_task(@blue_af2_kia, $plane, get_task($plane));
+			$role =~ s/type/kia/;			
+			push (@blue_af2_lost_print_list, ['KILLED', '', $plane, '', $role_damage{$role}]);
+		    }
+		
+		    printdebug ("eventos_aire(): name : KILLED, plane : $plane, role : $role");		    
+		    
 		    push (@kia_mia_list, $plane); # poner el piloto en kia_mia_list, solo avion, sin piloto (0).
 		}
 	    }
 	} # end calculo de kia/mia para perdidas AF
     } # end while <log>
 
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total VVS losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".($red_af1_kia+$red_af2_kia)." </b></td></tr>\n";
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total LW losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".($blue_af1_kia+$blue_af2_kia)."</b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total VVS losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".(sum_array(@red_af1_kia) + sum_array(@red_af2_kia))." </b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total LW losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".(sum_array(@blue_af1_kia) + sum_array(@blue_af2_kia))."</b></td></tr>\n";
 
     my $red_af1_name="";
     my $red_af2_name="";
@@ -2656,63 +2925,42 @@ REP4
     my $red_af2_captured=0;
     my $blue_af1_captured=0;
     my $blue_af2_captured=0;
-
+    
+    my $red_af1_damage = 0.0;
+    my $red_af2_damage = 0.0;
+    my $blue_af1_damage = 0.0;
+    my $blue_af2_damage = 0.0;
+    
     open (TEMPGEO, ">temp_geo.data"); #
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ !~ m/^($red_af1_code,|$red_af2_code,|$blue_af1_code,|$blue_af2_code,)/) { # si no es una line que interesa...
-	    print TEMPGEO;
-	}
-	else { 
+	if ($_ =~ m/^($red_af1_code,|$red_af2_code,|$blue_af1_code,|$blue_af2_code,)/) {
+
 	    if ($_ =~ m/^$red_af1_code,([^,]+),.*,([^:]+):[12]/){ 
 		$red_af1_name=$1;
-		$dam=int(($2+$red_af1_lost*$AF_PLANE_LOST_DAM+$red_af1_kia*$AF_PILOT_LOST_DAM)*100)/100; 
-		if ($dam>100) {$dam=100;}
-		if ($_ =~ s/^($red_af1_code,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:1/$1,$dam:1/){ 
-		    print TEMPGEO;
-		}
-		else { # if regex fail is because army is not 1, so AF is now blue, print without damage
-		    $red_af1_captured=1; 
-		    print TEMPGEO;
-		}
+		$red_af1_damage = $2;
+		$red_af1_damage = calc_airfield_losts_damage('R1', $red_af1_damage, $red_af1_code, $_, $red_af1_captured);
 	    }
 	    if ($_ =~ m/^$red_af2_code,([^,]+),.*,([^:]+):[12]/){ 
 		$red_af2_name=$1;
-		$dam=int(($2+$red_af2_lost*$AF_PLANE_LOST_DAM+$red_af2_kia*$AF_PILOT_LOST_DAM)*100)/100; 
-		if ($dam>100) {$dam=100;}
-		if ($_ =~ s/^($red_af2_code,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:1/$1,$dam:1/){ 
-		    print TEMPGEO;
-		}
-		else { # if regex fail is because army is not 1, so AF is now blue, print without damage
-		    $red_af2_captured=1; 
-		    print TEMPGEO;
-		}
+		$red_af2_damage= $2;
+		$red_af2_damage = calc_airfield_losts_damage('R2', $red_af2_damage, $red_af2_code, $_, $red_af2_captured);
 	    }
 	    if ($_ =~ m/^$blue_af1_code,([^,]+),.*,([^:]+):[12]/){ 
 		$blue_af1_name=$1;
-		$dam=int(($2+$blue_af1_lost*$AF_PLANE_LOST_DAM+$blue_af1_kia*$AF_PILOT_LOST_DAM)*100)/100;
-		if ($dam>100) {$dam=100;}
-		if ($_ =~ s/^($blue_af1_code,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:2/$1,$dam:2/){ 
-		    print TEMPGEO;
-		}
-		else { # if regex fail is because army is not 2, so AF is now red, print without damage
-		    $blue_af1_captured=1; 
-		    print TEMPGEO;
-		}
+		$blue_af1_damage = $2;
+		$blue_af1_damage = calc_airfield_losts_damage('B1', $blue_af1_damage, $blue_af1_code, $_, $blue_af1_captured);
 	    }
 	    if ($_ =~ m/^$blue_af2_code,([^,]+),.*,([^:]+):[12]/){ 
 		$blue_af2_name=$1;
-		$dam=int(($2+$blue_af2_lost*$AF_PLANE_LOST_DAM+$blue_af2_kia*$AF_PILOT_LOST_DAM)*100)/100;
-		if ($dam>100) {$dam=100;}
-		if ($_ =~ s/^($blue_af2_code,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:2/$1,$dam:2/){ 
-		    print TEMPGEO;
-		}
-		else { # if regex fail is because army is not 2, so AF is now red, print without damage
-		    $blue_af2_captured=1; 
-		    print TEMPGEO;
-		}
+		$blue_af2_damage = $2;
+		$blue_af2_damage = calc_airfield_losts_damage('B2', $blue_af2_damage, $blue_af2_code, $_, $blue_af2_captured);
 	    }
+	    
+	    printdebug("eventos_aire():red_af1_capture=$red_af1_captured, red_af2_captured=$red_af2_captured, blue_af1_captured=$blue_af1_captured, blue_af2_captured=$blue_af2_captured");
 	}
+	
+	print TEMPGEO;
     }
     close(TEMPGEO);
     close(GEO_OBJ);
@@ -2728,43 +2976,49 @@ REP4
 
     if ($red_af1_name ne "") {
 	if ($red_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $red_af1_name ($red_af1_lost / $red_af1_kia) </td><td align=\"center\" class=\"ltr80\"><b> -". ($red_af1_lost*$AF_PLANE_LOST_DAM+$red_af1_kia*$AF_PILOT_LOST_DAM). " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $red_af1_name " . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name now belongs to germany army ($red_af1_lost / $red_af1_kia) </td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name now belongs to germany army" . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($red_af2_name ne "") {
 	if ($red_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in $red_af2_name ($red_af2_lost / $red_af2_kia) </td><td align=\"center\" class=\"ltr80\"><b> -". ($red_af2_lost*$AF_PLANE_LOST_DAM+$red_af2_kia*$AF_PILOT_LOST_DAM) . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $red_af2_name " . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name now belongs to german army ($red_af2_lost / $red_af2_kia) </td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name now belongs to germany army" . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af1_name ne "") {
 	if ($blue_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in $blue_af1_name ($blue_af1_lost / $blue_af1_kia) </td><td align=\"center\" class=\"ltr80\"><b> -". ($blue_af1_lost*$AF_PLANE_LOST_DAM+$blue_af1_kia*$AF_PILOT_LOST_DAM) ." % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $blue_af1_name " . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af1 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name now belongs to soviet army ($blue_af1_lost / $blue_af1_kia) </td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name now belongs to soviet army" . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af2_name ne "") {
 	if ($blue_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in $blue_af2_name ($blue_af2_lost / $blue_af2_kia) </td><td align=\"center\" class=\"ltr80\"><b> -". ($blue_af2_lost*$AF_PLANE_LOST_DAM+$blue_af2_kia*$AF_PILOT_LOST_DAM) ." % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $blue_af2_name " . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af2 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name now belongs to soviet army ($blue_af2_lost / $blue_af2_kia) </td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name now belongs to soviet army" . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     print HTML_REP "</table>\n\n";
     print HTML_REP "</center>\n";
-
+    
+    if ($red_af1_damage > 0 && $red_af1_captured == 0) { print_airfield_losts_report('#ffdddd', '#ffddee', $red_af1_name, @red_af1_lost_print_list); }
+    if ($red_af2_damage > 0 && $red_af2_captured == 0) { print_airfield_losts_report('#ffdddd', '#ffddee', $red_af2_name, @red_af2_lost_print_list); }
+    if ($blue_af1_damage > 0 && $blue_af1_captured == 0) { print_airfield_losts_report('#ddddff', '#ddddee', $blue_af1_name, @blue_af1_lost_print_list); }
+    if ($blue_af2_damage > 0 && $blue_af2_captured == 0) { print_airfield_losts_report('#ddddff', '#ddddee', $blue_af2_name, @blue_af2_lost_print_list); }
+    
+    
     print MAP_REP1 "</body></html>\n";
     print MAP_REP2 "</body></html>\n";
     print MAP_REP4 "</body></html>\n";
@@ -3003,7 +3257,7 @@ sub print_mis_objetive_result(){
 	
 	seek LOG, 0, 0;
 	while(<LOG>) {
-	    if ($_=~  m/([0-9:]+) [0123]_Chief[0-9] destroyed by ([^ ]+) at ([^ ]+) ([^ ]+)/){
+	    if ($_=~  m/([0-9:]+) [012]_Chief[0-9] destroyed by ([^ ]+) at ([^ ]+) ([^ ]+)/){
 		if ( (get_segundos($1)-get_segundos($stime_str))  <= 2400 ){ # 40 minutos
 		    ($by,$obj_army)=get_name($2);
 		    ($plane_by,$obj_army)=get_plane($2);
@@ -3202,7 +3456,7 @@ sub print_mis_objetive_result(){
 	$tank_killed=0;
 	$tank_dead_limit=7; # defaulf: matan 8 taques y no se gana el sector
 
-	if ($redchf) {$bchf="456";} # guarda check asd cambiar . pre-supone que siempre hay 3 grupos de tanques - CAMBIAR
+	if ($redchf) {$bchf="345";} # guarda check asd cambiar . pre-supone que siempre hay 3 grupos de tanques - CAMBIAR
 	else {$bchf="012";}
 	
 
@@ -5305,14 +5559,37 @@ $dbh->do("UPDATE $mis_prog SET red_result = \"$red_result\", blue_result = \"$bl
 
 $red_planes_destroyed=0;
 $blue_planes_destroyed=0;
-$red_af1_lost=0;
-$red_af2_lost=0;
-$blue_af1_lost=0;
-$blue_af2_lost=0;
-$red_af1_kia=0;
-$red_af2_kia=0;
-$blue_af1_kia=0;
-$blue_af2_kia=0;
+
+## @Heracles@20101231@
+## Convertimos los scalar referentes al numero de aviones perdidos y los pilotos kia de un aerórdomo orígen
+## en array de totales. De momento contendrán los siguientes totales:
+## IA CAZA(0), IA BOMBER(1), IA SUM (2), HUMANO CAZA(3), HUMANO BOMBER(4), HUMANO SUM(5)
+@red_af1_lost=(0, 0, 0, 0, 0, 0);
+@red_af2_lost=(0, 0, 0, 0, 0, 0);
+@blue_af1_lost=(0, 0, 0, 0, 0, 0);
+@blue_af2_lost=(0, 0, 0, 0, 0, 0);
+@red_af1_kia=(0, 0, 0, 0, 0, 0);
+@red_af2_kia=(0, 0, 0, 0, 0, 0);
+@blue_af1_kia=(0, 0, 0, 0, 0, 0);
+@blue_af2_kia=(0, 0, 0, 0, 0, 0);
+
+## @Heracles@20110105@
+## Tabla has que define el daño provocado sobre el AF por pérdidas segun rol del avión
+%role_damage = (
+    ia_lost_sum=>$AF_IA_SUM_PLANE_LOST_DAM,
+    ia_lost_fighter=>$AF_IA_FIGHTER_PLANE_LOST_DAM,
+    ia_lost_bomber=>$AF_IA_BOMBER_PLANE_LOST_DAM,
+    human_lost_sum=>$AF_HUMAN_SUM_PLANE_LOST_DAM,
+    human_lost_fighter=>$AF_HUMAN_FIGHTER_PLANE_LOST_DAM,
+    human_lost_bomber=>$AF_HUMAN_BOMBER_PLANE_LOST_DAM,
+    ia_kia_sum=>$AF_IA_SUM_PILOT_LOST_DAM,
+    ia_kia_fighter=>$AF_IA_FIGHTER_PILOT_LOST_DAM,
+    ia_kia_bomber=>$AF_IA_BOMBER_PILOT_LOST_DAM,
+    human_kia_sum=>$AF_HUMAN_SUM_PILOT_LOST_DAM,
+    human_kia_fighter=>$AF_HUMAN_FIGHTER_PILOT_LOST_DAM,
+    human_kia_bomber=>$AF_HUMAN_BOMBER_PILOT_LOST_DAM
+);
+
 eventos_aire();
 print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." eventos aire ok\n";
 

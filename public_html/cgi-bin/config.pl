@@ -37,11 +37,26 @@ $super_user="rEd69_Vgilsoler";
 $MIS_PER_VDAY=10; # mission per virtual day (change time and auto recover AF and city)
 $AF_VDAY_RECOVER=2; # % recovery of AF on each virtual day
 $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
-$AF_PLANE_LOST_DAM=0.50; # damage to AF per each plane lost
-$AF_PILOT_LOST_DAM=0.75; # damage to AF per each pilot MIA or KIA
 $CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
 $PC_LOST=5;
+
+## @Heracles@20100103
+## Airfield damage constants
+$AF_PLANE_LOST_DAM=0.50; # damage to AF per each plane lost
+$AF_PILOT_LOST_DAM=0.75; # damage to AF per each pilot MIA or KIA
+$AF_IA_SUM_PLANE_LOST_DAM=0.25; # damage to AF per each IA SUM plane lost
+$AF_IA_FIGHTER_PLANE_LOST_DAM=0.50; # damage to AF per each IA FIGHTER plane lost
+$AF_IA_BOMBER_PLANE_LOST_DAM=0.50; # damage to AF per each IA BOMBER plane lost
+$AF_HUMAN_SUM_PLANE_LOST_DAM=1.5; # damage to AF per each HUMAN SUM plane lost
+$AF_HUMAN_FIGHTER_PLANE_LOST_DAM=1.5; # damage to AF per each HUMAN FIGHTER plane lost
+$AF_HUMAN_BOMBER_PLANE_LOST_DAM=2; # damage to AF per each HUMAN BOMBER plane lost
+$AF_IA_SUM_PILOT_LOST_DAM=0.75; # damage to AF per each IA SUM pilot lost
+$AF_IA_FIGHTER_PILOT_LOST_DAM=1.0; # damage to AF per each IA FIGHTER pilot lost
+$AF_IA_BOMBER_PILOT_LOST_DAM=0.50; # damage to AF per each IA BOMBER pilot lost
+$AF_HUMAN_SUM_PILOT_LOST_DAM=2.5; # damage to AF per each HUMAN SUM pilot lost
+$AF_HUMAN_FIGHTER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN FIGHTER pilot lost
+$AF_HUMAN_BOMBER_PILOT_LOST_DAM=2.5; # damage to AF per each HUMAN BOMBER pilot lost
 
 $MIN_TIME_MIN=25; # minimun minutes of mission to accept a report
 $MIN_PILOT_NUM=4; # minumum total human players per mission
