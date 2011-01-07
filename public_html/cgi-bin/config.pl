@@ -32,9 +32,9 @@ $db_upwd="Phoenix";  # database user password  (CHANGE THIS)
 
 
 #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
-$super_user="rEd69_Vgilsoler";
+$super_user="E69_Heracles";
 
-$MIS_PER_VDAY=10; # mission per virtual day (change time and auto recover AF and city)
+$MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
 $AF_VDAY_RECOVER=2; # % recovery of AF on each virtual day
 $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
 $CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
@@ -43,8 +43,6 @@ $PC_LOST=5;
 
 ## @Heracles@20100103
 ## Airfield damage constants
-$AF_PLANE_LOST_DAM=0.50; # damage to AF per each plane lost
-$AF_PILOT_LOST_DAM=0.75; # damage to AF per each pilot MIA or KIA
 $AF_IA_SUM_PLANE_LOST_DAM=0.25; # damage to AF per each IA SUM plane lost
 $AF_IA_FIGHTER_PLANE_LOST_DAM=0.50; # damage to AF per each IA FIGHTER plane lost
 $AF_IA_BOMBER_PLANE_LOST_DAM=0.50; # damage to AF per each IA BOMBER plane lost
