@@ -3319,11 +3319,20 @@ sub print_mis_objetive_result(){
 					    #AF02     ,ae-C12 ,22007.6,1156.7 , 2   , -C  , 12  ,  2  , 24.6  :2
 					    if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1/){ 
 						if ($4<=100 && distance($2,$3,$red_land_x,$red_land_y)<2000) {
-				                    if ($unix_cgi){ 
-							#print " and $1 (".2*$AF_SUM." %)";
+						    
+						    ## @Heracles@20110107
+						    ## Sólo es un exito el sumnistro en AF si el AF está en un
+						    ## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
+						    if (distance($2,$3,$red_tgtcx,$red_tgtcy) < $AF_SUM_MAX_RAD) {
+							if ($unix_cgi){ 
+								#print " and $1 (".2*$AF_SUM." %)";
+							}
+							print HTML_REP  " and $1 (".2*$AF_SUM." %)";
+							push (@af_resup,$1);
 						    }
-						    print HTML_REP  " and $1 (".2*$AF_SUM." %)";
-						    push (@af_resup,$1);
+						    else {
+							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
+						    }
 						}
 					    }
 					}
@@ -3371,8 +3380,8 @@ sub print_mis_objetive_result(){
 		last;
 	    }
 	}
-
-	my $af_recover= int($RED_SUM_AI * 5 * $sourvive/100);
+	## @Heracles@20110107@
+	my $af_recover= int($RED_SUM_AI * $AF_SUM * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
 	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM){
@@ -3536,11 +3545,20 @@ sub print_mis_objetive_result(){
 					    #AF02      ,ae-C12 ,22007.6,1156.71,2    ,   -C,   12,    2, 24.6  :2
 					    if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2/){ 
 						if ($4<=100 && distance($2,$3,$blue_land_x,$blue_land_y)<2000) {
-						    if ($unix_cgi){ 
-							#print " and $1 (".2*$AF_SUM." %)";
+
+						    ## @Heracles@20110107
+						    ## Sólo es un exito el sumnistro en AF si el AF está en un
+						    ## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
+						    if (distance($2,$3,$red_tgtcx,$red_tgtcy) < $AF_SUM_MAX_RAD) {
+							if ($unix_cgi){ 
+								#print " and $1 (".2*$AF_SUM." %)";
+							}
+							print HTML_REP  " and $1 (".2*$AF_SUM." %)";
+							push (@af_resup,$1);
 						    }
-						    print HTML_REP  " and $1 (".2*$AF_SUM." %)";
-						    push (@af_resup,$1);
+						    else {
+							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
+						    }						    
 						}
 					    }
 					}
@@ -3588,7 +3606,8 @@ sub print_mis_objetive_result(){
 		last;
 	    }
 	}
-	my $af_recover= int($BLUE_SUM_AI * 5 * $sourvive/100);
+	## @Heracles@20110107@
+	my $af_recover= int($BLUE_SUM_AI * $AF_SUM * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
 	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM){

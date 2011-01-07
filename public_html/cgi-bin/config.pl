@@ -531,7 +531,10 @@ $co_voting_names_tbl="badc_co_voting_names";
 #a shorcut used when printing html error messages
 $big_red="<strong><font size=\"+2\" color=\"ff0000\"><br>";
 
-$AF_SUM=5;  # porcentaje de recupero  de AF por cada transporte que aterriza
+## @Heracles@20110107@
+$AF_SUM=3;  # porcentaje de recupero  de AF por cada transporte que aterriza
+$AF_SUM_MAX_RAD=50000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
+
 $MIN_BOMBERS_DIST=50000; 
 $MAX_BOMBERS_DIST=70000;
 $MIN_FIGHTERS_DIST=2000;
