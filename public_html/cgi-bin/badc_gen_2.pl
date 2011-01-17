@@ -4550,8 +4550,10 @@ sub poblate_city($$$){
     my $m_usados; 
 
     seek CITY, 0, 0;
-    if ($RED_ATTK_TACTIC==0){print MIS $s_obj_counter."_Static vehicles.stationary.Smoke\$Smoke15 0 ".int($red_tgtcx)." ".int($red_tgtcy)." ".$angle." 0\n";}
-    if ($BLUE_ATTK_TACTIC==0){print MIS $s_obj_counter."_Static vehicles.stationary.Smoke\$Smoke15 0 ".int($blue_tgtcx)." ".int($blue_tgtcy)." ".$angle." 0\n";}
+    # @Heracles@20110117@
+    # Anulamos las luces que marcan objetivo en las ciudades.
+    # if ($RED_ATTK_TACTIC==0){print MIS $s_obj_counter."_Static vehicles.stationary.Smoke\$Smoke15 0 ".int($red_tgtcx)." ".int($red_tgtcy)." ".$angle." 0\n";}
+    # if ($BLUE_ATTK_TACTIC==0){print MIS $s_obj_counter."_Static vehicles.stationary.Smoke\$Smoke15 0 ".int($blue_tgtcx)." ".int($blue_tgtcy)." ".$angle." 0\n";}
 
     while(<CITY>) {
 	if ($_ =~ m/ *NORMFLY ([^ ]+) ([^ ]+)/){
