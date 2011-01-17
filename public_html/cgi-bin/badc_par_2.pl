@@ -3327,7 +3327,7 @@ sub print_mis_objetive_result(){
 							if ($unix_cgi){ 
 								#print " and $1 (".2*$AF_SUM." %)";
 							}
-							print HTML_REP  " and $1 (".2*$AF_SUM." %)";
+							print HTML_REP  " and $1 (".2*$AF_SUM_RED." %)";
 							push (@af_resup,$1);
 						    }
 						    else {
@@ -3381,12 +3381,12 @@ sub print_mis_objetive_result(){
 	    }
 	}
 	## @Heracles@20110107@
-	my $af_recover= int($RED_SUM_AI * $AF_SUM * $sourvive/100);
+	my $af_recover= int($RED_SUM_AI * $AF_SUM_RED * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM){
+	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_RED){
 		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM;
+		$recover+=$AF_SUM_RED;
 	    }
 	    if ($unix_cgi){ 
 		#print " and $ai_land_at $recover %";
@@ -3553,7 +3553,7 @@ sub print_mis_objetive_result(){
 							if ($unix_cgi){ 
 								#print " and $1 (".2*$AF_SUM." %)";
 							}
-							print HTML_REP  " and $1 (".2*$AF_SUM." %)";
+							print HTML_REP  " and $1 (".2*$AF_SUM_BLUE." %)";
 							push (@af_resup,$1);
 						    }
 						    else {
@@ -3607,12 +3607,12 @@ sub print_mis_objetive_result(){
 	    }
 	}
 	## @Heracles@20110107@
-	my $af_recover= int($BLUE_SUM_AI * $AF_SUM * $sourvive/100);
+	my $af_recover= int($BLUE_SUM_AI * $AF_SUM_BLUE * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM){
+	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_BLUE){
 		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM;
+		$recover+=$AF_SUM_BLUE;
 	    }
 	    if ($unix_cgi){ 
 		#print " and $ai_land_at $recover %";
@@ -3766,7 +3766,8 @@ sub look_resuply() {
 		my $af_dam_diff=0;
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
-			$af_dam_diff+=$AF_SUM;
+			if ($army == 1) {$af_dam_diff+=$AF_SUM_RED;}
+			if ($army == 2) {$af_dam_diff+=$AF_SUM_BLUE;}			
 		    }
 		}
 		if ($army==1 && $RED_SUM_AI==0) {$af_dam_diff*=2;}  # double recovery if human suply
