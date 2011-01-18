@@ -6,29 +6,29 @@ MAP Kursk/load.ini
   army 1
   playerNum 0
 [NStationary]
- 10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 24922.05 160372.10 184.10 0.0
- 10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 10542.71 115399.72 225.06 0.0
- 10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 44223.22 100356.95 375.00 0.0
- 10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 41364.40 78918.13 249.94 0.0
- 10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 55634.80 54306.40 359.94 0.0
- 10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 110390.50 63907.65 464.94 0.0
- 10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 114136.17 86463.82 320.00 0.0
- 10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 91674.73 102561.76 360.00 0.0
- 10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 81220.92 127801.17 404.82 0.0
- 10009_Static vehicles.planes.Plane$JU_52_3MG4E 2 94687.79 139246.98 359.76 0.0
- 10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 89767.65 145325.21 283.56 0.0
- 10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 95805.76 157568.35 298.37 0.0
- 10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 165823.30 120103.94 448.49 0.0
- 10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 126691.52 96853.59 253.44 0.0
- 10014_Static vehicles.planes.Plane$JU_52_3MG4E 2 137999.48 77075.20 273.44 0.0
- 10015_Static vehicles.planes.Plane$JU_52_3MG4E 2 174871.60 97585.31 533.44 0.0
- 10016_Static vehicles.planes.Plane$JU_52_3MG4E 2 181677.68 90692.97 413.38 0.0
- 10017_Static vehicles.planes.Plane$JU_52_3MG4E 2 183393.73 49043.43 463.44 0.0
- 10018_Static vehicles.planes.Plane$JU_52_3MG4E 2 150500.26 21112.40 373.38 0.0
- 10019_Static vehicles.planes.Plane$JU_52_3MG4E 2 111861.18 31228.69 298.44 0.0
- 10020_Static vehicles.planes.Plane$JU_52_3MG4E 2 103098.86 22715.12 388.44 0.0
- 10021_Static vehicles.planes.Plane$JU_52_3MG4E 2 35278.66 21809.65 358.32 0.0
- 10022_Static vehicles.planes.Plane$JU_52_3MG4E 2 165170.04 140172.79 373.44 0.0
+ 10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 25176.12 160671.98 449.10 0.0
+ 10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 11031.85 114308.25 225.00 0.0
+ 10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 44229.41 101462.38 509.100 0.0
+ 10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 40959.17 80019.77 390.00 0.0
+ 10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 55745.63 54818.99 464.10 0.0
+ 10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 36519.65 22062.10 494.10 0.0
+ 10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 103281.19 22763.34 510.59 0.0
+ 10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 112367.11 31380.23 525.59 0.0
+ 10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 150452.72 20856.09 285.59 0.0
+ 10009_Static vehicles.planes.Plane$JU_52_3MG4E 2 183194.83 49113.32 375.59 0.0
+ 10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 109568.85 64061.70 375.59 0.0
+ 10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 91642.73 102558.25 360.59 0.0
+ 10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 139092.35 77451.28 360.59 0.0
+ 10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 114254.16 86478.93 270.59 0.0
+ 10014_Static vehicles.planes.Plane$JU_52_3MG4E 2 126730.34 96989.30 435.59 0.0
+ 10015_Static vehicles.planes.Plane$JU_52_3MG4E 2 81395.73 127850.24 525.59 0.0
+ 10016_Static vehicles.planes.Plane$JU_52_3MG4E 2 94657.66 139330.83 360.59 0.0
+ 10017_Static vehicles.planes.Plane$JU_52_3MG4E 2 90269.34 145519.46 285.59 0.0
+ 10018_Static vehicles.planes.Plane$JU_52_3MG4E 2 96234.47 157870.90 210.59 0.0
+ 10019_Static vehicles.planes.Plane$JU_52_3MG4E 2 166050.76 140455.94 240.59 0.0
+ 10020_Static vehicles.planes.Plane$JU_52_3MG4E 2 166015.88 120100.62 510.59 0.0
+ 10021_Static vehicles.planes.Plane$JU_52_3MG4E 2 175023.48 96766.55 435.59 0.0
+ 10022_Static vehicles.planes.Plane$JU_52_3MG4E 2 181705.69 90720.88 495.59 0.0
 [Buildings]
 [Bridge]
 [House]
