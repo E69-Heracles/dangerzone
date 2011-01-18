@@ -2,10 +2,10 @@
 # if you use windows, read config_windows.pl
 
 
-$PATH_TO_WEBROOT      = "/home/s03e18df/public_html/dangerzone";
-$CGI_BIN_PATH         = "/home/s03e18df/public_html/dangerzone/cgi-bin";
-$CGI_TEMP_UPLOAD_DIR  = "/home/s03e18df/public_html/dangerzone/cgi-bin/tmp";
-$DATA_BKUP            = "/home/s03e18df/public_html/dangerzone/cgi-bin/data_bkup";
+$PATH_TO_WEBROOT      = "/var/www/vhosts/escuadron69.net/subdomains/dzpre";
+$CGI_BIN_PATH         = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin";
+$CGI_TEMP_UPLOAD_DIR  = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin/tmp";
+$DATA_BKUP            = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin/data_bkup";
 $MAX_UPLOAD_SIZE      = 200000; # bytes
 $CJPEG_PROG           = "/usr/bin/cjpeg";           
 $CJPEG_FLAGS          = "-quality 70 -progressive";
@@ -26,9 +26,9 @@ $allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
 $allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
 
 # db stuff
-$database="s03e18df_dangerzone";       # database name  (CHANGE THIS)
-$db_user="s03e18df_badc";        # database user  (CHANGE THIS)
-$db_upwd="Phoenix";  # database user password  (CHANGE THIS)
+$database="escuadro_dzpre";       # database name  (CHANGE THIS)
+$db_user="dzpre";        # database user  (CHANGE THIS)
+$db_upwd='69!38pringaosquesomos$';  # database user password  (CHANGE THIS)
 
 
 #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
@@ -79,11 +79,11 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Early 1942"; 
 #$MAP_NAME_LONG="Stalingrad. Late 1942";
 #$MAP_NAME_LONG="Stalingrad. Early 1943";
-#$MAP_NAME_LONG="Kursk. 1943"; 
+$MAP_NAME_LONG="Kursk. 1943"; 
 #$MAP_NAME_LONG="Smolensk. 1944";
 #$MAP_NAME_LONG="Balaton. 1945";
 #$MAP_NAME_LONG="Berlin. 1945";
-$MAP_NAME_LONG="Moscow. Winter 1944"; 
+#$MAP_NAME_LONG="Moscow. Winter 1944"; 
 
 
 $CHAMP_TYPES_TOTAL=4;
@@ -277,14 +277,14 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $MAP_CODE="KRS";
     $MAP_NAME_LOAD="Kursk/load.ini";
     $FLIGHTS_DEF="KRS_aircrafts.data";  
-    @VVS_SUM_PLANES=("B-25J1");
+    @VVS_SUM_PLANES=("Li-2");
     $VVS_TRP_SPEED=360; # average speed for human VVS suply plane
-    @VVS_BA_PLANES=("A-20C","PE-2 S110");
+    @VVS_BA_PLANES=("A-20C","PE-2S84","PE-2S110");
     @VVS_AI_PLANES=("Li-2","IL-4-DB3B");
 
-    @LW_SUM_PLANES=("JU-88A4");
+    @LW_SUM_PLANES=("JU-52-3MG4E");
     $LW_TRP_SPEED=360; # average speed for human LW suply plane
-    @LW_BA_PLANES=("JU-88A4");
+    @LW_BA_PLANES=("JU-88A4","HE-111H6");
     @LW_AI_PLANES=("JU-52","HS-129B2");
 }
 
