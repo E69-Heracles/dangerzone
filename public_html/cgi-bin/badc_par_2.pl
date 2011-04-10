@@ -3304,7 +3304,10 @@ sub print_mis_objetive_result(){
 				    if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
 					( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $RED_SUM_TIME ) 
 					&& $smoke_count<4 ){
-					my $rpilot_succ=(int(rand(3))+5); # B25: 5 a 7 recover
+					## @Heracles@20110410@
+					## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
+					## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
+					my $rpilot_succ=($CITY_SUM_HUMAN_RED - int(rand(3))); 					
 					if ($unix_cgi){ 
 					#    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
 					}
@@ -3357,10 +3360,10 @@ sub print_mis_objetive_result(){
     
     if ($RED_SUM==1 && $RED_SUM_AI>0){
 	my $sourvive = get_task_perc_sorvive(1,"SUM");
-	my $city_recover = int($RED_SUM_AI * 3 * $sourvive/100);
+	my $city_recover = int($RED_SUM_AI * $CITY_SUM_AI_RED * $sourvive/100);
 	$red_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=3){
-	    $red_resuply+=3;
+	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_AI_RED){
+	    $red_resuply+=$CITY_SUM_AI_RED;
 	}
 	if ($unix_cgi){
 	    #print "    - AI Suply Group of $RED_SUM_AI planes to $red_sum_city. \n";
@@ -3530,7 +3533,10 @@ sub print_mis_objetive_result(){
 				    if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
 					( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $BLUE_SUM_TIME )
 					&& $smoke_count<4 ){
-					my $bpilot_succ=(int(rand(3))+5); # He-111: 5 a 7 recover
+					## @Heracles@20110410@
+					## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_BLUE
+					## y $CITY_SUM_HUMAN_BLUE-2. Actualmente entre 8 y 6
+					my $bpilot_succ=($CITY_SUM_HUMAN_BLUE - int(rand(3))); 
 					if ($unix_cgi){ 
 					    #print "    - $pilot_list[$i][0] suply $blue_sum_city ($bpilot_succ %)\n";
 					}
@@ -3583,10 +3589,10 @@ sub print_mis_objetive_result(){
 
     if ($BLUE_SUM==1 && $BLUE_SUM_AI>0){
 	my $sourvive = get_task_perc_sorvive(2,"SUM");
-	my $city_recover = int($BLUE_SUM_AI * 3 * $sourvive/100);
+	my $city_recover = int($BLUE_SUM_AI * $CITY_SUM_AI_BLUE * $sourvive/100);
 	$blue_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=3){
-	    $blue_resuply+=3;
+	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_AI_BLUE){
+	    $blue_resuply+=$CITY_SUM_AI_BLUE;
 	}
 	if ($unix_cgi){
 	    #print "    - AI Suply Group of $BLUE_SUM_AI planes to $blue_sum_city. \n";

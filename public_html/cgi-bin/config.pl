@@ -2,10 +2,10 @@
 # if you use windows, read config_windows.pl
 
 
-$PATH_TO_WEBROOT      = "/var/www/vhosts/escuadron69.net/subdomains/dzpre";
-$CGI_BIN_PATH         = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin";
-$CGI_TEMP_UPLOAD_DIR  = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin/tmp";
-$DATA_BKUP            = "/var/www/vhosts/escuadron69.net/subdomains/dzpre/httpdocs/cgi-bin/data_bkup";
+$PATH_TO_WEBROOT      = "/home/s03e18df/public_html/dangerzone";
+$CGI_BIN_PATH         = "/home/s03e18df/public_html/dangerzone/cgi-bin";
+$CGI_TEMP_UPLOAD_DIR  = "/home/s03e18df/public_html/dangerzone/cgi-bin/tmp";
+$DATA_BKUP            = "/home/s03e18df/public_html/dangerzone/cgi-bin/data_bkup";
 $MAX_UPLOAD_SIZE      = 200000; # bytes
 $CJPEG_PROG           = "/usr/bin/cjpeg";           
 $CJPEG_FLAGS          = "-quality 70 -progressive";
@@ -26,9 +26,9 @@ $allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
 $allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
 
 # db stuff
-$database="escuadro_dzpre";       # database name  (CHANGE THIS)
-$db_user="dzpre";        # database user  (CHANGE THIS)
-$db_upwd='69!38pringaosquesomos$';  # database user password  (CHANGE THIS)
+$database="s03e18df_dangerzone";       # database name  (CHANGE THIS)
+$db_user="s03e18df_badc";        # database user  (CHANGE THIS)
+$db_upwd="Phoenix";  # database user password  (CHANGE THIS)
 
 
 #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
@@ -43,18 +43,21 @@ $PC_LOST=5;
 
 ## @Heracles@20100103
 ## Airfield damage constants
-$AF_IA_SUM_PLANE_LOST_DAM=0.25; # damage to AF per each IA SUM plane lost
-$AF_IA_FIGHTER_PLANE_LOST_DAM=0.50; # damage to AF per each IA FIGHTER plane lost
-$AF_IA_BOMBER_PLANE_LOST_DAM=0.50; # damage to AF per each IA BOMBER plane lost
 $AF_HUMAN_SUM_PLANE_LOST_DAM=1.5; # damage to AF per each HUMAN SUM plane lost
-$AF_HUMAN_FIGHTER_PLANE_LOST_DAM=1.5; # damage to AF per each HUMAN FIGHTER plane lost
-$AF_HUMAN_BOMBER_PLANE_LOST_DAM=2; # damage to AF per each HUMAN BOMBER plane lost
-$AF_IA_SUM_PILOT_LOST_DAM=0.75; # damage to AF per each IA SUM pilot lost
-$AF_IA_FIGHTER_PILOT_LOST_DAM=1.0; # damage to AF per each IA FIGHTER pilot lost
-$AF_IA_BOMBER_PILOT_LOST_DAM=0.50; # damage to AF per each IA BOMBER pilot lost
 $AF_HUMAN_SUM_PILOT_LOST_DAM=2.5; # damage to AF per each HUMAN SUM pilot lost
-$AF_HUMAN_FIGHTER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN FIGHTER pilot lost
+$AF_IA_SUM_PLANE_LOST_DAM=1.0; # damage to AF per each IA SUM plane lost
+$AF_IA_SUM_PILOT_LOST_DAM=2.0; # damage to AF per each IA SUM pilot lost
+
+$AF_HUMAN_BOMBER_PLANE_LOST_DAM=2.0; # damage to AF per each HUMAN BOMBER plane lost
 $AF_HUMAN_BOMBER_PILOT_LOST_DAM=2.5; # damage to AF per each HUMAN BOMBER pilot lost
+$AF_IA_BOMBER_PLANE_LOST_DAM=1.50; # damage to AF per each IA BOMBER plane lost
+$AF_IA_BOMBER_PILOT_LOST_DAM=2.0; # damage to AF per each IA BOMBER pilot lost
+
+$AF_HUMAN_FIGHTER_PLANE_LOST_DAM=1.5; # damage to AF per each HUMAN FIGHTER plane lost
+$AF_HUMAN_FIGHTER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN FIGHTER pilot lost
+$AF_IA_FIGHTER_PLANE_LOST_DAM=1.0; # damage to AF per each IA FIGHTER plane lost
+$AF_IA_FIGHTER_PILOT_LOST_DAM=1.5; # damage to AF per each IA FIGHTER pilot lost
+
 
 $MIN_TIME_MIN=25; # minimun minutes of mission to accept a report
 $MIN_PILOT_NUM=4; # minumum total human players per mission
@@ -79,11 +82,11 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Early 1942"; 
 #$MAP_NAME_LONG="Stalingrad. Late 1942";
 #$MAP_NAME_LONG="Stalingrad. Early 1943";
-$MAP_NAME_LONG="Kursk. 1943"; 
+#$MAP_NAME_LONG="Kursk. 1943"; 
 #$MAP_NAME_LONG="Smolensk. 1944";
 #$MAP_NAME_LONG="Balaton. 1945";
 #$MAP_NAME_LONG="Berlin. 1945";
-#$MAP_NAME_LONG="Moscow. Winter 1944"; 
+$MAP_NAME_LONG="Moscow. Winter 1944"; 
 
 
 $CHAMP_TYPES_TOTAL=4;
@@ -532,9 +535,15 @@ $co_voting_names_tbl="badc_co_voting_names";
 $big_red="<strong><font size=\"+2\" color=\"ff0000\"><br>";
 
 ## @Heracles@20110107@
-$AF_SUM_RED=3;  # porcentaje de recupero  de AF rojo por cada transporte que aterriza
-$AF_SUM_BLUE=2;  # porcentaje de recupero  de AF rojo por cada transporte que aterriza
+$AF_SUM_RED=4;  # porcentaje de recupero  de AF rojo por cada transporte que aterriza
+$AF_SUM_BLUE=3;  # porcentaje de recupero  de AF rojo por cada transporte que aterriza
 $AF_SUM_MAX_RAD=30000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
+
+## @Heracles@20110410@
+$CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente
+$CITY_SUM_AI_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+$CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente
+$CITY_SUM_AI_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 
 $MIN_BOMBERS_DIST=50000; 
 $MAX_BOMBERS_DIST=70000;
