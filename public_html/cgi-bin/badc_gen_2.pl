@@ -2017,6 +2017,7 @@ sub poblate_airfield ($) {
     while(<GEO_OBJ>) {
 	if ($_ =~  m/$afcode,.*,([^,]+):([0-2])/) {
 	    my $damage=$1;
+	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . "poblate_airfield(" . $afcode . "): Damage=" . $damage. "\n";	    
 	    my $army=$2;
 	    $_=readline(GEO_OBJ); #y la siguiente linea(H1) CHECK
 	    $_ =~ m/^AF[0-9]{2}:H1,([^,]+),([^,]+),/;
@@ -2036,14 +2037,17 @@ sub poblate_airfield ($) {
 	    my $metros=200;
 	    my $aaa_radio=$metros * 0.707; 
 	    my $object_low;
+	    my $object_medium;
 	    my $object_high;
 	    if ($army==1) {
 		$object_low="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
+		$object_medium="_Static vehicles.artillery.Artillery\$Zenit61K 1 ";
 		$object_high="_Static vehicles.artillery.Artillery\$Zenit85mm_1939 1 ";
 	    }
 	    else {
-		$object_low="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
-		$object_high="_Static vehicles.artillery.Artillery\$Zenit85mm_1939 2 ";
+		$object_low="_Static vehicles.artillery.Artillery\$Flak38_20mm 2 ";
+		$object_medium="_Static vehicles.artillery.Artillery\$Flak18_37mm 2 ";
+		$object_high="_Static vehicles.artillery.Artillery\$Flak18_88mm 2 ";
 	    }
 	    my $aaa_x;
 	    my $aaa_y;
@@ -2101,6 +2105,23 @@ sub poblate_airfield ($) {
 		}
 	    }
 	    
+	    # @Heracles@20110411
+	    # Posicionamiento de AAA media
+	    if ($damage<=80) {
+		#header 1 +45 grados + radio super = 37 mm
+		$aaa_x = int($coord_xh1 + $aaa_radio*(4*$vector_x + $normal_x));
+		$aaa_y = int($coord_yh1 + $aaa_radio*(4*$vector_y + $normal_y));
+		print MIS $s_obj_counter.$object_medium.$aaa_x." ".$aaa_y." 0 0\n";
+		$s_obj_counter++;
+		if ($damage<=50) {
+		    #header 1 +45 grados + radio super = 37 mm
+		    $aaa_x = int($coord_xh1 + $aaa_radio*($vector_x + 4*$normal_x));
+		    $aaa_y = int($coord_yh1 + $aaa_radio*($vector_y + 4*$normal_y));
+		    print MIS $s_obj_counter.$object_medium.$aaa_x." ".$aaa_y." 0 0\n";
+		    $s_obj_counter++;		    
+		}
+	    }
+	    
 	    if ($damage<=80) {
 		#header 1 +45 grados + radio mayor = 85 mm
 		$aaa_x = int($coord_xh1 + $aaa_radio*(2*$vector_x + $normal_x));
@@ -2119,12 +2140,26 @@ sub poblate_airfield ($) {
 			$aaa_y = int($coord_yh2 + $aaa_radio*(2*-$vector_y - $normal_y));
 			print MIS $s_obj_counter.$object_high.$aaa_x." ".$aaa_y." 0 0\n";
 			$s_obj_counter++;
+			# @Heracles@20110411@
+			# More AAA. This is hell...
+			#header 2 -45 grados + radio super = 85 mm
+			$aaa_x = int($coord_xh2 + $aaa_radio*(4*-$vector_x - $normal_x));
+			$aaa_y = int($coord_yh2 + $aaa_radio*(4*-$vector_y - $normal_y));
+			print MIS $s_obj_counter.$object_high.$aaa_x." ".$aaa_y." 0 0\n";
+			$s_obj_counter++;
 			if ($damage<=10) {
 			    #header 2 -45 grados + radio mayor = 85 mm
 			    $aaa_x = int($coord_xh2 + $aaa_radio*(-$vector_x - 2*$normal_x));
 			    $aaa_y = int($coord_yh2 + $aaa_radio*(-$vector_y - 2*$normal_y));
 			    print MIS $s_obj_counter.$object_high.$aaa_x." ".$aaa_y." 0 0\n";
 			    $s_obj_counter++;
+			    # @Heracles@20110411@
+			    # More AAA. This is hell...
+			    #header 2 -45 grados + radio super = 85 mm
+			    $aaa_x = int($coord_xh2 + $aaa_radio*(-$vector_x - 4*$normal_x));
+			    $aaa_y = int($coord_yh2 + $aaa_radio*(-$vector_y - 4*$normal_y));
+			    print MIS $s_obj_counter.$object_high.$aaa_x." ".$aaa_y." 0 0\n";
+			    $s_obj_counter++;			    
 			}
 		    }
 		}
