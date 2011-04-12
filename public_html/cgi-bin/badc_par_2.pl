@@ -46,6 +46,7 @@ sub print_airfield_losts_report();
 sub eventos_aire();
 sub eventos_tierra();
 sub read_mis_details();
+sub calc_resuply_by_human_pilot($$$);
 sub print_mis_objetive_result();
 sub look_af_and_ct();
 sub look_resuply();
@@ -3195,7 +3196,109 @@ sub read_mis_details(){
 	}
     }
 }
+## @Heracles@20110412@
+## Refactoring del cuerpo principal de print_mis_objective_result para cálculo
+## de suministros a una ciudad y construcción de la página de informe.
+## Parámetros: armada, coordenada x de objetivo, coordenada y de objetivo
+sub calc_resuply_by_human_pilot($$$) {
+    my ($my_army, $my_tgtcx, $my_tgtcy) = @_;
+    
+    my $my_resuply = 0;
+    my $player_task;
+    my $sum_time = 0;
+    my $city_sum = 0;
+    my $af_sum = 0;
+    if ($my_army == 1) {
+	$sum_time = $RED_SUM_TIME;
+	$city_sum = $CITY_SUM_HUMAN_RED;
+	$af_sum = $AF_SUM_HUMAN_RED;
+	$my_sum_city = $red_sum_city;
+    }
+    else {
+	$sum_time = $BLUE_SUM_TIME;
+	$city_sum = $CITY_SUM_HUMAN_BLUE;
+	$af_sum = $AF_SUM_HUMAN_BLUE;
+	$my_sum_city = $blue_sum_city;	
+    }
+    
+    # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
+    for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
+        if($pilot_list[$i][5]==$my_army){ # si el piloto es rojo
+	    $player_task=$pilot_list[$i][6];
+	    if ($player_task eq "SUM" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
+	        my $smoke_count=0;
+	        seek LOG, 0, 0;
+	        while(<LOG>) {
+		    if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+)/){
+		        $smoke_count++;
+		        if (distance($my_tgtcx,$my_tgtcy,$1,$2)<10000 && $smoke_count<4){
+			    while(<LOG>) {
+			        if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
+				( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
+				&& $smoke_count<4 ){
+				    ## @Heracles@20110410@
+				    ## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
+				    ## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
+				    my $rpilot_succ=($city_sum - int(rand(3))); 					
+				    if ($unix_cgi){ 
+				    #    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
+				    }
+				    print HTML_REP  "    - $pilot_list[$i][0] suply $my_sum_city ($rpilot_succ %) ";
+				    $my_resuply+=$rpilot_succ;
+				    my $my_land_x=$2;
+				    my $my_land_y=$3;
+				    $smoke_count=4; # evitar multiples resuply
 
+				    seek GEO_OBJ, 0, 0;
+				    while(<GEO_OBJ>) {
+				        #AF02     ,ae-C12 ,22007.6,1156.7 , 2   , -C  , 12  ,  2  , 24.6  :2
+				        if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1/){ 
+					    if ($4<=100 && distance($2,$3,$my_land_x,$my_land_y)<2000) {
+						    
+					        ## @Heracles@20110107
+					        ## Sólo es un exito el sumnistro en AF si el AF está en un
+						## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
+						if (distance($2,$3,$my_tgtcx,$my_tgtcy) < $AF_SUM_MAX_RAD) {
+						    if ($unix_cgi){ 
+							#print " and $1 (".$af_sum." %)";
+						    }
+						    print HTML_REP  " and $1 (".$af_sum." %)";
+						    push (@af_resup,$1);
+						}
+						else {
+							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
+						}
+					    }
+					}
+				    }
+				    if ($unix_cgi){ 
+				    #    print "\n";
+				    }
+				    print HTML_REP  "<br>\n";
+				}
+			    }
+		        }
+		    }
+	        }
+	    }
+        }
+    }
+	
+    if ($my_army == 1) {
+	if ($unix_cgi){ 
+	#    print "Soviets resuply  $red_resuply % $red_sum_city \n";
+	}
+	print HTML_REP "    --- <strong>Soviets resuply  $my_resuply % $red_sum_city </strong>.<br>\n";	
+    }
+    else {
+	if ($unix_cgi){ 
+	#    print "Germans resuply  $blue_resuply % $blue_sum_city\n";
+	}
+	print HTML_REP "    --- <strong>Germans resuply  $my_resuply % $blue_sum_city </strong>.<br>\n";	
+    }
+
+    return $my_resuply;
+}
 
 sub print_mis_objetive_result(){
     my $redchf=0;
@@ -3287,75 +3390,8 @@ sub print_mis_objetive_result(){
     }
    
     if ($RED_SUM==1 && $RED_SUM_AI==0){ 
-	$red_resuply=0;
-	my $player_task;
-	# @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
-	for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
-	    if($pilot_list[$i][5]==1){ # si el piloto es rojo
-		$player_task=$pilot_list[$i][6];
-		if ($player_task eq "SUM" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
-		    my $smoke_count=0;
-		    seek LOG, 0, 0;
-		    while(<LOG>) {
-			if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+)/){
-			    $smoke_count++;
-			    if (distance($red_tgtcx,$red_tgtcy,$1,$2)<10000 && $smoke_count<4){
-				while(<LOG>) {
-				    if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
-					( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $RED_SUM_TIME ) 
-					&& $smoke_count<4 ){
-					## @Heracles@20110410@
-					## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
-					## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
-					my $rpilot_succ=($CITY_SUM_HUMAN_RED - int(rand(3))); 					
-					if ($unix_cgi){ 
-					#    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
-					}
-					print HTML_REP  "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
-					$red_resuply+=$rpilot_succ;
-					my $red_land_x=$2;
-					my $red_land_y=$3;
-					$smoke_count=4; # evitar multiples resuply
-
-					seek GEO_OBJ, 0, 0;
-					while(<GEO_OBJ>) {
-					    #AF02     ,ae-C12 ,22007.6,1156.7 , 2   , -C  , 12  ,  2  , 24.6  :2
-					    if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1/){ 
-						if ($4<=100 && distance($2,$3,$red_land_x,$red_land_y)<2000) {
-						    
-						    ## @Heracles@20110107
-						    ## Sólo es un exito el sumnistro en AF si el AF está en un
-						    ## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
-						    if (distance($2,$3,$red_tgtcx,$red_tgtcy) < $AF_SUM_MAX_RAD) {
-							if ($unix_cgi){ 
-								#print " and $1 (".2*$AF_SUM." %)";
-							}
-							print HTML_REP  " and $1 (".2*$AF_SUM_RED." %)";
-							push (@af_resup,$1);
-						    }
-						    else {
-							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
-						    }
-						}
-					    }
-					}
-					if ($unix_cgi){ 
-					#    print "\n";
-					}
-					print HTML_REP  "<br>\n";
-				    }
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	}
-	if ($unix_cgi){ 
-	#    print "Soviets resuply  $red_resuply % $red_sum_city \n";
-	}
-	print HTML_REP "    --- <strong>Soviets resuply  $red_resuply % $red_sum_city </strong>.<br>\n";
-	$red_result="$red_resuply"; # para mis_prog_tbl
+	$red_resuply = calc_resuply_by_human_pilot(1, $red_tgtcx, $red_tgtcy);
+	$red_result="$red_resuply"; # para mis_prog_tbl	
     }
     
     if ($RED_SUM==1 && $RED_SUM_AI>0){
@@ -3384,12 +3420,12 @@ sub print_mis_objetive_result(){
 	    }
 	}
 	## @Heracles@20110107@
-	my $af_recover= int($RED_SUM_AI * $AF_SUM_RED * $sourvive/100);
+	my $af_recover= int($RED_SUM_AI * $AF_SUM_IA_RED * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_RED){
+	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_IA_RED){
 		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM_RED;
+		$recover+=$AF_SUM_IA_RED;
 	    }
 	    if ($unix_cgi){ 
 		#print " and $ai_land_at $recover %";
@@ -3515,76 +3551,9 @@ sub print_mis_objetive_result(){
     }
 
 
-    if ($BLUE_SUM==1 && $BLUE_SUM_AI==0){ 
-	$blue_resuply=0;
-	my $player_task;
-	# @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
-	for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
-	    if($pilot_list[$i][5]==2){ # si el piloto es azul
-		$player_task=$pilot_list[$i][6];
-		if ($player_task eq "SUM"){ # si es un transport
-		    my $smoke_count=0;
-		    seek LOG, 0, 0;
-		    while(<LOG>) {
-			if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+)/){
-			    $smoke_count++;
-			    if (distance($blue_tgtcx,$blue_tgtcy,$1,$2)<10000 && $smoke_count<3){
-				while(<LOG>) {
-				    if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
-					( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $BLUE_SUM_TIME )
-					&& $smoke_count<4 ){
-					## @Heracles@20110410@
-					## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_BLUE
-					## y $CITY_SUM_HUMAN_BLUE-2. Actualmente entre 8 y 6
-					my $bpilot_succ=($CITY_SUM_HUMAN_BLUE - int(rand(3))); 
-					if ($unix_cgi){ 
-					    #print "    - $pilot_list[$i][0] suply $blue_sum_city ($bpilot_succ %)\n";
-					}
-					print HTML_REP  "    - $pilot_list[$i][0] suply $blue_sum_city ($bpilot_succ %)\n";
-					$blue_resuply+=$bpilot_succ;
-					my $blue_land_x=$2;
-					my $blue_land_y=$3;
-					$smoke_count=4; # evitar multiples resuply
-
-					seek GEO_OBJ, 0, 0;
-					while(<GEO_OBJ>) {
-					    #AF02      ,ae-C12 ,22007.6,1156.71,2    ,   -C,   12,    2, 24.6  :2
-					    if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2/){ 
-						if ($4<=100 && distance($2,$3,$blue_land_x,$blue_land_y)<2000) {
-
-						    ## @Heracles@20110107
-						    ## Sólo es un exito el sumnistro en AF si el AF está en un
-						    ## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
-						    if (distance($2,$3,$red_tgtcx,$red_tgtcy) < $AF_SUM_MAX_RAD) {
-							if ($unix_cgi){ 
-								#print " and $1 (".2*$AF_SUM." %)";
-							}
-							print HTML_REP  " and $1 (".2*$AF_SUM_BLUE." %)";
-							push (@af_resup,$1);
-						    }
-						    else {
-							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
-						    }						    
-						}
-					    }
-					}
-					if ($unix_cgi){ 
-					#    print "<br>\n";
-					}
-					print HTML_REP  "<br>\n";
-				    }
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	}
-	if ($unix_cgi){ 
-	#    print "Germans resuply  $blue_resuply % $blue_sum_city\n";
-	}
-	print HTML_REP "    --- <strong>Germans resuply  $blue_resuply % $blue_sum_city </strong>.<br>\n";
-	$blue_result="$blue_resuply"; # para mis_prog_tbl
+    if ($BLUE_SUM==1 && $BLUE_SUM_AI==0){
+	$blue_resuply = calc_resuply_by_human_pilot(2, $blue_tgtcx, $blue_tgtcy);
+	$blue_result="$blue_resuply"; # para mis_prog_tbl		
     }
 
     if ($BLUE_SUM==1 && $BLUE_SUM_AI>0){
@@ -3772,12 +3741,12 @@ sub look_resuply() {
 		my $af_dam_diff=0;
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
-			if ($army == 1) {$af_dam_diff+=$AF_SUM_RED;}
-			if ($army == 2) {$af_dam_diff+=$AF_SUM_BLUE;}			
+			if ($army == 1 && $RED_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_RED;}
+			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_RED;}
+			if ($army == 2 && $BLUE_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_BLUE;}
+			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_BLUE;}			
 		    }
 		}
-		if ($army==1 && $RED_SUM_AI==0) {$af_dam_diff*=2;}  # double recovery if human suply
-		if ($army==2 && $BLUE_SUM_AI==0) {$af_dam_diff*=2;} # double recovery if human suply
 		$dam-=$af_dam_diff;
 		if ($dam<0) {$dam=0;}
 		$line_in =~ s/^([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^:]+:[12]/$1,$dam:$army/; 
