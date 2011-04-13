@@ -3213,12 +3213,14 @@ sub calc_resuply_by_human_pilot($$$) {
 	$city_sum = $CITY_SUM_HUMAN_RED;
 	$af_sum = $AF_SUM_HUMAN_RED;
 	$my_sum_city = $red_sum_city;
+	$my_name = "Soviets";
     }
     else {
 	$sum_time = $BLUE_SUM_TIME;
 	$city_sum = $CITY_SUM_HUMAN_BLUE;
 	$af_sum = $AF_SUM_HUMAN_BLUE;
-	$my_sum_city = $blue_sum_city;	
+	$my_sum_city = $blue_sum_city;
+	$my_name = "Germans";	
     }
     
     # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
@@ -3236,15 +3238,6 @@ sub calc_resuply_by_human_pilot($$$) {
 			        if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
 				( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
 				&& $smoke_count<4 ){
-				    ## @Heracles@20110410@
-				    ## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
-				    ## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
-				    my $rpilot_succ=($city_sum - int(rand(3))); 					
-				    if ($unix_cgi){ 
-				    #    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
-				    }
-				    print HTML_REP  "    - $pilot_list[$i][0] suply $my_sum_city ($rpilot_succ %) ";
-				    $my_resuply+=$rpilot_succ;
 				    my $my_land_x=$2;
 				    my $my_land_y=$3;
 				    $smoke_count=4; # evitar multiples resuply
@@ -3259,6 +3252,15 @@ sub calc_resuply_by_human_pilot($$$) {
 					        ## Sólo es un exito el sumnistro en AF si el AF está en un
 						## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
 						if (distance($2,$3,$my_tgtcx,$my_tgtcy) < $AF_SUM_MAX_RAD) {
+						    ## @Heracles@20110410@
+						    ## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
+						    ## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
+						    my $rpilot_succ=($city_sum - int(rand(3))); 					
+						    if ($unix_cgi){ 
+							    #    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
+						    }
+						    print HTML_REP  "    - $pilot_list[$i][0] suply $my_sum_city ($rpilot_succ %) ";
+						    $my_resuply+=$rpilot_succ;						    
 						    if ($unix_cgi){ 
 							#print " and $1 (".$af_sum." %)";
 						    }
@@ -3284,18 +3286,10 @@ sub calc_resuply_by_human_pilot($$$) {
         }
     }
 	
-    if ($my_army == 1) {
-	if ($unix_cgi){ 
-	#    print "Soviets resuply  $red_resuply % $red_sum_city \n";
-	}
-	print HTML_REP "    --- <strong>Soviets resuply  $my_resuply % $red_sum_city </strong>.<br>\n";	
+    if ($unix_cgi){ 
+	#    print $my_name . "resuply  $my_resuply % $my_sum_city \n";
     }
-    else {
-	if ($unix_cgi){ 
-	#    print "Germans resuply  $blue_resuply % $blue_sum_city\n";
-	}
-	print HTML_REP "    --- <strong>Germans resuply  $my_resuply % $blue_sum_city </strong>.<br>\n";	
-    }
+    print HTML_REP "    --- <strong>" . $my_name . " supply  $my_resuply % $my_sum_city </strong>.<br>\n";	
 
     return $my_resuply;
 }
@@ -3322,21 +3316,21 @@ sub print_mis_objetive_result(){
 	if ($unix_cgi){ 
 	#    print "Soviet Tactic Attack \n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet tactic attack</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet tactical attack</strong></center></td></tr>\n";
     }
 
     if ($RED_SUM==1){
 	if ($unix_cgi){ 
 	#    print "Soviet resuply mission\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet resuply mission</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet supply mission</strong></center></td></tr>\n";
     }
 
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
 	if ($unix_cgi){ 
 	#    print "Soviet Startegic attack\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet Startegic attack</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet Strategic attack</strong></center></td></tr>\n";
     }
 
     print HTML_REP "  <tr bgcolor=\"#ffcccc\"><td>\n";
@@ -3488,7 +3482,7 @@ sub print_mis_objetive_result(){
 	if ($unix_cgi){ 
 	#    print "German suply mission\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>German suply mission</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>German supply mission</strong></center></td></tr>\n";
     }
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
