@@ -4367,13 +4367,16 @@ sub make_attack_page(){
     $mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
     if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
 
-    my $time_increase= int(720 / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
-    $hora=7;
+    my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
+    $hora=$SUNRISE;
     $minutos=0;
     $min_diff=($rep_count % $MIS_PER_VDAY) * $time_increase;
     $min_diff+=int(rand($time_increase));  # 0 ~ ($time_increase -1) random extra time.
     $hora+= int($min_diff /60);
     $minutos+= int($min_diff % 60);
+    
+    printdebug("make_attack_page(): SUNRISE " . $SUNRISE . " SUNSET " . $SUNSET);
+    printdebug("make_attack_page(): Hora " . $hora);
 
     $clima=int(rand(100))+1; #1..100 
     $clima=int(rand(98))+1; #1..98 ( no stoms and less precipitations)

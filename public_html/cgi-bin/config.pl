@@ -113,6 +113,12 @@ $TANK_REGEX="Pz|T34|ValentineII|BT7|M4A2|T70"; # tank string identification use 
 
 if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early 1942") {
 
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -168,6 +174,12 @@ if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early
 
 if ($MAP_NAME_LONG eq "Stalingrad. Late 1942" || $MAP_NAME_LONG eq "Stalingrad. Early 1943" ){
 
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -226,6 +238,12 @@ if ($MAP_NAME_LONG eq "Stalingrad. Late 1942" || $MAP_NAME_LONG eq "Stalingrad. 
 
 
 if ($MAP_NAME_LONG eq "Kursk. 1943"){
+
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
 
     # map image information
     $ANCHO=900;      # image width in pixels
@@ -294,6 +312,12 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
 
 if ($MAP_NAME_LONG eq "Smolensk. 1944"){
 
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
+
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -346,6 +370,12 @@ if ($MAP_NAME_LONG eq "Smolensk. 1944"){
 }
 
 if ($MAP_NAME_LONG eq "Balaton. 1945"){
+
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
 
     # map image information
     $ANCHO=900;      # image width in pixels
@@ -409,6 +439,12 @@ if ($MAP_NAME_LONG eq "Balaton. 1945"){
 
 if ($MAP_NAME_LONG eq "Berlin. 1945"){ 
 
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
+
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=386;       # image height in pixels
@@ -459,6 +495,12 @@ if ($MAP_NAME_LONG eq "Berlin. 1945"){
 }
 
 if ($MAP_NAME_LONG eq "Moscow. Winter 1944"){
+
+    # @HEracles@20110416@
+    # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
+    # Sólo adminte horas coómo número enteros en formato de 24 h.
+    $SUNRISE=7;
+    $SUNSET=17;
 
     # map image information
     $ANCHO=900;      # image width in pixels
