@@ -13,6 +13,7 @@ $dbh="";
 $sth="";
 
 #function declartion and prototypes 
+sub sum_array(@);
 sub dec_2_hex($);
 sub enc_unicode($);
 sub distance ($$$$);
@@ -36,6 +37,7 @@ sub find_tank_wp($$$);
 sub add_tanks();
 sub add_tank_static();
 sub add_tank_biulding();
+sub calc_aaa_city(@);
 sub poblate_city($$$); 
 sub static_on_city();
 sub static_on_afields();
@@ -43,6 +45,28 @@ sub print_briefing();
 sub print_fm();
 sub select_random_tagets();
 sub print_details();
+sub printdebug($);
+
+
+sub printdebug($) {
+    my $log = shift (@_);
+    if ($DZDEBUG) {
+    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " " . $log . "\n";	
+    }
+}
+
+## @Heracles@20110101@
+## Calcula el sumatorio de los valores de un array.
+## Parametro: @array
+sub sum_array(@) {
+    my $count = 0;
+    
+    foreach (@_) {
+	$count += $_;
+    }
+    
+    return $count;
+}
 
 #enter decimal ascii value (0~255) retun 2 digit  hex
 sub dec_2_hex($){
@@ -2017,7 +2041,7 @@ sub poblate_airfield ($) {
     while(<GEO_OBJ>) {
 	if ($_ =~  m/$afcode,.*,([^,]+):([0-2])/) {
 	    my $damage=$1;
-	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . "poblate_airfield(" . $afcode . "): Damage=" . $damage. "\n";	    
+	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " poblate_airfield(" . $afcode . "): Damage=" . $damage. "\n";	    
 	    my $army=$2;
 	    $_=readline(GEO_OBJ); #y la siguiente linea(H1) CHECK
 	    $_ =~ m/^AF[0-9]{2}:H1,([^,]+),([^,]+),/;
@@ -4564,6 +4588,47 @@ sub print_briefing() {
     close(DESC);
 }
 
+# @Heracles@20110417@
+# Cálcula que tipo de aaa tenemos que colocar en un WP de aaa (tipo 2000) para distribuirla
+# en la ciudad objetivo según las variables $AAA_CITY_HIGH_PERCENT, $AAA_CITY_MEDIUM_PERCENT,
+# $AAA_CITY_LOW_PERCENT
+sub calc_aaa_city(@) {
+    my @my_aaa_dist = @_;
+    
+    printdebug("calc_aaa_city() : Entra con aaa-dist : ". $my_aaa_dist[0] . "-" . $my_aaa_dist[1] . "-" . $my_aaa_dist[2]);
+    
+    my $aaa_total = sum_array(@my_aaa_dist) * 1.0;
+    printdebug("calc_aaa_city() : aaa_total " . $aaa_total);
+    my @aaa_percent_dist = (0.0, 0.0, 0.0);
+    my @aaa_percent_delta = (0.0, 0.0, 0.0);
+    
+    if ($aaa_total > 0) {
+        $aaa_percent_dist[0] = ($my_aaa_dist[0] * 1.0 )/ $aaa_total;
+        $aaa_percent_dist[1] = ($my_aaa_dist[1] * 1.0 )/ $aaa_total;
+        $aaa_percent_dist[2] = ($my_aaa_dist[2] * 1.0 )/ $aaa_total;
+    }    
+    printdebug("calc_aaa_city() : % aaa : ". $aaa_percent_dist[0] . "-" . $aaa_percent_dist[1] . "-" . $aaa_percent_dist[2]);    
+    
+    $aaa_percent_delta[0] = $AAA_CITY_HIGH - $aaa_percent_dist[0];
+    $aaa_percent_delta[1] = $AAA_CITY_MEDIUM - $aaa_percent_dist[1];
+    $aaa_percent_delta[2] = $AAA_CITY_LOW - $aaa_percent_dist[2];
+    
+    printdebug("calc_aaa_city() : % aaa delta: ". $aaa_percent_delta[0] . "-" . $aaa_percent_delta[1] . "-" . $aaa_percent_delta[2]);    
+    
+    my $max = $aaa_percent_delta[0];
+    my $my_aaa_type = 0;
+    
+    for ($i = 1; $i < 3; $i++) {
+	if ($aaa_percent_delta[$i] > $max) {
+	    $max = $aaa_percent_delta[$i];
+	    $my_aaa_type = $i;
+	}
+    }
+    
+    printdebug("calc_aaa_city() : salimos con tipo ". $my_aaa_type . " -- deltas ". $aaa_percent_delta[0] . "-". $aaa_percent_delta[1] ."-" . $aaa_percent_delta[2] );
+    return $my_aaa_type;
+}
+
 # poblate with static objects a place close to a city 
 sub poblate_city($$$){ 
     my($army,$cx,$cy)= @_;
@@ -4580,9 +4645,13 @@ sub poblate_city($$$){
     my $modulo;
     my $angle;
     my $object;
+    my $object_high;
+    my $object_medium;
+    my $object_low;
     my $wspan; 
     my $to_place;
-    my $m_usados; 
+    my $m_usados;
+    my @aaa_dist = (0, 0, 0);
 
     seek CITY, 0, 0;
     # @Heracles@20110117@
@@ -4629,22 +4698,33 @@ sub poblate_city($$$){
 		if ($type==2000) { # si es aaa
 		    $wspan=5; 
 		    if ($army==1) {
-			$object="vehicles.artillery.Artillery\$Zenit85mm_1939";
-			if (rand(100)<50){
-			    $object="vehicles.artillery.Artillery\$Zenit25mm_1940";
-			}
+			$object_high="vehicles.artillery.Artillery\$Zenit85mm_1939";
+			$object_medium="vehicles.artillery.Artillery\$Zenit61K";
+			$object_low="vehicles.artillery.Artillery\$Zenit25mm_1940";
 		    }
 		    else {
-			$object="vehicles.artillery.Artillery\$Zenit85mm_1939";
-			if (rand(100)<50){
-			    $object="vehicles.artillery.Artillery\$Zenit25mm_1940";
-			}
+			$object_high="vehicles.artillery.Artillery\$Flak18_88mm";
+			$object_medium="vehicles.artillery.Artillery\$Flak18_37mm";
+			$object_low="vehicles.artillery.Artillery\$Flak38_20mm";			
 		    }
+		    
+		    printdebug("poblate_city() Empezamos...");
+		    my @aaa_type = ( $object_high, $object_medium, $object_low );
+		    printdebug("poblate_city() Tipo AAA HIGH ".$aaa_type[0]);
+		    printdebug("poblate_city() Tipo AAA MEDIUM ".$aaa_type[1]);
+		    printdebug("poblate_city() Tipo AAA LOW ".$aaa_type[2]);		    		    
+		    printdebug("poblate_city() Entramos con aaa_dist: ". $aaa_dist[0] . "-" . $aaa_dist[1] . "-" .$aaa_dist[2]);		    
+		    my $my_aaa_type = calc_aaa_city(@aaa_dist);
+
 		    #colocamos aaa
-		    print MIS $s_obj_counter."_Static ".$object." ".$army." ".int($coord_p1x).
+		    print MIS $s_obj_counter."_Static ".$aaa_type[$my_aaa_type]." ".$army." ".int($coord_p1x).
 			" ".int($coord_p1y)." ".$angle." 0\n";
+
+		    $aaa_dist[$my_aaa_type]++;
 		    $s_obj_counter++;
 		    $this_city_objs_aaa++;
+		    
+		    printdebug("poblate_city() Salimos con aaa_dist: ". $aaa_dist[0] . "-" . $aaa_dist[1] . "-" .$aaa_dist[2]);		    
 		}
 
 		# VEHICULOS:  tipo 500 angulo normal y 1000 son vehiculos rotados 90 a derecha (+90 en el il2FB)

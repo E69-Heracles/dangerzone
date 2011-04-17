@@ -65,6 +65,33 @@ $MIN_PILOT_SIDE=2; # minimun human pilot per side
 # you can fly against ai, an require min human players: (Never tested)
 # to do that set: $MIN_PILOT_SIDE=0 and $MIN_PILOT_NUM to something biger than 0.  
 
+## @Heracles@20110412
+## Porcentajes de suministros IA y HUMANOS
+## @Heracles@20110107@
+$AF_SUM_IA_RED=4;  # porcentaje de recupero  de AF rojo por cada transporte IA que aterriza
+$AF_SUM_IA_BLUE=3;  # porcentaje de recupero  de AF azul por cada transporte IA que aterriza
+$AF_SUM_HUMAN_RED=6; # porcentaje de recupero  de AF rojo por cada transporte HUMANO que aterriza
+$AF_SUM_HUMAN_BLUE=5; # porcentaje de recupero  de AF azul por cada transporte HUMANO que aterriza
+$AF_SUM_MAX_RAD=30000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
+## @Heracles@20110410@
+$CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
+$CITY_SUM_AI_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+$CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
+$CITY_SUM_AI_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+
+$MIN_BOMBERS_DIST=50000; 
+$MAX_BOMBERS_DIST=70000;
+$MIN_FIGHTERS_DIST=2000;
+$MAX_FIGHTERS_DIST=50000;
+$MIN_ENEMY_AF_DIST=25000; # separacion entre AF enemigos de despegue minima.
+
+@NIVEL_AI_INI=(1,1,1,1,1);
+
+## @Heracles@20110417@
+## Porcentajes de AAA en las ciudades. (0 - 1) Utilizar solo un decimal. Deberían sumar 1 ;)
+$AAA_CITY_HIGH=0.5;
+$AAA_CITY_MEDIUM=0.1;
+$AAA_CITY_LOW=0.4;
 
 $require_auth_code=1; # require or not auth code for squadron register
 $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.
@@ -575,29 +602,6 @@ $co_voting_names_tbl="badc_co_voting_names";
 
 #a shorcut used when printing html error messages
 $big_red="<strong><font size=\"+2\" color=\"ff0000\"><br>";
-
-## @Heracles@20110412
-## Porcentajes de suministros IA y HUMANOS
-## @Heracles@20110107@
-$AF_SUM_IA_RED=4;  # porcentaje de recupero  de AF rojo por cada transporte IA que aterriza
-$AF_SUM_IA_BLUE=3;  # porcentaje de recupero  de AF azul por cada transporte IA que aterriza
-$AF_SUM_HUMAN_RED=6; # porcentaje de recupero  de AF rojo por cada transporte HUMANO que aterriza
-$AF_SUM_HUMAN_BLUE=5; # porcentaje de recupero  de AF azul por cada transporte HUMANO que aterriza
-$AF_SUM_MAX_RAD=30000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
-## @Heracles@20110410@
-$CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_AI_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
-$CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_AI_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
-
-$MIN_BOMBERS_DIST=50000; 
-$MAX_BOMBERS_DIST=70000;
-$MIN_FIGHTERS_DIST=2000;
-$MAX_FIGHTERS_DIST=50000;
-$MIN_ENEMY_AF_DIST=25000; # separacion entre AF enemigos de despegue minima.
-
-@NIVEL_AI_INI=(1,1,1,1,1);
-
 
 $VVS_RADIO="&0";
 $LW_RADIO="&0";
