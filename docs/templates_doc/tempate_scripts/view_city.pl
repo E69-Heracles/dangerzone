@@ -1,9 +1,68 @@
 
 use POSIX;
 
+sub sum_array(@);
+sub calc_aaa_city(@);
+
 $DIST_VEHICULOS="$0";
 $MISION="city.mis";
 $SALIDA="preview_city.mis";
+
+$AAA_CITY_HIGH=0.5;
+$AAA_CITY_MEDIUM=0.1;
+$AAA_CITY_LOW=0.4;
+
+## @Heracles@20110101@
+## Calcula el sumatorio de los valores de un array.
+## Parametro: @array
+sub sum_array(@) {
+    my $count;
+    
+    foreach (@_) {
+	$count += $_;
+    }
+    
+    return $count;
+}
+
+# @Heracles@20110417@
+# Cálcula que tipo de aaa tenemos que colocar en un WP de aaa (tipo 2000) para distribuirla
+# en la ciudad objetivo según las variables $AAA_CITY_HIGH, $AAA_CITY_MEDIUM,
+# $AAA_CITY_LOW
+sub calc_aaa_city(@) {
+    my @my_aaa_dist = @_;
+    my $aaa_total = sum_array(@my_aaa_dist) * 1.0;
+    my @aaa_percent_dist = (0.0, 0.0, 0.0);
+    my @aaa_percent_delta = (0.0, 0.0, 0.0);
+    
+    if ($aaa_total > 0) {
+        $aaa_percent_dist[0] = ($my_aaa_dist[0] * 1.0 )/ $aaa_total;
+        $aaa_percent_dist[1] = ($my_aaa_dist[1] * 1.0 )/ $aaa_total;
+        $aaa_percent_dist[2] = ($my_aaa_dist[2] * 1.0 )/ $aaa_total;
+    }    
+
+    $aaa_percent_delta[0] = $AAA_CITY_HIGH - $aaa_percent_dist[0];
+    $aaa_percent_delta[1] = $AAA_CITY_MEDIUM - $aaa_percent_dist[1];
+    $aaa_percent_delta[2] = $AAA_CITY_LOW - $aaa_percent_dist[2];
+
+    my $max = $aaa_percent_delta[0];
+    my $my_aaa_type = 0;
+    
+    for ($i = 1; $i < 3; $i++) {
+	if ($aaa_percent_delta[$i] > $max) {
+	    $max = $aaa_percent_delta[$i];
+	    $my_aaa_type = $i;
+	}
+    }
+    return $my_aaa_type;
+}
+
+# @Heracles@20110418@
+# Nuevas variables para control de distribución de AAA en ciudades
+my $object_high;
+my $object_medium;
+my $object_low;
+my @aaa_dist = (0, 0, 0);
 
 $s_obj_counter=0; 
 $army=1; # red es 1 ...   blue es 2
@@ -88,25 +147,29 @@ while(<MIS_IN>) {
 	# aqui ya tenemos: el punto inicial, la direccion, el angulo del objeto
 	# y la cantidad de espacio para ubicar los objetos, metros usados = 0;
 	$m_usados=0;
-	
-	if ($type==2000) { # si es typo aaa 
+	# comenzamos: typo AAA
+	if ($type==2000) { # si es aaa
 	    if ($army==1) {
-		$object="vehicles.artillery.Artillery\$Zenit85mm_1939";
-		if (rand(100)<50){
-		    $object="vehicles.artillery.Artillery\$Zenit25mm_1940";
-		}
+		$object_high="vehicles.artillery.Artillery\$Zenit85mm_1939";
+		$object_medium="vehicles.artillery.Artillery\$Zenit61K";
+		$object_low="vehicles.artillery.Artillery\$Zenit25mm_1940";
 	    }
-	    else { # blue
-		$object="vehicles.artillery.Artillery\$Flak18_88mm";
-		if (rand(100)<50){
-		    $object="vehicles.artillery.Artillery\$Flak30_20mm";
-		}
+	    else {
+		$object_high="vehicles.artillery.Artillery\$Flak18_88mm";
+		$object_medium="vehicles.artillery.Artillery\$Flak18_37mm";
+		$object_low="vehicles.artillery.Artillery\$Flak38_20mm";			
 	    }
-	    #colocamos solo una aaa
-	    print MIS_OUT $s_obj_counter."_Static ".$object." ".$army." ".int($coord_p1x)
-		." ".int($coord_p1y)." ".$angle." 0\n";
+	    
+	    my @aaa_type = ( $object_high, $object_medium, $object_low );
+	    my $my_aaa_type = calc_aaa_city(@aaa_dist);
+
+	    #colocamos aaa
+	    print MIS_OUT $s_obj_counter."_Static ".$aaa_type[$my_aaa_type]." ".$army." ".int($coord_p1x).
+		" ".int($coord_p1y)." ".$angle." 0\n";
+
+	    $aaa_dist[$my_aaa_type]++;
 	    $s_obj_counter++;
-	}
+	}	
 	
 	## Vehiculos: tipo 500 angulo normal y tipo 1000 son vehiculos rotados 90 a derecha (+90 en rusia?)
 	if ($type==500 || $type==1000) {
