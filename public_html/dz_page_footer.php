@@ -1,7 +1,11 @@
-
+<?php
+$file = $_SERVER['DOCUMENT_ROOT'] . "/cgi-bin/version.txt";
+$contents = file($file);
+$version = implode($contents);
+?>
 		  <tr>
 				<td colspan="3" class="footer" height="30px" align="center">
-					<span style="font-size:9px">Footer que te kagas, con <img src="images/footer_empe.jpg" valign="middle">opciones y un Empecinado monisimo.</span> 
+					<span style="font-size:9px">Danger Zone v<?php echo $version ?></span> 
 				</td>
 			</tr>		
 		  <tr>
