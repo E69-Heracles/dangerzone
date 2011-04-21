@@ -54,8 +54,13 @@ include ("./dz_page_header.php");
 				</td>
 				<td width="297px" valign="bottom">
 					
-					<b>Next Mission of Day (MoD):</b> 8 / 30 9 h 5 m<br/>
-					<b>Weather:</b> Good - Clouds at 1200 meters.<br/><br/>
+					<?php
+					$file = $_SERVER['DOCUMENT_ROOT'] . "/cgi-bin/status.txt";
+					$contents = file($file);
+					echo $contents[0];
+					echo $contents[1];
+					?>
+			
 					<a href="mapa.html"><img id="map_icon" src="images/map_banner_kursk.jpg" border="2"></a><br/><br/>
 					Para volarla, basta con que te conectes en el <a href="http://hyperfighter.sk/" target="main">HyperLobby</a> en alguna de las partidas 
 					que se lanzan diariamente en <b>Teamplay Room</b>, pero te rogamos encarecidamente que te leas antes el manual. 

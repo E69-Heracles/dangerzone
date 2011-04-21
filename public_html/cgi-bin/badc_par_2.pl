@@ -4435,10 +4435,10 @@ sub make_attack_page(){
 
     print MAPA  &print_start_html;
     print MAPA  "<br><br><font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-    print STA   "<font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+    print STA   "Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
 
     print MAPA  "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
-    print STA   "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
+    print STA   "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. <br><br>\n\n";
 
     my $k;
     for ($k=0; $k<scalar(@red_possible); $k++){
