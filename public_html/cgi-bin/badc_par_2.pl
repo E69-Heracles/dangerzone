@@ -4394,21 +4394,27 @@ sub make_attack_page(){
     print CLIMACTL "Al reportar $MIS_TO_REP ( rep $rep_nbr ) hora: $hora min: $minutos nubes: $nubes clima: $clima = ";
 
     my $tipo_clima;
+    my $tipo_clima_spa;
     if ($clima<=20){ # clima 1..20 -> 20% Clear
 	$tipo_clima="Clear";
+	$tipo_clima_spa="Despejado";
 	$nubes=" -- "; # para  la pagina del generador. (ya esta guardado en disco).
     }
     if ($clima>20 && $clima<=90){ # clima 21..90 -> 70% Good
 	$tipo_clima="Good";
+	$tipo_clima_spa="Bueno";	
     }
     if ($clima>90 && $clima<=95){ # clima 91..95 -> 5% Blind
 	$tipo_clima="Low Visibility";
+	$tipo_clima_spa="Baja visibilidad";	
     }
     if ($clima>95 && $clima<=99){ # clima 96..99 -> 4% Rain/Snow
 	$tipo_clima="Precipitations";
+	$tipo_clima_spa="Lluvia";	
     }
     if ($clima>99 && $clima<=100){ # clima only 100 -> 1% Strom
 	$tipo_clima="Storm";
+	$tipo_clima_spa="Tormenta";	
     }
     my $localt=`date`;
     print CLIMACTL "$tipo_clima : $localt";
@@ -4435,10 +4441,10 @@ sub make_attack_page(){
 
     print MAPA  &print_start_html;
     print MAPA  "<br><br><font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-    print STA   "Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+    print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
     print MAPA  "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
-    print STA   "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. <br><br>\n\n";
+    print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
     my $k;
     for ($k=0; $k<scalar(@red_possible); $k++){
