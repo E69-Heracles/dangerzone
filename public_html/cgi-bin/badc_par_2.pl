@@ -3852,8 +3852,7 @@ sub look_sectors(){
 		}
 	    }
 	    if ($near>17000) {
-		my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
-			 ,"Q","R","S","T","U","V","W","X","Y","Z");
+		my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
 		my $ltr=$letras[int($fm_cx/10000)];
 		my $nbr=int($fm_cy/10000)+1;
 		if ($army==1){
@@ -3908,7 +3907,7 @@ sub look_sectors(){
 	    }
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~  m/SEC.{4},[^,]+,([^,]+),([^,]+),0,[^:]+:[12]/ && 		 
+		if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),0,[^:]+:[12]/ && 		 
 		    (distance($fm_cx,$fm_cy,$1,$2) < 2000)) {  # sec cercano a FM con ttl=0
 		    
 		    $near=500000;
@@ -3924,8 +3923,7 @@ sub look_sectors(){
 			}		    
 		    }
 		    if ($orig_army != $army){
-			my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
-				    ,"Q","R","S","T","U","V","W","X","Y","Z");
+			my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
 			my $ltr=$letras[int($fm_cx/10000)];
 			my $nbr=int($fm_cy/10000)+1;
 			if ($army==1){
@@ -3995,7 +3993,7 @@ sub check_geo_file(){
 	print TEMP "FRONT_LINE_VERSION=$front_ver";
 	#no seek, estamos justo debajo de la primer linea con FRONT_LINE_VERSION=... CHECK
 	while(<GEO_OBJ>) {
-	    if ($_ =~  m/(AF.{2}|SEC.{4}|CT[0-9]{2}|SUC[0-9]{2}),[^,]+,([^,]+),([^,]+),[^:]*:([0-2])/) {
+	    if ($_ =~  m/(AF.{2}|SEC[^,]+|CT[0-9]{2}|SUC[0-9]{2}),[^,]+,([^,]+),([^,]+),[^:]*:([0-2])/) {
 		$orig_data=$_;
 		$cxo=$2;
 		$cyo=$3;
@@ -4048,7 +4046,7 @@ sub check_sec_sumin(){
     open (TEMPGEO, ">temp_geo.data"); #
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ !~  m/SEC.{4},[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:([12])/) {
+	if ($_ !~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:([12])/) {
 	    print TEMPGEO;
 	}
 	else {
@@ -4074,7 +4072,7 @@ sub check_sec_sumin(){
 		$ttl=30;
 	    }
 	    
-	    $orig_sec =~ s/(SEC.{4},[^,]+,[^,]+,[^,]+),[^,]+,[^:]+:$army/$1,$ttl,$state:$army/;
+	    $orig_sec =~ s/(SEC[^,]+,[^,]+,[^,]+,[^,]+),[^,]+,[^:]+:$army/$1,$ttl,$state:$army/;
 	    print TEMPGEO $orig_sec;
 	    seek GEO_OBJ,$line_back,0; # regresamos a misma linea
 	}
@@ -4149,7 +4147,7 @@ sub make_attack_page(){
     ## seleccion de objetivos al azar TACTICOS ROJOS
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
 	    $tgt_name=$1;
 	    $cxo=$2;
 	    $cyo=$3;
@@ -4157,7 +4155,7 @@ sub make_attack_page(){
 	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC.{4},[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
 		    $dist= distance($cxo,$cyo,$1,$2);
 		    if ($dist<16000) {
 			my $cityname="NONE";
@@ -4257,14 +4255,14 @@ sub make_attack_page(){
     my @blue_possible=();
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
 	    $tgt_name=$1;
 	    $cxo=$2;
 	    $cyo=$3;
 	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC.{4},[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
 		    $dist= distance($cxo,$cyo,$1,$2);
 		    if ($dist<16000) {
 			my $cityname="NONE";
@@ -4704,7 +4702,7 @@ sub make_image(){
     
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:[12]/){
+	if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:[12]/){
 	    my $n=int($2/10000);
 	    my $l=int($1/10000);
 	    my $ttl=$3;

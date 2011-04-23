@@ -123,7 +123,7 @@ if (!open (FRONT, "<$FRONT_LINE")){
     ## seleccion de objetivos al azar TACTICOS ROJOS
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
 	    $tgt_name=$1;
 	    $cxo=$2;
 	    $cyo=$3;
@@ -131,7 +131,7 @@ if (!open (FRONT, "<$FRONT_LINE")){
 	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC.{4},[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
 		    $dist= distance($cxo,$cyo,$1,$2);
 		    if ($dist<16000) {
 			my $cityname="NONE";
@@ -231,14 +231,14 @@ if (!open (FRONT, "<$FRONT_LINE")){
     my @blue_possible=();
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
 	    $tgt_name=$1;
 	    $cxo=$2;
 	    $cyo=$3;
 	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC.{4},[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
 		    $dist= distance($cxo,$cyo,$1,$2);
 		    if ($dist<16000) {
 			my $cityname="NONE";

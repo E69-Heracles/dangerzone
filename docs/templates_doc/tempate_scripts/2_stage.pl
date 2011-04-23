@@ -41,7 +41,7 @@ if (! (open (TKWP, "<$TANKS_WP"))){
 }
 
 
-my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
 
 for (my $tgt_cx=5000; $tgt_cx<$MAP_RIGHT; $tgt_cx+=10000) {   # coord X
     for (my $tgt_cy=5000; $tgt_cy<$MAP_TOP; $tgt_cy+=10000) { # coord Y

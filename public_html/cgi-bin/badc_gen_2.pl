@@ -4979,7 +4979,7 @@ sub select_random_tagets(){
     my @possible=();
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) { 
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) { 
 	    my $tgt_name=$1;
 	    my $cxo=$2;
 	    my $cyo=$3;
@@ -5041,7 +5041,7 @@ sub select_random_tagets(){
     @possible=();
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC.{4},([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
 	    $tgt_name=$1;
 	    $cxo=$2;
 	    $cyo=$3;

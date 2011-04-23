@@ -203,7 +203,7 @@ for ($k=0; $k<$NUMEROS; $k++) { ## para cada coordenada NUMERO
 	my $ttl=0;
 	seek GEO_OBJ,0,0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~  m/SEC.{4},[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:[12]/){
+	    if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:[12]/){
 		$dist= distance($cx_blo,$cy_blo,$1,$2);
 		if ($dist < 2000) {
 		    $ttl=$3;
