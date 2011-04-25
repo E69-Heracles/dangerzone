@@ -75,9 +75,9 @@ $AF_SUM_HUMAN_BLUE=5; # porcentaje de recupero  de AF azul por cada transporte H
 $AF_SUM_MAX_RAD=30000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
 ## @Heracles@20110410@
 $CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_AI_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+$CITY_SUM_IA_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 $CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_AI_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+$CITY_SUM_IA_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 
 $MIN_BOMBERS_DIST=50000; 
 $MAX_BOMBERS_DIST=70000;
@@ -92,6 +92,10 @@ $MIN_ENEMY_AF_DIST=25000; # separacion entre AF enemigos de despegue minima.
 $AAA_CITY_HIGH=0.5;
 $AAA_CITY_MEDIUM=0.1;
 $AAA_CITY_LOW=0.4;
+
+## @Heracles@20110423
+## Constante de los códigos de letras para los sectores de los mapas. de "A" a "BZ". Vigilar si existe un mapa mayor
+@LETRAS_SEC=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
 
 $require_auth_code=1; # require or not auth code for squadron register
 $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.
@@ -572,10 +576,6 @@ if ($MAP_NAME_LONG eq "Moscow. Winter 1944"){
     @LW_BA_PLANES=("JU-88A4","BF-110G2");
     @LW_AI_PLANES=("JU-52","HS-129B2");
 }
-
-
-
-
 
 $WINDOWS=0;
 if  ($^O =~ m/Win/){ # we are using windows?  ..  to later use correct eval commands

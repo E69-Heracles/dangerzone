@@ -50,6 +50,10 @@ sub calc_resuply_by_human_pilot($$$);
 sub print_mis_objetive_result();
 sub look_af_and_ct();
 sub look_resuply();
+sub get_sum_radius($);
+sub get_city_from_sector($);
+sub get_sector($$);
+sub look_sectors_captured_with_city($$$$);
 sub look_sectors();
 sub check_geo_file();
 sub check_sec_sumin();
@@ -3390,10 +3394,10 @@ sub print_mis_objetive_result(){
     
     if ($RED_SUM==1 && $RED_SUM_AI>0){
 	my $sourvive = get_task_perc_sorvive(1,"SUM");
-	my $city_recover = int($RED_SUM_AI * $CITY_SUM_AI_RED * $sourvive/100);
+	my $city_recover = int($RED_SUM_AI * $CITY_SUM_IA_RED * $sourvive/100);
 	$red_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_AI_RED){
-	    $red_resuply+=$CITY_SUM_AI_RED;
+	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_IA_RED){
+	    $red_resuply+=$CITY_SUM_IA_RED;
 	}
 	if ($unix_cgi){
 	    #print "    - AI Suply Group of $RED_SUM_AI planes to $red_sum_city. \n";
@@ -3552,10 +3556,10 @@ sub print_mis_objetive_result(){
 
     if ($BLUE_SUM==1 && $BLUE_SUM_AI>0){
 	my $sourvive = get_task_perc_sorvive(2,"SUM");
-	my $city_recover = int($BLUE_SUM_AI * $CITY_SUM_AI_BLUE * $sourvive/100);
+	my $city_recover = int($BLUE_SUM_AI * $CITY_SUM_IA_BLUE * $sourvive/100);
 	$blue_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_AI_BLUE){
-	    $blue_resuply+=$CITY_SUM_AI_BLUE;
+	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_IA_BLUE){
+	    $blue_resuply+=$CITY_SUM_IA_BLUE;
 	}
 	if ($unix_cgi){
 	    #print "    - AI Suply Group of $BLUE_SUM_AI planes to $blue_sum_city. \n";
@@ -3576,12 +3580,12 @@ sub print_mis_objetive_result(){
 	    }
 	}
 	## @Heracles@20110107@
-	my $af_recover= int($BLUE_SUM_AI * $AF_SUM_BLUE * $sourvive/100);
+	my $af_recover= int($BLUE_SUM_AI * $AF_SUM_IA_BLUE * $sourvive/100);
 	if ($ai_land_at ne ""){
 	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_BLUE){
+	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_IA_BLUE){
 		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM_BLUE;
+		$recover+=$AF_SUM_IA_BLUE;
 	    }
 	    if ($unix_cgi){ 
 		#print " and $ai_land_at $recover %";
@@ -3794,8 +3798,119 @@ sub look_resuply() {
 	exit(0);
     }
 }
+# @Heracles@20110423
+# Retorna el radio de suministro de una ciudad. Retorna -1 en caso de error.
+# Parámetros : El nombre de la ciudad tal cómo aparece en el segundo campo de un línea CT del geo_obj
+sub get_sum_radius($) {
+    my ($my_city) = @_;
+    
+    my $my_radius = -1;
+    
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+        if ($_ =~ m/^CT[0-9]+,$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):([12])/){
+	    $my_radius = $1;
+	}
+    }
+    
+    return $my_radius;
+}
 
+# @Heracles@20110423@
+# Retorna el nombre de la ciudad que se encuentra en un sector determinado. Retorna "NULL" en caso de que no encuentre ninguna.
+# Parámetros : El código del sector del mapa ej. "A01".
+sub get_city_from_sector($) {
+    my ($my_sector) = @_;
+    
+    printdebug("get_city_from_sector(): sector=$my_sector");
+    
+    my $my_city = "NULL";
+    
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+        if ($_ =~ m/^CT[0-9]+,([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([12])/){
+	    if ($my_sector eq get_sector($2, $3)) {
+		$my_city = $1;
+	    }
+	}
+    }
+    
+    printdebug("get_city_from_sector(): city=$my_city");
+    
+    return $my_city;
+}
 
+# @Heracles@20110423@
+# Retorna el código de sector de mapa (ej. AB13) a que pertenecen las coordenadas pasadas como parámetros. Retorna "NULL" en caso de error.
+# Parámetros : coordenada x, coordenada y
+sub get_sector($$){
+    my ($my_cx, $my_cy) = @_;
+    
+    #printdebug("get_sector(): cx=". $my_cx . "," . "cy=". $my_cy);
+    
+    my $l = $LETRAS_SEC[int($my_cx/10000)];
+    my $n = int($my_cy/10000)+1;
+    if ($n<10) {$n = "0".$n;}    
+
+    #printdebug("get_sector(): returning sector $l$n");
+
+    return "$l$n";
+}
+
+# @Heracles@201104232
+# Busca los sectores dentro del radio de suministro de una ciudad capturada y los asigna al bando que controla la ciudad
+# Parámetros: armada, corrdenada x de la ciudad, coordenada y de la ciudad, nombre de la ciudad tal cómo aparece en el segundo campo de un línea CT del geo_obj
+sub look_sectors_captured_with_city($$$$) {
+    my ($my_army, $my_city_cx, $my_city_cy, $my_city) = @_;
+
+    printdebug("look_sectors_captured_with_city(): Identificando sectores dentro del radio de suministro de la ciudad de $my_city...");
+
+    my $my_sum_radius = get_sum_radius($my_city);
+    my $my_saved;
+    my $my_cx;
+    my $my_cy;
+    my $my_orig_army;
+   
+    printdebug("look_sectors_captured_with_city(): $my_sum_radius Km de radio de suministro en $my_city");
+   
+    open (TEMPFL, ">temp_fl.data"); #
+    seek FRONT,0,0;
+    while(<FRONT>) {
+      	if ($_ !~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) ([12])/){
+       	    print TEMPFL;
+	}
+	else {
+	    $my_saved=$_;
+	    $my_cx=$1;
+	    $my_cy=$2;
+	    $my_orig_army=$3;
+	    
+	    if (distance($my_city_cx, $my_city_cy, $my_cx, $my_cy) <= ($my_sum_radius * 1000) ) {
+		$my_saved =~ s/(FrontMarker[0-9]?[0-9]?[0-9] [^ ]+ [^ ]+) [12]/$1 $my_army/;
+		print TEMPFL $my_saved;
+		printdebug("look_sectors_captured_with_city(): Sector " . get_sector($my_cx, $my_cy) . " dentro del radio de suministro de $my_city");
+		if ($my_orig_army != $my_army) {
+		    printdebug("look_sectors_captured_with_city(): Sector cambia de bando de $my_orig_army a $my_army");
+		}
+	    }
+	    else {
+		print TEMPFL;
+	    }
+	}
+    }
+    close(TEMPFL); # cerramos para renombrar
+    close(FRONT); # cerramos para borrar/o hacer nkup
+    unlink $FRONT_LINE;  #  backup en lugar de borrar?? si mejor --cambiar CHECK
+    rename "temp_fl.data", $FRONT_LINE; ## renombramos
+    if (!open (FRONT, "<$FRONT_LINE")) { #reabrimos
+        print "$big_red FATAL ERROR: Can't open $FRONT_LINE: $! on sub look_sectors_captured_with_city (b)<br>\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open $FRONT_LINE: $! on sub look_sectors_captured_with_city (b)\n\n";
+        exit(0);
+    }
+    
+}
 
 sub look_sectors(){
 
@@ -3807,25 +3922,28 @@ sub look_sectors(){
     $fl_ver =~ s/^[^=]+=([0-9]+)$/$1/; #
     open (TEMPFL, ">temp_fl.data"); #
     print TEMPFL "FRONT_LINE_VERSION=";
-    printf TEMPFL ("%05.0f\n",$fl_ver+1); 
+    printf TEMPFL ("%05.0f\n",$fl_ver+1);
+    
+    my $my_red_target_sector = get_sector($red_tgtcx,$red_tgtcy);
+    my $my_blue_target_sector = get_sector($blue_tgtcx,$blue_tgtcy);
     
     while(<FRONT>) {
 	if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) ([12])/){
 	    if ( ($RED_ATTK_TACTIC==1) && ($RED_CAPTURA==1) && ($3==2) && 
-		 (distance($red_tgtcx,$red_tgtcy,$1,$2) < 3000)) {
+		 ( $my_red_target_sector eq get_sector($1,$2))) {
 		$_ =~ s/(FrontMarker[0-9]?[0-9]?[0-9] [^ ]+ [^ ]+) 2/$1 1/;
-		#print "red captures sector<br>"; #debug sacar
+		printdebug("look_sectors(): red captures sector $my_red_target_sector");
 	    }
 	    if ( ($BLUE_ATTK_TACTIC==1) && ($BLUE_CAPTURA==1) && ($3==1) && 
-		 (distance($blue_tgtcx,$blue_tgtcy,$1,$2) < 3000)) {
+		 ( $my_blue_target_sector eq get_sector($1,$2))) {
 		$_ =~ s/(FrontMarker[0-9]?[0-9]?[0-9] [^ ]+ [^ ]+) 1/$1 2/;
-		#print "blue captures sector<br>"; #debug sacar
+		printdebug("look_sectors(): blue captures sector $my_blue_target_sector");
 	    }
 	}
 	print TEMPFL;
     }
     close(TEMPFL);
-    open (TEMPFL, "<temp_fl.data"); #
+    open (TEMPFL, "<temp_fl.data");
     close(FRONT);
     unlink $FRONT_LINE;  
     open (FRONT, ">$FRONT_LINE"); #reabrimos
@@ -3852,8 +3970,7 @@ sub look_sectors(){
 		}
 	    }
 	    if ($near>17000) {
-		my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
-		my $ltr=$letras[int($fm_cx/10000)];
+		my $ltr=$LETRAS_SEC[int($fm_cx/10000)];
 		my $nbr=int($fm_cy/10000)+1;
 		if ($army==1){
 		    $op=2;
@@ -3897,18 +4014,18 @@ sub look_sectors(){
 	    $fm_cy=$2;
 	    $army=$3;
 	    my $orig_army=$3;
-	    if (  ($BLUE_CAPTURA==1) && ($3==2) && (distance($blue_tgtcx,$blue_tgtcy,$fm_cx,$fm_cy) < 2000)) {
+	    if (  ($BLUE_CAPTURA==1) && ($3==2) && ($my_blue_target_sector eq get_sector($fm_cx,$fm_cy))) {
 		print TEMPFL;
 		next;
 	    }
-	    if ( ($RED_CAPTURA==1) && ($3==1) &&  (distance($red_tgtcx,$red_tgtcy,$fm_cx,$fm_cy) < 2000)) {
+	    if ( ($RED_CAPTURA==1) && ($3==1) &&  ($my_red_target_sector eq get_sector($fm_cx,$fm_cy))) {
 		print TEMPFL;
 		next;
 	    }
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
 		if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),0,[^:]+:[12]/ && 		 
-		    (distance($fm_cx,$fm_cy,$1,$2) < 2000)) {  # sec cercano a FM con ttl=0
+		    (get_sector($fm_cx,$fm_cy) eq get_sector($1,$2))) { 
 		    
 		    $near=500000;
 		    seek GEO_OBJ,0,0;
@@ -3923,8 +4040,7 @@ sub look_sectors(){
 			}		    
 		    }
 		    if ($orig_army != $army){
-			my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
-			my $ltr=$letras[int($fm_cx/10000)];
+			my $ltr=$LETRAS_SEC[int($fm_cx/10000)];
 			my $nbr=int($fm_cy/10000)+1;
 			if ($army==1){
 			    push(@red_ttl_recover, "$ltr.$nbr");
@@ -3953,6 +4069,24 @@ sub look_sectors(){
     }
     #if ($unix_cgi){ print " Front line Updated\n"; } # sacar
     #End cambio FL por ttl=0
+    
+    # @Heracles@201104232
+    # Añadimos la funcionalidad de capturar sectores anexos dentro del radio de suministro de una ciudad capturada
+    # La anulamos después de pruebas con espiral. La funcionalidad conseguida puede generar muchas discrepancias entre la comunidad DZ.
+    # De momento no lo vamos a publicar.
+    #if ($RED_CAPTURA == 1) {
+    #	my $my_captured_city = get_city_from_sector($my_red_target_sector);
+    #	if ( $my_captured_city ne "NULL") {
+    #	    look_sectors_captured_with_city("1", $red_tgtcx,$red_tgtcy,$my_captured_city);
+    #	}
+    #}
+    #if ($BLUE_CAPTURA == 1) {
+    #	my $my_captured_city = get_city_from_sector($my_blue_target_sector);
+    #	if ( $my_captured_city ne "NULL") {
+    #	    look_sectors_captured_with_city("2", $blue_tgtcx,$blue_tgtcy,$my_captured_city);
+    #	}
+    #}
+  
 }
 
 
@@ -5635,7 +5769,7 @@ my @front_img=();
 if ($unix_cgi) {
     make_image();
     if ($WINDOWS) {
-	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT\\images\\front.jpg`; # win
+	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp $PATH_TO_WEBROOT\\images\\front.jpg`; # win
     }
     else {
 	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT/images/front.jpg`;
