@@ -984,8 +984,8 @@ sub get_mis_result_points($$){
 	    else {return(10);}
 	}
 	if ($task eq "SUM") { 
-	    if ($red_resuply >= 8) {return(20);}
-	    if ($red_resuply >= 4) {return(10);}
+	    if ($red_resuply > $CITY_SUM_HUMAN_RED) {return(20);}
+	    if ($red_resuply > 0) {return(10);}
 	    return (0);
 	}
 	if ($task eq "EBA") {
@@ -1039,8 +1039,8 @@ sub get_mis_result_points($$){
 	    else {return(10);}
 	}
 	if ($task eq "SUM") { 
-	    if ($blue_resuply >= 8) {return(20);}
-	    if ($blue_resuply >= 4) {return(10);}
+	    if ($blue_resuply > $CITY_SUM_HUMAN_BLUE) {return(20);}
+	    if ($blue_resuply > 0) {return(10);}
 	    return (0);
 	}
 	if ($task eq "EBA") {
