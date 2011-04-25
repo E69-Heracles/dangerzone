@@ -79,6 +79,10 @@ $CITY_SUM_IA_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte 
 $CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
 $CITY_SUM_IA_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 
+## @Heracles@20110425@
+## Radio máximo de suministro para las ciudades
+$MAX_SUM_RAD=50; # en kilómetros
+
 $MIN_BOMBERS_DIST=50000; 
 $MAX_BOMBERS_DIST=70000;
 $MIN_FIGHTERS_DIST=2000;

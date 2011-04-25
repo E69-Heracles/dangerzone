@@ -3763,7 +3763,7 @@ sub look_resuply() {
 		if ($dam<0) {
 		    $dam=0; 
 		    $rad_und=int($rad_und * 1.1);
-		    if ($rad_und>40) {$rad_und=40;} # radio maximo para las ciudades : 40 km
+		    if ($rad_und>$MAX_SUM_RAD) {$rad_und=$MAX_SUM_RAD;} # radio maximo para las ciudades : $MAX_SUM_RAD en config.pl
 		}
 		$sup_rad=int($rad_und * (1-$dam/100));
 		$_ =~ s/^([^,]+,$blue_sum_city,[^,]+,[^,]+),[^,]+,([^,]+,[^,]+),[^,]+,[^,]+:2/$1,$rad_und,$2,$dam,$sup_rad:$armada/;
@@ -3778,7 +3778,7 @@ sub look_resuply() {
 		if ($dam<0) {
 		    $dam=0; 
 		    $rad_und=int($rad_und * 1.1);
-		    if ($rad_und>40) {$rad_und=40;} # radio maximo para las ciudades : 40 km
+		    if ($rad_und>$MAX_SUM_RAD) {$rad_und=$MAX_SUM_RAD;} # radio maximo para las ciudades : $MAX_SUM_RAD en config.pl
 		}
 		$sup_rad=int($rad_und * (1-$dam/100));
 		$_ =~ s/^([^,]+,$red_sum_city,[^,]+,[^,]+),[^,]+,([^,]+,[^,]+),[^,]+,[^,]+:1/$1,$rad_und,$2,$dam,$sup_rad:$armada/;
