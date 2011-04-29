@@ -117,11 +117,11 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Early 1942"; 
 #$MAP_NAME_LONG="Stalingrad. Late 1942";
 #$MAP_NAME_LONG="Stalingrad. Early 1943";
-#$MAP_NAME_LONG="Kursk. 1943"; 
+$MAP_NAME_LONG="Kursk. 1943"; 
 #$MAP_NAME_LONG="Smolensk. 1944";
 #$MAP_NAME_LONG="Balaton. 1945";
 #$MAP_NAME_LONG="Berlin. 1945";
-$MAP_NAME_LONG="Moscow. Winter 1944"; 
+#$MAP_NAME_LONG="Moscow. Winter 1944"; 
 
 
 $CHAMP_TYPES_TOTAL=4;
@@ -277,8 +277,8 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     # @HEracles@20110416@
     # Constantes que definen la salido y la puesta de sol de un dia virtual. Controlan si hay misiones nocturnas o no
     # Sólo adminte horas coómo número enteros en formato de 24 h.
-    $SUNRISE=7;
-    $SUNSET=17;
+    $SUNRISE=5;
+    $SUNSET=19;
 
     # map image information
     $ANCHO=900;      # image width in pixels
@@ -291,57 +291,35 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     #tank types and aaa placement
 
 #Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
-    $ALLIED_TANKS_ATTK="Armor.3-T70M";
-    $AXIS_TANKS_ATTK="Armor.3-PzIIIM";
-    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
-    my $rnd= int(rand(2));
-    if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-    else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
+    $ALLIED_TANKS_ATTK="Armor.1-T34";
+    $AXIS_TANKS_ATTK="Armor.1-PzVIE";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzVIE"; # notice "escaped $" 
 
     $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
     $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
 
+    $GEOGRAFIC_COORDINATES="KUR_geo_obj.data";
+    $FRONT_LINE="KUR_frontline.mis";
+    $RED_OBJ_FILE="KUR_red_obj.mis";
+    $BLUE_OBJ_FILE="KUR_blue_obj.mis";
+    $CITY_PLACES="KUR_city.mis";
+    $TANKS_WP="KUR_tank_wp.mis";  
+    $FRONT_IMAGE="KUR_000.bmp";
+    $IMAP_DATA="KUR_imap.data";
 
-#    my $half_times= int(rand(100))+1; # 1 ~ 100
-#    if ($half_times>50) {
-#	$ALLIED_TANKS_ATTK="Armor.3-T34";
-#	$AXIS_TANKS_ATTK="Armor.3-PzIVJ";
-#	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
-#	$AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIVJ"; # notice "escaped $" 
-#	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-#	$LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
-#    }
-#    else {
-#	$ALLIED_TANKS_ATTK="Armor.3-T70M";
-#	$AXIS_TANKS_ATTK="Armor.3-PzIIIM";
-#	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
-#	my $rnd= int(rand(2));
-#	if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-#	else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-#	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-#	$LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
-#    }
-    $GEOGRAFIC_COORDINATES="KRS_geo_obj.data";
-    $FRONT_LINE="KRS_frontline.mis";
-    $RED_OBJ_FILE="KRS_red_obj.mis";
-    $BLUE_OBJ_FILE="KRS_blue_obj.mis";
-    $CITY_PLACES="KRS_city.mis";
-    $TANKS_WP="KRS_tank_wp.mis";  
-    $FRONT_IMAGE="KRS_000.bmp";
-    $IMAP_DATA="KRS_imap.data";
-
-    $MAP_CODE="KRS";
+    $MAP_CODE="KUR";
     $MAP_NAME_LOAD="Kursk/load.ini";
-    $FLIGHTS_DEF="KRS_aircrafts.data";  
-    @VVS_SUM_PLANES=("Li-2");
-    $VVS_TRP_SPEED=360; # average speed for human VVS suply plane
-    @VVS_BA_PLANES=("A-20C","PE-2S84","PE-2S110");
-    @VVS_AI_PLANES=("Li-2","IL-4-DB3B");
+    $FLIGHTS_DEF="KUR_aircrafts.data";  
+    @VVS_SUM_PLANES=("LI-2");
+    $VVS_TRP_SPEED=295; # average speed for human VVS suply plane
+    @VVS_BA_PLANES=("A-20C","SB-2_M103","IL_4","PE-2S84","PE-2S110","TU-2S");
+    @VVS_AI_PLANES=("LI-2","IL-4-DB3B");
 
     @LW_SUM_PLANES=("JU-52-3MG4E");
-    $LW_TRP_SPEED=360; # average speed for human LW suply plane
+    $LW_TRP_SPEED=250; # average speed for human LW suply plane
     @LW_BA_PLANES=("JU-88A4","HE-111H6");
-    @LW_AI_PLANES=("JU-52","HS-129B2");
+    @LW_AI_PLANES=("JU-52-3MG4E","HS-129B2");
 }
 
 
