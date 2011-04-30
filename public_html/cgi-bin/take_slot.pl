@@ -527,9 +527,22 @@ VVS_Head3
                              bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option value="----">----</option>
         </select></td>
-    <td><input type="text" name="bomb_attk_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+        <td><select name="bomb_attk_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+VVS_Head4
+    ; # Emacs related
+        my $my_max_bomber = 0;                
+	if ($max_human <= 4) { $my_max_bomber = 2; }
+        if ($max_human > 4 && $max_human <=6) {$my_max_bomber = 3; }
+        if ($max_human > 6 && $max_human <=8) {$my_max_bomber = 4; }
+        if ($max_human >8) {$my_max_bomber = 6; }        
+        for ($my_i = 1; $my_i <= $my_max_bomber; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<VVS_Head5
     <td><input type="checkbox" name="bomb_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                         bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
@@ -583,7 +596,7 @@ VVS_Head3
 
 </pre>
 
-VVS_Head4
+VVS_Head5
     ; # Emacs related
 
 
@@ -887,9 +900,23 @@ LW_Head3
                              bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option value="----">----</option>
         </select></td>
-    <td><input type="text" name="bomb_attk_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+        
+        <td><select name="bomb_attk_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+LW_Head4
+    ; # Emacs related
+        my $my_max_bomber = 0;                
+	if ($max_human <= 4) { $my_max_bomber = 2; }
+        if ($max_human > 4 && $max_human <=6) {$my_max_bomber = 3; }
+        if ($max_human > 6 && $max_human <=8) {$my_max_bomber = 4; }
+        if ($max_human >8) {$my_max_bomber = 6; }        
+        for ($my_i = 1; $my_i <= $my_max_bomber; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<LW_Head5                        
     <td><input type="checkbox" name="bomb_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                         bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
@@ -943,7 +970,7 @@ LW_Head3
 
 </pre>
 
-LW_Head4
+LW_Head5
     ; # Emacs related
 
 
