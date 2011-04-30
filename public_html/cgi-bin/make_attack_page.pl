@@ -375,23 +375,29 @@ else { # we read weather values from file (warning, not cheking for corrup data 
     close(CLIMA);
 }
 
-my $tipo_clima;
-if ($clima<=15){ # clima 1..15 -> 15% Clear
-    $tipo_clima="Clear";
-    $nubes=" -- "; # para  la pagina del generador. (ya esta guardado en disco).
-}
-if ($clima>15 && $clima<=85){ # clima 16..85 -> 70% Good
-    $tipo_clima="Good";
-}
-if ($clima>85 && $clima<=93){ # clima 86..93 -> 8% Blind
-    $tipo_clima="Low Visibility";
-}
-if ($clima>93 && $clima<=98){ # clima 94..98 -> 5% Rain/Snow
-    $tipo_clima="Precipitations";
-}
-if ($clima>98 && $clima<=100){ # clima 99..100 -> 2% Thunder
-    $tipo_clima="Storm";
-}
+    my $tipo_clima;
+    my $tipo_clima_spa;
+    if ($clima<=20){ # clima 1..20 -> 20% Clear
+	$tipo_clima="Clear";
+	$tipo_clima_spa="Despejado";
+	$nubes=" -- "; # para  la pagina del generador. (ya esta guardado en disco).
+    }
+    if ($clima>20 && $clima<=90){ # clima 21..90 -> 70% Good
+	$tipo_clima="Good";
+	$tipo_clima_spa="Bueno";	
+    }
+    if ($clima>90 && $clima<=95){ # clima 91..95 -> 5% Blind
+	$tipo_clima="Low Visibility";
+	$tipo_clima_spa="Baja visibilidad";	
+    }
+    if ($clima>95 && $clima<=99){ # clima 96..99 -> 4% Rain/Snow
+	$tipo_clima="Precipitations";
+	$tipo_clima_spa="Lluvia";	
+    }
+    if ($clima>99 && $clima<=100){ # clima only 100 -> 1% Strom
+	$tipo_clima="Storm";
+	$tipo_clima_spa="Tormenta";	
+    }
 
 if ($new_clima){
     my $localt=`date`;
@@ -424,10 +430,10 @@ print MAPA "  </head>\n<body background=\"/images/fondo_mapa.jpg\" bgcolor=\"#cc
 print MAPA  "<a href=\"/\"><img alt=\"Return\" border=0 src=\"/images/tanks.gif\"></a><br><br>\n\n";
 
 print MAPA  "<font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-print STA   "<font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
 print MAPA  "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
-print STA   "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
+print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
 my $k;
 for ($k=0; $k<scalar(@red_possible); $k++){
