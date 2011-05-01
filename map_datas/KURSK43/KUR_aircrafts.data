@@ -119,8 +119,8 @@ rustrp=34BAP,40BAP,80BAP;
 gerfig=I_JG3,II_JG3,I_JG27,II_JG27,III_JG27,Stab_JG52,I_JG5_2,II_JG5_2,III_JG5_2;
 gerjab=I_LG2,III_KG27a;
 gerbom=Stab_KG27a,I_KG27a,II_KG27a,III_KG27a,Stab_KG51a,I_KG51a,II_KG51a,III_KG51a,Stab_KG53a,I_KG53a,II_KG53a,III_KG53a,Stab_KG55a;
-hunfig=102.Vadászosztáy;
-humbom=2/4_Bombázó_Század;
+hunfig=hu102VOhu;
+humbom=hu2-4hu;
 gertrp=KGrzbV102a;
   
 ### --------------------- AVIONES ALEMANES
