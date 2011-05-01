@@ -179,7 +179,7 @@ Los aviones de SUM deberán aterrizar, obligatoriamente, en los AFs que estén den
 					B.A.D.C. (Bourne Again Dynamic Campaign) es un motor de campañas dinámicas para  el IL2-FB. Fue desarrollado 
 					en 2004 por <b>JG10r_Dutertre</b>, y se ha usado en algunas de las mejores competiciones online como 
 					Bellum,CAD,Czec War,Mosquito, ...  <br/><br/>
-					La Danger Zone 1.93 realizada por <b>E69_Heracles</b>, es una adaptación del motor B.A.D.C.<br/><br/>
+					La Danger Zone 1.93 diseñada por el <b>E69_espiral, E69_cvchavo, E69_Patrel, E69_Metaliving</b> y implementada por <b>E69_Heracles</b>, es una adaptación del motor B.A.D.C.<br/><br/>
 					Actualmente se vuela con <b>HSFX v4.11</b> sobre <b>IL-2 1946</b>.<br/><br/>
 				</td>
 			</tr>					
