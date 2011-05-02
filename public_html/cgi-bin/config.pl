@@ -313,13 +313,13 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $FLIGHTS_DEF="KUR_aircrafts.data";  
     @VVS_SUM_PLANES=("LI-2");
     $VVS_TRP_SPEED=295; # average speed for human VVS suply plane
-    @VVS_BA_PLANES=("A-20C","SB-2_M103","IL_4","PE-2S84","PE-2S110","TU-2S");
-    @VVS_AI_PLANES=("LI-2","IL-4-DB3B");
+    @VVS_BA_PLANES=("A-20C","SB_2M103","IL_4","PE-2S84","PE-2S110","TU-2S");
+    @VVS_AI_PLANES=("A-20C","SB_2M103","IL_4","PE-2S84","PE-2S110");
 
     @LW_SUM_PLANES=("JU-52-3MG4E");
     $LW_TRP_SPEED=250; # average speed for human LW suply plane
     @LW_BA_PLANES=("JU-88A4","HE-111H6");
-    @LW_AI_PLANES=("JU-52-3MG4E","HS-129B2");
+    @LW_AI_PLANES=("JU-88A4","HE-111H6");
 }
 
 

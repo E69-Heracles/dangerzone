@@ -55,7 +55,7 @@ include ("./dz_page_header.php");
 				<td width="297px" valign="bottom">
 					
 					<?php
-					$file = $_SERVER['DOCUMENT_ROOT'] . "/cgi-bin/status.txt";
+					$file = $_SERVER['DOCUMENT_ROOT'] . "/cgi-bin/Status.txt";
 					$contents = file($file);
 					echo $contents[0];
 					echo $contents[1];
