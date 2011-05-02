@@ -239,7 +239,7 @@ ST205,2,FW-190A4,vehicles.planes.Plane$FW_190A4,15:250
 ST206,2,FW-190A5,vehicles.planes.Plane$FW_190A5,15:300
 ST207,2,FW-189A2,vehicles.planes.Plane$FW_189A2,25:330
 ST208,2,HE-111H6,vehicles.planes.Plane$HE_111H6,30:500
-ST209,2,JU-52,vehicles.planes.Plane$JU_52_3MG4E,35:550
+ST209,2,JU-52-3MG4E,vehicles.planes.Plane$JU_52_3MG4E,35:550
 ST210,2,JU-87D3,vehicles.planes.Plane$JU_87D3,25:680
 ST211,2,JU-87D5,vehicles.planes.Plane$JU_87D5,25:750
 ST212,2,JU-87G1,vehicles.planes.Plane$JU_87G1,25:780

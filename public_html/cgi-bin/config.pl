@@ -314,12 +314,12 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     @VVS_SUM_PLANES=("LI-2");
     $VVS_TRP_SPEED=295; # average speed for human VVS suply plane
     @VVS_BA_PLANES=("A-20C","SB_2M103","IL_4","PE-2S84","PE-2S110","TU-2S");
-    @VVS_AI_PLANES=("A-20C","SB_2M103","IL_4","PE-2S84","PE-2S110");
+    @VVS_AI_PLANES=();
 
     @LW_SUM_PLANES=("JU-52-3MG4E");
     $LW_TRP_SPEED=250; # average speed for human LW suply plane
     @LW_BA_PLANES=("JU-88A4","HE-111H6");
-    @LW_AI_PLANES=("JU-88A4","HE-111H6");
+    @LW_AI_PLANES=();
 }
 
 
