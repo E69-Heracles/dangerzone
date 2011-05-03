@@ -5453,11 +5453,6 @@ if ($unix_cgi){
 
 	    $red_ok=1;
 	    print GEN_LOG "Pid $$ : RedReq: $_";
-	    if ($red_target =~ m/SUM-/ && $red_bom_attk_ai==1 && 
-		$red_bom_attk_type ne "Li-2" && $red_bom_attk_type ne "TB3-4M-34R" && $red_bom_attk_type ne "B-25J1" && $red_bom_attk_type ne "TB3-4M-34R" && $red_bom_attk_type ne "PE-2 S84" && $red_bom_attk_type ne "A-20C" && $red_bom_attk_type ne "PE-2 S110") {
-		$red_bom_attk_type="Li-2";
-		print GEN_LOG "Pid $$ : Red Ai suply set to Li-2\n";
-	    }
 	    last;
 	}
     }
@@ -5485,17 +5480,6 @@ if ($unix_cgi){
 	    
 	    $blue_ok=1;
 	    print GEN_LOG "Pid $$ : BlueReq: $_"; #sacar
-	    if ($blue_target =~ m/SUM-/ && $blue_bom_attk_ai==1 && 
-		$blue_bom_attk_type ne "JU-52" && $blue_bom_attk_type ne "ME-323" && $blue_bom_attk_type ne "HE-111H2" && $blue_bom_attk_type ne "HE-111H6" && $blue_bom_attk_type ne "Fw200" && $blue_bom_attk_type ne "JU-88A4" && $blue_bom_attk_type ne "BF-110G2") {
-		$blue_bom_attk_type="JU-52";
-		print GEN_LOG "Pid $$ : Blue Ai suply set to $blue_bom_attk_type\n";
-	    }
-	    if ($blue_bom_attk_type eq "ME-323"){
-		if ($blue_bom_attk_planes>4){
-		    $blue_bom_attk_planes=4;
-		    print GEN_LOG "Pid $$ : Blue ME323 suply planes reduced to 4 planes\n";
-		}
-	    }
 	    last;
 	}
     }

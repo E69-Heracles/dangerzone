@@ -311,7 +311,7 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $MAP_CODE="KUR";
     $MAP_NAME_LOAD="Kursk/load.ini";
     $FLIGHTS_DEF="KUR_aircrafts.data";  
-    @VVS_SUM_PLANES=("LI-2");
+    @VVS_SUM_PLANES=("Li-2");
     $VVS_TRP_SPEED=295; # average speed for human VVS suply plane
     @VVS_BA_PLANES=("A-20C","SB_2M103","IL_4","PE-2S84","PE-2S110","TU-2S");
     @VVS_AI_PLANES=();

@@ -201,7 +201,7 @@ gertrp=KGrzbV102a;
 2,gerbom,HE-111H6,1,air.HE_111H6,4xSC500,50,4000,380:BA,408,
 
 # JU 52/3m  Tante Ju: 160
-2,gertrp,JU-52-3MG4E,1,air.JU_52_3MG4E,default,100,2000,300:SUM,160
+2,gertrp,JU-52-3MG4E,1,air.JU_52_3MG4E,default,100,2000,300:SUM,160,
 
 ##STATIC AIRCRAFTS:
 ##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
