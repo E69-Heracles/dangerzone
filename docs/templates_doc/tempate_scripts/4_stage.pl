@@ -8,8 +8,10 @@
 $FLIGHTS_DEF="KUR_aircrafts.data";
 $MAP_NAME_LOAD="Kursk/load.ini";
 
-$FLIGHTS_MIS="aircraft";
 $FLIGHTS_REP="aircraft.rep";
+
+use IO::Handle;
+$|=1;
 
 # later update to include hungarian, finish, italian, etc..
 @rusfig=();
@@ -92,41 +94,14 @@ $FLIGHTS_REP="aircraft.rep";
 @misat=();
 
 $mis_file=0;
-$head_file=0;
 
 $errors=0;
 
 
 sub borra_ficheros_mision() {
-    my $i = 1;
     
-    while ( -e $FLIGHTS_MIS . "$i.mis") {
-	unlink $FLIGHTS_MIS . "$i.mis";
-	$i++;
-    }
-}
+    unlink glob "*.mis";
 
-sub combina_ficheros() {
-    
-    for (my $i = 1; (-e $FLIGHTS_MIS . "$i.mis");  $i++ ) {
-        if ( ! open (MIS, ">>$FLIGHTS_MIS" . "$i.mis") ) {
-            print "Error: Cant open file flights mis\n";
-            exit(0);
-        }
-	if ( ! open (BODY, "<$FLIGHTS_MIS" . "$i.body") ) {
-            print "Error: Cant open file flights body\n";
-            exit(0);
-        }
-	$| = 1;
-	select(MIS);
-	while (<BODY>) {
-	    print MIS $_;
-	}
-
-	close(MIS);
-	close(BODY);
-    }
-    
 }
 
 sub print_header($) {
@@ -424,54 +399,49 @@ print REP "###############################################\n";
 print REP "\n";    
 }
 
-sub create_mis_file($$) {
+sub create_mis_file($$$) {
     my @rol = @{ $_[0] };
     my @rolflight = @{ $_[1] };
+    my $filename = $_[2];
     my $mis_num=1;
     my $my_flight=0;
     
     if (scalar(@rol) == 0) {
         print REP "***ERROR*** No se encontro ningun escuadron para este rol.\n";
+	$errors++;
 	return;
     }
     if (scalar(@rolflight) == 0) {
         print REP "***ERROR*** No se encontro ninguna linea de avion para este rol.\n";
+	$errors++;
 	return;
     }    
     if (scalar(@rol) >= scalar(@rolflight)) {
-        my $printed_head = ( -e $FLIGHTS_MIS . "$mis_num.mis");
-        if ( ! open ($head_file, ">>$FLIGHTS_MIS" . "$mis_num.mis") ) {
+        my $printed_head = ( -e $filename . "$mis_num.mis");
+        if ( ! open ($mis_file, ">>$filename" . "$mis_num.mis") ) {
             print "Error: Cant open file flights mis\n";
             exit(0);
         }
-	$| = 1;
-	select($head_file);
+
+	select($mis_file);
 	if ($printed_head == 0){        
-	    print_header($head_file);
-	    print_grplsts($head_file);
+	    print_header($mis_file);
+	    print_grplsts($mis_file);
 	}
         
         
 	for (my $i = 0; $i < scalar(@rolflight); $i++){
-	    print $head_file " " . $rol[$i] . "\n";
+	    print $mis_file " " . $rol[$i]. "00" . "\n";
 	}
-	close($head_file);
 	
-        if ( ! open ($mis_file, ">>$FLIGHTS_MIS" . "$mis_num.body") ) {
-            print "Error: Cant open file flights body\n";
-            exit(0);
-        }
-	
-	$| = 1;
-	select($mis_file);
         foreach my $my_sqd (@rol) {
-            print $mis_file "[$my_sqd]\n";
+            print $mis_file "[" . $my_sqd . "00]\n";
 	    print $mis_file "  Planes 1\n";
 	    print $mis_file "  Skill 1\n";
 	    print $mis_file "  Class $rolflight[($my_flight % scalar(@rolflight))][3]\n";
 	    print $mis_file "  Fuel $rolflight[($my_flight % scalar(@rolflight))][5]\n";
 	    print $mis_file "  weapons $rolflight[($my_flight % scalar(@rolflight))][4]\n";
-	    print $mis_file "[" . $my_sqd . "_Way]\n";
+	    print $mis_file "[" . $my_sqd . "00_Way]\n";
 	    print $mis_file "NORMFLY 5000 5000 " . $rolflight[($my_flight % scalar(@rolflight))][6] . " " . $rolflight[($my_flight % scalar(@rolflight))][7] . " &0\n";
 	    print $mis_file "NORMFLY 5000 10000 " . $rolflight[($my_flight % scalar(@rolflight))][6] . " " . $rolflight[($my_flight % scalar(@rolflight))][7] . " &0\n";
 	    $my_flight++;
@@ -481,40 +451,31 @@ sub create_mis_file($$) {
     }
     else {
         while ($my_flight < scalar(@rolflight)) {
-	    my $printed_head = ( -e $FLIGHTS_MIS . "$mis_num.mis");
-            if ( ! open ($head_file, ">>$FLIGHTS_MIS" . "$mis_num.mis") ) {
+	    my $printed_head = ( -e $filename . "$mis_num.mis");
+            if ( ! open ($mis_file, ">>$filename" . "$mis_num.mis") ) {
                 print "Error: Cant open file flights mid\n";
                 exit(0);
             }
-	    $| = 1;
-	    select($head_file);
+
+	    select($mis_file);
 	    if ($printed_head == 0){
-		print_header($head_file);
-		print_grplsts($head_file);
+		print_header($mis_file);
+		print_grplsts($mis_file);
 	    }
 
 	    $i = $my_flight;
 	    do {
-	        print $head_file " " . $rol[$i % scalar(@rol)] . "\n";
+	        print $mis_file " " . $rol[$i % scalar(@rol)] . "00\n";
 	        $i++;
 	    } until ( ($i == (scalar(@rolflight)) ) || (($i % scalar(@rol)) == 0));
-	    close($head_file);
-
-	    if ( ! open ($mis_file, ">>$FLIGHTS_MIS" . "$mis_num.body") ) {
-	        print "Error: Cant open file flights body\n";
-	        exit(0);
-	    }
-	    
-	    $| = 1;
-	    select($mis_file);
 	    do  {
-		    print $mis_file "[" . $rol[($my_flight % scalar(@rol))] . "]\n";
+		    print $mis_file "[" . $rol[($my_flight % scalar(@rol))] . "00]\n";
 		    print $mis_file "  Planes 1\n";
 		    print $mis_file "  Skill 1\n";
 		    print $mis_file "  Class $rolflight[$my_flight][3]\n";
 		    print $mis_file "  Fuel $rolflight[$my_flight][5]\n";
 		    print $mis_file "  weapons $rolflight[$my_flight][4]\n";
-		    print $mis_file "[" . $rol[($my_flight % scalar(@rol))] . "_Way]\n";
+		    print $mis_file "[" . $rol[($my_flight % scalar(@rol))] . "00_Way]\n";
 		    print $mis_file "NORMFLY 5000 5000 " . $rolflight[$my_flight][6] . " " . $rolflight[$my_flight][7] . " &0\n";
 		    print $mis_file "NORMFLY 5000 10000 " . $rolflight[$my_flight][6] . " " . $rolflight[$my_flight][7] . " &0\n";		
 		    $my_flight++;
@@ -559,7 +520,6 @@ print_mis_type(1, "EBD", \@misebd);
 print_mis_type(1, "ET", \@miset);
 print_mis_type(1, "INT", \@misint);
 print_mis_type(1, "AT", \@misat);
-print REP "###############################################\n";
 print REP "\n";
 print REP "###############################################\n";
 print REP "## Tipos de misiones bando AZUL\n";
@@ -573,7 +533,7 @@ print_mis_type(2, "EBD", \@misebd);
 print_mis_type(2, "ET", \@miset);
 print_mis_type(2, "INT", \@misint);
 print_mis_type(2, "AT", \@misat);
-print REP "###############################################\n";
+print REP "\n";
 
 print REP "###############################################\n";
 print REP "## Numero de escuadrones y aviones ROJOS\n";
@@ -584,84 +544,84 @@ if (scalar(@rusfig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas rusos:" . scalar(@rusfig) . "\n";
     print REP "Lineas de cazas rusos:" . scalar(@rusfigf) . "\n";
-    create_mis_file(\@rusfig, \@rusfigf);
+    create_mis_file(\@rusfig, \@rusfigf, "rusfig");
 }
 ## rusbom
 if (scalar(@rusbom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber rusos:" . scalar(@rusbom) . "\n";
     print REP "Lineas de bomber rusos:" . scalar(@rusbomf) . "\n";
-    create_mis_file(\@rusbom, \@rusbomf);
+    create_mis_file(\@rusbom, \@rusbomf, "rusbom");
 }
 ## rusjab
 if (scalar(@rusjab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos rusos:" . scalar(@rusjab) . "\n";
     print REP "Lineas de jabos rusos:" . scalar(@rusjabf) . "\n";
-    create_mis_file(\@rusjab, \@rusjabf);
+    create_mis_file(\@rusjab, \@rusjabf, "rusjab");
 }
 ## rustrp
 if (scalar(@rustrp) > 0) {
     print REP "\n";
     print REP "Escua. de transporte rusos:" . scalar(@rustrp) . "\n";
     print REP "Lineas de transporte rusos:" . scalar(@rustrpf) . "\n";
-    create_mis_file(\@rustrp, \@rustrpf);
+    create_mis_file(\@rustrp, \@rustrpf, "rustrp");
 }
 ## usafig
 if (scalar(@usafig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas USA:" . scalar(@usafig) . "\n";
     print REP "Lineas de cazas USA" . scalar(@usafigf) . "\n";
-    create_mis_file(\@usafig, \@usafigf);
+    create_mis_file(\@usafig, \@usafigf, "usafig");
 }
 ## usabom
 if (scalar(@usabom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber USA:" . scalar(@usabom) . "\n";
     print REP "Lineas de bomber USA:" . scalar(@usabomf) . "\n";
-    create_mis_file(\@usabom, \@usabomf);
+    create_mis_file(\@usabom, \@usabomf, "usabom");
 }
 ## usajab
 if (scalar(@usajab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos USA:" . scalar(@usajab) . "\n";
     print REP "Lineas de jabos USA:" . scalar(@usajabf) . "\n";
-    create_mis_file(\@usajab, \@usajabf);
+    create_mis_file(\@usajab, \@usajabf, "usajab");
 }
 ## usatrp
 if (scalar(@usatrp) > 0) {
     print REP "\n";
     print REP "Escua. de transporte USA:" . scalar(@usatrp) . "\n";
     print REP "Lineas de transporte USA:" . scalar(@usatrpf) . "\n";
-    create_mis_file(\@usatrp, \@usatrpf);
+    create_mis_file(\@usatrp, \@usatrpf, "usatrp");
 }
 ## brifig
 if (scalar(@brifig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas RAF:" . scalar(@brifig) . "\n";
     print REP "Lineas de cazas RAF:" . scalar(@brifigf) . "\n";
-    create_mis_file(\@brifig, \@brifigf);
+    create_mis_file(\@brifig, \@brifigf, "brifig");
 }
 ## bribom
 if (scalar(@bribom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber RAF:" . scalar(@bribom) . "\n";
     print REP "Lineas de bomber RAF:" . scalar(@bribomf) . "\n";
-    create_mis_file(\@bribom, \@bribomf);
+    create_mis_file(\@bribom, \@bribomf, "bribom");
 }
 ## brijab
 if (scalar(@brijab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos RAF:" . scalar(@brijab) . "\n";
     print REP "Lineas de jabos RAF:" . scalar(@brijabf) . "\n";
-    create_mis_file(\@brijab, \@brijabf);
+    create_mis_file(\@brijab, \@brijabf, "brijab");
 }
 ## britrp
 if (scalar(@britrp) > 0) {
     print REP "\n";
     print REP "Escua. de transporte RAF:" . scalar(@britrp) . "\n";
     print REP "Lineas de transporte RAF:" . scalar(@britrpf) . "\n";
-    create_mis_file(\@britrp, \@britrpf);
+    create_mis_file(\@britrp, \@britrpf, "britrp");
 }
 print REP "###############################################\n";
 print REP "## Numero de escuadrones y aviones AZULES\n";
@@ -671,73 +631,71 @@ if (scalar(@romfig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas rumanos:" . scalar(@romfig) . "\n";
     print REP "Lineas de cazas rumanos:" . scalar(@romfigf) . "\n";
-    create_mis_file(\@romfig, \@romfigf);
+    create_mis_file(\@romfig, \@romfigf, "romfig");
 }
 ## rombom
 if (scalar(@rombom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber rumanos:" . scalar(@rombom) . "\n";
     print REP "Lineas de bomber rumanos:" . scalar(@rombomf) . "\n";
-    create_mis_file(\@rombom, \@rombomf);
+    create_mis_file(\@rombom, \@rombomf, "rombom");
 }
 ## romjab
 if (scalar(@romjab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos rumanos:" . scalar(@romjab) . "\n";
     print REP "Lineas de jabos rumanos:" . scalar(@romjabf) . "\n";
-    create_mis_file(\@romjab, \@romjabf);
+    create_mis_file(\@romjab, \@romjabf, "romjab");
 }
 ## gerfig
 if (scalar(@gerfig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas Luftwaffe:" . scalar(@gerfig) . "\n";
     print REP "Lineas de cazas Luftwaffe:" . scalar(@gerfigf) . "\n";
-    create_mis_file(\@gerfig, \@gerfigf);
+    create_mis_file(\@gerfig, \@gerfigf, "gerfig");
 }
 ## gerbom
 if (scalar(@gerbom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber Luftwaffe:" . scalar(@gerbom) . "\n";
     print REP "Lineas de bomber Luftwaffe:" . scalar(@gerbomf) . "\n";
-    create_mis_file(\@gerbom, \@gerbomf);
+    create_mis_file(\@gerbom, \@gerbomf, "gerbom");
 }
 ## gerjab
 if (scalar(@gerjab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos Luftwaffe:" . scalar(@gerjab) . "\n";
     print REP "Lineas de jabos Luftwaffe:" . scalar(@gerjabf) . "\n";
-    create_mis_file(\@gerjab, \@gerjabf);
+    create_mis_file(\@gerjab, \@gerjabf, "gerjab");
 }
 ## gertrp
 if (scalar(@gertrp) > 0) {
     print REP "\n";
     print REP "Escua. de transporte Luftwaffe:" . scalar(@gertrp) . "\n";
     print REP "Lineas de transporte Luftwaffe:" . scalar(@gertrpf) . "\n";
-    create_mis_file(\@gertrp, \@gertrpf);
+    create_mis_file(\@gertrp, \@gertrpf, "gertrp");
 }
 ## hunfig
 if (scalar(@hunfig) > 0) {
     print REP "\n";
     print REP "Escua. de cazas hungaros:" . scalar(@hunfig) . "\n";
     print REP "Lineas de cazas hungaros:" . scalar(@hunfigf) . "\n";
-    create_mis_file(\@hunfig, \@hunfigf);
+    create_mis_file(\@hunfig, \@hunfigf, "hunfig");
 }
 ## hunbom
 if (scalar(@hunbom) > 0) {
     print REP "\n";
     print REP "Escua. de bomber hungaros:" . scalar(@hunbom) . "\n";
     print REP "Lineas de bomber hungaros:" . scalar(@hunbomf) . "\n";
-    create_mis_file(\@hunbom, \@hunbomf);
+    create_mis_file(\@hunbom, \@hunbomf, "hunbom");
 }
 ## hunjab
 if (scalar(@hunjab) > 0) {
     print REP "\n";
     print REP "Escua. de jabos hungaros:" . scalar(@hunjab) . "\n";
     print REP "Lineas de jabos hungaros:" . scalar(@hunjabf) . "\n";
-    create_mis_file(\@hunjab, \@hunjabf);
+    create_mis_file(\@hunjab, \@hunjabf, "hunjab");
 }
-
-combina_ficheros();
 
 print STDOUT "Analisis de $FLIGHTS_DEF finalizado.\n";
 if ($errors > 0) {

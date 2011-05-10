@@ -4,10 +4,10 @@
 
 #---Escuadrones rojos
 
-rusfig=176IAP00,3IAK00,4IAP01;
-rusjab=11IAP01,7IAP00;
-rusbom=34BAP01,40BAP01;
-rustrp=80BAP01;
+rusfig=176IAP,3IAK,4IAP;
+rusjab=11IAP,7IAP;
+rusbom=34BAP,40BAP;
+rustrp=80BAP;
 
 ### --------------------- AVIONES RUSOS
 
@@ -117,12 +117,12 @@ rustrp=80BAP01;
 
 #-------------------Escuadrones azules
 
-gerfig=I_JG300,II_JG300,I_JG2700,II_JG2700,III_JG2700,Stab_JG5201,I_JG501,II_JG501,III_JG501;
-gerjab=I_LG201,II_KG7701;
-gerbom=Stab_KG55a01,Stab_KG7601,III_KG55a01;
-hunfig=hu102VOhu01;
-humbom=hu2-4hu01;
-gertrp=KGrzbV102a01;
+gerfig=I_JG3,II_JG3,I_JG27,II_JG27,III_JG27,Stab_JG52,I_JG5,II_JG5,III_JG5;
+gerjab=I_LG2,II_KG77;
+gerbom=Stab_KG55a,Stab_KG76,III_KG55a;
+hunfig=hu102VOhu;
+humbom=hu2-4hu;
+gertrp=KGrzbV102a;
 
 
 ### --------------------- AVIONES ALEMANES
