@@ -2422,7 +2422,7 @@ sub plane_role($) {
     my ($my_task) = shift @_;
     
     my $role = 
-        (($my_task eq ("BA")) || ($my_task eq ("BD"))) ? "BOMBER" :
+        (($my_task eq ("BA")) || ($my_task eq ("BD")) || ($my_task eq ("AT"))) ? "BOMBER" :
         (($my_task eq ("EBA")) || ($my_task eq ("ESU")) || ($my_task eq ("EBD")) || ($my_task eq ("ET")) || ($my_task eq ("I"))) ? "FIGHTER" :
         (($my_task eq ("SUM"))) ? "SUM" : "NOROLE";
     
