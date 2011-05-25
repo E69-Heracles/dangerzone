@@ -289,10 +289,8 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $NUMEROS=17;     # map sector numbers, 1 in excess 
 
     #tank types and aaa placement
-
-#Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
-    $ALLIED_TANKS_ATTK="Armor.1-T34";
-    $AXIS_TANKS_ATTK="Armor.1-PzVIE";
+    $ALLIED_TANKS_ATTK="Armor.3-T34";
+    $AXIS_TANKS_ATTK="Armor.3-PzVIE";
     $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
     $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzVIE"; # notice "escaped $" 
 
