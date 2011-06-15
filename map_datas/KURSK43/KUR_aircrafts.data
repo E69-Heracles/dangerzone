@@ -48,7 +48,7 @@ rustrp=80BAP;
 1,rusfig,LA-5FN,1,air.LA_5FN,default,100,4000,400:I,46,
 
 # P-39N1: 54
-1,rusfig,P-39N1,1,air.P_39N,weapons extra,100,4000,400:I,54,
+1,rusfig,P-39N1,1,air.P_39N,default,100,4000,400:I,54,
 
 # YAK-9D: 55
 1,rusfig,Yak-9D,1,air.YAK_9D,default,100,4000,400:EBA,55,
