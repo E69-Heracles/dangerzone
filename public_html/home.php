@@ -80,6 +80,58 @@ include ("./dz_page_header.php");
 			</tr>
 			<tr class="section_subheader" height="30px"> 
 				<td colspan="2"> 
+					<span class="section_subheader_txt">DangerZone 2.0</span>&nbsp;&nbsp;
+					<span style="font-size:9px">[E69_espiral]</span><br/></td> 
+					<td align="right" style="font-size:9px">22 de Junio de 2011</td>
+			</tr>	
+			<tr>
+				<td colspan="3">
+					<b>Ya la tenemos aquí: disfrutémosla</b><br/>
+<p>El mapa de <b>Kursk-1.943</b> ha terminado. Ha durado bastante menos de lo previsto, aunque ha servido con creces para probar los "bugs" corregidos y las nuevas características implementadas.</p>
+
+<p>Ha quedado demostrado que, tal como pretendíamos, la conservación del propio avión y de la vida del piloto marcan, en muy buena medida, el desarrollo de la Campaña, por lo que parece necesario que los participantes de ambos bandos tomen conciencia de esta cuestión: a veces resulta más rentable no perder aviones/pilotos que conseguir el objetivo de la misión a toda costa.</p>
+
+<p>Era nuestra intención que, antes de lanzar la <b>DZ 2.0</b>, el siguiente mapa fuese el de <b>Normandía-1.944</b>, pero, debido a la duración del anterior, no hemos tenido tiempo de terminarlo y le quedan un mínimo de un par de semanas. Así que empezaremos de nuevo en el <b>Frente Oriental</b> e iremos volando, de forma más o menos cronológica, los diferentes mapas de aquel teatro bélico. El motivo es que los primeros de esos mapas (Lvov, Bessarabia, Kiev, Smolensk, etc.) ya estaban hechos. No obstante, y a medida que  vayamos generando los mapas correspondientes, nos gustaría ir alternando el Frente Oriental con el Frente Occidental. Tampoco descartamos, si somos capaces de solucionar una serie de cuestiones técnicas en los mapas con grandes extensiones de mar, añadir Campañas en el Pacífico, Mediterráneo, Canal de La Mancha, etc.</p>
+
+<p>Esta nueva fase de la <b>DZ 2.0</b> se volará con el <b>HSFX v.5.01</b>, ya que aporta interesantes características de las que enumeraremos unas cuantas que nos parecen las más relevantes.</p>
+
+<p>El <b>HSFX v5.01</b> se instala sobre una copia "limpia" de la versión <b>4.10.1</b> del IL-2. En esta versión (4.10.1) se corrigieron los FM (modelos de vuelo) de algunos Bombarderos, de forma que se comportan como tales y no como Cazas; se añadió el daño provocado por el exceso de G's a la estructura de los aviones; se añadió la navegación realista mediante radio-balizas y otros sistemas de navegación; los artilleros ya no son auténticos francotiradores; y otra serie de cuestiones que sería muy largo enumerar.</p>
+
+<p>El <b>HSFX v5.01</b> añade otra serie de características que nos parecen muy adecuadas para este tipo de Campañas Cooperativas: el "*.log" de la misión recoge la altura de los aviones cuando se activa el humo de las alas y lo envía al generador, con lo que resulta muy útil para las misiones de SUM. Además abre las puertas a las misiones de <b>"Recon"</b>. Las bombas han sido modificadas (en todos los bandos en contienda: italianos, japoneses, rusos, aliados, alemanes, …) de tal forma que el radio de acción y los daños ocasionados están en función, no sólo del tipo de bomba, sino  de la cantidad de Kgrs. de explosivo que porta y no del peso total de la propia bomba.</p>
+
+<p>Otra de las características más que atractiva que incluye el <b>HSFX v5.01</b> es la posibilidad de establecer <b>Fábricas</b> (en realidad son zonas previamente fijadas en el mapa y que simulan la producción de fábricas), con lo que se abre también la posibilidad de reponer aviones en la medida en que dichas fábricas permanezcan activas.</p>
+
+<p>Se van a resetear las Estadísticas, tanto personales como de Escuadrones, por lo que será necesario que los pilotos que deseen participar vuelvan a registrarse como tales, den de alta los distintos Escuadrones y se unan a ellos. Habrá tiempo suficiente para hacerlo y, tal como se ha dicho repetidamente, como es una Campaña en equipo, no se permitirá participar en ninguna misión si previamente algún piloto no está registrado y forma parte de alguno de los Escuadrones en activo. Sería deseable que los responsables de cada Escuadrón fuesen pilotos que volasen asiduamente para que pudiesen gestionar con inmediatez las Altas en sus filas.</p>
+
+<p>Queremos introducir varias modificaciones más. Algunas parecen fáciles (se lo parecen a E69_Heracles, que es como el Genio de la lámpara de Aladino), pero aún así el tiempo escasea, por lo que las novedades irán llegando poco a poco. Algunas de  ellas se implementarán sobre la marcha, puede que en este mapa o en alguno de los próximos. Tenemos bastantes cuestiones a modificar, pero sabemos que algunas de ellas llevará mucho tiempo lograrlas y otras puede que resulten imposibles. Como ejemplos, varias cuestiones que nos gustaría hacer pero aún no sabemos (quiero decir que E69_Heracles aún no lo sabe, pero lo sabrá; los demás jamás llegaremos a tener idea siquiera) si serán posibles:</p>
+
+<ul>
+	<li>Cuando un piloto resulte muerto o capturado los derribos (u objetivos
+	terrestres destruídos) NO contabilizarán en sus Estadísticas personales, pero
+	sí se sumarán a las pérdidas del bando enemigo.</li>
+	<li>Para las misiones de Bombardeo (BA) los aviones saldrán aleatoriamente,
+	igual que pasa con los cazas, en función de la cantidad disponible de cada
+	modelo y/o tipo.</li>
+	<li>El control de altura de SUM (ésto ya lo tiene resuelto para los SUM
+	humanos, pero puede que no sea posible con los IAs).</li>
+</ul>
+
+
+<p>Otras modificaciones a más largo plazo, debido a su complejidad, pero que E69_Heracles ya sabe cómo hacer, aunque le llevarán tiempo:</p>
+
+<ul>
+	<li>Nueva página web.</li>
+	<li>Inventario de aviones (número total de aviones por modelo, del que se irán
+	restando las pérdidas, en cada mapa).</li>
+	<li>Producción de Fábricas (que irán reponiendo los aviones perdidos).</li>
+</ul>
+
+<p>Estas tres últimas modificaciones se implementarán de forma conjunta para que la producción de las fábricas tenga repercusión sobre el número de aviones total por mapa.</p>
+				</td>
+			</tr>					
+					
+			<tr class="section_subheader" height="30px"> 
+				<td colspan="2"> 
 					<span class="section_subheader_txt">Un nuevo impulso para renovar nuestra competición</span>&nbsp;&nbsp;
 					<span style="font-size:9px">[E69_espiral]</span><br/></td> 
 					<td align="right" style="font-size:9px">30 de Abril de 2011</td>
