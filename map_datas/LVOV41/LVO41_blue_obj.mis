@@ -1,0 +1,16 @@
+[MAIN]
+MAP Lviv/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 41830.83 121017.23 449.10 0.0
+ 10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 35072.33 26772.62 420.00 0.0
+ 10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 54784.27 7994.55 405.00 0.0
+ 10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 144722.17 62429.62 539.10 0.0
+ 10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 145894.88 115475.71 270.00 0.0
+[Buildings]
+[Bridge]
+[House]
