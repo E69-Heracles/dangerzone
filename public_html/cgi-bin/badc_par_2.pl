@@ -1509,71 +1509,29 @@ sub print_pilot_actions(){
 		my $debug=0; # print bunch of garbage
 
 		my $in;
+		## @Heracles@20110623
+		## Hacemos dos parseos sobre el LOG : el primero para determinar si un piloto ha muerto
+		## o ha sido capturado. El segundo para todo lo demás. De esta forma podemos modificar las estadísticas
+		## personales si un piloto no ha llegado vivo a la base.
 		seek LOG, 0, 0;
 		while(<LOG>) {
 		    $in=$_;
+
 		    if ($in=~  m/([^ ]+) ([^ ]+) seat occupied by $regex_hlname at ([^ ]+) ([^ ]+)/){
 			if ($debug){print "$1 NSEAT $2\n";}
 			$seat=$2;   # para detectar si cambio de asiento 
 			$seat =~ s/.*\(([0-9]+)\)/$1/;  # seat ahora contieene solo (0) o (1) ...
-		    }
+		    }		    
+
 		    if ($in=~  m/([^ ]+) $plane loaded weapons \'([^ ]+)\' fuel ([0-9%]+)/){
 			$in_air=0;
 			if ($debug){print "$1 LOAD $2 $3\n";}
 			$weapons=$2;
 			$fuel=$3;
-
-			#if ($play_task eq "SUM" &&  ($fuel ne "100%" || $weapons ne "default")) { 
-			if ($play_task eq "SUM" && $weapons ne "default") { 
-			    # es SUM, pero no cargo 100 fuel ni default weapons -> lo pasamos a BA
-			    $pilot_list[$i][6]="BA";
-			    $play_task="BA";
-			}
 		    }
 
 		    if ($weapons eq ""){next;} # para evitar leer eventos previos a tomar asiento (casos raros de restart)
-
-		    if ($in=~  m/([^ ]+) $plane\($seat\) was wounded at ([^ ]+) ([^ ]+)/ && !$disco){
-			if ($debug){print "$1 WOUN - $2 $3";}
-			if ($herido==0){ 
-			    push (@estado, "Wounded");
-			    $herido=1;
-			}
-		    }
-		    if ($in=~  m/([^ ]+) $plane\($seat\) was heavily wounded at ([^ ]+) ([^ ]+)/ && !$disco){
-			if ($debug){print "$1 HeWO - $2 $3";}
-			if ($herido==0){ 
-			    push (@estado, "Heavily wounded");
-			    $herido=2;
-			}
-			elsif ($herido==1){ 
-			    $herido=2;
-			    my $temp_state= pop (@estado);
-			    if ($temp_state eq "Wounded") {
-				push (@estado, "Heavily wounded");
-			    }
-			    else {
-				push (@estado, $temp_state);
-				push (@estado, "Heavily wounded");
-			    }
-			}
-		    }
-		    if ($in=~  m/([^ ]+) $plane\($seat\) bailed out at ([^ ]+) ([^ ]+)/ && !$disco){
-			if ($debug){print "$1 BAIL - $2 $3";}
-			if($end_hrs_vuelo==0){$end_hrs_vuelo=get_segundos($1);}
-			if ($not_in_base==1) {
-			    push (@estado, "Bailed");
-			    $bailed=1;
-			    $allow_disco=1;
-			    $bailed_cx=$2;
-			    $bailed_cy=$3; 
-			}
-		    }
-		    if ($in=~  m/([^ ]+) $plane\($seat\) successfully bailed out at ([^ ]+) ([^ ]+)/ && !$disco){
-			if ($debug){print "$1 BaOK - $2 $3";}
-			    $allow_disco=1;
-			    $para_landed=1;
-		    }
+		    
 		    if ($in=~  m/([^ ]+) $plane\($seat\) was captured at ([^ ]+) ([0-9.]+)/ && !$disco && !$killed){
 			if ($debug){print "$1 CAPT - $2 $3";}
 			push (@estado, "captured");
@@ -1653,6 +1611,73 @@ sub print_pilot_actions(){
 			    $killed=1;
 			    $allow_disco=1;
 			    }
+		    }		    
+		}
+		
+		seek LOG, 0, 0;
+		while(<LOG>) {
+		    $in=$_;
+		    if ($in=~  m/([^ ]+) ([^ ]+) seat occupied by $regex_hlname at ([^ ]+) ([^ ]+)/){
+			if ($debug){print "$1 NSEAT $2\n";}
+			$seat=$2;   # para detectar si cambio de asiento 
+			$seat =~ s/.*\(([0-9]+)\)/$1/;  # seat ahora contieene solo (0) o (1) ...
+		    }
+		    if ($in=~  m/([^ ]+) $plane loaded weapons \'([^ ]+)\' fuel ([0-9%]+)/){
+			$in_air=0;
+			if ($debug){print "$1 LOAD $2 $3\n";}
+			$weapons=$2;
+			$fuel=$3;
+
+			#if ($play_task eq "SUM" &&  ($fuel ne "100%" || $weapons ne "default")) { 
+			if ($play_task eq "SUM" && $weapons ne "default") { 
+			    # es SUM, pero no cargo 100 fuel ni default weapons -> lo pasamos a BA
+			    $pilot_list[$i][6]="BA";
+			    $play_task="BA";
+			}
+		    }
+
+		    if ($weapons eq ""){next;} # para evitar leer eventos previos a tomar asiento (casos raros de restart)
+
+		    if ($in=~  m/([^ ]+) $plane\($seat\) was wounded at ([^ ]+) ([^ ]+)/ && !$disco){
+			if ($debug){print "$1 WOUN - $2 $3";}
+			if ($herido==0){ 
+			    push (@estado, "Wounded");
+			    $herido=1;
+			}
+		    }
+		    if ($in=~  m/([^ ]+) $plane\($seat\) was heavily wounded at ([^ ]+) ([^ ]+)/ && !$disco){
+			if ($debug){print "$1 HeWO - $2 $3";}
+			if ($herido==0){ 
+			    push (@estado, "Heavily wounded");
+			    $herido=2;
+			}
+			elsif ($herido==1){ 
+			    $herido=2;
+			    my $temp_state= pop (@estado);
+			    if ($temp_state eq "Wounded") {
+				push (@estado, "Heavily wounded");
+			    }
+			    else {
+				push (@estado, $temp_state);
+				push (@estado, "Heavily wounded");
+			    }
+			}
+		    }
+		    if ($in=~  m/([^ ]+) $plane\($seat\) bailed out at ([^ ]+) ([^ ]+)/ && !$disco){
+			if ($debug){print "$1 BAIL - $2 $3";}
+			if($end_hrs_vuelo==0){$end_hrs_vuelo=get_segundos($1);}
+			if ($not_in_base==1) {
+			    push (@estado, "Bailed");
+			    $bailed=1;
+			    $allow_disco=1;
+			    $bailed_cx=$2;
+			    $bailed_cy=$3; 
+			}
+		    }
+		    if ($in=~  m/([^ ]+) $plane\($seat\) successfully bailed out at ([^ ]+) ([^ ]+)/ && !$disco){
+			if ($debug){print "$1 BaOK - $2 $3";}
+			    $allow_disco=1;
+			    $para_landed=1;
 		    }
 		    
 		    # los sig eventos deven verificarse para el caso del que un gunner se haya desconectado
@@ -1823,17 +1848,19 @@ sub print_pilot_actions(){
 			    $pnt_comments.="-5 : Friendly gk $to <br>";
 			}
 			else {
-			    if ($debug){print "$1 KiGR $to $3 $4";}
-			    $grndkill++;
-			    my $grnd_points=get_gkill_points($plane,$2);
-			    $points+=$grnd_points;
-			    if ($to =~ m/($TANK_REGEX)/){ # es tanque 
-				$pilot_exp+=0.01;
-				$pnt_comments.="+$grnd_points : gk $to : Exp +0.01 <br>";
-			    }
-			    else {
-				$pilot_exp+=0.001;
-				$pnt_comments.="+$grnd_points : gk $to : Exp +0.001 <br>";
+			    if ($killed == 0 && $captured == 0) {
+				if ($debug){print "$1 KiGR $to $3 $4";}
+				$grndkill++;
+				my $grnd_points=get_gkill_points($plane,$2);
+				$points+=$grnd_points;
+				if ($to =~ m/($TANK_REGEX)/){ # es tanque 
+				    $pilot_exp+=0.01;
+				    $pnt_comments.="+$grnd_points : gk $to : Exp +0.01 <br>";
+				}
+				else {
+				    $pilot_exp+=0.001;
+				    $pnt_comments.="+$grnd_points : gk $to : Exp +0.001 <br>";
+				}
 			    }
 			}
 		    }
@@ -1850,13 +1877,14 @@ sub print_pilot_actions(){
 				$pnt_comments.="-5 : Friendly ak $to <br>";
 			    }
 			    else {
-				$planekill++;
-				my $plane_points=get_akill_points($plane,$plane_pk);
-				my $killed_exp=get_pilot_exp($to);
-				$points+=int($plane_points * $killed_exp);
-				$pilot_exp+=0.01;
-				$pnt_comments.="+".int($plane_points * $killed_exp)." : pk $to &#32;&#32;($plane_points * $killed_exp) : Exp +0.01 <br>";
-				
+				if ($killed == 0 && $captured == 0) {				
+				    $planekill++;
+				    my $plane_points=get_akill_points($plane,$plane_pk);
+				    my $killed_exp=get_pilot_exp($to);
+				    $points+=int($plane_points * $killed_exp);
+				    $pilot_exp+=0.01;
+				    $pnt_comments.="+".int($plane_points * $killed_exp)." : pk $to &#32;&#32;($plane_points * $killed_exp) : Exp +0.01 <br>";
+				}
 			    }
 			}
 
@@ -1890,13 +1918,14 @@ sub print_pilot_actions(){
 				$pnt_comments.="-5 : Friendly ak $to <br>";
 			    }
 			    else {
-				$planekill++;
-				my $plane_points=get_akill_points($plane,$2);
-				my $killed_exp=get_pilot_exp($to);
-				$points+=int($plane_points * $killed_exp);
-				$pilot_exp+=0.01;
-				$pnt_comments.="+".int($plane_points * $killed_exp)." : ak $to &#32;&#32;($plane_points * $killed_exp) : Exp +0.01 <br>";
-
+				if ($killed == 0 && $captured == 0) {								
+				    $planekill++;
+				    my $plane_points=get_akill_points($plane,$2);
+				    my $killed_exp=get_pilot_exp($to);
+				    $points+=int($plane_points * $killed_exp);
+				    $pilot_exp+=0.01;
+				    $pnt_comments.="+".int($plane_points * $killed_exp)." : ak $to &#32;&#32;($plane_points * $killed_exp) : Exp +0.01 <br>";
+				}
 			    }
 			}
 		    }
@@ -1948,6 +1977,15 @@ sub print_pilot_actions(){
 			}
 		    }
 		}
+		
+		## @Heracles@20110623
+		## Sin vida, no hay paraíso
+		if ($killed == 1 || $captured == 1) {
+		    $hit_total=0;
+		    $hit_grnd=0;
+		    $hit_air=0;		    
+		}
+		
 		if ( (scalar(@estado)==0) ){
 		    if (!$plane_destroyed && $in_air) { 
 			push (@estado,"In flight");
