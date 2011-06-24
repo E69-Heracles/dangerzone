@@ -72,7 +72,7 @@ $AF_SUM_IA_RED=4;  # porcentaje de recupero  de AF rojo por cada transporte IA q
 $AF_SUM_IA_BLUE=3;  # porcentaje de recupero  de AF azul por cada transporte IA que aterriza
 $AF_SUM_HUMAN_RED=6; # porcentaje de recupero  de AF rojo por cada transporte HUMANO que aterriza
 $AF_SUM_HUMAN_BLUE=5; # porcentaje de recupero  de AF azul por cada transporte HUMANO que aterriza
-$AF_SUM_MAX_RAD=30000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
+$AF_SUM_MAX_RAD=500000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
 ## @Heracles@20110410@
 $CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
 $CITY_SUM_IA_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
@@ -119,11 +119,12 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Early 1942"; 
 #$MAP_NAME_LONG="Stalingrad. Late 1942";
 #$MAP_NAME_LONG="Stalingrad. Early 1943";
-$MAP_NAME_LONG="Kursk. 1943"; 
+#$MAP_NAME_LONG="Kursk. 1943"; 
 #$MAP_NAME_LONG="Smolensk. 1944";
 #$MAP_NAME_LONG="Balaton. 1945";
 #$MAP_NAME_LONG="Berlin. 1945";
-#$MAP_NAME_LONG="Moscow. Winter 1944"; 
+#$MAP_NAME_LONG="Moscow. Winter 1944";
+$MAP_NAME_LONG="Lvov. 1941"; 
 
 
 $CHAMP_TYPES_TOTAL=4;
@@ -146,7 +147,7 @@ $AXIS_COLUMN_ATTK="Vehicles.GermanyCarsColumnA";
 
 # DO NOT CHANGE lines below here unles you know what are you doing :)
 #------------------------------------------------------------------------
-$TANK_REGEX="Pz|T34|ValentineII|BT7|M4A2|T70"; # tank string identification use | as separator
+$TANK_REGEX="Pz|T34|T26|ValentineII|BT7|M4A2|T70"; # tank string identification use | as separator
 
 if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early 1942") {
 
@@ -557,6 +558,53 @@ if ($MAP_NAME_LONG eq "Moscow. Winter 1944"){
     $LW_TRP_SPEED=360; # average speed for human LW suply plane
     @LW_BA_PLANES=("JU-88A4","BF-110G2");
     @LW_AI_PLANES=("JU-52","HS-129B2");
+}
+
+if ($MAP_NAME_LONG eq "Lvov. 1941"){
+
+    $SUNRISE=4;
+    $SUNSET=19;
+
+    # map image information
+    $ANCHO=900;      # image width in pixels
+    $ALTO=780;       # image height in pixels
+    $H_BLOCK_PIX=47; # horizontal sector size in pixels
+    $V_BLOCK_PIX=47; # vertical sector size in pixeles
+    $LETRAS=20;      # map sector letters, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess 
+
+    #tank types and aaa placement
+
+#Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
+    $ALLIED_TANKS_ATTK="Armor.3-T26_Late";
+    $AXIS_TANKS_ATTK="Armor.3-PzIIIJ";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T26_Late"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIJ"; # notice "escaped $" 
+
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
+
+    $GEOGRAFIC_COORDINATES="LVO41_geo_obj.data";
+    $FRONT_LINE="LVO41_frontline.mis";
+    $RED_OBJ_FILE="LVO41_red_obj.mis";
+    $BLUE_OBJ_FILE="LVO41_blue_obj.mis";
+    $CITY_PLACES="LVO41_city.mis";
+    $TANKS_WP="LVO41_tank_wp.mis";  
+    $FRONT_IMAGE="LVO41_000.bmp";
+    $IMAP_DATA="LVO41_imap.data";
+
+    $MAP_CODE="LV01";
+    $MAP_NAME_LOAD="Lviv/load.ini";
+    $FLIGHTS_DEF="LVO41_aircrafts.data";  
+    @VVS_SUM_PLANES=("Li-2");
+    $VVS_TRP_SPEED=270; # average speed for human VVS suply plane
+    @VVS_BA_PLANES=("DB-3B","PE-2S1","SB-2M100A","SU-2","DB-3M","TB-3","DB-3F","SB-2M103");
+    @VVS_AI_PLANES=();
+
+    @LW_SUM_PLANES=("JU-52-3MG6E");
+    $LW_TRP_SPEED=290; # average speed for human LW suply plane
+    @LW_BA_PLANES=("HE-111H6","HE-111H2","JU-88A4");
+    @LW_AI_PLANES=();
 }
 
 $WINDOWS=0;
