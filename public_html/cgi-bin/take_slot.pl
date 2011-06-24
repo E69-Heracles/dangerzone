@@ -521,12 +521,7 @@ VVS_Head3
 
   <tr bgcolor="#dddddd" >
     <td align="right">Attack Group:</td>
-    <td><select name="bomb_attk_type" size="1" style="width:180;"
-        onChange="Look_only_AI( this.options[selectedIndex].text , document.genopts.bomb_attk_ai );
-	          setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                             bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
-	<option value="----">----</option>
-        </select></td>
+    <td>&nbsp;</td>
         <td><select name="bomb_attk_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
@@ -559,6 +554,7 @@ VVS_Head4
   </tr>
 
   <input type="hidden" name="bomb_def_type" value="----">
+  <input type="hidden" name="bomb_attk_type" value="----">  
   <input type="hidden" name="bomb_def_nbr"  value=0>
   <input type="hidden" name="bomb_def_ai"  value=0>
 
@@ -894,12 +890,7 @@ LW_Head3
 
   <tr bgcolor="#dddddd" >
     <td align="right"> Attack Group:</td>
-    <td><select name="bomb_attk_type" size="1" style="width:180;"
-        onChange="Look_only_AI( this.options[selectedIndex].text , document.genopts.bomb_attk_ai );
-	          setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                             bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
-	<option value="----">----</option>
-        </select></td>
+    <td>&nbsp;</td>
         
         <td><select name="bomb_attk_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
@@ -933,6 +924,7 @@ LW_Head4
   </tr>
 
    <input type="hidden" name="bomb_def_type" value="----">
+   <input type="hidden" name="bomb_attk_type" value="----">     
    <input type="hidden" name="bomb_def_nbr"  value=0>
    <input type="hidden" name="bomb_def_ai"  value=0>
 
