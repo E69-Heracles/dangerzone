@@ -567,11 +567,11 @@ if ($MAP_NAME_LONG eq "Lvov. 1941"){
 
     # map image information
     $ANCHO=900;      # image width in pixels
-    $ALTO=780;       # image height in pixels
-    $H_BLOCK_PIX=47; # horizontal sector size in pixels
-    $V_BLOCK_PIX=47; # vertical sector size in pixeles
-    $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $ALTO=786;       # image height in pixels
+    $H_BLOCK_PIX=51; # horizontal sector size in pixels
+    $V_BLOCK_PIX=51; # vertical sector size in pixeles
+    $LETRAS=18;      # map sector letters, 1 in excess 
+    $NUMEROS=16;     # map sector numbers, 1 in excess 
 
     #tank types and aaa placement
 
