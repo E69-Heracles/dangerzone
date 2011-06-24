@@ -3275,7 +3275,8 @@ sub calc_resuply_by_human_pilot($$$) {
 	        while(<LOG>) {
 		    if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+)/){
 		        $smoke_count++;
-		        if (distance($my_tgtcx,$my_tgtcy,$1,$2)<10000 && $smoke_count<4){
+			printdebug ("calc_resuply_by_human_pilot():(" . $smoke_count . ") Humo activado por $pilot_list[$i][0] a " . distance($my_tgtcx,$my_tgtcy,$1,$2) . " metros del centro de la ciudad (max:" . $CITY_SUM_MAX_RAD . ")");
+		        if ((distance($my_tgtcx,$my_tgtcy,$1,$2) < $CITY_SUM_MAX_RAD) && ($smoke_count < 4)){
 			    while(<LOG>) {
 			        if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
 				( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
@@ -3310,7 +3311,7 @@ sub calc_resuply_by_human_pilot($$$) {
 						    push (@af_resup,$1);
 						}
 						else {
-							printdebug ("print_mis_objective_result(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
+							printdebug ("calc_resuply_by_human_pilot(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
 						}
 					    }
 					}

@@ -78,6 +78,8 @@ $CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transpo
 $CITY_SUM_IA_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 $CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
 $CITY_SUM_IA_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
+## @Heracles@20110624
+$CITY_SUM_MAX_RAD=5000; # Radio máximo desde la ciudad dentro del cual se debe activar el humo para tener éxito en el suministro
 
 ## @Heracles@20110425@
 ## Radio máximo de suministro para las ciudades
