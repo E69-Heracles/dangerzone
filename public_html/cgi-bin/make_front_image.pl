@@ -307,7 +307,7 @@ close (IMG_OUT);
 
 
 if ($WINDOWS) {
-    eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT\\images\\front.jpg`; # win
+    eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp $PATH_TO_WEBROOT\\images\\front.jpg`; # win
 }
 else {
     eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT/images/front.jpg`;
