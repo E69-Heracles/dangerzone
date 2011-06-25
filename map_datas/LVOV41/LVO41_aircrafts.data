@@ -3,10 +3,10 @@
 
 #---Escuadrones rojos
 
-rusfig=25IAP00,28IAP01,28IAP02,31IAP03,43IAP00,55IAP00,78IAP01,126IAP02,153IAP02,153IAP03;
-rusjab=6GvIAP00,11GvIAP02,40GvIAP00,57GvIAP01,4GvIAPKBF01,94GvShAP00;
-rusbom=34BAP01,9BBAP00,40BAP01,35GvBAP01;
-rustrp=250TBAP00;
+rusfig=1GvIAP,1GvIAP,3IAP,8IAPCHF,26IAPPVO;
+rusjab=7IAD_TOF,2GVSAPVMF,59GvShAP;
+rusbom=566ShAPb,8GBAP,34GBAP;
+rustrp=889NBAP;
 
 ### --------------------- AVIONES RUSOS
 
@@ -88,12 +88,12 @@ rustrp=250TBAP00;
 
 #-------------------Escuadrones azules
 
-gerfig=1_JG1_01,3_JG1_01,I_JG101,II_JG102,II_JG303,II_JG400,JG6_I01,III_JG5_201,I_JG2602,IV_JG7_03,Stab_JG7_00,Stab_JG201;
-gerjab=I_JG200,IV_JG301,14Jabo_JG501,Stab_JG7_01,Stab_JG7_02,II_SG3_01;
-gerbom=Stab_KG102,I_KG301,II_KG2601;
-gertrp=I_KG4001;
-hunfig=hu101VOhu01;
-hunjab=hu1-1hu01;
+gerfig=1_JG1_,3_JG1_,I_JG1,II_JG1,II_JG3,II_JG4,JG6_Stab,JG6_Stab;
+gerjab=I_JG2,IV_JG3,14Jabo_JG5,Stab_JG27;
+gerbom=Stab_SKG10,Stab_KG1;
+gertrp=Stab_KG26;
+hunfig=hu102VOhu;
+hunjab=hu2-4hu;
   
 ### --------------------- AVIONES ALEMANES
 
