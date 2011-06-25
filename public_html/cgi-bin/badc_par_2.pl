@@ -952,7 +952,7 @@ sub get_gkill_points($$){
 	elsif ($killer_task eq "ET" || $killer_task eq "EBD") {return(4);}
 	else {return(2);}
     }
-    elsif ($killed_name =~ m/(88mm|20mm|25mm|85mm)/){ # es AAA
+    elsif ($killed_name =~ m/(88mm|37mm|20mm|25mm|61K|85mm)/){ # es AAA
 	if ($killer_task eq "BD" || $killer_task eq "BA" ||
 	    $killer_task eq "ET" || $killer_task eq "EBA" || $killer_task eq "EBD" ) {return(2);}
 	else {return(0);}

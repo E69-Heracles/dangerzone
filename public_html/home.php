@@ -80,6 +80,114 @@ include ("./dz_page_header.php");
 			</tr>
 			<tr class="section_subheader" height="30px"> 
 				<td colspan="2"> 
+					<span class="section_subheader_txt">Nueva campaña Lvov 1.941</span>&nbsp;&nbsp;
+					<span style="font-size:9px">[E69_espiral]</span><br/></td> 
+					<td align="right" style="font-size:9px">24 de Junio de 2011</td>
+			</tr>	
+			<tr>
+				<td colspan="3">
+					<b>Primera campaña para la DangerZone 2.0</b><br/>					
+<p>Este mapa tiene una serie de características que lo hacen un tanto especial: es pequeño y contiene numerosos Sectores completamente cubiertos de bosque y marasmos de ríos que se entrecruzan, por lo que muchos de esos Sectores (debido al generador de la DZ) no son atacables por tierra. Hemos intentado que todos los Sectores que tienen ubicada una ciudad con SUM y/o un AF sean atacables desde el mayor número posible de Cuadrículas adyacentes. Pero ésto implica que, en muchos de esos Sectores, el Campamento de Defensa y el Grupo de Tanques atacantes comiencen mucho más próximos que en otros mapas, por lo que la labor defensiva/ofensiva en el aire será, casi con seguridad, decisiva. Aún así hay zonas huérfanas de SUM en las que no se han puesto ciudades a bombardear debido a que tanto el Sector de ubicación de la propia ciudad como las adyacentes resultan inatacables. Para tratar de "cubrir" esas zonas, hemos aumentado el radio habitual de SUM de algunas ciudades.</p>
+
+<p><b>LVOV-1.941</b> cuenta únicamente con <b>5 AFs</b> en todo el mapa, por lo que la cuestión comentada al principio sobre la <b>Supervivencia del piloto</b> y la <b>Conservación del propio avión</b> serán fundamentales para tratar de mantener operativos los AFs.
+
+Debido a la existencia de sólo esos 5 AFs, y a las características del terreno, <b>los aviones de SUM podrán aterrizar (sólo para este mapa) en cualquiera de los AFs de su propio bando</b>.
+
+"PLANESET"<br/><br/>
+
+
+<b>RUSOS:</b><br/><br/>
+
+Escolta a BA, SUM<br/>
+<ul>
+   <li>I-16 Type 18</li>
+   <li>I-16 Type 18 (2xBS)</li>
+   <li>I-16 Type 24</li>
+   <li>MIG-3ud standard 1941</li>
+   <li>YAK-1</li>
+</ul>
+Interceptores<br/>
+<ul>
+   <li>I-16 Type 18</li>
+   <li>I-16 Type 18 (2xBS)</li>
+   <li>I-16 Type 24</li>
+   <li>MIG-3ud standard 1941</li>
+   <li>YAK-1</li>
+</ul>
+Escolta a BD y AT (Jabo)<br/>
+<ul>
+   <li>I-16 Type 18</li>
+   <li>I-16 Type 18 (2xBS)</li>
+   <li>I-16 Type 24</li>
+   <li>MIG-3ud standard 1941</li>
+   <li>YAK-1</li>
+</ul>
+BD y AT<br/>
+<ul>
+   <li>IL-2M 1941 1 series</li>
+   <li>I-153P</li>
+   <li>I-153 M62</li>
+</ul>
+BA<br/>
+<ul>
+   <li>DB-3B</li>
+   <li>DB-3F</li>
+   <li>DB-3M</li>
+   <li>PE-2 Series 1</li>
+   <li>SB-2 M-100A</li>
+   <li>SB-2 M-103</li>
+   <li>SU-2</li>
+   <li>TB-3</li>
+</ul>
+SUM<br/>
+<ul>
+   <li>LI-2</li>
+</ul>
+
+<p>Si bien los I-153, en sus dos modelos, fueron utilizados también como Bombarderos, los hemos quitado de ese "rol" debido a su escasísima carga bélica para ese cometido. Se ha suprimido del "planeset" el Polikarpov-2/U2, ya que según las tablas utilizadas sólo hacía misiones nocturnas de bombardeo y suministro.</p>
+
+<p>En las tablas de "Yogy" menciona únicamente el I-16 TYPE 18, pero hemos optado por incluir también, ya que el HSFX v. 5.01 lo permite, el modelo I-16 TYPE 18 (2xBS), que tiene capacidad de portar cohetes, además de bombas. El número de cada modelo es la mitad del total.</p>
+
+
+<b>ALEMANES:</b><br/><br>
+Escolta a BA, SUM<br/>
+<ul>
+  <li>CR.42 Hungarian</li>
+  <li>Bf109-F2</li>
+  <li>Bf109-F4</li>
+</ul>
+Interceptores<br/>
+<ul>
+  <li>CR.42 Hungarian</li>
+  <li>Bf109-F2</li>
+  <li>Bf109-F4</li>
+</ul>
+Escolta a BD y AT (Jabo)<br/>
+<ul>
+  <li>CR.42 Hungarian</li>
+</ul>
+BD y AT<br/>
+<ul>
+  <li>HS-123</li>
+  <li>Bf109-E4B</li>
+  <li>Bf109-E7B</li>
+  <li>BF-110C-4B</li>
+  <li>JU-87B2</li>
+</ul>
+BA<br/>
+<ul>
+  <li>HE-111 H-2</li>
+  <li>HE-111 H-6</li>
+  <li>JU-88A4</li>
+</ul>
+SUM<br/>
+<ul>
+  <li>JU 52/3mg6e  Tante Ju</li>
+</ul>					
+				</td>
+			</tr>				
+			<tr class="section_subheader" height="30px"> 
+				<td colspan="2"> 
 					<span class="section_subheader_txt">DangerZone 2.0</span>&nbsp;&nbsp;
 					<span style="font-size:9px">[E69_espiral]</span><br/></td> 
 					<td align="right" style="font-size:9px">22 de Junio de 2011</td>
@@ -231,8 +339,8 @@ Los aviones de SUM deberán aterrizar, obligatoriamente, en los AFs que estén den
 					B.A.D.C. (Bourne Again Dynamic Campaign) es un motor de campañas dinámicas para  el IL2-FB. Fue desarrollado 
 					en 2004 por <b>JG10r_Dutertre</b>, y se ha usado en algunas de las mejores competiciones online como 
 					Bellum,CAD,Czec War,Mosquito, ...  <br/><br/>
-					La Danger Zone 1.93 diseñada por el <b>E69_espiral, E69_cvchavo, E69_Patrel, E69_Metaliving</b> y implementada por <b>E69_Heracles</b>, es una adaptación del motor B.A.D.C.<br/><br/>
-					Actualmente se vuela con <b>HSFX v4.11</b> sobre <b>IL-2 1946</b>.<br/><br/>
+					La Danger Zone 1.93 diseñada por e <b>E69_espiral, E69_cvchavo, E69_Patrel, E69_Metaliving</b> y implementada por <b>E69_Heracles</b>, es una adaptación del motor B.A.D.C.<br/><br/>
+					Actualmente se vuela con <b>HSFX v5.01</b> sobre <b>IL-2 1946</b>.<br/><br/>
 				</td>
 			</tr>					
 		</table>
