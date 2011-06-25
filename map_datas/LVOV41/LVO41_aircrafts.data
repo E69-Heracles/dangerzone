@@ -18,28 +18,28 @@ rustrp=250TBAP00;
 1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,400:EBA,58,
 1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,2500,310:ESU,58,
 1,rusjab,MIG-3ud,1,air.MIG_3UD,2xBK,100,1000,450:EBD,58,
-1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,1000,450,300:AT,58,
+1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,1000,450,300:ET,58,
 1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,480:I,58,
 
 # I-16 Type 18: 112
 1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,430:EBA,112,
 1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,2500,310:ESU,112,
 1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:EBD,112,
-1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:AT,112,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:ET,112,
 1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,440:I,112,
 
 # I-16 Type 18 (2xBS): 112
 1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,430:EBA,112,
 1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,2500,310:ESU,112,
 1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,6rs82,100,1000,430:EBD,112,
-1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,2xFAB100,100,1000,430:AT,112,
+1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,2xFAB100,100,1000,430:ET,112,
 1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,440:I,112,
 
 # YAK-1: 127   
 1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,400:EBA,127,
 1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,300:ESU,127,
 1,rusjab,Yak-1,1,air.YAK_1,6rs82,100,1000,300:EBD,127,
-1,rusjab,Yak-1,1,air.YAK_1,2fab100,100,1000,300:AT,127,
+1,rusjab,Yak-1,1,air.YAK_1,2fab100,100,1000,300:ET,127,
 1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,300:I,127,
 #1,rusfig,Yak-1,1,air.YAK_1,default,100,2000,300:RE,127,
 
@@ -55,7 +55,7 @@ rustrp=250TBAP00;
 1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,400:EBA,252,
 1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,2500,310:ESU,252,
 1,rusjab,I-16TYPE24,1,air.I_16TYPE24,6rs82,100,1000,450:EBD,252,
-1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1000,450:AT,252,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1000,450:ET,252,
 1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,450:I,252,
 
 # DB-3B: 32
@@ -101,7 +101,7 @@ hunjab=hu1-1hu01;
 2,hunfig,CR42,1,air.CR_42,default,100,4000,400:EBA,12,
 2,hunfig,CR42,1,air.CR_42,default,100,2500,300:ESU,12,
 2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:EBD,12,
-2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:AT,12,
+2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:ET,12,
 2,hunfig,CR42,1,air.CR_42,default,100,4000,300:I,12,
 
 # Bf109-F2: 79
@@ -193,7 +193,7 @@ SV102,1,GAZ67t,vehicles.stationary.Stationary$GAZ67t,15:200
 SV103,1,GAZ_M1,vehicles.stationary.Stationary$GAZ_M1,15:300
 SV104,1,ZIS5_PC,vehicles.stationary.Stationary$ZIS5_PC,15:400
 SV105,1,StudebeckerTruck,vehicles.stationary.Stationary$StudebeckerTruck,15:550
-SV106,1,StudebeckerRockAT,vehicles.stationary.Stationary$StudebeckerRockAT,15:650
+SV106,1,StudebeckerRocket,vehicles.stationary.Stationary$StudebeckerRocket,15:650
 SV107,1,Katyusha,vehicles.stationary.Stationary$Katyusha,15:750
 SV109,1,ZIS5_AA,vehicles.stationary.Stationary$ZIS5_AA,15:825
 SV112,1,BA_10,vehicles.stationary.Stationary$BA_10,15:900
@@ -207,13 +207,13 @@ SV114,1,ZIS5_medic,vehicles.stationary.Stationary$ZIS5_medic,15:1000
 ##alemanes igual
 SV201,2,VW82,vehicles.stationary.Stationary$VW82,15:80
 SV202,2,VW82t,vehicles.stationary.Stationary$VW82t,15:160
-SV203,2,OpelKadATt,vehicles.stationary.Stationary$OpelKadATt,15:260
+SV203,2,OpelKadett,vehicles.stationary.Stationary$OpelKadett,15:260
 SV204,2,OpelBlitz36S,vehicles.stationary.Stationary$OpelBlitz36S,15:340
 SV205,2,OpelBlitz6700A,vehicles.stationary.Stationary$OpelBlitz6700A,15:440
-SV206,2,KATtenkrad,vehicles.stationary.Stationary$KATtenkrad,15:500
+SV206,2,Kettenkrad,vehicles.stationary.Stationary$Kettenkrad,15:500
 SV207,2,RSO,vehicles.stationary.Stationary$RSO,15:580
 SV208,2,OpelBlitzMaultier,vehicles.stationary.Stationary$OpelBlitzMaultier,15:680
-SV209,2,OpelBlitzMaultierRockAT,vehicles.stationary.Stationary$OpelBlitzMaultierRockAT,15:820
+SV209,2,OpelBlitzMaultierRocket,vehicles.stationary.Stationary$OpelBlitzMaultierRocket,15:820
 SV210,2,OpelBlitzMaultierAA,vehicles.stationary.Stationary$OpelBlitzMaultierAA,15:900
 #90% up to here
 SV211,2,OpelBlitz6700A_fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:940
