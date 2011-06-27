@@ -3271,12 +3271,14 @@ sub calc_resuply_by_human_pilot($$$) {
 	    $player_task=$pilot_list[$i][6];
 	    if ($player_task eq "SUM" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
 	        my $smoke_count=0;
+		my $smoke_height=0;
 	        seek LOG, 0, 0;
 	        while(<LOG>) {
-		    if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+)/){
+		    if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+) ([^ ]+)/){
 		        $smoke_count++;
-			printdebug ("calc_resuply_by_human_pilot():(" . $smoke_count . ") Humo activado por $pilot_list[$i][0] a " . distance($my_tgtcx,$my_tgtcy,$1,$2) . " metros del centro de la ciudad (max:" . $CITY_SUM_MAX_RAD . ")");
-		        if ((distance($my_tgtcx,$my_tgtcy,$1,$2) < $CITY_SUM_MAX_RAD) && ($smoke_count < 4)){
+			$smoke_height=$3;
+			printdebug ("calc_resuply_by_human_pilot():(" . $smoke_count . ") Humo activado por $pilot_list[$i][0] a " . distance($my_tgtcx,$my_tgtcy,$1,$2) . " metros del centro de la ciudad (max:" . $CITY_SUM_MAX_RAD . ") y a una altura de $smoke_height metros (max:" . $CITY_SUM_MAX_HEIGHT . ")");
+		        if ((distance($my_tgtcx,$my_tgtcy,$1,$2) < $CITY_SUM_MAX_RAD) && ($smoke_height <= $CITY_SUM_MAX_HEIGHT) && ($smoke_count < 4)){
 			    while(<LOG>) {
 			        if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
 				( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
