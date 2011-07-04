@@ -38,9 +38,9 @@
 							<nobr><span  class="submenu-text">
 							<a href="index.html">Home</a> |
 							<a href="manual.php">Manual</a> |
-							<a href="/foro/index.php" target="main">Foro General</a> |
-							<a href="/foro/index.php?board=6.0" target="main">Foro Aliado</a> |
-							<a href="/foro/index.php?board=7.0" target="main">Foro del Eje</a> |
+							<a href="http://www.escuadron69.net/v20/foro/index.php?/forum/130-dangerzone/" target="main">Foro General</a> |
+							<a href="http://www.escuadron69.net/v20/foro/index.php?/forum/133-bando-rojo/" target="main">Foro Aliado</a> |
+							<a href="http://www.escuadron69.net/v20/foro/index.php?/forum/132-bando-azul/" target="main">Foro del Eje</a> |
 							<a href="credits.php">Creditos</a> 
 							</span></nobr>
 						</div></td>
