@@ -38,8 +38,9 @@ sub add_tanks();
 sub add_tank_static();
 sub add_tank_biulding();
 sub calc_aaa_city(@);
-sub poblate_city($$$); 
+sub poblate_city($$$$); 
 sub static_on_city();
+sub static_aaa_on_sum_city();
 sub static_on_afields();
 sub print_briefing();
 sub print_fm();
@@ -4629,9 +4630,11 @@ sub calc_aaa_city(@) {
     return $my_aaa_type;
 }
 
-# poblate with static objects a place close to a city 
-sub poblate_city($$$){ 
-    my($army,$cx,$cy)= @_;
+# poblate with static objects a place close to a city
+## @Heracles@20110710
+## Añadimos un cuarto argumento para indicar si sólo queremos AAA : 0 poblar con todo - 1 poblar sólo con AAA
+sub poblate_city($$$$){ 
+    my($army,$cx,$cy,$only_aaa)= @_;
 
     my $this_city_objs=0;
     my $this_city_objs_aaa=0;
@@ -4728,7 +4731,7 @@ sub poblate_city($$$){
 		}
 
 		# VEHICULOS:  tipo 500 angulo normal y 1000 son vehiculos rotados 90 a derecha (+90 en el il2FB)
-		if ($type==500 || $type==1000) { #seleccionamos objeto wspan 
+		if (($type==500 || $type==1000) && $only_aaa == 0){ #seleccionamos objeto wspan 
 		    if ($type==1000) {$angle+=90;} # rotamos
 		    while ($m_usados<$modulo-6) {
 			$to_place=int(rand(2)+2); # de 2 a 4 objetos
@@ -4779,7 +4782,7 @@ sub poblate_city($$$){
 		    }
 		}
 		#TRENES
-		if ($type==1500) { 
+		if ($type==1500 && $only_aaa == 0) { 
 		    $angle+=180; # locomotora mirando alreves
 		    if ($army==1){ $object="vehicles.stationary.Stationary\$Wagon9";}
 		    else { $object="vehicles.stationary.Stationary\$Wagon11";}
@@ -4843,17 +4846,44 @@ sub static_on_city(){ # city code, se lee el army desde geo obj
     my $delta_obj;
     if ($red_tgt_code =~ m/^CT[0-9]{2}/) { 
 	$delta_obj=$s_obj_counter;
-	poblate_city(2,$red_tgtcx,$red_tgtcy); # atencion! check  se manda army opuesto!!
+	poblate_city(2,$red_tgtcx,$red_tgtcy,0); # atencion! check  se manda army opuesto!!
 	$delta_obj=$s_obj_counter-$delta_obj;
 	print DET "blue_objects=".$delta_obj."\n";
 	
     }
     if ($blue_tgt_code =~ m/^CT[0-9]{2}/) {
 	$delta_obj=$s_obj_counter;
-	poblate_city(1,$blue_tgtcx,$blue_tgtcy); # atencion! check  se manda army opuesto!!
+	poblate_city(1,$blue_tgtcx,$blue_tgtcy,0); # atencion! check  se manda army opuesto!!
 	$delta_obj=$s_obj_counter-$delta_obj;
 	print DET "red_objects=".$delta_obj."\n";
     }
+}
+
+## @Heracles@20110710@
+## Llama a poblate_city sólo para aaa en ciudades objetivo de suministro
+sub static_aaa_on_sum_city() {
+    my $myred_target = $red_tgt_code;
+    my $myblue_target = $blue_tgt_code;
+    
+    ## @Heracles@20110710
+    ## Si ambos bandos tienen el mismo objetivo, no poblar de nuevo la ciudad con AAA
+    if (($red_tgt_code =~ m/^SUC[0-9]{2}/ && $blue_tgt_code =~ m/^CT[0-9]{2}/) || ($red_tgt_code =~ m/^CT[0-9]{2}/ && $blue_tgt_code =~ m/^SUC[0-9]{2}/)){
+	$myred_target =~ m/^[A-Z]+([0-9]){2}/;
+	$myred_target = $1;
+	$myblue_target =~ m/^[A-Z]+([0-9]){2}/;
+	$myblue_target = $1;
+	
+	printdebug("static_aaa_on_sum_city(): red target code: $myred_target blue target code: $myblue_target \n");
+	
+	if ($myred_target == $myblue_target) { return;}
+    }
+    
+    if ($red_tgt_code =~ m/^SUC[0-9]{2}/) { 
+	poblate_city(1,$red_tgtcx,$red_tgtcy,1);
+    }
+    if ($blue_tgt_code =~ m/^SUC[0-9]{2}/) {
+	poblate_city(2,$blue_tgtcx,$blue_tgtcy,1);
+    }    
 }
 
 # poblate possible airfields in use: 2 AF takeoff  + 2 AF landing  + 1 AF is enemy attack one 
@@ -5848,6 +5878,7 @@ obj_id_airfields();  # places basic static objects (a JU52 or LI2)in airfiles, s
 static_on_afields(); # poblates all 4 posible airfields for each army, and AF that are bombers targets
 static_on_city();    # poblates city
 add_tank_static();   # add static tanks, on filed champs
+static_aaa_on_sum_city(); # poblates SUM citys with AAA
 
 # Now we print buildings
 print MIS "[Buildings]\n";
