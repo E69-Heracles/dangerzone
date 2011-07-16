@@ -565,59 +565,158 @@ sub get_sqdname($){
 # lines are read from XX_aircraft.data file and lines are for example.
 
 # FLYGHTS_DATA: 
-#      army,army+task,external_name,human_flyable,class.air    ,def_weapons,def_fuel,def_alt,def_speed:tasks,Nr,
-# EJ :    1,   rusjab,   chaika-m62,            1,air.I_153_M62,2xFAB100   ,     100,   1000,      350:   BD, 7,
-# PUSH to fly_matrix: external_name($1),class.air($4),weapons($5),fuel($6),alt($7),speed($8),Nr_planes($9), army+task($1)
+#      army,army+task,external_name,human_flyable,class.air    ,def_weapons,def_fuel,def_alt,def_speed:tasks,
+# EJ :    1,   rusjab,   chaika-m62,            1,air.I_153_M62,2xFAB100   ,     100,   1000,      350:   BD,
+# PUSH to fly_matrix: external_name($1),class.air($4),weapons($5),fuel($6),alt($7),speed($8),aviones iniciale, army+task($1), aviones que quedan, numero de veces que ha aparecido en misiones
 
 sub get_flight($$$$) {
     my ($army,$task,$human,$plane)= @_;
     my @fly_matrix=(); 
-    my $matrix_values=7;
     my $index=0;
     if ($plane eq "")   {$plane ="[^,]+";}  # no specific plane requested, so we match all
 #    if ($task eq "ESU") {$task="EBA";}
 
-    my $plane_total=0; # total amount of planes found matching request
+    my $plane_total=0; # numero total actual de aviones para el tipo de mision que buscamos
+    my $plane_total_ini=0; # numero total inicial (en el inicio de la campana) de aviones para el tipo de mision que buscamos
+    my $inv_army = ($army == 1) ? "IR" : "IA";
+    my $mission_times = $extend; # numero total de misiones
+    $mission_times =~ m/_([0-9])+/;
+    $mission_times = $1;
+    $mission_times = ($mission_times == 0) ? 1 : $mission_times;
+    
+    my $human_type = ($human == 0) ? "humanos" : "IA";
+    printdebug ("getflight(): Buscando aviones de bando $army para $task para " . $human_type . "\n");
+    
     seek FLIGHTS,0,0;
-    while (<FLIGHTS>){  #    $1      $2      $3      $4      $5      $6      $7     $8            $9
-	if ($_ =~ m/^$army,([^,]+),($plane),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):$task,([0-9]+),/){
+    while (<FLIGHTS>){  #    $1      $2      $3      $4      $5      $6      $7     $8
+	if ($_ =~ m/^$army,([^,]+),($plane),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):$task,/){
 	    if ($human == 0 || ($human==1 && $3 ==1 )) { # if  human==0  OR  (human==1 AND plane is human flyable)
-		push (@fly_matrix,[$2,$4,$5,$6,$7,$8,$9,$1]); 
-		$plane_total+=$9; 
+		
+		## @Heracles@20110708
+		## Nuevo sistema de inventario de aviones
+		my $planenum = 0;
+		my $planereal = 0;
+		my $planetimes = 0;
+		my $my_army_task = $1;
+		my $my_plane = $2;
+		my $my_class_air = $4;
+		my $my_weapons = $5;
+		my $my_fuel = $6;
+		my $my_altitude = $7;
+		my $my_speed = $8;
+		
+		my $line_back = tell FLIGHTS;
+		
+		seek FLIGHTS, 0, 0;
+		while (<FLIGHTS>) {
+		    if ($_ =~ m/^$inv_army,$my_plane,([^,]+),([^,]+),([^,]+),/){
+			$planenum = $1;
+			$planereal = $2;
+			$planetimes = $3;
+		    }
+		}
+
+		if ($planenum == 0) { # avion no encontrado en inventario 
+		    print "$big_red Error: </font>  No se encuentra el avión \"$my_plane\" en el inventario para el bando: $inv_army \n";
+		    unlink $gen_lock;
+		    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: No se encuentra el avión \"$my_plane\" en el inventario para el bando: $inv_army \n";
+		    exit(0);
+		}	
+		 
+		seek FLIGHTS, $line_back, 0;
+		## @Heracles@20110708
+		## Fin nuevo sistema de inventario de aviones
+		
+		push (@fly_matrix,[$my_plane,$my_class_air,$my_weapons,$my_fuel,$my_altitude,$my_speed,$planenum,$my_army_task,$planereal,$planetimes]); 
+		$plane_total += $planereal;
+		$plane_total_ini += $planenum;
 		$index++;
+		
+		printdebug("get_flight(): Encontrado $index aviones con total actual $plane_total y total inicial $plane_total_ini \n");
+		printdebug("get_flight(): $my_plane, $my_class_air, de los que quedan $planereal y han aparecido $planetimes misiones \n" );
 	    }
 	}
     }
     
     if ($index==0) { # matrix is empty? 
-	print "$big_red Error: </font>  Cant find aircraft \"$plane\" for army:  $army task: $task \n";
+	print "$big_red Error: </font>  No puedo encontrar el avión \"$plane\" para el bando:  $army y tipo de misión: $task \n";
 	unlink $gen_lock;
-	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Cant find aircraft \"$plane\" for army:  $army task: $task \n\n";
+	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: No puedo encontrar el avión \"$plane\" para el bando:  $army y tipo de misión: $task \n\n";
 	exit(0);
     }
 
-    if ($index==1) {  # only one flight aviable
-	my $sqdname= get_sqdname($fly_matrix[0][7]);
-	return ($sqdname, $fly_matrix[0][1], $fly_matrix[0][3], $fly_matrix[0][2], 
-		$fly_matrix[0][4], $fly_matrix[0][5], $fly_matrix[0][0]);
-    }
-    else { # more than one flight possible, selct one by number of planes weight
-	my $select=int(rand($plane_total))+1; # rand  1 ~ plane_total
-	my $option=0;
-	while ($select <= $plane_total) { # always enter to loop
-	    if ($select <= $fly_matrix[$option][6]) { # selecct this flight
-		$select=$plane_total+1; # out of the loop
+    ## @Heracles@20110708@
+    ## Nuevo sistema de inventario de aviones: algoritimo de calculo de porcentajes para seleccion de avion
+    my $option=0;
+    my $encontrado=0;
+    if ($index > 1) { # more than one flight possible, selct one by number of planes weight
+	
+	my $delta_max = 0.0;
+	my $delta = 0.0;
+	my $percent_to = 0.0;
+	my $percent_from = 0.0;
+	
+	for (my $i = 0; $i < $index; $i++) {
+	    if ($fly_matrix[$i][8] < $MIN_STOCK_FOR_FLYING) {
+		printdebug ("get_flight(): Avion $fly_matrix[$i][0] con stock insuficiente $fly_matrix[$i][8] para bando $inv_army \n");
+		next;
 	    }
-	    else { # select is bigger so we look into next flight
-		$select-=$fly_matrix[$option][6]; # we reduce seleccy because we just discard a flight 
-		$option++;
+	    $percent_from = $fly_matrix[$i][9] / $mission_times;
+	    $percent_to = $fly_matrix[$i][6] / $plane_total_ini;
+	    $delta = $percent_to - $percent_from;
+	    printdebug ("get_flight(): $fly_matrix[$i][0] FROM $percent_from TO $percent_to DELTA $delta \n");
+	    if ( ($delta > $delta_max) ) {
+		$delta_max = $delta;
+		$option = $i;
+		$encontrado++;
 	    }
 	}
-	#return list
-	my $sqdname= get_sqdname($fly_matrix[$option][7]);
-	return ($sqdname, $fly_matrix[$option][1], $fly_matrix[$option][3], $fly_matrix[$option][2], 
-		$fly_matrix[$option][4], $fly_matrix[$option][5], $fly_matrix[$option][0]);
+
     }
+    
+    if ($encontrado == 0) { # avion no encontrado en inventario 
+        printdebug "$big_red Error: </font>  Tipo de misión $task sin stock de aviones en el inventario para el bando: $inv_army \n";
+        unlink $gen_lock;
+        print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Tipo de misión $task sin stock de aviones en el inventario para el bando: $inv_army \n";
+        exit(0);
+    }    
+
+    printdebug ("get_flight(): $fly_matrix[$option][0] seleccionado \n");		
+
+    ## @Heracles@20110708@
+    ## Sumamos las veces que ha salido un tipo de avion en una mision
+    open(TEMPFLIGHTS, ">temp_aircraft.data");
+    seek FLIGHTS,0,0;
+    while (<FLIGHTS>) {
+        if ($_ =~ m/^$inv_army,$fly_matrix[$option][0],([^,]+),([^,]+),([^,]+),/){
+	    my $my_times = $3 + 1;
+	    printdebug ("get_flight(): Seleccionamos $fly_matrix[$option][0], apariciones $3 misiones.\n");	    
+	    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+),[^,]+,/$1,$my_times,/;
+	    printdebug ("get_flight(): Actualizamos aircraft.data con: $_ \n");
+	    print TEMPFLIGHTS;
+	}
+	else {
+	    print TEMPFLIGHTS;	    
+	}
+    }
+    close (TEMPFLIGHTS);
+    close (FLIGHTS);
+    unlink $FLIGHTS_DEF;
+    rename "temp_aircraft.data", $FLIGHTS_DEF;
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	print GEN_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+	exit(0);
+    }    
+    ## @Heracles@20110708@
+    ## Fin nuevo sistema de inventario de aviones
+    
+    #return list
+    my $sqdname= get_sqdname($fly_matrix[$option][7]);
+    return ($sqdname, $fly_matrix[$option][1], $fly_matrix[$option][3], $fly_matrix[$option][2], 
+		$fly_matrix[$option][4], $fly_matrix[$option][5], $fly_matrix[$option][0]);
 }
 
 

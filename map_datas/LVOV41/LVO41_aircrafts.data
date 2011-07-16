@@ -1,6 +1,26 @@
 # PlanesAT Lvov_1941, Junio y Julio, para la DangerZone v. 2.0
 # según tablas de Yogy
 
+#---Inventario Rojo (aviones iniciales, restantes, aparecidos)
+
+IR,IL-2M_Early,6,6,0,
+IR,MIG-3ud,58,58,0,
+IR,I-16TYPE18,112,112,0,
+IR,I-16TYPE18_2BS,112,112,0,
+IR,Yak-1,127,127,0,
+IR,I-153P,156,156,0,
+IR,I-153_M62,170,170,0,
+IR,I-16TYPE24,252,252,0,
+IR,DB-3B,32,32,0,
+IR,PE-2S1,45,45,0,
+IR,SB-2M100A,49,49,0,
+IR,SU-2,61,61,0,
+IR,DB-3M,98,98,0,
+IR,TB-3,109,109,0,
+IR,DB-3F,118,118,0,
+IR,SB-2M103,211,211,0,
+IR,Li-2,79,79,0,
+
 #---Escuadrones rojos
 
 rusfig=1GvIAP,1GvIAP,3IAP,8IAPCHF,26IAPPVO;
@@ -11,80 +31,94 @@ rustrp=889NBAP;
 ### --------------------- AVIONES RUSOS
 
 # IL-2M 1941 1 series: 6
-1,rusjab,IL-2M_Early,1,air.IL_2_1940Early,8xRS82,100,500,430:BD,6,
-1,rusjab,IL-2M_Early,1,air.IL_2_1940Early,2xVAP250,100,500,430:AT,6,
+1,rusjab,IL-2M_Early,1,air.IL_2_1940Early,8xRS82,100,500,430:BD,
+1,rusjab,IL-2M_Early,1,air.IL_2_1940Early,2xVAP250,100,500,430:AT,
 
 # MIG-3ud standard 1941: 58
-1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,400:EBA,58,
-1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,2500,310:ESU,58,
-1,rusjab,MIG-3ud,1,air.MIG_3UD,2xBK,100,1000,450:EBD,58,
-1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,1000,450,300:ET,58,
-1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,480:I,58,
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,400:EBA,
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,2500,310:ESU,
+1,rusjab,MIG-3ud,1,air.MIG_3UD,2xBK,100,1000,450:EBD,
+1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,1000,450,300:ET,
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,480:I,
 
 # I-16 Type 18: 112
-1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,430:EBA,112,
-1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,2500,310:ESU,112,
-1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:EBD,112,
-1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:ET,112,
-1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,440:I,112,
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,430:EBA,
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,2500,310:ESU,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:EBD,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1000,430:ET,
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,440:I,
 
 # I-16 Type 18 (2xBS): 112
-1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,430:EBA,112,
-1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,2500,310:ESU,112,
-1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,6rs82,100,1000,430:EBD,112,
-1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,2xFAB100,100,1000,430:ET,112,
-1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,440:I,112,
+1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,430:EBA,
+1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,2500,310:ESU,
+1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,6rs82,100,1000,430:EBD,
+1,rusjab,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,2xFAB100,100,1000,430:ET,
+1,rusfig,I-16TYPE18_2BS,1,air.I_16TYPE18_BS,default,100,4000,440:I,
 
 # YAK-1: 127   
-1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,400:EBA,127,
-1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,300:ESU,127,
-1,rusjab,Yak-1,1,air.YAK_1,6rs82,100,1000,300:EBD,127,
-1,rusjab,Yak-1,1,air.YAK_1,2fab100,100,1000,300:ET,127,
-1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,300:I,127,
-#1,rusfig,Yak-1,1,air.YAK_1,default,100,2000,300:RE,127,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,400:EBA,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,300:ESU,
+1,rusjab,Yak-1,1,air.YAK_1,6rs82,100,1000,300:EBD,
+1,rusjab,Yak-1,1,air.YAK_1,2fab100,100,1000,300:ET,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,4000,300:I,
+#1,rusfig,Yak-1,1,air.YAK_1,default,100,2000,300:RE,
 
 # I-153P: 156
-1,rusjab,I-153P,1,air.I_153P,8xRS82,100,500,300:BD,156,
-1,rusjab,I-153P,1,air.I_153P,2xFAB50_2xFAB100,100,500,300:AT,156,
+1,rusjab,I-153P,1,air.I_153P,8xRS82,100,500,300:BD,
+1,rusjab,I-153P,1,air.I_153P,2xFAB50_2xFAB100,100,500,300:AT,
 
 # I-153 M62: 170
-1,rusjab,I-153_M62,1,air.I_153_M62,8xRS82,100,500,300:BD,170,
-1,rusjab,I-153_M62,1,air.I_153_M62,2xFAB50_2xFAB100,100,500,300:AT,170,
+1,rusjab,I-153_M62,1,air.I_153_M62,8xRS82,100,500,300:BD,
+1,rusjab,I-153_M62,1,air.I_153_M62,2xFAB50_2xFAB100,100,500,300:AT,
 
 # I-16 Type 24: 252
-1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,400:EBA,252,
-1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,2500,310:ESU,252,
-1,rusjab,I-16TYPE24,1,air.I_16TYPE24,6rs82,100,1000,450:EBD,252,
-1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1000,450:ET,252,
-1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,450:I,252,
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,400:EBA,
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,2500,310:ESU,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,6rs82,100,1000,450:EBD,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1000,450:ET,
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,450:I,
 
 # DB-3B: 32
-1,rusbom,DB-3B,1,air.IL_4_DB3B,3fab50010fab50,100,3000,350:BA,32,
+1,rusbom,DB-3B,1,air.IL_4_DB3B,3fab50010fab50,100,3000,350:BA,
 
 # PE-2 Series 1: 45
-1,rusbom,PE-2S1,1,air.PE_2SERIES1,2fab5002fab250,100,3000,380:BA,45,
+1,rusbom,PE-2S1,1,air.PE_2SERIES1,2fab5002fab250,100,3000,380:BA,
 
 # SB-2 M-100A: 49
-1,rusbom,SB-2M100A,1,air.SB_2M100A,6xfab100,100,3000,370:BA,49,
+1,rusbom,SB-2M100A,1,air.SB_2M100A,6xfab100,100,3000,370:BA,
 
 # SU-2: 61
-1,rusbom,SU-2,1,air.SU_2,6fab100,100,3000,450:BA,61,
+1,rusbom,SU-2,1,air.SU_2,6fab100,100,3000,450:BA,
 
 # DB-3M: 98
-1,rusbom,DB-3M,1,air.IL_4_DB3M,3fab50010fab50,100,3000,350:BA,98,
+1,rusbom,DB-3M,1,air.IL_4_DB3M,3fab50010fab50,100,3000,350:BA,
 
 # TB-3: 109
-1,rusbom,TB-3,1,air.TB_3_4M_34R,4fab100014fab50,100,2000,195:BA,109,
+1,rusbom,TB-3,1,air.TB_3_4M_34R,4fab100014fab50,100,2000,195:BA,
 
 # DB-3F: 118
-1,rusbom,DB-3F,1,air.IL_4_DB3F,3fab50010fab50,100,3000,350:BA,118,
+1,rusbom,DB-3F,1,air.IL_4_DB3F,3fab50010fab50,100,3000,350:BA,
 
 # SB-2 M-103: 211
-1,rusbom,SB-2M103,1,air.SB_2M103,2xfab500,100,3000,370:BA,211,
+1,rusbom,SB-2M103,1,air.SB_2M103,2xfab500,100,3000,370:BA,
 
 # LI-2: 79
-1,rustrp,Li-2,1,air.LI_2,default,100,600,305:SUM,79,
+1,rustrp,Li-2,1,air.LI_2,default,100,600,305:SUM,
 
+#---Inventario Azul (aviones iniciales, restantes, aparecidos)
+
+IA,CR42,12,12,0,
+IA,BF-109F2,79,79,0,
+IA,BF-109F4,160,160,0,
+IA,HS-123,22,22,0,
+IA,BF-109E4B,31,31,0,
+IA,BF-109E7B,130,130,0,
+IA,BF-110C-4B,178,178,0,
+IA,JU-87B2,273,273,0,
+IA,HE-111H6,46,46,0,
+IA,HE-111H2,70,70,0,
+IA,JU-88A4,83,83,0,
+IA,JU-52-3MG6E,123,123,0,
 
 #-------------------Escuadrones azules
 
@@ -98,53 +132,53 @@ hunjab=hu2-4hu;
 ### --------------------- AVIONES ALEMANES
 
 # CR.42 Hungarian: 12
-2,hunfig,CR42,1,air.CR_42,default,100,4000,400:EBA,12,
-2,hunfig,CR42,1,air.CR_42,default,100,2500,300:ESU,12,
-2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:EBD,12,
-2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:ET,12,
-2,hunfig,CR42,1,air.CR_42,default,100,4000,300:I,12,
+2,hunfig,CR42,1,air.CR_42,default,100,4000,400:EBA,
+2,hunfig,CR42,1,air.CR_42,default,100,2500,300:ESU,
+2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:EBD,
+2,hunjab,CR42,1,air.CR_42,2x100,100,1000,400:ET,
+2,hunfig,CR42,1,air.CR_42,default,100,4000,300:I,
 
 # Bf109-F2: 79
-2,gerfig,BF-109F2,1,air.BF_109F2,default,100,4000,400:EBA,79,
-2,gerfig,BF-109F2,1,air.BF_109F2,default,100,2500,300:ESU,79,
-2,gerfig,BF-109F2,1,air.BF_109F2,default,100,4000,500:I,79,
+2,gerfig,BF-109F2,1,air.BF_109F2,default,100,4000,400:EBA,
+2,gerfig,BF-109F2,1,air.BF_109F2,default,100,2500,300:ESU,
+2,gerfig,BF-109F2,1,air.BF_109F2,default,100,4000,500:I,
 
 # Bf109-F4: 160
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBA,160,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,2500,300:ESU,160,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,450:I,160,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBA,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,2500,300:ESU,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,450:I,
 
 # HS-123: 22
-2,gerjab,HS-123,1,air.HS123,bomb,100,500,380:BD,22,
-2,gerjab,HS-123,1,air.HS123,bomb,100,500,380:AT,22,
+2,gerjab,HS-123,1,air.HS123,bomb,100,500,380:BD,
+2,gerjab,HS-123,1,air.HS123,bomb,100,500,380:AT,
 
 # Bf109-E4B: 31
-2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,500,460:BD,31,
-2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,500,460:AT,31,
+2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,500,460:BD,
+2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,500,460:AT,
 
 # Bf109-E7B: 130
-2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,500,470:BD,130,
-2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,500,470:AT,130,
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,500,470:BD,
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,500,470:AT,
 
 # BF-110C-4B: 178
-2,gerjab,BF-110C-4B,1,air.BF_110C4B,2sc250,100,500,470:BD,178,
-2,gerjab,BF-110C-4B,1,air.BF_110C4B,2sc250,100,500,470:AT,178,
+2,gerjab,BF-110C-4B,1,air.BF_110C4B,2sc250,100,500,470:BD,
+2,gerjab,BF-110C-4B,1,air.BF_110C4B,2sc250,100,500,470:AT,
 
 # JU-87B2: 273
-2,gerjab,JU-87B2,1,air.JU_87B2,1xSD500,100,2500,340:BD,273,
-2,gerjab,JU-87B2,1,air.JU_87B2,1SC1000,100,3000,340:AT,273,
+2,gerjab,JU-87B2,1,air.JU_87B2,1xSD500,100,2500,340:BD,
+2,gerjab,JU-87B2,1,air.JU_87B2,1SC1000,100,3000,340:AT,
 
 # HE-111 H-6: 46
-2,gerbom,HE-111H6,1,air.HE_111H6,2SC2000,50,3000,370:BA,46,
+2,gerbom,HE-111H6,1,air.HE_111H6,2SC2000,50,3000,370:BA,
 
 # HE-111 H-2: 70
-2,gerbom,HE-111H2,1,air.HE_111H2,4xSC250,50,3000,350:BA,70,
+2,gerbom,HE-111H2,1,air.HE_111H2,4xSC250,50,3000,350:BA,
 
 # JU-88A4: 83
-2,gerbom,JU-88A4,1,air.JU_88A4,2xSC2000,100,3000,385:BA,83,
+2,gerbom,JU-88A4,1,air.JU_88A4,2xSC2000,100,3000,385:BA,
 
 # JU 52/3mg6e  Tante Ju: 123
-2,gertrp,JU-52-3MG6E,1,air.JU_52_3MG6E,default,100,600,295:SUM,123,
+2,gertrp,JU-52-3MG6E,1,air.JU_52_3MG6E,default,100,600,295:SUM,
 
 ##STATIC AIRCRAFTS:
 ##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!

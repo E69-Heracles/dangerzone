@@ -40,6 +40,7 @@ $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
 $CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
 $PC_LOST=5;
+$MIN_STOCK_FOR_FLYING=2; # Stock minimo de aviones para poder generar un vuelo.
 
 ## @Heracles@20100103
 ## Airfield damage constants
