@@ -82,7 +82,7 @@ $CITY_SUM_IA_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte
 ## @Heracles@20110624
 $CITY_SUM_MAX_RAD=5000; # Radio máximo desde la ciudad dentro del cual se debe activar el humo para tener éxito en el suministro
 ## @Heracles@20110626
-$CITY_SUM_MAX_HEIGHT=1000; # Altura máxima de suministro sobre la ciudad para tener éxito en las misione SUM
+$CITY_SUM_MAX_HEIGHT=600; # Altura máxima de suministro sobre la ciudad para tener éxito en las misione SUM
 
 ## @Heracles@20110425@
 ## Radio máximo de suministro para las ciudades

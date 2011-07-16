@@ -648,7 +648,7 @@ sub get_flight($$$$) {
     ## @Heracles@20110708@
     ## Nuevo sistema de inventario de aviones: algoritimo de calculo de porcentajes para seleccion de avion
     my $option=0;
-    my $encontrado=0;
+    my $encontrado = ($index == 1) ? 1 : 0;
     if ($index > 1) { # more than one flight possible, selct one by number of planes weight
 	
 	my $delta_max = 0.0;
@@ -675,7 +675,7 @@ sub get_flight($$$$) {
     }
     
     if ($encontrado == 0) { # avion no encontrado en inventario 
-        printdebug "$big_red Error: </font>  Tipo de misión $task sin stock de aviones en el inventario para el bando: $inv_army \n";
+        print "$big_red Error: </font>  Tipo de misión $task sin stock de aviones en el inventario para el bando: $inv_army \n";
         unlink $gen_lock;
         print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Tipo de misión $task sin stock de aviones en el inventario para el bando: $inv_army \n";
         exit(0);

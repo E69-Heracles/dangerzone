@@ -29,6 +29,7 @@ sub get_task_perc_sorvive($$);
 sub bytask_sourvive_list();
 sub find_safe_pilots();
 sub find_PKilled_pilots();
+sub find_shotdown_pilots();
 sub get_pilot_exp($);
 sub get_pilot_fairp($);
 sub get_akill_points($$);
@@ -838,6 +839,20 @@ sub find_PKilled_pilots(){
     }
 }
 
+## @Heracles@20110716@
+## Función creada para poder introducir en las perdidas de aerodromo el evento "damage on the ground"
+## incluimos IAs
+sub find_shotdown_pilots(){
+    @shotdown_pilots=();
+    seek LOG, 0, 0;
+    while(<LOG>) {		
+	if ($_=~  m/[^ ]+ ([^ ]+) shot down by ([^ ]+) at [^ ]+ [^ ]+/){ # avion derribado
+	    if ($1 ne $2){ # si no se mato asimismo.
+		push(@shotdown_pilots,$1);
+	    }
+	}
+    }
+}
 
 sub get_pilot_exp($){
     my $name = shift @_;
@@ -2763,7 +2778,7 @@ REP4
 		$down_y=$5;
 	    }
 	}
-	elsif ($in =~  m/([^ ]+) ([^ ]+) crashed at ([^ ]+) ([^ ]+)/){
+	elsif (($in =~  m/([^ ]+) ([^ ]+) crashed at ([^ ]+) ([^ ]+)/) || ($in =~  m/([^ ]+) ([^ ]+) damaged on the ground at ([^ ]+) ([^ ]+)/)){
 	    $base_AF=get_base_AF($2);
 	    my $vale=1;
 	    my $nocuenta;
@@ -2773,6 +2788,12 @@ REP4
 		    last;
 		}
 	    }
+	    foreach $nocuenta (@shotdown_pilots) {
+		if ($nocuenta eq $2) {
+		    $vale=0;
+		    last;
+		}
+	    }	    
 	    foreach $nocuenta (@PKilled_pilots) {
 		if ($nocuenta eq $2) {
 		    $vale=0;
@@ -5421,6 +5442,9 @@ update_exp();
 
 @PKilled_pilots=();
 find_PKilled_pilots();
+
+@shotdown_pilots=();
+find_shotdown_pilots();
 
 @task_planes_list=();
 $task_groups=0;
