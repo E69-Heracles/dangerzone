@@ -580,12 +580,12 @@ sub get_flight($$$$) {
     my $plane_total_ini=0; # numero total inicial (en el inicio de la campana) de aviones para el tipo de mision que buscamos
     my $inv_army = ($army == 1) ? "IR" : "IA";
     my $mission_times = $extend; # numero total de misiones
-    $mission_times =~ m/_([0-9])+/;
-    $mission_times = $1;
+    $mission_times =~ m/_([0-9]+)/;
+    $mission_times = int($1);
     $mission_times = ($mission_times == 0) ? 1 : $mission_times;
     
     my $human_type = ($human == 0) ? "humanos" : "IA";
-    printdebug ("get_flight(): Buscando aviones de bando $army para $task para " . $human_type . "\n");
+    printdebug ("get_flight(): Buscando aviones de bando $army para $task para " . $human_type);
     printdebug ("get_flight(): Numero de misiones $extend $mission_times \n");
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){  #    $1      $2      $3      $4      $5      $6      $7     $8
@@ -632,14 +632,14 @@ sub get_flight($$$$) {
 		$plane_total_ini += $planenum;
 		$index++;
 		
-		printdebug("get_flight(): Encontrado $index aviones con total actual $plane_total y total inicial $plane_total_ini \n");
-		printdebug("get_flight(): $my_plane, $my_class_air, de los que quedan $planereal y han aparecido $planetimes misiones \n" );
+		printdebug("get_flight(): Encontrado $index aviones con total actual $plane_total y total inicial $plane_total_ini");
+		printdebug("get_flight(): $my_plane, $my_class_air, de los que quedan $planereal y han aparecido $planetimes misiones\n" );
 	    }
 	}
     }
     
     if ($index==0) { # matrix is empty? 
-	print "$big_red Error: </font>  No puedo encontrar el avión \"$plane\" para el bando:  $army y tipo de misión: $task \n";
+	print "$big_red Error: </font>  No puedo encontrar el avión \"$plane\" para el bando:  $army y tipo de misión: $task";
 	unlink $gen_lock;
 	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: No puedo encontrar el avión \"$plane\" para el bando:  $army y tipo de misión: $task \n\n";
 	exit(0);
