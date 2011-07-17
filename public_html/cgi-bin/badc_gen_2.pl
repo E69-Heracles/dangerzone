@@ -585,8 +585,8 @@ sub get_flight($$$$) {
     $mission_times = ($mission_times == 0) ? 1 : $mission_times;
     
     my $human_type = ($human == 0) ? "humanos" : "IA";
-    printdebug ("getflight(): Buscando aviones de bando $army para $task para " . $human_type . "\n");
-    
+    printdebug ("get_flight(): Buscando aviones de bando $army para $task para " . $human_type . "\n");
+    printdebug ("get_flight(): Numero de misiones $extend $mission_times \n");
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){  #    $1      $2      $3      $4      $5      $6      $7     $8
 	if ($_ =~ m/^$army,([^,]+),($plane),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):$task,/){
@@ -651,21 +651,24 @@ sub get_flight($$$$) {
     my $encontrado = ($index == 1) ? 1 : 0;
     if ($index > 1) { # more than one flight possible, selct one by number of planes weight
 	
-	my $delta_max = 0.0;
+	my $delta_max = "NULL";;
 	my $delta = 0.0;
 	my $percent_to = 0.0;
 	my $percent_from = 0.0;
 	
 	for (my $i = 0; $i < $index; $i++) {
 	    if ($fly_matrix[$i][8] < $MIN_STOCK_FOR_FLYING) {
-		printdebug ("get_flight(): Avion $fly_matrix[$i][0] con stock insuficiente $fly_matrix[$i][8] para bando $inv_army \n");
+		printdebug ("get_flight(): Avion $fly_matrix[$i][0] con stock insuficiente $fly_matrix[$i][8] para bando $inv_army");
 		next;
 	    }
 	    $percent_from = $fly_matrix[$i][9] / $mission_times;
 	    $percent_to = $fly_matrix[$i][6] / $plane_total_ini;
 	    $delta = $percent_to - $percent_from;
-	    printdebug ("get_flight(): $fly_matrix[$i][0] FROM $percent_from TO $percent_to DELTA $delta \n");
-	    if ( ($delta > $delta_max) ) {
+	    printdebug ("get_flight(): $fly_matrix[$i][0] FROM $percent_from TO $percent_to DELTA $delta");
+	    
+	    my $bool = $delta <=> $delta_max;
+	    printdebug ("get_flight(): delta $delta mayor que delta_max $delta_max ? $bool");
+	    if ( $bool == 1 || $delta_max == "NULL") {
 		$delta_max = $delta;
 		$option = $i;
 		$encontrado++;
