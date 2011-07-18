@@ -54,6 +54,7 @@ sub look_resuply();
 sub get_sum_radius($);
 sub get_city_from_sector($);
 sub get_sector($$);
+sub get_army_by_sector($);
 sub look_sectors_captured_with_city($$$$);
 sub look_sectors();
 sub check_geo_file();
@@ -2492,8 +2493,7 @@ sub add_losts_planes_and_pilots_by_task(@) {
     my @planes_lost = (0, 0, 0, 0, 0, 0);
     my $role_damage;
 
-    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes(): Called with " . @_ . " parameters\n\n";
-    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes(): Called with $ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum, $my_plane, $my_task\n\n";
+    printdebug ("add_lost_planes(): Called with $ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum, $my_plane, $my_task");
 
     if (is_human($my_plane)) {
 	@planes_lost =
@@ -2525,7 +2525,7 @@ sub add_losts_planes_and_pilots_by_task(@) {
 		'ia_type_sum';	
     }
     
-    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . "add_lost_planes() Return with: $my_task : $planes_lost[0], $planes_lost[1], $planes_lost[2], $planes_lost[3], $planes_lost[4], $planes_lost[5]. Role : $role_damage\n\n";
+    printdebug ("add_lost_planes() Return with: $my_task : $planes_lost[0], $planes_lost[1], $planes_lost[2], $planes_lost[3], $planes_lost[4], $planes_lost[5]. Role : $role_damage\n");
     return ($role_damage, @planes_lost);
 }
 
@@ -2609,7 +2609,7 @@ sub print_airfield_losts_report(@) {
     
     for ( $i = 0; $i <= $#af_lost_print_list; $i++ ) {
 
-	printdebug("print_airfield_losts_report(): $af_lost_print_list[$i][0] : $af_lost_print_list[$i][1] : $af_lost_print_list[$i][2] : $af_lost_print_list[$i][3]\n");	
+	printdebug("print_airfield_losts_report(): $af_lost_print_list[$i][0] : $af_lost_print_list[$i][1] : $af_lost_print_list[$i][2] : $af_lost_print_list[$i][3]");	
 	
 	if ($af_lost_print_list[$i][0] ne 'KILLED') {
 	    $j++;
@@ -2630,7 +2630,7 @@ sub print_airfield_losts_report(@) {
 		        $my_damage += $af_lost_print_list[$k][4];
 			$my_lost = 'Pilot';
 			
-			printdebug("print_airfield_losts_report(): KILLED : $af_lost_print_list[$k][2]. Adding $af_lost_print_list[$k][4] damage.\n");				
+			printdebug("print_airfield_losts_report(): KILLED : $af_lost_print_list[$k][2]. Adding $af_lost_print_list[$k][4] damage.");				
 		    }
 		}
 	    }
@@ -2778,7 +2778,60 @@ REP4
 		$down_y=$5;
 	    }
 	}
-	elsif (($in =~  m/([^ ]+) ([^ ]+) crashed at ([^ ]+) ([^ ]+)/) || ($in =~  m/([^ ]+) ([^ ]+) damaged on the ground at ([^ ]+) ([^ ]+)/)){
+	elsif ($in =~  m/([^ ]+) ([^ ]+) damaged on the ground at ([^ ]+) ([^ ]+)/) {
+	    $base_AF=get_base_AF($2);
+	    my $vale=1;
+	    my $nocuenta;
+	    
+	    foreach $nocuenta (@last_land_in_base) {
+		if ($nocuenta eq $2) {
+		    $vale=0;
+		    last;
+		}
+	    }
+	    foreach $nocuenta (@PKilled_pilots) {
+		if ($nocuenta eq $2) {
+		    $vale=0;
+		    last;
+		}
+	    }	    
+	    foreach $nocuenta (@shotdown_pilots) {
+		if ($nocuenta eq $2) {
+		    $vale=0;
+		    last;
+		}
+	    }
+	    
+	    ## @Heracles@20110717@
+	    ## Si ha hecho forzoso en territorio propio no damos el avion por perdido
+	    my $my_army_sector = get_army_by_sector(get_sector($3,$4));
+	    ($plane_to,$to_army)=get_plane($2);
+	    
+	    printdebug ("eventos_aire(): Damaged on ground event : derribado en sector de bando $my_army_sector, pertenece al bando $to_army");
+	    
+	    if ($my_army_sector == $to_army) {
+		$vale=0;
+	    }	    
+	    
+	    if($vale){
+		$time_evento=$1;
+		($to,$to_army)=get_name($2);
+		($plane_to,$to_army)=get_plane($2);
+		$task_killed=get_task($2);
+		if ($task_killed eq "I") {$task_killed="INT";}
+		if ($task_killed ne "") {$task_killed= "<font size=\"-6\">&nbsp;&nbsp;($task_killed)</font>";}
+		
+		if ($to_army ==1) { $red_planes_destroyed++;}
+		if ($to_army ==2) { $blue_planes_destroyed++;}
+		$by="-";
+		$plane_by="Accident";
+		$by_army=8; # no army 
+		$print_event=1;
+		$down_x=$3;
+		$down_y=$4;
+	    }	    
+	}
+	elsif ($in =~  m/([^ ]+) ([^ ]+) crashed at ([^ ]+) ([^ ]+)/){
 	    $base_AF=get_base_AF($2);
 	    my $vale=1;
 	    my $nocuenta;
@@ -2788,12 +2841,6 @@ REP4
 		    last;
 		}
 	    }
-	    foreach $nocuenta (@shotdown_pilots) {
-		if ($nocuenta eq $2) {
-		    $vale=0;
-		    last;
-		}
-	    }	    
 	    foreach $nocuenta (@PKilled_pilots) {
 		if ($nocuenta eq $2) {
 		    $vale=0;
@@ -3917,6 +3964,28 @@ sub get_sector($$){
     #printdebug("get_sector(): returning sector $l$n");
 
     return "$l$n";
+}
+
+# @Heracles@20110717@
+# Retorna a que bando a que pertenece un sector
+# Parámetro : sector
+sub get_army_by_sector($) {
+    my ($my_sector) = @_;
+    
+    printdebug("get_army_by_sector(): sector=$my_sector");
+    
+    my $my_army = "NULL";
+    
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+        if ($_ =~ m/^SEC-$my_sector,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([123])/){
+	    $my_army = $1;
+	}
+    }
+    
+    printdebug("get_army_by_sector(): army=$my_army");
+    
+    return $my_army;    
 }
 
 # @Heracles@201104232
@@ -5467,9 +5536,9 @@ for (my $i=0 ; $i<$hpilots; $i++){
     if ($pilot_list[$i][5] == 2) {$bluep++;}
 }
 if ($redp<$MIN_PILOT_SIDE) { #: aqui si pilotos <MIN , print warn, close all die.
-    print "$big_red ERROR: At least  $MIN_PILOT_SIDE pilots PER SIDE needed to report.<br>\n";
+    print "$big_red ERROR: At least  $MIN_PILOT_SIDE pilots PER SIDE needed to report. $redp rojos<br>\n";
     print &print_end_html();
-    print PAR_LOG "ERROR: RP-LIMIT $MIS_TO_REP: Es necesario un minimo de $MIN_PILOT_SIDE pilotos POR lado.\n\n";
+    print PAR_LOG "ERROR: RP-LIMIT $MIS_TO_REP: Es necesario un minimo de $MIN_PILOT_SIDE pilotos POR lado. $redp rojos\n\n";
     close(WARN);
     close(PAR_LOG);
     unlink $LOG_FILE; # borramos el log antes de terminar
@@ -5477,9 +5546,9 @@ if ($redp<$MIN_PILOT_SIDE) { #: aqui si pilotos <MIN , print warn, close all die
     exit(0);
 }
 if ($bluep<$MIN_PILOT_SIDE) { # aqui si pilotos <MIN , print warn, close all die.
-    print "$big_red ERROR: At least  $MIN_PILOT_SIDE pilots PER SIDE needed to report.<br>\n";
+    print "$big_red ERROR: At least  $MIN_PILOT_SIDE pilots PER SIDE needed to report. $bluep azules<br>\n";
     print &print_end_html();
-    print PAR_LOG "ERROR: BP-LIMIT $MIS_TO_REP: Es necesario un minimo de $MIN_PILOT_SIDE pilotos POR lado.\n\n";
+    print PAR_LOG "ERROR: BP-LIMIT $MIS_TO_REP: Es necesario un minimo de $MIN_PILOT_SIDE pilotos POR lado. $bluep azules\n\n";
     close(WARN);
     close(PAR_LOG);
     unlink $LOG_FILE; # borramos el log antes de terminar
