@@ -4484,7 +4484,23 @@ sub make_attack_page(){
 	    $tgt_name=$2;
 	    $cxo=$3;
 	    $cyo=$4;
-	    unshift (@red_possible,$tgt_name);
+	    
+	    ## @Heracles@20110719@
+	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+	    my $my_city = $1;
+	    $my_city =~ m/SUC([0-9]+)/;
+	    $my_city = $1;
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
+		    if ($1 > 0) {
+			unshift (@red_possible,$tgt_name);
+		    }
+		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
 	}
     }
 
@@ -4590,7 +4606,24 @@ sub make_attack_page(){
 	    $tgt_name=$2;
 	    $cxo=$3;
 	    $cyo=$4;
-	    unshift (@blue_possible,$tgt_name);
+
+	    ## @Heracles@20110719@
+	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+	    my $my_city = $1;
+	    $my_city =~ m/SUC([0-9]+)/;
+	    $my_city = $1;
+	    printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
+		    if ($1 > 0) {
+			unshift (@blue_possible,$tgt_name);
+		    }
+		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
 	}
     }
 
