@@ -21,6 +21,7 @@ sub aviable_af();
 sub check_targets_places();
 sub set_attacks_types();
 sub get_sqdname($);
+sub get_mission_times();
 sub get_flight($$$$);
 sub build_grplsts(); 
 sub find_close_obj_area($$);
@@ -558,6 +559,29 @@ sub get_sqdname($){
     }
 }
 
+## @Heracles@20110722@
+## Devuelve el número de misiones de campaña - numero de reports
+sub get_mission_times(){
+
+    my $extend="_";
+    my $counter;
+    my $ret=0;
+    
+    if (!(open (COU,"<rep_counter.data"))){
+	print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	unlink $parser_lock;
+	print GEN_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open report counter file : $!\n\n";
+	exit(0);
+    }
+
+    $counter=<COU>;
+    close(COU);
+    $counter =~ s/_//;
+    return(int($counter)); 
+}
+
 # returns a list with all definitions for a flight. First makes a matr4ix with all possible
 # planes for a TASK and its weight by number. Then if there are more tna one option it selects
 # a random one using this weights. If a plane type is speicfied, usually the matrix has only one
@@ -579,14 +603,12 @@ sub get_flight($$$$) {
     my $plane_total=0; # numero total actual de aviones para el tipo de mision que buscamos
     my $plane_total_ini=0; # numero total inicial (en el inicio de la campana) de aviones para el tipo de mision que buscamos
     my $inv_army = ($army == 1) ? "IR" : "IA";
-    my $mission_times = $extend; # numero total de misiones
-    $mission_times =~ m/_([0-9]+)/;
-    $mission_times = int($1);
+    my $mission_times = get_mission_times(); # numero total de misiones
     $mission_times = ($mission_times == 0) ? 1 : $mission_times;
     
     my $human_type = ($human == 0) ? "humanos" : "IA";
     printdebug ("get_flight(): Buscando aviones de bando $army para $task para " . $human_type);
-    printdebug ("get_flight(): Numero de misiones $extend $mission_times \n");
+    printdebug ("get_flight(): Numero de misiones $mission_times \n");
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){  #    $1      $2      $3      $4      $5      $6      $7     $8
 	if ($_ =~ m/^$army,([^,]+),($plane),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):$task,/){
@@ -668,7 +690,7 @@ sub get_flight($$$$) {
 	    
 	    my $bool = $delta <=> $delta_max;
 	    printdebug ("get_flight(): delta $delta mayor que delta_max $delta_max ? $bool");
-	    if ( $bool == 1 || $delta_max == "NULL") {
+	    if ( $bool == 1 || $delta_max eq "NULL") {
 		$delta_max = $delta;
 		$option = $i;
 		$encontrado++;
@@ -684,7 +706,7 @@ sub get_flight($$$$) {
         exit(0);
     }    
 
-    printdebug ("get_flight(): $fly_matrix[$option][0] seleccionado \n");		
+    printdebug ("get_flight(): $fly_matrix[$option][0] seleccionado.");		
 
     ## @Heracles@20110708@
     ## Sumamos las veces que ha salido un tipo de avion en una mision
@@ -693,7 +715,7 @@ sub get_flight($$$$) {
     while (<FLIGHTS>) {
         if ($_ =~ m/^$inv_army,$fly_matrix[$option][0],([^,]+),([^,]+),([^,]+),/){
 	    my $my_times = $3 + 1;
-	    printdebug ("get_flight(): Seleccionamos $fly_matrix[$option][0], apariciones $3 misiones.\n");	    
+	    printdebug ("get_flight(): Seleccionamos $fly_matrix[$option][0], apariciones $3 misiones.");	    
 	    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+),[^,]+,/$1,$my_times,/;
 	    printdebug ("get_flight(): Actualizamos aircraft.data con: $_ \n");
 	    print TEMPFLIGHTS;

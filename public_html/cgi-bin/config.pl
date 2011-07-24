@@ -33,6 +33,17 @@ $db_upwd="Phoenix";  # database user password  (CHANGE THIS)
 
 #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
 $super_user="E69_Heracles";
+$DZDEBUG=1; # En debug
+
+# @Heracles@20110719@
+# Constantes para el sistema de inventario y produccion
+$INVENTARIO=0; # Activa el sistema de inventario
+$PRODUCCION=0; # Activa el sistema de produccion
+# Constantes para el ajuste del algoritmo de produccion. Valores del 0..1 . deben sumar 1 los tres
+$TUNE_DELTA_TOTAL= 0.3; # Importancia de la perdida de aviones sobre el total de inventario (porcentaje perdidos sobre el total de aviones)
+$TUNE_DELTA_PARTIAL=0.5; # Importancia de la perdida de aviones sobre el porcentaje inicial (delta porcentaje inicial - actual)
+$TUNE_MISSION_TOTAL=0.2; # Importancia del numero de apariciones en las misiones
+
 
 $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
 $AF_VDAY_RECOVER=2; # % recovery of AF on each virtual day
@@ -160,6 +171,11 @@ if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early
     $SUNRISE=7;
     $SUNSET=17;
     
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia    
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -220,6 +236,11 @@ if ($MAP_NAME_LONG eq "Stalingrad. Late 1942" || $MAP_NAME_LONG eq "Stalingrad. 
     # Sólo adminte horas coómo número enteros en formato de 24 h.
     $SUNRISE=7;
     $SUNSET=17;
+    
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
     
     # map image information
     $ANCHO=900;      # image width in pixels
@@ -286,6 +307,11 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $SUNRISE=5;
     $SUNSET=19;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -335,6 +361,11 @@ if ($MAP_NAME_LONG eq "Smolensk. 1944"){
     $SUNRISE=7;
     $SUNSET=17;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -394,6 +425,11 @@ if ($MAP_NAME_LONG eq "Balaton. 1945"){
     $SUNRISE=7;
     $SUNSET=17;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -462,6 +498,11 @@ if ($MAP_NAME_LONG eq "Berlin. 1945"){
     $SUNRISE=7;
     $SUNSET=17;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=386;       # image height in pixels
@@ -519,6 +560,11 @@ if ($MAP_NAME_LONG eq "Moscow. Winter 1944"){
     $SUNRISE=7;
     $SUNSET=17;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=780;       # image height in pixels
@@ -568,6 +614,11 @@ if ($MAP_NAME_LONG eq "Lvov. 1941"){
     $SUNRISE=4;
     $SUNSET=19;
 
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=10; # Nuermo de aviones azules producicod en un dia
+    
     # map image information
     $ANCHO=900;      # image width in pixels
     $ALTO=786;       # image height in pixels

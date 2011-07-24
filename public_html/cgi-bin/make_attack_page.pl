@@ -462,10 +462,10 @@ print MAPA  "    <title>Front Map</title>\n";
 print MAPA "  </head>\n<body background=\"/images/fondo_mapa.jpg\" bgcolor=\"#ccffff\">\n<center>\n";
 print MAPA  "<a href=\"/\"><img alt=\"Return\" border=0 src=\"/images/tanks.gif\"></a><br><br>\n\n";
 
-print MAPA  "<font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
 print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
-print MAPA  "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
+print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
 print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
 my $k;
@@ -480,10 +480,10 @@ print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
 print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
 ## informe de daños aerodormos
-print MAPA  "<b>Damaged  VVS Airfields: </b><br>\n";
-print STA   "<b>Damaged  VVS Airfields: </b><br>\n";
-print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
-print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
+print MAPA  "<b>Aeródromos Rojos:</b><br>\n";
+print STA   "<b>Aeródromos Rojos</b><br>\n";
+print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
+print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
 
 seek GEO_OBJ, 0, 0;
 while(<GEO_OBJ>) { 
@@ -515,10 +515,10 @@ print MAPA  "</table><br><br>\n";
 print STA   "</table><br><br>\n";
 print MAPA  "</td><td valign=\"top\">\n";
 print STA   "</td><td valign=\"top\">\n";
-print MAPA  "<b>Damaged LW Airfields: </b><br>\n";
-print STA   "<b>Damaged LW Airfields: </b><br>\n";
-print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
-print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
+print MAPA  "<b>Aeródromos Azules: </b><br>\n";
+print STA   "<b>Aeródromos Azules: </b><br>\n";
+print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
+print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
 
 seek GEO_OBJ, 0, 0;
 while(<GEO_OBJ>) {
@@ -549,15 +549,105 @@ while(<GEO_OBJ>) {
 print MAPA  "</table><br><br></td></tr></table>\n";
 print STA   "</table><br><br></td></tr></table>\n";
 
+if ($INVENTARIO) {
+	
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+        print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        exit(0);
+    }    	
+	
+    ## informe de inventario de aviones rojos
+    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+
+    print MAPA  "<b>Inventario de aviones Rojos</b><br>\n";
+    print STA   "<b>Inventario de aviones Rojos</b><br>\n";
+
+    print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+    print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+	
+    seek FLIGHTS, 0, 0;
+    while (<FLIGHTS>) {
+        if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){
+	    my $plane_model = $1;
+	    my $plane_number = $3;
+		
+	    print MAPA "<tr><td> $plane_model </td><td>"; 
+	    print STA "<tr><td> $plane_model </td><td>"; 
+		
+	    my $line_back = tell FLIGHTS;
+	    seek FLIGHTS,0,0;
+	    while (<FLIGHTS>){
+	        if ($_ =~ m/^1,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+		    print MAPA "$1,";
+		    print STA "$1,";
+		}
+	    }
+		
+	    print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+	    print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+	    seek FLIGHTS, $line_back, 0;
+	}
+    }
+	
+    print MAPA  "</table><br><br>\n";
+    print STA   "</table><br><br>\n";
+
+    print MAPA "<br><br>\n";
+    print STA   "<br><br>\n";
+
+    print MAPA  "</td><td valign=\"top\">\n";
+    print STA   "</td><td valign=\"top\">\n";
+        
+    ## informe de inventario de aviones azules
+    print MAPA  "<b>Inventario de aviones Azules</b><br>\n";
+    print STA   "<b>Inventario de aviones Azules</b><br>\n";
+
+    print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+    print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+	
+    seek FLIGHTS, 0, 0;
+    while (<FLIGHTS>) {
+        if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){
+	    my $plane_model = $1;
+	    my $plane_number = $3;
+	
+	    print MAPA "<tr><td> $plane_model </td><td>"; 
+	    print STA "<tr><td> $plane_model </td><td>"; 
+		
+	    my $line_back = tell FLIGHTS;
+	    seek FLIGHTS,0,0;
+	    while (<FLIGHTS>){
+		if ($_ =~ m/^2,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+		    print MAPA "$1,";
+		    print STA "$1,";
+		}
+	    }
+		
+	    print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+	    print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+	    seek FLIGHTS, $line_back, 0;
+	}
+    }
+
+    print MAPA  "</table><br><br></td></tr></table>\n";
+    print STA   "</table><br><br></td></tr></table>\n";
+	
+    close (FLIGHTS);
+	
+}
+
 ## informe de daños Ciudades
 print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
 print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
-print MAPA  "<b>State of cities under Soviet control:</b><br>\n";
-print STA   "<b>State of cities under Soviet control:</b><br>\n";
+print MAPA  "<b>Estado de las ciudades rojas:</b><br>\n";
+print STA   "<b>Estado de las ciudades rojas:</b><br>\n";
 
-print MAPA  "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
-print STA   "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
+print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
+print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
 
 seek GEO_OBJ, 0, 0;
 while(<GEO_OBJ>) {
@@ -572,10 +662,10 @@ print MAPA "<br><br>\n";
 print STA   "<br><br>\n";
 print MAPA  "</td><td valign=\"top\">\n";
 print STA   "</td><td valign=\"top\">\n";
-print MAPA  "<b>State of cities under German control:</b><br>\n";
-print STA   "<b>State of cities under German control:</b><br>\n";
-print MAPA  "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
-print STA   "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
+print MAPA  "<b>Estado de las ciudades azules:</b><br>\n";
+print STA   "<b>Estado de las ciudades azules:</b><br>\n";
+print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
+print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
 
 seek GEO_OBJ, 0, 0;
 while(<GEO_OBJ>) {
@@ -586,8 +676,8 @@ while(<GEO_OBJ>) {
 }
 print MAPA  "</table><br><br></td></tr></table>\n";
 print STA   "</table><br><br></td></tr></table>\n";
-print MAPA  "<p><strong>Front Map:</strong><br>";
-print STA   "<p><strong>Front Map:</strong><br>";
+print MAPA  "<p><strong>Mapa del Frente:</strong><br>";
+print STA   "<p><strong>Mapa del Frente:</strong><br>";
 
 open (IMAP,"<$IMAP_DATA");
 while(<IMAP>){

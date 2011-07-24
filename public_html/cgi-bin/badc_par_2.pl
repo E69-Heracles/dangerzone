@@ -6,6 +6,7 @@ require "cgi-lib.pl";
 require "ui.pl";
 use IO::Handle;   # because autoflush
 use DBI();
+use POSIX;
 
 $PAR_VERSION="2.0";
 # db stuff global declaration
@@ -19,6 +20,7 @@ sub get_task($);
 sub get_plane($);
 sub get_base_AF($);
 sub get_report_nbr();
+sub get_mission_times();
 sub get_segundos($);
 sub army_of_coordinates($$);
 sub dist_to_friend_fm($$$);
@@ -41,6 +43,7 @@ sub print_pilot_actions();
 sub sum_array(@);
 sub is_human($);
 sub plane_role($);
+sub calc_plane_stock($);
 sub add_losts_planes_and_pilots_by_task(@);
 sub calc_airfield_losts_damage($$$$$);
 sub print_airfield_losts_report();
@@ -64,6 +67,7 @@ sub draw_1pix ($$$$$);
 sub draw_octants ($$$$$$$);
 sub draw_circle ($$$$);
 sub make_image();
+sub calc_production_planes();
 sub make_attack_page();
 sub printdebug($);
 
@@ -343,6 +347,29 @@ sub get_report_nbr(){
     printf COU ("_%05.0f",$counter+1);
     close(COU);
     return($extend); ## retorna:   _%05.0f
+}
+
+## @Heracles@20110722@
+## Devuelve el número de misiones de campaña - numero de reports
+sub get_mission_times(){
+
+    my $extend="_";
+    my $counter;
+    my $ret=0;
+    
+    if (!(open (COU,"<rep_counter.data"))){
+	print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	unlink $parser_lock;
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open report counter file : $!\n\n";
+	exit(0);
+    }
+
+    $counter=<COU>;
+    close(COU);
+    $counter =~ s/_//;
+    return(int($counter)); 
 }
 
 sub get_segundos($){
@@ -2483,6 +2510,52 @@ sub plane_role($) {
     return $role;
 }
 
+## @Heracles@20110719~@
+## Resta un avion del inventario de aviones
+## Parametros: codigo de avion en el log
+sub calc_plane_stock($) {
+    my ($my_plane) = shift @_;
+
+    if ($INVENTARIO) {
+	my $plane_model;
+	my $my_army;
+	
+	($plane_model, $my_army) = get_plane($my_plane);
+	$my_army = ($my_army == 1) ? "IR" : ($my_army == 2) ? "IA" : "NULL";
+	
+	printdebug ("calc_plane_stock(): Inventario bando $my_army avion $plane_model");
+	
+	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+	    print "Please NOTIFY this error.\n";
+	    print &print_end_html();
+	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+	    exit(0);
+	}
+	
+	open(TEMPFLIGHTS, ">temp_aircraft.data");
+        seek FLIGHTS,0,0;
+        while (<FLIGHTS>) {
+            if ($_ =~ m/^$my_army,$plane_model,([^,]+),([^,]+),([^,]+),/){
+		my $stock = $2 ;
+		$stock = ($stock == 0) ? 0 : $stock - 1;
+		$_ =~ s/^([^,]+,[^,]+,[^,]+),[^,]+,([^,]+),/$1,$stock,$2,/;
+		printdebug ("calc_plane_stock(): Actualizamos aircraft.data con: $_ ");
+		print TEMPFLIGHTS;
+	    }
+	    else {
+	        print TEMPFLIGHTS;	    
+	    }
+	}	
+	close (TEMPFLIGHTS);
+	close (FLIGHTS);
+	unlink $FLIGHTS_DEF;
+	rename "temp_aircraft.data", $FLIGHTS_DEF;	
+	
+    }    
+    
+}
+
 
 ## @Heracles@20110101@
 ## Añade un avion perdido al subtotal segun su tipo de tarea.
@@ -2493,6 +2566,7 @@ sub add_losts_planes_and_pilots_by_task(@) {
     my @planes_lost = (0, 0, 0, 0, 0, 0);
     my $role_damage;
 
+    printdebug("\n");
     printdebug ("add_lost_planes(): Called with $ia_fighter, $ia_bomber, $ia_sum, $human_fighter, $human_bomber, $human_sum, $my_plane, $my_task");
 
     if (is_human($my_plane)) {
@@ -2525,7 +2599,7 @@ sub add_losts_planes_and_pilots_by_task(@) {
 		'ia_type_sum';	
     }
     
-    printdebug ("add_lost_planes() Return with: $my_task : $planes_lost[0], $planes_lost[1], $planes_lost[2], $planes_lost[3], $planes_lost[4], $planes_lost[5]. Role : $role_damage\n");
+    printdebug ("add_lost_planes() Return with: $my_task : $planes_lost[0], $planes_lost[1], $planes_lost[2], $planes_lost[3], $planes_lost[4], $planes_lost[5]. Role : $role_damage");
     return ($role_damage, @planes_lost);
 }
 
@@ -2941,6 +3015,10 @@ REP4
 		$role =~ s/type/lost/;		
 		push (@blue_af2_lost_print_list, [$html_to, $plane_to, $my_plane, get_task($my_plane), $role_damage{$role}]);		
 	    }
+	    
+	    ## @Heracles@20110719
+	    ## Sistema de inventario y produccion
+	    calc_plane_stock($my_plane);	    
 	    
 	    printdebug ("eventos_aire(): name : $html_to, plane : $my_plane, role : $role");
 	    
@@ -4360,9 +4438,9 @@ sub check_sec_sumin(){
 sub check_day(){
     $ext_rep_nbr =~ m/_([0-9]+)/;
     $rep_count=$1;
-
+    
     if (($rep_count%$MIS_PER_VDAY) ==0){ 
-	print "$MIS_PER_VDAY missions  = NEW DAY\n";
+	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
 	
 	open (TEMPGEO, ">temp_geo.data"); #
 	seek GEO_OBJ, 0, 0;
@@ -4396,13 +4474,267 @@ sub check_day(){
 	if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
 	    print "$big_red ERROR Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n";
 	    print "Please NOTIFY this error.\n";
-    print &print_end_html();
+	    print &print_end_html();
 	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n\n";
 	    exit(0);
 	}
+	
+	# @@Heracles@20110722@
+	# Calculamos la producción de aviones
+	print "</strong><font size=\"-1\" color=\"000000\">Calculando aviones enviados al frente...</br>";
+	calc_production_planes();
     }
 }
 
+## @Heracles@20110722@
+## Sistema de produccion
+## Calcula los aviones que reponemos en el sistema de inventario
+sub calc_production_planes() {
+    
+    my @redstock_matrix=();
+    my @bluestock_matrix=();
+    my @redweight_matrix=();
+    my @blueweight_matrix=();
+    my @redweight_sorted=();
+    my @blueweight_sorted=();
+    
+    my $mission_total = get_mission_times(); # numero total de misiones
+    $mission_total = ($mission_total == 0) ? 1 : $mission_total;
+    
+    my $planenum = 0;
+    my $planereal = 0;
+    my $redindex =  0;
+    my $blueindex = 0;
+    
+    my $delta_total = 0.0;  # Numero de aviones perdidos en relacion al total de inventario para un bando (normalizado 0..1)
+    my $percent_ini = 0.0;
+    my $percent_real = 0.0;
+    my $delta_partial = 0.0; # Numero de aviones perdidos en relacion al parcial de inventario para un modelo (normalizado 0..1)
+    my $percent_mission = 0.0; # Numero de apariciones en relacion al total de misiones (normalizado 0..1)
+    my $weight_total= 0.0;
+    
+    my $albaran="albaran.txt";
+    
+    if ($INVENTARIO && $PRODUCCION) {
+	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+	    print "Please NOTIFY this error.\n";
+	    print &print_end_html();
+	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+	    exit(0);
+	}    
+
+	seek FLIGHTS,0,0;
+	while (<FLIGHTS>) {
+	    if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
+	        push(@redstock_matrix,[$1,$2,$3,$4]);
+	    }
+	    if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
+	        push(@bluestock_matrix,[$1,$2,$3,$4]);
+	    }
+	}
+	
+	close(FLIGHTS);
+
+	printdebug ("\n");
+	printdebug ("calc_production_planes(): Inicio de algoritmo ********************************************");
+	
+	## Calculo de total de aviones iniciales rojos
+	for ( my $i=0; $i < $#redstock_matrix; $i++) {
+	    $planenum += $redstock_matrix[$i][1];
+	    $planereal += $redstock_matrix[$i][2];
+	}
+	
+	## Calculo de la matriz de decision para reposicion de aviones rojos
+	for ( my $i=0; $i < $#redstock_matrix; $i++) {
+	    $delta_total = $redstock_matrix[$i][1] - $redstock_matrix[$i][2]; # Numero de aviones iniciales menos los que quedan = a los que hemos perdido
+	    $delta_total = ($delta_total < 0.0) ? 0.0 : $delta_total;
+	    $delta_total = $delta_total / $planenum; # Normalizamos por el total de aviones
+
+	    $percent_ini = $redstock_matrix[$i][1] / $planenum; # Porcentaje de aviones iniciales sobre el total
+	    $percent_real = $redstock_matrix[$i][2] / $planereal; # Porcentaje de aviones actuales sobre el total actual
+	    $delta_partial = $percent_ini - $percent_real;
+	    $delta_partial = ($delta_partial < 0.0) ? 0.0 : $delta_partial;
+	    
+	    $percent_mission = $redstock_matrix[$i][3] / $mission_total; # Porcentaje de aparacion en misiones sobre el total
+	    
+	    $redweight_matrix[$i][0] = $redstock_matrix[$i][0];
+	    $redweight_matrix[$i][1] = $delta_total;
+	    $redweight_matrix[$i][2] = $delta_partial;
+	    $redweight_matrix[$i][3] = $percent_mission;
+	    $redweight_matrix[$i][4] = (($delta_total * $TUNE_DELTA_TOTAL) + ($delta_partial * $TUNE_DELTA_PARTIAL) + ($percent_mission * $TUNE_MISSION_TOTAL)) / 3; # Normalizamos a valores entre 0..1
+	    $redweight_matrix[$i][5] = 0.0;
+	    $redweight_matrix[$i][6] = 0;
+	    
+	    $weight_total += $redweight_matrix[$i][4];
+	    
+	    printdebug ("calc_production_planes(): $redstock_matrix[$i][0] $redstock_matrix[$i][1] $redstock_matrix[$i][2] $redstock_matrix[$i][3]");
+	}	    
+	 
+	## Calculo del peso de cada modelo rojo en relación a la suma total de pesos y del total de aviones que le corresponde a cada modelo
+	for ( my $i=0; $i < $#redweight_matrix; $i++) {
+	    $redweight_matrix[$i][5] = $redweight_matrix[$i][4] / $weight_total;
+	    $redweight_matrix[$i][6] = $redweight_matrix[$i][5] * $VDAY_PRODUCTION_RED;
+	    $redweight_matrix[$i][6] = ceil($redweight_matrix[$i][6]);
+
+	    printdebug ("calc_production_planes(): $redweight_matrix[$i][0] $redweight_matrix[$i][1] $redweight_matrix[$i][2] $redweight_matrix[$i][3] $redweight_matrix[$i][4] $redweight_matrix[$i][5] $redweight_matrix[$i][6]");
+
+	}
+	
+	$weight_total= 0.0;
+	
+	## Calculo de total de aviones iniciales azules
+	for ( my $i=0; $i < $#bluestock_matrix; $i++) {
+	    $planenum += $bluestock_matrix[$i][1];
+	    $planereal += $bluestock_matrix[$i][2];
+	}
+	
+	## Calculo de la matriz de decision para reposicion de aviones rojos
+	for ( my $i=0; $i < $#bluestock_matrix; $i++) {
+	    $delta_total = $bluestock_matrix[$i][1] - $bluestock_matrix[$i][2]; # Numero de aviones iniciales menos los que quedan = a los que hemos perdido
+	    $delta_total = ($delta_total < 0.0) ? 0.0 : $delta_total;
+	    $delta_total = $delta_total / $planenum; # Normalizamos por el total de aviones
+
+	    $percent_ini = $bluestock_matrix[$i][1] / $planenum; # Porcentaje de aviones iniciales sobre el total
+	    $percent_real = $bluestock_matrix[$i][2] / $planereal; # Porcentaje de aviones actuales sobre el total actual
+	    $delta_partial = $percent_ini - $percent_real;
+	    $delta_partial = ($delta_partial < 0.0) ? 0.0 : $delta_partial;
+	    
+	    $percent_mission = $bluestock_matrix[$i][3] / $mission_total; # Porcentaje de aparacion en misiones sobre el total
+	    
+	    $blueweight_matrix[$i][0] = $bluestock_matrix[$i][0];
+	    $blueweight_matrix[$i][1] = $delta_total;
+	    $blueweight_matrix[$i][2] = $delta_partial;
+	    $blueweight_matrix[$i][3] = $percent_mission;
+	    $blueweight_matrix[$i][4] = (($delta_total * $TUNE_DELTA_TOTAL) + ($delta_partial * $TUNE_DELTA_PARTIAL) + ($percent_mission * $TUNE_MISSION_TOTAL)) / 3; # Normalizamos a valores entre 0..1
+	    $blueweight_matrix[$i][5] = 0;
+	    $blueweight_matrix[$i][6] = 0;
+	    
+	    $weight_total += $blueweight_matrix[$i][4];
+	    
+	    printdebug ("calc_production_planes(): $bluestock_matrix[$i][0] $bluestock_matrix[$i][1] $bluestock_matrix[$i][2] $bluestock_matrix[$i][3]");
+	}
+	
+	## Calculo del peso de cada modelo azul en relación a la suma total de pesos y del total de aviones que le corresponde a cada modelo
+	for ( my $i=0; $i < $#blueweight_matrix; $i++) {
+	    $blueweight_matrix[$i][5] = $blueweight_matrix[$i][4] / $weight_total;
+	    $blueweight_matrix[$i][6] = $blueweight_matrix[$i][5] * $VDAY_PRODUCTION_BLUE;
+	    $blueweight_matrix[$i][6] = ceil($blueweight_matrix[$i][6]);
+	    
+	    printdebug ("calc_production_planes(): $blueweight_matrix[$i][0] $blueweight_matrix[$i][1] $blueweight_matrix[$i][2] $blueweight_matrix[$i][3] $blueweight_matrix[$i][4] $blueweight_matrix[$i][5] $blueweight_matrix[$i][6]");
+	}
+	
+	# Ordenamos las matrices de mayor a menor
+	@redweight_sorted = sort { $b->[6] <=> $a->[6]} @redweight_matrix;
+	@blueweight_sorted = sort { $b->[6] <=> $a->[6]} @blueweight_matrix;
+
+	printdebug ("\n");
+	printdebug ("calc_production_planes(): Resultado de algoritmo ********************************************");
+	for ( my $i=0; $i < $#redweight_sorted; $i++) {
+	    printdebug ("calc_production_planes(): $redweight_sorted[$i][0] $redweight_sorted[$i][1] $redweight_sorted[$i][2] $redweight_sorted[$i][3] $redweight_sorted[$i][4] $redweight_sorted[$i][5] $redweight_sorted[$i][6]");	    	    
+	}
+	for ( my $i=0; $i < $#blueweight_sorted; $i++) {
+	    printdebug ("calc_production_planes(): $blueweight_sorted[$i][0] $blueweight_sorted[$i][1] $blueweight_sorted[$i][2] $blueweight_sorted[$i][3] $blueweight_sorted[$i][4] $blueweight_sorted[$i][5] $blueweight_sorted[$i][6]");	    
+	}
+	printdebug ("calc_production_planes(): Fin de resultado de algoritmo ********************************************");
+	
+	open (ALB,">$albaran")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
+	ALB->autoflush(1); # hot output	
+	print ALB   "<table border=1 ><tr><td valign=\"top\">\n";
+	print ALB   "<b>Último albarán rojo:</b><br>\n";
+	print ALB   "<table><tr><td>Modelo</td><td>Unidades</td></tr>\n";	
+	
+	print "Sistema de producción para el bando rojo:</br>";
+	# Actualizamos el aircraft.data para los rojos
+	my $production = $VDAY_PRODUCTION_RED;
+	for ( my $i=0; $i < $#redweight_sorted && $production > 0; $i++) {
+	    if ($redweight_sorted[$i][6] > 0) {
+		open (FLIGHTS, "<$FLIGHTS_DEF");
+		open(TEMPFLIGHTS, ">temp_aircraft.data");
+		seek FLIGHTS,0,0;
+		while (<FLIGHTS>) {
+		    if ($_ =~ m/^IR,$redweight_sorted[$i][0],([^,]+),([^,]+),[^,]+,/){
+			my $stock = $2;
+			my $incr = 0;
+			if ($production > $redweight_sorted[$i][6]) {
+			    $stock += $redweight_sorted[$i][6];
+			    $production -= $redweight_sorted[$i][6];
+			    $incr = $redweight_sorted[$i][6];
+			}
+			else {
+			    $stock += $production;
+			    $incr = $production;			
+			    $production = 0;
+			}
+			$_ =~ s/^([^,]+,[^,]+,[^,]+),[^,]+,([^,]+),/$1,$stock,$2,/;
+			printdebug ("calc_production_planes(): Actualizamos aircraft.data con: $_ ");
+			print TEMPFLIGHTS;
+			print "Llegan $incr aviones del modelo $redweight_sorted[$i][0] al frente</br>";
+			print ALB "<tr><td> $redweight_sorted[$i][0] </td><td> $incr </td></tr>\n";			
+		    }
+		    else {
+		        print TEMPFLIGHTS;	    
+		    }
+		}
+		close (TEMPFLIGHTS);
+		close (FLIGHTS);
+		unlink $FLIGHTS_DEF;
+		rename "temp_aircraft.data", $FLIGHTS_DEF;
+	    }
+	}
+	
+	ALB->flush;
+	print ALB   "</table><br><br>\n";
+	print ALB   "<br><br>\n";
+	print ALB   "</td><td valign=\"top\">\n";
+	print ALB   "<b>Último albarán azul:</b><br>\n";
+	print ALB   "<table><tr><td>Modelo</td><td>Unidades</td></tr>\n";	
+	
+	print "Sistema de producción para el bando azul:</br>";	
+	# Actualizamos el aircraft.data para los azules
+	my $production = $VDAY_PRODUCTION_BLUE;
+	for ( my $i=0; $i < $#blueweight_sorted && $production > 0; $i++) {
+	    if ($blueweight_sorted[$i][6] > 0) {	    
+		open (FLIGHTS, "<$FLIGHTS_DEF");
+		open(TEMPFLIGHTS, ">temp_aircraft.data");
+		seek FLIGHTS,0,0;
+		while (<FLIGHTS>) {
+		    if ($_ =~ m/^IA,$blueweight_sorted[$i][0],([^,]+),([^,]+),[^,]+,/){
+			my $stock = $2;
+			my $incr = 0;		    
+			if ($production > $blueweight_sorted[$i][6]) {
+			    $stock += $blueweight_sorted[$i][6];
+			    $production -= $blueweight_sorted[$i][6];
+			    $incr = $blueweight_sorted[$i][6];;
+			}
+			else {
+			    $stock += $production;
+			    $incr = $production;
+			    $production = 0;
+			}
+			$_ =~ s/^([^,]+,[^,]+,[^,]+),[^,]+,([^,]+),/$1,$stock,$2,/;
+			printdebug ("calc_production_planes(): Actualizamos aircraft.data con: $_ ");
+			print TEMPFLIGHTS;
+			print "Llegan $incr aviones del modelo $blueweight_sorted[$i][0] al frente</br>";
+			print ALB "<tr><td> $blueweight_sorted[$i][0] </td><td> $incr </td></tr>\n";
+			ALB->flush;
+		    }
+		    else {
+		        print TEMPFLIGHTS;	    
+		    }
+		}
+		close (TEMPFLIGHTS);
+		close (FLIGHTS);
+		unlink $FLIGHTS_DEF;
+		rename "temp_aircraft.data", $FLIGHTS_DEF;
+	    }
+	}
+	
+	ALB->flush;	    
+	print ALB   "</table><br><br></td></tr></table>\n";
+	close(ALB);
+    }
+}
 
 sub make_attack_page(){
 
@@ -4720,6 +5052,7 @@ sub make_attack_page(){
     my $Options_R="Options_R.txt";
     my $Options_B="Options_B.txt";
     my $Status="Status.txt";
+    my $Albaran="Albaran.txt";
 
 #    if ($WINDOWS) {
 #	eval `copy $CGI_BIN_PATH\\$Options_R $DATA_BKUP\\$Options_R$ext_rep_nbr`; # win
@@ -4736,10 +5069,10 @@ sub make_attack_page(){
     open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
     print MAPA  &print_start_html;
-    print MAPA  "<br><br><font size=\"+1\">Next Mission of Day (MoD): <b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+    print MAPA  "<br><br><font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
     print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
-    print MAPA  "$hora h $minutos m - Weather: $tipo_clima  - Clouds at $nubes meters. </font><br><br>\n\n";
+    print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
     print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
     my $k;
@@ -4754,10 +5087,10 @@ sub make_attack_page(){
     print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
     ## informe de daños aerodormos
-    print MAPA  "<b>Damaged  VVS Airfields: </b><br>\n";
-    print STA   "<b>Damaged  VVS Airfields: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
+    print MAPA  "<b>Aeródromos Rojos: </b><br>\n";
+    print STA   "<b>Aeródromos Rojos: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
@@ -4789,10 +5122,10 @@ sub make_attack_page(){
     print STA   "</table><br><br>\n";
     print MAPA  "</td><td valign=\"top\">\n";
     print STA   "</td><td valign=\"top\">\n";
-    print MAPA  "<b>Damaged LW Airfields: </b><br>\n";
-    print STA   "<b>Damaged LW Airfields: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Airfield</td><td>Damage</td></tr>\n";
+    print MAPA  "<b>Aeródromos Azules: </b><br>\n";
+    print STA   "<b>Aeródromos Azules: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
     
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
@@ -4823,15 +5156,117 @@ sub make_attack_page(){
     print MAPA  "</table><br><br></td></tr></table>\n";
     print STA   "</table><br><br></td></tr></table>\n";
 
+    if ($INVENTARIO) {
+	
+	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+	    print "Please NOTIFY this error.\n";
+	    print &print_end_html();
+	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+	    exit(0);
+	}    	
+	
+        ## informe de inventario de aviones rojos
+        print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+        print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+
+        print MAPA  "<b>Inventario de aviones Rojos</b><br>\n";
+        print STA   "<b>Inventario de aviones Rojos</b><br>\n";
+
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+	
+	seek FLIGHTS, 0, 0;
+	while (<FLIGHTS>) {
+	    if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){
+		my $plane_model = $1;
+		my $plane_number = $3;
+		
+		print MAPA "<tr><td> $plane_model </td><td>"; 
+		print STA "<tr><td> $plane_model </td><td>"; 
+		
+		my $line_back = tell FLIGHTS;
+		seek FLIGHTS,0,0;
+	        while (<FLIGHTS>){
+		    if ($_ =~ m/^1,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+			print MAPA "$1,";
+			print STA "$1,";
+		    }
+		}
+		
+		print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		seek FLIGHTS, $line_back, 0;
+	    }
+	}
+	
+	print MAPA  "</table><br><br>\n";
+	print STA   "</table><br><br>\n";
+
+	print MAPA "<br><br>\n";
+	print STA   "<br><br>\n";
+
+	print MAPA  "</td><td valign=\"top\">\n";
+	print STA   "</td><td valign=\"top\">\n";
+        
+	## informe de inventario de aviones azules
+        print MAPA  "<b>Inventario de aviones Azules</b><br>\n";
+        print STA   "<b>Inventario de aviones Azules</b><br>\n";
+
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+	
+	seek FLIGHTS, 0, 0;
+	while (<FLIGHTS>) {
+	    if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){
+		my $plane_model = $1;
+		my $plane_number = $3;
+		
+		print MAPA "<tr><td> $plane_model </td><td>"; 
+		print STA "<tr><td> $plane_model </td><td>"; 
+		
+		my $line_back = tell FLIGHTS;
+		seek FLIGHTS,0,0;
+	        while (<FLIGHTS>){
+		    if ($_ =~ m/^2,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+			print MAPA "$1,";
+			print STA "$1,";
+		    }
+		}
+		
+		print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		seek FLIGHTS, $line_back, 0;
+	    }
+	}
+
+	print MAPA  "</table><br><br></td></tr></table>\n";
+	print STA   "</table><br><br></td></tr></table>\n";
+	
+	close (FLIGHTS);
+	
+	if ($PRODUCCION) {
+	    if (open (ALB, "<$Albaran")) {
+		seek ALB, 0, 0;
+		while (<ALB>) {
+		    print MAPA;
+		    print STA;
+		}
+		close (ALB);
+	    }    		    
+	}
+	
+    }
+    
     ## informe de daños Ciudades
     print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
     print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
-    print MAPA  "<b>State of cities under Soviet control:</b><br>\n";
-    print STA   "<b>State of cities under Soviet control:</b><br>\n";
+    print MAPA  "<b>Estado de las ciudades rojas:</b><br>\n";
+    print STA   "<b>Estado de las ciudades rojas:</b><br>\n";
 
-    print MAPA  "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
-    print STA   "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
+    print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
+    print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
@@ -4849,11 +5284,11 @@ sub make_attack_page(){
     print MAPA  "</td><td valign=\"top\">\n";
     print STA   "</td><td valign=\"top\">\n";
 
-    print MAPA  "<b>State of cities under German control:</b><br>\n";
-    print STA   "<b>State of cities under German control:</b><br>\n";
+    print MAPA  "<b>Estado de las ciudades azules:</b><br>\n";
+    print STA   "<b>Estado de las ciudades azules:</b><br>\n";
 
-    print MAPA  "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
-    print STA   "<table><tr><td>City</td><td>Damage</td><td>Suply radius</td></tr>";
+    print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
+    print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
@@ -4865,8 +5300,8 @@ sub make_attack_page(){
     print MAPA  "</table><br><br></td></tr></table>\n";
     print STA   "</table><br><br></td></tr></table>\n";
 
-    print MAPA  "<p><strong>Front Map:</strong><br>";
-    print STA   "<p><strong>Front Map:</strong><br>";
+    print MAPA  "<p><strong>Mapa del Frente:</strong><br>";
+    print STA   "<p><strong>Mapa del Frente:</strong><br>";
 
     open (IMAP,"<$IMAP_DATA");
     while(<IMAP>){
