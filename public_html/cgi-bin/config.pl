@@ -37,8 +37,8 @@ $DZDEBUG=1; # En debug
 
 # @Heracles@20110719@
 # Constantes para el sistema de inventario y produccion
-$INVENTARIO=0; # Activa el sistema de inventario
-$PRODUCCION=0; # Activa el sistema de produccion
+$INVENTARIO=1; # Activa el sistema de inventario
+$PRODUCCION=1; # Activa el sistema de produccion
 # Constantes para el ajuste del algoritmo de produccion. Valores del 0..1 . deben sumar 1 los tres
 $TUNE_DELTA_TOTAL= 0.3; # Importancia de la perdida de aviones sobre el total de inventario (porcentaje perdidos sobre el total de aviones)
 $TUNE_DELTA_PARTIAL=0.5; # Importancia de la perdida de aviones sobre el porcentaje inicial (delta porcentaje inicial - actual)
@@ -46,7 +46,7 @@ $TUNE_MISSION_TOTAL=0.2; # Importancia del numero de apariciones en las misiones
 
 
 $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
-$AF_VDAY_RECOVER=2; # % recovery of AF on each virtual day
+$AF_VDAY_RECOVER=3; # % recovery of AF on each virtual day
 $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
 $CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
@@ -55,20 +55,20 @@ $MIN_STOCK_FOR_FLYING=2; # Stock minimo de aviones para poder generar un vuelo.
 
 ## @Heracles@20100103
 ## Airfield damage constants
-$AF_HUMAN_SUM_PLANE_LOST_DAM=0.8; # damage to AF per each HUMAN SUM plane lost
-$AF_HUMAN_SUM_PILOT_LOST_DAM=1.2; # damage to AF per each HUMAN SUM pilot lost
-$AF_IA_SUM_PLANE_LOST_DAM=0.5; # damage to AF per each IA SUM plane lost
-$AF_IA_SUM_PILOT_LOST_DAM=1.0; # damage to AF per each IA SUM pilot lost
+$AF_HUMAN_SUM_PLANE_LOST_DAM=1.0; # damage to AF per each HUMAN SUM plane lost
+$AF_HUMAN_SUM_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN SUM pilot lost
+$AF_IA_SUM_PLANE_LOST_DAM=1.0; # damage to AF per each IA SUM plane lost
+$AF_IA_SUM_PILOT_LOST_DAM=0.25; # damage to AF per each IA SUM pilot lost
 
 $AF_HUMAN_BOMBER_PLANE_LOST_DAM=1.0; # damage to AF per each HUMAN BOMBER plane lost
-$AF_HUMAN_BOMBER_PILOT_LOST_DAM=1.2; # damage to AF per each HUMAN BOMBER pilot lost
-$AF_IA_BOMBER_PLANE_LOST_DAM=0.8; # damage to AF per each IA BOMBER plane lost
-$AF_IA_BOMBER_PILOT_LOST_DAM=1.0; # damage to AF per each IA BOMBER pilot lost
+$AF_HUMAN_BOMBER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN BOMBER pilot lost
+$AF_IA_BOMBER_PLANE_LOST_DAM=1.0; # damage to AF per each IA BOMBER plane lost
+$AF_IA_BOMBER_PILOT_LOST_DAM=0.25; # damage to AF per each IA BOMBER pilot lost
 
-$AF_HUMAN_FIGHTER_PLANE_LOST_DAM=0.8; # damage to AF per each HUMAN FIGHTER plane lost
-$AF_HUMAN_FIGHTER_PILOT_LOST_DAM=1.0; # damage to AF per each HUMAN FIGHTER pilot lost
-$AF_IA_FIGHTER_PLANE_LOST_DAM=0.5; # damage to AF per each IA FIGHTER plane lost
-$AF_IA_FIGHTER_PILOT_LOST_DAM=0.8; # damage to AF per each IA FIGHTER pilot lost
+$AF_HUMAN_FIGHTER_PLANE_LOST_DAM=1.0; # damage to AF per each HUMAN FIGHTER plane lost
+$AF_HUMAN_FIGHTER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN FIGHTER pilot lost
+$AF_IA_FIGHTER_PLANE_LOST_DAM=1.0; # damage to AF per each IA FIGHTER plane lost
+$AF_IA_FIGHTER_PILOT_LOST_DAM=0.25; # damage to AF per each IA FIGHTER pilot lost
 
 
 $MIN_TIME_MIN=25; # minimun minutes of mission to accept a report
