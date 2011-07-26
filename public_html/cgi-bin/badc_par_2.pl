@@ -4786,7 +4786,7 @@ sub make_attack_page(){
 			    while(<GEO_OBJ>) {
 				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
 				    # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
+				    if ($1 > $CITY_DAM) {
 					push (@red_possible,$tgt_name);
 					last;
 				    }
@@ -4909,7 +4909,7 @@ sub make_attack_page(){
 			    while(<GEO_OBJ>) {
 				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
 				   # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
+				    if ($1 > $CITY_DAM) {
 					push (@blue_possible,$tgt_name);
 					last;
 				    }
