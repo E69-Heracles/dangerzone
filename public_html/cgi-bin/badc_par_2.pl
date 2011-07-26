@@ -3516,31 +3516,31 @@ sub print_mis_objetive_result(){
     }
 
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3><a href=\"#reports\">View pilot reports</a></h3></center>\n\n";
+    print HTML_REP "<center><h3><a href=\"#reports\">Informes de pilotos</a></h3></center>\n\n";
 
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Mission Result:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Resultado de la misión:</h3></center>\n\n";
     print HTML_REP "<center>\n  <table border=1>\n";
 
     if ($RED_ATTK_TACTIC==1){
 	if ($unix_cgi){ 
 	#    print "Soviet Tactic Attack \n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet tactical attack</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque táctico rojo</strong></center></td></tr>\n";
     }
 
     if ($RED_SUM==1){
 	if ($unix_cgi){ 
 	#    print "Soviet resuply mission\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet supply mission</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro rojo</strong></center></td></tr>\n";
     }
 
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
 	if ($unix_cgi){ 
 	#    print "Soviet Startegic attack\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Soviet Strategic attack</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estratégico rojo</strong></center></td></tr>\n";
     }
 
     print HTML_REP "  <tr bgcolor=\"#ffcccc\"><td>\n";
@@ -3571,7 +3571,7 @@ sub print_mis_objetive_result(){
 		    if ($unix_cgi){ 
 			#print "    $1 - Tank destroyed by  $by $plane_by\n";
 		    }
-		    print HTML_REP  "    $1 - Tank destroyed by $by $plane_by <br>\n";
+		    print HTML_REP  "    $1 - Tanques destruídos por $by $plane_by <br>\n";
 		    $tank_killed++;
 		}
 	    }
@@ -3580,7 +3580,7 @@ sub print_mis_objetive_result(){
 	    if ($unix_cgi){ 
 		#print "    --- Soviets fail to capture $red_target\n";
 	    }
-	    print HTML_REP "    --- <strong>Soviets fail to capture $red_target</strong>.<br>\n";
+	    print HTML_REP "    --- <strong>Los rojos fallan en la captura de $red_target</strong>.<br>\n";
 	    $red_result="fail"; # para mis_prog_tbl
 	}
 	else { 
@@ -3588,7 +3588,7 @@ sub print_mis_objetive_result(){
 	    if ($unix_cgi){ 
 		#print "    --- Soviets capture $red_target\n";
 	    }
-	    print HTML_REP  "    --- <strong>Soviets capture  $red_target</strong>.<br>\n";
+	    print HTML_REP  "    --- <strong>Los rojos capturan $red_target</strong>.<br>\n";
 	    $red_result="capture"; # para mis_prog_tbl
 	}
     }
@@ -3610,9 +3610,9 @@ sub print_mis_objetive_result(){
 	    #print "    - Sourvived : $sourvive % \n";
 	    #print "    --- Soviets resuply  $red_resuply % $red_sum_city ";
 	}
-	print HTML_REP "    - AI Suply Group of $RED_SUM_AI planes to $red_sum_city. <br>\n";
-	print HTML_REP "    - Sourvived : $sourvive % <br>\n";
-	print HTML_REP "    --- <strong>Soviets resuply  $red_resuply % $red_sum_city ";
+	print HTML_REP "    - Grupo de suministros IA de $RED_SUM_AI aviones a $red_sum_city. <br>\n";
+	print HTML_REP "    - Sobreviven : $sourvive % <br>\n";
+	print HTML_REP "    --- <strong>Lor rojos suministran $red_resuply % $red_sum_city ";
 	$red_result="$red_resuply"; # para mis_prog_tbl
 
 	my $ai_land_at="";
@@ -3673,8 +3673,8 @@ sub print_mis_objetive_result(){
 	if ($unix_cgi){ 
 	    #print  "    The estimated damage in $red_target is  ".$blue_damage."%.\n";
 	}
-	print HTML_REP "    VVS destroy $obj_kill ground objetives, in an area with $blue_objects objetives.<br>\n";
-	print HTML_REP "    The estimated damage in $red_target is <strong>".$blue_damage."%.</strong><br>\n";
+	print HTML_REP "    Los rojos destruyen $obj_kill objetivos, en una area con $blue_objects objetives.<br>\n";
+	print HTML_REP "    El daño infligido en $red_target es <strong>".$blue_damage."%.</strong><br>\n";
 	$red_result="$blue_damage"; # para mis_prog_tbl
     }
     
@@ -3685,21 +3685,21 @@ sub print_mis_objetive_result(){
 	if ($unix_cgi){ 
 	#    print "German Tactical attack\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>German tactical attack</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque táctico azul</strong></center></td></tr>\n";
     }
 
     if ($BLUE_SUM==1){
 	if ($unix_cgi){ 
 	#    print "German suply mission\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>German supply mission</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro azul</strong></center></td></tr>\n";
     }
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
 	if ($unix_cgi){ 
 	#    print "German stategic attack:\n";
 	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>German Strategic attack:</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estratégico azul</strong></center></td></tr>\n";
     }
     
     print HTML_REP "  <tr bgcolor=\"#ccccff\"><td>\n";
@@ -3732,7 +3732,7 @@ sub print_mis_objetive_result(){
 		    if ($unix_cgi){ 
 			#print "    $1 - Tank destroyed by  $by $plane_by\n";
 		    }
-		    print HTML_REP  "    $1 - Tank destroyed by $by $plane_by<br>\n";
+		    print HTML_REP  "    $1 - Tanques destruídos por $by $plane_by<br>\n";
 		    $tank_killed++;
 		}
 	    }
@@ -3741,7 +3741,7 @@ sub print_mis_objetive_result(){
 	    if ($unix_cgi){ 
 		#print "    --- Germans fail to capture $blue_target\n";
 	    }
-	    print HTML_REP "    --- <strong>Germans fail to capture $blue_target</strong>.<br>\n";
+	    print HTML_REP "    --- <strong>Los azules fallan en la captura de $blue_target</strong>.<br>\n";
 	    $blue_result="fail"; # para mis_prog_tbl
 	}
 	else { 
@@ -3749,7 +3749,7 @@ sub print_mis_objetive_result(){
 	    if ($unix_cgi){ 
 		#print "    --- Germans capture $blue_target\n";
 	    }
-	    print HTML_REP "    --- <strong>Germans capture $blue_target</strong>.<br>\n";
+	    print HTML_REP "    --- <strong>Los azules capturan $blue_target</strong>.<br>\n";
 	    $blue_result="capture"; # para mis_prog_tbl
 	}
     }
@@ -3772,9 +3772,9 @@ sub print_mis_objetive_result(){
 	    #print "    - Sourvived : $sourvive % \n";
 	    #print "    --- Germans resuply  $blue_resuply % $blue_sum_city ";
 	}
-	print HTML_REP "    - AI Suply Group of $BLUE_SUM_AI planes to $blue_sum_city. <br>\n";
-	print HTML_REP "    - Sourvived : $sourvive % <br>\n";
-	print HTML_REP "    --- <strong>Germans resuply  $blue_resuply % $blue_sum_city \n";
+	print HTML_REP "    - Grupo de suministros IA de $BLUE_SUM_AI aviones a $blue_sum_city. <br>\n";
+	print HTML_REP "    - Sobreviven : $sourvive % <br>\n";
+	print HTML_REP "    --- <strong>Los azules suministran $blue_resuply % $blue_sum_city \n";
 	$blue_result="$blue_resuply"; # para mis_prog_tbl
 
 	my $ai_land_at="";
@@ -3837,8 +3837,8 @@ sub print_mis_objetive_result(){
 	if ($unix_cgi){ 
 	#    print "    The estimated damage in $blue_target is ".$red_damage."%.\n";
 	}
-	print HTML_REP "    LW destroy $obj_kill ground ovjetives, in an area with $red_objects objetives.<br>\n";
-	print HTML_REP "    The estimated damage in $blue_target is <strong>".$red_damage."%.</strong>\n";
+	print HTML_REP "    Los azules destruyen $obj_kill objetivos, en una area con $red_objects objetivos.<br>\n";
+	print HTML_REP "    El daño infligido en $blue_target es <strong>".$red_damage."%.</strong>\n";
 	$blue_result="$red_damage"; # para mis_prog_tbl
     }
     print HTML_REP "  </td></tr>\n  </table>\n</center>\n\n\n";
