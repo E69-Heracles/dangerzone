@@ -32,6 +32,7 @@ sub bytask_sourvive_list();
 sub find_safe_pilots();
 sub find_PKilled_pilots();
 sub find_shotdown_pilots();
+sub find_crashed_pilots();
 sub get_pilot_exp($);
 sub get_pilot_fairp($);
 sub get_akill_points($$);
@@ -871,13 +872,24 @@ sub find_PKilled_pilots(){
 ## Función creada para poder introducir en las perdidas de aerodromo el evento "damage on the ground"
 ## incluimos IAs
 sub find_shotdown_pilots(){
-    @shotdown_pilots=();
     seek LOG, 0, 0;
     while(<LOG>) {		
 	if ($_=~  m/[^ ]+ ([^ ]+) shot down by ([^ ]+) at [^ ]+ [^ ]+/){ # avion derribado
 	    if ($1 ne $2){ # si no se mato asimismo.
 		push(@shotdown_pilots,$1);
 	    }
+	}
+    }
+}
+
+## @Heracles@20110726@
+## Función creada para poder introducir en las perdidas de aerodromo el evento "damage on the ground"
+## incluimos IAs
+sub find_crashed_pilots(){
+    seek LOG, 0, 0;
+    while(<LOG>) {		
+	if ($_=~  m/[^ ]+ ([^ ]+) crashed at [^ ]+ [^ ]+/){ # avion estrellado
+	    push(@crashed_pilots,$1);
 	}
     }
 }
@@ -2875,6 +2887,13 @@ REP4
 		    last;
 		}
 	    }
+	    
+	    foreach $nocuenta (@crashed_pilots) {
+		if ($nocuenta eq $2) {
+		    $vale=0;
+		    last;
+		}
+	    }	    
 	    
 	    ## @Heracles@20110717@
 	    ## Si ha hecho forzoso en territorio propio no damos el avion por perdido
@@ -5982,6 +6001,9 @@ find_PKilled_pilots();
 
 @shotdown_pilots=();
 find_shotdown_pilots();
+
+@crashed_pilots=();
+find_crashed_pilots();
 
 @task_planes_list=();
 $task_groups=0;
