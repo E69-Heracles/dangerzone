@@ -1,6 +1,8 @@
 #!/usr/bin/perl 
 
 require "config.pl";
+require "ui.pl";
+
 $|=1; #STDOUT HOT
 
 if (! defined $ENV{'HTTP_USER_AGENT'}) { $unix_cgi=0;}  
@@ -89,12 +91,20 @@ TOP
 
 # MAIN START
 sub distance ($$$$);
+sub printdebug($);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
     return (sqrt(($x1-$x2)**2+($y1-$y2)**2));
 }
 
+sub printdebug($) {
+    my $log = shift (@_);
+    if ($DZDEBUG) {
+       print scalar(localtime(time)) . $log . "\n";	
+    }
+}
+    
 chdir $CGI_BIN_PATH; 
 
 if (!(open (COU,"<rep_counter.data"))){
@@ -117,252 +127,6 @@ if (!open (FRONT, "<$FRONT_LINE")){
     print "Please NOTIFY this error.\n";
     die "ERROR: Can't open File $FRONT_LINE: $! on main proc\n";
 }
-
-    my @red_possible=();
-    my $line_back;
-    ## seleccion de objetivos al azar TACTICOS ROJOS
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				    # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
-					push (@red_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@red_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
-    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO AF)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<40000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <40000) {
-		push (@red_possible,$tgt_name); # los ponemos al final
-	    }
-	}
-    }
-
-
-    ## seleccion de SUMINISTROS A CIUDADES ROJAS
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-
-	    ## @Heracles@20110719@
-	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-	    my $my_city = $1;
-	    $my_city =~ m/SUC([0-9]+)/;
-	    $my_city = $1;
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
-		    if ($1 > 0) {
-			unshift (@red_possible,$tgt_name);
-		    }
-		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	}
-    }
-
-
-    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<80000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <80000) {
-		unshift (@red_possible,$tgt_name);
-	    }
-	}
-    }
-
-
-#------------------------------------------------------
-
-    ## seleccion de objetivos al azar TACTICOS AZULES
-    my @blue_possible=();
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				   # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
-					push (@blue_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@blue_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
-    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO AF)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<40000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <40000) {
-		push (@blue_possible,$tgt_name); 
-	    }
-	}
-    }
-
-    ## seleccion de SUMINISTROS a CIUDADES Azules
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-
-	    ## @Heracles@20110719@
-	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-	    my $my_city = $1;
-	    $my_city =~ m/SUC([0-9]+)/;
-	    $my_city = $1;
-	    printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
-		    if ($1 > 0) {
-			unshift (@blue_possible,$tgt_name);
-		    }
-		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	}
-    }
-
-
-    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<80000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <80000) {
-		unshift (@blue_possible,$tgt_name);
-	    }
-	}
-    }
-
 
 #CLIMA para la proxima mision
 
@@ -455,26 +219,12 @@ open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
 open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
 open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
-print MAPA  "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">";
-print MAPA  "<html>\n<head>\n    <META HTTP-EQUIV=\"PRAGMA\" CONTENT=\"no-cache\">\n";
-print MAPA  "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n";
-print MAPA  "    <title>Front Map</title>\n";
-print MAPA "  </head>\n<body background=\"/images/fondo_mapa.jpg\" bgcolor=\"#ccffff\">\n<center>\n";
-print MAPA  "<a href=\"/\"><img alt=\"Return\" border=0 src=\"/images/tanks.gif\"></a><br><br>\n\n";
-
+print MAPA  &print_start_html;
 print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
 print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
 print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
 print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
-
-my $k;
-for ($k=0; $k<scalar(@red_possible); $k++){
-    print OPR "<option value=\"$red_possible[$k]\">$red_possible[$k]</option>\n";
-}
-for ($k=0; $k<scalar(@blue_possible); $k++){
-    print OPB "<option value=\"$blue_possible[$k]\">$blue_possible[$k]</option>\n";
-}
 
 print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
 print STA   "<table border=1 ><tr><td valign=\"top\">\n";
@@ -689,6 +439,260 @@ print MAPA "</center>\n</body>\n</html>\n";
 
 close (MAPA);
 close (STA);
+
+    my @red_possible=();
+    my $line_back;
+    ## seleccion de objetivos al azar TACTICOS ROJOS
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+	    $tgt_name=$1;
+	    $cxo=$2;
+	    $cyo=$3;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist<16000) {
+			my $cityname="NONE";
+			seek GEO_OBJ,0,0;
+			while(<GEO_OBJ>) {
+			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
+				$cityname=$1;
+			    }
+			}
+			if ($cityname ne "NONE") {
+			    seek GEO_OBJ,0,0;
+			    while(<GEO_OBJ>) {
+				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
+				    # print "valor da~nos $cityname = $1 \n";
+				    if ($1 >50) {
+					push (@red_possible,$tgt_name);
+					last;
+				    }
+				}
+			    }
+			}
+			else {
+			    push (@red_possible,$tgt_name);
+			    last;
+			}
+		    }
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
+	}
+    }
+    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO AF)
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    seek FRONT,0,0;
+	    while(<FRONT>) {
+		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist < $near) {
+			$near=$dist;
+			if ($dist<$MAX_DIST_AF_BA) {last;}  #version 24 optim change
+		    }
+		}
+	    }
+	    if ($near <$MAX_DIST_AF_BA) {
+		push (@red_possible,$tgt_name); # los ponemos al final
+	    }
+	}
+    }
+
+
+    ## seleccion de SUMINISTROS A CIUDADES ROJAS
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+
+	    ## @Heracles@20110719@
+	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+	    my $my_city = $1;
+	    $my_city =~ m/SUC([0-9]+)/;
+	    $my_city = $1;
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
+		    if ($1 > 0) {
+			unshift (@red_possible,$tgt_name);
+		    }
+		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
+	}
+    }
+
+
+    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    seek FRONT,0,0;
+	    while(<FRONT>) {
+		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist < $near) {
+			$near=$dist;
+			if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
+		    }
+		}
+	    }
+	    if ($near <$MAX_DIST_CITY_BA) {
+		unshift (@red_possible,$tgt_name);
+	    }
+	}
+    }
+
+
+#------------------------------------------------------
+
+    ## seleccion de objetivos al azar TACTICOS AZULES
+    my @blue_possible=();
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	    $tgt_name=$1;
+	    $cxo=$2;
+	    $cyo=$3;
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist<16000) {
+			my $cityname="NONE";
+			seek GEO_OBJ,0,0;
+			while(<GEO_OBJ>) {
+			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
+				$cityname=$1;
+			    }
+			}
+			if ($cityname ne "NONE") {
+			    seek GEO_OBJ,0,0;
+			    while(<GEO_OBJ>) {
+				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
+				   # print "valor da~nos $cityname = $1 \n";
+				    if ($1 >50) {
+					push (@blue_possible,$tgt_name);
+					last;
+				    }
+				}
+			    }
+			}
+			else {
+			    push (@blue_possible,$tgt_name);
+			    last;
+			}
+		    }
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
+	}
+    }
+    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO AF)
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    seek FRONT,0,0;
+	    while(<FRONT>) {
+		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist < $near) {
+			$near=$dist;
+			if ($dist<$MAX_DIST_AF_BA) {last;}  #version 24 optim change
+		    }
+		}
+	    }
+	    if ($near <$MAX_DIST_AF_BA) {
+		push (@blue_possible,$tgt_name); 
+	    }
+	}
+    }
+
+    ## seleccion de SUMINISTROS a CIUDADES Azules
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+
+	    ## @Heracles@20110719@
+	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+	    my $my_city = $1;
+	    $my_city =~ m/SUC([0-9]+)/;
+	    $my_city = $1;
+	    printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
+		    if ($1 > 0) {
+			unshift (@blue_possible,$tgt_name);
+		    }
+		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
+	}
+    }
+
+
+    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
+	    $tgt_name=$2;
+	    $cxo=$3;
+	    $cyo=$4;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    seek FRONT,0,0;
+	    while(<FRONT>) {
+		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist < $near) {
+			$near=$dist;
+			if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
+		    }
+		}
+	    }
+	    if ($near <$MAX_DIST_CITY_BA) {
+		unshift (@blue_possible,$tgt_name);
+	    }
+	}
+    }
+
+my $k;
+for ($k=0; $k<scalar(@red_possible); $k++){
+    print OPR "<option value=\"$red_possible[$k]\">$red_possible[$k]</option>\n";
+}
+for ($k=0; $k<scalar(@blue_possible); $k++){
+    print OPB "<option value=\"$blue_possible[$k]\">$blue_possible[$k]</option>\n";
+}
+
 close (OPR);
 close (OPB);
 
