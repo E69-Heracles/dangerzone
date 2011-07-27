@@ -4757,255 +4757,40 @@ sub calc_production_planes() {
 
 sub make_attack_page(){
 
-
-    my @red_possible=();
-    my $line_back;
-    ## seleccion de objetivos al azar TACTICOS ROJOS
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				    # print "valor da~nos $cityname = $1 \n";
-				    if ($1 > $CITY_DAM) {
-					push (@red_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@red_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
-    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO AF)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<40000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <40000) {
-		push (@red_possible,$tgt_name); # los ponemos al final
-	    }
-	}
-    }
-
-
-    ## seleccion de SUMINISTROS A CIUDADES ROJAS
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    
-	    ## @Heracles@20110719@
-	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-	    my $my_city = $1;
-	    $my_city =~ m/SUC([0-9]+)/;
-	    $my_city = $1;
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
-		    if ($1 > 0) {
-			unshift (@red_possible,$tgt_name);
-		    }
-		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	}
-    }
-
-
-    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<80000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <80000) {
-		unshift (@red_possible,$tgt_name);
-	    }
-	}
-    }
-
-
-#------------------------------------------------------
-
-    ## seleccion de objetivos al azar TACTICOS AZULES
-    my @blue_possible=();
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				   # print "valor da~nos $cityname = $1 \n";
-				    if ($1 > $CITY_DAM) {
-					push (@blue_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@blue_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
-    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO AF)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<40000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <40000) {
-		push (@blue_possible,$tgt_name); 
-	    }
-	}
-    }
-
-    ## seleccion de SUMINISTROS a CIUDADES Azules
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-
-	    ## @Heracles@20110719@
-	    ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-	    my $my_city = $1;
-	    $my_city =~ m/SUC([0-9]+)/;
-	    $my_city = $1;
-	    printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
-		    if ($1 > 0) {
-			unshift (@blue_possible,$tgt_name);
-		    }
-		    printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	}
-    }
-
-
-    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-	    $tgt_name=$2;
-	    $cxo=$3;
-	    $cyo=$4;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    seek FRONT,0,0;
-	    while(<FRONT>) {
-		if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist < $near) {
-			$near=$dist;
-			if ($dist<80000) {last;}  #version 24 optim change
-		    }
-		}
-	    }
-	    if ($near <80000) {
-		unshift (@blue_possible,$tgt_name);
-	    }
-	}
-    }
-
-
+    ## *****************************************************
+    ## @@Heracles - Inicio de construccion de pagina del frente
+    
+    # Condiciones de victoria
+    my $af_red_colapsed=0;
+    my $af_blue_colapsed=0;
+    my $red_hq_captured=0;
+    my $blue_hq_captured=0;
+    my $red_stock_out=0;
+    my $blue_stock_out=0;
+    my %red_task_stock = (
+	BA=>0,
+	EBA=>0,
+	SUM=>0,
+	ESU=>0,
+	BD=>0,
+	EBD=>0,
+	ET=>0,
+	AT=>0,
+	I=>0
+        );
+    my %blue_task_stock = (
+	BA=>0,
+	EBA=>0,
+	SUM=>0,
+	ESU=>0,
+	BD=>0,
+	EBD=>0,
+	ET=>0,
+	AT=>0,
+	I=>0
+        );    
+    
     #CLIMA para la proxima mision
-
     my $hora;
     my $minutos;
     my $clima;
@@ -5088,38 +4873,38 @@ sub make_attack_page(){
     open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
     print MAPA  &print_start_html;
+    print MAPA "<!-- VICTORY CONDITION -->\n";
+    print MAPA "\n";
     print MAPA  "<br><br><font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
     print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
     print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
     print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
-    my $k;
-    for ($k=0; $k<scalar(@red_possible); $k++){
-	print OPR "<option value=\"$red_possible[$k]\">$red_possible[$k]</option>\n";
-    }
-    for ($k=0; $k<scalar(@blue_possible); $k++){
-	print OPB "<option value=\"$blue_possible[$k]\">$blue_possible[$k]</option>\n";
-    }
-
     print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
     print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
     ## informe de daños aerodormos
-    print MAPA  "<b>Aeródromos Rojos: </b><br>\n";
-    print STA   "<b>Aeródromos Rojos: </b><br>\n";
+    print MAPA  "<b>Aeródromos rojos: </b><br>\n";
+    print STA   "<b>Aeródromos rojos: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
 
+    ## variables para control de colapso de AF
+    my $af_num=0;
+    my $af_colapsed=0;
+    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):1/){
+	    $af_num++;
 	    my $afname=$1;
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
 	    if ($afdam > 20) {
 		if ($afdam>=80) {
+		    $af_colapsed++;
 		    if ($afdam<100) {$afdam="&nbsp;".$afdam;}
 		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
 		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
@@ -5137,24 +4922,31 @@ sub make_attack_page(){
 	    }
 	}
     }
+    
+    if ($af_num == $af_colapsed) {$af_red_colapsed = 1;}
+    
     print MAPA  "</table><br><br>\n";
     print STA   "</table><br><br>\n";
     print MAPA  "</td><td valign=\"top\">\n";
     print STA   "</td><td valign=\"top\">\n";
-    print MAPA  "<b>Aeródromos Azules: </b><br>\n";
-    print STA   "<b>Aeródromos Azules: </b><br>\n";
+    print MAPA  "<b>Aeródromos azules: </b><br>\n";
+    print STA   "<b>Aeródromos azules: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
     
+    $af_num = 0;
+    $af_colapsed=0;
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):2/){
+	    $af_num++;
 	    my $afname=$1;
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
 	    if ($afdam > 20) {
 		if ($afdam>=80) {
+		    $af_colapsed++;
 		    if ($afdam<100) {$afdam="&nbsp;".$afdam;}
 		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
 		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
@@ -5172,8 +4964,11 @@ sub make_attack_page(){
 	    }
 	}
     }
-    print MAPA  "</table><br><br></td></tr></table>\n";
-    print STA   "</table><br><br></td></tr></table>\n";
+    
+    if ($af_num == $af_colapsed) {$af_blue_colapsed = 1;}
+    
+    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
+    print STA   "</table><br><br></td></tr></table><br><br>\n";
 
     if ($INVENTARIO) {
 	
@@ -5189,8 +4984,8 @@ sub make_attack_page(){
         print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
         print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
-        print MAPA  "<b>Inventario de aviones Rojos</b><br>\n";
-        print STA   "<b>Inventario de aviones Rojos</b><br>\n";
+        print MAPA  "<b>Inventario de aviones rojos:</b><br>\n";
+        print STA   "<b>Inventario de aviones rojos:</b><br>\n";
 
         print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
         print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
@@ -5210,14 +5005,29 @@ sub make_attack_page(){
 		    if ($_ =~ m/^1,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
 			print MAPA "$1,";
 			print STA "$1,";
+			$red_task_stock{$1} += $plane_number;
 		    }
 		}
 		
-		print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
-		print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		if ($plane_number <= 10) { 
+		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		}
+		else {
+		    if ( $plane_number <= 50 ) {
+			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";
+			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";			
+		    }
+		    else {
+			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";
+			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";			
+		    }
+		}
 		seek FLIGHTS, $line_back, 0;
 	    }
 	}
+	
+	if ($red_task_stock{BD} == 0 || $red_task_stock{EBD} == 0 || $red_task_stock{ET} == 0 || $red_task_stock{AT} == 0 || $red_task_stock{I} == 0) {$red_stock_out = 1;}
 	
 	print MAPA  "</table><br><br>\n";
 	print STA   "</table><br><br>\n";
@@ -5229,8 +5039,8 @@ sub make_attack_page(){
 	print STA   "</td><td valign=\"top\">\n";
         
 	## informe de inventario de aviones azules
-        print MAPA  "<b>Inventario de aviones Azules</b><br>\n";
-        print STA   "<b>Inventario de aviones Azules</b><br>\n";
+        print MAPA  "<b>Inventario de aviones azules:</b><br>\n";
+        print STA   "<b>Inventario de aviones azules:</b><br>\n";
 
         print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
         print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
@@ -5250,17 +5060,32 @@ sub make_attack_page(){
 		    if ($_ =~ m/^2,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
 			print MAPA "$1,";
 			print STA "$1,";
+			$blue_task_stock{$1} += $plane_number;			
 		    }
 		}
 		
-		print MAPA "</td><td align=\"right\"> $plane_number</td></tr>\n";
-		print STA "</td><td align=\"right\"> $plane_number</td></tr>\n";
+		if ($plane_number <= 10) { 
+		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		}
+		else {
+		    if ( $plane_number <= 50 ) {
+			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";
+			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";			
+		    }
+		    else {
+			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";
+			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";			
+		    }
+		}
 		seek FLIGHTS, $line_back, 0;
 	    }
 	}
+	
+	if ($blue_task_stock{BD} == 0 || $blue_task_stock{EBD} == 0 || $blue_task_stock{ET} == 0 || $blue_task_stock{AT} == 0 || $blue_task_stock{I} == 0) {$blue_stock_out = 1;}	
 
-	print MAPA  "</table><br><br></td></tr></table>\n";
-	print STA   "</table><br><br></td></tr></table>\n";
+	print MAPA  "</table><br><br></td></tr></table><br><br>\n";
+	print STA   "</table><br><br></td></tr></table><br><br>\n";
 	
 	close (FLIGHTS);
 	
@@ -5278,8 +5103,8 @@ sub make_attack_page(){
     }
     
     ## informe de daños Ciudades
-    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
-    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+    print MAPA  "<br><br><table border=1 ><tr><td valign=\"top\">\n";
+    print STA   "<br><br><table border=1 ><tr><td valign=\"top\">\n";
 
     print MAPA  "<b>Estado de las ciudades rojas:</b><br>\n";
     print STA   "<b>Estado de las ciudades rojas:</b><br>\n";
@@ -5289,9 +5114,22 @@ sub make_attack_page(){
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/^CT[0-9]+,([^,]+),.*,([^,]+),([^,]+):1/){
-	    print MAPA "<tr><td> $1 </td><td> $2% </td><td> $3 Km.</td></tr>\n";
-	    print STA "<tr><td> $1 </td><td> $2% </td><td> $3 Km.</td></tr>\n";
+	if ($_ =~ m/^(CT[0-9]+),([^,]+),.*,([^,]+),([^,]+):1/){
+	    if ($3 > $CITY_DAM) {
+		print MAPA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		print STA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+	    }
+	    else {
+		if ( $3 > 25) {
+		    print MAPA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		    print STA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
+		}
+		else {
+		    print MAPA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		    print STA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
+		}
+	    }
+	    if ( $2 eq $BLUE_HQ ) { $blue_hq_captured = 1;}
 	}
     }
     print MAPA  "</table><br><br>\n";
@@ -5311,9 +5149,22 @@ sub make_attack_page(){
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/^CT[0-9]+,([^,]+),.*,([^,]+),([^,]+):2/){
-	    print  MAPA  "<tr><td> $1 </td><td> $2% </td><td> $3 Km.</td></tr>\n";
-	    print  STA   "<tr><td> $1 </td><td> $2% </td><td> $3 Km.</td></tr>\n";
+	if ($_ =~ m/^(CT[0-9]+),([^,]+),.*,([^,]+),([^,]+):2/){
+	    if ($3 > $CITY_DAM) {
+		print MAPA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		print STA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+	    }
+	    else {
+		if ( $3 > 25) {
+		    print MAPA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		    print STA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
+		}
+		else {
+		    print MAPA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
+		    print STA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
+		}
+	    }
+	    if ( $2 eq $RED_HQ ) { $red_hq_captured = 1;}
 	}
     }
     print MAPA  "</table><br><br></td></tr></table>\n";
@@ -5332,8 +5183,442 @@ sub make_attack_page(){
 
     close (MAPA);
     close (STA);
+    
+    ## @@Heracles - Fin de construccion de pagina del frente
+    ## *****************************************************
+    
+    ## *****************************************************
+    ## @@Heracles - Inicio de seleccion de objetivos
+    my @red_possible=();
+    my $line_back;
+    ## seleccion de objetivos al azar TACTICOS ROJOS
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+	    $tgt_name=$1;
+	    $cxo=$2;
+	    $cyo=$3;
+	    $near=500000; # gran distancia para comenzar (500 km)
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist<16000) {
+			my $cityname="NONE";
+			seek GEO_OBJ,0,0;
+			while(<GEO_OBJ>) {
+			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
+				$cityname=$1;
+			    }
+			}
+			if ($cityname ne "NONE") {
+			    seek GEO_OBJ,0,0;
+			    while(<GEO_OBJ>) {
+				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
+				    # print "valor da~nos $cityname = $1 \n";
+				    if ($1 > $CITY_DAM) {
+					push (@red_possible,$tgt_name);
+					last;
+				    }
+				}
+			    }
+			}
+			else {
+			    push (@red_possible,$tgt_name);
+			    last;
+			}
+		    }
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
+	}
+    }
+    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO AF)
+    ## @Heracles@20110727
+    ## Solo seleccionar AF para misión BA si quedan aviones BA
+    if ($red_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+		$near=500000; # gran distancia para comenzar (500 km)
+		seek FRONT,0,0;
+		while(<FRONT>) {
+		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
+			$dist= distance($cxo,$cyo,$1,$2);
+			if ($dist < $near) {
+			    $near=$dist;
+			    if ($dist<$MAX_DIST_AF_BA) {last;}  #version 24 optim change
+			}
+		    }
+		}
+		if ($near <$MAX_DIST_AF_BA) {
+		    push (@red_possible,$tgt_name); # los ponemos al final
+		}
+	    }
+	}
+    }
+
+    ## seleccion de SUMINISTROS A CIUDADES ROJAS
+    ## @Heracles@20110727
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {    
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+	    
+		## @Heracles@20110719@
+		## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+		my $my_city = $1;
+		$my_city =~ m/SUC([0-9]+)/;
+		$my_city = $1;
+		$line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+		seek GEO_OBJ,0,0;
+		while(<GEO_OBJ>) {
+		    if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
+			if ($1 > 0) {
+			    unshift (@red_possible,$tgt_name);
+			}
+			printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		    }
+		}
+		seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
+	    }
+	}
+    }
+    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)    
+    ## @Heracles@20110727
+    ## Solo seleccionar AF para misión BA si quedan aviones BA
+    if ($red_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+		$near=500000; # gran distancia para comenzar (500 km)
+		seek FRONT,0,0;
+		while(<FRONT>) {
+		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
+			$dist= distance($cxo,$cyo,$1,$2);
+			if ($dist < $near) {
+			    $near=$dist;
+			    if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
+			}
+		    }
+		}
+		if ($near <$MAX_DIST_CITY_BA) {
+		    unshift (@red_possible,$tgt_name);
+		}
+	    }
+	}
+    }
+
+
+#------------------------------------------------------
+
+    ## seleccion de objetivos al azar TACTICOS AZULES
+    my @blue_possible=();
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+	    $tgt_name=$1;
+	    $cxo=$2;
+	    $cyo=$3;
+	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+	    seek GEO_OBJ,0,0;
+	    while(<GEO_OBJ>) {
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
+		    $dist= distance($cxo,$cyo,$1,$2);
+		    if ($dist<16000) {
+			my $cityname="NONE";
+			seek GEO_OBJ,0,0;
+			while(<GEO_OBJ>) {
+			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
+				$cityname=$1;
+			    }
+			}
+			if ($cityname ne "NONE") {
+			    seek GEO_OBJ,0,0;
+			    while(<GEO_OBJ>) {
+				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
+				   # print "valor da~nos $cityname = $1 \n";
+				    if ($1 > $CITY_DAM) {
+					push (@blue_possible,$tgt_name);
+					last;
+				    }
+				}
+			    }
+			}
+			else {
+			    push (@blue_possible,$tgt_name);
+			    last;
+			}
+		    }
+		}
+	    }
+	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
+	}
+    }
+    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO AF)
+    ## @Heracles@20110727
+    ## Solo seleccionar AF para misión BA si quedan aviones BA
+    if ($blue_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {    
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF.{2}),([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+		$near=500000; # gran distancia para comenzar (500 km)
+		seek FRONT,0,0;
+		while(<FRONT>) {
+		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
+			$dist= distance($cxo,$cyo,$1,$2);
+			if ($dist < $near) {
+			    $near=$dist;
+			    if ($dist<$MAX_DIST_AF_BA) {last;}  #version 24 optim change
+			}
+		    }
+		}
+		if ($near <$MAX_DIST_AF_BA) {
+		    push (@blue_possible,$tgt_name); 
+		}
+	    }
+	}
+    }
+
+    ## seleccion de SUMINISTROS a CIUDADES Azules
+    ## @Heracles@20110727
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {        
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+
+		## @Heracles@20110719@
+		## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+		my $my_city = $1;
+		$my_city =~ m/SUC([0-9]+)/;
+		$my_city = $1;
+		printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
+		$line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
+		seek GEO_OBJ,0,0;
+		while(<GEO_OBJ>) {
+		    if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
+			if ($1 > 0) {
+			    unshift (@blue_possible,$tgt_name);
+			}
+			printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
+		    }
+		}
+		seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
+	    }
+	}
+    }
+
+
+    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
+    ## @Heracles@20110727
+    ## Solo seleccionar ciudad para misión BA si quedan aviones BA
+    if ($blue_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {    
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
+		$tgt_name=$2;
+		$cxo=$3;
+		$cyo=$4;
+		$near=500000; # gran distancia para comenzar (500 km)
+		seek FRONT,0,0;
+		while(<FRONT>) {
+		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
+			$dist= distance($cxo,$cyo,$1,$2);
+			if ($dist < $near) {
+			    $near=$dist;
+			    if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
+			}
+		    }
+		}
+		if ($near <$MAX_DIST_CITY_BA) {
+		    unshift (@blue_possible,$tgt_name);
+		}
+	    }
+	}
+    }
+
+    my $k;
+    for ($k=0; $k<scalar(@red_possible); $k++){
+	print OPR "<option value=\"$red_possible[$k]\">$red_possible[$k]</option>\n";
+    }
+    for ($k=0; $k<scalar(@blue_possible); $k++){
+	print OPB "<option value=\"$blue_possible[$k]\">$blue_possible[$k]</option>\n";
+    }
+    
     close (OPR);
     close (OPB);
+    
+    ## *****************************************************
+    ## @@Heracles - Fin de seleccion de objetivos
+    
+    ## @@Heracles@20110726@
+    ## Controlar si se ha dado algunas de las condiciones de victoria.
+    
+    # Dias maximos de misión
+    if ($rep_count == ($CAMPAIGN_MAX_VDAY * $MIS_PER_VDAY)) {
+	
+	# @@Heracles@20110726
+	# Calcular los puntos de la campaña
+	my $blue_points = 0;
+	my $red_points = 0;
+	
+	$sth = $dbh->prepare("select sum(blue_points), sum(red_points) from $mis_prog where reported=\'1\'");
+	$sth->execute();
+	@row = $sth->fetchrow_array;
+	$sth->finish;
+	$blue_points = $row[0];
+	$red_points = $row[1];
+	
+	printdebug ("make_attack_page(): Vencido el timer de campaña en $CAMPAIGN_MAX_VDAY días virtuales");
+	printdebug ("make_attack_page(): Puntos azules : $blue_points");
+	printdebug ("make_attack_page(): Puntos rojos : $red_points");		
+
+	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
+	open(TEMPMAPA, ">$TEMPMAP_FILE");
+        seek MAPA,0,0;
+        while (<MAPA>) {
+            if ($_ =~ m/<!-- VICTORY CONDITION -->/){
+		if ( $red_points > $blue_points) {
+		    $_ = "<font size=\"+2\" color=\"ff0000\"><b>Los rojos ganan la campaña de $MAP_NAME_LONG por puntos!</b></font></br></br>\n";
+		}
+		else {
+		    if ( $blue_points > $red_points) {
+			$_ = "<font size=\"+2\" color=\"0000ff\"><b>Los azules ganan la campaña de $MAP_NAME_LONG por puntos!</b></font></br></br>\n";			
+		    }
+		    else {
+			$_ = "<font size=\"+2\" color=\"00ff00\"><b>Increíble! La campaña de $MAP_NAME_LONG finaliza en tablas!</b></font></br></br>\n";						
+		    }
+		}
+	    }
+            print TEMPMAPA;	    
+	}	
+	close (TEMPMAPA);
+	close (MAPA);
+	unlink $MAP_FILE;
+	rename $TEMPMAP_FILE, $MAP_FILE;
+	
+	open (LK,">$gen_lock"); #Se cierra la campaña
+	print LK "$$\n"; #imprimimos PID en primera linea.
+	close (LK);		
+    }
+    
+    # Aerodromos colapsados
+    if ($af_red_colapsed == 1 || $af_blue_colapsed == 1) {
+	
+	printdebug ("make_attack_page(): Aerodromos colapsados, campaña acabada.");
+	printdebug ("make_attack_page(): Aerodomos azules colapsados: $af_blue_colapsed");
+	printdebug ("make_attack_page(): Aerodomos azules colapsados: $af_red_colapsed");
+
+	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
+	open(TEMPMAPA, ">$TEMPMAP_FILE");
+        seek MAPA,0,0;
+        while (<MAPA>) {
+            if ($_ =~ m/<!-- VICTORY CONDITION -->/){
+		if ( $af_blue_colapsed == 1 ) {
+		    $_ = "<font size=\"+2\" color=\"ff0000\"><b>Los rojos ganan la campaña de $MAP_NAME_LONG. Aeródromos azules colapsados! </b></font></br></br>\n";
+		}
+		else {
+		    if ( $af_red_colapsed == 1) {
+			$_ = "<font size=\"+2\" color=\"0000ff\"><b>Los azules ganan la campaña de $MAP_NAME_LONG. Aeródromos rojos colapsados!</b></font></br></br>\n";			
+		    }
+		}
+	    }
+            print TEMPMAPA;	    
+	}	
+	close (TEMPMAPA);
+	close (MAPA);
+	unlink $MAP_FILE;
+	rename $TEMPMAP_FILE, $MAP_FILE;
+	
+	open (LK,">$gen_lock"); #Se cierra la campaña
+	print LK "$$\n"; #imprimimos PID en primera linea.
+	close (LK);		
+    }
+    
+    # Cuartel general capturado
+    if ($red_hq_captured == 1 || $blue_hq_captured == 1) {
+	
+	printdebug ("make_attack_page(): Cuartel general capturado, campaña acabada.");
+
+	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
+	open(TEMPMAPA, ">$TEMPMAP_FILE");
+        seek MAPA,0,0;
+        while (<MAPA>) {
+            if ($_ =~ m/<!-- VICTORY CONDITION -->/){
+		if ( $blue_hq_captured == 1 ) {
+		    $_ = "<font size=\"+2\" color=\"ff0000\"><b>Los rojos ganan la campaña de $MAP_NAME_LONG. Han capturado el CG en $BLUE_HQ! </b></font></br></br>\n";
+		}
+		else {
+		    if ( $red_hq_captured == 1) {
+			$_ = "<font size=\"+2\" color=\"0000ff\"><b>Los azules ganan la campaña de $MAP_NAME_LONG. Han capturado el CG en $RED_HQ!</b></font></br></br>\n";			
+		    }
+		}
+	    }
+            print TEMPMAPA;	    
+	}	
+	close (TEMPMAPA);
+	close (MAPA);
+	unlink $MAP_FILE;
+	rename $TEMPMAP_FILE, $MAP_FILE;
+	
+	open (LK,">$gen_lock"); #Se cierra la campaña
+	print LK "$$\n"; #imprimimos PID en primera linea.
+	close (LK);		
+    }
+    
+    # Inventario sin existencias
+    if ($red_stock_out == 1 || $blue_stock_out == 1) {
+	
+	printdebug ("make_attack_page(): Inventario sin existencias, campaña acabada.");
+
+	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
+	open(TEMPMAPA, ">$TEMPMAP_FILE");
+        seek MAPA,0,0;
+        while (<MAPA>) {
+            if ($_ =~ m/<!-- VICTORY CONDITION -->/){
+		if ( $blue_stock_out == 1 ) {
+		    $_ = "<font size=\"+2\" color=\"ff0000\"><b>Los rojos ganan la campaña de $MAP_NAME_LONG. Las azules se han quedado sin aviones! </b></font></br></br>\n";
+		}
+		else {
+		    if ( $red_stock_out == 1) {
+			$_ = "<font size=\"+2\" color=\"0000ff\"><b>Los azules ganan la campaña de $MAP_NAME_LONG. Los rojos se han quedado sin aviones!</b></font></br></br>\n";			
+		    }
+		}
+	    }
+            print TEMPMAPA;	    
+	}	
+	close (TEMPMAPA);
+	close (MAPA);
+	unlink $MAP_FILE;
+	rename $TEMPMAP_FILE, $MAP_FILE;
+	
+	open (LK,">$gen_lock"); #Se cierra la campaña
+	print LK "$$\n"; #imprimimos PID en primera linea.
+	close (LK);		
+    }        
+
 }
 
 
