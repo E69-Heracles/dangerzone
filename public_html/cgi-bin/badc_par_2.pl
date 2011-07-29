@@ -19,6 +19,7 @@ sub get_name($);
 sub get_task($);
 sub get_plane($);
 sub get_base_AF($);
+sub get_af_name($);
 sub get_report_nbr();
 sub get_mission_times();
 sub get_segundos($);
@@ -47,7 +48,8 @@ sub plane_role($);
 sub calc_plane_stock($);
 sub add_losts_planes_and_pilots_by_task(@);
 sub calc_airfield_losts_damage($$$$$);
-sub print_airfield_losts_report();
+sub print_airfield_losts_report(@);
+sub control_traffic();
 sub eventos_aire();
 sub eventos_tierra();
 sub read_mis_details();
@@ -74,9 +76,9 @@ sub printdebug($);
 
 
 sub printdebug($) {
-    my $log = shift (@_);
     if ($DZDEBUG) {
-    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . $log . "\n";	
+	my $log = shift (@_);
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) . $log . "\n";	
     }
 }
 
@@ -302,18 +304,41 @@ sub get_base_AF($){
 	    last;
 	}
     }
+    
+    my $line_back=tell GEO_OBJ;     
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
 	if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:[12]/) {
 	    if (distance($tocx,$tocy,$2,$3)<2000){
+		seek GEO_OBJ,$line_back,0; # regresamos         		
 		return ("$1");
 	    }
 	}
     }
+    seek GEO_OBJ,$line_back,0; # regresamos             
     return ("");
 }
 
-
+## @Heracles@20110728
+## Obtiene el nombre amigable de un aerodromo
+## Parametros : Clave de aerodromo (AF99)
+sub get_af_name($) {
+    my $afclave = shift @_;
+    my $afname="NONE";
+    my $aflarge="NONE";
+    
+    my $line_back=tell GEO_OBJ; 
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) { 
+	if ($_ =~ m/^$afclave,([^,]+),[^,]+,[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^,]+:[12]/) {
+	    $aflarge=$1;
+	    $afname = $2 . $3;
+	    $afname =~ s/-//;
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos         
+    return ($aflarge, $afname);    
+}
 
 ## obtener un numero de mision unico, verificando que ningun proceso paralelo moleste
 ## windows problema: flock() unimplemented on this platform
@@ -751,6 +776,7 @@ sub find_safe_pilots(){
 	    my $army=0;
 	    my $hlname="";
 	    my $seat="";
+	    my $my_afbase = get_base_AF($plane);	    
 
 	    # detectamos un landing, por lo que eliminamos sunombre de last_land_in_base.
 	    foreach my $code (@last_land_in_base) { 
@@ -768,6 +794,20 @@ sub find_safe_pilots(){
 		    last;
 		}
 	    }
+	    
+	    ## @Heracles@20110727
+	    ## Deteccion de un nuevo landing. Controlamos el nuevo arry de transito entre aerodromos
+	    my @traffic_temp=();
+	    for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
+	        if ($traffic_pilots[$i][0] ne $plane) {
+	            push (@traffic_temp, [$traffic_pilots[$i][0], $traffic_pilots[$i][1], $traffic_pilots[$i][2], $traffic_pilots[$i][3]]);
+	        }
+	    }
+	    @traffic_pilots=();
+	    for (my $i=0; $i < scalar(@traffic_temp); $i++) {
+	        push (@traffic_pilots, [$traffic_temp[$i][0],$traffic_temp[$i][1],$traffic_temp[$i][2], $traffic_temp[$i][3]]);
+	    }	    
+	    
 
 	    for (my $i=0 ; $i<$hpilots; $i++){ # lista inicial
 		if ($pilot_list[$i][1] eq $plane){
@@ -781,23 +821,12 @@ sub find_safe_pilots(){
 		seek GEO_OBJ, 0, 0;
 		while(<GEO_OBJ>) {
 		    #AF02,aerodromo--C12,22007.76,115196.71,2,-C,12,2,95:2
-		    if ($_ =~ m/^AF[0-9]{2},[^,]+,([^,]+),([^,]+),[^:]+:[12]/){    # si es AF 
-			my $afcx=$1;
-			my $afcy=$2;
-			if (distance($lcx, $lcy, $afcx, $afcy)<2000){               # si aterriza a menso de 2km	    
-			    # determinamos el afarmy con datos de la MISION (no de frontline)
-			    my $near=500000; # gran distancia para empezar
-			    my $afarmy=0;
-			    seek MIS,0,0;
-			    while(<MIS>) {
-				if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) ([12])/){
-				    $dist=distance($afcx,$afcy,$1,$2);
-				    if ($dist>=0 && $dist<$near){
-					$near=$dist;
-					$afarmy=$3;
-				    }
-				}
-			    }
+		    if ($_ =~ m/^(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),[^:]+:[12]/){    # si es AF 
+			my $afland=$1;
+			my $afcx=$2;
+			my $afcy=$3;
+			if (distance($lcx, $lcy, $afcx, $afcy)<2000){               # si aterriza a menso de 2km
+			    $afarmy = get_army_by_sector(get_sector($afcx, $afcy));
 			    if ($afarmy == $army) { # si aterrizo en base amiga
 				my $vale=1;  # por defecto vale : el pilot esta a salvo, last land in base, land in base+1
 				push(@land_in_base, $plane);      # aceptamos un aterrizaje en base
@@ -828,10 +857,15 @@ sub find_safe_pilots(){
 					$vale=0;
 				    }
 				}
+				seek LOG,$line_back,0; # regresamos 				
 				if ($vale) {
 				    push(@last_land_in_base, $plane); # aceptamos ultimo aterrizaje en base
+				    # @Heracles@20110728@
+				    # Lista de pilotos con trafico entre base
+				    if ($my_afbase ne $afland) {
+					push(@traffic_pilots, [$plane, $my_afbase, $afland, 0]);
+				    }
 				}
-				seek LOG,$line_back,0; # regresamos 
 			    }
 			}
 		    }
@@ -839,6 +873,11 @@ sub find_safe_pilots(){
 	    }
 	}
     }
+    
+    for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
+        printdebug ("find_safe_pilots(): Trafico " . $traffic_pilots[$i][0] . " despega de " . $traffic_pilots[$i][1] . " y aterriza en " . $traffic_pilots[$i][2]);
+    }    
+    
     #debug sacar
     #print "Pilotos que no contaran como derribados:\n";
     #foreach my $in (@last_land_in_base){
@@ -2683,48 +2722,71 @@ sub print_airfield_losts_report(@) {
     my $k = 0;
     
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Airfield $af_name Losts Report:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Informe de pérdidas de $af_name:</h3></center>\n\n";
     print HTML_REP "<center>\n<table border=1>\n";
     print HTML_REP "  <tr bgcolor=\"#ffffff\">\n";
-    print HTML_REP "    <td class=\"ltr70\">Pilot</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">plane</td>\n";    
-    print HTML_REP "    <td class=\"ltr70\">task</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">lost</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">Piloto</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">Avión</td>\n";    
+    print HTML_REP "    <td class=\"ltr70\">Misión</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">Tipo</td>\n";
     print HTML_REP "    <td class=\"ltr70\">%</td>\n";
     print HTML_REP "  </tr>\n";
     
-    for ( $i = 0; $i <= $#af_lost_print_list; $i++ ) {
+    for ( $i = 0; $i < scalar(@af_lost_print_list); $i++ ) {
 
 	printdebug("print_airfield_losts_report(): $af_lost_print_list[$i][0] : $af_lost_print_list[$i][1] : $af_lost_print_list[$i][2] : $af_lost_print_list[$i][3]");	
 	
-	if ($af_lost_print_list[$i][0] ne 'KILLED') {
+	if ($af_lost_print_list[$i][0] ne 'KILLED' && $af_lost_print_list[$i][0] ne 'TRAFFIC') {
+	    my $pnt_bgcolor= "#ffffff";
+	    
 	    $j++;
-            if (($j/2)-int($j/2)){print HTML_REP "  <tr bgcolor=\"" . $color . "\">\n";}
-	    else {print HTML_REP "  <tr bgcolor=\"" . $color2 . "\">\n";}
+            if (($j/2)-int($j/2)){print HTML_REP "  <tr bgcolor=\"" . $color . "\">\n"; $pnt_bgcolor = $color;}
+	    else {print HTML_REP "  <tr bgcolor=\"" . $color2 . "\">\n"; $pnt_bgcolor = $color2;}
 	
 	    my $my_pilot_name = $af_lost_print_list[$i][0];
 	    my $my_plane_type = $af_lost_print_list[$i][1];
 	    my $my_plane_name = $af_lost_print_list[$i][2];
 	    my $my_task = $af_lost_print_list[$i][3];
 	    my $my_damage = $af_lost_print_list[$i][4];
-	    my $my_lost = 'Plane';
+	    my $my_lost = 'Avión';
+	    my $pnt_comments="";
+
 	    
-	    for ( $k = 0; $k <= $#af_lost_print_list; $k++ ) {
+	    for ( $k = 0; $k < scalar(@af_lost_print_list); $k++ ) {
 		
 		if ($af_lost_print_list[$k][0] eq 'KILLED') {
 		    if ( $af_lost_print_list[$i][2] eq $af_lost_print_list[$k][2]) {
 		        $my_damage += $af_lost_print_list[$k][4];
-			$my_lost = 'Pilot';
+			$my_lost = 'Piloto';
 			
 			printdebug("print_airfield_losts_report(): KILLED : $af_lost_print_list[$k][2]. Adding $af_lost_print_list[$k][4] damage.");				
 		    }
 		}
+		if ($af_lost_print_list[$k][0] eq 'TRAFFIC') {
+		    if ( $af_lost_print_list[$i][2] eq $af_lost_print_list[$k][2]) {
+			$my_lost = 'Tráfico';
+			for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
+			    if ( $traffic_pilots[$i][0] eq $af_lost_print_list[$k][2]) {
+				($l_afd, $c_afd) = get_af_name($traffic_pilots[$i][1]);
+				($l_afa, $c_afa) = get_af_name($traffic_pilots[$i][2]);				
+				$pnt_comments = "Despega de " . $c_afd . " y aterriza en " . $c_afa ." <br>";
+				$pnt_comments .= "El aeródromo " . $c_afa . " recupera " . $my_damage . "% de daño <br>";
+			    }
+			}
+			printdebug("print_airfield_losts_report(): TRAFFIC : $af_lost_print_list[$k][2]");				
+		    }
+		}		
 	    }
 	    
 	    print HTML_REP "    <td class=\"ltr70\">$my_pilot_name</td>\n";
 	    print HTML_REP "    <td class=\"ltr70\">$my_plane_type</td>\n";
 	    print HTML_REP "    <td class=\"ltr70\">$my_task</td>\n";
-	    print HTML_REP "    <td class=\"ltr70\">$my_lost</td>\n";	
+	    if ($my_lost eq "Tráfico") {
+		print HTML_REP "    <td class=\"ltr70\"><a onMouseover=\"ddrivetip(\'$pnt_comments\',\'$pnt_bgcolor\',\'550\')\" onMouseout=\"hideddrivetip()\">".$my_lost."</a></td>\n";
+	    }
+	    else {
+		print HTML_REP "    <td class=\"ltr70\">$my_lost</td>\n";		
+	    }
 	    print HTML_REP "    <td class=\"ltr70\">$my_damage %</td>\n";
 	    print HTML_REP "  </tr>\n";
 	}
@@ -2732,6 +2794,61 @@ sub print_airfield_losts_report(@) {
   
     print HTML_REP "</table>\n\n";
     print HTML_REP "</center>\n";
+}
+
+# @Heracles@20110728
+# Controla los traficos entre aerodromos para traspaso de daño
+sub control_traffic() {
+    
+    my $my_to;
+    my $my_to_army;
+    my $my_plane_to;
+    for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
+	if ($traffic_pilots[$i][1] eq $red_af1_code) {
+		($role, @red_af1_lost) = add_losts_planes_and_pilots_by_task(@red_af1_lost, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]));
+		$role =~ s/type/lost/;
+		($my_to,$my_to_army)=get_name($traffic_pilots[$i][0]);
+		($my_plane_to,$my_to_army)=get_plane($traffic_pilots[$i][0]);
+		$my_to =~ s/(.*)<(.*)/$1&lt;$2/; #algunos nombres son incompatibles con html <
+		$my_to =~ s/(.*)>(.*)/$1&gt;$2/;		
+		push (@red_af1_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
+		push (@red_af1_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
+		$traffic_pilots[$i][3] = $role_damage{$role};
+	}
+	if ($traffic_pilots[$i][1] eq $red_af2_code) {
+		($role, @red_af2_lost) = add_losts_planes_and_pilots_by_task(@red_af2_lost, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]));
+		$role =~ s/type/lost/;
+		($my_to,$my_to_army)=get_name($traffic_pilots[$i][0]);
+		($my_plane_to,$my_to_army)=get_plane($traffic_pilots[$i][0]);
+		$my_to =~ s/(.*)<(.*)/$1&lt;$2/; #algunos nombres son incompatibles con html <
+		$my_to =~ s/(.*)>(.*)/$1&gt;$2/;		
+		push (@red_af2_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
+		push (@red_af2_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
+		$traffic_pilots[$i][3] = $role_damage{$role};		
+	}
+	if ($traffic_pilots[$i][1] eq $blue_af1_code) {
+		($role, @blue_af1_lost) = add_losts_planes_and_pilots_by_task(@blue_af1_lost, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]));
+		$role =~ s/type/lost/;
+		($my_to,$my_to_army)=get_name($traffic_pilots[$i][0]);
+		($my_plane_to,$my_to_army)=get_plane($traffic_pilots[$i][0]);
+		$my_to =~ s/(.*)<(.*)/$1&lt;$2/; #algunos nombres son incompatibles con html <
+		$my_to =~ s/(.*)>(.*)/$1&gt;$2/;		
+		push (@blue_af1_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
+		push (@blue_af1_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
+		$traffic_pilots[$i][3] = $role_damage{$role};		
+	}
+	if ($traffic_pilots[$i][1] eq $blue_af2_code) {
+		($role, @blue_af2_lost) = add_losts_planes_and_pilots_by_task(@blue_af2_lost, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]));
+		$role =~ s/type/lost/;
+		($my_to,$my_to_army)=get_name($traffic_pilots[$i][0]);
+		($my_plane_to,$my_to_army)=get_plane($traffic_pilots[$i][0]);
+		$my_to =~ s/(.*)<(.*)/$1&lt;$2/; #algunos nombres son incompatibles con html <
+		$my_to =~ s/(.*)>(.*)/$1&gt;$2/;		
+		push (@blue_af1_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
+		push (@blue_af1_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
+		$traffic_pilots[$i][3] = $role_damage{$role};		
+	}	
+    }
 }
 
 sub eventos_aire(){
@@ -2748,14 +2865,14 @@ sub eventos_aire(){
 
     #print "\nDerribos:\n"; # debug, sacar
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Air Events:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Acciones aereas:</h3></center>\n\n";
     print HTML_REP "<center>\n<table border=1>\n";
     print HTML_REP "  <tr bgcolor=\"#ffffff\">\n";
-    print HTML_REP "    <td class=\"ltr70\">Time</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">pilot</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">plane/obj.</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">downs</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">plane</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">Hora</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">piloto</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">avión/obj.</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">derriba</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">avión</td>\n";
     print HTML_REP "  </tr>\n";
 
     my $down_x;
@@ -2813,12 +2930,6 @@ REP4
     my $in;
     my $task_killer="";
     my $task_killed="";
-    
-    my @red_af1_lost_print_list = ();
-    my @red_af2_lost_print_list = ();
-    my @blue_af1_lost_print_list = ();
-    my @blue_af2_lost_print_list = ();
-    
     my $role;
 
     seek LOG, 0, 0;
@@ -3119,10 +3230,15 @@ REP4
 		}
 	    }
 	} # end calculo de kia/mia para perdidas AF
+	
     } # end while <log>
+    
+    ## @Heracles@20110728
+    ## Llamada a control de trafico entre aerodromos
+    control_traffic();
 
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total VVS losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".(sum_array(@red_af1_kia) + sum_array(@red_af2_kia))." </b></td></tr>\n";
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Total LW losts (Planes/Pilots)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".(sum_array(@blue_af1_kia) + sum_array(@blue_af2_kia))."</b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas totales rojas (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".(sum_array(@red_af1_kia) + sum_array(@red_af2_kia))." </b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas totales azules (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".(sum_array(@blue_af1_kia) + sum_array(@blue_af2_kia))."</b></td></tr>\n";
 
     my $red_af1_name="";
     my $red_af2_name="";
@@ -3184,37 +3300,37 @@ REP4
 
     if ($red_af1_name ne "") {
 	if ($red_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $red_af1_name " . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af1_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $red_af1_name " . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name now belongs to germany army" . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name ahora pertenece al ejército azul" . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($red_af2_name ne "") {
 	if ($red_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $red_af2_name " . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af2_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $red_af2_name " . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name now belongs to germany army" . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name ahora peteneces al ejército azul" . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af1_name ne "") {
 	if ($blue_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $blue_af1_name " . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af1_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $blue_af1_name " . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af1 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name now belongs to soviet army" . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name ahora pertenece al ejército rojo" . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af2_name ne "") {
 	if ($blue_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Lost in  $blue_af2_name " . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af2_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $blue_af2_name " . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af2 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name now belongs to soviet army" . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name ahora pertenece al ejército rojo" . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
@@ -3940,18 +4056,32 @@ sub look_resuply() {
 	    if ($_ =~ m/^AF[0-9]{2},([^,]+),.*,([^:]+):([12])/){
 		my $line_in=$_;
 		my $looking_af=$1;
-		my $dam=$2;
+		my $dam=$2 * 1.0;
 		my $army=$3;
-		my $af_dam_diff=0;
+		my $af_dam_diff=0.0;
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
-			if ($army == 1 && $RED_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_RED;}
-			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_RED;}
-			if ($army == 2 && $BLUE_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_BLUE;}
-			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_BLUE;}			
+			if ($army == 1 && $RED_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_RED * 1.0;}
+			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_RED * 1.0;}
+			if ($army == 2 && $BLUE_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_BLUE * 1.0;}
+			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_BLUE * 1.0;}			
 		    }
 		}
+		# @Heracles@20110728
+		# Traficos : miramos si ha habido algún trafico entre aerodromos y suministramos los de aterrizaje
+		printdebug ("look_resuply(): 1 $looking_af damage $dam and recover $af_dam_diff");
+		my $l_af;
+		my $c_af;
+		for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
+		    ($l_af, $c_af) = get_af_name($traffic_pilots[$i][2]); # af de aterrizaje
+		    if ($l_af eq $looking_af) {
+			$af_dam_diff += ($traffic_pilots[$i][3]) * 1.0;
+			printdebug ("look_resuply(): $l_af recupera " . $traffic_pilots[$i][3] . "%  de daño");
+		    }
+		}
+		printdebug ("look_resuply(): 2 $looking_af damage $dam and recover $af_dam_diff");		
 		$dam-=$af_dam_diff;
+		printdebug ("look_resuply(): 3 $looking_af new damage $dam");				
 		if ($dam<0) {$dam=0;}
 		$line_in =~ s/^([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^:]+:[12]/$1,$dam:$army/; 
 		print TEMPGEO $line_in;
@@ -4069,18 +4199,16 @@ sub get_sector($$){
 sub get_army_by_sector($) {
     my ($my_sector) = @_;
     
-    printdebug("get_army_by_sector(): sector=$my_sector");
-    
     my $my_army = "NULL";
     
+    my $line_back=tell GEO_OBJ; # pos del log
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
         if ($_ =~ m/^SEC-$my_sector,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([123])/){
 	    $my_army = $1;
 	}
     }
-    
-    printdebug("get_army_by_sector(): army=$my_army");
+    seek GEO_OBJ,$line_back,0; # regresamos     
     
     return $my_army;    
 }
@@ -4559,13 +4687,13 @@ sub calc_production_planes() {
 	printdebug ("calc_production_planes(): Inicio de algoritmo ********************************************");
 	
 	## Calculo de total de aviones iniciales rojos
-	for ( my $i=0; $i < $#redstock_matrix; $i++) {
+	for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
 	    $planenum += $redstock_matrix[$i][1];
 	    $planereal += $redstock_matrix[$i][2];
 	}
 	
 	## Calculo de la matriz de decision para reposicion de aviones rojos
-	for ( my $i=0; $i < $#redstock_matrix; $i++) {
+	for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
 	    $delta_total = $redstock_matrix[$i][1] - $redstock_matrix[$i][2]; # Numero de aviones iniciales menos los que quedan = a los que hemos perdido
 	    $delta_total = ($delta_total < 0.0) ? 0.0 : $delta_total;
 	    $delta_total = $delta_total / $planenum; # Normalizamos por el total de aviones
@@ -4591,7 +4719,7 @@ sub calc_production_planes() {
 	}	    
 	 
 	## Calculo del peso de cada modelo rojo en relación a la suma total de pesos y del total de aviones que le corresponde a cada modelo
-	for ( my $i=0; $i < $#redweight_matrix; $i++) {
+	for ( my $i=0; $i < scalar(@redweight_matrix); $i++) {
 	    $redweight_matrix[$i][5] = $redweight_matrix[$i][4] / $weight_total;
 	    $redweight_matrix[$i][6] = $redweight_matrix[$i][5] * $VDAY_PRODUCTION_RED;
 	    $redweight_matrix[$i][6] = ceil($redweight_matrix[$i][6]);
@@ -4603,13 +4731,13 @@ sub calc_production_planes() {
 	$weight_total= 0.0;
 	
 	## Calculo de total de aviones iniciales azules
-	for ( my $i=0; $i < $#bluestock_matrix; $i++) {
+	for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) {
 	    $planenum += $bluestock_matrix[$i][1];
 	    $planereal += $bluestock_matrix[$i][2];
 	}
 	
-	## Calculo de la matriz de decision para reposicion de aviones rojos
-	for ( my $i=0; $i < $#bluestock_matrix; $i++) {
+	## Calculo de la matriz de decision para reposicion de aviones azules
+	for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) {
 	    $delta_total = $bluestock_matrix[$i][1] - $bluestock_matrix[$i][2]; # Numero de aviones iniciales menos los que quedan = a los que hemos perdido
 	    $delta_total = ($delta_total < 0.0) ? 0.0 : $delta_total;
 	    $delta_total = $delta_total / $planenum; # Normalizamos por el total de aviones
@@ -4635,7 +4763,7 @@ sub calc_production_planes() {
 	}
 	
 	## Calculo del peso de cada modelo azul en relación a la suma total de pesos y del total de aviones que le corresponde a cada modelo
-	for ( my $i=0; $i < $#blueweight_matrix; $i++) {
+	for ( my $i=0; $i < scalar(@blueweight_matrix); $i++) {
 	    $blueweight_matrix[$i][5] = $blueweight_matrix[$i][4] / $weight_total;
 	    $blueweight_matrix[$i][6] = $blueweight_matrix[$i][5] * $VDAY_PRODUCTION_BLUE;
 	    $blueweight_matrix[$i][6] = ceil($blueweight_matrix[$i][6]);
@@ -4649,10 +4777,10 @@ sub calc_production_planes() {
 
 	printdebug ("\n");
 	printdebug ("calc_production_planes(): Resultado de algoritmo ********************************************");
-	for ( my $i=0; $i < $#redweight_sorted; $i++) {
+	for ( my $i=0; $i < scalar(@redweight_sorted); $i++) {
 	    printdebug ("calc_production_planes(): $redweight_sorted[$i][0] $redweight_sorted[$i][1] $redweight_sorted[$i][2] $redweight_sorted[$i][3] $redweight_sorted[$i][4] $redweight_sorted[$i][5] $redweight_sorted[$i][6]");	    	    
 	}
-	for ( my $i=0; $i < $#blueweight_sorted; $i++) {
+	for ( my $i=0; $i < scalar(@blueweight_sorted); $i++) {
 	    printdebug ("calc_production_planes(): $blueweight_sorted[$i][0] $blueweight_sorted[$i][1] $blueweight_sorted[$i][2] $blueweight_sorted[$i][3] $blueweight_sorted[$i][4] $blueweight_sorted[$i][5] $blueweight_sorted[$i][6]");	    
 	}
 	printdebug ("calc_production_planes(): Fin de resultado de algoritmo ********************************************");
@@ -4666,7 +4794,7 @@ sub calc_production_planes() {
 	print "Sistema de producción para el bando rojo:</br>";
 	# Actualizamos el aircraft.data para los rojos
 	my $production = $VDAY_PRODUCTION_RED;
-	for ( my $i=0; $i < $#redweight_sorted && $production > 0; $i++) {
+	for ( my $i=0; $i < scalar(@redweight_sorted) && $production > 0; $i++) {
 	    if ($redweight_sorted[$i][6] > 0) {
 		open (FLIGHTS, "<$FLIGHTS_DEF");
 		open(TEMPFLIGHTS, ">temp_aircraft.data");
@@ -4712,7 +4840,7 @@ sub calc_production_planes() {
 	print "Sistema de producción para el bando azul:</br>";	
 	# Actualizamos el aircraft.data para los azules
 	my $production = $VDAY_PRODUCTION_BLUE;
-	for ( my $i=0; $i < $#blueweight_sorted && $production > 0; $i++) {
+	for ( my $i=0; $i < scalar(@blueweight_sorted) && $production > 0; $i++) {
 	    if ($blueweight_sorted[$i][6] > 0) {	    
 		open (FLIGHTS, "<$FLIGHTS_DEF");
 		open(TEMPFLIGHTS, ">temp_aircraft.data");
@@ -6573,6 +6701,7 @@ print_mis_objetive_result();
 @land_in_base=(); # pilotos que aterrizan en su base (para descontar en cada rescat)
 @last_land_in_base=(); # pilotos que aterrizan por ultima vez en su base
 @rescatados=();  # listado de pilotos rescatados, para no contarlos como mia al evaluar pilotos perdidos
+@traffic_pilots=();
 find_safe_pilots();
 
 
@@ -6611,6 +6740,13 @@ $blue_planes_destroyed=0;
 @red_af2_kia=(0, 0, 0, 0, 0, 0);
 @blue_af1_kia=(0, 0, 0, 0, 0, 0);
 @blue_af2_kia=(0, 0, 0, 0, 0, 0);
+
+## @Heracles@20110728
+## Array para el informe de perdidas en aerodromos
+@red_af1_lost_print_list = ();
+@red_af2_lost_print_list = ();
+@blue_af1_lost_print_list = ();
+@blue_af2_lost_print_list = ();
 
 ## @Heracles@20110105@
 ## Tabla has que define el daño provocado sobre el AF por pérdidas segun rol del avión
