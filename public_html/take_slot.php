@@ -92,6 +92,7 @@ include ("./dz_page_header.php");
 		<tr>
 		    <td align=\"right\">Human Planes :</td>
 		    <td> <select name=\"max_human\" size=\"1\">
+	               <option value=\"4\">4x4</option>		    
 	               <option value=\"6\">6x6</option>
 	               <option value=\"8\">8x8</option>
 	               <option value=\"10\">10x10</option>

@@ -529,7 +529,7 @@ VVS_Head3
 VVS_Head4
     ; # Emacs related
         my $my_max_bomber = 0;                
-	if ($max_human <= 4) { $my_max_bomber = 2; }
+	if ($max_human <= 4) { $my_max_bomber = 1; }
         if ($max_human > 4 && $max_human <=6) {$my_max_bomber = 3; }
         if ($max_human > 6 && $max_human <=8) {$my_max_bomber = 4; }
         if ($max_human >8) {$my_max_bomber = 6; }        
@@ -899,7 +899,7 @@ LW_Head3
 LW_Head4
     ; # Emacs related
         my $my_max_bomber = 0;                
-	if ($max_human <= 4) { $my_max_bomber = 2; }
+	if ($max_human <= 4) { $my_max_bomber = 1; }
         if ($max_human > 4 && $max_human <=6) {$my_max_bomber = 3; }
         if ($max_human > 6 && $max_human <=8) {$my_max_bomber = 4; }
         if ($max_human >8) {$my_max_bomber = 6; }        
