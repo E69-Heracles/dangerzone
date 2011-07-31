@@ -2,6 +2,11 @@
 
 require "config.pl";
 require "ui.pl";
+require "dztools.pl";
+
+use IO::Handle;   # because autoflush
+use DBI();
+use POSIX;
 
 $|=1; #STDOUT HOT
 
@@ -66,10 +71,9 @@ TOP
     # verificar user/pwd en DB
     $dbh = DBI->connect("DBI:mysql:database=$database;host=localhost","$db_user", "$db_upwd");
     if (! $dbh) { 
-	print "Can't connect to DB\n";
-	die "$0: Can't connect to DB\n";
-    }
-
+        print "Can't connect to DB\n";
+        die "$0: Can't connect to DB\n";
+    }    
     $sth = $dbh->prepare("SELECT password  FROM $pilot_file_tbl WHERE hlname=?");
     $sth->execute($hlname);
     @row = $sth->fetchrow_array;
@@ -86,12 +90,19 @@ TOP
 	exit(0);
     }
 
-} # end unix_cgi
+}
 
 
 # MAIN START
 sub distance ($$$$);
 sub printdebug($);
+sub get_af_in_radius($$$$);
+sub get_coord_city($);
+sub get_sum_radius($);
+sub calc_stocks_plane();
+sub calc_sum_plane_supply($$);
+sub calc_daily_cg_bases_supply($$);
+sub calc_map_points();
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -104,7 +115,7 @@ sub printdebug($) {
        print scalar(localtime(time)) . $log . "\n";	
     }
 }
-    
+
 chdir $CGI_BIN_PATH; 
 
 if (!(open (COU,"<rep_counter.data"))){
@@ -168,6 +179,8 @@ my $nubes;
 srand;
 $mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
 if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
+
+my $map_vday = int ($rep_count / $MIS_PER_VDAY);
 
 my $time_increase= int(720 / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
 $hora=6;
@@ -252,16 +265,133 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
 open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
 print MAPA  &print_start_html;
-print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
-print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
-print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
+    my $blue_points = 0;
+    my $red_points = 0;
+    ($red_points, $blue_points) = calc_map_points();
+  
+    if ($red_points > $blue_points) {
+	print MAPA  "<font size=\"+2\" color=\"red\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+    }
+    else {
+	if ($blue_points > $red_points) {
+	    print MAPA  "<font size=\"+2\" color=\"blue\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+	}
+	else {
+	    print MAPA  "<font size=\"+2\" color=\"green\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+	}
+    }
+    
+    print MAPA "<table>\n";
+    print MAPA "<tr class=first><td colspan=8 align=center><h3>Puntuación del Mapa</h3></td></tr>\n";	
+    print MAPA "<tr class=first><td  align=center valign=middle><nowrap><img src=\"images/luftwaffe_logo.gif\" width=40 height=40/></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$blue_points</b></nowrap></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td  align=center valign=middle><img src=\"images/ws_logo.gif\" border=0 width=40 height=40/></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$red_points</b></nowrap></td>";	
+    print MAPA "</tr>";
+    print MAPA "</table>\n";
+    
+    print MAPA  "<br><br><font size=\"+1\"> Dia de campaña <b>$map_vday</b> de <b>$CAMPAIGN_MAX_VDAY</b><br>\n";
+    print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+    print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
-print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
-print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+    print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
+    print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
+    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+
+    ## informe de capacidad de producción roja
+    print MAPA  "<b><u>Cuartel general rojo</u></b><br><br>\n";
+    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";        
+    print MAPA  "<b>Producción de aviones: </b><br>\n";
+    print STA   "<b>Producción de aviones: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+
+    my $red_stock = 0;
+    my $blue_stock = 0;
+    ($red_stock, $blue_stock) = calc_stocks_plane();
+    
+    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
+    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
+    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";    
+    
+    ## informe de capacidad de suministro roja
+    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
+    print STA   "<b>Suministro a aeródromo: </b><br>\n";
+    
+    my $CG_red_base_supply = 0;
+    my $CG_blue_base_supply = 0;
+    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);    
+    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
+    
+    my $red_plane_supply = 0;
+    my $blue_plane_supply = 0;    
+    ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    
+    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
+    print STA   "<b>Suministro a ciudad: </b><br>\n";    
+
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+
+    print MAPA  "</table><br><br>\n";
+    print STA   "</table><br><br>\n";
+    print MAPA  "</td><td valign=\"top\">\n";
+    print STA   "</td><td valign=\"top\">\n";    
+
+    ## informe de capacidad de producción azul
+    print MAPA  "<b><u>Cuartel general azul</u></b><br><br>\n";
+    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";        
+    print MAPA  "<b>Producción de aviones: </b><br>\n";
+    print STA   "<b>Producción de aviones: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
+    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
+    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    
+    ## informe de capacidad de suministro azul
+    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
+    print STA   "<b>Suministro a aeródromo: </b><br>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
+    print STA   "<b>Suministro a ciudad: </b><br>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
+    print STA   "</table><br><br></td></tr></table><br><br>\n";
+    
     ## informe de daños aerodormos
+    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+    print STA   "<table border=1 ><tr><td valign=\"top\">\n";    
     print MAPA  "<b>Aeródromos rojos: </b><br>\n";
     print STA   "<b>Aeródromos rojos: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";

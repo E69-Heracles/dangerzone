@@ -39,11 +39,14 @@ $DZDEBUG=1; # En debug
 # Constantes para el sistema de inventario y produccion
 $INVENTARIO=1; # Activa el sistema de inventario
 $PRODUCCION=1; # Activa el sistema de produccion
+$MIN_STOCK_FOR_FLYING=2; # Stock minimo de aviones para poder generar un vuelo.
+$SUM_STOCK_RATE_PLANE=1; # Ratio sobre inventario de suministro por avión
+$SUM_STOCK_RATE_CG_BASE=10; # Ratio sobre inventario de suministro diario por base
+
 # Constantes para el ajuste del algoritmo de produccion. Valores del 0..1 . deben sumar 1 los tres
 $TUNE_DELTA_TOTAL= 0.3; # Importancia de la perdida de aviones sobre el total de inventario (porcentaje perdidos sobre el total de aviones)
 $TUNE_DELTA_PARTIAL=0.5; # Importancia de la perdida de aviones sobre el porcentaje inicial (delta porcentaje inicial - actual)
 $TUNE_MISSION_TOTAL=0.2; # Importancia del numero de apariciones en las misiones
-$MIN_STOCK_FOR_FLYING=2; # Stock minimo de aviones para poder generar un vuelo.
 
 $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
 $AF_VDAY_RECOVER=3; # % recovery of AF on each virtual day
