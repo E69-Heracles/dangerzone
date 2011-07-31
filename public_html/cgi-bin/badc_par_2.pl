@@ -45,7 +45,7 @@ sub print_pilot_actions();
 sub sum_array(@);
 sub is_human($);
 sub plane_role($);
-sub calc_plane_stock($);
+sub subtract_plane_from_stock($);
 sub add_losts_planes_and_pilots_by_task(@);
 sub calc_airfield_losts_damage($$$$$);
 sub print_airfield_losts_report(@);
@@ -57,6 +57,8 @@ sub calc_resuply_by_human_pilot($$$);
 sub print_mis_objetive_result();
 sub look_af_and_ct();
 sub look_resuply();
+sub get_af_in_radius($$$$);
+sub get_coord_city($);
 sub get_sum_radius($);
 sub get_city_from_sector($);
 sub get_sector($$);
@@ -71,6 +73,11 @@ sub draw_octants ($$$$$$$);
 sub draw_circle ($$$$);
 sub make_image();
 sub calc_production_planes();
+sub calc_stocks_plane();
+sub calc_sum_plane_supply($$);
+sub calc_daily_cg_bases_supply($$);
+sub calc_map_points();
+sub calc_sectors_owned();
 sub make_attack_page();
 sub printdebug($);
 
@@ -2564,7 +2571,7 @@ sub plane_role($) {
 ## @Heracles@20110719~@
 ## Resta un avion del inventario de aviones
 ## Parametros: codigo de avion en el log
-sub calc_plane_stock($) {
+sub subtract_plane_from_stock($) {
     my ($my_plane) = shift @_;
 
     if ($INVENTARIO) {
@@ -2574,7 +2581,7 @@ sub calc_plane_stock($) {
 	($plane_model, $my_army) = get_plane($my_plane);
 	$my_army = ($my_army == 1) ? "IR" : ($my_army == 2) ? "IA" : "NULL";
 	
-	printdebug ("calc_plane_stock(): Inventario bando $my_army avion $plane_model");
+	printdebug ("subtract_plane_from_stock(): Inventario bando $my_army avion $plane_model");
 	
 	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
 	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
@@ -2591,7 +2598,7 @@ sub calc_plane_stock($) {
 		my $stock = $2 ;
 		$stock = ($stock == 0) ? 0 : $stock - 1;
 		$_ =~ s/^([^,]+,[^,]+,[^,]+),[^,]+,([^,]+),/$1,$stock,$2,/;
-		printdebug ("calc_plane_stock(): Actualizamos aircraft.data con: $_ ");
+		printdebug ("subtract_plane_from_stock(): Actualizamos aircraft.data con: $_ ");
 		print TEMPFLIGHTS;
 	    }
 	    else {
@@ -3148,7 +3155,7 @@ REP4
 	    
 	    ## @Heracles@20110719
 	    ## Sistema de inventario y produccion
-	    calc_plane_stock($my_plane);	    
+	    subtract_plane_from_stock($my_plane);	    
 	    
 	    printdebug ("eventos_aire(): name : $html_to, plane : $my_plane, role : $role");
 	    
@@ -4134,6 +4141,54 @@ sub look_resuply() {
 	exit(0);
     }
 }
+
+# Heracles@20110423
+# Retorn el numero de bases dentro de un radio con centro en cx, cy
+# Parametros: coordenada x, coordenad y, radio
+sub get_af_in_radius($$$$) {
+    my $cx = shift @_;
+    my $cy = shift @_;
+    my $radius = shift @_;
+    my $army = shift @_;
+    
+    my $bases = 0;
+    
+    my $line_back=tell GEO_OBJ; # pos del log        
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+	if ($_ =~ m/^AF[0-9]{2},[^,]+,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
+	    if (distance($1, $2, $cx, $cy) <= $radius) {
+		$bases++;
+	    }
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    return $bases;        
+}
+
+# @Heracles@20110423
+# Retorna las coordenadas de una ciudad. Retorno -1 en caso de error.
+# Parametros: El nombre de la ciudad tal cómo aparece en el segundo campo de un línea CT del geo_obj
+sub get_coord_city($) {
+    my ($my_city) = @_;
+    
+    my $cx = -1;
+    my $cy = -1;    
+    
+    my $line_back=tell GEO_OBJ; # pos del log        
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+        if ($_ =~ m/^CT[0-9]+,$my_city,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([12])/){
+	    $cx = $1;
+	    $cy = $2;	    
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    return ($cx, $cy);    
+}
+
 # @Heracles@20110423
 # Retorna el radio de suministro de una ciudad. Retorna -1 en caso de error.
 # Parámetros : El nombre de la ciudad tal cómo aparece en el segundo campo de un línea CT del geo_obj
@@ -4142,12 +4197,14 @@ sub get_sum_radius($) {
     
     my $my_radius = -1;
     
+    my $line_back=tell GEO_OBJ; # pos del log        
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
         if ($_ =~ m/^CT[0-9]+,$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):([12])/){
-	    $my_radius = $1;
+	    $my_radius = $1 * 1000;
 	}
     }
+    seek GEO_OBJ,$line_back,0; # regresamos
     
     return $my_radius;
 }
@@ -4162,6 +4219,7 @@ sub get_city_from_sector($) {
     
     my $my_city = "NULL";
     
+    my $line_back=tell GEO_OBJ; # pos del log    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
         if ($_ =~ m/^CT[0-9]+,([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([12])/){
@@ -4170,6 +4228,7 @@ sub get_city_from_sector($) {
 	    }
 	}
     }
+    seek GEO_OBJ,$line_back,0; # regresamos
     
     printdebug("get_city_from_sector(): city=$my_city");
     
@@ -4586,8 +4645,35 @@ sub check_day(){
     $ext_rep_nbr =~ m/_([0-9]+)/;
     $rep_count=$1;
     
+    my $CG_red_base_supply = 0;
+    my $CG_blue_base_supply = 0;
+    my $red_stock = 0;
+    my $blue_stock = 0;
+    my $cg_red_cx = 0;
+    my $cg_red_cy = 0;    
+    my $cg_blue_cx = 0;
+    my $cg_blue_cy = 0;
+    my $cg_red_sum_radius = 0;
+    my $cg_blue_sum_radius = 0;
+    
     if (($rep_count%$MIS_PER_VDAY) ==0){ 
 	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
+	
+	# @@Heracles@20110722@
+	# Calculamos la producción de aviones
+	if ($INVENTARIO && $PRODUCCION) {
+	    ($red_stock, $blue_stock) = calc_stocks_plane();
+	    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);
+
+	    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
+	    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
+	    ($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
+	    $cg_red_sum_radius = get_sum_radius($RED_HQ);
+
+	    print "</strong><font size=\"-1\" color=\"000000\">Calculando aviones enviados al frente...</br>";	    
+	    calc_production_planes();
+	    
+	}	
 	
 	open (TEMPGEO, ">temp_geo.data"); #
 	seek GEO_OBJ, 0, 0;
@@ -4596,8 +4682,18 @@ sub check_day(){
 		print TEMPGEO;
 	    }
 	    else { 
-		if ($_ =~ m/AF[0-9]{2},.*,([^:]+):[12]/){ 
-		    $dam=$1-$AF_VDAY_RECOVER;
+		if ($_ =~ m/AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/){ 
+		    $dam=$4-$AF_VDAY_RECOVER;
+		    if ($INVENTARIO && $PRODUCCION) {
+			if (distance($2, $3, $cg_red_cx, $cg_red_cy) <= $cg_red_sum_radius && $5 == 1) {
+			    $dam = $dam - $CG_red_base_supply;
+			    printdebug("check_day(): $1 suministrado por CG rojo con $CG_red_base_supply%");
+			}
+			if (distance($2, $3, $cg_blue_cx, $cg_blue_cy) <= $cg_blue_sum_radius && $5 == 2) {
+			    $dam = $dam - $CG_blue_base_supply;
+			    printdebug("check_day(): $1 suministrado por CG azul con $CG_blue_base_supply%");
+			}			
+		    }
 		    if ($dam<0) {$dam=0;}
 		    $_ =~ s/^(AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,)([^,]+)(:[12])/$1.$dam.$3/e;
 		    print TEMPGEO;
@@ -4625,11 +4721,7 @@ sub check_day(){
 	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n\n";
 	    exit(0);
 	}
-	
-	# @@Heracles@20110722@
-	# Calculamos la producción de aviones
-	print "</strong><font size=\"-1\" color=\"000000\">Calculando aviones enviados al frente...</br>";
-	calc_production_planes();
+
     }
 }
 
@@ -4662,7 +4754,6 @@ sub calc_production_planes() {
     
     my $albaran="albaran.txt";
     
-    if ($INVENTARIO && $PRODUCCION) {
 	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
 	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
 	    print "Please NOTIFY this error.\n";
@@ -4691,7 +4782,7 @@ sub calc_production_planes() {
 	    $planenum += $redstock_matrix[$i][1];
 	    $planereal += $redstock_matrix[$i][2];
 	}
-	
+
 	## Calculo de la matriz de decision para reposicion de aviones rojos
 	for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
 	    $delta_total = $redstock_matrix[$i][1] - $redstock_matrix[$i][2]; # Numero de aviones iniciales menos los que quedan = a los que hemos perdido
@@ -4880,7 +4971,150 @@ sub calc_production_planes() {
 	ALB->flush;	    
 	print ALB   "</table><br><br></td></tr></table>\n";
 	close(ALB);
+	
+}
+
+# @Heracles@20110730
+# Calcula el número de aviones de inventario para cada bando
+sub calc_stocks_plane() {
+    my @redstock_matrix=();
+    my @bluestock_matrix=();
+    my $planereal = 0;
+    my $red_stock = 0;
+    my $blue_stock = 0;
+    
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+	exit(0);
+    }    
+
+    seek FLIGHTS,0,0;
+    while (<FLIGHTS>) {
+	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
+	    push(@redstock_matrix,[$1,$2,$3,$4]);
+	}
+	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
+	    push(@bluestock_matrix,[$1,$2,$3,$4]);
+	}
     }
+	
+    close(FLIGHTS);
+
+    ## Calculo de total de aviones iniciales rojos
+    for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
+	$planereal += $redstock_matrix[$i][2];
+    }    
+    
+    $red_stock = $planereal;
+    $planereal = 0;
+    
+    ## Calculo de total de aviones iniciales azules
+    for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) {
+	$planereal += $bluestock_matrix[$i][2];
+    }
+    
+    $blue_stock = $planereal;
+    printdebug ("calc_stocks_plane(): rojos $red_stock azules $blue_stock");    
+    return($red_stock, $blue_stock);
+}
+
+# @Heracles@20110730@
+# Calcula el suministro a aerodromo por avion SUM
+# Parámetros: stock rojo, stock azul
+sub calc_sum_plane_supply($$) {
+    my $red_stock = shift @_;
+    my $blue_stock = shift @_;
+
+    my $red_supply = 0;
+    my $blue_supply = 0;
+    
+    $red_supply = ceil (($red_stock * $SUM_STOCK_RATE_PLANE)/100);
+    $blue_supply = ceil (($blue_stock * $SUM_STOCK_RATE_PLANE)/100);
+    
+    printdebug ("calc_sum_plane_supply(): Suministro avión rojo $red_supply");
+    printdebug ("calc_sum_plane_supply(): Suministro avión azul $blue_supply");    
+    return ($red_supply, $blue_supply);
+}
+
+# @Heracles@20110730
+# Calcula el suministro diario a bases del CG
+# Parámetros: stock rojo, stock azul
+sub calc_daily_cg_bases_supply($$) {
+    my $red_stock = shift @_;
+    my $blue_stock = shift @_;
+
+    my $CG_red_base_supply = 0;
+    my $CG_blue_base_supply = 0;
+    
+    my $cg_blue_cx = 0;
+    my $cg_blue_cy = 0;
+    my $cg_blue_sum_radius = 0;
+    my $cg_red_cx = 0;
+    my $cg_red_cy = 0;
+    my $cg_red_sum_radius = 0;
+    my $cg_blue_bases = 0;
+    my $cg_red_bases = 0;    
+	    
+    $CG_red_base_supply = ceil (($red_stock * $SUM_STOCK_RATE_CG_BASE)/100);
+    $CG_blue_base_supply = ceil (($blue_stock * $SUM_STOCK_RATE_CG_BASE)/100);
+    printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases rojas $CG_red_base_supply");
+    printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases azules $CG_blue_base_supply");    
+	    
+    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
+    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
+    ($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
+    $cg_red_sum_radius = get_sum_radius($RED_HQ);
+	    
+    $cg_blue_bases = get_af_in_radius($cg_blue_cx, $cg_blue_cy, $cg_blue_sum_radius, 2);
+    $cg_red_bases = get_af_in_radius($cg_red_cx, $cg_red_cy, $cg_red_sum_radius, 1);
+    printdebug ("calc_daily_cg_bases_supply(): Bases rojas de CG $cg_red_bases");
+    printdebug ("calc_daily_cg_bases_supply(): Bases azules de CG $cg_blue_bases");
+
+    $CG_blue_base_supply = ( $cg_blue_bases == 0 ) ? 0 : floor ($CG_blue_base_supply/$cg_blue_bases);
+    $CG_red_base_supply = ($cg_red_bases == 0) ? 0 :floor ($CG_red_base_supply/$cg_red_bases);
+    printdebug ("calc_daily_cg_bases_supply(): Suministro por bases roja de CG $CG_red_base_supply");
+    printdebug ("calc_daily_cg_bases_supply(): Suministro por bases azul de CG $CG_blue_base_supply");
+    
+    return ($CG_red_base_supply, $CG_blue_base_supply);
+}
+
+# @Heracles@20110730@
+# Calcula los puntos de campaña
+sub calc_map_points() {
+
+    my $blue_points = 0;
+    my $red_points = 0;
+	
+    $sth = $dbh->prepare("select sum(blue_points), sum(red_points) from $mis_prog where reported=\'1\'");
+    $sth->execute();
+    @row = $sth->fetchrow_array;
+    $sth->finish;
+    $blue_points = $row[0];
+    $red_points = $row[1];
+    
+    return ($red_points, $blue_points);
+}
+
+# @Heracles@20110731
+# Calcula cuantos sectores pertenece a cada bando 
+sub calc_sectors_owned() {
+    my $red_sectors = 0;
+    my $blue_sectors = 0;
+    my $total_sectors = 0;
+    
+    my $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~ m/SEC[^,]+,[^,]+,[^,]+,([^,]+),[^,]+,[^:]+:([12])/){
+	    if ($1 == 1) { $red_sectors++; $total_sectors++;}
+	    if ($1 == 2) { $blue_sectors++; $total_sectors++;}
+	}
+    }
+    
+    return (int($red_sectors/$total_sectors), int($blue_sectors/$total_sectors));
 }
 
 sub make_attack_page(){
@@ -4926,6 +5160,8 @@ sub make_attack_page(){
     srand;
     $mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
     if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
+    
+    my $map_vday = int ($rep_count / $MIS_PER_VDAY);
 
     my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
     $hora=$SUNRISE;
@@ -5003,7 +5239,34 @@ sub make_attack_page(){
     print MAPA  &print_start_html;
     print MAPA "<!-- VICTORY CONDITION -->\n";
     print MAPA "\n";
-    print MAPA  "<br><br><font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
+    
+    my $blue_points = 0;
+    my $red_points = 0;
+    ($red_points, $blue_points) = calc_map_points();
+    
+    if ($red_points > $blue_points) {
+	print MAPA  "<font size=\"+2\" color=\"red\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+    }
+    else {
+	if ($blue_points > $red_points) {
+	    print MAPA  "<font size=\"+2\" color=\"blue\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+	}
+	else {
+	    print MAPA  "<font size=\"+2\" color=\"green\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
+	}
+    }
+    
+    print MAPA "<table>\n";
+    print MAPA "<tr class=first><td colspan=8 align=center><h3>Puntuación del Mapa</h3></td></tr>\n";	
+    print MAPA "<tr class=first><td  align=center valign=middle><nowrap><img src=\"images/luftwaffe_logo.gif\" width=40 height=40/></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$blue_points</b></nowrap></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td  align=center valign=middle><img src=\"images/ws_logo.gif\" border=0 width=40 height=40/></td>";
+    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$red_points</b></nowrap></td>";	
+    print MAPA "</tr>";
+    print MAPA "</table>\n";
+    
+    print MAPA  "<br><br><font size=\"+1\"> Dia de campaña <b>$map_vday</b> de <b>$CAMPAIGN_MAX_VDAY</b><br>\n";
+    print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
     print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
     print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
@@ -5012,7 +5275,98 @@ sub make_attack_page(){
     print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
     print STA   "<table border=1 ><tr><td valign=\"top\">\n";
 
-    ## informe de daños aerodormos
+    ## informe de capacidad de producción roja
+    print MAPA  "<b><u>Cuartel general rojo</u></b><br><br>\n";
+    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";        
+    print MAPA  "<b>Producción de aviones: </b><br>\n";
+    print STA   "<b>Producción de aviones: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+
+    my $red_stock = 0;
+    my $blue_stock = 0;
+    ($red_stock, $blue_stock) = calc_stocks_plane();
+    
+    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
+    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
+    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";    
+    
+    ## informe de capacidad de suministro roja
+    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
+    print STA   "<b>Suministro a aeródromo: </b><br>\n";
+    
+    my $CG_red_base_supply = 0;
+    my $CG_blue_base_supply = 0;
+    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);    
+    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
+    
+    my $red_plane_supply = 0;
+    my $blue_plane_supply = 0;    
+    ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    
+    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
+    print STA   "<b>Suministro a ciudad: </b><br>\n";    
+
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+
+    print MAPA  "</table><br><br>\n";
+    print STA   "</table><br><br>\n";
+    print MAPA  "</td><td valign=\"top\">\n";
+    print STA   "</td><td valign=\"top\">\n";    
+
+    ## informe de capacidad de producción azul
+    print MAPA  "<b><u>Cuartel general azul</u></b><br><br>\n";
+    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";        
+    print MAPA  "<b>Producción de aviones: </b><br>\n";
+    print STA   "<b>Producción de aviones: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
+    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
+    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    
+    ## informe de capacidad de suministro azul
+    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
+    print STA   "<b>Suministro a aeródromo: </b><br>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";
+    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
+    print STA   "<b>Suministro a ciudad: </b><br>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
+    print STA   "</table><br><br></td></tr></table><br><br>\n";    
+    
+    
+    ## informe de daños aerodormos rojos
+    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
     print MAPA  "<b>Aeródromos rojos: </b><br>\n";
     print STA   "<b>Aeródromos rojos: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
@@ -6965,3 +7319,4 @@ $close_big_red=$close_big_red;
 $gen_lock=$gen_lock;
 $parser_stop=$parser_stop;
 $ALLOW_AUTO_REGISTER=$ALLOW_AUTO_REGISTER;
+
