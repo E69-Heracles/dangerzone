@@ -4510,10 +4510,10 @@ sub print_briefing() {
 		    $bom_cant+=$red_attk_grplst[$grpentries*($i+1)+2];
 		}
 		if ($lang==0) {$des_red_attk_R="\\n\\nSuministro: $red_target \\nNos han encargado una mision de suministro en ".$red_target.". El transporte se realizara con  ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\n";
-		    if ($RED_SUM_AI==0){$des_red_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Los transportes deberan llevar armas: DEFAULT y 100% combustible.\\nDistancia al objetivo: $RED_ATTK_TGT Km.\\nDistancia Objetivo a base: $RED_ATTK_HOME Km.\\nTiempo para realizar la mision: $RED_SUM_TIME minutos.\\n";}
+		    if ($RED_SUM_AI==0){$des_red_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Los transportes deberan llevar armas: DEFAULT y 100% combustible.\\nDistancia al objetivo: $RED_ATTK_TGT Km.\\nDistancia Objetivo a base: $RED_ATTK_HOME Km.\\nTiempo para llegar a objetivo y suministrar: $RED_SUM_TIME minutos.\\n";}
 		}
 		if ($lang==1) {$des_red_attk_R="\\n\\nSupply: $red_target \\nA We need to suply ".$red_target.". The transport group consist in ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\n";
-		    if ($RED_SUM_AI==0){$des_red_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $RED_ATTK_TGT Km.\\nDistance tgt to base: $RED_ATTK_HOME Km.\\nTime to acomplish mission: $RED_SUM_TIME minutes.\\n";}
+		    if ($RED_SUM_AI==0){$des_red_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $RED_ATTK_TGT Km.\\nDistance tgt to base: $RED_ATTK_HOME Km.\\nTime to arrive to the objetive and supply: $RED_SUM_TIME minutes.\\n";}
 	        }
 		print DESC enc_unicode($des_red_attk_R);
 		$basta=1; # solo imprimimos 1 vez
@@ -4667,10 +4667,10 @@ sub print_briefing() {
 		    $bom_cant+=$blue_attk_grplst[$grpentries*($i+1)+2];
 		}
 		if ($lang==0) {$des_blue_attk_R="\\n\\nSuministro: $blue_target \\nDebemos suministrar $blue_target. Los transportes seran ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\n";
-		    if ($BLUE_SUM_AI==0){$des_blue_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Los transportes deberan llevar armas: default y 100% combustible.\\nDistancia al objetivo: $BLUE_ATTK_TGT Km.\\nDistancia Objetivo a base: $BLUE_ATTK_HOME Km.\\nTiempo para completar la mision $BLUE_SUM_TIME minutos.\\n";}
+		    if ($BLUE_SUM_AI==0){$des_blue_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Los transportes deberan llevar armas: default y 100% combustible.\\nDistancia al objetivo: $BLUE_ATTK_TGT Km.\\nDistancia Objetivo a base: $BLUE_ATTK_HOME Km.\\nTiempo para llegar a objetivo y suministrar $BLUE_SUM_TIME minutos.\\n";}
 		}
 		if ($lang==1) {$des_blue_attk_R="\\n\\nSupply: $blue_target \\nWe need to suply $blue_target. The transport group consist in ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\n";
-		    if ($BLUE_SUM_AI==0){ $des_blue_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $BLUE_ATTK_TGT Km.\\nDistance tgt to base: $BLUE_ATTK_HOME Km.\\nTime to acomplish mission: $BLUE_SUM_TIME minutes.\\n";}
+		    if ($BLUE_SUM_AI==0){ $des_blue_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $BLUE_ATTK_TGT Km.\\nDistance tgt to base: $BLUE_ATTK_HOME Km.\\nTime to arrive to objetove and supply: $BLUE_SUM_TIME minutes.\\n";}
 		}
 		print DESC enc_unicode($des_blue_attk_R);
 		$basta=1; # solo imprimimos 1 vez
@@ -5944,7 +5944,7 @@ if (scalar(@red_attk_grplst)>0){ # if red has at least one attack  group
 	    ($red_tgtcx,$red_tgtcy)=find_close_obj_area($red_tgtcx,$red_tgtcy); # CHECK, esto anda solo para AF
 	}
 	($RED_ATTK_TGT,$RED_ATTK_HOME)=bombers_wp($player,$red_tgtcx,$red_tgtcy,$mis_type);
-	if ($RED_SUM) {$RED_SUM_TIME= int(20 + (($RED_ATTK_TGT+$RED_ATTK_HOME) * 1.4 * 60 / $VVS_TRP_SPEED ));} 
+	if ($RED_SUM) {$RED_SUM_TIME= int(10 + ($RED_ATTK_TGT * 1.4 * 60 / $VVS_TRP_SPEED ));} 
     }
 }
 
@@ -5981,7 +5981,7 @@ if (scalar(@blue_attk_grplst)>0){ # if blue  has at least one attack group
 	    ($blue_tgtcx,$blue_tgtcy)=find_close_obj_area($blue_tgtcx,$blue_tgtcy); # CHECK es para AF
 	}
 	($BLUE_ATTK_TGT,$BLUE_ATTK_HOME)=bombers_wp($player,$blue_tgtcx,$blue_tgtcy,$mis_type);
-	if ($BLUE_SUM) {$BLUE_SUM_TIME= int(20 + (($BLUE_ATTK_TGT+$BLUE_ATTK_HOME) * 1.4 * 60 / $LW_TRP_SPEED ));}
+	if ($BLUE_SUM) {$BLUE_SUM_TIME= int(10 + ($BLUE_ATTK_TGT * 1.4 * 60 / $LW_TRP_SPEED ));}
     }
 }
 

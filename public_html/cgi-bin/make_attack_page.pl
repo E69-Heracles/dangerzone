@@ -343,12 +343,14 @@ print MAPA  &print_start_html;
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
     print STA   "<b>Suministro a ciudad: </b><br>\n";    
 
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    my $blue_sectors = 0;
+    my $red_sectors = 0;
+    ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
+    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";    
 
     print MAPA  "</table><br><br>\n";
     print STA   "</table><br><br>\n";
@@ -380,12 +382,10 @@ print MAPA  &print_start_html;
     print STA   "</table><br>\n";
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
     print STA   "<b>Suministro a ciudad: </b><br>\n";    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";    
     print MAPA  "</table><br><br></td></tr></table><br><br>\n";
     print STA   "</table><br><br></td></tr></table><br><br>\n";
     

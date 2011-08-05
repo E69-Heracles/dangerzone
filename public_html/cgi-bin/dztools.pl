@@ -207,4 +207,39 @@ sub calc_map_points() {
     return ($red_points, $blue_points);
 }
 
+# @Heracles@20110731
+# Calcula cuantos sectores pertenece a cada bando 
+sub calc_sectors_owned() {
+    my $red_sectors = 0.0;
+    my $blue_sectors = 0.0;
+    my $total_sectors = 0.0;
+    
+    my $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
+    seek GEO_OBJ,0,0;
+    while(<GEO_OBJ>) {
+	if ($_ =~ m/SEC[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:([12])/){
+	    if ($1 == 1) { $red_sectors++; $total_sectors++;}
+	    if ($1 == 2) { $blue_sectors++; $total_sectors++;}
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    printdebug ("calc_sectors_owned(): sectores rojos $red_sectors sectores azules $blue_sectors totales $total_sectors");
+    
+    $red_sectors = ($red_sectors/$total_sectors);
+    $blue_sectors = ($blue_sectors/$total_sectors);
+    
+    printdebug ("calc_sectors_owned(): sectores rojos $red_sectors sectores azules $blue_sectors totales $total_sectors");
+    
+    my $red_supply_city = int (($red_sectors * $SUM_CITY_RATE_PLANE) + 0.5 );
+    my $blue_supply_city = int (($blue_sectors * $SUM_CITY_RATE_PLANE) + 0.5);
+    
+    $red_sectors = int (($red_sectors*100) + 0.5);
+    $blue_sectors = int (($blue_sectors*100) + 0.5);    
+    
+    printdebug ("calc_sectors_owned(): suministro terrestre rojo $red_supply_city suministro terrestre azul $blue_supply_city ");    
+    
+    return ( $red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city);
+}
+
 1;

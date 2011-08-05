@@ -81,22 +81,13 @@ $MIN_PILOT_SIDE=2; # minimun human pilot per side
 # to do that set: $MIN_PILOT_SIDE=0 and $MIN_PILOT_NUM to something biger than 0.  
 
 ## @Heracles@20110412
-## Porcentajes de suministros IA y HUMANOS
-## @Heracles@20110107@
-$AF_SUM_IA_RED=4;  # porcentaje de recupero  de AF rojo por cada transporte IA que aterriza
-$AF_SUM_IA_BLUE=3;  # porcentaje de recupero  de AF azul por cada transporte IA que aterriza
-$AF_SUM_HUMAN_RED=6; # porcentaje de recupero  de AF rojo por cada transporte HUMANO que aterriza
-$AF_SUM_HUMAN_BLUE=5; # porcentaje de recupero  de AF azul por cada transporte HUMANO que aterriza
 $AF_SUM_MAX_RAD=500000; # Radio máximo de distancia de una AF a la ciudad suministrada para poder suministrar AF
-## @Heracles@20110410@
-$CITY_SUM_HUMAN_RED=10; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_IA_RED=7; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
-$CITY_SUM_HUMAN_BLUE=8; # procentaje de recupero de CIUDAD roja por cada transporte humano que activa el humo correctamente. Random entre este valor y este valor menos 2.
-$CITY_SUM_IA_BLUE=6; # procentaje de recupero de CIUDAD roja por cada transporte IA que activa el humo correctamente
 ## @Heracles@20110624
 $CITY_SUM_MAX_RAD=5000; # Radio máximo desde la ciudad dentro del cual se debe activar el humo para tener éxito en el suministro
 ## @Heracles@20110626
 $CITY_SUM_MAX_HEIGHT=600; # Altura máxima de suministro sobre la ciudad para tener éxito en las misione SUM
+## @Heracles@20110731
+$SUM_CITY_RATE_PLANE=10; # Ratio sobre % de sectores conquistados para suministro a ciudad por avion
 
 ## @Heracles@20110425@
 ## Radio máximo de suministro para las ciudades
@@ -114,8 +105,8 @@ $MAX_DIST_AF_BA=40000; #maxima distancia del frrnte a un AF para ser bombardeada
 
 ## @Heracles@20110417@
 ## Porcentajes de AAA en las ciudades. (0 - 1) Utilizar solo un decimal. Deberían sumar 1 ;)
-$AAA_CITY_HIGH=0.5;
-$AAA_CITY_MEDIUM=0.1;
+$AAA_CITY_HIGH=0.2;
+$AAA_CITY_MEDIUM=0.4;
 $AAA_CITY_LOW=0.4;
 
 ## @Heracles@20110423

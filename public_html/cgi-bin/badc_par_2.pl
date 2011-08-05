@@ -1087,7 +1087,7 @@ sub get_mis_result_points($$){
 	    else {return(10);}
 	}
 	if ($task eq "SUM") { 
-	    if ($red_resuply > $CITY_SUM_HUMAN_RED) {return(20);}
+	    if ($red_resuply > $red_supply_city) {return(20);}
 	    if ($red_resuply > 0) {return(10);}
 	    return (0);
 	}
@@ -1142,7 +1142,7 @@ sub get_mis_result_points($$){
 	    else {return(10);}
 	}
 	if ($task eq "SUM") { 
-	    if ($blue_resuply > $CITY_SUM_HUMAN_BLUE) {return(20);}
+	    if ($blue_resuply > $blue_supply_city) {return(20);}
 	    if ($blue_resuply > 0) {return(10);}
 	    return (0);
 	}
@@ -1453,7 +1453,7 @@ sub print_pilot_actions(){
     $blue_points=0;
 
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Pilots in mission:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Pilotos en la misión:</h3></center>\n\n";
     print HTML_REP "<center>\n  <table width=\"800\"border=1>\n";
 
 
@@ -2791,7 +2791,7 @@ sub print_airfield_losts_report(@) {
 	    print HTML_REP "    <td class=\"ltr70\">$my_plane_type</td>\n";
 	    print HTML_REP "    <td class=\"ltr70\">$my_task</td>\n";
 	    if ($my_lost eq "Tráfico") {
-		print HTML_REP "    <td class=\"ltr70\"><a onMouseover=\"ddrivetip(\'$pnt_comments\',\'$pnt_bgcolor\',\'550\')\" onMouseout=\"hideddrivetip()\">".$my_lost."</a></td>\n";
+		print HTML_REP "    <td class=\"ltr70\"><a onMouseover=\"ddrivetip(\'$pnt_comments\',\'$pnt_bgcolor\',\'350\')\" onMouseout=\"hideddrivetip()\">".$my_lost."</a></td>\n";
 	    }
 	    else {
 		print HTML_REP "    <td class=\"ltr70\">$my_lost</td>\n";		
@@ -3542,17 +3542,15 @@ sub calc_resuply_by_human_pilot($$$) {
     my $af_sum = 0;
     if ($my_army == 1) {
 	$sum_time = $RED_SUM_TIME;
-	$city_sum = $CITY_SUM_HUMAN_RED;
-	$af_sum = $AF_SUM_HUMAN_RED;
+	$city_sum = $red_supply_city;
 	$my_sum_city = $red_sum_city;
-	$my_name = "Soviets";
+	$my_name = "Los rojos";
     }
     else {
 	$sum_time = $BLUE_SUM_TIME;
-	$city_sum = $CITY_SUM_HUMAN_BLUE;
-	$af_sum = $AF_SUM_HUMAN_BLUE;
+	$city_sum = $blue_supply_city;
 	$my_sum_city = $blue_sum_city;
-	$my_name = "Germans";	
+	$my_name = "Los azules";	
     }
     
     # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
@@ -3564,70 +3562,31 @@ sub calc_resuply_by_human_pilot($$$) {
 		my $smoke_height=0;
 	        seek LOG, 0, 0;
 	        while(<LOG>) {
-		    if ($_=~  m/[^ ]+ $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+) ([^ ]+)/){
+		    if ($_=~  m/([^ ]+) $pilot_list[$i][1] turned wingtip smokes on at ([^ ]+) ([^ ]+) ([^ ]+)/){
 		        $smoke_count++;
-			$smoke_height=$3;
-			printdebug ("calc_resuply_by_human_pilot():(" . $smoke_count . ") Humo activado por $pilot_list[$i][0] a " . distance($my_tgtcx,$my_tgtcy,$1,$2) . " metros del centro de la ciudad (max:" . $CITY_SUM_MAX_RAD . ") y a una altura de $smoke_height metros (max:" . $CITY_SUM_MAX_HEIGHT . ")");
-		        if ((distance($my_tgtcx,$my_tgtcy,$1,$2) < $CITY_SUM_MAX_RAD) && ($smoke_height <= $CITY_SUM_MAX_HEIGHT) && ($smoke_count < 4)){
-			    while(<LOG>) {
-			        if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/ &&
-				( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
+			$smoke_height=$4;
+			printdebug ("calc_resuply_by_human_pilot():(" . $smoke_count . ") Humo activado por $pilot_list[$i][0] a " . distance($my_tgtcx,$my_tgtcy,$2,$3) . " metros del centro de la ciudad (max:" . $CITY_SUM_MAX_RAD . ") y a una altura de $smoke_height metros (max:" . $CITY_SUM_MAX_HEIGHT . ")");
+		        if ((distance($my_tgtcx,$my_tgtcy,$2,$3) < $CITY_SUM_MAX_RAD) && ($smoke_height <= $CITY_SUM_MAX_HEIGHT) && ($smoke_count < 4)){
+			    if ( ( ( (get_segundos($1)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
 				&& $smoke_count<4 ){
-				    my $my_land_x=$2;
-				    my $my_land_y=$3;
-				    $smoke_count=4; # evitar multiples resuply
-
-				    seek GEO_OBJ, 0, 0;
-				    while(<GEO_OBJ>) {
-				        #AF02     ,ae-C12 ,22007.6,1156.7 , 2   , -C  , 12  ,  2  , 24.6  :2
-				        if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):$my_army/){ 
-					    if ($4<=100 && distance($2,$3,$my_land_x,$my_land_y)<2000) {
-						    
-					        ## @Heracles@20110107
-					        ## Sólo es un exito el sumnistro en AF si el AF está en un
-						## radio máximo ($AF_SUM_MAX_RAD) de la ciudad sumnistrada
-						if (distance($2,$3,$my_tgtcx,$my_tgtcy) < $AF_SUM_MAX_RAD) {
-						    ## @Heracles@20110410@
-						    ## El porcentaje de SUM sobre CIUDAD de un humano es un numero aleotario entre $CITY_SUM_HUMAN_RED
-						    ## y $CITY_SUM_HUMAN_RED-2. Actualmente entre 10 y 8
-						    my $rpilot_succ=($city_sum - int(rand(3))); 					
-						    if ($unix_cgi){ 
-							    #    print "    - $pilot_list[$i][0] suply $red_sum_city ($rpilot_succ %) ";
-						    }
-						    print HTML_REP  "    - $pilot_list[$i][0] suply $my_sum_city ($rpilot_succ %) ";
-						    $my_resuply+=$rpilot_succ;						    
-						    if ($unix_cgi){ 
-							#print " and $1 (".$af_sum." %)";
-						    }
-						    print HTML_REP  " and $1 (".$af_sum." %)";
-						    push (@af_resup,$1);
-						}
-						else {
-							printdebug ("calc_resuply_by_human_pilot(): Aerodromo $1 no esta en radio de sumnistro. Piloto : $pilot_list[$i][0]");
-						}
-					    }
-					}
-				    }
-				    if ($unix_cgi){ 
-				    #    print "\n";
-				    }
-				    print HTML_REP  "<br>\n";
-				}
+				$smoke_count=4; # evitar multiples resuply
+				my $rpilot_succ = $city_sum; 					
+				print HTML_REP  "    - $pilot_list[$i][0] suministra $my_sum_city ($rpilot_succ %) ";
+				$my_resuply+=$rpilot_succ;						    
+				print HTML_REP  "<br>\n";
 			    }
+			    
 		        }
 		    }
 	        }
 	    }
         }
     }
-	
-    if ($unix_cgi){ 
-	#    print $my_name . "resuply  $my_resuply % $my_sum_city \n";
-    }
-    print HTML_REP "    --- <strong>" . $my_name . " supply  $my_resuply % $my_sum_city </strong>.<br>\n";	
+    print HTML_REP "    --- <strong>" . $my_name . " suministran  $my_resuply % $my_sum_city </strong>.<br>\n";	
 
     return $my_resuply;
 }
+
 
 sub print_mis_objetive_result(){
     my $redchf=0;
@@ -3723,50 +3682,6 @@ sub print_mis_objetive_result(){
 	$red_result="$red_resuply"; # para mis_prog_tbl	
     }
     
-    if ($RED_SUM==1 && $RED_SUM_AI>0){
-	my $sourvive = get_task_perc_sorvive(1,"SUM");
-	my $city_recover = int($RED_SUM_AI * $CITY_SUM_IA_RED * $sourvive/100);
-	$red_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_IA_RED){
-	    $red_resuply+=$CITY_SUM_IA_RED;
-	}
-	if ($unix_cgi){
-	    #print "    - AI Suply Group of $RED_SUM_AI planes to $red_sum_city. \n";
-	    #print "    - Sourvived : $sourvive % \n";
-	    #print "    --- Soviets resuply  $red_resuply % $red_sum_city ";
-	}
-	print HTML_REP "    - Grupo de suministros IA de $RED_SUM_AI aviones a $red_sum_city. <br>\n";
-	print HTML_REP "    - Sobreviven : $sourvive % <br>\n";
-	print HTML_REP "    --- <strong>Lor rojos suministran $red_resuply % $red_sum_city ";
-	$red_result="$red_resuply"; # para mis_prog_tbl
-
-	my $ai_land_at="";
-	seek GEO_OBJ, 0, 0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~ m/^$RED_SUM_AI_LAND,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:1/){ 
-		$ai_land_at=$1;
-		last;
-	    }
-	}
-	## @Heracles@20110107@
-	my $af_recover= int($RED_SUM_AI * $AF_SUM_IA_RED * $sourvive/100);
-	if ($ai_land_at ne ""){
-	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_IA_RED){
-		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM_IA_RED;
-	    }
-	    if ($unix_cgi){ 
-		#print " and $ai_land_at $recover %";
-	    }
-	    print HTML_REP  " and $ai_land_at $recover %";
-	}
-	if ($unix_cgi){ 
-	#    print "\n";
-	}
-	print HTML_REP  " </strong>.<br>\n";
-    } 
-
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
 	$blue_damage=0;
 	$obj_kill=0;
@@ -3884,52 +3799,6 @@ sub print_mis_objetive_result(){
 	$blue_resuply = calc_resuply_by_human_pilot(2, $blue_tgtcx, $blue_tgtcy);
 	$blue_result="$blue_resuply"; # para mis_prog_tbl		
     }
-
-    if ($BLUE_SUM==1 && $BLUE_SUM_AI>0){
-	my $sourvive = get_task_perc_sorvive(2,"SUM");
-	my $city_recover = int($BLUE_SUM_AI * $CITY_SUM_IA_BLUE * $sourvive/100);
-	$blue_resuply=0;
-	for (my $r=0; $r<$city_recover ; $r+=$CITY_SUM_IA_BLUE){
-	    $blue_resuply+=$CITY_SUM_IA_BLUE;
-	}
-	if ($unix_cgi){
-	    #print "    - AI Suply Group of $BLUE_SUM_AI planes to $blue_sum_city. \n";
-	    #print "    - Sourvived : $sourvive % \n";
-	    #print "    --- Germans resuply  $blue_resuply % $blue_sum_city ";
-	}
-	print HTML_REP "    - Grupo de suministros IA de $BLUE_SUM_AI aviones a $blue_sum_city. <br>\n";
-	print HTML_REP "    - Sobreviven : $sourvive % <br>\n";
-	print HTML_REP "    --- <strong>Los azules suministran $blue_resuply % $blue_sum_city \n";
-	$blue_result="$blue_resuply"; # para mis_prog_tbl
-
-	my $ai_land_at="";
-	seek GEO_OBJ, 0, 0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~ m/^$BLUE_SUM_AI_LAND,([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:2/){ 
-		$ai_land_at=$1;
-		last;
-	    }
-	}
-	## @Heracles@20110107@
-	my $af_recover= int($BLUE_SUM_AI * $AF_SUM_IA_BLUE * $sourvive/100);
-	if ($ai_land_at ne ""){
-	    my $recover=0;
-	    for (my $r=0; $r<$af_recover ; $r+=$AF_SUM_IA_BLUE){
-		push (@af_resup,$ai_land_at);
-		$recover+=$AF_SUM_IA_BLUE;
-	    }
-	    if ($unix_cgi){ 
-		#print " and $ai_land_at $recover %";
-	    }
-	    print HTML_REP  " and $ai_land_at $recover %";
-	}
-	if ($unix_cgi){ 
-	#    print "\n";
-	}
-	print HTML_REP  " </strong>.<br>\n";
-
-    } 
-
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
 	$red_damage=0;
@@ -4060,6 +3929,7 @@ sub look_resuply() {
     open (TEMPGEO, ">temp_geo.data"); #
     seek GEO_OBJ, 0, 0;
     my $armada;
+    
     while(<GEO_OBJ>) {
 	if ($_ !~ m/^CT[0-9]{2},($blue_sum_city,|$red_sum_city,)/) { # si no es una line que nos interesa...
 	    if ($_ =~ m/^AF[0-9]{2},([^,]+),.*,([^:]+):([12])/){
@@ -4070,10 +3940,8 @@ sub look_resuply() {
 		my $af_dam_diff=0.0;
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
-			if ($army == 1 && $RED_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_RED * 1.0;}
-			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_RED * 1.0;}
-			if ($army == 2 && $BLUE_SUM_AI > 0) {$af_dam_diff+=$AF_SUM_IA_BLUE * 1.0;}
-			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$AF_SUM_HUMAN_BLUE * 1.0;}			
+			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$red_plane_supply * 1.0;}
+			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$blue_plane_supply * 1.0;}			
 		    }
 		}
 		# @Heracles@20110728
@@ -4909,25 +4777,6 @@ sub calc_production_planes() {
 	
 }
 
-# @Heracles@20110731
-# Calcula cuantos sectores pertenece a cada bando 
-sub calc_sectors_owned() {
-    my $red_sectors = 0;
-    my $blue_sectors = 0;
-    my $total_sectors = 0;
-    
-    my $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~ m/SEC[^,]+,[^,]+,[^,]+,([^,]+),[^,]+,[^:]+:([12])/){
-	    if ($1 == 1) { $red_sectors++; $total_sectors++;}
-	    if ($1 == 2) { $blue_sectors++; $total_sectors++;}
-	}
-    }
-    
-    return (int($red_sectors/$total_sectors), int($blue_sectors/$total_sectors));
-}
-
 sub make_attack_page(){
 
     ## *****************************************************
@@ -5128,12 +4977,16 @@ sub make_attack_page(){
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
     print STA   "<b>Suministro a ciudad: </b><br>\n";    
 
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    my $blue_sectors = 0;
+    my $red_sectors = 0;
+    my $red_supply_city = 0;
+    my $blue_supply_city = 0;
+    ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
+    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";    
 
     print MAPA  "</table><br><br>\n";
     print STA   "</table><br><br>\n";
@@ -5165,12 +5018,10 @@ sub make_attack_page(){
     print STA   "</table><br>\n";
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
     print STA   "<b>Suministro a ciudad: </b><br>\n";    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Máximo diario (%):</td><td align=\"right\"><b>100</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print STA   "<tr><td>Restante (%):</td><td align=\"right\"><b>0</b></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";    
     print MAPA  "</table><br><br></td></tr></table><br><br>\n";
     print STA   "</table><br><br></td></tr></table><br><br>\n";    
     
@@ -6858,6 +6709,20 @@ $blue_resuply=0;
 $red_resuply=0;
 
 @af_resup=();
+
+$blue_sectors = 0;
+$red_sectors = 0;
+$red_supply_city = 0;
+$blue_supply_city = 0;
+($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
+
+$red_stock = 0;
+$blue_stock = 0;
+($red_stock, $blue_stock) = calc_stocks_plane();
+
+$red_plane_supply = 0;
+$blue_plane_supply = 0;    
+($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
 
 $red_result="";  # para mis_prog_tbl
 $blue_result=""; # para mis_prog_tbl
