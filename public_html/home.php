@@ -78,6 +78,44 @@ include ("./dz_page_header.php");
 				<td colspan="3" class="section_header">
 					<span class="section_header_txt">Últimas Noticias de la Danger Zone</span><br/><br/></td>				
 			</tr>
+			
+			<tr class="section_subheader" height="30px"> 
+				<td colspan="2"> 
+					<span class="section_subheader_txt">Finalización de Lvov 1.941</span>&nbsp;&nbsp;
+					<span style="font-size:9px">[E69_espiral]</span><br/></td> 
+					<td align="right" style="font-size:9px">4 de Agosto de 2011</td>
+			</tr>	
+			<tr>
+				<td colspan="3">
+					<b>Preparando el siguiente mapa: Smolensk 41</b><br/>					
+<p>El mapa de <b>Lvov-1.941</b> ha terminado tras <b>86 misiones</b> voladas (poco menos de 3 días virtuales), pero el tiempo ha cundido como si fuese mucho más.</p>
+
+<p>Ha estado muy reñido, con momentos en los que parecía que en la siguiente misión el Bando Rojo iba a ganar el mapa y momentos en los que parecía que era el Bando Azul el que podía vencer. Finalmente la fortuna ha favorecido al Bando Alemán, pero en honor a la verdad hay que decir que no hubiésemos podido ganar sin la participación del <b><i>Escuadrón Mercenario</i></b>, por lo que realmente creo que la Victoria es más suya que nuestra y la derrota no es de nadie.</p>
+
+<p>Una de las cuestiones que a mi personalmente más me ha gustado es que parece que los pilotos comienzan a concienciarse de que la conservación del propio avión y, sobre todo, de la  vida, son fundamentales.</p>
+
+<p>Otro aspecto muy positivo es que la propuesta de <b><i>E69_Chapas</i></b> de creación de ese <b><i>Escuadrón Mercenario</i></b> para que quienes lo integran pudieran volar indistintamente en cualquiera de los bandos donde faltasen pilotos fue un magnífico acierto.</p>
+
+<p>El siguiente mapa a volar será también en el Frente del Este, concretamente <b>Smolensk-1.941</b> (190x170 Kms.). No se introduce ninguna novedad, a la espera de que <b><i>E69_Heracles</i></b> acabe de ultimar el nuevo sistema de <b>"Inventario y Suministro"</b>, que casi con toda seguridad entrará en funcionamiento cuando finalice Smolensk.</p>
+
+<p>La única salvedad es que, siendo un mapa con <b>19 AFs</b>, quedará restablecida la condición de que los aviones de SUM aterricen en un radio determinado de la ciudad a suministrar.</p>
+
+<p>El "planeset" es bastante parecido, para ambos bandos, al recién terminado mapa de <b>Lvov-1.941</b>, pero se incorporan un par de tipos nuevos en el bando Ruso.</p>
+
+<p>Os animo a todos los que ya habéis volado a seguir haciéndolo, y a los que no os hayáis estrenado todavía a apuntaros y participar en la Campaña.</p>
+
+<p>Aprovecho para dar las gracias a <b><i>E69_Kras</i></b> y a <b><i>E69_McField</i></b>, que han tenido la generosidad de ofrecer sus conocimientos y su tiempo para contribuir al desarrollo de la nueva página web (que próximamente verán Vds. en sus pantallas). Y a <b><i>E69_Outlaw</i></b> por los mismos motivos que le han llevado a iniciar el desarrollo de una Campaña en <b>"El Alamein"</b>.</p>
+
+<p>Y por supuesto, nuestro agradecimiento a todos los que participáis en las <b><i>DZ</i></b> de una u otra forma, porque sin vosotros la <b><i>DangerZone</i></b> no tendría sentido.</p>
+
+<p>Pero, como he dicho anteriormente, quiero hacer una mención muy especial al <b><i>Escuadrón Mercenario (mEr69)</i></b>, porque siendo una pieza fundamental del desarrollo de las misiones no se llevarán jamás una Victoria de forma "oficial", lo que implica un doble sacrificio que espero que sepamos valorar en lo que vale: mi consideración y mi respeto para todos ellos.</p>
+
+<p>Saludos.</p>
+
+				</td>
+			</tr>							
+			
+			
 			<tr class="section_subheader" height="30px"> 
 				<td colspan="2"> 
 					<span class="section_subheader_txt">Nueva campaña Lvov 1.941</span>&nbsp;&nbsp;
