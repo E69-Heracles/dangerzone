@@ -4,9 +4,57 @@ use IO::Handle;   # because autoflush
 use DBI();
 use POSIX;
 
+# @Heracles@20110805
+# Retorna el nombre de un AF a partir de sus coordenadas. Util para saber si un piloto aterrizo en un af
+# Parametros: cx, cy, armada
+sub get_af_by_coord($$$) {
+    my $cx = shift @_;
+    my $cy = shift @_;
+    my $army = shift @_;
+    my $land_af = "NONE";
+    my $af_cx = 0;
+    my $af_cy = 0;
+
+    my $line_back=tell GEO_OBJ; # pos del log        
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+	if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
+	    if (distance($2, $3, $cx, $cy) <= 2000) {
+		$land_af = $1;
+		$af_cx = $2;
+		$af_cy = $3;
+		last;
+	    }
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos    
+    
+    return ($land_af, $af_cx, $af_cy);
+}
+
+# @Heracles@20110807
+# retorna el daño de un aerodromo
+# Parametro: el nombre largo del aerodromo
+sub get_af_damage($) {
+    my $afname = shift @_;
+    my $damage = -1;
+    
+    my $line_back=tell GEO_OBJ; # pos del log        
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+	if ($_ =~ m/^AF[0-9]{2},$afname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):[12]/){ 
+	    $damage = $1;
+	    last;
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    return $damage;
+}
+
 # Heracles@20110423
-# Retorn el numero de bases dentro de un radio con centro en cx, cy
-# Parametros: coordenada x, coordenad y, radio
+# Retorna el numero de bases dentro de un radio con centro en cx, cy y una lista con el codigo de esas bases
+# Parametros: coordenada x, coordenad y, radio, armada
 sub get_af_in_radius($$$$) {
     my $cx = shift @_;
     my $cy = shift @_;
@@ -14,19 +62,65 @@ sub get_af_in_radius($$$$) {
     my $army = shift @_;
     
     my $bases = 0;
+    my @base_list = ();
     
     my $line_back=tell GEO_OBJ; # pos del log        
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/^AF[0-9]{2},[^,]+,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
-	    if (distance($1, $2, $cx, $cy) <= $radius) {
+	if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
+	    if (distance($2, $3, $cx, $cy) <= $radius) {
 		$bases++;
+		push (@base_list, $1);
 	    }
 	}
     }
     seek GEO_OBJ,$line_back,0; # regresamos
     
-    return $bases;        
+    return ($bases, @base_list);        
+}
+
+# @Heracles@20110807
+# Retorna las coordenadas de un aerodromo. Retorno -1 en caso de error.
+# Parametros: El nombre del aerodromo tal cómo aparece en el segundo campo de un línea AF del geo_obj
+sub get_coord_af($) {
+    my ($my_af) = @_;
+    
+    my $cx = -1;
+    my $cy = -1;
+    my $code;
+    
+    my $line_back=tell GEO_OBJ; # pos del log        
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+        if ($_ =~ m/^(AF[0-9]{2}),$my_af,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:[12]/){
+	    $code = $1;
+	    $cx = $2;
+	    $cy = $3;	    
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    return ($cx, $cy);    
+}
+
+# @Heracles@20110805
+# Retorna si un Af esta dentro del radio de suministro del CG
+# Parametros: cx, cy, armada
+sub is_coord_in_cg_radius($$$){
+    my $cx = shift @_;
+    my $cy = shift @_;
+    my $army = shift @_;
+    my $CG = ($army == 1) ? $RED_HQ : $BLUE_HQ;
+    
+    my $radius = get_sum_radius($CG);
+    my ($cg_cx, $cg_cy) = get_coord_city($CG);
+    
+    if (distance($cx, $cy, $cg_cx, $cg_cy) <= $radius) {
+	return 1;
+    }
+    else {
+	return 0;
+    }
 }
 
 # @Heracles@20110423
@@ -154,7 +248,9 @@ sub calc_daily_cg_bases_supply($$) {
     my $cg_red_cy = 0;
     my $cg_red_sum_radius = 0;
     my $cg_blue_bases = 0;
-    my $cg_red_bases = 0;    
+    my $cg_red_bases = 0;
+    my @blue_bases = ();
+    my @red_bases = ();
 	    
     $CG_red_base_supply = ceil (($red_stock * $SUM_STOCK_RATE_CG_BASE)/100);
     $CG_blue_base_supply = ceil (($blue_stock * $SUM_STOCK_RATE_CG_BASE)/100);
@@ -166,8 +262,8 @@ sub calc_daily_cg_bases_supply($$) {
     ($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
     $cg_red_sum_radius = get_sum_radius($RED_HQ);
 	    
-    $cg_blue_bases = get_af_in_radius($cg_blue_cx, $cg_blue_cy, $cg_blue_sum_radius, 2);
-    $cg_red_bases = get_af_in_radius($cg_red_cx, $cg_red_cy, $cg_red_sum_radius, 1);
+    ($cg_blue_bases, @blue_bases) = get_af_in_radius($cg_blue_cx, $cg_blue_cy, $cg_blue_sum_radius, 2);
+    ($cg_red_bases, @red_bases) = get_af_in_radius($cg_red_cx, $cg_red_cy, $cg_red_sum_radius, 1);
     printdebug ("calc_daily_cg_bases_supply(): Bases rojas de CG $cg_red_bases");
     printdebug ("calc_daily_cg_bases_supply(): Bases azules de CG $cg_blue_bases");
 
@@ -196,7 +292,7 @@ sub calc_map_points() {
         die "$0: Can't connect to DB\n";
     }    
 	
-    $sth = $dbh->prepare("select sum(blue_points), sum(red_points) from badc_mis_prog where reported=\'1\'");
+    $sth = $dbh->prepare("select sum(blue_points), sum(red_points) from $mis_prog and campanya=$CAMPANYA and mapa=$MAP_NAME_LONG where reported=\'1\'");
     $sth->execute();
     @row = $sth->fetchrow_array;
     $sth->finish;

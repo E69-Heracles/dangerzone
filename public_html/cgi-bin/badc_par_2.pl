@@ -56,6 +56,7 @@ sub eventos_aire();
 sub eventos_tierra();
 sub read_mis_details();
 sub calc_resuply_by_human_pilot($$$);
+sub calc_af_resuply_air($);
 sub print_mis_objetive_result();
 sub look_af_and_ct();
 sub look_resuply();
@@ -75,7 +76,9 @@ sub calc_production_planes();
 sub calc_sectors_owned();
 sub make_attack_page();
 sub printdebug($);
+sub get_af_by_coord($$$);
 sub get_af_in_radius($$$$);
+sub is_coord_in_cg_radius($$$);
 sub get_coord_city($);
 sub get_sum_radius($);
 sub calc_stocks_plane();
@@ -599,7 +602,7 @@ sub build_pilot_list(){
 		}
 		if ($pilot) {$pos="$pos (Gunn $pilot)"; $task="ART";} # si el campo piloto no es 0 es arillero.
 
-		if ($task eq "SUM"){
+		if ($task eq "SUM" || $task eq "SUA"){
 		    my $line_back=tell LOG; # pos del log
 		    while(<LOG>) { # 15:18:36 GA_Gerko has disconnected
 			if ($_=~  m/$stime_str $plane loaded weapons \'([^ ]+)\' fuel ([0-9%]+)/){
@@ -815,6 +818,20 @@ sub find_safe_pilots(){
 	    @traffic_pilots=();
 	    for (my $i=0; $i < scalar(@traffic_temp); $i++) {
 	        push (@traffic_pilots, [$traffic_temp[$i][0],$traffic_temp[$i][1],$traffic_temp[$i][2], $traffic_temp[$i][3]]);
+	    }
+	    
+	    ## @Heracles@20110805
+	    ## Deteccion de un nuevo landing. Controlamos el nuevo arry de aerodromos destino
+	    my @af_land_pilots_temp=();
+	    for (my $i=0; $i < scalar(@af_land_pilots); $i++) {
+	        if ($af_land_pilots[$i][0] ne $plane) {
+	            push (@af_land_pilots_temp, [$af_land_pilots[$i][0], $af_land_pilots[$i][1]]);
+	        }
+	    }
+	    
+	    @af_land_pilots=();
+	    for (my $i=0; $i < scalar(@af_land_pilots_temp); $i++) {
+	        push (@af_land_pilots, [$af_land_pilots_temp[$i][0],$af_land_pilots_temp[$i][1]]);
 	    }	    
 	    
 
@@ -869,6 +886,9 @@ sub find_safe_pilots(){
 				seek LOG,$line_back,0; # regresamos 				
 				if ($vale) {
 				    push(@last_land_in_base, $plane); # aceptamos ultimo aterrizaje en base
+				    # @Heracles@20110805
+				    # Lista de pilotos y sus af destino
+				    push(@af_land_pilots, [$plane, $afland]);				    
 				    # @Heracles@20110728@
 				    # Lista de pilotos con trafico entre base
 				    if ($my_afbase ne $afland) {
@@ -1003,7 +1023,7 @@ sub get_akill_points($$){
     my $killer_task=get_task($killer_code);
     my $killed_task=get_task($killed_code);
 
-    if ($killer_task eq "BA"  || $killer_task eq "BD" || $killer_task eq "SUM") {
+    if ($killer_task eq "BA"  || $killer_task eq "BD" || $killer_task eq "SUM" || $killer_task eq "SUA") {
 	if ($killed_task eq "I" || $killed_task eq "ET" || $killed_task eq "ER" || 
 	    $killed_task eq "EBD" || $killed_task eq "EBA" || $killed_task eq "ESU"){
 	    return (6); # era 4
@@ -1014,7 +1034,7 @@ sub get_akill_points($$){
     }
 
     if ($killer_task eq "ET"  || $killer_task eq "I") {
-	if ($killed_task eq "BD" || $killed_task eq "BA" || $killed_task eq "SUM"){
+	if ($killed_task eq "BD" || $killed_task eq "BA" || $killed_task eq "SUM" || $killed_task eq "SUA"){
 	    return (12); # era 8 
 	}
 	elsif ($killed_task eq "I" || $killed_task eq "ET" || $killed_task eq "ESU" || 
@@ -1091,6 +1111,11 @@ sub get_mis_result_points($$){
 	    if ($red_resuply > 0) {return(10);}
 	    return (0);
 	}
+	if ($task eq "SUA") { 
+	    if ($red_af_resuply > $red_plane_supply) {return(20);}
+	    if ($red_af_resuply > 0) {return(10);}
+	    return (0);
+	}	
 	if ($task eq "EBA") {
 	    $sourvive = get_task_perc_sorvive($army,"BA");
 	    if ($sourvive == 100) {return(10);}
@@ -1104,10 +1129,18 @@ sub get_mis_result_points($$){
 	    return(0);
 	}
 	if ($task eq "ESU") {
-	    $sourvive = get_task_perc_sorvive($army,"SUM");
-	    if ($sourvive == 100) {return(10);}
-	    if ($sourvive >= 50 ) {return(5);}
-	    return (0);
+	    if ($RED_SUA == 1) {
+		$sourvive = get_task_perc_sorvive($army,"SUA");
+		if ($sourvive == 100) {return(10);}
+		if ($sourvive >= 50 ) {return(5);}
+		return (0);		
+	    }
+	    else {
+		$sourvive = get_task_perc_sorvive($army,"SUM");
+		if ($sourvive == 100) {return(10);}
+		if ($sourvive >= 50 ) {return(5);}
+		return (0);
+	    }
 	}
 	if ($task eq "I") {
 	    if ($BLUE_SUM==1){
@@ -1117,10 +1150,18 @@ sub get_mis_result_points($$){
 		return (0);
 	    }
 	    else {
-		$sourvive = get_task_perc_sorvive(2,"BA");
-		if ($sourvive == 0) {return(10);}
-		if ($sourvive <= 50 ) {return(5);}
-		return (0);
+		if ($BLUE_SUA == 1) {
+		    $sourvive = get_task_perc_sorvive(2,"SUA");
+		    if ($sourvive == 0) {return(10);}
+		    if ($sourvive <= 50 ) {return(5);}
+		    return (0);		    
+		}
+		else {
+		    $sourvive = get_task_perc_sorvive(2,"BA");
+		    if ($sourvive == 0) {return(10);}
+		    if ($sourvive <= 50 ) {return(5);}
+		    return (0);
+		}
 	    }
 	}
 	if ($task eq "ET") {
@@ -1146,6 +1187,11 @@ sub get_mis_result_points($$){
 	    if ($blue_resuply > 0) {return(10);}
 	    return (0);
 	}
+	if ($task eq "SUA") { 
+	    if ($blue_af_resuply > $blue_plane_supply) {return(20);}
+	    if ($blue_af_resuply > 0) {return(10);}
+	    return (0);
+	}		
 	if ($task eq "EBA") {
 	    $sourvive = get_task_perc_sorvive($army,"BA");
 	    if ($sourvive == 100) {return(10);}
@@ -1159,10 +1205,18 @@ sub get_mis_result_points($$){
 	    return (0);
 	}
 	if ($task eq "ESU") {
-	    $sourvive = get_task_perc_sorvive($army,"SUM");
-	    if ($sourvive == 100) {return(10);}
-	    if ($sourvive >= 50 ) {return(5);}
-	    return (0);
+	    if ($BLUE_SUA == 1){
+		$sourvive = get_task_perc_sorvive($army,"SUA");
+		if ($sourvive == 100) {return(10);}
+		if ($sourvive >= 50 ) {return(5);}
+		return (0);		
+	    }
+	    else {
+		$sourvive = get_task_perc_sorvive($army,"SUM");
+		if ($sourvive == 100) {return(10);}
+		if ($sourvive >= 50 ) {return(5);}
+		return (0);
+	    }
 	}
 	if ($task eq "I") {
 	    if ($RED_SUM==1){
@@ -1172,10 +1226,18 @@ sub get_mis_result_points($$){
 		return (0);
 	    }
 	    else {
-		$sourvive = get_task_perc_sorvive(1,"BA");
-		if ($sourvive == 0) {return(10);}
-		if ($sourvive <= 50 ) {return(5);}
-		return (0);
+		if ($RED_SUA==1){
+		    $sourvive = get_task_perc_sorvive(1,"SUA");
+		    if ($sourvive == 0) {return(10);}
+		    if ($sourvive <= 50 ) {return(5);}
+		    return (0);		    
+		}
+		else {
+		    $sourvive = get_task_perc_sorvive(1,"BA");
+		    if ($sourvive == 0) {return(10);}
+		    if ($sourvive <= 50 ) {return(5);}
+		    return (0);
+		}
 	    }
 	}
 	if ($task eq "ET") {
@@ -1732,7 +1794,7 @@ sub print_pilot_actions(){
 			$fuel=$3;
 
 			#if ($play_task eq "SUM" &&  ($fuel ne "100%" || $weapons ne "default")) { 
-			if ($play_task eq "SUM" && $weapons ne "default") { 
+			if ((($play_task eq "SUM") || ($play_task eq "SUA"))&& $weapons ne "default") { 
 			    # es SUM, pero no cargo 100 fuel ni default weapons -> lo pasamos a BA
 			    $pilot_list[$i][6]="BA";
 			    $play_task="BA";
@@ -2565,7 +2627,7 @@ sub plane_role($) {
     my $role = 
         (($my_task eq ("BA")) || ($my_task eq ("BD")) || ($my_task eq ("AT"))) ? "BOMBER" :
         (($my_task eq ("EBA")) || ($my_task eq ("ESU")) || ($my_task eq ("EBD")) || ($my_task eq ("ET")) || ($my_task eq ("I"))) ? "FIGHTER" :
-        (($my_task eq ("SUM"))) ? "SUM" : "NOROLE";
+        (($my_task eq ("SUM")) || ($my_task eq ("SUA"))) ? "SUM" : "NOROLE";
     
     return $role;
 }
@@ -3458,6 +3520,8 @@ sub read_mis_details(){
 	if ($_ =~ m/BLUE_RECON=1/){$BLUE_RECON=1;}
 	if ($_ =~ m/RED_SUM=1/){$RED_SUM=1;}
 	if ($_ =~ m/BLUE_SUM=1/){$BLUE_SUM=1;}
+	if ($_ =~ m/RED_SUA=1/){$RED_SUA=1;}
+	if ($_ =~ m/BLUE_SUA=1/){$BLUE_SUA=1;}	
 	if ($_ =~ m/RED_SUM_AI=([0-9]+)/){$RED_SUM_AI=$1;} # 0 o cantidad de aviones ai en suply
 	if ($_ =~ m/BLUE_SUM_AI=([0-9]+)/){$BLUE_SUM_AI=$1;} # 0 o cantidad de aviones ai en suply
 	if ($_ =~ m/RED_SUM_AI_LAND=(.*)$/){$RED_SUM_AI_LAND=$1;} # AFCODE de donde aterrizan
@@ -3588,6 +3652,70 @@ sub calc_resuply_by_human_pilot($$$) {
 }
 
 
+# @Heracles@20110805
+# Calcula el suministro aereo a aerodromos
+# Paramatros: armada (bando)
+sub calc_af_resuply_air($){
+    my ($my_army) = @_;
+    my $total = 0;
+    my $land_in_cg = 0;
+    
+    if ($my_army == 1) {
+	$sum_time = $RED_SUM_TIME;
+	$plane_supply = $red_plane_supply;
+    }
+    else {
+	$sum_time = $BLUE_SUM_TIME;
+	$plane_supply = $blue_plane_supply;	
+    }
+    
+    # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
+    for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
+        if($pilot_list[$i][5]==$my_army){ # si el piloto es rojo
+	    $player_task=$pilot_list[$i][6];
+	    if ($player_task eq "SUA" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
+		
+		my $safe = 0;
+		my $af_land = "NONE";
+		for (my $i=0; $i < scalar(@af_land_pilots); $i++) {
+		    if ($af_land_pilots[$i][0] eq $pilot_list[$i][1]) {
+			$safe = 1;
+			$af_land = $af_land_pilots[$i][1];
+		    }
+		}
+		
+		if ( $safe ) {
+		    seek LOG, 0, 0;
+		    while(<LOG>) {
+			if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/){
+			    my $land_time = $1;
+			    my $cx = $2;
+			    my $cy = $3;
+			    my ($land_af, $cx_af, $cy_af) = get_af_by_coord($cx, $cy, $my_army);
+			    if ($land_af ne "NONE") { # si aterrizo en un AF en tiempo de suministro
+				if ( ( (get_segundos($lan_time)-get_segundos($stime_str)) /60 ) <= $sum_time ) {
+				    $land_in_cg = is_coord_in_cg_radius($cx_af, $cy_af, $my_army);
+				    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base de CG en tiempo.");
+				    last;
+				}
+				else {
+				    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base de CG fuera de tiempo por" . (get_segundos($lan_time)-get_segundos($stime_str)) . " segundos");
+				}
+			    }
+			}
+		    }
+		    if ($land_in_cg) {
+			push(@af_resup, $af_land);
+			$total += $plane_supply;
+			printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base $af_land y suministra $plane_supply");			    
+		    }
+		}
+	    }
+	}
+    }
+    return $total;
+}
+
 sub print_mis_objetive_result(){
     my $redchf=0;
     my $tank_killed=0;
@@ -3607,24 +3735,19 @@ sub print_mis_objetive_result(){
     print HTML_REP "<center>\n  <table border=1>\n";
 
     if ($RED_ATTK_TACTIC==1){
-	if ($unix_cgi){ 
-	#    print "Soviet Tactic Attack \n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque táctico rojo</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque táctico</strong></center></td></tr>\n";
     }
 
     if ($RED_SUM==1){
-	if ($unix_cgi){ 
-	#    print "Soviet resuply mission\n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro rojo</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro a ciudad</strong></center></td></tr>\n";
     }
+    
+    if ($RED_SUA==1){
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
+    }    
 
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
-	if ($unix_cgi){ 
-	#    print "Soviet Startegic attack\n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estratégico rojo</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
     }
 
     print HTML_REP "  <tr bgcolor=\"#ffcccc\"><td>\n";
@@ -3682,6 +3805,11 @@ sub print_mis_objetive_result(){
 	$red_result="$red_resuply"; # para mis_prog_tbl	
     }
     
+    if ($RED_SUA == 1) {
+	$red_af_resuply = calc_af_resuply_air(1);
+	$red_result = "$red_af_resuply";
+    }
+    
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
 	$blue_damage=0;
 	$obj_kill=0;
@@ -3722,24 +3850,19 @@ sub print_mis_objetive_result(){
     print HTML_REP "  <tr bgcolor=\"#ffffcc\"><td colspan=1></td></tr>\n\n"; # separador vvs/okl
     
     if ($BLUE_ATTK_TACTIC==1){
-	if ($unix_cgi){ 
-	#    print "German Tactical attack\n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque táctico azul</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque táctico</strong></center></td></tr>\n";
     }
 
     if ($BLUE_SUM==1){
-	if ($unix_cgi){ 
-	#    print "German suply mission\n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro azul</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro a ciudad</strong></center></td></tr>\n";
     }
+    
+    if ($BLUE_SUA==1){
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
+    }    
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
-	if ($unix_cgi){ 
-	#    print "German stategic attack:\n";
-	}
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estratégico azul</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
     }
     
     print HTML_REP "  <tr bgcolor=\"#ccccff\"><td>\n";
@@ -3799,6 +3922,11 @@ sub print_mis_objetive_result(){
 	$blue_resuply = calc_resuply_by_human_pilot(2, $blue_tgtcx, $blue_tgtcy);
 	$blue_result="$blue_resuply"; # para mis_prog_tbl		
     }
+    
+    if ($BLUE_SUA == 1) {
+	$blue_af_resuply = calc_af_resuply_air(2);
+	$blue_result = "$blue_af_resuply";
+    }    
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
 	$red_damage=0;
@@ -5406,6 +5534,24 @@ sub make_attack_page(){
 	}
     }
 
+    ## seleccion de SUMINISTROS A AERODROMOS ROJOS
+    ## @Heracles@20110805
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):1/) {
+		$tgt_name= "SUA-" . $2;
+		$cxo=$3;
+		$cyo=$4;
+		$damage=$5;
+		if ($damage > 0 && $damage < 100) {
+		    unshift (@red_possible,$tgt_name);
+		}
+	    }
+	}
+    }    
+    
     ## seleccion de SUMINISTROS A CIUDADES ROJAS
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    
@@ -5436,6 +5582,7 @@ sub make_attack_page(){
 	    }
 	}
     }
+    
     ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)    
     ## @Heracles@20110727
     ## Solo seleccionar AF para misión BA si quedan aviones BA
@@ -5538,6 +5685,24 @@ sub make_attack_page(){
 	}
     }
 
+    ## seleccion de SUMINISTROS A AERODROMOS AZULES
+    ## @Heracles@20110805
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):2/) {
+		$tgt_name= "SUA-" . $2;
+		$cxo=$3;
+		$cyo=$4;
+		$damage=$5;
+		if ($damage > 0 && $damage < 100) {
+		    unshift (@blue_possible,$tgt_name);
+		}
+	    }
+	}
+    }    
+
     ## seleccion de SUMINISTROS a CIUDADES Azules
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    
@@ -5569,7 +5734,6 @@ sub make_attack_page(){
 	    }
 	}
     }
-
 
     ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
     ## @Heracles@20110727
@@ -6528,6 +6692,8 @@ $RED_RECON=0;
 $BLUE_RECON=0;
 $RED_SUM=0;
 $BLUE_SUM=0;
+$RED_SUA=0;
+$BLUE_SUA=0;
 $RED_SUM_AI=0;
 $BLUE_SUM_AI=0;
 $RED_SUM_AI_LAND="";
@@ -6707,6 +6873,8 @@ $blue_damage=0;
 $red_damage=0;
 $blue_resuply=0;
 $red_resuply=0;
+$blue_af_resuply=0;
+$red_af_resuply=0;
 
 @af_resup=();
 
@@ -6731,7 +6899,8 @@ print_mis_objetive_result();
 @land_in_base=(); # pilotos que aterrizan en su base (para descontar en cada rescat)
 @last_land_in_base=(); # pilotos que aterrizan por ultima vez en su base
 @rescatados=();  # listado de pilotos rescatados, para no contarlos como mia al evaluar pilotos perdidos
-@traffic_pilots=();
+@traffic_pilots=(); # pilotos que no aterrizan en sus bases de origen
+@af_land_pilots=(); # pilotos vivos con su af destino final
 find_safe_pilots();
 
 

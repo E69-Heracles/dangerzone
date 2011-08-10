@@ -764,6 +764,24 @@ print MAPA  &print_start_html;
 	}
     }
 
+    ## seleccion de SUMINISTROS A AERODROMOS ROJOS
+    ## @Heracles@20110805
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):1/) {
+		$tgt_name= "SUA-" . $2;
+		$cxo=$3;
+		$cyo=$4;
+		$damage=$5;
+		if ($damage > 0 && $damage < 100) {
+		    unshift (@red_possible,$tgt_name);
+		}
+	    }
+	}
+    }        
+
     ## seleccion de SUMINISTROS A CIUDADES ROJAS
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    
@@ -794,6 +812,7 @@ print MAPA  &print_start_html;
 	    }
 	}
     }
+
     ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)    
     ## @Heracles@20110727
     ## Solo seleccionar AF para misión BA si quedan aviones BA
@@ -896,6 +915,24 @@ print MAPA  &print_start_html;
 	}
     }
 
+    ## seleccion de SUMINISTROS A AERODROMOS AZULES
+    ## @Heracles@20110805
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+	seek GEO_OBJ,0,0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):2/) {
+		$tgt_name= "SUA-" . $2;
+		$cxo=$3;
+		$cyo=$4;
+		$damage=$5;
+		if ($damage > 0 && $damage < 100) {
+		    unshift (@blue_possible,$tgt_name);
+		}
+	    }
+	}
+    }    
+
     ## seleccion de SUMINISTROS a CIUDADES Azules
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    
@@ -927,7 +964,6 @@ print MAPA  &print_start_html;
 	    }
 	}
     }
-
 
     ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
     ## @Heracles@20110727

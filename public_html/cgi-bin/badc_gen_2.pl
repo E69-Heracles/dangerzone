@@ -3,6 +3,8 @@
 require "config.pl";
 require "cgi-lib.pl";
 require "ui.pl";
+require "dztools.pl";
+
 use IO::Handle;   # because autoflush
 use DBI();
 $|=1; # hot output
@@ -48,6 +50,7 @@ sub print_fm();
 sub select_random_tagets();
 sub print_details();
 sub printdebug($);
+sub get_af_damage($);
 
 
 sub printdebug($) {
@@ -239,6 +242,82 @@ sub check_targets_places() {
 	    last;
 	}
     }
+    
+    if ($RED_SUA == 1) {
+	my $cg_red_cx;
+	my $cg_red_cy;
+	my $cg_red_sum_radius;
+	my $cg_red_bases = 0;
+	my @red_bases = ();
+	my $damage = 100;
+	
+	# Buscar Af en radio de CG para cargar suministros
+	($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
+        $cg_red_sum_radius = get_sum_radius($RED_HQ);
+        ($cg_red_bases, @red_bases) = get_af_in_radius($cg_red_cx, $cg_red_cy, $cg_red_sum_radius, 1);
+	
+	if ($cg_red_bases == 0) {
+	    print " $big_red Error: </font>  Misión SUA imposible: CG rojo sin bases asociadas\n";
+	    unlink $gen_lock;
+	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Misión SUA imposible: CG rojo sin bases asociadas\n\n";
+	    exit(0);	    
+	}
+        printdebug ("check_targets_places(): Bases rojas de CG $cg_red_bases");
+	
+	foreach $af_cg (@red_bases) {
+	    my $new_damage = get_af_damage($af_cg);
+	    if ( $new_damage < $damage) {
+		$damage = $new_damage;
+		$red_ok=1;
+		($red_tgt_code, $red_tgtcx, $red_tgtcy) = get_coord_af($af_cg);
+		if ($red_tgtcx < 0) {
+		    print " $big_red Error: </font>  No se encuentran coordenadas de base CG roja $af_cg\n";
+		    unlink $gen_lock;
+		    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: No se encuentran coordenadas de base CG roja $af_cg\n\n";
+		    exit(0);	    		    
+		}
+	    }
+	}
+    }
+    
+    if ($BLUE_SUA == 1) {
+	my $cg_blue_cx;
+	my $cg_blue_cy;
+	my $cg_blue_sum_radius;
+	my $cg_blue_bases = 0;
+	my @blue_bases = ();
+	my $damage = 100;
+	
+	# Buscar Af en radio de CG para cargar suministros
+	($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
+	$cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
+	($cg_blue_bases, @blue_bases) = get_af_in_radius($cg_blue_cx, $cg_blue_cy, $cg_blue_sum_radius, 2);
+	if ($cg_blue_bases == 0) {
+	    print " $big_red Error: </font>  Misión SUA imposible: CG azul sin bases asociadas\n";
+	    unlink $gen_lock;
+	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Misión SUA imposible: CG azul sin bases asociadas\n\n";
+	    exit(0);	    
+	}
+	
+	printdebug ("check_targets_places(): Bases azules de CG $cg_blue_bases");
+
+	foreach $af_cg (@blue_bases) {
+	    my $new_damage = get_af_damage($af_cg);
+	    if ( $new_damage < $damage) {
+		$damage = $new_damage;
+		$blue_ok=1;
+		($blue_tgt_code, $blue_tgtcx, $blue_tgtcy) = get_coord_af($af_cg);
+		
+		if ($blue_tgtcx < 0) {
+		    print " $big_red Error: </font>  No se encuentran coordenadas de base CG azul $af_cg\n";
+		    unlink $gen_lock;
+		    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: No se encuentran coordenadas de base CG azul $af_cg\n\n";
+		    exit(0);	    		    
+		}
+	    }
+	}	
+    }    
+    
     if ($red_ok==0) { 
 	print " $big_red Error: </font>  Red target not found - cmd line, or data files error\n";
 	unlink $gen_lock;
@@ -285,7 +364,10 @@ sub set_attacks_types() {
 	    exit(0);
 	}
     }
-    if ($RED_SUM) { # if it is a suply...
+    
+    # @Heracles@20110809
+    # Si es un suministro aereo a ciudad o af
+    if ($RED_SUM || $RED_SUA) { # if it is a suply...
 	$RED_ATTK_TACTIC=0;
 	$red_bomb_attk=1;
 	$blue_bomb_defend=0;
@@ -296,6 +378,7 @@ sub set_attacks_types() {
 	    exit(0);
 	}
     }
+    
     if (!$RED_SUM && !$RED_ATTK_TACTIC) { # if target is a city or airfield
 	$RED_ATTK_TACTIC=0;
 	$RED_SUM=0;
@@ -337,7 +420,10 @@ sub set_attacks_types() {
 	    exit(0);
 	}
     }
-    if ($BLUE_SUM) { # if it is a suply
+    
+    # @Heracles@20110809
+    # Si es un suministro aereo a ciudad o af    
+    if ($BLUE_SUM || $BLUE_SUA) { # if it is a suply
 	$BLUE_ATTK_TACTIC=0;
 	$blue_bomb_attk=1;
 	$red_bomb_defend=0;
@@ -599,7 +685,10 @@ sub get_flight($$$$) {
     my $index=0;
     if ($plane eq "")   {$plane ="[^,]+";}  # no specific plane requested, so we match all
 #    if ($task eq "ESU") {$task="EBA";}
-
+    
+    # @Heracles@20110810
+    # Las misiones SUA se vuelan con aviones SUM
+    if ($task eq "SUA") { $task = "SUM"};
     my $plane_total=0; # numero total actual de aviones para el tipo de mision que buscamos
     my $plane_total_ini=0; # numero total inicial (en el inicio de la campana) de aviones para el tipo de mision que buscamos
     my $inv_army = ($army == 1) ? "IR" : "IA";
@@ -778,7 +867,7 @@ sub build_grplsts() {
     }
 
     my $sqdname="";
-    #--- RED DEFENE FLIGHT
+    #--- RED DEFENSE FLIGHT
     if ($red_bomb_defend==1) { # Blue attack tactic
 	if ($red_bom_def_planes>0) {  
 	    if ($red_bom_def_planes>2) {$more_bombers=$red_bom_def_planes-2; $red_bom_def_planes=2;}
@@ -824,7 +913,7 @@ sub build_grplsts() {
     }
     #---  RED ATTACK FLIGHT 
     if ($red_bomb_attk==1) { # reb attack strategic (or a recon or a suply)
-	if ($RED_RECON==0 && $RED_SUM==0) { # no recon no sum
+	if ($RED_RECON==0 && $RED_SUM==0 && $RED_SUA==0 ) { # no recon no sum
 	    if ($red_bom_attk_planes>0) {  
 		if ($red_bom_attk_planes>4) {$more_bombers=$red_bom_attk_planes-4; $red_bom_attk_planes=4;}
 		@vuelo=get_flight("1","BA","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
@@ -848,14 +937,18 @@ sub build_grplsts() {
 		}
 	    }
 	}
-	if ($RED_RECON==0 && $RED_SUM==1) { # RED SUM
-	    if ($red_bom_attk_planes>0) {  
+	
+	# @Heracles@20110809
+	# Diferenciamos suministros a ciudades y a af
+	if ($RED_RECON==0 && ($RED_SUM==1 || $RED_SUA==1)) { # RED SUM
+	    if ($red_bom_attk_planes>0) {
+		my $task = ($RED_SUA == 1) ? "SUA" : "SUM";
 		if ($red_bom_attk_planes>4) {$more_bombers=$red_bom_attk_planes-4; $red_bom_attk_planes=4;}
-		@vuelo=get_flight("1","SUM","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
+		@vuelo=get_flight("1",$task,"0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, "SUM",$sqdname."20",$red_bom_attk_planes,$red_bom_attk_ai,"2",@vuelo);
+		push(@red_attk_grplst, $task,$sqdname."20",$red_bom_attk_planes,$red_bom_attk_ai,"2",@vuelo);
 		if ($more_bombers>0) {
-		    push(@red_attk_grplst, "SUM",$sqdname."21",$more_bombers,$red_bom_attk_ai,"2",@vuelo);
+		    push(@red_attk_grplst, $task,$sqdname."21",$more_bombers,$red_bom_attk_ai,"2",@vuelo);
 		    $red_bom_attk_planes=4+$more_bombers;
 		    $more_bombers=0;
 		}
@@ -956,7 +1049,7 @@ sub build_grplsts() {
     }
     #--- BLUE ATTACK FLIGHT
     if ($blue_bomb_attk==1) {  # blue attack strategic (or recon or sum)
-	if ($BLUE_RECON==0 && $BLUE_SUM==0) { # no recon no sum
+	if ($BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0) { # no recon no sum
 	    if ($blue_bom_attk_planes>0) {  
 		if ($blue_bom_attk_planes>4) {$more_bombers=$blue_bom_attk_planes-4; $blue_bom_attk_planes=4;}
 		@vuelo=get_flight("2","BA","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
@@ -980,14 +1073,18 @@ sub build_grplsts() {
 		}	    
 	    }
 	}
-	if ($BLUE_RECON==0 && $BLUE_SUM==1) { # sum
-	    if ($blue_bom_attk_planes>0) {  
+	
+	# @Heracles@20110809
+	# Diferenciamos suministros a ciudades y a af	
+	if ($BLUE_RECON==0 && ($BLUE_SUM==1 || $BLUE_SUA==1)) { # sum
+	    if ($blue_bom_attk_planes>0) {
+		my $task = ($BLUE_SUA == 1) ? "SUA" : "SUM";
 		if ($blue_bom_attk_planes>4) {$more_bombers=$blue_bom_attk_planes-4; $blue_bom_attk_planes=4;}
-		@vuelo=get_flight("2","SUM","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
+		@vuelo=get_flight("2",$task,"0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
 		$sqdname= shift @vuelo;
-		push(@blue_attk_grplst, "SUM",$sqdname."20",$blue_bom_attk_planes,$blue_bom_attk_ai,"2",@vuelo);
+		push(@blue_attk_grplst, $task,$sqdname."20",$blue_bom_attk_planes,$blue_bom_attk_ai,"2",@vuelo);
 		if ($more_bombers>0) {
-		    push(@blue_attk_grplst, "SUM",$sqdname."21",$more_bombers,$blue_bom_attk_ai,"2",@vuelo);
+		    push(@blue_attk_grplst, $task,$sqdname."21",$more_bombers,$blue_bom_attk_ai,"2",@vuelo);
 		    $blue_bom_attk_planes=4+$more_bombers;
 		    $more_bombers=0;
 		}
@@ -1653,17 +1750,40 @@ sub bombers_wp($$$$) {
     my $radio="";                        # set in config.pl
     if ($player==1) {$radio=$VVS_RADIO;} # "&0" 50%  or  "&1" 50%
     if ($player==2) {$radio=$LW_RADIO;}  # "&0" 50%  or  "&1" 50%
+    
+    if ($mis_type eq "SUA") {
+	$afname = ($player == 1) ? $red_target : $blue_taget;
+	$afname =~ s/SUA-//;	
+    }
 
 
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) {
-                 #AF01,aerodromo--F13,54552.79,128611.91,2,-F,13,2,0:2
-	if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera
-	    if ($5==$player && $4<80) { # si es amigo y da~nos menor a 80%
+    # @Heracles@20111008
+    # Si es un suministro a AF el AF origen sera también el que suministramos.
+    if ($mis_type eq "SUA") {
+        seek GEO_OBJ, 0, 0;
+        while(<GEO_OBJ>) {
+             #AF01,aerodromo--F13,54552.79,128611.91,2,-F,13,2,0:2
+	    if ($_ =~ m/(AF[0-9]{2}),$af_name,([^,]+),([^,]+),([0-9]),.*,[^,]+:([0-3])/){ #buscamos el $af a suministrar y despegamos de el
 		$dist= distance($tgtcx,$tgtcy,$2,$3); #calculamos distancia
-		if ( ($dist < $MAX_BOMBERS_DIST) && ($dist >= $MIN_BOMBERS_DIST)){
-		    if (no_enemy_af_close($player,$2,$3)){
-			push (@aflist, "$1","$2","$3");
+		if ($4==4){$af_is_ship=1;} # is a test runway (static ship)
+		push (@aflist, "$1","$2","$3");
+		last;
+	    }
+	}	
+	$B_tgt_dist=$dist;
+	$B_home_dist=$dist;	
+    }
+    else {
+	seek GEO_OBJ, 0, 0;
+	while(<GEO_OBJ>) {
+            #AF01,aerodromo--F13,54552.79,128611.91,2,-F,13,2,0:2
+	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera
+	        if ($5==$player && $4<80) { # si es amigo y da~nos menor a 80%
+		    $dist= distance($tgtcx,$tgtcy,$2,$3); #calculamos distancia
+		    if ( ($dist < $MAX_BOMBERS_DIST) && ($dist >= $MIN_BOMBERS_DIST)){
+			if (no_enemy_af_close($player,$2,$3)){
+			    push (@aflist, "$1","$2","$3");
+			}
 		    }
 		}
 	    }
@@ -1814,22 +1934,36 @@ sub bombers_wp($$$$) {
 
     # si el AF desde donde salimos esta a mas de XX kilometros, 
     # tratamos de aterrizar en uno + cercano
+    # @Heracles@20110810
+    # Si la misión es de suminstro a AF obligamos a que el AF de aterrizaje sea el AF a suministrar, por tanto AF despegue = Af aterrizaje
     my $DIST_LIM=10000; # si vemos desde mas de esta distancia  buscar AF regreso alternativo
-    if ($dist>$DIST_LIM) {  # 
+    if ($dist>$DIST_LIM || $mis_type eq "SUA") {  #
 	$old_afcode=$afcode;
 	$old_dist=$dist;
 	@aflist=(); # armamos una nueva lista
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera (type 2 normal)
-	    if ($5==$player) { # si es amigo 
-		    $dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
-		    if ($dist < $old_dist) {
-			$old_dist=$dist;
-			$afcode=$1;
-			$afcx=$2;
-			$afcy=$3;
-			$B_home_dist=$dist;
+	    if ($mis_type eq "SUA") {
+		if ($_ =~ m/(AF[0-9]{2}),$af_name,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){
+		    $dist = distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
+		    $afcode=$1;
+		    $afcx=$2;
+		    $afcy=$3;
+		    $B_home_dist=$dist;
+		    last;
+		}		
+	    }
+	    else{
+		if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera (type 2 normal)
+		    if ($5==$player) { # si es amigo 
+			$dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
+			if ($dist < $old_dist) {
+			    $old_dist=$dist;
+			    $afcode=$1;
+			    $afcx=$2;
+			    $afcy=$3;
+			    $B_home_dist=$dist;
+			}
 		    }
 		}
 	    }
@@ -1984,6 +2118,71 @@ sub bombers_wp($$$$) {
 	    $tgt_name_2="2_Chief 1"; 
 	}
     }
+    
+    # @Heracles@20110810
+    # Calculamos 5 nuevos WP para misiones de suministros a aerodromos
+    # beforelanding en AF CG, approachlanding en AF CG, landing en AF CG, takeoff en AF CG, aftertakeoff en AF CG
+    my @beforelndwpcg = ();
+    my @aproachlndcg = ();
+    my @landcoordcg = ();
+    my @takeoffcoordcg = ();
+    my @aftertoffwpcg = ();
+    
+    if ($mis_type eq "SUA") {
+	my $cgclave;
+	my $cgcx;
+	my $cgcy;
+	seek GEO_OBJ, 0, 0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~ m/(AF[0-9]{2}),$afname,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){
+		$cgclave = $1;
+		$cgcx = $2;
+		$cgcy = $3;
+		$dist = distance($takeoffcoord[0],$takeoffcoord[1], $cgcx, $cgcy);
+		last;
+	    }
+	}
+	seek GEO_OBJ, 0, 0;
+	while(<GEO_OBJ>) {
+	    if ($_ =~ m/^$cgclave:H1,([^,]+),([^,]+),/){ # por ahora solo miramos H1 
+	        if ($af_is_ship==1 || distance($takeoffcoord[0],$takeoffcoord[0],$1,$2) <=$dist){ # aterrizaje en cabecera H1 del CG (always in ships)
+		    @landcoordcg=(int($1),int($2));
+		    $_=readline(GEO_OBJ); #y la siguiente linea(H2)
+		    $_=~ m/^$afcode:H2,([^,]+),([^,]+),/;
+		    @takeoffcoordcg=(int($1),int($2));
+		}
+		else {   #sino aterrizaje en cabecera H2 del CG
+		    @takeoffcoordcg=(int($1),int($2));
+		    $_=readline(GEO_OBJ);
+		    $_=~ m/^$afcode:H2,([^,]+),([^,]+),/;
+		    @landcoordcg=(int($1),int($2));
+		}
+	    }
+	}
+	@aftertoffwpcg=($takeoffcoordcg[0]+(int($takeoffcoordcg[0]-$cgcx)*12),$takeoffcoordcg[1]+(int($takeoffcoordcg[1]-$cgcy)*12));
+	@beforelndwpcg=($landcoordcg[0]+(int($landcoordcg[0]-$cgcx)*12),$landcoordcg[1]+(int($landcoordcg[1]-$cgcy)*12));
+        @aproachlndcg=($beforelndwpcg[0]+($landcoordcg[1]-$beforelndwpcg[1])/2,$beforelndwpcg[1]-($landcoordcg[0]-$beforelndwpcg[0])/2);
+    
+	if(sqrt(($takeoffcoord[0]-$beforelndwpcg[0])**2+($takeoffcoord[1]-$beforelndwpcg[1])**2) < sqrt(($takeoffcoord[0]-$aproachlndcg[0])**2+($takeoffcoord[1]-$aproachlndcg[1])**2)){ # si aproach es  mas lejano q' before, invertir vector
+	    @aproachlndcg=($beforelndwpcg[0]-($landcoordcg[1]-$beforelndwpcg[1])/2,$beforelndwpcg[1]+($landcoordcg[0]-$beforelndwpcg[0])/2);
+	}
+
+	while ( $aftertoffwpcg[0]<0){$aftertoffwpcg[0]+=1000;}
+	while ( $aftertoffwpcg[1]<0){$aftertoffwpcg[1]+=1000;}
+	while ( $aftertoffwpcg[0]>$MAP_RIGHT){$aftertoffwpcg[0]-=1000;}
+	while ( $aftertoffwpcg[1]>$MAP_TOP){$aftertoffwpcg[1]-=1000;}
+    
+	while ( $beforelndwpcg[0]<0){$beforelndwpcg[0]+=1000;}
+	while ( $beforelndwpcg[1]<0){$beforelndwpcg[1]+=1000;}
+	while ( $beforelndwpcg[0]>$MAP_RIGHT){$beforelndwpcg[0]-=1000;}
+	while ( $beforelndwpcg[1]>$MAP_TOP){$beforelndwpcg[1]-=1000;}
+    
+	while ( $aproachlndcg[0]<0){ $aproachlndcg[0]+=1000;}
+	while ( $aproachlndcg[1]<0){ $aproachlndcg[1]+=1000;}
+	while ( $aproachlndcg[0]>$MAP_RIGHT){$aproachlndcg[0]-=1000;}
+	while ( $aproachlndcg[1]>$MAP_TOP){$aproachlndcg[1]-=1000;}
+	
+    }
 
 # para cada grupo bomber, recon o escolta imprimimos los WP
 #----------
@@ -2049,6 +2248,13 @@ sub bombers_wp($$$$) {
 	}
 	if (($grplst[$grpentries*$i+0] eq "R")|| ($grplst[$grpentries*$i+0] eq "SUM") ) {
 	    print MIS "NORMFLY ".int($tgtcx)." ".int($tgtcy)." ".$alt." ".$speed." &0\n";
+	}
+	if ($grplst[$grpentries*$i+0] eq "SUA") {
+	    print MIS "NORMFLY ".$aproachlndcg[0]." ".$aproachlndcg[1]." 1000.00 $speed &0\n";
+	    print MIS "NORMFLY ".$beforelndwpcg[0]." ".$beforelndwpcg[1]." 500.00 ".(int($speed *.70))." &0\n";
+	    print MIS "LANDING ".$landcoordcg[0]." ".$landcoordcg[1]." 0.00 0.00 &0\n";
+	    print MIS "TAKEOFF ".$takeoffcoordcg[0]." ".$takeoffcoordcg[1]." 0.00 0.00  &0\n";
+	    print MIS "NORMFLY ".$aftertoffwpcg[0]." ".$aftertoffwpcg[1]." 500.00 $speed "; 	    
 	}
 	
 	# WP 4
@@ -4447,7 +4653,7 @@ sub print_briefing() {
 
 	#fighters de defend group rojos
 	for ( $i=0; $i<$red_def_groups;  $i++){ 
-	    if ($red_def_grplst[$grpentries*$i] eq "I" && !$BLUE_RECON && !$BLUE_SUM){
+	    if ($red_def_grplst[$grpentries*$i] eq "I" && !$BLUE_RECON && !$BLUE_SUM && !$BLUE_SUA){
 		if ($lang==0) {$des_red_def_I="\\n\\nDefensa: $blue_target \\nNuestra mision hoy consiste en patrullaje. Posiblemente los enemigos intenten una ataque estrategico en la zona $blue_target para reducir nuestros suministro y capacidad operativa. Nuestra patrulla consiste en ".$red_fig_def_planes." ".$red_def_grplst[$grpentries*$i+10].".\\n";}
 		if ($lang==1) {$des_red_def_I="\\n\\nDefense: $blue_target \\nOur mission today consist in patrol. Is possible that enemy try an strategic attack on zone $blue_target to reduce our suply and operational radius. The CAP consists in ".$red_fig_def_planes." ".$red_def_grplst[$grpentries*$i+10].".\\n";}
 		print DESC enc_unicode($des_red_def_I);
@@ -4459,7 +4665,7 @@ sub print_briefing() {
 		print DESC enc_unicode($des_red_def_I);
 		$basta=1; # solo imprimimos 1 vez
 	    }
-	    if ($red_def_grplst[$grpentries*$i] eq "I" && $BLUE_SUM){
+	    if ($red_def_grplst[$grpentries*$i] eq "I" && ($BLUE_SUM || $BLUE_SUA)){
 		if ($lang==0) {$des_red_def_I="\\n\\nPatrulla: $blue_target \\nNuestra mision hoy consiste en patrullaje. Los enemigos estan haciendo vuelos de reaprovisionamiento. Localizar y destruir los transportes. Nuestra patrulla consiste en ".$red_fig_def_planes." ".$red_def_grplst[$grpentries*$i+10].".\\n";}
 		if ($lang==1) {$des_red_def_I="\\n\\nPatrol: $blue_target \\nOur mission today consist in patrol. The enemy is resuplying. Seek and destroy enemy trasports. The CAP consists in ".$red_fig_def_planes." ".$red_def_grplst[$grpentries*$i+10].".\\n";}
 		print DESC enc_unicode($des_red_def_I);
@@ -4518,6 +4724,25 @@ sub print_briefing() {
 		print DESC enc_unicode($des_red_attk_R);
 		$basta=1; # solo imprimimos 1 vez
 	    }
+	    
+	    # @Heracles@20110810
+	    # Brief para suministros a AF
+	    if ($red_attk_grplst[$grpentries*$i] eq "SUA"){
+		my $bom_cant=$red_attk_grplst[$grpentries*$i+2];
+		my $suatgt = $red_target;
+		$suatgt =~ s/SUA-//;
+		if ($red_attk_grplst[$grpentries*($i+1)] eq "SUA"){ # si hay un siguiente grupo sum
+		    $bom_cant+=$red_attk_grplst[$grpentries*($i+1)+2];
+		}
+		if ($lang==0) {$des_red_attk_R="\\n\\nSuministro: $suatgt \\nNos han encargado una mision de suministro en ".$suatgt.". El transporte se realizara con  ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\n";
+		    if ($RED_SUM_AI==0){$des_red_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Deberéis aterrizar en el aeródromo del Cuartel general. Recordar parar los motores y cargar los pertrechos. Y volved a " . $suatgt . " sanos y salvos. Los transportes deberan llevar armas: DEFAULT y 100% combustible.\\nDistancia al objetivo: $RED_ATTK_TGT Km.\\nDistancia Objetivo a base: $RED_ATTK_HOME Km.\\nTiempo para llegar a objetivo y suministrar: $RED_SUM_TIME minutos.\\n";}
+		}
+		if ($lang==1) {$des_red_attk_R="\\n\\nSupply: $suatgt \\nA We need to suply ".$suatgt.". The transport group consist in ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\n";
+		    if ($RED_SUM_AI==0){$des_red_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. You must land in the HeadQuarters airfield. Remember to switch off the engines and to load the supplys. And return to " .$suatgt . " save and sound. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $RED_ATTK_TGT Km.\\nDistance tgt to base: $RED_ATTK_HOME Km.\\nTime to arrive to the objetive and supply: $RED_SUM_TIME minutes.\\n";}
+	        }
+		print DESC enc_unicode($des_red_attk_R);
+		$basta=1; # solo imprimimos 1 vez
+	    }	    
 	    if ($basta>0){$i=1000; $basta=0;} #salimos del for.
 	}
 
@@ -4603,7 +4828,7 @@ sub print_briefing() {
 
 	# fighters en grupo de defensa azul
 	for ( $i=0; $i<$blue_def_groups;  $i++){ 
-	    if ($blue_def_grplst[$grpentries*$i] eq "I" && !$RED_RECON && !$RED_SUM){
+	    if ($blue_def_grplst[$grpentries*$i] eq "I" && !$RED_RECON && !$RED_SUM && !RED_SUA){
 		if ($lang==0) {$des_blue_def_I="\\n\\nPatrulla: $red_target \\nNuestra mision hoy consiste en patrullaje. Posiblemente los enemigos intenten una ataque estrategico en la zona $red_target para reducir nuestros suministro y capacidad operativa. Nuestra patrulla consiste en ".$blue_fig_def_planes." ".$blue_def_grplst[$grpentries*$i+10].".";}
 		if ($lang==1) {$des_blue_def_I="\\n\\nPatrol: $red_target \\nOur mission today consist in patrol. Is possible that enemy try an strategic attack on zone $red_target to reduce our suply and operational radius. The CAP consists in ".$blue_fig_def_planes." ".$blue_def_grplst[$grpentries*$i+10].".\\n";}
 		print DESC enc_unicode($des_blue_def_I);
@@ -4615,7 +4840,7 @@ sub print_briefing() {
 		print DESC enc_unicode($des_blue_def_I);
 		$basta=1; # solo imprimimos 1 vez
 	    }
-	    if ($blue_def_grplst[$grpentries*$i] eq "I" && $RED_SUM){
+	    if ($blue_def_grplst[$grpentries*$i] eq "I" && ($RED_SUM || $RED_SUA)){
 		if ($lang==0) {$des_blue_def_I="\\n\\nPatrulla: $red_target \\nNuestra mision hoy consiste en patrullaje. Posiblemente los enemigos realizaran vuelos de reaprovisionamiento. Encontrar y destruir los transportes enemigos . Nuestra patrulla consiste en ".$blue_fig_def_planes." ".$blue_def_grplst[$grpentries*$i+10].".";}
 		if ($lang==1) {$des_blue_def_I="\\n\\nPatrol: $red_target \\nOur mission today consist in patrol. Is possible that enemy make resuply flights. Seek and destroy the transports. The CAP consists in ".$blue_fig_def_planes." ".$blue_def_grplst[$grpentries*$i+10].".\\n";}
 		print DESC enc_unicode($des_blue_def_I);
@@ -4675,6 +4900,26 @@ sub print_briefing() {
 		print DESC enc_unicode($des_blue_attk_R);
 		$basta=1; # solo imprimimos 1 vez
 	    }
+	    
+	    # @Heracles@20110810
+	    # Brief para suministros a AF	    
+	    if ($blue_attk_grplst[$grpentries*$i] eq "SUA") {
+		my $bom_cant=$blue_attk_grplst[$grpentries*$i+2];
+		my $suatgt = $blue_target;
+		$suatgt =~ s/SUA-//;		
+		if ($blue_attk_grplst[$grpentries*($i+1)] eq "SUA"){ # si hay un siguiente grupo bomber sum
+		    $bom_cant+=$blue_attk_grplst[$grpentries*($i+1)+2];
+		}
+		if ($lang==0) {$des_blue_attk_R="\\n\\nSuministro: $suatgt \\nDebemos suministrar $suatgt. Los transportes seran ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\n";
+		    if ($BLUE_SUM_AI==0){$des_blue_attk_R.="Esta es una mision de suministro humano. Los transportes deberan ser volados por pilotos humanos para que puedan suministrar. Deberéis aterrizar en el aeródromo del Cuartel general. Recordar parar los motores y cargar los pertrechos. Y volved a " . $suatgt . " sanos y salvos. Los transportes deberan llevar armas: default y 100% combustible.\\nDistancia al objetivo: $BLUE_ATTK_TGT Km.\\nDistancia Objetivo a base: $BLUE_ATTK_HOME Km.\\nTiempo para llegar a objetivo y suministrar $BLUE_SUM_TIME minutos.\\n";}
+		}
+		if ($lang==1) {$des_blue_attk_R="\\n\\nSupply: $suatgt \\nWe need to suply $suatgt. The transport group consist in ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\n";
+		    if ($BLUE_SUM_AI==0){ $des_blue_attk_R.="This is a human supply mission. The transport planes has to be flown by human pilots or supply will not be valid. You must land in the HeadQuarters airfield. Remember to switch off the engines and to load the supplys. And return to " .$suatgt . " safe and sound. Transport require weapons DEFAULT and 100% fuel and has to land safe in a friendly base after city supply.\\nDistance to tgt: $BLUE_ATTK_TGT Km.\\nDistance tgt to base: $BLUE_ATTK_HOME Km.\\nTime to arrive to objetove and supply: $BLUE_SUM_TIME minutes.\\n";}
+		}
+		print DESC enc_unicode($des_blue_attk_R);
+		$basta=1; # solo imprimimos 1 vez
+	    }	    
+	    	    
 	    if ($basta>0){$i=1000; $basta=0;} #salimos del for.
 	}
 
@@ -5767,6 +6012,8 @@ if ($blue_target =~ m/^REC-.*/){
 #----
 $RED_SUM=0;
 $BLUE_SUM=0;
+$RED_SUA=0;
+$BLUE_SUA=0;
 $RED_SUM_AI=0;
 $BLUE_SUM_AI=0;
 $RED_SUM_AI_LAND="";
@@ -5779,7 +6026,14 @@ if ($blue_target =~ m/^SUM-.*/){
     $BLUE_SUM=1;
     if ($blue_bom_attk_ai==1) {$BLUE_SUM_AI=$blue_bom_attk_planes;} # amount of AI suply planes
 }
-
+if ($red_target =~ m/^SUA-.*/){
+    $RED_SUA=1;
+    if ($red_bom_attk_ai==1) {$RED_SUM_AI=$red_bom_attk_planes;} # amount of AI suply planes    
+}
+if ($blue_target =~ m/^SUA-.*/){
+    $BLUE_SUA=1;
+    if ($blue_bom_attk_ai==1) {$BLUE_SUM_AI=$blue_bom_attk_planes;} # amount of AI suply planes    
+}
 
 
 
@@ -5938,13 +6192,15 @@ if (scalar(@red_attk_grplst)>0){ # if red has at least one attack  group
     else { # red is making a BA or a SUM
 	my $mis_type="";
 	if ($RED_SUM) {$mis_type="SUM";}
+	if ($RED_SUA) {$mis_type="SUA";}
 	else {$mis_type="BA";}
 
 	if ($red_target =~ m/aerodromo/){
 	    ($red_tgtcx,$red_tgtcy)=find_close_obj_area($red_tgtcx,$red_tgtcy); # CHECK, esto anda solo para AF
 	}
 	($RED_ATTK_TGT,$RED_ATTK_HOME)=bombers_wp($player,$red_tgtcx,$red_tgtcy,$mis_type);
-	if ($RED_SUM) {$RED_SUM_TIME= int(10 + ($RED_ATTK_TGT * 1.4 * 60 / $VVS_TRP_SPEED ));} 
+	if ($RED_SUM) {$RED_SUM_TIME= int(10 + ($RED_ATTK_TGT * 1.4 * 60 / $VVS_TRP_SPEED ));}
+	if ($RED_SUA) {$RED_SUM_TIME= int(20 + (($RED_ATTK_TGT + $RED_ATTK_HOME) * 1.4 * 60 / $VVS_TRP_SPEED ));}
     }
 }
 
@@ -5975,6 +6231,7 @@ if (scalar(@blue_attk_grplst)>0){ # if blue  has at least one attack group
     else {
 	my $mis_type="";
 	if ($BLUE_SUM) {$mis_type="SUM";}
+	if ($BLUE_SUA) {$mis_type="SUA";}	
 	else {$mis_type="BA";}
 
 	if ($blue_target =~ m/aerodromo/){
