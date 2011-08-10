@@ -491,7 +491,7 @@ VVS_Head3
     ; # Emacs related
 
 
-	$sth = $dbh->prepare("SELECT red_tgt FROM $mis_prog WHERE reported = 0 and epoca > ?");
+	$sth = $dbh->prepare("SELECT red_tgt FROM $mis_prog WHERE reported = 0 and epoca > ? and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 	$sth->execute($half_hour);
 	while (@row = $sth->fetchrow_array){
 	    push (@red_tgt_used,$row[0]);
@@ -858,7 +858,7 @@ Make German Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTER
 LW_Head3
     ; # Emacs related
 
-	$sth = $dbh->prepare("SELECT blue_tgt FROM $mis_prog WHERE reported = 0 and epoca > ?");
+	$sth = $dbh->prepare("SELECT blue_tgt FROM $mis_prog WHERE reported = 0 and epoca > ? and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 	$sth->execute($half_hour);
 	while (@row = $sth->fetchrow_array){
 	    push (@blue_tgt_used,$row[0]);

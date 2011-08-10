@@ -37,7 +37,7 @@ include ("./dz_page_header.php");
 ?>
 
   <center>
-    <h3>&nbsp;&nbsp;<b><?php print "$html_hlname" ?></b> - All air kills</h3>
+    <h3>&nbsp;&nbsp;<b><?php print "$html_hlname" ?></b> - Map air kills</h3>
 
  <table class=rndtable>
   <tr class=first>
@@ -57,12 +57,12 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 
 
-	$query="select count(*) from badc_air_event where hlkiller='$hlname'";
+	$query="select count(*) from badc_air_event where hlkiller='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" ";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 	$row = mysql_fetch_array($result, MYSQL_NUM);
 	$totalk=$row[0];
 
-	$query="select misnum,misrep,hlkiller,plane_killer,hlkilled,plane_killed,wasfriend from badc_air_event where hlkiller='$hlname' order by misnum DESC";
+	$query="select misnum,misrep,hlkiller,plane_killer,hlkilled,plane_killed,wasfriend from badc_air_event where hlkiller='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" order by misnum DESC";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 	$i=0;

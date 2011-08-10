@@ -5,8 +5,8 @@
 ## Se generan :
 ## - 1 fichero de informe.
 ## - n ficheros de mision para ser cargados y comprobados en el IL-2.
-$FLIGHTS_DEF="KUR_aircrafts.data";
-$MAP_NAME_LOAD="Kursk/load.ini";
+$FLIGHTS_DEF="SMO41_aircrafts.data";
+$MAP_NAME_LOAD="Smolensk/load.ini";
 
 $FLIGHTS_REP="aircraft.rep";
 
@@ -59,29 +59,6 @@ $|=1;
 @bribomf=();
 @brijabf=();
 @britrpf=();
-
-@rusfigw=();
-@rusbomw=();
-@rusjabw=();
-@rustrpw=();
-@romfigw=();
-@rombomw=();
-@romjabw=();
-@gerfigw=();
-@gerbomw=();
-@gerjabw=();
-@gertrpw=();
-@hunfigw=();
-@hunbomw=();
-@hunjabw=();
-@usafigw=();
-@usabomw=();
-@usajabw=();
-@usatrpw=();
-@brifigw=();
-@bribomw=();
-@brijabw=();
-@britrpw=();
 
 @misba=();
 @missum=();
@@ -199,33 +176,33 @@ sub create_sqdarray(){
 sub create_mis_array() {
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){
-        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):([^,]+),([0-9]+),/){
+        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):([^,]+),/){
 		if ($10 eq "BA") {
-		    push (@misba,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misba,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "SUM") {
-		    push (@missum,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@missum,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "BD") {
-		    push (@misbd,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misbd,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "EBA") {
-		    push (@miseba,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@miseba,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}	
 		if ($10 eq "ESU") {
-		    push (@misesu,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misesu,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "EBD") {
-		    push (@misebd,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misebd,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "ET") {
-		    push (@miset,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@miset,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}	
 		if ($10 eq "I") {
-		    push (@misint,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misint,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}
 		if ($10 eq "AT") {
-		    push (@misat,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		    push (@misat,[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10]);
 		}			
 	}
     }    
@@ -234,72 +211,72 @@ sub create_mis_array() {
 sub create_role_array(){
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){
-        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):([^,]+),([0-9]+),/){
+        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):([^,]+),/){
 	    if ($2 eq "rusfig") {
-		push (@rusfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@rusfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "rusbom") {
-		push (@rusbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@rusbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "rusjab") {
-		push (@rusjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@rusjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "rustrp") {
-		push (@rustrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@rustrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "romfig") {
-		push (@romfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@romfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "rombom") {
-		push (@rombomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@rombomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "romjab") {
-		push (@romjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@romjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "gerfig") {
-		push (@gerfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@gerfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "gerbom") {
-		push (@gerbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@gerbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "gerjab") {
-		push (@gerjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@gerjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "gertrp") {
-		push (@gertrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@gertrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "hunfig") {
-		push (@hunfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@hunfigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "hunbom") {
-		push (@hunbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@hunbomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "hunjab") {
-		push (@hunjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@hunjabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "usafig") {
-		push (@usafigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@usafigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "usabom") {
-		push (@usabomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@usabomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "usajab") {
-		push (@usajabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@usajabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "usatrp") {
-		push (@usatrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@usatrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "brifig") {
-		push (@brifigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@brifigf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "bribom") {
-		push (@bribomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@bribomf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	    if ($2 eq "brijab") {
-		push (@brijabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@brijabf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }
 	    if ($2 eq "britrp") {
-		push (@britrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10,$11]);
+		push (@britrpf,[$1,$3,$4,$5,$6,$7,$8,$9,$10]);
 	    }	
 	}
     }    
@@ -329,14 +306,7 @@ sub print_mis_type(@) {
     foreach (@$my_mistype) {
         if ($$my_mistype[$index][0] eq $my_army) {
 		my $my_plane = sprintf("%15s", $$my_mistype[$index][2]);
-		my $my_number = sprintf("%4s", $$my_mistype[$index][10]);
-		print REP "$$my_mistype[$index][1] -  $my_plane Total: $my_number\n";
-		if ($$my_mistype[$index][10] < $my_anterior) {
-		    print REP "***ERROR*** Numero total de aviones $$my_mistype[$index][10] es inferior a la linea anterior con $my_anterior aviones.\n";
-		    print REP "\n";
-		    $errors++;
-		}
-		$my_anterior = $$my_mistype[$index][10];
+		print REP "$$my_mistype[$index][1] -  $my_plane\n";
         }
 	$index++;
     }    
@@ -354,6 +324,8 @@ sub analiza_formato() {
     my $static_air=0;
     my $squadrons=0;
     my $noiden=0;
+    my $redstock=0;
+    my $bluestock=0;
 
     seek FLIGHTS,0,0;
     while (<FLIGHTS>){
@@ -365,7 +337,7 @@ sub analiza_formato() {
 		$comments++;
 		next;	
         }	
-        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):(BA|SUM|BD|EBD|ESU|I|EBA|ET|AT),([0-9]+),/){
+        if ($_ =~ m/^(1|2),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),([^,]+):(BA|SUM|BD|EBD|ESU|I|EBA|ET|AT),/){
         	$flights++;
 		next;	
         }
@@ -381,6 +353,14 @@ sub analiza_formato() {
 		$squadrons++;
 		next;	
         }
+	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/) {
+		$redstock++;
+		next;
+	}
+	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/) {
+		$bluestock++;
+		next;
+	}	
         $noiden++;
         print REP $_;
         print REP "***ERROR*** Linia no identificada.\n";
@@ -395,6 +375,8 @@ print REP "## Numero de lineas de comentarios: " . sprintf("%5s",$comments) . "\
 print REP "## Numero de lineas de vehiculos: " . sprintf("%6s",$vehicles) . "\n";
 print REP "## Numero de lineas de aviones staticos: " . sprintf("%2s",$static_air) . "\n";
 print REP "## Numero de lineas de escuadrones: " . sprintf("%5s",$squadrons) . "\n";
+print REP "## Numero de lineas de inventario rojo: " . sprintf("%5s",$redstock) . "\n";
+print REP "## Numero de lineas de inventario azul: " . sprintf("%5s",$bluestock) . "\n";
 print REP "###############################################\n";
 print REP "\n";    
 }
@@ -486,6 +468,40 @@ sub create_mis_file($$$) {
 	}
 
     }    
+}
+
+sub stock_report($) {
+    my $stock = shift @_;
+    my $total_planes = 0;
+    my $model;
+    my $num = 0;
+    my $army = ($stock eq "IR") ? 1 : 2;
+    my $bando = ($stock eq "IR") ? "rojo" : "azul";
+    
+    seek FLIGHTS,0,0;
+    while (<FLIGHTS>){
+	if ($_ =~ m/^$stock,([^,]+),([^,]+),([^,]+),([^,]+),/) {
+	    $plane = $1;
+	    $model = sprintf("%-15s", $1);
+	    $total_planes += $2;	    
+	    $num = sprintf("%4s", $2);
+
+	    print REP "$model - Total $num - (";
+	    
+	    my $line_back = tell FLIGHTS;
+	    seek FLIGHTS, 0, 0;
+	    while (<FLIGHTS>) {
+		if ($_ =~ m/^$army,[^,]+,$plane,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:(BA|SUM|BD|EBD|ESU|I|EBA|ET|AT),/){
+		    print REP $1 . "-";
+		}
+	    }
+	    seek FLIGHTS, $line_back, 0;
+	    
+	    print REP ")\n";
+	}
+	
+    }
+    print REP "Total aviones bando $bando - $total_planes\n\n";
 }
 
 ## MAIN
@@ -696,6 +712,16 @@ if (scalar(@hunjab) > 0) {
     print REP "Lineas de jabos hungaros:" . scalar(@hunjabf) . "\n";
     create_mis_file(\@hunjab, \@hunjabf, "hunjab");
 }
+
+print REP "###############################################\n";
+print REP "## Resumen de inventario ROJO\n";
+print REP "###############################################\n";
+stock_report("IR");
+
+print REP "###############################################\n";
+print REP "## Resumen de inventario AZUL\n";
+print REP "###############################################\n";
+stock_report("IA");
 
 print STDOUT "Analisis de $FLIGHTS_DEF finalizado.\n";
 if ($errors > 0) {

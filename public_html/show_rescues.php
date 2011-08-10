@@ -38,7 +38,7 @@ include ("./dz_page_header.php");
 ?>
 
   <center>
-    <h3> <b><?php print "$html_hlname" ?></b> - Rescued pilots</h3>
+    <h3> <b><?php print "$html_hlname" ?></b> - Map rescued pilots</h3>
 
  <table class=rndtable>
   <tr class=first>
@@ -56,12 +56,12 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 
 
-	$query="select count(*) from badc_rescues where rescatador='$hlname' ";
+	$query="select count(*) from badc_rescues where rescatador='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" ";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 	$row4 = mysql_fetch_array($result, MYSQL_NUM);
 	$totalresc=$row4[0];
 
-	$query="select misnum,misrep,rescatado from badc_rescues where rescatador='$hlname' order by misnum DESC";
+	$query="select misnum,misrep,rescatado from badc_rescues where rescatador='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" order by misnum DESC";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 	$irc=0;

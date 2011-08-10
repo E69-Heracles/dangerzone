@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS badc_air_event;
 CREATE TABLE badc_air_event (
+       campanya	       VARCHAR(30),
+       mapa	       VARCHAR(30),
        misnum	       VARCHAR(30),
        misrep	       VARCHAR(30),
        hlkiller	       VARCHAR(30) BINARY ,
@@ -11,6 +13,8 @@ CREATE TABLE badc_air_event (
 
 DROP TABLE IF EXISTS badc_grnd_event;
 CREATE TABLE badc_grnd_event (
+       campanya	       VARCHAR(30),
+       mapa	       VARCHAR(30),
        misnum	       VARCHAR(30),
        misrep	       VARCHAR(30),
        hlkiller	       VARCHAR(30) BINARY ,
@@ -61,6 +65,8 @@ INSERT INTO badc_host_slots (slot, status, task, hlname, army, epoca, date, time
 
 DROP TABLE IF EXISTS badc_mis_prog;
 CREATE TABLE badc_mis_prog (
+       campanya	       VARCHAR(30),
+       mapa	       VARCHAR(30),       
        misnum	       VARCHAR(30),
        host	       VARCHAR(30),
        red_tgt	       VARCHAR(30),
@@ -184,11 +190,14 @@ CREATE TABLE badc_pilot_mis (
        weapons	       VARCHAR(40),
        task	       VARCHAR(8),
        points		INT(4),
+       campanya	       VARCHAR(30),       
        mapname	       VARCHAR(30)
 );
 
 DROP TABLE IF EXISTS badc_rescues;
 CREATE TABLE badc_rescues (
+       campanya	       VARCHAR(30),
+       mapa	       VARCHAR(30),
        misnum	       VARCHAR(30),
        misrep	       VARCHAR(30),
        rescatador	       VARCHAR(30) BINARY ,

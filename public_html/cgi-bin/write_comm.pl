@@ -197,7 +197,7 @@ print<<Eoc;
 Eoc
     ;
 
-$dbh->do("UPDATE $mis_prog SET coments = coments + 1 WHERE misrep=\"$repnbr\"");
+$dbh->do("UPDATE $mis_prog SET coments = coments + 1 WHERE misrep=\"$repnbr\" and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 
 print "Thanks for your comments. &nbsp;&nbsp;&nbsp; Reloading ...";
 print "          </body></html>";

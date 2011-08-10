@@ -6398,7 +6398,7 @@ else { # runing as cgi: make zip, password and offer download, track mission dat
     my $MP_time = $MP_hour.":".$MP_min.":".$MP_sec;
 
     my $epoca = time; # current epoch
-    $dbh->do("INSERT INTO $mis_prog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",undef,("badc".$extend),$Dhost,$red_target,$blue_target,$Rhost,$Bhost,0,"-",$MP_date,$MP_time,$epoca,"","",0,0,0,0,1,"","",0);
+    $dbh->do("INSERT INTO $mis_prog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",undef,$CAMPANYA,$MAP_NAME_LONG,("badc".$extend),$Dhost,$red_target,$blue_target,$Rhost,$Bhost,0,"-",$MP_date,$MP_time,$epoca,"","",0,0,0,0,1,"","",0);
     unlink $gen_lock;
     print GEN_LOG "Pid $$ : " .scalar(localtime(time)) ." Mission: /tmp/$ZipCode/badc".$extend.".zip \n\n";
     $dbh->disconnect();

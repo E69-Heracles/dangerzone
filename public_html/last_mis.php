@@ -81,7 +81,7 @@ if ($prev_m == 0) {
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");
 
-	$query="select *  from badc_mis_prog where date='$dia' and reported='1' order by misrep ASC";
+	$query="select *  from badc_mis_prog where date='$dia' and reported='1' and campanya=\"$campanya\" and mapa=\"$mapa\" order by misrep ASC";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 
@@ -125,21 +125,21 @@ $now_epoch=date("U");
 $mis_time_display=10;
 while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 
-	$misnum=$row[0];
-	$host=$row[1];
+	$misnum=$row[2];
+	$host=$row[3];
 
 	$host=preg_replace("/</","&lt;",$host);
 	$host=preg_replace("/>/","&gt;",$host);
 
-	$red_tgt=$row[2];
-	$blue_tgt=$row[3];
-	$red_host=$row[4];
-	$blue_host=$row[5];
-	$reported=$row[6];
-	$mis_rep=$row[7];
-	$date=$row[8];
-	$time=$row[9];
-	$epoca=$row[10];
+	$red_tgt=$row[4];
+	$blue_tgt=$row[5];
+	$red_host=$row[6];
+	$blue_host=$row[7];
+	$reported=$row[8];
+	$mis_rep=$row[9];
+	$date=$row[10];
+	$time=$row[11];
+	$epoca=$row[12];
 
 	$secs= ($now_epoch - $epoca);
 	$mins= $secs/60;
@@ -152,10 +152,10 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	if ($i%2) { print "  <tr bgcolor=\"#dddddd\">\n";}
 	else { print "  <tr bgcolor=\"#cbcbcb\">\n";}
 
-	printf("    $tdo %d $tdk    $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk     $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk", $i, $row[0], $row[8], $row[9], $host, $red_tgt, $blue_tgt);
+	printf("    $tdo %d $tdk    $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk     $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk", $i, $row[2], $row[10], $row[11], $host, $red_tgt, $blue_tgt);
 
-	if ($row[6] == 1) {  // is reported
-	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[7], $row[7]);
+	if ($row[8] == 1) {  // is reported
+	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
 	}
 	else {
 	    printf  ("    %s &nbsp;In progress: %.2d Minutes $tdk  </tr>\n",$tdo,$mins);
@@ -179,28 +179,28 @@ $now_epoch=date("U");
 $mis_time_display=10;
 while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 
-	$misnum=$row[0];
-	$host=$row[1];
+	$misnum=$row[2];
+	$host=$row[3];
 
 	$host=preg_replace("/</","&lt;",$host);
 	$host=preg_replace("/>/","&gt;",$host);
 
-	$red_tgt=$row[2];
-	$blue_tgt=$row[3];
-	$red_host=$row[4];
-	$blue_host=$row[5];
-	$reported=$row[6];
-	$mis_rep=$row[7];
-	$date=$row[8];
-	$time=$row[9];
-	$epoca=$row[10];
-	$red_result=$row[11];
-	$blue_result=$row[12];
-	$coments=$row[13];
-	$red_points=$row[14];
-	$blue_points=$row[15];
-	$side_won=$row[16];
-	$human_req=$row[17];
+	$red_tgt=$row[4];
+	$blue_tgt=$row[5];
+	$red_host=$row[6];
+	$blue_host=$row[7];
+	$reported=$row[8];
+	$mis_rep=$row[9];
+	$date=$row[10];
+	$time=$row[11];
+	$epoca=$row[12];
+	$red_result=$row[13];
+	$blue_result=$row[14];
+	$coments=$row[15];
+	$red_points=$row[16];
+	$blue_points=$row[17];
+	$side_won=$row[18];
+	$human_req=$row[19];
 
 	$secs= ($now_epoch - $epoca);
 	$mins= $secs/60;
@@ -236,8 +236,8 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 
 	printf("    $tdo %d $tdk  $tdo %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdoC %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdoC %s $tdk $tdoC %s $tdk ", $i, $misnum, $host, $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points, $coments);
 
-	if ($row[6] == 1) {  // is reported
-	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[7], $row[7]);
+	if ($row[8] == 1) {  // is reported
+	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
 	}
 	else {
 	    printf  ("    %s &nbsp;In progress: %.2d Minutes $tdk  </tr>\n",$tdo,$mins);

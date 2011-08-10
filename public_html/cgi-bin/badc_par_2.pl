@@ -1723,8 +1723,8 @@ sub print_pilot_actions(){
 			    # misrep	       VARCHAR(30),
 			    # rescatador       VARCHAR(30) BINARY ,
 			    # rescatado	       VARCHAR(30) BINARY ,
-			    $dbh->do("INSERT INTO $rescue_tbl VALUES (?,?,?,?)",undef,
-				     $MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$hlname);
+			    $dbh->do("INSERT INTO $rescue_tbl VALUES (?,?,?,?,?,?)",undef,
+				     $CAMPANYA,$MAP_NAME_LONG,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$hlname);
 			}
 			else{
 			    print WARN "*** $hlname rescued failled\n";
@@ -2439,22 +2439,22 @@ sub print_pilot_actions(){
 		if ($play_task eq "I"){$play_task="INT";}
 		# pilot mis entry
 		if ($fired){
-		$dbh->do("INSERT INTO $pilot_mis_tbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+		$dbh->do("INSERT INTO $pilot_mis_tbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
 			   undef,
 			   $hlname,$in,$pilot_list[$i][3],((int(($end_hrs_vuelo-get_segundos($stime_str))/36)/100)),
 			   $planekill,$grndkill,$friendplanekill,$friendgrndkill,$chutekill,$use_smoke,$use_landl,
 			   $fired,$hit_air,$hit_grnd,(int($hit_air/$fired*1000)/10),(int($hit_grnd/$fired*1000)/10),
 			   join(" ",@estado),$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$disco,$killed,$bailed,$captured,
-			   $landed,$crash,$in_flight,$fuel,$weapons,$play_task,$points,$MAP_NAME_LONG);
+			   $landed,$crash,$in_flight,$fuel,$weapons,$play_task,$points,$CAMPANYA,$MAP_NAME_LONG);
 	      }
 		else {
-		$dbh->do("INSERT INTO $pilot_mis_tbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+		$dbh->do("INSERT INTO $pilot_mis_tbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
 			   undef,
 			   $hlname,$in,$pilot_list[$i][3],((int(($end_hrs_vuelo-get_segundos($stime_str))/36)/100)),
 			   $planekill,$grndkill,$friendplanekill,$friendgrndkill,$chutekill,$use_smoke,
 			   $use_landl,"0","0","0","0","0",join(" ",@estado),$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),
 			   $disco,$killed,$bailed,$captured,$landed,$crash,$in_flight,$fuel,$weapons,$play_task,
-			   $points,$MAP_NAME_LONG);
+			   $points,$CAMPANYA,$MAP_NAME_LONG);
 		}
 		if ($play_task eq "INT"){$play_task="I";}
 
@@ -3192,7 +3192,7 @@ REP4
 	    #       hlkilled	       VARCHAR(30) BINARY ,
 	    #       plane_killed       VARCHAR(60),
 	    #	    wasfriend          CHAR(3),
-	    $dbh->do("INSERT INTO $air_events_tbl VALUES (?,?,?,?,?,?,?)",undef,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$plane_by,$to,$plane_to,$wasfriend);
+	    $dbh->do("INSERT INTO $air_events_tbl VALUES (?,?,?,?,?,?,?,?,?)",undef,$CAMPANYA,$MAP_NAME_LONG,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$plane_by,$to,$plane_to,$wasfriend);
 
 	    my $my_plane = $2;
 
@@ -3487,7 +3487,7 @@ sub eventos_tierra(){
 	    #       plane_killer       VARCHAR(60),
 	    #       objkilled	       VARCHAR(30),
 	    #       wasfriend          CHAR(3),
-	    $dbh->do("INSERT INTO $ground_events_tbl VALUES (?,?,?,?,?,?)",undef,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$plane_by,$plane_to,$wasfriend);
+	    $dbh->do("INSERT INTO $ground_events_tbl VALUES (?,?,?,?,?,?,?,?)",undef,$CAMPANYA,$MAP_NAME_LONG,$MIS_TO_REP,("rep".$ext_rep_nbr.".html"),$by,$plane_by,$plane_to,$wasfriend);
 
 	    # verificacion de congruencia  obj estaticos
 
@@ -6478,7 +6478,7 @@ print "<font color=\"green\">OK</font><br>\n";
 
 if ($unix_cgi){
 print "Checking mission age: ";
-    $sth = $dbh->prepare("SELECT epoca from $mis_prog where misnum =?");
+    $sth = $dbh->prepare("SELECT epoca from $mis_prog where misnum = ? and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
     $sth->execute($MIS_TO_REP);
     @row = $sth->fetchrow_array;
     $sth->finish;
@@ -6662,7 +6662,7 @@ my $MR_time = $MR_hour.":".$MR_min.":".$MR_sec;
 
 my $MR_epoca = time;    
 
-$dbh->do("UPDATE $mis_prog SET reported = 1, rep_date = \"$MR_date\", rep_time = \"$MR_time\", rep_epoca = $MR_epoca, misrep = \"rep$ext_rep_nbr\" WHERE misnum=\"$MIS_TO_REP\"");
+$dbh->do("UPDATE $mis_prog SET reported = 1, rep_date = \"$MR_date\", rep_time = \"$MR_time\", rep_epoca = $MR_epoca, misrep = \"rep$ext_rep_nbr\" WHERE misnum=\"$MIS_TO_REP\" and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." rep_nbr: $rep_nbr \n";
 
 open (DATA_BK, ">$DATA_BKUP/$GEOGRAFIC_COORDINATES$ext_rep_nbr");
@@ -6921,7 +6921,7 @@ if ($red_points<$blue_points) {
     $side_won=2;
 }
 
-$dbh->do("UPDATE $mis_prog SET red_result = \"$red_result\", blue_result = \"$blue_result\", red_points = $red_points, blue_points = $blue_points, side_won = $side_won WHERE misnum=\"$MIS_TO_REP\"");
+$dbh->do("UPDATE $mis_prog SET red_result = \"$red_result\", blue_result = \"$blue_result\", red_points = $red_points, blue_points = $blue_points, side_won = $side_won WHERE misnum=\"$MIS_TO_REP\" and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 
 
 $red_planes_destroyed=0;

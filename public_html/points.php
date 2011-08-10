@@ -10,13 +10,13 @@ include ("./config.php");
 	mysql_select_db("$database");
 
 
-	$query2="select sum(blue_points), sum(red_points) from badc_mis_prog where reported='1'";
+	$query2="select sum(blue_points), sum(red_points) from badc_mis_prog  where campanya=\"$campanya\" and mapa=\"$mapa\" and reported='1'";
 	$result2 = mysql_query($query2) or die ("Error - Query: $query" . mysql_error());
 	$row2 = mysql_fetch_array($result2, MYSQL_NUM);
-	$blue_points = $row2[0];
-	$red_points = $row2[1];
-
-
+	if ($row2[0] > 0) {$blue_points = $row2[0];}
+	else $blue_points = 0;
+	if ($row2[1] > 0) {$red_points = $row2[1];}
+	else $red_points = 0;
 
 	print "<table id=missions_icon class=rndtable>\n";
 	print "<tr class=first><td colspan=8 align=center><h3>Puntuación de la Campaña</h3></td></tr>\n";	
@@ -28,7 +28,7 @@ include ("./config.php");
 	print "</table>\n";	
 
 
-	$query="select *  from badc_mis_prog where reported='1' order by misrep DESC limit 10";
+	$query="select *  from badc_mis_prog where reported='1' and campanya=\"$campanya\" and mapa=\"$mapa\" order by misrep DESC limit 10";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 
@@ -47,28 +47,28 @@ $now_epoch=date("U");
 $mis_time_display=10;
 while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 
-	$misnum=$row[0];
-	$host=$row[1];
+	$misnum=$row[2];
+	$host=$row[3];
 
 	$host=preg_replace("/</","&lt;",$host);
 	$host=preg_replace("/>/","&gt;",$host);
 
-	$red_tgt=$row[2];
-	$blue_tgt=$row[3];
-	$red_host=$row[4];
-	$blue_host=$row[5];
-	$reported=$row[6];
-	$mis_rep=$row[7];
-	$date=$row[8];
-	$time=$row[9];
-	$epoca=$row[10];
-	$red_result=$row[11];
-	$blue_result=$row[12];
-	$coments=$row[13];
-	$red_points=$row[14];
-	$blue_points=$row[15];
-	$side_won=$row[16];
-	$human_req=$row[17];
+	$red_tgt=$row[4];
+	$blue_tgt=$row[5];
+	$red_host=$row[6];
+	$blue_host=$row[7];
+	$reported=$row[8];
+	$mis_rep=$row[9];
+	$date=$row[10];
+	$time=$row[11];
+	$epoca=$row[12];
+	$red_result=$row[13];
+	$blue_result=$row[14];
+	$coments=$row[15];
+	$red_points=$row[16];
+	$blue_points=$row[17];
+	$side_won=$row[18];
+	$human_req=$row[19];
 
 	$secs= ($now_epoch - $epoca);
 	$mins= $secs/60;
@@ -88,7 +88,7 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	if ($red_result && $red_result != "capture" && $red_result != "fail" ) {$red_result .= "%";}
 	if ($blue_result && $blue_result != "capture" && $blue_result != "fail" ) {$blue_result .= "%";}
 
-	printf(" $tdoC <a href=\"/rep/%s.html\">%s</a> $tdk $tdo %s [%s] $tdk $tdoC %s $tdk $tdo %s [%s] $tdk $tdoC %s $tdk", $row[7], $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points );
+	printf(" $tdoC <a href=\"/rep/%s.html\">%s</a> $tdk $tdo %s [%s] $tdk $tdoC %s $tdk $tdo %s [%s] $tdk $tdoC %s $tdk", $row[9], $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points );
        
 } 
 print "</table>\n";

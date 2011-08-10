@@ -56,17 +56,17 @@ if ($hlname){
     $now_epoch=date("U");
     $five_hours_back=$now_epoch - 10800;
 
-    $query="select misnum,date,time from badc_mis_prog where reported = 0 and epoca > $five_hours_back and host = \"$hlname\" order by misnum ASC";
+    $query="select misnum,date,time from badc_mis_prog where reported = 0 and epoca > $five_hours_back and host = \"$hlname\" and campanya=\"$campanya\" and mapa=\"$mapa\" order by misnum ASC";
     $result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
     print "Unreported missions (<b>3 hours back</b>):<br>\n<table  >\n<tr><td>N</td><td><b>Mission</b></td><td>date</td><td>time</td></tr>\n";
     $i=0;
     while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
         $i++;
-        $misnum=$row[0];
-        $date=$row[1];
-        $time=$row[2];
-        printf("<tr> <td> %d </td> <td>&nbsp;<font color=\"#CC0000\"><b>%s</b></font>&nbsp;</td> <td> %s </td> <td> %s </td><tr>\n", $i, $row[0], $row[1], $row[2]);
+        $misnum=$row[2];
+        $date=$row[3];
+        $time=$row[4];
+        printf("<tr> <td> %d </td> <td>&nbsp;<font color=\"#CC0000\"><b>%s</b></font>&nbsp;</td> <td> %s </td> <td> %s </td><tr>\n", $i, $row[2], $row[3], $row[4]);
     } 
     print "</table>\n";
 }

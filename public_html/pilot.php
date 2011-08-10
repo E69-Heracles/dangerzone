@@ -173,10 +173,10 @@ print "</td><td width=50px></td><td>\n";
 
 $tanks=0;
 if ($army==1) {
-    $query="select count(*) from badc_grnd_event where objkilled regexp \".*Pz.*\" and hlkiller = \"$hlname\"";
+    $query="select count(*) from badc_grnd_event where objkilled regexp \".*Pz.*\" and hlkiller = \"$hlname\" and campanya = \"$campanya\" and mapa =\"$mapa\" ";
 }
 if ($army==2) {
-    $query="select count(*) from badc_grnd_event where objkilled regexp \".*T34|.*T70M|.*BT7\" and hlkiller = \"$hlname\"";
+    $query="select count(*) from badc_grnd_event where objkilled regexp \".*T34|.*T70M|.*BT7\" and hlkiller = \"$hlname\" and campanya = \"$campanya\" and mapa =\"$mapa\" ";
 }
 
 $result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
@@ -453,9 +453,9 @@ mysql_select_db("$database");
 
 //$hlname=$HTTP_POST_VARS['hlname'];
 
-$query="select * from badc_pilot_mis where hlname='$hlname' order by misrep DESC";
+$query="select * from badc_pilot_mis where hlname='$hlname' and campanya = \"$campanya\" and mapname =\"$mapa\" order by misrep DESC";
 if ($order=="ASC"){
-    $query="select * from badc_pilot_mis where hlname='$hlname' order by misrep ASC";
+    $query="select * from badc_pilot_mis where hlname='$hlname' and campanya = \"$campanya\" and mapname =\"$mapa\" order by misrep ASC";
 }
 
 $result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
@@ -540,7 +540,7 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 $tdoRED="<td class=\"ltr70c \">";
 
-	$query="select misnum,misrep,hlkiller,plane_killer,hlkilled,plane_killed,wasfriend from badc_air_event where hlkiller='$hlname' order by misrep DESC limit 5";
+	$query="select misnum,misrep,hlkiller,plane_killer,hlkilled,plane_killed,wasfriend from badc_air_event where hlkiller='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" order by misrep DESC limit 5";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 
@@ -599,7 +599,7 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 $tdoRED="<td class=\"ltr70c \">";
 
-	$query="select misnum,misrep,hlkiller,plane_killer,objkilled,wasfriend from badc_grnd_event where hlkiller='$hlname'  order by misrep DESC limit 5";
+	$query="select misnum,misrep,hlkiller,plane_killer,objkilled,wasfriend from badc_grnd_event where hlkiller='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\"  order by misrep DESC limit 5";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 	$igk=0;
@@ -666,7 +666,7 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 $tdoRED="<td class=\"ltr70c \">";
 
-	$query="select misnum,misrep,hlkilled,plane_killed,hlkiller,plane_killer,wasfriend from badc_air_event where hlkilled='$hlname' order by misrep DESC limit 5";
+	$query="select misnum,misrep,hlkilled,plane_killed,hlkiller,plane_killer,wasfriend from badc_air_event where hlkilled='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" order by misrep DESC limit 5";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 
@@ -722,7 +722,7 @@ $tdoc="<td class=\"ltr70c\" align=\"center\">";
 $tdol="<td class=\"ltr70c\" align=\"left\">";
 
 
-	$query="select misrep,rescatado from badc_rescues where rescatador='$hlname' order by misrep DESC limit 5";
+	$query="select misrep,rescatado from badc_rescues where rescatador='$hlname' and campanya = \"$campanya\" and mapa =\"$mapa\" order by misrep DESC limit 5";
 	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
 
 	$igk=0;
@@ -761,6 +761,12 @@ $tdol="<td class=\"ltr70c\" align=\"left\">";
 	print " <td width=20px></td>\n";	
 	print " <td> <center><h3>Weapons used: </h3> </center></td><tr>\n<td  valign=\"top\">\n";	
 
+	// @Heracles20110808
+	// Calculamos todas las misiones de la campaña.
+	$query="select count(*) from badc_pilot_mis WHERE hlname=\"$hlname\"";
+	$result = mysql_query($query) or die ("Error - Query: $query" . mysql_error());
+	$row = mysql_fetch_array($result, MYSQL_NUM);
+	$i=$row[0];
 
 	// aircraft used
 	$query="select plane,count(*) from badc_pilot_mis WHERE hlname=\"$hlname\" GROUP BY plane ORDER BY plane ASC";
