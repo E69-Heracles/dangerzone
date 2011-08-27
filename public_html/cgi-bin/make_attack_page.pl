@@ -103,6 +103,9 @@ sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
 sub calc_daily_cg_bases_supply($$);
 sub calc_map_points();
+sub get_sua_capacity($);
+sub set_sua_capacity($$);
+sub calc_sua_capacity($);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -177,10 +180,10 @@ my $minutos;
 my $clima;
 my $nubes;
 srand;
-$mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
+$mission_of_day=(($rep_count) % $MIS_PER_VDAY); # MoD for NEXT mission
 if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
 
-my $map_vday = int ($rep_count / $MIS_PER_VDAY);
+my $map_vday = int ($rep_count / $MIS_PER_VDAY) + 1;
 
 my $time_increase= int(720 / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
 $hora=6;
@@ -303,7 +306,11 @@ print MAPA  &print_start_html;
 
     ## informe de capacidad de producción roja
     print MAPA  "<b><u>Cuartel general rojo</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";        
+    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";
+    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";            
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
@@ -312,6 +319,20 @@ print MAPA  &print_start_html;
     my $red_stock = 0;
     my $blue_stock = 0;
     ($red_stock, $blue_stock) = calc_stocks_plane();
+    
+    ## @Heracles@20110827
+    ## Necesitamos calcular  antes la capacidad SUA que calc_daily_cg_bases_supply - que la utiliza - en el caso que sea la primera vez que se crea el mapa del frente
+    my $red_capacity=get_sua_capacity(1);
+    if ($red_capacity eq "-") {
+	$red_capacity = $red_stock;
+	set_sua_capacity ($red_stock, 1);
+    }
+
+    my $blue_capacity=get_sua_capacity(2);
+    if ($blue_capacity eq "-") {
+	$blue_capacity = $blue_stock;
+	set_sua_capacity ($blue_stock, 2);
+    }    
     
     print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
     print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
@@ -331,11 +352,17 @@ print MAPA  &print_start_html;
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
     
+    my $cg_num_red_bases=0;
+    my @cg_red_bases=();
+    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);    
+    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
+    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
+    
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
     ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
     
     print MAPA  "</table><br>\n";
     print STA   "</table><br>\n";
@@ -359,7 +386,11 @@ print MAPA  &print_start_html;
 
     ## informe de capacidad de producción azul
     print MAPA  "<b><u>Cuartel general azul</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";        
+    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";
+    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";            
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
@@ -376,8 +407,15 @@ print MAPA  &print_start_html;
     print STA   "<b>Suministro a aeródromo: </b><br>\n";    
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+
+    my $cg_num_blue_bases=0;
+    my @cg_blue_bases=();
+    ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);    
+    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";        
+    
+    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
     print MAPA  "</table><br>\n";
     print STA   "</table><br>\n";
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
@@ -401,11 +439,22 @@ print MAPA  &print_start_html;
     my $af_num=0;
     my $af_colapsed=0;
     
+    ## Control de bases de CG rojo
+    @cg_red_bases=();
+    $cg_num_red_bases=0;
+    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);        
+    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):1/){
 	    $af_num++;
 	    my $afname=$1;
+	    foreach my $af_cg (@cg_red_bases) {
+		if ($af_cg eq $afname) {
+		    $afname .= " *CG*";
+		    last;
+		}	    
+	    }	    	    
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
@@ -443,11 +492,22 @@ print MAPA  &print_start_html;
     
     $af_num = 0;
     $af_colapsed=0;
+
+    @cg_blue_bases=();
+    $cg_num_blue_bases=0;
+    ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);    
+    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):2/){
 	    $af_num++;
 	    my $afname=$1;
+	    foreach my $af_cg (@cg_blue_bases) {
+		if ($af_cg eq $afname) {
+		    $afname .= " *CG*";
+		    last;
+		}	    
+	    }	    	    	    
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
@@ -766,8 +826,8 @@ print MAPA  &print_start_html;
 
     ## seleccion de SUMINISTROS A AERODROMOS ROJOS
     ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+    ## Solo seleccionar suministro si quedan aviones SUM  y existen bases de CG con suficiente capacidad
+    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($red_capacity >= $red_plane_supply)) {
 	seek GEO_OBJ,0,0;
 	while(<GEO_OBJ>) {
 	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):1/) {
@@ -775,7 +835,13 @@ print MAPA  &print_start_html;
 		$cxo=$3;
 		$cyo=$4;
 		$damage=$5;
-		if ($damage > 0 && $damage < 100) {
+		my $cg_base=0;
+		foreach my $af_cg (@cg_red_bases) {
+		    if ($af_cg eq $2) {
+		        $cg_base = 1;
+		    }
+		}		
+		if ($damage > 0 && $damage < 100 && !$cg_base) {
 		    unshift (@red_possible,$tgt_name);
 		}
 	    }
@@ -917,8 +983,8 @@ print MAPA  &print_start_html;
 
     ## seleccion de SUMINISTROS A AERODROMOS AZULES
     ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+    ## Solo seleccionar suministro si quedan aviones SUM
+    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($blue_capacity >= $blue_plane_supply)) {
 	seek GEO_OBJ,0,0;
 	while(<GEO_OBJ>) {
 	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):2/) {
@@ -926,7 +992,13 @@ print MAPA  &print_start_html;
 		$cxo=$3;
 		$cyo=$4;
 		$damage=$5;
-		if ($damage > 0 && $damage < 100) {
+		my $cg_base=0;
+		foreach my $af_cg (@cg_blue_bases) {
+		    if ($af_cg eq $2) {
+		        $cg_base = 1;
+		    }
+		}		
+		if ($damage > 0 && $damage < 100 && !$cg_base) {
 		    unshift (@blue_possible,$tgt_name);
 		}
 	    }

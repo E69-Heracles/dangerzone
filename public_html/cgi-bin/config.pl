@@ -711,6 +711,17 @@ if ($MAP_NAME_LONG eq "Smolensk. 1941"){
     $CAMPANYA="ESTE";
     $SUNRISE=7;
     $SUNSET=17;
+    
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=10; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=6; # Nuermo de aviones azules producicod en un dia
+    $BLUE_HQ="TOLOCHIN";
+    $RED_HQ="SMOLENSK";
+    
+    # @Heracles@20110726
+    # Dias virtuales maximos de campaña, si se llega aqui se gana por puntos
+    $CAMPAIGN_MAX_VDAY=10;            
 
     # map image information
     $ANCHO=900;      # image width in pixels

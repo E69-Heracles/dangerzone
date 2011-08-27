@@ -4,6 +4,129 @@ use IO::Handle;   # because autoflush
 use DBI();
 use POSIX;
 
+## @Heracles@20110827
+## Calcula el valor de capacidad SUA diario para un bando. Ojo! Necesita para el calculo las variables globales $red_stock y $blue_stock
+## Parametros: armada
+sub calc_sua_capacity($) {
+    my $army = shift @_;
+    my $capacity = ($army == 1) ? $VDAY_PRODUCTION_RED : $VDAY_PRODUCTION_BLUE;
+    
+    return $capacity;
+}
+
+## @Heracles@20110827
+## Da valor a la capacidad SUA de un bando.
+## Parametros: capacidad, armada
+sub set_sua_capacity($$){
+    my $capacity = shift @_;
+    my $army = shift @_;
+    my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
+    
+    printdebug ("set_sua_capacity(): Entrando con capacidad $capacity");
+    
+    open (TEMPGEO, ">temp_geo.data"); #
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) {
+	$_ =~  s/^(SUC[0-9]{2},SUM-$hq,[^,]+,[^,]+),[^,]+,([^,]+,[^,]+,[^,]+,[^:]+):$army/$1,$capacity,$2:$army/;
+	print TEMPGEO;
+    }
+    
+    close(TEMPGEO);
+    close(GEO_OBJ);
+    unlink $GEOGRAFIC_COORDINATES;
+    rename "temp_geo.data",$GEOGRAFIC_COORDINATES;
+    if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
+	print "$big_red FATAL ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on sub eventos_aire <br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	printdebug ("set_sua_capacity(): ERROR: Can't open File $GEOGRAFIC_COORDINATES: $!");
+	exit(0);
+    }    
+}
+
+## @Heracles@20110827
+## Retorna la capacidad SUA de un bando. Si la capacidad SUA no esta especificada en el geo_obj, se escribe el nuevo valor.
+## Parametros: armada
+sub get_sua_capacity($) {
+    my $army = shift @_;
+    my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
+    my $capacity = 0;
+    
+    my $line_back=tell GEO_OBJ; 
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) { 
+	if ($_ =~  m/^SUC[0-9]{2},SUM-$hq,[^,]+,[^,]+,([^,]+),[^,]+,[^,]+,[^,]+,[^:]+:$army/) {
+	    $capacity = $1;
+	    last;
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos
+    
+    return $capacity;     
+}
+
+## @Heracles@20110816
+## Retorna las bases del cuartel general
+## Parametros: armada
+sub get_cg_bases($) {
+    my $army = shift @_;
+    my $cgcx;
+    my $cgcy;
+    my $cg_sum_radius;
+    my $cg_bases = 0;
+    my @bases=();
+    
+    my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
+	
+    # Buscar Af en radio de CG para cargar suministros
+    ($cgcx, $cgcy) = get_coord_city($hq);
+    $cg_sum_radius = get_sum_radius($hq);
+    ($cg_bases, @bases) = get_af_in_radius($cgcx, $cgcy, $cg_sum_radius, $army);
+    
+    return ($cg_bases, @bases);
+}
+
+## @Heracles@20110728
+## Obtiene el nombre amigable de un aerodromo
+## Parametros : Clave de aerodromo (AF99)
+sub get_af_name($) {
+    my $afclave = shift @_;
+    my $afname="NONE";
+    my $aflarge="NONE";
+    
+    my $line_back=tell GEO_OBJ; 
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) { 
+	if ($_ =~ m/^$afclave,([^,]+),[^,]+,[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^,]+:[12]/) {
+	    $aflarge=$1;
+	    $afname = $2 . $3;
+	    $afname =~ s/-//;
+	    last;
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos         
+    return ($aflarge, $afname);    
+}
+
+## @Heracles@20110816
+## Obtiene el codigo de un aerodromo
+## Parametros : Nombre largo de aerodromo
+sub get_af_code($) {
+    my $afname = shift @_;
+    my $afclave="NONE";
+    
+    my $line_back=tell GEO_OBJ; 
+    seek GEO_OBJ, 0, 0;
+    while(<GEO_OBJ>) { 
+	if ($_ =~ m/^(AF[0-9]{2}),$afname,[^,]+,[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^,]+:[12]/) {
+	    $afclave=$1;
+	    last;
+	}
+    }
+    seek GEO_OBJ,$line_back,0; # regresamos         
+    return ($afclave);    
+}
+
 # @Heracles@20110805
 # Retorna el nombre de un AF a partir de sus coordenadas. Util para saber si un piloto aterrizo en un af
 # Parametros: cx, cy, armada
@@ -12,24 +135,26 @@ sub get_af_by_coord($$$) {
     my $cy = shift @_;
     my $army = shift @_;
     my $land_af = "NONE";
+    my $land_code = "NONE";
     my $af_cx = 0;
     my $af_cy = 0;
 
     my $line_back=tell GEO_OBJ; # pos del log        
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
-	    if (distance($2, $3, $cx, $cy) <= 2000) {
-		$land_af = $1;
-		$af_cx = $2;
-		$af_cy = $3;
+	if ($_ =~ m/^(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
+	    if (distance($3, $4, $cx, $cy) <= 2000) {
+		$land_code = $1;
+		$land_af = $2;
+		$af_cx = $3;
+		$af_cy = $4;
 		last;
 	    }
 	}
     }
     seek GEO_OBJ,$line_back,0; # regresamos    
     
-    return ($land_af, $af_cx, $af_cy);
+    return ($land_code, $land_af, $af_cx, $af_cy);
 }
 
 # @Heracles@20110807
@@ -67,10 +192,10 @@ sub get_af_in_radius($$$$) {
     my $line_back=tell GEO_OBJ; # pos del log        
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/^AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
-	    if (distance($2, $3, $cx, $cy) <= $radius) {
+	if ($_ =~ m/^(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,[^:]+:$army/){ 
+	    if (distance($3, $4, $cx, $cy) <= $radius) {
 		$bases++;
-		push (@base_list, $1);
+		push (@base_list, $2);
 	    }
 	}
     }
@@ -252,8 +377,8 @@ sub calc_daily_cg_bases_supply($$) {
     my @blue_bases = ();
     my @red_bases = ();
 	    
-    $CG_red_base_supply = ceil (($red_stock * $SUM_STOCK_RATE_CG_BASE)/100);
-    $CG_blue_base_supply = ceil (($blue_stock * $SUM_STOCK_RATE_CG_BASE)/100);
+    $CG_red_base_supply = get_sua_capacity(1);
+    $CG_blue_base_supply = get_sua_capacity(2);
     printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases rojas $CG_red_base_supply");
     printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases azules $CG_blue_base_supply");    
 	    
@@ -292,13 +417,16 @@ sub calc_map_points() {
         die "$0: Can't connect to DB\n";
     }    
 	
-    $sth = $dbh->prepare("select sum(blue_points), sum(red_points) from $mis_prog and campanya=$CAMPANYA and mapa=$MAP_NAME_LONG where reported=\'1\'");
+    $sth = $dbh->prepare("select sum(blue_points), sum(red_points) from $mis_prog where reported=\'1\' and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
     $sth->execute();
     @row = $sth->fetchrow_array;
     $sth->finish;
     $blue_points = $row[0];
     $red_points = $row[1];
     $dbh->disconnect();
+    
+    $blue_points = ($blue_points eq "") ? 0 : $blue_points;
+    $red_points = ($red_points eq "") ? 0 : $red_points;    
     
     return ($red_points, $blue_points);
 }

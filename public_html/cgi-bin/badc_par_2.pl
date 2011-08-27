@@ -85,6 +85,9 @@ sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
 sub calc_daily_cg_bases_supply($$);
 sub calc_map_points();
+sub get_sua_capacity($);
+sub set_sua_capacity($$);
+sub calc_sua_capacity($);
 
 
 sub printdebug($) {
@@ -329,27 +332,6 @@ sub get_base_AF($){
     }
     seek GEO_OBJ,$line_back,0; # regresamos             
     return ("");
-}
-
-## @Heracles@20110728
-## Obtiene el nombre amigable de un aerodromo
-## Parametros : Clave de aerodromo (AF99)
-sub get_af_name($) {
-    my $afclave = shift @_;
-    my $afname="NONE";
-    my $aflarge="NONE";
-    
-    my $line_back=tell GEO_OBJ; 
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) { 
-	if ($_ =~ m/^$afclave,([^,]+),[^,]+,[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^,]+:[12]/) {
-	    $aflarge=$1;
-	    $afname = $2 . $3;
-	    $afname =~ s/-//;
-	}
-    }
-    seek GEO_OBJ,$line_back,0; # regresamos         
-    return ($aflarge, $afname);    
 }
 
 ## obtener un numero de mision unico, verificando que ningun proceso paralelo moleste
@@ -825,13 +807,13 @@ sub find_safe_pilots(){
 	    my @af_land_pilots_temp=();
 	    for (my $i=0; $i < scalar(@af_land_pilots); $i++) {
 	        if ($af_land_pilots[$i][0] ne $plane) {
-	            push (@af_land_pilots_temp, [$af_land_pilots[$i][0], $af_land_pilots[$i][1]]);
+	            push (@af_land_pilots_temp, [$af_land_pilots[$i][0], $af_land_pilots[$i][1],$af_land_pilots[$i][2]]);
 	        }
 	    }
 	    
 	    @af_land_pilots=();
 	    for (my $i=0; $i < scalar(@af_land_pilots_temp); $i++) {
-	        push (@af_land_pilots, [$af_land_pilots_temp[$i][0],$af_land_pilots_temp[$i][1]]);
+	        push (@af_land_pilots, [$af_land_pilots_temp[$i][0],$af_land_pilots_temp[$i][1],$af_land_pilots_temp[$i][2]]);
 	    }	    
 	    
 
@@ -888,7 +870,7 @@ sub find_safe_pilots(){
 				    push(@last_land_in_base, $plane); # aceptamos ultimo aterrizaje en base
 				    # @Heracles@20110805
 				    # Lista de pilotos y sus af destino
-				    push(@af_land_pilots, [$plane, $afland]);				    
+				    push(@af_land_pilots, [$plane, $afland, $ltime]);
 				    # @Heracles@20110728@
 				    # Lista de pilotos con trafico entre base
 				    if ($my_afbase ne $afland) {
@@ -905,7 +887,12 @@ sub find_safe_pilots(){
     
     for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
         printdebug ("find_safe_pilots(): Trafico " . $traffic_pilots[$i][0] . " despega de " . $traffic_pilots[$i][1] . " y aterriza en " . $traffic_pilots[$i][2]);
-    }    
+    }
+    
+    for (my $i=0; $i < scalar(@af_land_pilots); $i++) {
+	my ($large, $short) = get_af_name($af_land_pilots[$i][1]);
+	printdebug ("find_safe_pilots(): Aterrizaje final " . $af_land_pilots[$i][0] . " en " . $af_land_pilots[$i][1] . "/" . $large . " minuto " . $af_land_pilots[$i][2]);
+    }
     
     #debug sacar
     #print "Pilotos que no contaran como derribados:\n";
@@ -2915,8 +2902,8 @@ sub control_traffic() {
 		($my_plane_to,$my_to_army)=get_plane($traffic_pilots[$i][0]);
 		$my_to =~ s/(.*)<(.*)/$1&lt;$2/; #algunos nombres son incompatibles con html <
 		$my_to =~ s/(.*)>(.*)/$1&gt;$2/;		
-		push (@blue_af1_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
-		push (@blue_af1_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
+		push (@blue_af2_lost_print_list, [$my_to, $my_plane_to, $traffic_pilots[$i][0], get_task($traffic_pilots[$i][0]), $role_damage{$role}]);
+		push (@blue_af2_lost_print_list, ['TRAFFIC', '', $traffic_pilots[$i][0], '', $role_damage{$role}]);
 		$traffic_pilots[$i][3] = $role_damage{$role};		
 	}	
     }
@@ -3574,6 +3561,10 @@ sub read_mis_details(){
 	if ($_ =~ m/rep_time=([-A-Za-z0-9: ]+)/) {$rep_time=$1;}
 	if ($_ =~ m/cloud_type=([-a-zA-Z0-9]+)/) {$cloud_type=$1;}
     }
+    
+    if ($red_target =~ m/^SUA-.*/){ $RED_SUA=1; }
+    if ($blue_target =~ m/^SUA-.*/){ $BLUE_SUA=1; }    
+    
     $rep_time=scalar(localtime(time));
     print DET "rep_time=$rep_time \n";
 
@@ -3654,65 +3645,107 @@ sub calc_resuply_by_human_pilot($$$) {
 
 # @Heracles@20110805
 # Calcula el suministro aereo a aerodromos
-# Paramatros: armada (bando)
+# Parametros: armada (bando)
 sub calc_af_resuply_air($){
-    my ($my_army) = @_;
+    my $my_army = shift @_;
     my $total = 0;
     my $land_in_cg = 0;
+    my $af_sum;
+    my $my_name;
+    my $sup_capacity=get_sua_capacity($my_army);
+    my $carga_sua=0;
     
     if ($my_army == 1) {
 	$sum_time = $RED_SUM_TIME;
 	$plane_supply = $red_plane_supply;
+	$af_sum = $red_target;
+	$af_sum =~ s/SUA-//;
+	$my_name = "Los rojos";
     }
     else {
 	$sum_time = $BLUE_SUM_TIME;
-	$plane_supply = $blue_plane_supply;	
+	$plane_supply = $blue_plane_supply;
+	$af_sum = $blue_target;
+	$af_sum =~ s/SUA-//;
+	$my_name = "Los azules";
     }
+    
+    if (($sup_capacity == 0) || ($plane_supply > $sup_capacity)) {return "0";}    
     
     # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
     for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
-        if($pilot_list[$i][5]==$my_army){ # si el piloto es rojo
+        if($pilot_list[$i][5] == $my_army){ 
 	    $player_task=$pilot_list[$i][6];
 	    if ($player_task eq "SUA" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
 		
-		my $safe = 0;
-		my $af_land = "NONE";
-		for (my $i=0; $i < scalar(@af_land_pilots); $i++) {
-		    if ($af_land_pilots[$i][0] eq $pilot_list[$i][1]) {
+		printdebug ("calc_af_resuply_air(): Analizando piloto SUA " . $pilot_list[$i][0] . " en avion " . $pilot_list[$i][1]);
+		
+		my $safe;
+		my $af_land;
+		my $af_short;
+		my $ltime;
+		$safe = 0;
+		$af_land = "NONE";
+		$ltime = 0;
+		for (my $j=0; $j < scalar(@af_land_pilots); $j++) {
+		    if ($af_land_pilots[$j][0] eq $pilot_list[$i][1]) {
 			$safe = 1;
-			$af_land = $af_land_pilots[$i][1];
+			($af_land, $af_short) = get_af_name($af_land_pilots[$j][1]);
+			$ltime = $af_land_pilots[$j][2];
+			last;
 		    }
 		}
 		
-		if ( $safe ) {
-		    seek LOG, 0, 0;
-		    while(<LOG>) {
-			if ($_=~  m/([^ ]+) $pilot_list[$i][1] landed at ([^ ]+) ([^ ]+)/){
-			    my $land_time = $1;
-			    my $cx = $2;
-			    my $cy = $3;
-			    my ($land_af, $cx_af, $cy_af) = get_af_by_coord($cx, $cy, $my_army);
-			    if ($land_af ne "NONE") { # si aterrizo en un AF en tiempo de suministro
-				if ( ( (get_segundos($lan_time)-get_segundos($stime_str)) /60 ) <= $sum_time ) {
-				    $land_in_cg = is_coord_in_cg_radius($cx_af, $cy_af, $my_army);
-				    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base de CG en tiempo.");
-				    last;
+		my $plane = $pilot_list[$i][1];
+		seek LOG, 0, 0;
+		while(<LOG>) {
+		    if ($_=~  m/([^ ]+) $plane landed at ([^ ]+) ([^ ]+)/){
+			my $land_time = $1;
+			my $cx = $2;
+			my $cy = $3;
+			my ($land_code, $land_af, $cx_af, $cy_af) = get_af_by_coord($cx, $cy, $my_army);
+			if ($land_af ne "NONE") {
+			    $land_in_cg = is_coord_in_cg_radius($cx_af, $cy_af, $my_army);
+			    if ($land_in_cg) {
+				printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " cargo suministros en $land_af en tiempo $land_time");							
+				push (@af_cgsup, $land_af);
+				$carga_sua += $plane_supply;
+				if ($safe && ($af_land eq $af_sum)) {
+				    printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo a salvo en $af_land en tiempo $ltime");							    
+				    if ((get_segundos($land_time) > get_segundos($stime_str)) && (get_segundos($land_time) < get_segundos($ltime))) { 
+				        if ( ( (get_segundos($ltime)-get_segundos($stime_str)) /60 ) <= $sum_time ) { # si aterrizo en un AF en tiempo de suministro
+					    print HTML_REP  "    - $pilot_list[$i][0] suministra $af_sum ($plane_supply %) ";
+					    print HTML_REP  "<br>\n";					    
+					    push(@af_resup, $af_land);
+					    $total += $plane_supply;
+					    last;
+					}
+					else {
+					    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza de nuevo en af fuera de tiempo por" . (get_segundos($ltime)-get_segundos($stime_str)-$sum_time) . " segundos");
+					}					
+				    }
 				}
 				else {
-				    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base de CG fuera de tiempo por" . (get_segundos($lan_time)-get_segundos($stime_str)) . " segundos");
+				    if ($safe) {
+					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo en $af_land cuando el objetivo era $af_sum");
+				    }
+				    else {
+					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " fue derribado");
+				    }
 				}
-			    }
+			    }				
 			}
-		    }
-		    if ($land_in_cg) {
-			push(@af_resup, $af_land);
-			$total += $plane_supply;
-			printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza en base $af_land y suministra $plane_supply");			    
 		    }
 		}
 	    }
 	}
+	
+	if (($total == $sup_capacity) || (($total + $plane_supply) > $sup_capacity)) {last;}
     }
+    
+    if ($carga_sua > 0) { set_sua_capacity(($sup_capacity-$carga_sua), $my_army);}
+    
+    print HTML_REP "    --- <strong>" . $my_name . " suministran  $total % $af_sum </strong>.<br>\n";	    
     return $total;
 }
 
@@ -3746,7 +3779,7 @@ sub print_mis_objetive_result(){
 	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
     }    
 
-    if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
+    if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0 && $RED_SUA==0){
 	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
     }
 
@@ -3810,7 +3843,7 @@ sub print_mis_objetive_result(){
 	$red_result = "$red_af_resuply";
     }
     
-    if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0){
+    if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0 && $RED_SUA==0){
 	$blue_damage=0;
 	$obj_kill=0;
 	seek LOG, 0, 0;
@@ -3861,7 +3894,7 @@ sub print_mis_objetive_result(){
 	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
     }    
 
-    if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
+    if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0){
 	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
     }
     
@@ -3928,7 +3961,7 @@ sub print_mis_objetive_result(){
 	$blue_result = "$blue_af_resuply";
     }    
 
-    if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0){
+    if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0){
 	$red_damage=0;
 	$obj_kill=0;
 	seek LOG, 0, 0;
@@ -4066,12 +4099,24 @@ sub look_resuply() {
 		my $dam=$2 * 1.0;
 		my $army=$3;
 		my $af_dam_diff=0.0;
+		my $af_dam_cg=0.0;		
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
 			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$red_plane_supply * 1.0;}
 			if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_diff+=$blue_plane_supply * 1.0;}			
 		    }
 		}
+		
+		# @Heracles@20110817
+		# Sumamos el danyo recibido en los aerodromos del CG por haber suministrado
+		# de momento no vamos a penalizar tener mas o menos AF para suministrar. Se descontara unicamente de la capacidad SUA
+		#foreach $af_in (@af_cgsup) {
+		#    if ($af_in eq $looking_af){
+		#	if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_cg +=$red_plane_supply * 1.0;}
+		#	if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_cg +=$blue_plane_supply * 1.0;}			
+		#    }
+		#}		
+		
 		# @Heracles@20110728
 		# Traficos : miramos si ha habido algún trafico entre aerodromos y suministramos los de aterrizaje
 		printdebug ("look_resuply(): 1 $looking_af damage $dam and recover $af_dam_diff");
@@ -4084,8 +4129,10 @@ sub look_resuply() {
 			printdebug ("look_resuply(): $l_af recupera " . $traffic_pilots[$i][3] . "%  de daño");
 		    }
 		}
+
 		printdebug ("look_resuply(): 2 $looking_af damage $dam and recover $af_dam_diff");		
-		$dam-=$af_dam_diff;
+		$dam +=$af_dam_cg;
+		$dam -=$af_dam_diff;
 		printdebug ("look_resuply(): 3 $looking_af new damage $dam");				
 		if ($dam<0) {$dam=0;}
 		$line_in =~ s/^([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^:]+:[12]/$1,$dam:$army/; 
@@ -4595,6 +4642,12 @@ sub check_day(){
 	if ($INVENTARIO && $PRODUCCION) {
 	    ($red_stock, $blue_stock) = calc_stocks_plane();
 	    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);
+	    my $capacity = get_sua_capacity(1);
+	    $capacity += calc_sua_capacity(1);
+	    set_sua_capacity($capacity,1);
+	    $capacity = get_sua_capacity(2);
+	    $capacity += calc_sua_capacity(2);	    
+	    set_sua_capacity($capacity,2);	    
 
 	    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
 	    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
@@ -4861,7 +4914,7 @@ sub calc_production_planes() {
 	
 	print "Sistema de producción para el bando azul:</br>";	
 	# Actualizamos el aircraft.data para los azules
-	my $production = $VDAY_PRODUCTION_BLUE;
+	$production = $VDAY_PRODUCTION_BLUE;
 	for ( my $i=0; $i < scalar(@blueweight_sorted) && $production > 0; $i++) {
 	    if ($blueweight_sorted[$i][6] > 0) {	    
 		open (FLIGHTS, "<$FLIGHTS_DEF");
@@ -4949,7 +5002,7 @@ sub make_attack_page(){
     $mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
     if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
     
-    my $map_vday = int ($rep_count / $MIS_PER_VDAY);
+    my $map_vday = int ($rep_count / $MIS_PER_VDAY) + 1;
 
     my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
     $hora=$SUNRISE;
@@ -5065,7 +5118,11 @@ sub make_attack_page(){
 
     ## informe de capacidad de producción roja
     print MAPA  "<b><u>Cuartel general rojo</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";        
+    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";
+    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";    
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
@@ -5093,11 +5150,15 @@ sub make_attack_page(){
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
     
+    my $red_capacity=get_sua_capacity(1);
+    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
+    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
+    
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
     ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
     
     print MAPA  "</table><br>\n";
     print STA   "</table><br>\n";
@@ -5123,7 +5184,11 @@ sub make_attack_page(){
 
     ## informe de capacidad de producción azul
     print MAPA  "<b><u>Cuartel general azul</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";        
+    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";
+    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
+    print MAPA  "</table><br>\n";
+    print STA   "</table><br>\n";        
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
@@ -5140,8 +5205,13 @@ sub make_attack_page(){
     print STA   "<b>Suministro a aeródromo: </b><br>\n";    
     print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    
+    my $blue_capacity=get_sua_capacity(2);
+    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    
+    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
+    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
     print MAPA  "</table><br>\n";
     print STA   "</table><br>\n";
     print MAPA  "<b>Suministro a ciudad: </b><br>\n";
@@ -5166,11 +5236,22 @@ sub make_attack_page(){
     my $af_num=0;
     my $af_colapsed=0;
     
+    ## Control de bases de CG rojo
+    @cg_red_bases=();
+    $cg_num_red_bases=0;
+    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);    
+    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):1/){
 	    $af_num++;
 	    my $afname=$1;
+	    foreach my $af_cg (@cg_red_bases) {
+		if ($af_cg eq $afname) {
+		    $afname .= " *CG*";
+		    last;
+		}	    
+	    }	    
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
@@ -5208,11 +5289,22 @@ sub make_attack_page(){
     
     $af_num = 0;
     $af_colapsed=0;
+    
+    @cg_blue_bases=();
+    $cg_num_blue_bases=0;
+    ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);
+    
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
 	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):2/){
 	    $af_num++;
 	    my $afname=$1;
+	    foreach my $af_cg (@cg_blue_bases) {
+		if ($af_cg eq $afname) {
+		    $afname .= " *CG*";
+		    last;
+		}	    
+	    }	    	    
 	    my $afdam=$2;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
@@ -5536,8 +5628,8 @@ sub make_attack_page(){
 
     ## seleccion de SUMINISTROS A AERODROMOS ROJOS
     ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+    ## Solo seleccionar suministro si quedan aviones SUM  y existen bases con sufucuente capacidad
+    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($red_capacity >= $red_plane_supply)) {
 	seek GEO_OBJ,0,0;
 	while(<GEO_OBJ>) {
 	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):1/) {
@@ -5545,7 +5637,13 @@ sub make_attack_page(){
 		$cxo=$3;
 		$cyo=$4;
 		$damage=$5;
-		if ($damage > 0 && $damage < 100) {
+		my $cg_base=0;
+		foreach my $af_cg (@cg_red_bases) {
+		    if ($af_cg eq $2) {
+		        $cg_base = 1;
+		    }
+		}		
+		if ($damage > 0 && $damage < 100 && !$cg_base) {
 		    unshift (@red_possible,$tgt_name);
 		}
 	    }
@@ -5687,8 +5785,8 @@ sub make_attack_page(){
 
     ## seleccion de SUMINISTROS A AERODROMOS AZULES
     ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {
+    ## Solo seleccionar suministro si quedan aviones SUM  y existen bases de CG con menos de 100% de danyo
+    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($blue_capacity >= $blue_plane_supply)) {
 	seek GEO_OBJ,0,0;
 	while(<GEO_OBJ>) {
 	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):2/) {
@@ -5696,7 +5794,13 @@ sub make_attack_page(){
 		$cxo=$3;
 		$cyo=$4;
 		$damage=$5;
-		if ($damage > 0 && $damage < 100) {
+		my $cg_base=0;
+		foreach my $af_cg (@cg_blue_bases) {
+		    if ($af_cg eq $2) {
+		        $cg_base = 1;
+		    }
+		}		
+		if ($damage > 0 && $damage < 100 && !$cg_base) {
 		    unshift (@blue_possible,$tgt_name);
 		}
 	    }
@@ -6876,7 +6980,14 @@ $red_resuply=0;
 $blue_af_resuply=0;
 $red_af_resuply=0;
 
-@af_resup=();
+@af_resup=(); # Aerodromos suministrados
+@af_cgsup=(); # Bases de CG origen de los suministros.
+@cg_blue_bases=();
+@cg_red_bases=();
+$cg_num_blue_bases=0;
+$cg_num_red_bases=0;
+($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);
+($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);
 
 $blue_sectors = 0;
 $red_sectors = 0;
@@ -6892,16 +7003,16 @@ $red_plane_supply = 0;
 $blue_plane_supply = 0;    
 ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
 
-$red_result="";  # para mis_prog_tbl
-$blue_result=""; # para mis_prog_tbl
-print_mis_objetive_result();
-
 @land_in_base=(); # pilotos que aterrizan en su base (para descontar en cada rescat)
 @last_land_in_base=(); # pilotos que aterrizan por ultima vez en su base
 @rescatados=();  # listado de pilotos rescatados, para no contarlos como mia al evaluar pilotos perdidos
 @traffic_pilots=(); # pilotos que no aterrizan en sus bases de origen
 @af_land_pilots=(); # pilotos vivos con su af destino final
 find_safe_pilots();
+
+$red_result="";  # para mis_prog_tbl
+$blue_result=""; # para mis_prog_tbl
+print_mis_objetive_result();
 
 
 $massive_disco=0;

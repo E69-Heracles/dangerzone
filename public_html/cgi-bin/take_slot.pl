@@ -423,6 +423,32 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     if ( -total_hum !=  document.genopts.max_human.value ) { 
         document.genopts.total_hum.style.background = "#cc0000";}
     else { document.genopts.total_hum.style.background = "#00cc00";}
+    
+    myString = new String(document.genopts.target.value);
+    if( myString.match(/SUA-/)) {
+        document.genopts.bomb_attk_nbr.value="";
+        document.genopts.bomb_attk_nbr.disabled=0;
+        document.genopts.bomb_attk_ai.checked=0;                
+        document.genopts.bomb_attk_ai.disabled=1;                
+    }
+    else if( myString.match(/sector-/) || 
+        myString.match(/----/) ){
+            document.genopts.bomb_attk_nbr.value=0;
+	    document.genopts.bomb_attk_nbr.disabled=1;
+	    document.genopts.bomb_attk_ai.checked=1;
+	    document.genopts.bomb_attk_ai.disabled=1;
+    }
+    else if (myString.match(/SUM-/)) {
+            document.genopts.bomb_attk_nbr.value="";
+	    document.genopts.bomb_attk_nbr.disabled=0;
+	    document.genopts.bomb_attk_ai.disabled=0;
+    }
+    else {
+           document.genopts.bomb_attk_nbr.value="";
+	   document.genopts.bomb_attk_nbr.disabled=0;
+           document.genopts.bomb_attk_ai.disabled=0;
+    }    
+    
 }
 
 
@@ -483,8 +509,7 @@ Make Soviet Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTER
   <tr bgcolor="#ccccc0" >
     <td align="right"><b>Attack Target:</b></td>
     <td><select name="target" size="1" style="width:180;" 
-        onChange="selectPlanes (this.options[selectedIndex].text);
-	          setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+        onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                              bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
         <option value="Select Target">---- SELECT TARGET ----</option>
 VVS_Head3
@@ -696,16 +721,16 @@ function selectPlanes( name ) {
 	    if ( document.genopts.bomb_attk_ai.checked==1){
 	        alert ("Warning: Ai flag for attack group cleared.  ");
 		document.genopts.bomb_attk_ai.checked=0;
-	    }
+	    }            
     }
     else {
            document.genopts.bomb_attk_nbr.value="";
 	   document.genopts.bomb_attk_nbr.disabled=0;
-	    document.genopts.bomb_attk_ai.disabled=0;
+           document.genopts.bomb_attk_ai.disabled=0;
 	    if ( document.genopts.bomb_attk_ai.checked==1){
 	        alert ("Warning: Ai flag for attack group cleared.  ");
 		document.genopts.bomb_attk_ai.checked=0;
-	    }
+	    }           
     }
 
     // Set which option from subcategory is to be selected and focus
@@ -791,6 +816,32 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     if ( -total_hum !=  document.genopts.max_human.value ) { 
         document.genopts.total_hum.style.background = "#cc0000";}
     else { document.genopts.total_hum.style.background = "#00cc00";}
+    
+    myString = new String(document.genopts.target.value);
+    if( myString.match(/SUA-/)) {
+        document.genopts.bomb_attk_nbr.value="";
+        document.genopts.bomb_attk_nbr.disabled=0;
+        document.genopts.bomb_attk_ai.checked=0;        
+        document.genopts.bomb_attk_ai.disabled=1;                
+    }
+    else if( myString.match(/sector-/) || 
+        myString.match(/----/) ){
+            document.genopts.bomb_attk_nbr.value=0;
+	    document.genopts.bomb_attk_nbr.disabled=1;
+	    document.genopts.bomb_attk_ai.checked=1;
+	    document.genopts.bomb_attk_ai.disabled=1;
+    }
+    else if (myString.match(/SUM-/)) {
+            document.genopts.bomb_attk_nbr.value="";
+	    document.genopts.bomb_attk_nbr.disabled=0;
+	    document.genopts.bomb_attk_ai.disabled=0;
+    }
+    else {
+           document.genopts.bomb_attk_nbr.value="";
+	   document.genopts.bomb_attk_nbr.disabled=0;
+document.genopts.bomb_attk_ai.disabled=0;
+
+    }    
 }
 
 function Check(){
@@ -851,8 +902,7 @@ Make German Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTER
   <tr bgcolor="#ccccc0" >
     <td align="right"><b>Attack Target:</b></td>
     <td><select name="target" size="1" style="width:180;" 
-        onChange="selectPlanes (this.options[selectedIndex].text);
-	          setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+        onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                              bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
         <option value="Select Target">---- SELECT TARGET ----</option>
 LW_Head3
