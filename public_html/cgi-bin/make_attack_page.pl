@@ -101,7 +101,6 @@ sub get_coord_city($);
 sub get_sum_radius($);
 sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
-sub calc_daily_cg_bases_supply($$);
 sub calc_map_points();
 sub get_sua_capacity($);
 sub set_sua_capacity($$);
@@ -320,8 +319,6 @@ print MAPA  &print_start_html;
     my $blue_stock = 0;
     ($red_stock, $blue_stock) = calc_stocks_plane();
     
-    ## @Heracles@20110827
-    ## Necesitamos calcular  antes la capacidad SUA que calc_daily_cg_bases_supply - que la utiliza - en el caso que sea la primera vez que se crea el mapa del frente
     my $red_capacity=get_sua_capacity(1);
     if ($red_capacity eq "-") {
 	$red_capacity = $red_stock;
@@ -345,18 +342,11 @@ print MAPA  &print_start_html;
     print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
     print STA   "<b>Suministro a aeródromo: </b><br>\n";
     
-    my $CG_red_base_supply = 0;
-    my $CG_blue_base_supply = 0;
-    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);    
-    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
-    
     my $cg_num_red_bases=0;
     my @cg_red_bases=();
     ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);    
-    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
-    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
     
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
@@ -405,14 +395,12 @@ print MAPA  &print_start_html;
     ## informe de capacidad de suministro azul
     print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
     print STA   "<b>Suministro a aeródromo: </b><br>\n";    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
 
     my $cg_num_blue_bases=0;
     my @cg_blue_bases=();
     ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);    
-    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
-    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";        
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";        
     
     print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
     print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";

@@ -83,7 +83,6 @@ sub get_coord_city($);
 sub get_sum_radius($);
 sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
-sub calc_daily_cg_bases_supply($$);
 sub calc_map_points();
 sub get_sua_capacity($);
 sub set_sua_capacity($$);
@@ -4107,16 +4106,6 @@ sub look_resuply() {
 		    }
 		}
 		
-		# @Heracles@20110817
-		# Sumamos el danyo recibido en los aerodromos del CG por haber suministrado
-		# de momento no vamos a penalizar tener mas o menos AF para suministrar. Se descontara unicamente de la capacidad SUA
-		#foreach $af_in (@af_cgsup) {
-		#    if ($af_in eq $looking_af){
-		#	if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_cg +=$red_plane_supply * 1.0;}
-		#	if ($army == 2 && $BLUE_SUM_AI == 0) {$af_dam_cg +=$blue_plane_supply * 1.0;}			
-		#    }
-		#}		
-		
 		# @Heracles@20110728
 		# Traficos : miramos si ha habido algún trafico entre aerodromos y suministramos los de aterrizaje
 		printdebug ("look_resuply(): 1 $looking_af damage $dam and recover $af_dam_diff");
@@ -4623,8 +4612,6 @@ sub check_day(){
     $ext_rep_nbr =~ m/_([0-9]+)/;
     $rep_count=$1;
     
-    my $CG_red_base_supply = 0;
-    my $CG_blue_base_supply = 0;
     my $red_stock = 0;
     my $blue_stock = 0;
     my $cg_red_cx = 0;
@@ -4633,6 +4620,8 @@ sub check_day(){
     my $cg_blue_cy = 0;
     my $cg_red_sum_radius = 0;
     my $cg_blue_sum_radius = 0;
+    my $red_capacity = 0;
+    my $blue_capacity = 0;
     
     if (($rep_count%$MIS_PER_VDAY) ==0){ 
 	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
@@ -4641,13 +4630,12 @@ sub check_day(){
 	# Calculamos la producción de aviones
 	if ($INVENTARIO && $PRODUCCION) {
 	    ($red_stock, $blue_stock) = calc_stocks_plane();
-	    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);
-	    my $capacity = get_sua_capacity(1);
-	    $capacity += calc_sua_capacity(1);
-	    set_sua_capacity($capacity,1);
-	    $capacity = get_sua_capacity(2);
-	    $capacity += calc_sua_capacity(2);	    
-	    set_sua_capacity($capacity,2);	    
+	    $red_capacity = get_sua_capacity(1);
+	    $red_capacity += calc_sua_capacity(1);
+	    set_sua_capacity($red_capacity,1);
+	    $blue_capacity = get_sua_capacity(2);
+	    $blue_capacity += calc_sua_capacity(2);	    
+	    set_sua_capacity($blue_capacity,2);	    
 
 	    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
 	    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
@@ -4670,12 +4658,28 @@ sub check_day(){
 		    $dam=$4-$AF_VDAY_RECOVER;
 		    if ($INVENTARIO && $PRODUCCION) {
 			if (distance($2, $3, $cg_red_cx, $cg_red_cy) <= $cg_red_sum_radius && $5 == 1) {
-			    $dam = $dam - $CG_red_base_supply;
-			    printdebug("check_day(): $1 suministrado por CG rojo con $CG_red_base_supply%");
+			    if ($dam <= $red_capacity) {
+				$dam = 0;
+				set_sua_capacity(($red_capacity-$dam), 1);
+				printdebug("check_day(): $1 suministrado por CG rojo con $dam%");				
+			    }
+			    else {
+				$dam = $dam - $red_capacity;
+				set_sua_capacity(0,1);
+				printdebug("check_day(): $1 suministrado por CG rojo con $red_capacity%");				
+			    }
 			}
 			if (distance($2, $3, $cg_blue_cx, $cg_blue_cy) <= $cg_blue_sum_radius && $5 == 2) {
-			    $dam = $dam - $CG_blue_base_supply;
-			    printdebug("check_day(): $1 suministrado por CG azul con $CG_blue_base_supply%");
+			    if ($dam <= $blue_capacity) {
+				$dam = 0;
+				set_sua_capacity(($blue_capacity-$dam), 2);
+				printdebug("check_day(): $1 suministrado por CG azul con $dam%");				
+			    }
+			    else {
+				$dam = $dam - $blue_capacity;
+				set_sua_capacity(0,2);
+				printdebug("check_day(): $1 suministrado por CG azul con $blue_capacity%");				
+			    }
 			}			
 		    }
 		    if ($dam<0) {$dam=0;}
@@ -5143,16 +5147,9 @@ sub make_attack_page(){
     print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
     print STA   "<b>Suministro a aeródromo: </b><br>\n";
     
-    my $CG_red_base_supply = 0;
-    my $CG_blue_base_supply = 0;
-    ($CG_red_base_supply, $CG_blue_base_supply) = calc_daily_cg_bases_supply($red_stock, $blue_stock);    
-    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_red_base_supply</b></font></td></tr>\n";
-    
     my $red_capacity=get_sua_capacity(1);
-    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
-    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
     
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
@@ -5203,12 +5200,10 @@ sub make_attack_page(){
     ## informe de capacidad de suministro azul
     print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
     print STA   "<b>Suministro a aeródromo: </b><br>\n";    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>A bases del CG (%):</td><td align=\"right\"><b>$CG_blue_base_supply</b></font></td></tr>\n";
     
     my $blue_capacity=get_sua_capacity(2);
-    print MAPA  "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
-    print STA   "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
     
     print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
     print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
