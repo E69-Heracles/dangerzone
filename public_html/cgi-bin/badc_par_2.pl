@@ -4505,6 +4505,7 @@ sub check_geo_file(){
 	my $army;
 	my $near; 
 	my $dist;
+	my $old_army;
 	open (TEMP, ">temp_geo_obj.data"); # CHECK.. verificar que no exista un temp..._obj.data de otro porceso!!
 	print TEMP "FRONT_LINE_VERSION=$front_ver";
 	#no seek, estamos justo debajo de la primer linea con FRONT_LINE_VERSION=... CHECK
@@ -4514,6 +4515,7 @@ sub check_geo_file(){
 		$cxo=$2;
 		$cyo=$3;
 		$army=$4;
+		$old_army=$army;
 		$near=500000; # gran distancia para comenzar (500 km)
 		seek FRONT,0,0;
 		while(<FRONT>) {
@@ -4526,6 +4528,23 @@ sub check_geo_file(){
 		    }
 		}
 		$orig_data =~ s/^([^:]+):[0-3]/$1:$army/;
+		
+		# @Heracles@20110828
+		# Si una ciudad o un aerodromo cambia de bando se recupera un 20% simulando las primeras labores de los zapadores cuando entran en el sector
+		if ($old_army != $army) {
+		    if ($orig_data =~ m/AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):[12]/) {
+			my $damage = $1;
+			$damage = ($damage > $CAP_SEC_RECOVER) ? $damage - $CAP_SEC_RECOVER : 0;
+			$orig_data =~ s/(AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+:([12])/$1,$damage:$2/;
+		    }
+		    if ($orig_data =~ m/^CT[0-9]+,[^,]+,[^,]+,[^,]+,([^,]+),[^,]+,[^,]+,([^,]+),[^,]+:[12]/) {
+			my $damage = $2;
+			$damage = ($damage > $CAP_SEC_RECOVER) ? $damage - $CAP_SEC_RECOVER : 0;
+			my $max_radius = $1;
+			my $radius = int ($max_radius * (1 - $damage / 100));
+			$orig_data =~ s/(^CT[0-9]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+,[^,]+:([12])/$1,$damage,$radius:$2/;
+		    }
+		}
 		print TEMP $orig_data;
 	    }
 	    else {

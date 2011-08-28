@@ -51,6 +51,7 @@ $TUNE_MISSION_TOTAL=0.2; # Importancia del numero de apariciones en las misiones
 $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and city)
 $AF_VDAY_RECOVER=3; # % recovery of AF on each virtual day
 $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
+$CAP_SEC_RECOVER=20; # % recupero que recibe una ciudad o un aerodromo que acaba de ser conquistado por un bando
 $CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
 $PC_LOST=5;
