@@ -4409,19 +4409,41 @@ sub look_sectors(){
 		if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),0,[^:]+:[12]/ && 		 
 		    (get_sector($fm_cx,$fm_cy) eq get_sector($1,$2))) { 
 		    
-		    $near=500000;
+		    # @Heracles@20110828
+		    # Primero miramos si el sector esta dentro del radio de suministro de una ciudad
+		    # Si es así, el sector pasa a manos del bando que posee esa ciudad
+		    # Empezamos a buscar ciudades en un radio máximo de $MAX_SUM_RAD (más alla no puede haber una ciudad que lo suministre)
+		    my $in_sum_rad=0;
+		    $near=($MAX_SUM_RAD + 10) * 1000;
 		    seek GEO_OBJ,0,0;
-		    while(<GEO_OBJ>) { #buscamos la ciudad mas cercana
+		    while(<GEO_OBJ>) { #buscamos la ciudad el radio de suministro de la cual englobe el sector
 	                if ($_ =~ m/^CT[0-9]{2},[^,]+,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/) {
 			    $dist=distance($fm_cx,$fm_cy,$1,$2);
-			    $dist-=(($3*1000)/2); # distance - (suply range)/2
-			    if ($dist<$near){
+			    if ((($3 * 1000) >= $dist) && $dist<$near) {
 				$near=$dist;
 				$army=$4;
+				$in_sum_rad++;
 			    }
-			}		    
+			}
 		    }
+		    
+		    if (!$in_sum_rad) {
+			$near=500000;
+			seek GEO_OBJ,0,0;
+			while(<GEO_OBJ>) { #buscamos la ciudad mas cercana
+			    if ($_ =~ m/^CT[0-9]{2},[^,]+,([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/) {
+				$dist=distance($fm_cx,$fm_cy,$1,$2);
+				$dist-=(($3*1000)/2); # distance - (suply range)/2
+				if ($dist<$near){
+				    $near=$dist;
+				    $army=$4;
+				}
+			    }		    
+			}
+		    }
+		    
 		    if ($orig_army != $army){
+			printdebug("look_sectors(): sector " . get_sector($fm_cx, $fm_cy) . " cambia a bando $army por causa $in_sum_rad");
 			my $ltr=$LETRAS_SEC[int($fm_cx/10000)];
 			my $nbr=int($fm_cy/10000)+1;
 			if ($army==1){
