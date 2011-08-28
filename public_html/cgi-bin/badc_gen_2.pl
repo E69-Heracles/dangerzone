@@ -710,7 +710,7 @@ sub get_flight($$$$) {
 		
 		seek FLIGHTS, 0, 0;
 		while (<FLIGHTS>) {
-		    if ($_ =~ m/^$inv_army,$my_plane,([^,]+),([^,]+),([^,]+),/){
+		    if ($_ =~ m/^$inv_army,$my_plane,([^,]+),([^,]+),([^,]+),[^,]+,/){
 			$planenum = $1;
 			$planereal = $2;
 			$planetimes = $3;
@@ -793,10 +793,10 @@ sub get_flight($$$$) {
     open(TEMPFLIGHTS, ">temp_aircraft.data");
     seek FLIGHTS,0,0;
     while (<FLIGHTS>) {
-        if ($_ =~ m/^$inv_army,$fly_matrix[$option][0],([^,]+),([^,]+),([^,]+),/){
+        if ($_ =~ m/^$inv_army,$fly_matrix[$option][0],([^,]+),([^,]+),([^,]+),[^,]+,/){
 	    my $my_times = $3 + 1;
 	    printdebug ("get_flight(): Seleccionamos $fly_matrix[$option][0], apariciones $3 misiones.");	    
-	    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+),[^,]+,/$1,$my_times,/;
+	    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+),[^,]+,([^,]+),/$1,$my_times,$2,/;
 	    printdebug ("get_flight(): Actualizamos aircraft.data con: $_ \n");
 	    print TEMPFLIGHTS;
 	}

@@ -317,7 +317,9 @@ print MAPA  &print_start_html;
 
     my $red_stock = 0;
     my $blue_stock = 0;
-    ($red_stock, $blue_stock) = calc_stocks_plane();
+    my $red_losts = 0;
+    my $blue_losts = 0;
+    ($red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
     
     my $red_capacity=get_sua_capacity(1);
     if ($red_capacity eq "-") {
@@ -333,6 +335,8 @@ print MAPA  &print_start_html;
     
     print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
     print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Pérdidas:</td><td align=\"right\"><b>$red_losts</b></td></tr>\n";
+    print STA   "<tr><td>Pérdidas:</td><td align=\"right\"><b>$red_losts</b></td></tr>\n";    
     print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
     print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
     print MAPA  "</table><br>\n";
@@ -387,6 +391,8 @@ print MAPA  &print_start_html;
     print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
     print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
     print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
+    print MAPA  "<tr><td>Pérdidas:</td><td align=\"right\"><b>$blue_losts</b></td></tr>\n";
+    print STA   "<tr><td>Pérdidas:</td><td align=\"right\"><b>$blue_losts</b></td></tr>\n";    
     print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
     print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
     print MAPA  "</table><br>\n";
@@ -542,14 +548,15 @@ print MAPA  &print_start_html;
         print MAPA  "<b>Inventario de aviones rojos:</b><br>\n";
         print STA   "<b>Inventario de aviones rojos:</b><br>\n";
 
-        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
-        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
 	
 	seek FLIGHTS, 0, 0;
 	while (<FLIGHTS>) {
-	    if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){
+	    if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
 		my $plane_model = $1;
 		my $plane_number = $3;
+		my $plane_lost = $5;
 		
 		print MAPA "<tr><td> $plane_model </td><td>"; 
 		print STA "<tr><td> $plane_model </td><td>"; 
@@ -565,19 +572,23 @@ print MAPA  &print_start_html;
 		}
 		
 		if ($plane_number <= 10) { 
-		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
-		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
 		}
 		else {
 		    if ( $plane_number <= 50 ) {
-			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";
-			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";			
+			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
+			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";			
 		    }
 		    else {
-			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";
-			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";			
+			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
+			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";			
 		    }
 		}
+		
+		print MAPA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
+		print STA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 	
+		
 		seek FLIGHTS, $line_back, 0;
 	    }
 	}
@@ -597,14 +608,15 @@ print MAPA  &print_start_html;
         print MAPA  "<b>Inventario de aviones azules:</b><br>\n";
         print STA   "<b>Inventario de aviones azules:</b><br>\n";
 
-        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
-        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td></tr>";
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
 	
 	seek FLIGHTS, 0, 0;
 	while (<FLIGHTS>) {
-	    if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){
+	    if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
 		my $plane_model = $1;
 		my $plane_number = $3;
+		my $plane_lost = $5;
 		
 		print MAPA "<tr><td> $plane_model </td><td>"; 
 		print STA "<tr><td> $plane_model </td><td>"; 
@@ -620,19 +632,23 @@ print MAPA  &print_start_html;
 		}
 		
 		if ($plane_number <= 10) { 
-		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
-		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td></tr>\n";
+		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
 		}
 		else {
 		    if ( $plane_number <= 50 ) {
-			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";
-			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td></tr>\n";			
+			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
+			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";			
 		    }
 		    else {
-			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";
-			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td></tr>\n";			
+			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
+			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";			
 		    }
 		}
+
+		print MAPA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
+		print STA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
+		
 		seek FLIGHTS, $line_back, 0;
 	    }
 	}

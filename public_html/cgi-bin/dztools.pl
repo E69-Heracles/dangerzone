@@ -299,6 +299,8 @@ sub calc_stocks_plane() {
     my $planereal = 0;
     my $red_stock = 0;
     my $blue_stock = 0;
+    my $red_losts = 0;
+    my $blue_losts =0;
     
     if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
 	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
@@ -310,11 +312,11 @@ sub calc_stocks_plane() {
 
     seek FLIGHTS,0,0;
     while (<FLIGHTS>) {
-	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
-	    push(@redstock_matrix,[$1,$2,$3,$4]);
+	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones, $5:perdidas
+	    push(@redstock_matrix,[$1,$2,$3,$4,$5]);
 	}
-	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones
-	    push(@bluestock_matrix,[$1,$2,$3,$4]);
+	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones, $5:perdidas
+	    push(@bluestock_matrix,[$1,$2,$3,$4,$5]);
 	}
     }
 	
@@ -323,6 +325,7 @@ sub calc_stocks_plane() {
     ## Calculo de total de aviones iniciales rojos
     for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
 	$planereal += $redstock_matrix[$i][2];
+	$red_losts += $redstock_matrix[$i][4];
     }    
     
     $red_stock = $planereal;
@@ -331,11 +334,12 @@ sub calc_stocks_plane() {
     ## Calculo de total de aviones iniciales azules
     for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) {
 	$planereal += $bluestock_matrix[$i][2];
+	$blue_losts += $bluestock_matrix[$i][4];
     }
     
     $blue_stock = $planereal;
-    printdebug ("calc_stocks_plane(): rojos $red_stock azules $blue_stock");    
-    return($red_stock, $blue_stock);
+    printdebug ("calc_stocks_plane(): rojos/perdidas $red_stock/$red_losts azules/perdidas $blue_stock/$blue_losts");    
+    return($red_stock, $blue_stock, $red_losts, $blue_losts);
 }
 
 # @Heracles@20110730@
