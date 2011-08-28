@@ -436,7 +436,13 @@ print MAPA  &print_start_html;
     ## Control de bases de CG rojo
     @cg_red_bases=();
     $cg_num_red_bases=0;
-    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);        
+    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);
+    
+    ## Capacidad aerea
+    my $red_air=0;
+    my $blue_air=0;
+    my $red_air_pot=0;
+    my $blue_air_pot=0;
     
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) { 
@@ -450,6 +456,8 @@ print MAPA  &print_start_html;
 		}	    
 	    }	    	    
 	    my $afdam=$2;
+	    $red_air = ($afdam < 80) ? $red_air + (80 - $afdam) : $red_air;
+	    $red_air_pot += 80;
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
 	    if ($afdam > 20) {
@@ -477,6 +485,16 @@ print MAPA  &print_start_html;
     
     print MAPA  "</table><br><br>\n";
     print STA   "</table><br><br>\n";
+    
+    print MAPA  "<b>Capacidad aerea: </b><br>\n";
+    print STA   "<b>Capacidad aerea: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$red_air_pot%</font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$red_air_pot%</font></td></tr>\n";
+    print MAPA  "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$red_air%<b></font></td></tr>\n";
+    print STA   "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$red_air%<b></font></td></tr>\n";
+    print MAPA  "</table><br><br>";
+    print STA   "</table><br><br>";    
+    
     print MAPA  "</td><td valign=\"top\">\n";
     print STA   "</td><td valign=\"top\">\n";
     print MAPA  "<b>Aeródromos azules: </b><br>\n";
@@ -503,6 +521,8 @@ print MAPA  &print_start_html;
 		}	    
 	    }	    	    	    
 	    my $afdam=$2;
+	    $blue_air = ($afdam < 80) ? $blue_air + (80 - $afdam) : $blue_air;
+	    $blue_air_pot += 80;	    
 	    if ($afdam !~ m/\./) {$afdam.=".00";}
 	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
 	    if ($afdam > 20) {
@@ -528,8 +548,17 @@ print MAPA  &print_start_html;
     
     if ($af_num == $af_colapsed) {$af_blue_colapsed = 1;}
     
+    print MAPA  "</table><br><br>\n";
+    print STA   "</table><br><br>\n";
+
+    print MAPA  "<b>Capacidad aerea: </b><br>\n";
+    print STA   "<b>Capacidad aerea: </b><br>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$blue_air_pot%</font></td></tr>\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$blue_air_pot%</font></td></tr>\n";
+    print MAPA  "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$blue_air%<b></font></td></tr>\n";
+    print STA   "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$blue_air%<b></font></td></tr>\n";
     print MAPA  "</table><br><br></td></tr></table><br><br>\n";
-    print STA   "</table><br><br></td></tr></table><br><br>\n";
+    print STA   "</table><br><br></td></tr></table><br><br>\n";    
 
     if ($INVENTARIO) {
 	
@@ -586,8 +615,8 @@ print MAPA  &print_start_html;
 		    }
 		}
 		
-		print MAPA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
-		print STA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 	
+		print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
+		print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 	
 		
 		seek FLIGHTS, $line_back, 0;
 	    }
@@ -646,8 +675,8 @@ print MAPA  &print_start_html;
 		    }
 		}
 
-		print MAPA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
-		print STA "<td align=\"right\"><font color=\"red\"><b>$plane_lost</b></td><td></tr>\n"; 
+		print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
+		print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
 		
 		seek FLIGHTS, $line_back, 0;
 	    }
