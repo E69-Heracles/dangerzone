@@ -2365,14 +2365,14 @@ sub poblate_airfield ($) {
 	    my $object_medium;
 	    my $object_high;
 	    if ($army==1) {
-		$object_low="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
-		$object_medium="_Static vehicles.artillery.Artillery\$Zenit61K 1 ";
-		$object_high="_Static vehicles.artillery.Artillery\$Zenit85mm_1939 1 ";
+		$object_low="_Static " . $AAA_LOW_RED . " 1 ";
+		$object_medium="_Static " . $AAA_MED_RED . " 1 ";
+		$object_high="_Static " . $AAA_HIG_RED . " 1 ";
 	    }
 	    else {
-		$object_low="_Static vehicles.artillery.Artillery\$Flak38_20mm 2 ";
-		$object_medium="_Static vehicles.artillery.Artillery\$Flak18_37mm 2 ";
-		$object_high="_Static vehicles.artillery.Artillery\$Flak18_88mm 2 ";
+		$object_low="_Static " . $AAA_LOW_BLUE . " 2 ";
+		$object_medium="_Static " . $AAA_MED_BLUE . " 2 ";
+		$object_high="_Static " . $AAA_HIG_BLUE . " 2 ";
 	    }
 	    my $aaa_x;
 	    my $aaa_y;
@@ -2742,6 +2742,7 @@ sub add_tank_static() {
 	    }
 	}
 
+	my $angle=0;
 	if ($suply_sector>0 || $ttl_sector >= $TTL_WITH_DEF ) { #CHECK sera el suminstro aleman.. si tienen, ponemos tanques  alemanes a defender
 
 	    my $vector_x = ($red_tank_wp[2] -$red_tank_wp[0]);
@@ -2751,7 +2752,6 @@ sub add_tank_static() {
 	    $vector_y/=$modulo;
 	    my $normal_x=$vector_y;
 	    my $normal_y=-$vector_x;
-	    my $angle=0;
 	    
 	    if ($vector_x==0){
 		if ($vector_y>=0){$angle=90;}
@@ -2789,13 +2789,11 @@ sub add_tank_static() {
 
 	if ($CHAMP_TYPE==0 ) { # blue static champ 0
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 "; # una aaa
+		$tank_name="_Static " . $AAA_LOW_BLUE. " 2 "; # aaa
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+15)." ".($red_tank_wp[3]+15)." 180 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 "; # una aaa
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+10)." ".($red_tank_wp[3]-50)." 180 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 "; # una aaa
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-30)." ".($red_tank_wp[3]+10)." 180 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
@@ -2804,49 +2802,39 @@ sub add_tank_static() {
 		    $s_obj_counter++;
 		}
 	    }
-#	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitzMaultierAA 2 "; 
-#	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+10)." ".($red_tank_wp[3]-35)." 30 0\n";
-#	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.stationary.Stationary\$Howitzer_150mm 2 "; 
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-50)." ".($red_tank_wp[3]+0)." 240 0\n";
-	    $s_obj_counter++;
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+		$tank_name="_Static vehicles.stationary.Stationary\$Howitzer_150mm 2 "; 
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-50)." ".($red_tank_wp[3]+0)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A_radio 2 "; 
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+0)." ".($red_tank_wp[3]+10)." 315 0\n";
 	    $s_obj_counter++;
-#	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-#	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-55)." ".($red_tank_wp[3]-35)." 210 0\n";
-#	    $s_obj_counter++;
 
-#Nuevos objetos dz
-
-#Pak Izquierda
+	    if ($ttl_sector > 0) {
+		#Pak Izquierda
 		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 120)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 50)." 235 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 120)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 55)." 135 0\n";
-	    $s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 110)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 50)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 120)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 55)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 50)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 60)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 35)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Abajo
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) - 90)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 90)."  $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Arriba
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) + 50)." 235 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) + 50)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 50)."  315\n";
-	    $s_obj_counter++;
-#Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 60)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 315 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 60)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 35)." 45 0\n";
-	    $s_obj_counter++;
-#Pak Abajo
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) - 90)." 45 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 90)."  135 0\n";
-	    $s_obj_counter++;
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 50)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 50)." $angle 0\n";
+	    $s_obj_counter++;	    
 #AAA
 		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
 	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 40)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 40)." 0 0\n";
@@ -2866,24 +2854,16 @@ sub add_tank_static() {
 	} # blue static champ 0 END
 	if ($CHAMP_TYPE==1 ) { # blue static champ 1
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
+		$tank_name="_Static " . $AAA_LOW_BLUE . " 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-14.21)." ".($red_tank_wp[3]+21.37)." 600.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-1.97)." ".($red_tank_wp[3]-28.76)." 450.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-9.77)." ".($red_tank_wp[3]-17.47)." 540.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
 		}
 	    }
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+2.22)." ".($red_tank_wp[3]-17.38)." 360.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-13.97)." ".($red_tank_wp[3]-1.76)." 505.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$SdKfz251 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-3.88)." ".($red_tank_wp[3]+16.91)." 450.00 0\n";
 	    $s_obj_counter++;
@@ -2894,41 +2874,46 @@ sub add_tank_static() {
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+4.16)." ".($red_tank_wp[3]+7.41)." 540.00 0\n";
 	    $s_obj_counter++;
 
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 1)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." 235.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 1)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." 315.00 0\n";
-	    $s_obj_counter++;
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 1)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 1)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." 135.00 0\n";
-	    $s_obj_counter++;
-#Pak Izquierda
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 1)." 235 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." 135 0\n";
-	    $s_obj_counter++;
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+		# Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+2.22)." ".($red_tank_wp[3]-17.38)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 10)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 10)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 10)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 10)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+
+	    if ($ttl_sector > 0) {
+		#Pak
+		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 ";
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-13.97)." ".($red_tank_wp[3]-1.76)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Izquierda
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 10)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+	    
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 1)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 ";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 10)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." 45 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." $angle 0\n";
 	    $s_obj_counter++;
 #AAA
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 2)." 0 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 2)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 2)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 2)." 0 0\n";
 	    $s_obj_counter++;
 #Camiones
 		$tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A_fuel 2 "; 
@@ -2958,33 +2943,18 @@ sub add_tank_static() {
 	} # blue static champ 1 END
 	if ($CHAMP_TYPE==2 ) { # blue static champ 2
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
+		$tank_name="_Static " . $AAA_LOW_BLUE . " 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-37.45)." ".($red_tank_wp[3]+41.77)." 585.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-37.84)." ".($red_tank_wp[3]-36.83)." 465.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+42.33)." ".($red_tank_wp[3]-35.86)." 420.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+41.83)." ".($red_tank_wp[3]+41.34)." 690.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
 		}
 	    }
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-2.47)." ".($red_tank_wp[3]+43.29)." 630.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-39.49)." ".($red_tank_wp[3]+3.95)." 540.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-3.11)." ".($red_tank_wp[3]-38.24)." 450.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+43.93)." ".($red_tank_wp[3]-11.45)." 360.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A_radio 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+12.38)." ".($red_tank_wp[3]+1.45)." 360.00 0\n";
 	    $s_obj_counter++;
@@ -3009,86 +2979,80 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-5.66)." ".($red_tank_wp[3]+18.38)." 450.00 0\n";
 	    $s_obj_counter++;
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 225.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 28)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 315.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 225.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 28)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 315.00 0\n";
-	    $s_obj_counter++;
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 28)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 135.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 28)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 135.00 0\n";
-	    $s_obj_counter++;
-
-#Pak Izquierda
+	    
+	    if ($ttl_sector >= $TTL_WITH_DEF) {	    
+		# Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-2.47)." ".($red_tank_wp[3]+43.29)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-39.49)." ".($red_tank_wp[3]+3.95)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-3.11)." ".($red_tank_wp[3]-38.24)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+43.93)." ".($red_tank_wp[3]-11.45)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 20)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 20)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 20)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 20)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+	    
+	    if ($ttl_sector > 0) {	    	    
+		#Pak Izquierda
 		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 32)." 135 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 32)." 135 0\n";
-	    $s_obj_counter++;
-
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 40)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 40)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 40)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 32)." 45 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 40)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 315 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 32)." 45 0\n";
-	    $s_obj_counter++;
-
 #AAA
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
 	    $s_obj_counter++;
 
 	} # blue static champ 2 END
 	if ($CHAMP_TYPE==3 ) { # blue static champ 3
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
+		$tank_name="_Static " . $AAA_LOW_BLUE. " 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-46.22)." ".($red_tank_wp[3]+50.13)." 585.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+0.5)." ".($red_tank_wp[3]-40.27)." 450.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 2 ";
 		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+44.86)." ".($red_tank_wp[3]+50.86)." 675.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
@@ -3106,12 +3070,6 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A_radio 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-28.05)." ".($red_tank_wp[3]+16.07)." 360.00 0\n";
 	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-45.25)." ".($red_tank_wp[3]+4.71)." 540.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+45.16)." ".($red_tank_wp[3]+4.69)." 360.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.artillery.Artillery\$SdKfz251 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-38.71)." ".($red_tank_wp[3]+41.67)." 630.00 0\n";
 	    $s_obj_counter++;
@@ -3127,55 +3085,53 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$OpelBlitz6700A_radio 2 ";
 	    print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-0.44)." ".($red_tank_wp[3]-29.05)." 630.00 0\n";
 	    $s_obj_counter++;
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 270 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 270 0\n";
-	    $s_obj_counter++;
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 90 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 90 0\n";
-	    $s_obj_counter++;
 
-#Pak Izquierda
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." 225\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 135 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." 135 0\n";
-	    $s_obj_counter++;
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+		# Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$Howitzer_150mm 2 ";
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]-45.25)." ".($red_tank_wp[3]+4.71)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($red_tank_wp[2]+45.16)." ".($red_tank_wp[3]+4.69)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 
+	    if ($ttl_sector > 0) {
+		#Pak Izquierda
+		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." $angle\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." 315 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 45 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$PaK38 2 "; 
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." 45 0\n";
-	    $s_obj_counter++;
-
 #AAA
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
+	    $tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
 	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 50)." 270 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$DemagFlak 2 "; 
 	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 40)." ".(($red_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 40)." 0 0\n";
 	    $s_obj_counter++;
 	} # blue static champ 3 END
@@ -3200,7 +3156,7 @@ sub add_tank_static() {
 	    $vector_y/=$modulo;
 	    my $normal_x=$vector_y;
 	    my $normal_y=-$vector_x;
-	    my $angle=0;
+	    $angle=0;
 	    
 	    if ($vector_x==0){
 		if ($vector_y>=0){$angle=90;}
@@ -3234,70 +3190,63 @@ sub add_tank_static() {
 	} # end if suply >0
 	if ($CHAMP_TYPE==0 ) { # red static champ 0
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
+		$tank_name="_Static $AAA_LOW_RED 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+15)." ".($blue_tank_wp[3]+15)." 180 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+10)." ".($blue_tank_wp[3]-50)." 180 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-30)." ".($blue_tank_wp[3]+10)." 180 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
 		    $tank_name="_Static vehicles.artillery.Artillery\$M16 1 ";
 		    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-20)." ".($blue_tank_wp[3]+30)." 30 0\n";
 		    $s_obj_counter++;
-		    $tank_name="_Static vehicles.artillery.Artillery\$M16 1 ";
 		    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+10)." ".($blue_tank_wp[3]+0)." 30 0\n";
 		    $s_obj_counter++;
 		}
 	    }
-	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+10)." ".($blue_tank_wp[3]-35)." 30 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.stationary.Stationary\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-50)." ".($blue_tank_wp[3]+0)." 240 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$ZIS5_radio 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+0)." ".($blue_tank_wp[3]+10)." 315 0\n";
 	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-55)." ".($blue_tank_wp[3]-35)." 210 0\n";
 	    $s_obj_counter++;
-#Nuevos objetos DZ
-#Pak Izquierda
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 120)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 50)." 235 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 120)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 55)." 135 0\n";
-	    $s_obj_counter++;
+
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+		# Artilleria
+		$tank_name="_Static vehicles.stationary.Stationary\$ML20 1 ";
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-50)." ".($blue_tank_wp[3]+0)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+
+	    if ($ttl_sector > 0 ) {
+		#Pak Izquierda
+		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 110)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 50)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 120)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 55)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 50)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 60)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 35)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Abajo
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 30)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) - 90)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 90)."  $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Arriba
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) + 50)." 235 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) + 50)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 50)."  315\n";
-	    $s_obj_counter++;
-#Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 60)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 315 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 60)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 35)." 45 0\n";
-	    $s_obj_counter++;
-#Pak Abajo
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x - 20 * $normal_x) - 40)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y - 20 * $normal_y) - 90)." 45 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 45)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 90)."  135 0\n";
-	    $s_obj_counter++;
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 50)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 50)."  $angle 0\n";
+	    $s_obj_counter++;	    
 #AAA
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
 	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 40)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 40)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
 	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 60)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 40)." 0 0\n";
 	    $s_obj_counter++;
 #Camiones
@@ -3313,13 +3262,11 @@ sub add_tank_static() {
 
 	if ($CHAMP_TYPE==1 ) { # red static champ 1
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
+		$tank_name="_Static $AAA_LOW_RED 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+2.44)." ".($blue_tank_wp[3]-20.94)." 425.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-21.19)." ".($blue_tank_wp[3]-5.42)." 520.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+3.61)." ".($blue_tank_wp[3]+6.58)." 400.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
@@ -3331,56 +3278,55 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$StudebeckerRocket 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+20.97)." ".($blue_tank_wp[3]+16.44)." 435.00 0\n";
 	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.stationary.Stationary\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-1.47)." ".($blue_tank_wp[3]+12.86)." 645.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-18.86)." ".($blue_tank_wp[3]-27)." 470.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$WillisMB 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+15.58)." ".($blue_tank_wp[3]+7.22)." 470.00 0\n";
 	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$StudebeckerTruck 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-29.75)." ".($blue_tank_wp[3]+6.05)." 485.00 0\n";
 	    $s_obj_counter++;
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 1)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." 235.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 1)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." 315.00 0\n";
-	    $s_obj_counter++;
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 1)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 1)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." 135.00 0\n";
-	    $s_obj_counter++;
-#Pak Izquierda
+	    
+	    if ($ttl_sector >= $TTL_WITH_DEF) {	    
+		# Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-1.47)." ".($blue_tank_wp[3]+12.86)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 10)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 10)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 80)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 10)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 10)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 80)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+	    
+	    if ($ttl_sector > 0) {
+		#Pak
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 1)." 235 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." 135 0\n";
-	    $s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-13.97)." ".($blue_tank_wp[3]-1.76)." $angle 0\n";
+		$s_obj_counter++;		
+		#Pak Izquierda
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 10)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 1)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 10)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." 45 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 1)." $angle 0\n";
 	    $s_obj_counter++;
 #AAA
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 2)." 0 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 2)." 0 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 2)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 2)." 0 0\n";
 	    $s_obj_counter++;
 #Camiones
-		$tank_name="_Static vehicles.stationary.Stationary\$StudebeckerTruck 1 "; 
+	    $tank_name="_Static vehicles.stationary.Stationary\$StudebeckerTruck 1 "; 
 	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 60)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 0)." 270 0\n";
 	    $s_obj_counter++;
 		$tank_name="_Static vehicles.stationary.Stationary\$StudebeckerTruck 1 "; 
@@ -3408,33 +3354,18 @@ sub add_tank_static() {
 	} # red static champ 1 END
 	if ($CHAMP_TYPE==2 ) { # red static champ 2
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
+		$tank_name="_Static $AAA_LOW_RED 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-37.7)." ".($blue_tank_wp[3]-37.2)." 495.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+42.33)." ".($blue_tank_wp[3]-36.86)." 390.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+41.61)." ".($blue_tank_wp[3]+40.34)." 675.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-37.24)." ".($blue_tank_wp[3]+40.29)." 585.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
 		}
 	    }
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-39.49)." ".($blue_tank_wp[3]+2.95)." 540.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-2.47)." ".($blue_tank_wp[3]+42.29)." 630.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+43.93)." ".($blue_tank_wp[3]-12.45)." 360.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-3.11)." ".($blue_tank_wp[3]-39.24)." 450.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Stationary\$ZIS5_PC 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-14.56)." ".($blue_tank_wp[3]+15.66)." 450.00 0\n";
 	    $s_obj_counter++;
@@ -3459,86 +3390,84 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$ZIS5_radio 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-13.56)." ".($blue_tank_wp[3]+0.47)." 360.00 0\n";
 	    $s_obj_counter++;
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 225.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 28)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 315.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 225.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 28)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 315.00 0\n";
-	    $s_obj_counter++;
 
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 28)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 135.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 28)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 45.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 135.00 0\n";
-	    $s_obj_counter++;
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+	    # Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-39.49)." ".($blue_tank_wp[3]+2.95)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-2.47)." ".($blue_tank_wp[3]+42.29)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+43.93)." ".($blue_tank_wp[3]-12.45)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-3.11)." ".($blue_tank_wp[3]-39.24)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 20)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 20)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 20)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 30)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 20)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 30)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 
-#Pak Izquierda
+	    if ($ttl_sector > 0) {
+		#Pak Izquierda
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 28)." 135 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 28)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 30)." 135 0\n";
-	    $s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 40)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 40)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 40)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 28)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 30)." 45 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 28)." 315 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 30)." 45 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 80)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 40)." $angle 0\n";
 	    $s_obj_counter++;
 
 #AAA
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
 	    $s_obj_counter++;
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
 	    $s_obj_counter++;
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 25)." 0 0\n";
 	    $s_obj_counter++;
 		$tank_name="_Static vehicles.artillery.Artillery\$ZIS5_AA 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 100)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 25)." 0 0\n";
 	    $s_obj_counter++;
 
 	} # red static champ 2 END
 	if ($CHAMP_TYPE==3 ) { # red static champ 3
 	    if ($AAA_IN_CHAMPS) {
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
+		$tank_name="_Static $AAA_LOW_RED 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-38.92)." ".($blue_tank_wp[3]+1.33)." 540.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+40.8)." ".($blue_tank_wp[3]+23.44)." 690.00 0\n";
 		$s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$Zenit25mm_1940 1 ";
 		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+40.88)." ".($blue_tank_wp[3]-23.36)." 390.00 0\n";
 		$s_obj_counter++;
 		if ($LATE_AAA_IN_CHAMPS) {
@@ -3559,12 +3488,6 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$ZIS5_radio 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+30.14)." ".($blue_tank_wp[3]+6.38)." 540.00 0\n";
 	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-36.13)." ".($blue_tank_wp[3]+24.05)." 585.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
-	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-36.39)." ".($blue_tank_wp[3]-23.83)." 480.00 0\n";
-	    $s_obj_counter++;
 	    $tank_name="_Static vehicles.stationary.Siren\$SirenCity 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+9.35)." ".($blue_tank_wp[3]+0.08)." 540.00 0\n";
 	    $s_obj_counter++;
@@ -3574,46 +3497,48 @@ sub add_tank_static() {
 	    $tank_name="_Static vehicles.stationary.Stationary\$ZIS5_radio 1 ";
 	    print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-2.08)." ".($blue_tank_wp[3]+12.97)." 450.00 0\n";
 	    $s_obj_counter++;
-#DZ Nuevos objetos
-# Artilleria Norte
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 270.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($red_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." 270.00 0\n";
-	    $s_obj_counter++;
-# Artilleria Sur
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 90.00 0\n";
-	    $s_obj_counter++;
-	    $tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." 90.00 0\n";
-	    $s_obj_counter++;
-#Pak Izquierda
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." 225 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 20)." 135 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 30)." 135 0\n";
-	    $s_obj_counter++;
+
+	    if ($ttl_sector >= $TTL_WITH_DEF) {
+		# Artilleria
+		$tank_name="_Static vehicles.artillery.Artillery\$ML20 1 ";	    
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]-45.25)." ".($blue_tank_wp[3]+4.71)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.($blue_tank_wp[2]+45.16)." ".($blue_tank_wp[3]+4.69)." $angle 0\n";
+		$s_obj_counter++;	    
+		# Artilleria Norte
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($blue_tank_wp[3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp[2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) + 70)." $angle 0\n";
+		$s_obj_counter++;
+		# Artilleria Sur
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) + 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 0 * $normal_x) - 5)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 0 * $normal_y) - 70)." $angle 0\n";
+		$s_obj_counter++;
+	    }
+	    
+	    if ($ttl_sector > 0) {	    
+		#Pak Izquierda
+		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) - 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." $angle 0\n";
+		$s_obj_counter++;
+		#Pak Derecha
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 30)." $angle 0\n";
+		$s_obj_counter++;
+		print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 20)." $angle 0\n";
+		$s_obj_counter++;
+	    }
 #Pak Derecha
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) + 20)." 315 0\n";
+	    $tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 ";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 30)." $angle 0\n";
 	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) + 30)." 315 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 20 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 20 * $normal_y) - 20)." 45 0\n";
-	    $s_obj_counter++;
-		$tank_name="_Static vehicles.artillery.Artillery\$ZIS3 1 "; 
-	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 30)." 45 0\n";
+	    print MIS $s_obj_counter.$tank_name.(($blue_tank_wp [2] - $CHAMP_RAD * $vector_x + 40 * $normal_x) + 70)." ".(($blue_tank_wp [3] - $CHAMP_RAD * $vector_y + 40 * $normal_y) - 20)." $angle 0\n";
 	    $s_obj_counter++;
 
 #AAA
@@ -5044,14 +4969,14 @@ sub poblate_city($$$$){
 		if ($type==2000) { # si es aaa
 		    $wspan=5; 
 		    if ($army==1) {
-			$object_high="vehicles.artillery.Artillery\$Zenit85mm_1939";
-			$object_medium="vehicles.artillery.Artillery\$Zenit61K";
-			$object_low="vehicles.artillery.Artillery\$Zenit25mm_1940";
+			$object_high=$AAA_HIG_RED;
+			$object_medium=$AAA_MED_RED;
+			$object_low=$AAA_LOW_RED;
 		    }
 		    else {
-			$object_high="vehicles.artillery.Artillery\$Flak18_88mm";
-			$object_medium="vehicles.artillery.Artillery\$Flak18_37mm";
-			$object_low="vehicles.artillery.Artillery\$Flak38_20mm";			
+			$object_high=$AAA_HIG_BLUE;
+			$object_medium=$AAA_MED_BLUE;
+			$object_low=$AAA_LOW_BLUE;			
 		    }
 		    
 		    printdebug("poblate_city() Empezamos...");

@@ -110,6 +110,15 @@ $AAA_CITY_HIGH=0.2;
 $AAA_CITY_MEDIUM=0.4;
 $AAA_CITY_LOW=0.4;
 
+## @Heracles@20110830@
+## Tipos de AAA
+$AAA_LOW_BLUE="vehicles.artillery.Artillery\$Flak38_20mm";
+$AAA_MED_BLUE="vehicles.artillery.Artillery\$Flak18_37mm";
+$AAA_HIG_BLUE="vehicles.artillery.Artillery\$Flak18_88mm";
+$AAA_LOW_RED="vehicles.artillery.Artillery\$Zenit25mm_1940";
+$AAA_MED_RED="vehicles.artillery.Artillery\$Zenit61K";
+$AAA_HIG_RED="vehicles.artillery.Artillery\$Zenit85mm_1939";
+
 ## @Heracles@20110423
 ## Constante de los códigos de letras para los sectores de los mapas. de "A" a "BZ". Vigilar si existe un mapa mayor
 @LETRAS_SEC=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
