@@ -860,72 +860,86 @@ sub build_grplsts() {
     my $sqdname="";
     #--- RED DEFENSE FLIGHT
     if ($red_bomb_defend==1) { # Blue attack tactic
-	if ($red_bom_def_planes>0) {  
-	    if ($red_bom_def_planes>2) {$more_bombers=$red_bom_def_planes-2; $red_bom_def_planes=2;}
-	    @vuelo=get_flight("1","BD","0",$red_bom_def_type); # pedir un vuelo (army, task, human, plane) 
+	if ($red_bom_def_planes>0) {
+	    my $more = $red_bom_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("1","BD","0",$red_bom_def_type); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@red_def_grplst, "BD",$sqdname."00",$red_bom_def_planes,$red_bom_def_ai,"2",@vuelo);
-	    if ($more_bombers>0) {
-		my $new_name="";
-		while (1){
-		    @vuelo=get_flight("1","BD","0",$vuelo[5]); # $vuelo[5] is selected plane external name grp 0
-		    $new_name=shift @vuelo;
-		    if ($new_name ne $sqdname) {last;}
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@red_def_grplst, "BD",$sqdname."0".$flight,$more,$red_bom_def_ai,"2",@vuelo);
+		    $more = 0; last;
 		}
-		push(@red_def_grplst, "BD",$new_name."01",$more_bombers,$red_bom_def_ai,"2",@vuelo);
-		$red_bom_def_planes=2+$more_bombers;
-		$more_bombers=0;
+		push(@red_def_grplst, "BD",$sqdname."0".$flight,4,$red_bom_def_ai,"2",@vuelo);
+		$more -= 4;
+		$flight++;
 	    }
 	}
 	if ($red_fig_def_planes>0) {
-	    if ($red_fig_def_planes>4) {$more_fighters=$red_fig_def_planes-4; $red_fig_def_planes=4;}
-	    @vuelo=get_flight("1","EBD","0","");
+	    my $more = $red_fig_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("1","EBD","0",""); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@red_def_grplst, "EBD",$sqdname."10",$red_fig_def_planes,$red_fig_def_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@red_def_grplst, "EBD",$sqdname."11",$more_fighters,$red_fig_def_ai,$fig_ai_skill,@vuelo);
-		$red_fig_def_planes=4+$more_fighters;
-		$more_fighters=0;
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@red_def_grplst, "EBD",$sqdname."1".$flight,$more,$red_fig_def_ai,$fig_ai_skill,@vuelo);
+		    $more = 0; last;
+		}
+		push(@red_def_grplst, "EBD",$sqdname."1".$flight,4,$red_fig_def_ai,$fig_ai_skill,@vuelo);
+		$more -= 4;
+		$flight++;
 	    }
 	}
     }
     else { # blue attack strategic (or recon or suply)
 	if ($red_fig_def_planes>0) {
-	    if ($red_fig_def_planes>4) {$more_fighters=$red_fig_def_planes-4; $red_fig_def_planes=4;}
-	    @vuelo=get_flight("1","I","0",""); 
+	    my $more = $red_fig_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("1","I","0",""); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@red_def_grplst, "I",$sqdname."10",$red_fig_def_planes,$red_fig_def_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@red_def_grplst, "I",$sqdname."11",$more_fighters,$red_fig_def_ai,$fig_ai_skill,@vuelo);
-		$red_fig_def_planes=4+$more_fighters;
-		$more_fighters=0;
-	    }
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@red_def_grplst, "I",$sqdname."1".$flight,$more,$red_fig_def_ai,$fig_ai_skill,@vuelo);
+		    $more = 0; last;
+		}
+		push(@red_def_grplst, "I",$sqdname."1".$flight,4,$red_fig_def_ai,$fig_ai_skill,@vuelo);
+		$more -= 4;
+		$flight++;
+	    }	    
 	}
     }
     #---  RED ATTACK FLIGHT 
-    if ($red_bomb_attk==1) { # reb attack strategic (or a recon or a suply)
+    if ($red_bomb_attk==1) { # red attack strategic (or a recon or a suply)
 	if ($RED_RECON==0 && $RED_SUM==0 && $RED_SUA==0 ) { # no recon no sum
-	    if ($red_bom_attk_planes>0) {  
-		if ($red_bom_attk_planes>4) {$more_bombers=$red_bom_attk_planes-4; $red_bom_attk_planes=4;}
-		@vuelo=get_flight("1","BA","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
+	    if ($red_bom_attk_planes>0) {
+		my $more = $red_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","BA","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, "BA",$sqdname."20",$red_bom_attk_planes,$red_bom_attk_ai,"2",@vuelo);
-		if ($more_bombers>0) {
-		    push(@red_attk_grplst, "BA",$sqdname."21",$more_bombers,$red_bom_attk_ai,"2",@vuelo);
-		    $red_bom_attk_planes=4+$more_bombers;
-		    $more_bombers=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst, "BA",$sqdname."2".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst, "BA",$sqdname."2".$flight,4,$red_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}		
 	    }
 	    if ($red_fig_attk_planes>0) {
-		if ($red_fig_attk_planes>4) {$more_fighters=$red_fig_attk_planes-4; $red_fig_attk_planes=4;}
-		@vuelo=get_flight("1","EBA","0",""); #CHECK AI/HUM
+		my $more = $red_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","EBA","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, "EBA",$sqdname."30",$red_fig_attk_planes,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@red_attk_grplst, "EBA",$sqdname."31",$more_fighters,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $red_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst, "EBA",$sqdname."3".$flight,$more,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst, "EBA",$sqdname."3".$flight,4,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
 	}
 	
@@ -934,199 +948,286 @@ sub build_grplsts() {
 	if ($RED_RECON==0 && ($RED_SUM==1 || $RED_SUA==1)) { # RED SUM
 	    if ($red_bom_attk_planes>0) {
 		my $task = ($RED_SUA == 1) ? "SUA" : "SUM";
-		if ($red_bom_attk_planes>4) {$more_bombers=$red_bom_attk_planes-4; $red_bom_attk_planes=4;}
-		@vuelo=get_flight("1","SUM","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
+		my $more = $red_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","SUM","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, $task,$sqdname."20",$red_bom_attk_planes,$red_bom_attk_ai,"2",@vuelo);
-		if ($more_bombers>0) {
-		    push(@red_attk_grplst, $task,$sqdname."21",$more_bombers,$red_bom_attk_ai,"2",@vuelo);
-		    $red_bom_attk_planes=4+$more_bombers;
-		    $more_bombers=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst,$task,$sqdname."2".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst,$task,$sqdname."2".$flight,4,$red_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
 	    if ($red_fig_attk_planes>0) {
-		if ($red_fig_attk_planes>4) {$more_fighters=$red_fig_attk_planes-4; $red_fig_attk_planes=4;}
-		@vuelo=get_flight("1","ESU","0","");
+		my $more = $red_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","ESU","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, "ESU",$sqdname."30",$red_fig_attk_planes,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@red_attk_grplst, "ESU",$sqdname."31",$more_fighters,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $red_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst, "ESU",$sqdname."3".$flight,$more,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst, "ESU",$sqdname."3".$flight,4,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}						
 	    }
 	}
 	if ($RED_RECON==1) { # RED RECON
-	    @vuelo=get_flight("1","R","0","");
-	    $sqdname= shift @vuelo;
-	    push(@red_attk_grplst, "R",$sqdname."20","2","0","2",@vuelo);
-	    if ($red_fig_attk_planes>0) {
-		if ($red_fig_attk_planes>4) {$more_fighters=$red_fig_attk_planes-4; $red_fig_attk_planes=4;}
-		@vuelo=get_flight("1","ER","0",""); 
+	    if ($red_bom_attk_planes>0) {
+		my $more = $red_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","R","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@red_attk_grplst, "ER",$sqdname."30",$red_fig_attk_planes,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@red_attk_grplst, "ER",$sqdname."31",$more_fighters,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $red_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst,"R",$sqdname."2".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst,"R",$sqdname."2".$flight,4,$red_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
+	    if ($red_fig_attk_planes>0) {
+		my $more = $red_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("1","ER","0",""); # pedir un vuelo (army, task, human, plane)
+		$sqdname= shift @vuelo;
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@red_attk_grplst, "ER",$sqdname."3".$flight,$more,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@red_attk_grplst, "ER",$sqdname."3".$flight,4,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}						
+	    }    
 	}
-
-
     }
     else { # Red attack tactic, with tanks
 	if ($red_fig_attk_planes>0) {
-	    if ($red_fig_attk_planes>4) {$more_fighters=$red_fig_attk_planes-4; $red_fig_attk_planes=4;}
-	    @vuelo=get_flight("1","ET","0",""); 
+	    my $more = $red_fig_attk_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("1","ET","0",""); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@red_attk_grplst, "ET",$sqdname."30",$red_fig_attk_planes,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@red_attk_grplst, "ET",$sqdname."31",$more_fighters,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-		$red_fig_attk_planes=4+$more_fighters;
-		$more_fighters=0;
-	    }
-
-	@vuelo=get_flight("1","AT","0","");
-	$sqdname= shift @vuelo;
-	push(@red_attk_grplst, "AT",$sqdname."32",$red_fig_attk_planes,$red_fig_attk_ai,$fig_ai_skill,@vuelo);
-
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@red_attk_grplst, "ET",$sqdname."2".$flight,$more,$red_fig_attk_ai,"2",@vuelo);
+		    $more = 0; last;
+		}
+		push(@red_attk_grplst, "ET",$sqdname."2".$flight,4,$red_fig_attk_ai,"2",@vuelo);
+		$more -= 4;
+		$flight++;
+	    }					    
 	}
+	if ($red_bom_attk_planes>0) {
+	    my $more = $red_bom_attk_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("1","AT","0",""); # pedir un vuelo (army, task, human, plane)
+	    $sqdname= shift @vuelo;
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@red_attk_grplst, "AT",$sqdname."3".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
+		    $more = 0; last;
+		}
+		push(@red_attk_grplst, "AT",$sqdname."3".$flight,4,$red_bom_attk_ai,"2",@vuelo);
+		$more -= 4;
+		$flight++;
+	    }						
+	}	
     }
     
     #--- DEFENSE BLUE FLIGHT
-    if ($blue_bomb_defend==1) { # red attack tactic
-	if ($blue_bom_def_planes>0) {  
-	    if ($blue_bom_def_planes>2) {$more_bombers=$blue_bom_def_planes-2; $blue_bom_def_planes=2;}
-	    @vuelo=get_flight("2","BD","0",$blue_bom_def_type); # pedir un vuelo (army, task, human, plane) 
+    if ($blue_bomb_defend==1) { # Red attack tactic
+	if ($blue_bom_def_planes>0) {
+	    my $more = $blue_bom_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("2","BD","0",$blue_bom_def_type); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@blue_def_grplst, "BD",$sqdname."00",$blue_bom_def_planes,$blue_bom_def_ai,"2",@vuelo);
-	    if ($more_bombers>0) {
-		my $new_name="";
-		while (1){
-		    @vuelo=get_flight("2","BD","0",$vuelo[5]); # $vuelo[5] is selected plane external name grp 0
-		    $new_name=shift @vuelo;
-		    if ($new_name ne $sqdname) {last;}
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@blue_def_grplst, "BD",$sqdname."0".$flight,$more,$blue_bom_def_ai,"2",@vuelo);
+		    $more = 0; last;
 		}
-		push(@blue_def_grplst, "BD",$new_name."01",$more_bombers,$blue_bom_def_ai,"2",@vuelo);
-		$blue_bom_def_planes=2+$more_bombers;
-		$more_bombers=0;
+		push(@blue_def_grplst, "BD",$sqdname."0".$flight,4,$blue_bom_def_ai,"2",@vuelo);
+		$more -= 4;
+		$flight++;
 	    }
 	}
 	if ($blue_fig_def_planes>0) {
-	    if ($blue_fig_def_planes>4) {$more_fighters=$blue_fig_def_planes-4; $blue_fig_def_planes=4;}
-	    @vuelo=get_flight("2","EBD","0",""); 
+	    my $more = $blue_fig_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("2","EBD","0",""); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@blue_def_grplst, "EBD",$sqdname."10",$blue_fig_def_planes,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@blue_def_grplst, "EBD",$sqdname."11",$more_fighters,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
-		$blue_fig_def_planes=4+$more_fighters;
-		$more_fighters=0;
-	    }	    
-	}
-    }
-    else { # Red attack strategic (or recon or sum)
-	if ($blue_fig_def_planes>0) {
-	    if ($blue_fig_def_planes>4) {$more_fighters=$blue_fig_def_planes-4; $blue_fig_def_planes=4;}
-	    @vuelo=get_flight("2","I","0",""); 
-	    $sqdname= shift @vuelo;
-	    push(@blue_def_grplst, "I",$sqdname."10",$blue_fig_def_planes,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@blue_def_grplst, "I",$sqdname."11",$more_fighters,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
-		$blue_fig_def_planes=4+$more_fighters;
-		$more_fighters=0;
-	    }	    
-	}
-    }
-    #--- BLUE ATTACK FLIGHT
-    if ($blue_bomb_attk==1) {  # blue attack strategic (or recon or sum)
-	if ($BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0) { # no recon no sum
-	    if ($blue_bom_attk_planes>0) {  
-		if ($blue_bom_attk_planes>4) {$more_bombers=$blue_bom_attk_planes-4; $blue_bom_attk_planes=4;}
-		@vuelo=get_flight("2","BA","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
-		$sqdname= shift @vuelo;
-		push(@blue_attk_grplst, "BA",$sqdname."20",$blue_bom_attk_planes,$blue_bom_attk_ai,"2",@vuelo);
-		if ($more_bombers>0) {
-		    push(@blue_attk_grplst, "BA",$sqdname."21",$more_bombers,$blue_bom_attk_ai,"2",@vuelo);
-		    $blue_bom_attk_planes=4+$more_bombers;
-		    $more_bombers=0;
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@blue_def_grplst, "EBD",$sqdname."1".$flight,$more,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
+		    $more = 0; last;
 		}
+		push(@blue_def_grplst, "BD",$sqdname."1".$flight,4,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
+		$more -= 4;
+		$flight++;
+	    }
+	}
+    }
+    else { # red attack strategic (or recon or suply)
+	if ($blue_fig_def_planes>0) {
+	    my $more = $blue_fig_def_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("2","I","0",""); # pedir un vuelo (army, task, human, plane)
+	    $sqdname= shift @vuelo;
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@blue_def_grplst, "I",$sqdname."1".$flight,$more,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
+		    $more = 0; last;
+		}
+		push(@blue_def_grplst, "I",$sqdname."1".$flight,4,$blue_fig_def_ai,$fig_ai_skill,@vuelo);
+		$more -= 4;
+		$flight++;
+	    }	    
+	}
+    }
+    #---  BLUE ATTACK FLIGHT 
+    if ($blue_bomb_attk==1) { # blue attack strategic (or a recon or a suply)
+	if ($BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0 ) { # no recon no sum
+	    if ($blue_bom_attk_planes>0) {
+		my $more = $blue_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","BA","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane)
+		$sqdname= shift @vuelo;
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst, "BA",$sqdname."2".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst, "BA",$sqdname."2".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}		
 	    }
 	    if ($blue_fig_attk_planes>0) {
-		if ($blue_fig_attk_planes>4) {$more_fighters=$blue_fig_attk_planes-4; $blue_fig_attk_planes=4;}
-		@vuelo=get_flight("2","EBA","0",""); 
+		my $more = $blue_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","EBA","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@blue_attk_grplst, "EBA",$sqdname."30",$blue_fig_attk_planes,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@blue_attk_grplst, "EBA",$sqdname."31",$more_fighters,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $blue_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}	    
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst, "EBA",$sqdname."3".$flight,$more,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst, "EBA",$sqdname."3".$flight,4,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
 	}
 	
 	# @Heracles@20110809
-	# Diferenciamos suministros a ciudades y a af	
-	if ($BLUE_RECON==0 && ($BLUE_SUM==1 || $BLUE_SUA==1)) { # sum
+	# Diferenciamos suministros a ciudades y a af
+	if ($BLUE_RECON==0 && ($BLUE_SUM==1 || $BLUE_SUA==1)) { # BLUE SUM
 	    if ($blue_bom_attk_planes>0) {
 		my $task = ($BLUE_SUA == 1) ? "SUA" : "SUM";
-		if ($blue_bom_attk_planes>4) {$more_bombers=$blue_bom_attk_planes-4; $blue_bom_attk_planes=4;}
-		@vuelo=get_flight("2","SUM","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane) 
+		my $more = $blue_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","SUM","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@blue_attk_grplst, $task,$sqdname."20",$blue_bom_attk_planes,$blue_bom_attk_ai,"2",@vuelo);
-		if ($more_bombers>0) {
-		    push(@blue_attk_grplst, $task,$sqdname."21",$more_bombers,$blue_bom_attk_ai,"2",@vuelo);
-		    $blue_bom_attk_planes=4+$more_bombers;
-		    $more_bombers=0;
-		}
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst,$task,$sqdname."2".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst,$task,$sqdname."2".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
-
 	    if ($blue_fig_attk_planes>0) {
-		if ($blue_fig_attk_planes>4) {$more_fighters=$blue_fig_attk_planes-4; $blue_fig_attk_planes=4;}
-		@vuelo=get_flight("2","ESU","0",""); 
+		my $more = $blue_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","ESU","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		push(@blue_attk_grplst, "ESU",$sqdname."30",$blue_fig_attk_planes,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@blue_attk_grplst, "ESU",$sqdname."31",$more_fighters,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $blue_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}	    
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst, "ESU",$sqdname."3".$flight,$more,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst, "ESU",$sqdname."3".$flight,4,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}						
 	    }
 	}
-	if ($BLUE_RECON==1) { # recon
-	    @vuelo=get_flight("2","R","0",""); 
-	    $sqdname= shift @vuelo;
-	    push(@blue_attk_grplst,"R","g0120","2","0","2",@vuelo);
-	    if ($blue_fig_attk_planes>0) {
-		if ($blue_fig_attk_planes>4) {$more_fighters=$blue_fig_attk_planes-4; $blue_fig_attk_planes=4;}
-		@vuelo=get_flight("2","ER","0",""); 
+	if ($BLUE_RECON==1) { # BLUE RECON
+	    if ($blue_bom_attk_planes>0) {
+		my $more = $blue_bom_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","R","0",""); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
-		my $sqdname= $gerfig[(int(rand(scalar(@gerfig))))];
-		push(@blue_attk_grplst, "ER",$sqdname."30",$blue_fig_attk_planes,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		if ($more_fighters>0) {
-		    push(@blue_attk_grplst, "ER",$sqdname."31",$more_fighters,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		    $blue_fig_attk_planes=4+$more_fighters;
-		    $more_fighters=0;
-		}	    
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst,"R",$sqdname."2".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst,"R",$sqdname."2".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}				
 	    }
+	    if ($blue_fig_attk_planes>0) {
+		my $more = $blue_fig_attk_planes;
+		my $flight = 0;
+		@vuelo=get_flight("2","ER","0",""); # pedir un vuelo (army, task, human, plane)
+		$sqdname= shift @vuelo;
+		while ($more && $flight < 4) {
+		    if ($more < 4) {
+			push(@blue_attk_grplst, "ER",$sqdname."3".$flight,$more,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+			$more = 0; last;
+		    }
+		    push(@blue_attk_grplst, "ER",$sqdname."3".$flight,4,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more -= 4;
+		    $flight++;
+		}						
+	    }    
 	}
     }
-    else { # blue attack tactical with tanks
+    else { # Blue attack tactic, with tanks
 	if ($blue_fig_attk_planes>0) {
-	    if ($blue_fig_attk_planes>4) {$more_fighters=$blue_fig_attk_planes-4; $blue_fig_attk_planes=4;}
-	    @vuelo=get_flight("2","ET","0",""); 
+	    my $more = $blue_fig_attk_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("2","ET","0",""); # pedir un vuelo (army, task, human, plane)
 	    $sqdname= shift @vuelo;
-	    push(@blue_attk_grplst, "ET",$sqdname."30",$blue_fig_attk_planes,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-	    if ($more_fighters>0) {
-		push(@blue_attk_grplst, "ET",$sqdname."31",$more_fighters,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-		$blue_fig_attk_planes=4+$more_fighters;
-		$more_fighters=0;
-	    }	 
-	@vuelo=get_flight("2","AT","0","");
-	$sqdname= shift @vuelo;
-	push(@blue_attk_grplst, "AT",$sqdname."32",$blue_fig_attk_planes,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
-	       
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@blue_attk_grplst, "ET",$sqdname."2".$flight,$more,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+		    $more = 0; last;
+		}
+		push(@blue_attk_grplst, "ET",$sqdname."2".$flight,4,$blue_fig_attk_ai,$fig_ai_skill,@vuelo);
+		$more -= 4;
+		$flight++;
+	    }					    
 	}
+	if ($blue_bom_attk_planes>0) {
+	    my $more = $blue_bom_attk_planes;
+	    my $flight = 0;
+	    @vuelo=get_flight("2","AT","0",""); # pedir un vuelo (army, task, human, plane)
+	    $sqdname= shift @vuelo;
+	    while ($more && $flight < 4) {
+		if ($more < 4) {
+		    push(@blue_attk_grplst, "AT",$sqdname."3".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
+		    $more = 0; last;
+		}
+		push(@blue_attk_grplst, "AT",$sqdname."3".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
+		$more -= 4;
+		$flight++;
+	    }						
+	}	
     }
 }
 
@@ -1650,9 +1751,11 @@ sub fighters_wp($$$$) {
 
     for ( $i=0; $i<$groups; $i++){ 
 	print MIS "[".$grplst[$grpentries*$i+1]."]\n";
-	if ($grplst[$grpentries*$i+0] eq "AT") { print MIS "  Planes 3\n";}
-	else {print MIS "  Planes ".$grplst[$grpentries*$i+2]."\n";}
-
+	# @Heracles@20110906
+	# if ($grplst[$grpentries*$i+0] eq "AT") { print MIS "  Planes 3\n";}
+	#else {print MIS "  Planes ".$grplst[$grpentries*$i+2]."\n";}
+	print MIS "  Planes ".$grplst[$grpentries*$i+2]."\n";
+	
 	if ($grplst[$grpentries*$i+3] eq "1") {print MIS "  OnlyAI 1\n";}
 	print MIS "  Skill ".$grplst[$grpentries*$i+4]."\n";
 	print MIS "  Class ".$grplst[$grpentries*$i+5]."\n";
@@ -5136,9 +5239,9 @@ sub static_aaa_on_sum_city() {
     ## @Heracles@20110710
     ## Si ambos bandos tienen el mismo objetivo, no poblar de nuevo la ciudad con AAA
     if (($red_tgt_code =~ m/^SUC[0-9]{2}/ && $blue_tgt_code =~ m/^CT[0-9]{2}/) || ($red_tgt_code =~ m/^CT[0-9]{2}/ && $blue_tgt_code =~ m/^SUC[0-9]{2}/)){
-	$myred_target =~ m/^[A-Z]+([0-9]){2}/;
+	$myred_target =~ m/^[A-Z]+([0-9]{2})/;
 	$myred_target = $1;
-	$myblue_target =~ m/^[A-Z]+([0-9]){2}/;
+	$myblue_target =~ m/^[A-Z]+([0-9]{2})/;
 	$myblue_target = $1;
 	
 	printdebug("static_aaa_on_sum_city(): red target code: $myred_target blue target code: $myblue_target \n");
@@ -5749,7 +5852,7 @@ if ($unix_cgi){
     seek OPT, 0,0;
     while (<OPT>){
                      #1093586694,R,JG10r_Dutertre,4,SUM-Stalingrado-S,02,0,02,1,----,06,1,----,04,0,
-	if ($_ =~ m/^$red_solic,R,([^,]+),([0-9]+),([^,]+),0?([0-9]),([01]),0?([0-9]),([01]),([^,]+),0?([0-9]),([01]),([^,]+),0?([0-9]),([01]),/){
+	if ($_ =~ m/^$red_solic,R,([^,]+),([0-9]+),([^,]+),([0-9]+),([01]),([0-9]?),([01]),([^,]+),([0-9]+),([01]),([^,]+),([0-9]+),([01]),/){
 	    $Rhost=$1;
 	    $red_req_planes=$2;
 	    $red_target=$3; 
@@ -5771,13 +5874,14 @@ if ($unix_cgi){
 
 	    $red_ok=1;
 	    print GEN_LOG "Pid $$ : RedReq: $_";
+	    printdebug ("MAIN: Cazas ataque/defensa $red_fig_attk_planes/$red_fig_def_planes Bombers ataque/defensa $red_bom_attk_planes/$red_bom_def_planes");
 	    last;
 	}
     }
     seek OPT, 0,0;
     while (<OPT>){
 
-	if ($_ =~ m/^$blue_solic,B,([^,]+),([0-9]+),([^,]+),0?([0-9]),([01]),0?([0-9]),([01]),([^,]+),0?([0-9]),([01]),([^,]+),0?([0-9]),([01]),/){
+	if ($_ =~ m/^$blue_solic,B,([^,]+),([0-9]+),([^,]+),([0-9]+),([01]),([0-9]+),([01]),([^,]+),([0-9]+),([01]),([^,]+),([0-9]+),([01]),/){
 	    $Bhost=$1;
 	    $blue_req_planes=$2;
 	    $blue_target=$3; 
@@ -5798,6 +5902,7 @@ if ($unix_cgi){
 	    
 	    $blue_ok=1;
 	    print GEN_LOG "Pid $$ : BlueReq: $_"; #sacar
+	    printdebug ("MAIN: Cazas ataque/defensa $blue_fig_attk_planes/$blue_fig_def_planes Bombers ataque/defensa $blue_bom_attk_planes/$blue_bom_def_planes");	    
 	    last;
 	}
     }

@@ -49,7 +49,7 @@ if ($bomb_attk_ai eq "on") {$bomb_attk_ai=1;}
 else {$bomb_attk_ai=0;}
 
 $bomb_def_type=$in{'bomb_def_type'};     # <td><select name="bomb_def_type" size="1" style="width:180;"
-#$bomb_def_nbr=$in{'bomb_def_nbr'};      # <td><input type="text" name="bomb_def_nbr" size="2" value=0    DISABLED
+$bomb_def_nbr=$in{'bomb_def_nbr'};      # <td><input type="text" name="bomb_def_nbr" size="2" value=0 
 $bomb_def_ai=$in{'bomb_def_ai'};         # <td><input type="checkbox" name="bomb_def_ai"
 if ($bomb_def_ai eq "on") {$bomb_def_ai=1;}
 else {$bomb_def_ai=0;}
@@ -119,15 +119,14 @@ else { $total_ai+=$fig_attk_nbr; }
 if ($fig_def_ai == 0) { $total_hum+=$fig_def_nbr; }
 else { $total_ai+=$fig_def_nbr; }
 if ($bomb_attk_ai == 1) { $total_ai+=$bomb_attk_nbr; }
-#else { $total_hum+=$bomb_attk_nbr; }
-
-#if ($bomb_def_ai == 0) { $total_hum+=$bomb_def_nbr; }  # DISABLED
+else { $total_hum+=$bomb_attk_nbr; }
+#if ($bomb_def_ai == 0) { $total_hum+=$bomb_def_nbr; }
 #else { $total_ai+=$bomb_def_nbr; }
 
 if ( $total_hum != $max_human ) { 
-    print " $err_msg Incorrect human amount of Human planes, must be $max_human planes.<br>\n"; $is_ok=0;}
+    print " $err_msg Incorrect human amount of Human planes, must be $max_human planes not $total_hum.<br>\n"; $is_ok=0;}
 if ( $total_ai > $max_ai ) {
-    print " $err_msg Too much AI planes. Max allowed is:  $max_ai AI planes.<br>\n"; $is_ok=0;}
+    print " $err_msg Too much AI planes. Max allowed is:  $max_ai AI planes not $total_ai.<br>\n"; $is_ok=0;}
 
 if (! $is_ok) {
     print " Pleas go <b>back</b> and fix. <br>\n";

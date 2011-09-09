@@ -26,6 +26,14 @@ $hlname=$in{'hlname'};         # <td>Name: <input type="TEXT" name="hlname" size
 $pwd=$in{'pwd'};               # <td>Password: <input type="password" name="pwd" size="20" value=""></td>
 $army="0";
 
+if ($max_human > 16) {
+    $max_plane = 16;
+}
+else {
+    $max_plane = $max_human;
+}
+
+$max_bd = 4;
 
 if ($slot !~ m/BW[123456]([B|R]R)?/) {
 		print &PrintHeader;
@@ -396,10 +404,10 @@ VVS_Head2
 
 function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
 
-    if (BA>6 ) { BA=6; document.genopts.bomb_attk_nbr.value=BA; } 
-    if (EBA>8) {EBA=8; document.genopts.fig_attk_nbr.value=EBA; } 
-    if (BD>8 ) { BD=8; document.genopts.bomb_def_nbr.value=BD; } 
-    if (EBD>8) {EBD=8; document.genopts.fig_def_nbr.value=EBD; } 
+//    if (BA>6 ) { BA=6; document.genopts.bomb_attk_nbr.value=BA; } 
+//    if (EBA>8) {EBA=8; document.genopts.fig_attk_nbr.value=EBA; } 
+//   if (BD>8 ) { BD=8; document.genopts.bomb_def_nbr.value=BD; } 
+//    if (EBD>8) {EBD=8; document.genopts.fig_def_nbr.value=EBD; } 
     if (BA<0 ) { BA=0; document.genopts.bomb_attk_nbr.value=BA; } 
     if (EBA<0) {EBA=0; document.genopts.fig_attk_nbr.value=EBA; } 
     if (BD<0 ) { BD=0; document.genopts.bomb_def_nbr.value=BD; } 
@@ -408,9 +416,9 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     total_hum = 0;
     total_ai  = 0;
       if (BAai ==1) {total_ai-=BA;}
-//      else {total_hum-=BA;}
-      if (BDai ==1) {total_ai-=BD;}
-      else {total_hum-=BD;}
+      else {total_hum-=BA;}
+//      if (BDai ==1) {total_ai-=BD;}
+//      else {total_hum-=BD;}
       if (EBAai ==1) {total_ai-=EBA;}
       else {total_hum-=EBA;}
       if (EBDai ==1) {total_ai-=EBD;}
@@ -429,19 +437,19 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
         document.genopts.bomb_attk_nbr.value="";
         document.genopts.bomb_attk_nbr.disabled=0;
         document.genopts.bomb_attk_ai.checked=0;                
-        document.genopts.bomb_attk_ai.disabled=1;                
+        document.genopts.bomb_attk_ai.disabled=1;
     }
-    else if( myString.match(/sector-/) || 
-        myString.match(/----/) ){
-            document.genopts.bomb_attk_nbr.value=0;
-	    document.genopts.bomb_attk_nbr.disabled=1;
-	    document.genopts.bomb_attk_ai.checked=1;
-	    document.genopts.bomb_attk_ai.disabled=1;
-    }
+//    else if( myString.match(/sector-/) || 
+//        myString.match(/----/) ){
+//            document.genopts.bomb_attk_nbr.value=0;
+//	    document.genopts.bomb_attk_nbr.disabled=1;
+//	    document.genopts.bomb_attk_ai.checked=1;
+//	    document.genopts.bomb_attk_ai.disabled=1;
+//    }
     else if (myString.match(/SUM-/)) {
-            document.genopts.bomb_attk_nbr.value="";
-	    document.genopts.bomb_attk_nbr.disabled=0;
-	    document.genopts.bomb_attk_ai.disabled=0;
+        document.genopts.bomb_attk_nbr.value="";
+	document.genopts.bomb_attk_nbr.disabled=0;
+	document.genopts.bomb_attk_ai.disabled=0;
     }
     else {
            document.genopts.bomb_attk_nbr.value="";
@@ -463,12 +471,19 @@ function Check(){
         return false;
     }
 
+    myString = new String(document.genopts.target.value);
     if ( document.genopts.bomb_attk_nbr.value == 0){
-        myString = new String(document.genopts.target.value);
 	if ( ! myString.match(/sector-/) ){
 	    alert ("Error: Attack group cant be 0.");
 	    return false;
 	}
+    }
+    
+    if ( myString.match(/sector-/) ) {
+        if ( document.genopts.bomb_attk_nbr.value > 3) {
+	    alert ("Error: Los AT no pueden superar 3.");
+	    return false;        
+        }
     }
 
     if (document.genopts.total_hum.value < 4 ){
@@ -493,7 +508,7 @@ function Check(){
 
 </script>
 
-Make Soviet Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTERS +  0~6 BOMBERS.
+Genera la petición roja para <u><font size="+3"><b>$max_human</b></font></u> pilotos [ CAZAS + BOMBERS ]
 <br>
 
 
@@ -507,10 +522,10 @@ Make Soviet Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTER
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr bgcolor="#ccccc0" >
-    <td align="right"><b>Attack Target:</b></td>
+    <td align="right"><b>Objetivo:</b></td>
     <td><select name="target" size="1" style="width:180;" 
         onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                             bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+                             bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
         <option value="Select Target">---- SELECT TARGET ----</option>
 VVS_Head3
     ; # Emacs related
@@ -545,11 +560,11 @@ VVS_Head3
   </tr>
 
   <tr bgcolor="#dddddd" >
-    <td align="right">Attack Group:</td>
-    <td>&nbsp;</td>
+    <td align="right">Grupo de ataque (<b>BA/SUM/AT</b>) :</td>
+    <td align="right">Máximo núm. AT = 3</td>
         <td><select name="bomb_attk_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                       bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option selected value="0">0</option>
 VVS_Head4
     ; # Emacs related
@@ -565,38 +580,71 @@ VVS_Head4
 	print <<VVS_Head5
     <td><input type="checkbox" name="bomb_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
   <tr bgcolor="#dddddd" >
-    <td align="right">&nbsp;Fighters escorting Attack Group:</td>
-    <td>&nbsp;</td>
-    <td><input type="text" name="fig_attk_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+    <td align="right">&nbsp;Cazas de ataque (<b>EBA/ESU/ET</b>) :</td>
+    <td align="right">&nbsp;</td>
+    <td><select name="fig_attk_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.options[selectedIndex]value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+VVS_Head5
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_plane; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<VVS_Head6
     <td><input type="checkbox" disabled name="fig_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
 
   <input type="hidden" name="bomb_def_type" value="----">
   <input type="hidden" name="bomb_attk_type" value="----">  
-  <input type="hidden" name="bomb_def_nbr"  value=0>
-  <input type="hidden" name="bomb_def_ai"  value=0>
 
   <tr bgcolor="#cbcbcb">
-    <td align="right">Defense Fighters:</td>
+    <td align="right">Grupo de defensa (<b>BD</b>) :</td>
     <td>&nbsp;</td>
-    <td><input type="text" name="fig_def_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+    <td><select name="bomb_def_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+VVS_Head6
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<VVS_Head7
+    <td><input type="checkbox" name="bomb_def_ai"
+    onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+  </tr>
+
+  <tr bgcolor="#cbcbcb">
+    <td align="right">Cazas de defensa (<b>INT/EBD</b>) :</td>
+    <td>&nbsp;</td>
+    <td><select name="fig_def_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.options[selectedIndex].value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+VVS_Head7
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_plane; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<VVS_Head8
     <td><input type="checkbox" disabled name="fig_def_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
 
 
   <tr bgcolor="#ccccc0">
-    <td colspan="2" align="center">Total planes: &nbsp;&nbsp;&nbsp;&nbsp;  Human / AI </td>
+    <td colspan="2" align="center">Total de aviones: &nbsp;&nbsp;&nbsp;&nbsp;  Humanos / IA </td>
     <td><input type="text" disabled name="total_hum" size="2" value=0></td>
     <td><input type="text" disabled name="total_ai" size="2" value=0></td>
   </tr>
@@ -606,8 +654,8 @@ VVS_Head4
 <br>
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
-    <td>Name: <input type="TEXT" name="hlname" size="20" value="$hlname"> </td>
-    <td>Password: <input type="password" name="pwd" size="20" value="$pwd"></td>
+    <td>Nombre: <input type="TEXT" name="hlname" size="20" value="$hlname"> </td>
+    <td>Clave: <input type="password" name="pwd" size="20" value="$pwd"></td>
     <td><input TYPE="SUBMIT" VALUE="Send"></td>
   </tr>
 </table>
@@ -617,7 +665,7 @@ VVS_Head4
 
 </pre>
 
-VVS_Head5
+VVS_Head8
     ; # Emacs related
 
 
@@ -789,10 +837,10 @@ LW_Head2
 
 function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
 
-    if (BA>6 ) { BA=6; document.genopts.bomb_attk_nbr.value=BA; } 
-    if (EBA>8) {EBA=8; document.genopts.fig_attk_nbr.value=EBA; } 
-    if (BD>8 ) { BD=8; document.genopts.bomb_def_nbr.value=BD; } 
-    if (EBD>8) {EBD=8; document.genopts.fig_def_nbr.value=EBD; } 
+//    if (BA>6 ) { BA=6; document.genopts.bomb_attk_nbr.value=BA; } 
+//    if (EBA>8) {EBA=8; document.genopts.fig_attk_nbr.value=EBA; } 
+//    if (BD>8 ) { BD=8; document.genopts.bomb_def_nbr.value=BD; } 
+//    if (EBD>8) {EBD=8; document.genopts.fig_def_nbr.value=EBD; } 
     if (BA<0 ) { BA=0; document.genopts.bomb_attk_nbr.value=BA; } 
     if (EBA<0) {EBA=0; document.genopts.fig_attk_nbr.value=EBA; } 
     if (BD<0 ) { BD=0; document.genopts.bomb_def_nbr.value=BD; } 
@@ -801,9 +849,9 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     total_hum = 0;
     total_ai  = 0;
       if (BAai ==1) {total_ai-=BA;}
-//      else {total_hum-=BA;}
-      if (BDai ==1) {total_ai-=BD;}
-      else {total_hum-=BD;}
+      else {total_hum-=BA;}
+//      if (BDai ==1) {total_ai-=BD;}
+//      else {total_hum-=BD;}
       if (EBAai ==1) {total_ai-=EBA;}
       else {total_hum-=EBA;}
       if (EBDai ==1) {total_ai-=EBD;}
@@ -822,24 +870,24 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
         document.genopts.bomb_attk_nbr.value="";
         document.genopts.bomb_attk_nbr.disabled=0;
         document.genopts.bomb_attk_ai.checked=0;        
-        document.genopts.bomb_attk_ai.disabled=1;                
+        document.genopts.bomb_attk_ai.disabled=1;
     }
-    else if( myString.match(/sector-/) || 
-        myString.match(/----/) ){
-            document.genopts.bomb_attk_nbr.value=0;
-	    document.genopts.bomb_attk_nbr.disabled=1;
-	    document.genopts.bomb_attk_ai.checked=1;
-	    document.genopts.bomb_attk_ai.disabled=1;
-    }
+//    else if( myString.match(/sector-/) || 
+//        myString.match(/----/) ){
+//            document.genopts.bomb_attk_nbr.value=0;
+//	    document.genopts.bomb_attk_nbr.disabled=1;
+//	    document.genopts.bomb_attk_ai.checked=1;
+//	    document.genopts.bomb_attk_ai.disabled=1;
+//    }
     else if (myString.match(/SUM-/)) {
-            document.genopts.bomb_attk_nbr.value="";
-	    document.genopts.bomb_attk_nbr.disabled=0;
-	    document.genopts.bomb_attk_ai.disabled=0;
+        document.genopts.bomb_attk_nbr.value="";
+	document.genopts.bomb_attk_nbr.disabled=0;
+	document.genopts.bomb_attk_ai.disabled=0;
     }
     else {
-           document.genopts.bomb_attk_nbr.value="";
-	   document.genopts.bomb_attk_nbr.disabled=0;
-document.genopts.bomb_attk_ai.disabled=0;
+        document.genopts.bomb_attk_nbr.value="";
+	document.genopts.bomb_attk_nbr.disabled=0;
+        document.genopts.bomb_attk_ai.disabled=0;
 
     }    
 }
@@ -855,12 +903,19 @@ function Check(){
         return false;
     }
 
+    myString = new String(document.genopts.target.value);
     if ( document.genopts.bomb_attk_nbr.value == 0){
-        myString = new String(document.genopts.target.value);
 	if ( ! myString.match(/sector-/) ){
 	    alert ("Error: Attack group cant be 0.");
 	    return false;
 	}
+    }
+    
+    if ( myString.match(/sector-/) ) {
+        if ( document.genopts.bomb_attk_nbr.value > 3) {
+	    alert ("Error: Los AT no pueden superar 3.");
+	    return false;        
+        }
     }
 
     if (document.genopts.total_hum.value < 4 ){
@@ -886,7 +941,7 @@ function Check(){
 
 </script>
 
-Make German Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTERS +  0~6 BOMBERS.
+Genera la petición azul para <u><font size="+3"><b>$max_human</b></font></u> pilotos [ CAZAS + BOMBERS ]
 <br>
 
 
@@ -900,10 +955,10 @@ Make German Request with <u><font size="+3"><b>$max_human</b></font></u> FIGHTER
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr bgcolor="#ccccc0" >
-    <td align="right"><b>Attack Target:</b></td>
+    <td align="right"><b>Objetivo:</b></td>
     <td><select name="target" size="1" style="width:180;" 
         onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                             bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+                             bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
         <option value="Select Target">---- SELECT TARGET ----</option>
 LW_Head3
     ; # Emacs related
@@ -939,12 +994,12 @@ LW_Head3
   </tr>
 
   <tr bgcolor="#dddddd" >
-    <td align="right"> Attack Group:</td>
-    <td>&nbsp;</td>
+    <td align="right">Grupo de ataque (<b>BA/SUM/AT</b>) :</td>
+    <td align="right">Máximo núm. AT = 3</td>
         
         <td><select name="bomb_attk_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                       bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option selected value="0">0</option>
 LW_Head4
     ; # Emacs related
@@ -960,38 +1015,71 @@ LW_Head4
 	print <<LW_Head5                        
     <td><input type="checkbox" name="bomb_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
   <tr bgcolor="#dddddd" >
-    <td align="right">&nbsp;Fighters escorting Attack Group:</td>
-    <td>&nbsp;</td>
-    <td><input type="text" name="fig_attk_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+    <td align="right">&nbsp;Cazas escoltando grupo de ataque (<b>EBA/ESU/ET</b>) :</td>
+    <td align="right">&nbsp;</td>
+    <td><select name="fig_attk_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.options[selectedIndex]value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+LW_Head5
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_plane; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<LW_Head6
     <td><input type="checkbox" disabled name="fig_attk_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
 
-   <input type="hidden" name="bomb_def_type" value="----">
-   <input type="hidden" name="bomb_attk_type" value="----">     
-   <input type="hidden" name="bomb_def_nbr"  value=0>
-   <input type="hidden" name="bomb_def_ai"  value=0>
+  <input type="hidden" name="bomb_def_type" value="----">
+  <input type="hidden" name="bomb_attk_type" value="----">  
 
   <tr bgcolor="#cbcbcb">
-    <td align="right">Defense Fighters:</td>
+    <td align="right">Grupo de defensa (<b>BD</b>) :</td>
     <td>&nbsp;</td>
-    <td><input type="text" name="fig_def_nbr" size="2" value=0
-    onKeyUp="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);"> </td>
+    <td><select name="bomb_def_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+LW_Head6
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<LW_Head7
+    <td><input type="checkbox" name="bomb_def_ai"
+    onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+  </tr>
+
+  <tr bgcolor="#cbcbcb">
+    <td align="right">Cazas de defensa (<b>INT/EBD</b>) :</td>
+    <td>&nbsp;</td>
+    <td><select name="fig_def_nbr" size="1" style="width:36;"
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+                       bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.options[selectedIndex].value,fig_def_ai.checked);">
+	<option selected value="0">0</option>
+LW_Head7
+    ; # Emacs related
+        for ($my_i = 1; $my_i <= $max_plane; $my_i++){
+                print "<option value=\"$my_i\">$my_i</option>";
+        }
+        print "</select> </td>";
+	print <<LW_Head8
     <td><input type="checkbox" disabled name="fig_def_ai"
     onClick="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
-                        bomb_def_nbr.value ,bomb_def_ai.value ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
+                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">AI</td>
   </tr>
 
 
   <tr bgcolor="#ccccc0">
-    <td colspan="2" align="center">Total planes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Human / AI </td>
+    <td colspan="2" align="center">Total de aviones: &nbsp;&nbsp;&nbsp;&nbsp;  Humanos / IA </td>
     <td><input type="text" disabled name="total_hum" size="2" value=0></td>
     <td><input type="text" disabled name="total_ai" size="2" value=0></td>
   </tr>
@@ -1001,8 +1089,8 @@ LW_Head4
 <br>
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
-    <td>Name: <input type="TEXT" name="hlname" size="20" value="$hlname"> </td>
-    <td>Password: <input type="password" name="pwd" size="20" value="$pwd"></td>
+    <td>Nombre: <input type="TEXT" name="hlname" size="20" value="$hlname"> </td>
+    <td>Clave: <input type="password" name="pwd" size="20" value="$pwd"></td>
     <td><input TYPE="SUBMIT" VALUE="Send"></td>
   </tr>
 </table>
@@ -1012,7 +1100,7 @@ LW_Head4
 
 </pre>
 
-LW_Head5
+LW_Head8
     ; # Emacs related
 
 
