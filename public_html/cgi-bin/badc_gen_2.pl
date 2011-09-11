@@ -5026,6 +5026,7 @@ sub poblate_city($$$$){
     my $to_place;
     my $m_usados;
     my @aaa_dist = (0, 0, 0);
+    my $limite = ($only_aaa == 0) ? 1000 : 5000;    
 
     seek CITY, 0, 0;
     # @Heracles@20110117@
@@ -5042,7 +5043,7 @@ sub poblate_city($$$$){
 	    $coord_p2x=$1;
 	    $coord_p2y=$2;
 	    $type=$3;
-	    if (distance($cx,$cy,$1,$2)<1000) {
+	    if (distance($cx,$cy,$1,$2)< $limite) {
 		$m_usados=0;
 	        $vector_x = ($coord_p2x - $coord_p1x);
 		$vector_y = ($coord_p2y - $coord_p1y);

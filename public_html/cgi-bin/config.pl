@@ -145,8 +145,8 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Berlin. 1945";
 #$MAP_NAME_LONG="Moscow. Winter 1944";
 #$MAP_NAME_LONG="Lvov. 1941"; 
-$MAP_NAME_LONG="Smolensk. 1941";
-
+#$MAP_NAME_LONG="Smolensk. 1941";
+$MAP_NAME_LONG="Bessarabia. 1941";
 
 $CHAMP_TYPES_TOTAL=4;
 $CHAMP_TYPE_0_RAD=70;
@@ -772,6 +772,65 @@ if ($MAP_NAME_LONG eq "Smolensk. 1941"){
     @LW_SUM_PLANES=("JU-52-3MG6E");
     $LW_TRP_SPEED=270; # average speed for human LW suply plane
     @LW_BA_PLANES=("HE-111H6","JU-88A4");
+    @LW_AI_PLANES=();
+}
+
+if ($MAP_NAME_LONG eq "Bessarabia. 1941"){
+
+    $CAMPANYA="ESTE";
+    $SUNRISE=5;
+    $SUNSET=18;
+    
+    # @Heracles@20110719@
+    # Constantes para el sistema de inventario y produccion
+    $VDAY_PRODUCTION_RED=43; # Numero de aviones rojos producidos en un dia
+    $VDAY_PRODUCTION_BLUE=32; # Nuermo de aviones azules producicod en un dia
+    $BLUE_HQ="Roman";
+    $RED_HQ="Odessa";
+    
+    # @Heracles@20110726
+    # Dias virtuales maximos de campaña, si se llega aqui se gana por puntos
+    $CAMPAIGN_MAX_VDAY=10;            
+
+    # map image information
+    $ANCHO=2420;      # image width in pixels
+    $ALTO=2033;       # image height in pixels
+    $H_BLOCK_PIX=70; # horizontal sector size in pixels
+    $V_BLOCK_PIX=70; # vertical sector size in pixeles
+    $LETRAS=35;      # map sector letters, 1 in excess 
+    $NUMEROS=30;     # map sector numbers, 1 in excess 
+
+    #tank types and aaa placement
+
+    #Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
+    $ALLIED_TANKS_ATTK="Armor.3-T26_Late";
+    $AXIS_TANKS_ATTK="Armor.3-PzIIIJ";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T26_Late"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIJ"; # notice "escaped $" 
+
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
+
+    $GEOGRAFIC_COORDINATES="BES41_geo_obj.data";
+    $FRONT_LINE="BES41_frontline.mis";
+    $RED_OBJ_FILE="BES41_red_obj.mis";
+    $BLUE_OBJ_FILE="BES41_blue_obj.mis";
+    $CITY_PLACES="BES41_city.mis";
+    $TANKS_WP="BES41_tank_wp.mis";  
+    $FRONT_IMAGE="BES41.bmp";
+    $IMAP_DATA="BES41_imap.data";
+
+    $MAP_CODE="BES41";
+    $MAP_NAME_LOAD="Bessarabia/load.ini";
+    $FLIGHTS_DEF="BES41_aircrafts.data";  
+    @VVS_SUM_PLANES=("Li-2");
+    $VVS_TRP_SPEED=270; # average speed for human VVS suply plane
+    @VVS_BA_PLANES=("PE-2S1","SB-2M100A", "DB-3M","SB-2M103");
+    @VVS_AI_PLANES=();
+
+    @LW_SUM_PLANES=("JU-52-3MG6E");
+    $LW_TRP_SPEED=270; # average speed for human LW suply plane
+    @LW_BA_PLANES=("HE-111H2","JU-88A4", "SM-79", "BLEINHEIM-MK.I");
     @LW_AI_PLANES=();
 }
 

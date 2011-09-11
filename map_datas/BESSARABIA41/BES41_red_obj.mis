@@ -1,0 +1,66 @@
+[MAIN]
+MAP Bessarabia/load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 53251.55 270774.99 420.00 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 52039.93 249520.04 405.00 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 17069.83 269971.10 180.00 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 76065.22 245182.76 524.10 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 36259.13 225255.73 345.00 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 34023.97 181860.27 360.00 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 27272.85 140741.90 495.00 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 30214.16 134215.68 194.10 0.0
+ 8_Static vehicles.planes.Plane$LI_2 1 68301.51 62999.46 404.10 0.0
+ 9_Static vehicles.planes.Plane$LI_2 1 85703.86 57397.47 269.10 0.0
+ 10_Static vehicles.planes.Plane$LI_2 1 71354.46 40317.01 314.10 0.0
+ 11_Static vehicles.planes.Plane$LI_2 1 53349.95 48429.12 494.10 0.0
+ 12_Static vehicles.planes.Plane$LI_2 1 17136.10 3497.35 449.10 0.0
+ 13_Static vehicles.planes.Plane$LI_2 1 45495.81 6596.37 374.10 0.0
+ 14_Static vehicles.planes.Plane$LI_2 1 109687.25 266321.30 434.10 0.0
+ 15_Static vehicles.planes.Plane$LI_2 1 97217.26 256987.54 209.10 0.0
+ 16_Static vehicles.planes.Plane$LI_2 1 86351.93 204215.85 524.10 0.0
+ 17_Static vehicles.planes.Plane$LI_2 1 102064.07 203626.85 539.10 0.0
+ 18_Static vehicles.planes.Plane$LI_2 1 95099.09 148121.74 449.10 0.0
+ 19_Static vehicles.planes.Plane$LI_2 1 116955.58 17913.15 254.10 0.0
+ 20_Static vehicles.planes.Plane$LI_2 1 136345.60 61648.15 539.10 0.0
+ 21_Static vehicles.planes.Plane$LI_2 1 131112.24 100714.39 494.10 0.0
+ 22_Static vehicles.planes.Plane$LI_2 1 136602.41 130301.07 359.10 0.0
+ 23_Static vehicles.planes.Plane$LI_2 1 121341.70 152550.09 449.10 0.0
+ 24_Static vehicles.planes.Plane$LI_2 1 136649.43 218333.25 389.10 0.0
+ 25_Static vehicles.planes.Plane$LI_2 1 131536.02 243357.26 329.10 0.0
+ 26_Static vehicles.planes.Plane$LI_2 1 190934.47 266325.32 419.10 0.0
+ 27_Static vehicles.planes.Plane$LI_2 1 206242.07 211247.30 284.10 0.0
+ 28_Static vehicles.planes.Plane$LI_2 1 218096.66 205280.97 539.10 0.0
+ 29_Static vehicles.planes.Plane$LI_2 1 177716.85 184891.22 314.10 0.0
+ 30_Static vehicles.planes.Plane$LI_2 1 163699.23 104705.78 359.10 0.0
+ 31_Static vehicles.planes.Plane$LI_2 1 167057.10 48750.45 299.10 0.0
+ 32_Static vehicles.planes.Plane$LI_2 1 170110.24 40411.83 194.10 0.0
+ 33_Static vehicles.planes.Plane$LI_2 1 186850.53 2686.81 389.10 0.0
+ 34_Static vehicles.planes.Plane$LI_2 1 199230.16 109756.96 389.10 0.0
+ 35_Static vehicles.planes.Plane$LI_2 1 220739.49 127033.02 224.10 0.0
+ 36_Static vehicles.planes.Plane$LI_2 1 225891.59 172787.24 374.10 0.0
+ 37_Static vehicles.planes.Plane$LI_2 1 230606.90 263069.92 494.10 0.0
+ 38_Static vehicles.planes.Plane$LI_2 1 253154.92 225149.95 539.10 0.0
+ 39_Static vehicles.planes.Plane$LI_2 1 265822.65 198852.46 404.10 0.0
+ 40_Static vehicles.planes.Plane$LI_2 1 247302.19 173379.09 449.10 0.0
+ 41_Static vehicles.planes.Plane$LI_2 1 271360.71 149734.20 224.10 0.0
+ 42_Static vehicles.planes.Plane$LI_2 1 283231.22 98385.20 224.10 0.0
+ 43_Static vehicles.planes.Plane$LI_2 1 261252.69 80796.10 404.10 0.0
+ 44_Static vehicles.planes.Plane$LI_2 1 237267.32 58501.95 449.10 0.0
+ 45_Static vehicles.planes.Plane$LI_2 1 218001.44 18647.19 269.10 0.0
+ 46_Static vehicles.planes.Plane$LI_2 1 240097.27 25587.97 464.10 0.0
+ 47_Static vehicles.planes.Plane$LI_2 1 310281.22 280982.16 524.10 0.0
+ 48_Static vehicles.planes.Plane$LI_2 1 326005.34 208964.11 194.10 0.0
+ 49_Static vehicles.planes.Plane$LI_2 1 325351.69 133401.58 539.10 0.0
+ 50_Static vehicles.planes.Plane$LI_2 1 320238.55 132630.65 539.10 0.0
+ 51_Static vehicles.planes.Plane$LI_2 1 304501.05 133900.80 269.10 0.0
+ 52_Static vehicles.planes.Plane$LI_2 1 315519.37 120554.90 314.10 0.0
+ 53_Static vehicles.planes.Plane$LI_2 1 94145.19 98611.25 239.10 0.0
+ 54_Static vehicles.planes.Plane$LI_2 1 325895.44 121127.17 389.10 0.0
+[Buildings]
+[Bridge]
+[House]

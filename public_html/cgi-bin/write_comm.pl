@@ -27,6 +27,7 @@ sub print_start_html(){
       <META HTTP-EQUIV="PRAGMA" CONTENT="no-cache">
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       <link rel="stylesheet" type="text/css" href="/badc.css">
+      <script type="text/javascript" src="/js/mapzoom.js"></script>
       <title>Write Mission report.</title>
 </head>
 <body>

@@ -1,0 +1,269 @@
+# Planeset Bessarabia_1941, Junio y Julio, para la DangerZone v. 2.0
+# según tablas de Yogy más Bessarabia-Readme
+# Se iguala el número de aviones de SUM para ambos bandos con el total
+# del bando que más tiene (42)
+
+
+#---Inventario Rojo (aviones iniciales, restantes, aparecidos) 
+
+IR,I-15bis,25,25,0,0,
+IR,I-153_M62,23,23,0,0,
+IR,I-153P,25,25,0,0,
+IR,IL-2M_1Series,4,4,0,0,
+IR,IL-2M_2Series,4,4,0,0,
+IR,I-16TYPE18,128,128,0,0,
+IR,I-16TYPE24,182,182,0,0,
+IR,MIG-3ud,147,147,0,0,
+IR,SB-2M100A,39,39,0,0,
+IR,SB-2M103,64,64,0,0,
+IR,DB-3M,50,50,0,0,
+IR,PE-2S1,24,24,0,0,
+IR,LI-2,42,42,0,0,
+
+#---Escuadrones rojos
+
+rusfig=131IAP,4IAP,55IAP,146IAP,67IAP,68IAP;
+rusjab=8IAPCHF,230ShAP,69IAP,272StH,8IAP;
+rusbom=5BAP,132BAP,232BAP,317RAP;
+rustrp=4MTAP;
+
+### --------------------- AVIONES RUSOS
+
+# I-15bis: 24
+1,rusjab,I-15bis,1,air.I_15BIS,4xRS82,100,1500,300:BD,
+1,rusjab,I-15bis,1,air.I_15BIS,2xAO10_2xFAB50,100,1500,300:AT,
+
+# I-153 M62: 23
+1,rusjab,I-153_M62,1,air.I_153_M62,8xRS82,100,1500,300:BD,
+1,rusjab,I-153_M62,1,air.I_153_M62,2xFAB50_2xFAB100,100,1500,300:AT,
+
+# I-153P: 25
+1,rusjab,I-153P,1,air.I_153P,8xRS82,100,1500,300:BD,
+1,rusjab,I-153P,1,air.I_153P,2xFAB50_2xFAB100,100,1500,300:AT,
+
+# IL-2M_1Series: 4
+1,rusjab,IL-2M_1Series,1,air.IL_2_1940Early,8xRS82,100,1500,280:BD,
+1,rusjab,IL-2M_1Series,1,air.IL_2_1940Early,2xVAP250,100,1500,280:AT,
+
+# IL-2M_2Series: 4
+1,rusjab,IL-2M_2Series,1,air.IL_2_1940Late,4xFAB50_8xRS132,100,1500,280:BD,
+1,rusjab,IL-2M_2Series,1,air.IL_2_1940Late,6xFAB100,100,1500,280:AT,
+
+# I-16 Type 18: 128
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,300:EBA,
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,2500,300:ESU,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1500,300:EBD,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1500,300:BD,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1500,300:ET,
+1,rusjab,I-16TYPE18,1,air.I_16TYPE18,2fab100,100,1500,300:AT,
+1,rusfig,I-16TYPE18,1,air.I_16TYPE18,default,100,4000,300:I,
+
+# I-16 Type 24: 182
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,300:EBA,
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,2500,300:ESU,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1500,300:EBD,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1500,300:BD,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1500,300:ET,
+1,rusjab,I-16TYPE24,1,air.I_16TYPE24,2fab100,100,1500,300:AT,
+1,rusfig,I-16TYPE24,1,air.I_16TYPE24,default,100,4000,300:I,
+
+# MIG-3ud standard 1941: 147
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,400:EBA,
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,2500,300:ESU,
+1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,100,1000,300:EBD,
+1,rusjab,MIG-3ud,1,air.MIG_3UD,2xFAB-100,100,1000,300:AT,
+1,rusfig,MIG-3ud,1,air.MIG_3UD,default,100,4000,300:I,
+
+# SB-2 M-100A: 39
+1,rusbom,SB-2M100A,1,air.SB_2M100A,6xfab100,50,3000,350:BA,
+
+# SB-2 M-103: 64
+1,rusbom,SB-2M103,1,air.SB_2M103,2xfab500,50,3000,350:BA,
+
+# DB-3M: 50
+1,rusbom,DB-3M,1,air.IL_4_DB3M,3fab50010fab50,50,3000,350:BA,
+
+# PE-2 Series 1: 24
+1,rusbom,PE-2S1,1,air.PE_2SERIES1,2fab5002fab250,50,3000,380:BA,
+
+# LI-2: 42
+1,rustrp,LI-2,1,air.LI_2,default,100,600,350:SUM,
+
+
+#-------------------Escuadrones azules
+
+#---Inventario Azul (aviones iniciales, restantes, aparecidos) 
+
+IA,BF-109E4B,15,15,0,0,
+IA,BF-109E7B,50,50,0,0,
+IA,BF-109F2,57,57,0,0,
+IA,BF-109F4,28,28,0,0,
+IA,BF-109E4,64,64,0,0,
+IA,BF-110C7,4,4,0,0,
+IA,HS-123,10,10,0,0,
+IA,JU-87B2,56,56,0,0,
+IA,IAR-80,32,32,0,0,
+IA,IAR-81,32,32,0,0,
+IA,HE-111H2,213,213,0,0,
+IA,JU-88A4,13,13,0,0,
+IA,SM-79,48,48,0,0,
+IA,BLENHEIM-MK.I,60,60,0,0,
+IA,JU-52-3MG6E,42,42,0,0,
+
+gerfig=Stab_JG52,III_JG5_2,II_JG77,III_JG77;
+gerjab=Stab_JG77,II_JG77,I_LG2,Stab_StG77a;
+gerbom=Stab_KG27a,II_KG27a,III_KG27a,I_KG40,Stab_KG55a;
+gertrp=II_TG1;
+romfig=Eskadrila51,Eskadrila52;
+romjab=Eskadrila44,Eskadrila60;
+rombom=Eskadrila18,Eskadrila72;
+  
+### --------------------- AVIONES ALEMANES
+
+# Bf109-E4B: 15
+2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,1500,400:BD,
+2,gerjab,BF-109E4B,1,air.BF_109E4B,1xSC250,100,1500,400:AT,
+
+# Bf109-E7B: 50
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,1500,400:BD,
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,1500,400:AT,
+
+# Bf109-F2: 57
+2,gerfig,BF-109F2,1,air.BF_109F2,field_mod,100,4000,400:EBA,
+2,gerfig,BF-109F2,1,air.BF_109F2,field_mod,100,2500,400:ESU,
+2,gerfig,BF-109F2,1,air.BF_109F2,field_mod,100,2500,400:EBD,
+2,gerfig,BF-109F2,1,air.BF_109F2,field_mod,100,2500,400:ET,
+2,gerfig,BF-109F2,1,air.BF_109F2,field_mod,100,4000,400:I,
+
+# Bf109-F4: 28
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBA,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,2500,400:ESU,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:I,
+
+# Bf109-E4: 64
+2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,400:EBA,
+2,romfig,BF-109E4,1,air.BF_109E4,default,100,2500,400:ESU,
+2,romfig,BF-109E4,1,air.BF_109E4,default,100,4500,400:I,
+
+# BF-110C: 4
+2,gerjab,BF-110C7,1,air.BF_110C7,2sd500,100,1500,380:BD,
+2,gerjab,BF-110C7,1,air.BF_110C7,Mix500,100,1500,380:AT,
+
+# HS-123: 10
+2,gerjab,HS-123,1,air.HS123,1xSC-250+4xSC-50,100,1500,380:BD,
+2,gerjab,HS-123,1,air.HS123,1xSC-250+4xSC-50,100,1500,380:AT,
+
+# JU-87B2: 56
+2,gerjab,JU-87B2,1,air.JU_87B2,1xSD500,100,2500,380:BD,
+2,gerjab,JU-87B2,1,air.JU_87B2,1SC1000,100,3000,380:AT,
+
+# IAR-80: 32
+2,romfig,IAR-80,1,air.IAR_80,default,100,4000,380:EBA,
+2,romfig,IAR-80,1,air.IAR_80,default,100,2500,380:ESU,
+2,romfig,IAR-80,1,air.IAR_80,default,100,2500,380:EBD,
+2,romfig,IAR-80,1,air.IAR_80,default,100,2500,380:ET,
+2,romfig,IAR-80,1,air.IAR_80,default,100,4000,380:I,
+
+# IAR-81: 32
+2,romfig,IAR-81,1,air.IAR_81C,default,100,4000,380:EBA,
+2,romfig,IAR-81,1,air.IAR_81C,default,100,2500,380:ESU,
+2,romjab,IAR-81,1,air.IAR_81C,1xSC250,100,1500,380:EBD,
+2,romjab,IAR-81,1,air.IAR_81C,1xSC250,100,1500,380:ET,
+2,romfig,IAR-81,1,air.IAR_81C,default,100,4000,400:I,
+
+# HE-111 H-2: 149
+2,gerbom,HE-111H2,1,air.HE_111H2,8xSC250,50,3000,350:BA,
+
+# HE-111 H-2: 64
+2,rombom,HE-111H2,1,air.HE_111H2,8xSC250,50,3000,350:BA,
+
+# JU-88A4: 13
+2,gerbom,JU-88A4,1,air.JU_88A4,2xSC2000,50,3000,380:BA,
+
+# SM-79: 48
+2,rombom,SM-79,1,air.SM79i,5x250_delay_drop,50,3000,410:BA,
+
+# BLENHEIM-MK.I: 60
+2,rombom,BLENHEIM-MK.I,1,air.BLENHEIM1,4x250,50,3000,450:BA,
+
+# JU 52/3mg6e  Tante Ju: 42
+2,gertrp,JU-52-3MG6E,1,air.JU_52_3MG6E,default,100,600,270:SUM,
+
+
+
+##STATIC AIRCRAFTS:
+##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
+
+ST101,1,I153,vehicles.planes.Plane$I_153P,15:70
+ST102,1,I16,vehicles.planes.Plane$I_16TYPE18,15:140
+ST103,1,IL2,vehicles.planes.Plane$IL_2_1940Early,25:200
+ST104,1,MIG3,vehicles.planes.Plane$MIG_3UD,15:230
+ST105,1,PE2,vehicles.planes.Plane$PE_2SERIES1,30:310
+ST106,1,PE8,vehicles.planes.Plane$PE_8,40:340
+ST107,1,R10,vehicles.planes.Plane$R_10,18:400
+ST108,1,SB2,vehicles.planes.Plane$SB_2M100A,30:460
+ST109,1,TB-3,vehicles.planes.Plane$TB_3_4M_17,40:600
+ST110,1,U-2,vehicles.planes.Plane$U_2VS,18:650
+ST111,1,YAK-1,vehicles.planes.Plane$YAK_1,15:725
+ST112,1,MIG-3,vehicles.planes.Plane$MIG_3EARLY,18:800
+ST113,1,LAGG-3,vehicles.planes.Plane$LAGG_3SERIES4,35:850
+ST114,1,DB-3F,vehicles.planes.Plane$IL_4_DB3F,35:900
+ST115,1,LI-2,vehicles.planes.Plane$LI_2,45:930
+ST116,1,ZIS6 fuel,vehicles.stationary.Stationary$ZIS6_fuel,15:1000
+
+
+ST201,2,BF-109E4B,vehicles.planes.Plane$BF_109E4B,15:30
+ST202,2,BF-109E7B,vehicles.planes.Plane$BF_109E7,15:90
+ST203,2,BF-109F2,vehicles.planes.Plane$BF_109F2,15:160
+ST204,2,BF-119F4,vehicles.planes.Plane$BF_109F4,15:300
+ST205,2,BF-110C,vehicles.planes.Plane$BF_110C4B,25:350
+ST206,2,FI-156,vehicles.planes.Plane$FI_156,18:430
+ST207,2,IAR-81,vehicles.planes.Plane$IAR_81C,20:450
+ST208,2,HE-111H6,vehicles.planes.Plane$HE_111H6,30:570
+ST209,2,JU-52,vehicles.planes.Plane$JU_52_3MG4E,35:700
+ST210,2,JU-87B2,vehicles.planes.Plane$JU_87B2,20:830
+ST211,2,JU-88A4,vehicles.planes.Plane$JU_88A4,30:920
+ST212,2,Opel Fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:1000
+
+
+
+
+##STATIC VEHICLES:
+##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
+# 90%vehiculos en gral +    4%fuel +   +  3%radio + 3%medic
+
+
+SV101,1,GAZ67,vehicles.stationary.Stationary$GAZ67,15:100
+SV102,1,GAZ67t,vehicles.stationary.Stationary$GAZ67t,15:200
+SV103,1,GAZ_M1,vehicles.stationary.Stationary$GAZ_M1,15:300
+SV104,1,ZIS5_PC,vehicles.stationary.Stationary$ZIS5_PC,15:400
+SV105,1,StudebeckerTruck,vehicles.stationary.Stationary$StudebeckerTruck,15:550
+SV106,1,StudebeckerRocket,vehicles.stationary.Stationary$StudebeckerRocket,15:650
+SV107,1,Katyusha,vehicles.stationary.Stationary$Katyusha,15:750
+SV109,1,ZIS5_AA,vehicles.stationary.Stationary$ZIS5_AA,15:825
+SV112,1,BA_10,vehicles.stationary.Stationary$BA_10,15:900
+#90% up to here
+SV108,1,ZIS6_fuel,vehicles.stationary.Stationary$ZIS6_fuel,15:940
+#up line is 4% fuel
+SV113,1,ZIS5_radio,vehicles.stationary.Stationary$ZIS5_radio,15:970
+SV114,1,ZIS5_medic,vehicles.stationary.Stationary$ZIS5_medic,15:1000
+#up lines are 3%radio and  3%medic
+
+##alemanes igual
+SV201,2,VW82,vehicles.stationary.Stationary$VW82,15:80
+SV202,2,VW82t,vehicles.stationary.Stationary$VW82t,15:160
+SV203,2,OpelKadett,vehicles.stationary.Stationary$OpelKadett,15:260
+SV204,2,OpelBlitz36S,vehicles.stationary.Stationary$OpelBlitz36S,15:340
+SV205,2,OpelBlitz6700A,vehicles.stationary.Stationary$OpelBlitz6700A,15:440
+SV206,2,Kettenkrad,vehicles.stationary.Stationary$Kettenkrad,15:500
+SV207,2,RSO,vehicles.stationary.Stationary$RSO,15:580
+SV208,2,OpelBlitzMaultier,vehicles.stationary.Stationary$OpelBlitzMaultier,15:680
+SV209,2,OpelBlitzMaultierRocket,vehicles.stationary.Stationary$OpelBlitzMaultierRocket,15:820
+SV210,2,OpelBlitzMaultierAA,vehicles.stationary.Stationary$OpelBlitzMaultierAA,15:900
+#90% up to here
+SV211,2,OpelBlitz6700A_fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:940
+#up line is 4% fuel
+SV212,2,OpelBlitz6700A_radio,vehicles.stationary.Stationary$OpelBlitz6700A_radio,15:970
+SV213,2,OpelBlitz6700A_medic,vehicles.stationary.Stationary$OpelBlitz6700A_medic,15:1000
+#up lines are 3%radio and  3%medic
+

@@ -184,8 +184,8 @@ if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
 
 my $map_vday = int ($rep_count / $MIS_PER_VDAY) + 1;
 
-my $time_increase= int(720 / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
-$hora=6;
+my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
+$hora=$SUNRISE;
 $minutos=0;
 $min_diff=($rep_count % $MIS_PER_VDAY) * $time_increase;
 $min_diff+=int(rand($min_diff));  # 0 ~ ($min_diff -1) random extra time.
@@ -243,7 +243,13 @@ else { # we read weather values from file (warning, not cheking for corrup data 
     }
 
 if ($new_clima){
-    my $localt=`date`;
+    my $localt="";
+    if ($WINDOWS) {
+	$localt=localtime(time);
+    }
+    else {
+	$localt=`date`;	
+    }
     open (CLIMACTL,">>clima_control.txt");
     print CLIMACTL "Manual change -  hora: $hora min: $minutos nubes: $nubes clima: $clima = ";    
     print CLIMACTL "$tipo_clima : $localt";

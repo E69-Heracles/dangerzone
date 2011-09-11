@@ -5,13 +5,14 @@
 	<title>Danger Zone</title>
 	<META HTTP-EQUIV="PRAGMA" CONTENT="no-cache">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">	
-	<link href="css/luftwaffe.css" rel="stylesheet" type="text/css" /> 
-	<script type="text/javascript" src="js/jquery.js"></script> 
+	<link href="css/luftwaffe.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 		var curvyCornersVerbose = false;
 	</script>	
 	<!--<script type="text/JavaScript" src="js/curvycorners.js"></script>--> 
-	<script type="text/JavaScript" src="js/dz_menu.js"></script>  
+	<script type="text/JavaScript" src="js/dz_menu.js"></script>
+	<script type="text/javascript" src="js/mapzoom.js"></script>
 
 </head>
 <script type="text/javascript">

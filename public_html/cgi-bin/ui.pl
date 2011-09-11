@@ -10,11 +10,11 @@ sub print_start_html
 	<title>Danger Zone</title>
 	<META HTTP-EQUIV="PRAGMA" CONTENT="no-cache">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">	
-	<link href="/css/luftwaffe.css" rel="stylesheet" type="text/css" /> 
+	<link href="/css/luftwaffe.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="/js/jquery.js"></script> 
 	<script type="text/JavaScript" src="/js/curvycorners.src.js"></script> 
-	<script type="text/JavaScript" src="/js/dz_menu.js"></script>  
-
+	<script type="text/JavaScript" src="/js/dz_menu.js"></script>
+	<script type="text/javascript" src="/js/mapzoom.js"></script>
 </head>
 <body>
 	<div id="dhtmltooltip"></div>
@@ -84,14 +84,17 @@ sub print_end_html
 			<br/><br/></td></tr>
 		  <tr>
 				<td colspan="3" class="footer" height="30px" align="center">
-					<span style="font-size:9px">Footer que te kagas, con <img src="/images/footer_empe.jpg" valign="middle">opciones y un Empecinado monisimo.</span> 
+					<span style="font-size:9px">Danger Zone</span> 
 				</td>
 			</tr>		
-			</table>
+		  <tr>
+				<td colspan="3" height="30px"></td>
+			</tr>				
+			</table>			
 		</td>
 	</tr>
 	</table>
 </body>
-</html>        
+</html>
 END_OF_TEXT2
 }
