@@ -4702,30 +4702,32 @@ sub check_day(){
 		if ($_ =~ m/AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/){ 
 		    $dam=$4-$AF_VDAY_RECOVER;
 		    if ($INVENTARIO && $PRODUCCION) {
-			if (distance($2, $3, $cg_red_cx, $cg_red_cy) <= $cg_red_sum_radius && $5 == 1) {
-			    if ($dam <= $red_capacity) {
-				$dam = 0;
-				set_sua_capacity(($red_capacity-$dam), 1);
-				printdebug("check_day(): $1 suministrado por CG rojo con $dam%");				
+			if ($dam >0) {
+			    if (distance($2, $3, $cg_red_cx, $cg_red_cy) <= $cg_red_sum_radius && $5 == 1) {
+				if ($dam <= $red_capacity) {
+				    $dam = 0;
+				    set_sua_capacity(($red_capacity-$dam), 1);
+				    printdebug("check_day(): $1 suministrado por CG rojo con $dam%");				
+				}
+				else {
+				    $dam = $dam - $red_capacity;
+				    set_sua_capacity(0,1);
+				    printdebug("check_day(): $1 suministrado por CG rojo con $red_capacity%");				
+				}
 			    }
-			    else {
-				$dam = $dam - $red_capacity;
-				set_sua_capacity(0,1);
-				printdebug("check_day(): $1 suministrado por CG rojo con $red_capacity%");				
+			    if (distance($2, $3, $cg_blue_cx, $cg_blue_cy) <= $cg_blue_sum_radius && $5 == 2) {
+				if ($dam <= $blue_capacity) {
+				    $dam = 0;
+				    set_sua_capacity(($blue_capacity-$dam), 2);
+				    printdebug("check_day(): $1 suministrado por CG azul con $dam%");				
+				}
+				else {
+				    $dam = $dam - $blue_capacity;
+				    set_sua_capacity(0,2);
+				    printdebug("check_day(): $1 suministrado por CG azul con $blue_capacity%");				
+				}
 			    }
 			}
-			if (distance($2, $3, $cg_blue_cx, $cg_blue_cy) <= $cg_blue_sum_radius && $5 == 2) {
-			    if ($dam <= $blue_capacity) {
-				$dam = 0;
-				set_sua_capacity(($blue_capacity-$dam), 2);
-				printdebug("check_day(): $1 suministrado por CG azul con $dam%");				
-			    }
-			    else {
-				$dam = $dam - $blue_capacity;
-				set_sua_capacity(0,2);
-				printdebug("check_day(): $1 suministrado por CG azul con $blue_capacity%");				
-			    }
-			}			
 		    }
 		    if ($dam<0) {$dam=0;}
 		    $_ =~ s/^(AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,)([^,]+)(:[12])/$1.$dam.$3/e;
