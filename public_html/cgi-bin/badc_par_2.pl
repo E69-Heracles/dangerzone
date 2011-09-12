@@ -1151,7 +1151,7 @@ sub get_mis_result_points($$){
 		}
 	    }
 	}
-	if ($task eq "ET") {
+	if ($task eq "ET" || $task eq "AT") {
 	    if ($RED_CAPTURA==1){return(10);}
 	    else {return(0);}
 	}
@@ -1227,7 +1227,7 @@ sub get_mis_result_points($$){
 		}
 	    }
 	}
-	if ($task eq "ET") {
+	if ($task eq "ET" || $task eq "AT") {
 	    if ($BLUE_CAPTURA==1){return(10);}
 	    else {return(0);}
 	}
