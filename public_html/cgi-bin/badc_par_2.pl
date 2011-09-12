@@ -87,7 +87,8 @@ sub calc_map_points();
 sub get_sua_capacity($);
 sub set_sua_capacity($$);
 sub calc_sua_capacity($);
-
+sub get_map_vday();
+sub set_map_vday();
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -4671,6 +4672,8 @@ sub check_day(){
     if (($rep_count%$MIS_PER_VDAY) ==0){ 
 	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
 	
+	set_map_vday();
+	
 	# @@Heracles@20110722@
 	# Calculamos la producción de aviones
 	if ($INVENTARIO && $PRODUCCION) {
@@ -5053,7 +5056,7 @@ sub make_attack_page(){
     $mission_of_day=(($rep_count+1) % $MIS_PER_VDAY); # MoD for NEXT mission
     if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
     
-    my $map_vday = int ($rep_count / $MIS_PER_VDAY) + 1;
+    my $map_vday = get_map_vday();
 
     my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
     $hora=$SUNRISE;
@@ -5972,7 +5975,7 @@ sub make_attack_page(){
     ## Controlar si se ha dado algunas de las condiciones de victoria.
     
     # Dias maximos de misión
-    if ($rep_count == ($CAMPAIGN_MAX_VDAY * $MIS_PER_VDAY)) {
+    if ( $map_vday == ($CAMPAIGN_MAX_VDAY + 1)) {
 	
 	# @@Heracles@20110726
 	# Calcular los puntos de la campaña

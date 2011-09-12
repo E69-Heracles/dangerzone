@@ -105,6 +105,7 @@ sub calc_map_points();
 sub get_sua_capacity($);
 sub set_sua_capacity($$);
 sub calc_sua_capacity($);
+sub get_map_vday();
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -182,7 +183,7 @@ srand;
 $mission_of_day=(($rep_count) % $MIS_PER_VDAY); # MoD for NEXT mission
 if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
 
-my $map_vday = int ($rep_count / $MIS_PER_VDAY) + 1;
+my $map_vday = get_map_vday();
 
 my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
 $hora=$SUNRISE;

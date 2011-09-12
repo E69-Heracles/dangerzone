@@ -470,4 +470,55 @@ sub calc_sectors_owned() {
     return ( $red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city);
 }
 
+## @Heracles@20110912
+## Obtiene el dia virtual del mapa accediendo al fichero dia.txt
+sub get_map_vday(){
+
+    my $dia;
+    
+    if (!(open (VER,"<dia.txt"))){
+	print "$big_red ERROR: Can't open map vday file : $! (read)<br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	unlink $parser_lock;
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open map vday file : $!\n\n";
+	exit(0);
+    }
+
+    $dia=<VER>;
+    close(VER);
+    return($dia);
+}
+
+# @Heracles@20110912
+## Suma un dia al dia virtual del mapa accediendo al fichero dia.txt
+sub set_map_vday(){
+
+    my $dia;
+    
+    if (!(open (VER,"<dia.txt"))){
+	print "$big_red ERROR: Can't open map vday file : $! (read)<br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	unlink $parser_lock;
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open map vday file : $!\n\n";
+	exit(0);
+    }
+
+    $dia=<VER>;
+    close(VER);
+    
+    if (!(open (VER,">dia.txt"))){
+	print "$big_red ERROR:  Can't open map vday file : $! (update)<br>\n";
+	print "Please NOTIFY this error.\n";
+	print &print_end_html();
+	unlink $parser_lock;
+	print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open map vday file : $!\n\n";
+	exit(0);
+    }
+    
+    print VER $dia+1;
+    close(VER);
+}
+
 1;
