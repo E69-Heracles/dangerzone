@@ -914,14 +914,15 @@ sub build_grplsts() {
 	    if ($red_bom_attk_planes>0) {
 		my $more = $red_bom_attk_planes;
 		my $flight = 0;
-		@vuelo=get_flight("1","BA","0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane)
+		my $task = ($red_target =~ m/aerodromo/) ? "AT" : "BA";
+		@vuelo=get_flight("1",$task,"0",$red_bom_attk_type); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
 		while ($more && $flight < 4) {
 		    if ($more < 4) {
-			push(@red_attk_grplst, "BA",$sqdname."2".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
+			push(@red_attk_grplst, $task,$sqdname."2".$flight,$more,$red_bom_attk_ai,"2",@vuelo);
 			$more = 0; last;
 		    }
-		    push(@red_attk_grplst, "BA",$sqdname."2".$flight,4,$red_bom_attk_ai,"2",@vuelo);
+		    push(@red_attk_grplst, $task,$sqdname."2".$flight,4,$red_bom_attk_ai,"2",@vuelo);
 		    $more -= 4;
 		    $flight++;
 		}		
@@ -1100,14 +1101,15 @@ sub build_grplsts() {
 	    if ($blue_bom_attk_planes>0) {
 		my $more = $blue_bom_attk_planes;
 		my $flight = 0;
-		@vuelo=get_flight("2","BA","0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane)
+		my $task = ($blue_target =~ m/aerodromo/) ? "AT" : "BA";		
+		@vuelo=get_flight("2",$task,"0",$blue_bom_attk_type); # pedir un vuelo (army, task, human, plane)
 		$sqdname= shift @vuelo;
 		while ($more && $flight < 4) {
 		    if ($more < 4) {
-			push(@blue_attk_grplst, "BA",$sqdname."2".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
+			push(@blue_attk_grplst, $task,$sqdname."2".$flight,$more,$blue_bom_attk_ai,"2",@vuelo);
 			$more = 0; last;
 		    }
-		    push(@blue_attk_grplst, "BA",$sqdname."2".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
+		    push(@blue_attk_grplst, $task,$sqdname."2".$flight,4,$blue_bom_attk_ai,"2",@vuelo);
 		    $more -= 4;
 		    $flight++;
 		}		
@@ -2304,7 +2306,7 @@ sub bombers_wp($$$$) {
 	#}
 
 	# WP 3
-	if ( ($grplst[$grpentries*$i+0] eq "BA")) {
+	if ( ($grplst[$grpentries*$i+0] eq "BA") || ($grplst[$grpentries*$i+0] eq "AT")) {
 	    print MIS "GATTACK ".int($tgtcx)." ".int($tgtcy)." ".$alt." ".$speed." ".$tgt_name." &0\n";
 	} #tgt_name sera el grupo de tanuqes (BD) o nada para (BA) asi hacen level bomb
 
@@ -4694,11 +4696,14 @@ sub print_briefing() {
 #	    print DESC $des_red_attk_no_fly;
 #	}
 	for ( $i=0; $i<$red_attk_groups;  $i++){ 
-	    if ($red_attk_grplst[$grpentries*$i] eq "BA"){
+	    if (($red_attk_grplst[$grpentries*$i] eq "BA") || (($red_attk_grplst[$grpentries*$i] eq "AT") && $red_target =~ m/aerodromo/)){
 		my $bom_cant=$red_attk_grplst[$grpentries*$i+2];
-		if ($red_attk_grplst[$grpentries*($i+1)] eq "BA"){ # si hay un siguiente grupo bomber A
+		if (($red_attk_grplst[$grpentries*$i] eq "BA") && ($red_attk_grplst[$grpentries*($i+1)] eq "BA")){ # si hay un siguiente grupo bomber A
 		    $bom_cant+=$red_attk_grplst[$grpentries*($i+1)+2];
 		}
+		if (($red_attk_grplst[$grpentries*$i] eq "AT") && ($red_attk_grplst[$grpentries*($i+1)] eq "AT")){ # si hay un siguiente grupo bomber A
+		    $bom_cant+=$red_attk_grplst[$grpentries*($i+1)+2];
+		}		
 		if ($lang==0) {$des_red_attk_BA="\\n\\n\\nAtaque: $red_target \\nEstamos realizando un ataque estrategigo para reducir la capacidad del enemigo. Atacaremos $red_target con ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\nDistancia al objetivo: $RED_ATTK_TGT Km.\\nDistancia Objetivo a base: $RED_ATTK_HOME Km.\\n";}
 		if ($lang==1) {$des_red_attk_BA="\\n\\n\\nAttack: $red_target \\nWe are doing an strategic attack to reduce suply and operational chances of enemy. We will attack $red_target with ".$bom_cant." ".$red_attk_grplst[$grpentries*$i+10].".\\nDistance to tgt: $RED_ATTK_TGT Km.\\nDistance tgt base: $RED_ATTK_HOME Km.\\n";}
 		print DESC enc_unicode($des_red_attk_BA);
@@ -4871,12 +4876,15 @@ sub print_briefing() {
 #	    if ($lang==1) {$des_blue_attk_no_fly="\\n\\nAttack: $blue_target \\n\\nWe are not flying on that area.";}
 #	    print DESC $des_blue_attk_no_fly;
 #	}
-	for ( $i=0; $i<$blue_attk_groups; $i++){ 
-	    if ($blue_attk_grplst[$grpentries*$i] eq "BA"){
+	for ( $i=0; $i<$blue_attk_groups; $i++){
+	    if (($blue_attk_grplst[$grpentries*$i] eq "BA") || (($blue_attk_grplst[$grpentries*$i] eq "AT") && $blue_target =~ m/aerodromo/)){	    
 		my $bom_cant=$blue_attk_grplst[$grpentries*$i+2];
-		if ($blue_attk_grplst[$grpentries*($i+1)] eq "BA"){ # si hay un siguiente grupo bomber A
+		if (($blue_attk_grplst[$grpentries*$i] eq "BA") && ($blue_attk_grplst[$grpentries*($i+1)] eq "BA")){ # si hay un siguiente grupo bomber A
 		    $bom_cant+=$blue_attk_grplst[$grpentries*($i+1)+2];
 		}
+		if (($blue_attk_grplst[$grpentries*$i] eq "AT") && ($blue_attk_grplst[$grpentries*($i+1)] eq "AT")){ # si hay un siguiente grupo bomber A
+		    $bom_cant+=$blue_attk_grplst[$grpentries*($i+1)+2];
+		}				
 		if ($lang==0) {$des_blue_attk_BA="\\n\\n\\nAtaque: $blue_target \\nEstamos realizando un ataque estrategigo para reducir la capacidad del enemigo. Atacaremos $blue_target con ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\nDistancia al objetivo: $BLUE_ATTK_TGT Km.\\nDistancia Objetivo a base: $BLUE_ATTK_HOME Km.\\n";}
 		if ($lang==1) {$des_blue_attk_BA="\\n\\n\\nAttack: $blue_target \\nWe are doing a strategic attack to reduce suply and operational chances of enemy. We will attack $blue_target with ".$bom_cant." ".$blue_attk_grplst[$grpentries*$i+10].".\\nDistance to tgt: $BLUE_ATTK_TGT Km.\\nDistance tgt to base: $BLUE_ATTK_HOME Km.\\n";}
 		print DESC enc_unicode($des_blue_attk_BA);
