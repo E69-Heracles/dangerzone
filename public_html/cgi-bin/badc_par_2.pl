@@ -1011,7 +1011,7 @@ sub get_akill_points($$){
     my $killed_task=get_task($killed_code);
 
     if ($killer_task eq "BA"  || $killer_task eq "BD" || $killer_task eq "SUM" || $killer_task eq "SUA") {
-	if ($killed_task eq "I" || $killed_task eq "ET" || $killed_task eq "ER" || 
+	if ($killed_task eq "I" || $killed_task eq "ET" || $killed_task eq "AT" || $killed_task eq "ER" || 
 	    $killed_task eq "EBD" || $killed_task eq "EBA" || $killed_task eq "ESU"){
 	    return (6); # era 4
 	}
@@ -1020,7 +1020,7 @@ sub get_akill_points($$){
 	}
     }
 
-    if ($killer_task eq "ET"  || $killer_task eq "I") {
+    if ($killer_task eq "ET"  || $killer_task eq "AT"  || $killer_task eq "I") {
 	if ($killed_task eq "BD" || $killed_task eq "BA" || $killed_task eq "SUM" || $killed_task eq "SUA"){
 	    return (12); # era 8 
 	}
@@ -1035,7 +1035,7 @@ sub get_akill_points($$){
 
 
     if ($killer_task eq "EBA"  || $killer_task eq "EBD" || $killer_task eq "ESU" ){
-	if ($killed_task eq "I" || $killed_task eq "ET"){
+	if ($killed_task eq "I" || $killed_task eq "ET" || $killed_task eq "AT"){
 	    return (12); # era 8
 	}
 	else {
