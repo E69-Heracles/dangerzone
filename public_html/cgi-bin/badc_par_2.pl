@@ -89,6 +89,7 @@ sub set_sua_capacity($$);
 sub calc_sua_capacity($);
 sub get_map_vday();
 sub set_map_vday();
+sub is_in_radius($$$$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -4619,7 +4620,7 @@ sub check_sec_sumin(){
 	    $state=0; # suponemos sector aislado hasta no demostrar los contrario
 	    while(<GEO_OBJ>) {
 		if ($_ =~  m/CT[0-9]{2},[^,]+,([^,]+),([^,]+),.*,([^:]+):$army/) {
-		    if (distance($cx,$cy,$1,$2)<($3*1000)){
+		    if (is_in_radius($cx,$cy,$1,$2,$3)){
 			$state=1;
 		    }
 		}
@@ -5656,7 +5657,10 @@ sub make_attack_page(){
 	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
 	    seek GEO_OBJ,0,0;
 	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
+		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:1/){ #sectores rojos
+		    # @Heracles@20110920
+		    # Si el TTL=0 no se pueda atacar desde este sector
+		    if ($3 == 0) { next;}
 		    $dist= distance($cxo,$cyo,$1,$2);
 		    if ($dist<16000) {
 			my $cityname="NONE";

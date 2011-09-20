@@ -521,4 +521,25 @@ sub set_map_vday(){
     close(VER);
 }
 
+# @Heracles@20110920
+# Retorna si un sector con centro en sx,sy es suministrado por una ciudad con centro cx,cy y radio r
+# Parametros: sx,sy,cx,cy,r
+sub is_in_radius($$$$$) {
+    my $sx = $_[0];
+    my $sy = $_[1];
+    my $cx = $_[2];
+    my $cy = $_[3];
+    my $r = $_[4];
+    
+    for (my $i = $sx - 5000; $i <= $sx + 5000; $i+=5000) {
+	for (my $j = $sy - 5000; $j <= $sy + 5000; $j*=5000) {
+	    if (distance($i,$j,$cx,$cy) < ($r * 1000)) {
+		return 1;
+	    }
+	}
+    }
+    
+    return 0;  
+}
+
 1;
