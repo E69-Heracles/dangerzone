@@ -6231,6 +6231,7 @@ sub make_image(){
 	for (my $l=0; $l<$LETRAS; $l++ ) { ## para cada letra 
 	    $sector_army[$n][$l]=3;
 	    $sector_ttl[$n][$l]=0;
+	    $sector_nocapture[$n][$l]=0;	    
 	}
     }
     
@@ -6245,12 +6246,13 @@ sub make_image(){
     
     seek GEO_OBJ,0,0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:[12]/){
+	if ($_ =~  m/SEC[^,]+,[^,]+,([^,]+),([^,]+),([^,]+),[^:]+:([123])/){
 	    my $n=int($2/10000);
 	    my $l=int($1/10000);
 	    my $ttl=$3;
 	    if ($ttl==1) { $ttl=2;} # para que se imprima por lo menos un pixel
 	    $sector_ttl[$n][$l]=int($ttl/2);
+	    if ($4 == 3) {$sector_nocapture[$n][$l] = 1;}
 	}
     }
     
@@ -6294,9 +6296,16 @@ sub make_image(){
 		$pix_x=$l*$H_BLOCK_PIX*3;
 		for (my $cx=0; $cx<$H_BLOCK_PIX && $cx<$h_limit; $cx++) {
 		    if ( ($cy==3 || $cy==4) && $cx>5 && $ttl>($cx-5)) {
-			$front_img[$pix_y][$pix_x]=0;
-			$front_img[$pix_y][$pix_x+1]=int(($cx-5)<<4);
-			$front_img[$pix_y][$pix_x+2]=int(250-(($cx-5)<<4));
+			if ($sector_nocapture[$n][$l] == 0) {
+			    $front_img[$pix_y][$pix_x]=0;
+			    $front_img[$pix_y][$pix_x+1]=int(($cx-5)<<4);
+			    $front_img[$pix_y][$pix_x+2]=int(250-(($cx-5)<<4));
+			}
+			else {
+			    $front_img[$pix_y][$pix_x]=0;
+			    $front_img[$pix_y][$pix_x+1]=0;
+			    $front_img[$pix_y][$pix_x+2]=0;			
+			}
 		    }
 		    else {
 			$rg=$front_img[$pix_y][$pix_x+1];

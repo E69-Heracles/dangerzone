@@ -32,7 +32,7 @@ $db_upwd="Phoenix";  # database user password  (CHANGE THIS)
 
 
 #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
-$super_user="E69_Heracles";
+$super_user="rEd69_Heracles";
 $DZDEBUG=1; # En debug
 
 # @Heracles@20110719@
