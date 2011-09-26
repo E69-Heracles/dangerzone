@@ -4214,7 +4214,7 @@ sub get_sector($$){
     
     #printdebug("get_sector(): cx=". $my_cx . "," . "cy=". $my_cy);
     
-    my $l = $LETRAS_SEC[int($my_cx/10000)];
+    my $l = $LETRAS_SEC[$PRIMERA_LETRA + (int($my_cx/10000))];
     my $n = int($my_cy/10000)+1;
     if ($n<10) {$n = "0".$n;}    
 
@@ -4356,7 +4356,7 @@ sub look_sectors(){
 		}
 	    }
 	    if ($near>17000) {
-		my $ltr=$LETRAS_SEC[int($fm_cx/10000)];
+		my $ltr=$LETRAS_SEC[$PRIMERA_LETRA + (int($fm_cx/10000))];
 		my $nbr=int($fm_cy/10000)+1;
 		if ($army==1){
 		    $op=2;
@@ -4448,7 +4448,7 @@ sub look_sectors(){
 		    
 		    if ($orig_army != $army){
 			printdebug("look_sectors(): sector " . get_sector($fm_cx, $fm_cy) . " cambia a bando $army por causa $in_sum_rad");
-			my $ltr=$LETRAS_SEC[int($fm_cx/10000)];
+			my $ltr=$LETRAS_SEC[$PRIMERA_LETRA + (int($fm_cx/10000))];
 			my $nbr=int($fm_cy/10000)+1;
 			if ($army==1){
 			    push(@red_ttl_recover, "$ltr.$nbr");

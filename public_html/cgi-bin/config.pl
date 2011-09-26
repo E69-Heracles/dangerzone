@@ -195,7 +195,8 @@ if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     $ALLIED_TANKS_ATTK="Armor.3-BT7";
@@ -267,7 +268,8 @@ if ($MAP_NAME_LONG eq "Stalingrad. Late 1942" || $MAP_NAME_LONG eq "Stalingrad. 
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     $ALLIED_TANKS_ATTK="Armor.3-T70M";
@@ -343,7 +345,8 @@ if ($MAP_NAME_LONG eq "Kursk. 1943"){
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     $ALLIED_TANKS_ATTK="Armor.3-T34";
@@ -403,7 +406,8 @@ if ($MAP_NAME_LONG eq "Smolensk. 1944"){
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     my $times= int(rand(100))+1; # 1 ~ 100
@@ -473,7 +477,8 @@ if ($MAP_NAME_LONG eq "Balaton. 1945"){
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     my $times= int(rand(100))+1; # 1 ~ 100
@@ -552,7 +557,8 @@ if ($MAP_NAME_LONG eq "Berlin. 1945"){
     $H_BLOCK_PIX=46; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=9;     # map sector numbers, 1 in excess 
+    $NUMEROS=9;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
     # T34 vs PzIVJ
@@ -620,7 +626,8 @@ if ($MAP_NAME_LONG eq "Moscow. Winter 1944"){
     $H_BLOCK_PIX=47; # horizontal sector size in pixels
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
-    $NUMEROS=17;     # map sector numbers, 1 in excess 
+    $NUMEROS=17;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC    
 
     #tank types and aaa placement
 
@@ -681,7 +688,8 @@ if ($MAP_NAME_LONG eq "Lvov. 1941"){
     $V_BLOCK_PIX=51; # vertical sector size in pixeles
     $LETRAS=18;      # map sector letters, 1 in excess 
     $NUMEROS=16;     # map sector numbers, 1 in excess 
-
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC
+    
     #tank types and aaa placement
 
 #Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
@@ -740,7 +748,8 @@ if ($MAP_NAME_LONG eq "Smolensk. 1941"){
     $V_BLOCK_PIX=47; # vertical sector size in pixeles
     $LETRAS=20;      # map sector letters, 1 in excess 
     $NUMEROS=18;     # map sector numbers, 1 in excess 
-
+    $PRIMERA_LETRA=0;  # numero de la primera letra del mapa en la lista @LETRAS_SEC
+    
     #tank types and aaa placement
 
     #Para mantener lo mismo que en Stalingrado mientras no se decide el tankset
@@ -798,7 +807,8 @@ if ($MAP_NAME_LONG eq "Bessarabia. 1941"){
     $H_BLOCK_PIX=70; # horizontal sector size in pixels
     $V_BLOCK_PIX=70; # vertical sector size in pixeles
     $LETRAS=35;      # map sector letters, 1 in excess 
-    $NUMEROS=30;     # map sector numbers, 1 in excess 
+    $NUMEROS=30;     # map sector numbers, 1 in excess
+    $PRIMERA_LETRA=26;  # numero de la primera letra del mapa en la lista @LETRAS_SEC
 
     #tank types and aaa placement
 

@@ -532,7 +532,7 @@ sub is_in_radius($$$$$) {
     my $r = $_[4];
     
     for (my $i = $sx - 5000; $i <= $sx + 5000; $i+=5000) {
-	for (my $j = $sy - 5000; $j <= $sy + 5000; $j*=5000) {
+	for (my $j = $sy - 5000; $j <= $sy + 5000; $j+=5000) {
 	    if (distance($i,$j,$cx,$cy) < ($r * 1000)) {
 		return 1;
 	    }
