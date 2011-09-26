@@ -610,10 +610,10 @@ VVS_Head5
     <td><select name="bomb_def_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                        bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
-	<option selected value="0">0</option>
 VVS_Head6
     ; # Emacs related
-        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
+    	print "<option selected value=" . $max_bd .">" . $max_bd . "</option>";
+        for ($my_i = 0; $my_i <= $max_bd; $my_i++){
                 print "<option value=\"$my_i\">$my_i</option>";
         }
         print "</select> </td>";
@@ -1045,10 +1045,10 @@ LW_Head5
     <td><select name="bomb_def_nbr" size="1" style="width:36;"
     onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                        bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
-	<option selected value="0">0</option>
 LW_Head6
     ; # Emacs related
-        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
+    	print "<option selected value=" . $max_bd .">" . $max_bd . "</option>";    
+        for ($my_i = 0; $my_i <= $max_bd; $my_i++){
                 print "<option value=\"$my_i\">$my_i</option>";
         }
         print "</select> </td>";
