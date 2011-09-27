@@ -374,9 +374,10 @@ sub set_attacks_types() {
 	}
     }
     
-    if (!$RED_SUM && !$RED_ATTK_TACTIC) { # if target is a city or airfield
+    if (!$RED_SUM && !$RED_ATTK_TACTIC && !$RED_SUA) { # if target is a city or airfield
 	$RED_ATTK_TACTIC=0;
 	$RED_SUM=0;
+	$RED_SUA=0;	
 	$red_bomb_attk=1;
 	$blue_bomb_defend=0;
 	if ($red_bom_attk_planes ==0) {
@@ -429,9 +430,10 @@ sub set_attacks_types() {
 	    exit(0);
 	}
     }
-    if ( !$BLUE_SUM && !$BLUE_ATTK_TACTIC ){ # target is a city or an airfield
+    if ( !$BLUE_SUM && !$BLUE_ATTK_TACTIC  && !$BLUE_SUA){ # target is a city or an airfield
 	$BLUE_ATTK_TACTIC=0;
 	$BLUE_SUM=0;
+	$BLUE_SUA=0;	
 	$blue_bomb_attk=1;
 	$red_bomb_defend=0;
 	if ($blue_bom_attk_planes ==0) {
@@ -1493,13 +1495,16 @@ sub fighters_wp($$$$) {
     my $old_afcode;
     my $old_dist=0;
 
+    printdebug("fighters_wp(): Bando $player grupo $look");
+
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera 
+	if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera
 	    if ($5==$player && $4<80) { # si es amigo y da~nos menor a 80%
 		$dist= distance($tgtcx,$tgtcy,$2,$3); #calculamos distancia
 		if (($dist < $MAX_FIGHTERS_DIST) && ($dist >= $MIN_FIGHTERS_DIST)){
 		    if (no_enemy_af_close($player,$2,$3)){
+			printdebug("fighters_wp(): " . $_);
 			push (@aflist, "$1","$2","$3");
 		    }
 		}
@@ -1518,19 +1523,20 @@ sub fighters_wp($$$$) {
 
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/$afcode,[^,]+,[^,]+,[^,]+,([0-9]),.*,[^:]+:[0-3]/){ #buscamos el AF y leemos typo
+	    if ($_ =~ m/^$afcode,[^,]+,[^,]+,[^,]+,([0-9]),.*,[^:]+:[0-3]/){ #buscamos el AF y leemos typo
 		if ($1==4){
 		    $af_is_ship=1; # is a test runway (static ship)
 		}
 		last;
 	    }
 	}
+	printdebug("fighters_wp(): Selecionamos af $afcode al azar de una lista de " . int(scalar(@aflist)/3));	
     }
     else {
 	$old_dist=500000;
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),([0-9]),.*,([^:]+):([0-3])/){ #buscamos un AF cualquiera
+	    if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),([0-9]),.*,([^:]+):([0-3])/){ #buscamos un AF cualquiera
 		if ($6==$player && $5<80) { # si es amigo y da~nos menosres a 80
 		    $dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
 		    if ($dist < $old_dist) {
@@ -1544,6 +1550,7 @@ sub fighters_wp($$$$) {
 		}
 	    }
 	}
+	printdebug("bombers_wp(): Lista de af vacia. Saltamos restricciones y selecionamos af $afcode");		
 	$dist=$old_dist;
     }
     
@@ -1653,7 +1660,7 @@ sub fighters_wp($$$$) {
 	@aflist=(); # armamos una nueva lista
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,[^:]+:([0-3])/){ #buscamos un AF (type 2 Normal)
+	    if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,[^:]+:([0-3])/){ #buscamos un AF (type 2 Normal)
 		if ($4==$player) { # si es amigo
 		    $dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
 		    if ($dist < $old_dist) {
@@ -1849,6 +1856,8 @@ sub bombers_wp($$$$) {
     if ($player==1) {$radio=$VVS_RADIO;} # "&0" 50%  or  "&1" 50%
     if ($player==2) {$radio=$LW_RADIO;}  # "&0" 50%  or  "&1" 50%
     
+    printdebug("bombers_wp(): Bando $player mision $mis_type");
+    
     if ($mis_type eq "SUA") {
 	$af_name = ($player == 1) ? $red_target : $blue_target;
 	$af_name =~ s/SUA-//;
@@ -1862,7 +1871,7 @@ sub bombers_wp($$$$) {
         seek GEO_OBJ, 0, 0;
         while(<GEO_OBJ>) {
              #AF01,aerodromo--F13,54552.79,128611.91,2,-F,13,2,0:2
-	    if ($_ =~ m/(AF[0-9]{2}),$af_name,([^,]+),([^,]+),([0-9]),.*,[^,]+:([0-3])/){ #buscamos el $af a suministrar y despegamos de el
+	    if ($_ =~ m/(^AF[0-9]{2}),$af_name,([^,]+),([^,]+),([0-9]),.*,[^,]+:([0-3])/){ #buscamos el $af a suministrar y despegamos de el
 		$dist= distance($tgtcx,$tgtcy,$2,$3); #calculamos distancia
 		if ($4==4){$af_is_ship=1;} # is a test runway (static ship)
 		push (@aflist, "$1","$2","$3");
@@ -1874,7 +1883,7 @@ sub bombers_wp($$$$) {
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
             #AF01,aerodromo--F13,54552.79,128611.91,2,-F,13,2,0:2
-	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera
+	    if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera
 	        if ($5==$player && $4<80) { # si es amigo y da~nos menor a 80%
 		    $dist= distance($tgtcx,$tgtcy,$2,$3); #calculamos distancia
 		    if ( ($dist < $MAX_BOMBERS_DIST) && ($dist >= $MIN_BOMBERS_DIST)){
@@ -1886,7 +1895,7 @@ sub bombers_wp($$$$) {
 	    }
 	}
     }
-
+    
     # Verificamos que la lista no este vacia. si es asi, buscamos el AG mas cercano y que dist >= MIN_BOMBER_DIST
     #---------
     if (scalar(@aflist)>0) { 
@@ -1899,13 +1908,14 @@ sub bombers_wp($$$$) {
 	$B_home_dist=$dist;
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/$afcode,[^,]+,[^,]+,[^,]+,([0-9]),.*,[^:]+:[0-3]/){ #buscamos el AF y leemos typo
+	    if ($_ =~ m/^$afcode,[^,]+,[^,]+,[^,]+,([0-9]),.*,[^:]+:[0-3]/){ #buscamos el AF y leemos typo
 		if ($1==4){
 		    $af_is_ship=1; # is a test runway (static ship)
 		}
 		last;
 	    }
 	}
+	printdebug("bombers_wp(): Selecionamos af $afcode al azar de una lista de " . int(scalar(@aflist)/3));
     }
     else {
 	$old_dist=500000;
@@ -1913,7 +1923,7 @@ sub bombers_wp($$$$) {
 	if ($mis_type eq "SUM") {$min_required=30000;} # only request a min distance for suply missions
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),([0-9]),.*,([^:]+):([0-3])/){ #buscamos un AF dist 
+	    if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),([0-9]),.*,([^:]+):([0-3])/){ #buscamos un AF dist 
 		if ($6==$player && $5<80) { # si es amigo y da~nos menores a 80
 		    $dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
 		    if (($dist < $old_dist) && ($dist >= $min_required)) { 
@@ -1927,6 +1937,7 @@ sub bombers_wp($$$$) {
 		}
 	    }
 	}
+	printdebug("bombers_wp(): Lista de af vacia. Saltamos restricciones y selecionamos af $afcode");	
 	$dist=$old_dist;
 	$B_tgt_dist=$dist;
 	$B_home_dist=$dist;
@@ -2040,7 +2051,7 @@ sub bombers_wp($$$$) {
 	@aflist=(); # armamos una nueva lista
 	seek GEO_OBJ, 0, 0;
 	while(<GEO_OBJ>) {
-	    if ($_ =~ m/(AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera (type 2 normal)
+	    if ($_ =~ m/(^AF[0-9]{2}),[^,]+,([^,]+),([^,]+),2,.*,([^,]+):([0-3])/){ #buscamos un AF cualquiera (type 2 normal)
 		if ($5==$player) { # si es amigo 
 		    $dist=  distance($tgtcx, $tgtcy, $2, $3); #calculamos distancia en Km
 		    if ($dist < $old_dist) {
