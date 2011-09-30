@@ -4140,6 +4140,7 @@ sub look_resuply() {
 		my $af_dam_diff=0.0;
 		my $af_dam_cg=0.0;
 		if ($dam == 100.0 || $dam == 0.0) {
+		    print TEMPGEO;
 		    printdebug ("look_resuply(): $looking_af con damage $dam - Atencion no hacemos nada");
 		    next;
 		}
