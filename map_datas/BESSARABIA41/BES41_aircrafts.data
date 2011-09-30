@@ -165,11 +165,11 @@ rombom=Eskadrila18,Eskadrila72;
 2,romfig,IAR-80,1,air.IAR_80,default,100,4000,380:I,
 
 # IAR-81: 32
-2,romfig,IAR-81,1,air.IAR_81C,default,100,4000,380:EBA,
-2,romfig,IAR-81,1,air.IAR_81C,default,100,2500,380:ESU,
-2,romjab,IAR-81,1,air.IAR_81C,1xSC250,100,1500,380:EBD,
-2,romjab,IAR-81,1,air.IAR_81C,1xSC250,100,1500,380:ET,
-2,romfig,IAR-81,1,air.IAR_81C,default,100,4000,400:I,
+2,romfig,IAR-81,1,air.IAR_81A,default,100,4000,380:EBA,
+2,romfig,IAR-81,1,air.IAR_81A,default,100,2500,380:ESU,
+2,romjab,IAR-81,1,air.IAR_81A,1xSC250,100,1500,380:EBD,
+2,romjab,IAR-81,1,air.IAR_81A,1xSC250,100,1500,380:ET,
+2,romfig,IAR-81,1,air.IAR_81A,default,100,4000,400:I,
 
 # HE-111 H-2: 149
 2,gerbom,HE-111H2,1,air.HE_111H2,8xSC250,50,3000,350:BA,

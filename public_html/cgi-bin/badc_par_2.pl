@@ -2959,9 +2959,21 @@ sub eventos_aire(){
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="900" height="780"  border=0> 
-</DIV>
+  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
 REP1
+    ;
+    my $width = int($ANCHO / 4);
+    my $height = int ($ALTO / 4);
+    print MAP_REP1 $width;
+    print MAP_REP1 <<REP11;
+" height="
+REP11
+    ;
+    print MAP_REP1 $height;
+    print MAP_REP1 <<REP12;
+"  border=0> 
+</DIV>
+REP12
     ;
     print MAP_REP2 <<REP2;
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -2970,9 +2982,21 @@ REP1
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="1800" height="1560"  border=0> 
-</DIV>
+  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
 REP2
+    ;
+    $width = int($ANCHO / 2);
+    $height = int ($ALTO / 2);
+    print MAP_REP2 $width;
+    print MAP_REP2 <<REP21;
+" height="
+REP21
+    ;
+    print MAP_REP2 $height;
+    print MAP_REP2 <<REP22;
+"  border=0> 
+</DIV>
+REP22
     ;
     print MAP_REP4 <<REP4;
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -2981,10 +3005,22 @@ REP2
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="3600" height="3120"  border=0> 
-</DIV>
+  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
 REP4
     ;
+    $width = $ANCHO;
+    $height = $ALTO;
+    print MAP_REP4 $width;
+    print MAP_REP4 <<REP41;
+" height="
+REP41
+    ;
+    print MAP_REP4 $height;
+    print MAP_REP4 <<REP42;
+"  border=0> 
+</DIV>
+REP42
+    ;    
     my $print_event=0;
     my $time_evento;
     my $base_AF="";
@@ -3218,20 +3254,20 @@ REP4
 	    my $icon_left_pos= int(($down_x/$MAP_RIGHT)* $ANCHO)-2;
 	    my $icon_top_pos= int($ALTO-(($down_y/$MAP_TOP)* $ALTO))-2;
 
-	    print MAP_REP1 "<DIV style=\"LEFT: ".$icon_left_pos."px; TOP: ".$icon_top_pos."px; POSITION: absolute;\">\n";
-	    print MAP_REP1 "<IMG title=\"[$time_evento] $html_by ($plane_by) downs $html_to ($plane_to)\" src=\"$icon\"></DIV>\n";
+	    print MAP_REP4 "<DIV style=\"LEFT: ".$icon_left_pos."px; TOP: ".$icon_top_pos."px; POSITION: absolute;\">\n";
+	    print MAP_REP4 "<IMG title=\"[$time_evento] $html_by ($plane_by) downs $html_to ($plane_to)\" src=\"$icon\"></DIV>\n";
 
-            $icon_left_pos *=2;
-	    $icon_top_pos *=2;
+            $icon_left_pos = int ($icon_left_pos / 2);
+	    $icon_top_pos = int ($icon_top_pos/ 2);
 
 	    print MAP_REP2 "<DIV style=\"LEFT: ".$icon_left_pos."px; TOP: ".$icon_top_pos."px; POSITION: absolute;\">\n";
 	    print MAP_REP2 "<IMG title=\"[$time_evento] $html_by ($plane_by) downs $html_to ($plane_to)\" src=\"$icon\"></DIV>\n";
+	    
+            $icon_left_pos = int ($icon_left_pos / 2);
+	    $icon_top_pos = int ($icon_top_pos/ 2);	    
 
-            $icon_left_pos *=2;
-	    $icon_top_pos *=2;
-
-	    print MAP_REP4 "<DIV style=\"LEFT: ".$icon_left_pos."px; TOP: ".$icon_top_pos."px; POSITION: absolute;\">\n";
-	    print MAP_REP4 "<IMG title=\"[$time_evento] $html_by ($plane_by) downs $html_to ($plane_to)\" src=\"$icon\"></DIV>\n";
+	    print MAP_REP1 "<DIV style=\"LEFT: ".$icon_left_pos."px; TOP: ".$icon_top_pos."px; POSITION: absolute;\">\n";
+	    print MAP_REP1 "<IMG title=\"[$time_evento] $html_by ($plane_by) downs $html_to ($plane_to)\" src=\"$icon\"></DIV>\n";
 
 	} # end if print_event (shotdown o crashed)
 
@@ -4102,7 +4138,11 @@ sub look_resuply() {
 		my $dam=$2 * 1.0;
 		my $army=$3;
 		my $af_dam_diff=0.0;
-		my $af_dam_cg=0.0;		
+		my $af_dam_cg=0.0;
+		if ($dam == 100.0 || $dam == 0.0) {
+		    printdebug ("look_resuply(): $looking_af con damage $dam - Atencion no hacemos nada");
+		    next;
+		}
 		foreach $af_in (@af_resup) {
 		    if ($af_in eq $looking_af){
 			if ($army == 1 && $RED_SUM_AI == 0) {$af_dam_diff+=$red_plane_supply * 1.0;}
