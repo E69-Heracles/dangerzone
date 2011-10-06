@@ -2456,7 +2456,7 @@ sub poblate_airfield ($) {
 
     seek GEO_OBJ, 0, 0;
     while(<GEO_OBJ>) {
-	if ($_ =~  m/$afcode,.*,([^,]+):([0-2])/) {
+	if ($_ =~  m/^$afcode,.*,([^,]+):([0-2])/) {
 	    my $damage=$1;
 	    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " poblate_airfield(" . $afcode . "): Damage=" . $damage. "\n";	    
 	    my $army=$2;
