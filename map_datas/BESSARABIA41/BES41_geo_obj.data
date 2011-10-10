@@ -1594,9 +1594,9 @@ SUC42,SUM-Baurci,161976.41,86052.99,-,-,-,-,-:1
 CT42,Baurci,161976.41,86052.99,20,tipo,1,0,20:1
 CT42Z0:162008.64,86138.11,1
 
-# Name  Porumbesti AO11
-SUC43,SUM-Porumbesti,141427.89,108627.42,-,-,-,-,-:1
-CT43,Porumbesti,141427.89,108627.42,20,tipo,1,0,20:1
+# Name  Larguta AO11
+SUC43,SUM-Larguta,141427.89,108627.42,-,-,-,-,-:1
+CT43,Larguta,141427.89,108627.42,20,tipo,1,0,20:1
 CT43Z0:141223.10,108743.17,1
 
 # Name  Tarutino AU10
@@ -1666,11 +1666,9 @@ poblado,Cotul,sector--AU05
 poblado,Oancea,sector--AN07
 poblado,Cudalbi,sector--AJ06
 poblado,Baurci,sector--AQ09
-poblado,Porumbesti,sector--AO11
+poblado,Larguta,sector--AO11
 poblado,Tarutino,sector--AU10
 poblado,Sahaidac,sector--AR15
 poblado,Sarateni,sector--AP15
 poblado,Cornesti-Targ,sector--AL23
 poblado,Casin,sector--AB10
-
-
