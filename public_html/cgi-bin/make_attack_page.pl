@@ -262,7 +262,7 @@ $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
 my $Options_R="Options_R.txt";
 my $Options_B="Options_B.txt";
 my $Status="Status.txt";
-my $Albaran="Albaran.txt";
+my $albaran="albaran.txt";
 
 #    no bakups
 #    eval `cp $PATH_TO_WEBROOT/$Options_R $DATA_BKUP/$Options_R$ext_rep_nbr`; # windows cmd?
@@ -697,7 +697,7 @@ print MAPA  &print_start_html;
 	close (FLIGHTS);
 	
 	if ($PRODUCCION) {
-	    if (open (ALB, "<$Albaran")) {
+	    if (open (ALB, "<$albaran")) {
 		seek ALB, 0, 0;
 		while (<ALB>) {
 		    print MAPA;

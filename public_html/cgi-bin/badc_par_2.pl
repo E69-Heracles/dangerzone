@@ -5157,7 +5157,7 @@ sub make_attack_page(){
     my $Options_R="Options_R.txt";
     my $Options_B="Options_B.txt";
     my $Status="Status.txt";
-    my $Albaran="Albaran.txt";
+    my $albaran="albaran.txt";
 
 #    if ($WINDOWS) {
 #	eval `copy $CGI_BIN_PATH\\$Options_R $DATA_BKUP\\$Options_R$ext_rep_nbr`; # win
@@ -5586,7 +5586,7 @@ sub make_attack_page(){
 	close (FLIGHTS);
 	
 	if ($PRODUCCION) {
-	    if (open (ALB, "<$Albaran")) {
+	    if (open (ALB, "<$albaran")) {
 		seek ALB, 0, 0;
 		while (<ALB>) {
 		    print MAPA;
