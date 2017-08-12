@@ -7,23 +7,23 @@ include ("./dz_page_header.php");
 
 <?php
 
-    $allow_images = $HTTP_COOKIE_VARS["badc_images"];
+    $allow_images = $_COOKIE["badc_images"];
 
     $minmis=1; // default minmis
     $minmis_cmd=""; // default minmis_cmd
     $army=0;       // default army 0 = all
     $army_cmd="";   // def army_cmd
 
-    if($HTTP_GET_VARS['minmis']) { $minmis=$HTTP_GET_VARS['minmis']; }
+    if($_GET['minmis']) { $minmis=$_GET['minmis']; }
     if ($minmis<1) {$minmis=1;}
     if ($minmis){$minmis_cmd="and mis_steak >= $minmis";}
 
-    if($HTTP_GET_VARS['army']) { $army=$HTTP_GET_VARS['army']; }
+    if($_GET['army']) { $army=$_GET['army']; }
     if ($army<0 || $army>2) {$army=0;}
     if ($army){$army_cmd="and sqd_army = $army";}  //&amp;army=$army
 	
     $key="mis_steak"; // default key
-    if($HTTP_GET_VARS['key']) { $key=$HTTP_GET_VARS['key']; }
+    if($_GET['key']) { $key=$_GET['key']; }
     if ( $key != "missions"  && $key != "akills"    && $key != "gkills" && 
          $key != "friend_ak" && $key != "friend_gk" && $key != "chutes" && $key != "pnt_steak" &&
          $key != "smoke"     && $key != "lights"    && $key != "hlname" && $key != "experience" &&
@@ -32,12 +32,12 @@ include ("./dz_page_header.php");
 	{print "Error: Unknow key: $key"; die;}
 
     $offset=0; // default offset
-    if($HTTP_GET_VARS['offset']) { $offset=$HTTP_GET_VARS['offset']; }
+    if($_GET['offset']) { $offset=$_GET['offset']; }
     if (preg_match("/[^-0-9]/",$offset)){print "Error: Unknow offset: $offset"; die;}
     if ($offset<0) {$offset=0;}
  
     $order="DESC"; // defalut order
-    if($HTTP_GET_VARS['order']) {$order=$HTTP_GET_VARS['order'];}
+    if($_GET['order']) {$order=$_GET['order'];}
     if ( $order != "ASC" && $order != "DESC") {print "Error: Unknow order: $order"; die;}
 
     print "<br>\n";

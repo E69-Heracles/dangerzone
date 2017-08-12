@@ -17,10 +17,10 @@ include ("./dz_page_header.php");
 
 <?php
 
-list($hlname, $pwd) = split(' ', $HTTP_COOKIE_VARS["badc_user"]);
+list($hlname, $pwd) = split(' ', $_COOKIE["badc_user"]);
 
-$red_solic=$HTTP_GET_VARS['red_solic'];
-$blue_solic=$HTTP_GET_VARS['blue_solic'];	
+$red_solic=$_GET['red_solic'];
+$blue_solic=$_GET['blue_solic'];	
 
 print "<input type=\"hidden\" name=\"red_solic\" value=\"$red_solic\">";
 print "<input type=\"hidden\" name=\"blue_solic\" value=\"$blue_solic\">";

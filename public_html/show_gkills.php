@@ -8,8 +8,8 @@ include ("./dz_page_header.php");
 <br/><br/><br/>
 
 <?php
-	$count=$HTTP_GET_VARS['count'];
-  	$hlname=$HTTP_GET_VARS['hlname'];
+	$count=$_GET['count'];
+  	$hlname=$_GET['hlname'];
 
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");

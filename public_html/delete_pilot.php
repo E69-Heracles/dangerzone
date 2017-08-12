@@ -29,7 +29,7 @@ include ("./dz_page_header.php");
 
 <?php
 
-  $sqd=$HTTP_GET_VARS['sqd'];
+  $sqd=$_GET['sqd'];
   mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
   mysql_select_db("$database");
 

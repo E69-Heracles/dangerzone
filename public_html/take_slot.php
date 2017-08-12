@@ -8,7 +8,7 @@ include ("./dz_page_header.php");
 <br/><br/>
 <?php
 
-  	$slot=$HTTP_GET_VARS['slot'];
+  	$slot=$_GET['slot'];
 	if ($slot != "BW1"   && $slot != "BW2"   && $slot != "BW3"   &&
 	    $slot != "BW1RR" && $slot != "BW2RR" && $slot != "BW3RR" &&
             $slot != "BW1BR" && $slot != "BW2BR" && $slot != "BW3BR" &&
@@ -20,7 +20,7 @@ include ("./dz_page_header.php");
 	    exit;
 	}  
 
-	list($hlname, $pwd) = split(' ', $HTTP_COOKIE_VARS["badc_user"]);
+	list($hlname, $pwd) = split(' ', $_COOKIE["badc_user"]);
 
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");

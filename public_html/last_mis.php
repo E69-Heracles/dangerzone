@@ -21,9 +21,9 @@ $y = $today_y;  // y por defecto
 $m = $today_m;  // m por defecto
 $d = $today_d ; // d por defecto
 
-if($HTTP_GET_VARS['d']) { $d=$HTTP_GET_VARS['d']; }	
-if($HTTP_GET_VARS['m']) { $m=$HTTP_GET_VARS['m']; }	
-if($HTTP_GET_VARS['y']) { $y=$HTTP_GET_VARS['y']; }	
+if($_GET['d']) { $d=$_GET['d']; }	
+if($_GET['m']) { $m=$_GET['m']; }	
+if($_GET['y']) { $y=$_GET['y']; }	
 
 print "<center><font size=\"+1\" color=\"red\">\n";
 if ($y <1970) { print "Year must be >= 1970\n"; exit;}
