@@ -37,8 +37,15 @@ ENV PHP_POST_MAX_SIZE 10M
 # Add volumes for MySQL 
 VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
 
+# Enable CGI module for Apache 2
+RUN a2enmod cgi
+
+# Configure Apache 2
 ADD envvars /etc/apache2/envvars
+ADD serve-cgi-bin.conf /etc/apache2/conf-available/serve-cgi-bin.conf
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Dangerzone database creation
 ADD mysql-setup.sh /mysql-setup.sh
 ADD new_tables.sql /sql/new_tables.sql
 ADD votes_tbl.sql /sql/votes_tbl.sql

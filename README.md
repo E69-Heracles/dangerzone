@@ -6,10 +6,12 @@ Dangerzone 2.0 is a dynamic campaign generator for *Il-2 Sturmovik 1946* based o
 
 ## Development environment
 
-Once you clone this repository set the following environment variable:
+You need [Docker](https://docs.docker.com/engine/installation/) to install the development environment.
+
+After installing Docker, clone this repository into a working directory and set the following environment variable in a Docker enabled terminal:
 
 ```bash
-$> export DANGERZONE_WD=_your_path_for_dangerzone_repo_
+$> export DANGERZONE_WD=__your_path_to_dangerzone_working_directory__
 ```
 
 To launch development environment, change directory to the development directory, make your docker image and run it:
@@ -19,6 +21,7 @@ $> cd "$DANGERZONE_WD"/development
 $> docker build --no-cache -t e69/dangerzone .
 $> ./launch_dz.sh
 ```
+After launching the application you should be able to point your browser to wherever your container network address is listening to (it depends on using docker machine or not) and you should get the DangerZone home page on port 80.
 
 Installed software versions for development environment:
 
