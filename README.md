@@ -31,6 +31,8 @@ You will find created two squadrons and two pilots per squadron in order to easy
   * rEd69 (Red squadron): with pilots rEd69_Red1 and rEd69_Red2
   * E69 (Blue squadron): with pilots E69_Blue1 and E69_Blue2
 
+Superuser for administrative task is rEd69_Red1.
+
 Installed software versions for development environment:
 
   * Apache : 2.4.7

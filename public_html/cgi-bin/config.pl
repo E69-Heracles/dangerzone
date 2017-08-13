@@ -36,11 +36,13 @@ if ($environment eq "DEV")
 
 
     #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
-    $super_user="rEd69_Heracles";
+    $super_user="rEd69_Red1";
     $DZDEBUG=1; # En debug
 
     $require_auth_code=0; # require or not auth code for squadron register
     $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.
+
+    $MAP_NAME_LONG="Bessarabia. 1941";
 }
 # Production variables
 else
@@ -80,6 +82,8 @@ else
 
     $require_auth_code=1; # require or not auth code for squadron register
     $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.    
+
+    $MAP_NAME_LONG="Bessarabia. 1941";
 }
 
 
@@ -191,7 +195,6 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Winter 1944";
 #$MAP_NAME_LONG="Lvov. 1941"; 
 #$MAP_NAME_LONG="Smolensk. 1941";
-$MAP_NAME_LONG="Bessarabia. 1941";
 
 $CHAMP_TYPES_TOTAL=4;
 $CHAMP_TYPE_0_RAD=70;
@@ -866,18 +869,18 @@ if ($MAP_NAME_LONG eq "Bessarabia. 1941"){
     $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
     $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
 
-    $GEOGRAFIC_COORDINATES="BES41_geo_obj.data";
-    $FRONT_LINE="BES41_frontline.mis";
-    $RED_OBJ_FILE="BES41_red_obj.mis";
-    $BLUE_OBJ_FILE="BES41_blue_obj.mis";
-    $CITY_PLACES="BES41_city.mis";
-    $TANKS_WP="BES41_tank_wp.mis";  
-    $FRONT_IMAGE="BES41.bmp";
-    $IMAP_DATA="BES41_imap.data";
+    $GEOGRAFIC_COORDINATES="current_map/BES41_geo_obj.data";
+    $FRONT_LINE="current_map/BES41_frontline.mis";
+    $RED_OBJ_FILE="current_map/BES41_red_obj.mis";
+    $BLUE_OBJ_FILE="current_map/BES41_blue_obj.mis";
+    $CITY_PLACES="current_map/BES41_city.mis";
+    $TANKS_WP="current_map/BES41_tank_wp.mis";  
+    $FRONT_IMAGE="current_map/BES41.bmp";
+    $IMAP_DATA="current_map/BES41_imap.data";
 
     $MAP_CODE="BES41";
     $MAP_NAME_LOAD="Bessarabia/load.ini";
-    $FLIGHTS_DEF="BES41_aircrafts.data";  
+    $FLIGHTS_DEF="current_map/BES41_aircrafts.data";  
     @VVS_SUM_PLANES=("Li-2");
     $VVS_TRP_SPEED=270; # average speed for human VVS suply plane
     @VVS_BA_PLANES=("PE-2S1","SB-2M100A", "DB-3M","SB-2M103");
