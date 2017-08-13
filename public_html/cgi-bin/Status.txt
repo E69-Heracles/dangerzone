@@ -1,0 +1,224 @@
+<b>Siguiente misión del día:</b> 1 / 30 - 5 h 28 m.<br>
+<b>Previsión:</b> Bueno  - Nubes a 1200 metros. <br><br>
+
+<table border=1 ><tr><td valign="top">
+<b><u>Cuartel general rojo</u></b><br><br>
+<table>
+<col width="130">
+<tr><td>Ciudad C.G.:</td><td align="right"><b>Odessa</b></td></tr>
+</table><br>
+<b>Producción de aviones: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Centro logístico (%):</td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>100</b></font></td></tr>
+<tr><td>Existencias:</td><td align="right"><b>757</b></td></tr>
+<tr><td>Pérdidas:</td><td align="right"><b>0</b></td></tr>
+<tr><td>Producción diaria:</td><td align="right"><b>43</b></td></tr>
+</table><br>
+<b>Suministro a aeródromo: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Capacidad SUA (%):</td><td align="right"><b>757</b></td></tr>
+<tr><td>Por avión SUA (%):</td><td align="right"><b>8</b></td></tr>
+</table><br>
+<b>Suministro a ciudad: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Sectores (%):</td><td align="right"><b>66</b></font></td></tr>
+<tr><td>Por avión SUM (%):</td><td align="right"><b>7</b></td></tr>
+</table><br><br>
+</td><td valign="top">
+<b><u>Cuartel general azul</u></b><br><br>
+<table>
+<col width="130">
+<tr><td>Ciudad C.G.:</td><td align="right"><b>Roman</b></td></tr>
+</table><br>
+<b>Producción de aviones: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Centro logístico (%):</td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>100</b></font></td></tr>
+<tr><td>Existencias:</td><td align="right"><b>724</b></td></tr>
+<tr><td>Pérdidas:</td><td align="right"><b>0</b></td></tr>
+<tr><td>Producción diaria:</td><td align="right"><b>32</b></td></tr>
+</table><br>
+<b>Suministro a aeródromo: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Capacidad SUA (%):</td><td align="right"><b>724</b></td></tr>
+<tr><td>Por avión SUA (%):</td><td align="right"><b>8</b></td></tr>
+</table><br>
+<b>Suministro a ciudad: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Sectores (%):</td><td align="right"><b>34</b></font></td></tr>
+<tr><td>Por avión SUM (%):</td><td align="right"><b>3</b></td></tr>
+</table><br><br></td></tr></table><br><br>
+<table border=1 ><tr><td valign="top">
+<b>Aeródromos rojos: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Aeródromo</td><td>Daño</td></tr>
+<tr><td> aerodromo--AJ26 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AK27 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AN25 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AN22 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AN11 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AT27 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AR19 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AQ11 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AQ05 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AQ04 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AU22 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AV21 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AT12 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AS01 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AX27 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AW18 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AW13 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AV02 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AZ23 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BA20 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AY18 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AX06 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AY03 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BA09 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BC10 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BB15 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BF29 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BG21 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BE14 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BF14 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BG14 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BF13 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--BG13 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+</table><br><br>
+<b>Capacidad aerea: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Potencial :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black">2640%</font></td></tr>
+<tr><td>Disponible :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black"><b>2640%<b></font></td></tr>
+</table><br><br></td><td valign="top">
+<b>Aeródromos azules: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Aeródromo</td><td>Daño</td></tr>
+<tr><td> aerodromo--AB28 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AF28 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AF25 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AD23 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AD19 *CG* </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AC15 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AD14 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AF05 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AB01 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AE01 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AH05 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AG07 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AI06 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AJ10 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AJ15 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AI21 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AH25 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AK21 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AM16 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AN14 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AN07 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+<tr><td> aerodromo--AL02 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
+</table><br><br>
+<b>Capacidad aerea: </b><br>
+<table>
+<col width="150"> <col width="50">
+<tr><td>Potencial :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black">1760%</font></td></tr>
+<tr><td>Disponible :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black"><b>1760%<b></font></td></tr>
+</table><br><br></td></tr></table><br><br>
+<table border=1 ><tr><td valign="top">
+<b>Inventario de aviones rojos:</b><br>
+<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr><tr><td> I-15bis </td><td>BD,AT,</td><td align="right"><font color="blue"><b>25</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> I-153_M62 </td><td>BD,AT,</td><td align="right"><font color="blue"><b>23</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> I-153P </td><td>BD,AT,</td><td align="right"><font color="blue"><b>25</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> IL-2M_1Series </td><td>BD,AT,</td><td align="right"><font color="red"><b>4</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> IL-2M_2Series </td><td>BD,AT,</td><td align="right"><font color="red"><b>4</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> I-16TYPE18 </td><td>EBA,ESU,EBD,BD,ET,AT,I,</td><td align="right"><font color="green"><b>128</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> I-16TYPE24 </td><td>EBA,ESU,EBD,BD,ET,AT,I,</td><td align="right"><font color="green"><b>182</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> MIG-3ud </td><td>EBA,ESU,EBD,AT,I,</td><td align="right"><font color="green"><b>147</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> SB-2M100A </td><td>BA,</td><td align="right"><font color="blue"><b>39</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> SB-2M103 </td><td>BA,</td><td align="right"><font color="green"><b>64</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> DB-3M </td><td>BA,</td><td align="right"><font color="blue"><b>50</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> PE-2S1 </td><td>BA,</td><td align="right"><font color="blue"><b>24</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> LI-2 </td><td>SUM,</td><td align="right"><font color="blue"><b>42</b></font></td><td align="right"><font color="black">0</td><td></tr>
+</table><br><br>
+<br><br>
+</td><td valign="top">
+<b>Inventario de aviones azules:</b><br>
+<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr><tr><td> BF-109E4B </td><td>BD,AT,</td><td align="right"><font color="blue"><b>15</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BF-109E7B </td><td>BD,AT,</td><td align="right"><font color="blue"><b>50</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BF-109F2 </td><td>EBA,ESU,EBD,ET,I,</td><td align="right"><font color="green"><b>57</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BF-109F4 </td><td>EBA,ESU,I,</td><td align="right"><font color="blue"><b>28</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BF-109E4 </td><td>EBA,ESU,I,</td><td align="right"><font color="green"><b>64</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BF-110C7 </td><td>BD,AT,</td><td align="right"><font color="red"><b>4</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> HS-123 </td><td>BD,AT,</td><td align="right"><font color="red"><b>10</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> JU-87B2 </td><td>BD,AT,</td><td align="right"><font color="green"><b>56</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> IAR-80 </td><td>EBA,ESU,EBD,ET,I,</td><td align="right"><font color="blue"><b>32</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> IAR-81 </td><td>EBA,ESU,EBD,ET,I,</td><td align="right"><font color="blue"><b>32</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> HE-111H2 </td><td>BA,BA,</td><td align="right"><font color="green"><b>213</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> JU-88A4 </td><td>BA,</td><td align="right"><font color="blue"><b>13</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> SM-79 </td><td>BA,</td><td align="right"><font color="blue"><b>48</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> BLENHEIM-MK.I </td><td>BA,</td><td align="right"><font color="green"><b>60</b></font></td><td align="right"><font color="black">0</td><td></tr>
+<tr><td> JU-52-3MG6E </td><td>SUM,</td><td align="right"><font color="blue"><b>42</b></font></td><td align="right"><font color="black">0</td><td></tr>
+</table><br><br></td></tr></table><br><br>
+<br><br><table border=1 ><tr><td valign="top">
+<b>Estado de las ciudades rojas:</b><br>
+<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr><tr><td> Balti </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Rybnitsa </td><td><font color="green"><b> 0% </b></font></td><td> 40 Km.</td></tr>
+<tr><td> Ananyev </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Odessa </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Akerman </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Bolgrad </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Ismail </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Kishinev </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Tighina-Benderi </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Dubossary </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Calarasi </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Zatyshte </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Vradiyeka </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Damidova </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Ostrovka </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Zebrikovo </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Blagoyevo </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Rasdelnaia </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Nasavertailovka </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Plahtaevka </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Tatar-Bunar </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Caramahmet </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Moldova </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Tocuz </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Cotul </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Baurci </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Larguta </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Tarutino </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Sahaidac </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Sarateni </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Cornesti-Targ </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+</table><br><br>
+<br><br>
+</td><td valign="top">
+<b>Estado de las ciudades azules:</b><br>
+<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr><tr><td> Botosani </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Roman </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Bacau </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Focsani </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Barlad </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Husi </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Iasi </td><td><font color="green"><b> 0% </b></font></td><td> 40 Km.</td></tr>
+<tr><td> Galati </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Leova </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Stefanesti </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Dumbravita </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<tr><td> Andrisieni </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Adjudeni </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Ramnicul-Sarat </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
+<tr><td> Oancea </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<tr><td> Cudalbi </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+<tr><td> Casin </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
+</table><br><br></td></tr></table>
+<p><strong>Mapa del Frente:</strong><br>

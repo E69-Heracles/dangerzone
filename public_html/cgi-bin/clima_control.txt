@@ -1,0 +1,1 @@
+Manual change -  hora: 5 min: 28 nubes: 1200 clima: 53 = Good : Sun Aug 13 12:10:12 UTC 2017

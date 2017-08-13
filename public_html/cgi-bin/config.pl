@@ -6,10 +6,10 @@ $environment =  $ENV{'ENVIRONMENT'};
 # Development variables
 if ($environment eq "DEV")
 {
-    $PATH_TO_WEBROOT      = "/var/www/html/public_html/dangerzone";
-    $CGI_BIN_PATH         = "/var/www/html/public_html/dangerzone/cgi-bin";
-    $CGI_TEMP_UPLOAD_DIR  = "/var/www/html/public_html/dangerzone/cgi-bin/tmp";
-    $DATA_BKUP            = "/var/www/html/public_html/dangerzone/cgi-bin/data_bkup";
+    $PATH_TO_WEBROOT      = "/var/www/html/public_html/";
+    $CGI_BIN_PATH         = "/var/www/html/public_html/cgi-bin";
+    $CGI_TEMP_UPLOAD_DIR  = "/var/www/html/public_html/cgi-bin/tmp";
+    $DATA_BKUP            = "/var/www/html/public_html/cgi-bin/data_bkup";
     $MAX_UPLOAD_SIZE      = 200000; # bytes
     $CJPEG_PROG           = "/usr/bin/cjpeg";           
     $CJPEG_FLAGS          = "-quality 70 -progressive";
