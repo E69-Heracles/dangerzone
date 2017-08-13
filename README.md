@@ -23,6 +23,11 @@ $> ./launch_dz.sh
 ```
 After launching the application you should be able to point your browser to wherever your container network address is listening to (it depends on using docker machine or not) and you should get the DangerZone home page on port 80.
 
+You will find created two squadrons and two pilots per squadron in order to easy testing features and page navigation:
+
+  * rEd69 (Red squadron): with pilots rEd69_Red1 and rEd69_Red2
+  * E69 (Blue squadron): with pilots E69_Blue1 and E69_Blue2
+
 Installed software versions for development environment:
 
   * Apache : 2.4.7

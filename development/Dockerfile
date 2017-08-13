@@ -50,6 +50,7 @@ ADD mysql-setup.sh /mysql-setup.sh
 ADD new_tables.sql /sql/new_tables.sql
 ADD votes_tbl.sql /sql/votes_tbl.sql
 ADD badc_6_HL_slots.sql /sql/badc_6_HL_slots.sql
+ADD dev_data.sql /sql/dev_data.sql
 
 EXPOSE 80 3306
 
