@@ -15,6 +15,7 @@ sub print_start_html
 	<script type="text/JavaScript" src="/js/curvycorners.src.js"></script> 
 	<script type="text/JavaScript" src="/js/dz_menu.js"></script>
 	<script type="text/javascript" src="/js/mapzoom.js"></script>
+	<script type="text/javascript" src="/js/cvi_tip_lib.js"></script>
 </head>
 <body>
 	<div id="dhtmltooltip"></div>

@@ -28,6 +28,7 @@ sub print_start_html(){
       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
       <link rel="stylesheet" type="text/css" href="/badc.css">
       <script type="text/javascript" src="/js/mapzoom.js"></script>
+      <script type="text/javascript" src="/js/cvi_tip_lib.js"></script>
       <title>Write Mission report.</title>
 </head>
 <body>
