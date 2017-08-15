@@ -3,6 +3,7 @@
 require "config.pl";
 require "ui.pl";
 require "dztools.pl";
+require "dzmap.pl";
 
 use IO::Handle;   # because autoflush
 use DBI();
@@ -101,11 +102,11 @@ sub get_coord_city($);
 sub get_sum_radius($);
 sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
-sub calc_map_points();
 sub get_sua_capacity($);
 sub set_sua_capacity($$);
 sub calc_sua_capacity($);
 sub get_map_vday();
+sub print_map_and_points($);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -273,32 +274,7 @@ open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
 open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
 open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
-print MAPA  &print_start_html;
-
-    my $blue_points = 0;
-    my $red_points = 0;
-    ($red_points, $blue_points) = calc_map_points();
-  
-    if ($red_points > $blue_points) {
-	print MAPA  "<font size=\"+2\" color=\"red\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
-    }
-    else {
-	if ($blue_points > $red_points) {
-	    print MAPA  "<font size=\"+2\" color=\"blue\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
-	}
-	else {
-	    print MAPA  "<font size=\"+2\" color=\"green\"><b>Mapa de $MAP_NAME_LONG</b></font><br>\n";
-	}
-    }
-    
-    print MAPA "<table>\n";
-    print MAPA "<tr class=first><td colspan=8 align=center><h3>Puntuación del Mapa</h3></td></tr>\n";	
-    print MAPA "<tr class=first><td  align=center valign=middle><nowrap><img src=\"images/luftwaffe_logo.gif\" width=40 height=40/></td>";
-    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$blue_points</b></nowrap></td>";
-    print MAPA "<td>&nbsp;&nbsp;</td><td  align=center valign=middle><img src=\"images/ws_logo.gif\" border=0 width=40 height=40/></td>";
-    print MAPA "<td>&nbsp;&nbsp;</td><td><b>$red_points</b></nowrap></td>";	
-    print MAPA "</tr>";
-    print MAPA "</table>\n";
+print_map_and_points(MAPA);
     
     print MAPA  "<br><br><font size=\"+1\"> Dia de campaña <b>$map_vday</b> de <b>$CAMPAIGN_MAX_VDAY</b><br>\n";
     print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
