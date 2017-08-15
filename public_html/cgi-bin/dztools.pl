@@ -542,4 +542,15 @@ sub is_in_radius($$$$$) {
     return 0;  
 }
 
+## @Heracles@20170815
+## Print to two files
+sub print_map_and_sta($$$) {
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $text = shift @_;
+
+    print $map $text;
+    print $sta $text;
+}
+
 1;

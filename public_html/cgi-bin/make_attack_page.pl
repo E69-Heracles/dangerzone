@@ -108,6 +108,7 @@ sub calc_sua_capacity($);
 sub get_map_vday();
 sub print_map_and_points($);
 sub print_time_and_weather($$$$$$$$);
+sub print_headquarter($$);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -277,127 +278,7 @@ open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUAL
 
 print_map_and_points(MAPA);    
 print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
-
-    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
-    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
-
-    ## informe de capacidad de producción roja
-    print MAPA  "<b><u>Cuartel general rojo</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general rojo</u></b><br><br>\n";
-    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
-    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$RED_HQ</b></td></tr>\n";
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";            
-    print MAPA  "<b>Producción de aviones: </b><br>\n";
-    print STA   "<b>Producción de aviones: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n";
-
-    my $red_stock = 0;
-    my $blue_stock = 0;
-    my $red_losts = 0;
-    my $blue_losts = 0;
-    ($red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
-    
-    my $red_capacity=get_sua_capacity(1);
-    if ($red_capacity eq "-") {
-	$red_capacity = $red_stock;
-	set_sua_capacity ($red_stock, 1);
-    }
-
-    my $blue_capacity=get_sua_capacity(2);
-    if ($blue_capacity eq "-") {
-	$blue_capacity = $blue_stock;
-	set_sua_capacity ($blue_stock, 2);
-    }    
-    
-    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
-    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$red_stock</b></td></tr>\n";
-    print MAPA  "<tr><td>Pérdidas:</td><td align=\"right\"><b>$red_losts</b></td></tr>\n";
-    print STA   "<tr><td>Pérdidas:</td><td align=\"right\"><b>$red_losts</b></td></tr>\n";    
-    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
-    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_RED</b></td></tr>\n";
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";    
-    
-    ## informe de capacidad de suministro roja
-    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
-    print STA   "<b>Suministro a aeródromo: </b><br>\n";
-    
-    my $cg_num_red_bases=0;
-    my @cg_red_bases=();
-    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$red_capacity</b></td></tr>\n";    
-    
-    my $red_plane_supply = 0;
-    my $blue_plane_supply = 0;    
-    ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
-    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$red_plane_supply</b></td></tr>\n";
-    
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";
-    
-    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
-    print STA   "<b>Suministro a ciudad: </b><br>\n";    
-
-    my $blue_sectors = 0;
-    my $red_sectors = 0;
-    ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
-    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$red_sectors</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$red_supply_city</b></td></tr>\n";    
-
-    print MAPA  "</table><br><br>\n";
-    print STA   "</table><br><br>\n";
-    print MAPA  "</td><td valign=\"top\">\n";
-    print STA   "</td><td valign=\"top\">\n";    
-
-    ## informe de capacidad de producción azul
-    print MAPA  "<b><u>Cuartel general azul</u></b><br><br>\n";
-    print STA   "<b><u>Cuartel general azul</u></b><br><br>\n";
-    print MAPA  "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
-    print STA   "<table>\n<col width=\"130\">\n<tr><td>Ciudad C.G.:</td><td align=\"right\"><b>$BLUE_HQ</b></td></tr>\n";
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";            
-    print MAPA  "<b>Producción de aviones: </b><br>\n";
-    print STA   "<b>Producción de aviones: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n";
-    print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
-    print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
-    print MAPA  "<tr><td>Pérdidas:</td><td align=\"right\"><b>$blue_losts</b></td></tr>\n";
-    print STA   "<tr><td>Pérdidas:</td><td align=\"right\"><b>$blue_losts</b></td></tr>\n";    
-    print MAPA  "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
-    print STA   "<tr><td>Producción diaria:</td><td align=\"right\"><b>$VDAY_PRODUCTION_BLUE</b></td></tr>\n";
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";
-    
-    ## informe de capacidad de suministro azul
-    print MAPA  "<b>Suministro a aeródromo: </b><br>\n";
-    print STA   "<b>Suministro a aeródromo: </b><br>\n";    
-
-    my $cg_num_blue_bases=0;
-    my @cg_blue_bases=();
-    ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$blue_capacity</b></td></tr>\n";        
-    
-    print MAPA  "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUA (%):</td><td align=\"right\"><b>$blue_plane_supply</b></td></tr>\n";
-    print MAPA  "</table><br>\n";
-    print STA   "</table><br>\n";
-    print MAPA  "<b>Suministro a ciudad: </b><br>\n";
-    print STA   "<b>Suministro a ciudad: </b><br>\n";    
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$blue_sectors</b></font></td></tr>\n";
-    print MAPA  "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";
-    print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";    
-    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
-    print STA   "</table><br><br></td></tr></table><br><br>\n";
+print_headquarter(MAPA, STA);
 
         if ($INVENTARIO) {
     
