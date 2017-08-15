@@ -9,6 +9,7 @@ sub set_sua_capacity($$);
 sub calc_sum_plane_supply($$);
 sub calc_sectors_owned();
 sub print_headquarter_for_army($$$$$$$$$$$);
+sub print_plane_inventory_for_army($$$$$$);
 
 ## @Heracles@20170815
 ## Campaign map info header creation
@@ -88,6 +89,12 @@ sub print_headquarter($$) {
         set_sua_capacity ($red_stock, 1);
     }
 
+    my $blue_capacity=get_sua_capacity(2);
+    if ($blue_capacity eq "-") {
+    $blue_capacity = $blue_stock;
+    set_sua_capacity ($blue_stock, 2);
+    }       
+
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
     ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
@@ -96,17 +103,13 @@ sub print_headquarter($$) {
     my $red_sectors = 0;
                              
     ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
-    
-    my $blue_capacity=get_sua_capacity(2);
-    if ($blue_capacity eq "-") {
-    $blue_capacity = $blue_stock;
-    set_sua_capacity ($blue_stock, 2);
-    }       
 
     print_headquarter_for_army($map, $sta, "rojo", $RED_HQ, $red_stock, $red_losts, $VDAY_PRODUCTION_RED, $red_capacity, $red_plane_supply, $red_sectors, $red_supply_city);
     print_headquarter_for_army($map, $sta, "azul", $BLUE_HQ, $blue_stock, $blue_losts, $VDAY_PRODUCTION_BLUE, $blue_capacity, $blue_plane_supply, $blue_sectors, $blue_supply_city);    
 
     print_map_and_sta($map, $sta, "</tr></table><br><br>\n");
+
+    return ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply)
 }
 
 ## @Heracles@20170815
@@ -150,4 +153,120 @@ sub print_headquarter_for_army($$$$$$$$$$$) {
     print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Sectores (%):</td><td align=\"right\"><b>$sectors</b></font></td></tr>\n");
     print_map_and_sta($map, $sta, "<tr><td>Por avi&oacute;n SUM (%):</td><td align=\"right\"><b>$supply_city</b></td></tr>\n");
     print_map_and_sta($map, $sta, "</table><br><br></td>");
+}
+
+## @Heracles@20170815
+## Campaign map plane inventory
+sub print_plane_inventory($$$) {
+
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $log = shift @_;
+
+    if (not $INVENTARIO) {
+        exit(0);
+    }
+
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+        print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        print $log " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+        exit(0);
+    }       
+    
+    print_map_and_sta($map, $sta, "<table border=1 ><tr>");
+
+    ($red_task_stock, $red_stock_out) = print_plane_inventory_for_army($map, $sta, FLIGHTS, "rojos", "IR", "1");
+    ($blue_task_stock, $blue_stock_out) = print_plane_inventory_for_army($map, $sta, FLIGHTS, "azules", "IA", "2");
+
+    print_map_and_sta($map, $sta, "</tr></table><br><br>\n");
+    close (FLIGHTS);
+    
+    my $albaran="albaran.txt";
+    if ($PRODUCCION) {
+        if (open (ALB, "<$albaran")) {
+        seek ALB, 0, 0;
+        while (<ALB>) {
+            print $map;
+            print $sta;
+        }
+        close (ALB);
+        }               
+    }
+
+    return ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out);
+}
+
+# @Heracles@20170815
+## Campaign map plane inventory for army
+sub print_plane_inventory_for_army($$$$$$) {
+
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $flights = shift @_;
+    my $army_color = shift @_;
+    my $flight_pattern = shift @_;
+    my $army_pattern = shift @_;
+
+    my %task_stock = (
+        BA=>0,
+        EBA=>0,
+        SUM=>0,
+        ESU=>0,
+        BD=>0,
+        EBD=>0,
+        ET=>0,
+        AT=>0,
+        I=>0
+    );
+  
+    print_map_and_sta($map, $sta, "<td valign=\"top\">\n");
+
+    ## informe de inventario de aviones
+    print_map_and_sta($map, $sta, "<b>Inventario de aviones $army_color:</b><br>\n");
+    print_map_and_sta($map, $sta, "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>P&eacute;rdidas</td></tr>");
+        
+    seek $flights, 0, 0;
+    while (<$flights>) {
+        if ($_ =~ m/^\Q$flight_pattern\E,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/) 
+        {
+            my $plane_model = $1;
+            my $plane_number = $3;
+            my $plane_lost = $5;
+            
+            print_map_and_sta($map, $sta, "<tr><td> $plane_model </td><td>");
+            
+            my $line_back = tell $flights;
+            seek $flights,0,0;
+            while (<$flights>){
+                if ($_ =~ m/^\Q$army_pattern\E,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/)
+                {
+                    print_map_and_sta($map, $sta, "$1,");
+                    $task_stock{$1} += $plane_number;
+                }
+            }
+            
+            my $color = "green";
+            if ($plane_number <= 10) 
+            { 
+                $color = "red";
+            } 
+
+            print_map_and_sta($map, $sta, "</td><td align=\"right\"><font color=\"$color\"><b>$plane_number</b></font></td>");            
+            print_map_and_sta($map, $sta, "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n");        
+            seek $flights, $line_back, 0;
+        }
+    }
+    
+    if ($task_stock{BD} == 0 || $task_stock{EBD} == 0 || $task_stock{ET} == 0 || $task_stock{AT} == 0 || $task_stock{I} == 0) 
+    {
+        $stock_out = 1;
+    }
+    
+    print_map_and_sta($map, $sta, "</table><br><br>\n");
+    print_map_and_sta($map, $sta, "<br><br>\n");
+    print_map_and_sta($map, $sta, "</td>");
+
+    return (\%task_stock, $stock_out);
 }
