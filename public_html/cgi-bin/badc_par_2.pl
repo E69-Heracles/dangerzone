@@ -528,7 +528,7 @@ sub build_pilot_list(){
 	    $pilot=$1;
 	    $hlname=$2;
 	    $add=1; # agregar el piloto por default
-	    if ($hlname =~ /\\/) {next;} # \ char not allowed in hlname (DB problems, php and so on)
+	    if ($hlname =~ m/\\/) {next;} # \ char not allowed in hlname (DB problems, php and so on)
 ##
 
 	    $sth = $dbh->prepare("SELECT COUNT(*) FROM $pilot_file_tbl WHERE hlname=?");

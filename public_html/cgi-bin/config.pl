@@ -81,7 +81,7 @@ else
     $DZDEBUG=1; # En debug
 
     $require_auth_code=1; # require or not auth code for squadron register
-    $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.    
+    $ALLOW_AUTO_REGISTER=0; # allow pilots be registered automatically at repot time if he is unregistered.    
 
     $MAP_NAME_LONG="Bessarabia. 1941";
 }

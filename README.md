@@ -41,6 +41,10 @@ Installed software versions for development environment:
   * Perl   : 5.18.2
   * OS     : Ubuntu 14.04.5 LTS Trusty
 
+A lot of effort should be done in order to refactor the code to minimize bugs:
+
+  * make_attack_page.pl has a lot of duplicated code with badc_par_2.pl
+
 ## Credits
 
 You will find JG10r_Dutertre's BADC 1.0 credits [here](./install.txt).
