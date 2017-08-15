@@ -88,10 +88,10 @@
 <br><br>
 </td></tr></table><br><br>
 <table border=1 ><tr><td valign="top">
-<b>Aeródromos rojos: </b><br>
+<b>Aer&oacute;dromos rojos: </b><br>
 <table>
 <col width="150"> <col width="50">
-<tr><td>Aeródromo</td><td>Daño</td></tr>
+<tr><td>Aer&oacute;dromo</td><td>Da&ntilde;o</td></tr>
 <tr><td> aerodromo--AJ26 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
 <tr><td> aerodromo--AK27 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
 <tr><td> aerodromo--AN25 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
@@ -132,10 +132,10 @@
 <tr><td>Potencial :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black">2640%</font></td></tr>
 <tr><td>Disponible :</td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black"><b>2640%<b></font></td></tr>
 </table><br><br></td><td valign="top">
-<b>Aeródromos azules: </b><br>
+<b>Aer&oacute;dromos azules: </b><br>
 <table>
 <col width="150"> <col width="50">
-<tr><td>Aeródromo</td><td>Daño</td></tr>
+<tr><td>Aer&oacute;dromo</td><td>Da&ntilde;o</td></tr>
 <tr><td> aerodromo--AB28 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
 <tr><td> aerodromo--AF28 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>
 <tr><td> aerodromo--AF25 </td><td align="right"> &nbsp;&nbsp;&nbsp;<font color="green"><b>&nbsp;0.00%</b></font></td></tr>

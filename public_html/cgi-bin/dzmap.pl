@@ -10,6 +10,7 @@ sub calc_sum_plane_supply($$);
 sub calc_sectors_owned();
 sub print_headquarter_for_army($$$$$$$$$$$);
 sub print_plane_inventory_for_army($$$$$$);
+sub print_airfield_damage_for_army($$$$$);
 
 ## @Heracles@20170815
 ## Campaign map info header creation
@@ -198,7 +199,7 @@ sub print_plane_inventory($$$) {
     return ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out);
 }
 
-# @Heracles@20170815
+## @Heracles@20170815
 ## Campaign map plane inventory for army
 sub print_plane_inventory_for_army($$$$$$) {
 
@@ -269,4 +270,115 @@ sub print_plane_inventory_for_army($$$$$$) {
     print_map_and_sta($map, $sta, "</td>");
 
     return (\%task_stock, $stock_out);
+}
+
+## @Heracles@20170815
+## Campaign map airfield damage info
+sub print_airfield_damage($$$) {
+    
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $geo = shift @_;
+    
+    print_map_and_sta($map, $sta, "<table border=1 ><tr>");
+    
+    ($cg_red_bases, $af_red_colapsed) = print_airfield_damage_for_army($map, $sta, $geo, "rojos", 1);
+    ($cg_blue_bases, $af_blue_colapsed) = print_airfield_damage_for_army($map, $sta, $geo, "azules", 2);    
+
+    print_map_and_sta($map, $sta, "</tr></table><br><br>\n");
+
+    return ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed);
+}
+
+## @Heracles@20170815
+## Campaign map airfield damage info
+sub print_airfield_damage_for_army($$$$$) {
+
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $geo = shift @_;
+    my $army_color = shift @_;
+    my $army = shift @_;
+
+    print_map_and_sta($map, $sta, "<td valign=\"top\">\n");
+    print_map_and_sta($map, $sta, "<b>Aer&oacute;dromos $army_color: </b><br>\n");
+    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aer&oacute;dromo</td><td>Da&ntilde;o</td></tr>\n");
+
+    ## variables para control de colapso de AF
+    my $af_num=0;
+    my $af_colapsed=0;
+    
+    ## Control de bases de CG rojo
+    @cg_bases=();
+    $cg_num_bases=0;
+    ($cg_num_bases, @cg_bases) = get_cg_bases($army);
+    
+    ## Capacidad aerea
+    my $air=0;
+    my $air_pot=0;
+    
+    seek $geo, 0, 0;
+    while(<$geo>) 
+    { 
+        if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):\Q$army\E/)
+        {
+            $af_num++;
+            my $afname=$1;
+            foreach my $af_cg (@cg_bases) 
+            {
+                if ($af_cg eq $afname) 
+                {
+                    $afname .= " *CG*";
+                    last;
+                }       
+            }               
+            my $afdam=$2;
+            $air = ($afdam < 80) ? $air + (80 - $afdam) : $air;
+            $air_pot += 80;
+            if ($afdam !~ m/\./) 
+            {
+                $afdam.=".00";
+            }
+            if ($afdam !~ m/\.[0-9][0-9]/) 
+            {
+                $afdam.="0";
+            }
+            if ($afdam > 20) 
+            {
+                if ($afdam>=80) 
+                {
+                    $af_colapsed++;
+                    if ($afdam<100) 
+                    {
+                        $afdam="&nbsp;".$afdam;
+                    }
+                    print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n");
+                }
+                else 
+                {
+                    $afdam="&nbsp;".$afdam;
+                    print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n");
+                }
+            }
+            else 
+            {
+                $afdam="&nbsp;".$afdam;
+                print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n");
+            }
+        }
+    }
+    
+    my $af_total_colapsed = 0;
+    if ($af_num == $af_colapsed) 
+    {
+        $af_total_colapsed = 1;
+    }
+    
+    print_map_and_sta($map, $sta, "</table><br><br>\n");
+    print_map_and_sta($map, $sta, "<b>Capacidad aerea: </b><br>\n");    
+    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$air_pot%</font></td></tr>\n");
+    print_map_and_sta($map, $sta, "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$air%<b></font></td></tr>\n");
+    print_map_and_sta($map, $sta, "</table><br><br></td>");
+
+    return (\@cg_bases, $af_total_colapsed);
 }

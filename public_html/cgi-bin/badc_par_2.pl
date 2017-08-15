@@ -93,6 +93,7 @@ sub is_in_radius($$$$$);
 sub print_map_and_points($);
 sub print_time_and_weather($$$$$$$$);
 sub print_plane_inventory($$$);
+sub print_airfield_damage($$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -5183,147 +5184,11 @@ sub make_attack_page(){
     ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out) = print_plane_inventory(MAPA, STA, PAR_LOG);
     my %red_task_stock = %$red_task_stock;
     my %blue_task_stock = %$blue_task_stock;
-    
-    ## informe de daños aerodormos rojos
-    print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
-    print STA   "<table border=1 ><tr><td valign=\"top\">\n";
-    print MAPA  "<b>Aeródromos rojos: </b><br>\n";
-    print STA   "<b>Aeródromos rojos: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
 
-    ## variables para control de colapso de AF
-    my $af_num=0;
-    my $af_colapsed=0;
-    
-    ## Control de bases de CG rojo
-    @cg_red_bases=();
-    $cg_num_red_bases=0;
-    ($cg_num_red_bases, @cg_red_bases) = get_cg_bases(1);
-    
-    ## Capacidad aerea
-    my $red_air=0;
-    my $blue_air=0;
-    my $red_air_pot=0;
-    my $blue_air_pot=0;
-    
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) { 
-	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):1/){
-	    $af_num++;
-	    my $afname=$1;
-	    foreach my $af_cg (@cg_red_bases) {
-		if ($af_cg eq $afname) {
-		    $afname .= " *CG*";
-		    last;
-		}	    
-	    }	    
-	    my $afdam=$2;
-	    $red_air = ($afdam < 80) ? $red_air + (80 - $afdam) : $red_air;
-	    $red_air_pot += 80;	    
-	    if ($afdam !~ m/\./) {$afdam.=".00";}
-	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
-	    if ($afdam > 20) {
-		if ($afdam>=80) {
-		    $af_colapsed++;
-		    if ($afdam<100) {$afdam="&nbsp;".$afdam;}
-		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
-		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
-		}
-		else {
-		    $afdam="&nbsp;".$afdam;
-		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n";
-		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n";
-		}
-	    }
-	    else {
-		$afdam="&nbsp;".$afdam;
-		print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n";
-		print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n";
-	    }
-	}
-    }
-    
-    if ($af_num == $af_colapsed) {$af_red_colapsed = 1;}
-    
-    print MAPA  "</table><br><br>\n";
-    print STA   "</table><br><br>\n";
-    
-    print MAPA  "<b>Capacidad aerea: </b><br>\n";
-    print STA   "<b>Capacidad aerea: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$red_air_pot%</font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$red_air_pot%</font></td></tr>\n";
-    print MAPA  "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$red_air%<b></font></td></tr>\n";
-    print STA   "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$red_air%<b></font></td></tr>\n";
-    print MAPA  "</table><br><br>";
-    print STA   "</table><br><br>";        
-    
-    print MAPA  "</td><td valign=\"top\">\n";
-    print STA   "</td><td valign=\"top\">\n";
-    print MAPA  "<b>Aeródromos azules: </b><br>\n";
-    print STA   "<b>Aeródromos azules: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Aeródromo</td><td>Daño</td></tr>\n";
-    
-    $af_num = 0;
-    $af_colapsed=0;
-    
-    @cg_blue_bases=();
-    $cg_num_blue_bases=0;
-    ($cg_num_blue_bases, @cg_blue_bases) = get_cg_bases(2);
-    
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) {
-	if ($_ =~ m/^AF[0-9]+,([^,]+),.*,([^,]+):2/){
-	    $af_num++;
-	    my $afname=$1;
-	    foreach my $af_cg (@cg_blue_bases) {
-		if ($af_cg eq $afname) {
-		    $afname .= " *CG*";
-		    last;
-		}	    
-	    }	    	    
-	    my $afdam=$2;
-	    $blue_air = ($afdam < 80) ? $blue_air + (80 - $afdam) : $blue_air;
-	    $blue_air_pot += 80;	    
-	    if ($afdam !~ m/\./) {$afdam.=".00";}
-	    if ($afdam !~ m/\.[0-9][0-9]/) {$afdam.="0";}
-	    if ($afdam > 20) {
-		if ($afdam>=80) {
-		    $af_colapsed++;
-		    if ($afdam<100) {$afdam="&nbsp;".$afdam;}
-		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
-		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n";
-		}
-		else {
-		    $afdam="&nbsp;".$afdam;
-		    print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n";
-		    print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n";
-		}
-	    }
-	    else {
-		$afdam="&nbsp;".$afdam;
-		print MAPA "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n";
-		print STA  "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n";
-	    }
-	}
-    }
-    
-    if ($af_num == $af_colapsed) {$af_blue_colapsed = 1;}
-    
-    print MAPA  "</table><br><br>";
-    print STA   "</table><br><br>";
-    
-    print MAPA  "<b>Capacidad aerea: </b><br>\n";
-    print STA   "<b>Capacidad aerea: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$blue_air_pot%</font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$blue_air_pot%</font></td></tr>\n";
-    print MAPA  "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$blue_air%<b></font></td></tr>\n";
-    print STA   "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$blue_air%<b></font></td></tr>\n";
-    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
-    print STA   "</table><br><br></td></tr></table><br><br>\n";        
+    ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed) = print_airfield_damage(MAPA, STA, GEO_OBJ);
+    my @cg_red_bases = @$cg_red_bases;
+    my @cg_blue_bases = @$cg_blue_bases;
 
-    
     ## informe de daños Ciudades
     print MAPA  "<br><br><table border=1 ><tr><td valign=\"top\">\n";
     print STA   "<br><br><table border=1 ><tr><td valign=\"top\">\n";
