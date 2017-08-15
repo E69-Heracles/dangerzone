@@ -374,10 +374,10 @@ sub print_airfield_damage_for_army($$$$$) {
         $af_total_colapsed = 1;
     }
     
+    my $capacidad_percentage =  ($air / $air_pot) * 100.0;
+    my $capacidad = sprintf("%.2f", $capacidad_percentage);
     print_map_and_sta($map, $sta, "</table><br><br>\n");
-    print_map_and_sta($map, $sta, "<b>Capacidad aerea: </b><br>\n");    
-    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Potencial :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$air_pot%</font></td></tr>\n");
-    print_map_and_sta($map, $sta, "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$air%<b></font></td></tr>\n");
+    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td><b>Capacidad aerea: </b></td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$capacidad%</font></td></tr>\n");
     print_map_and_sta($map, $sta, "</table><br><br></td>");
 
     return (\@cg_bases, $af_total_colapsed);
