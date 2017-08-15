@@ -7,6 +7,13 @@ Dangerzone 2.0 is a dynamic campaign generator for *Il-2 Sturmovik 1946* based o
 > Know-Bugs: NaN... err many many:)
 > Unknown-Bugs: the double of the Known ones :)
 
+## About new features
+
+DangerZone 2.0 main new feature is a planeset inventory manager. This feature has been build from scratch and is now in beta stage and in continuous development. Template aircrafts.data has been modified to accommodate inventory manager requeriments. Also, two more stages (4_stage.pl and 5_stage.pl) have been added:
+
+  * 4th stage is a help to validate inventory attributes of campaign aircraft.data. This stage generates a report.
+  * 5th stage is also a help to add front map sector info into campaing imap.data
+
 ## Development environment
 
 You need [Docker](https://docs.docker.com/engine/installation/) to install the development environment.

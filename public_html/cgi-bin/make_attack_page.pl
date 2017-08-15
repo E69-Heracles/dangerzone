@@ -319,8 +319,8 @@ print MAPA  &print_start_html;
     print STA   "</table><br>\n";            
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n";
 
     my $red_stock = 0;
     my $blue_stock = 0;
@@ -394,8 +394,8 @@ print MAPA  &print_start_html;
     print STA   "</table><br>\n";            
     print MAPA  "<b>Producción de aviones: </b><br>\n";
     print STA   "<b>Producción de aviones: </b><br>\n";
-    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
-    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Centro logístico (%):</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>100</b></font></td></tr>\n";
+    print MAPA  "<table>\n<col width=\"150\"> <col width=\"50\">\n";
+    print STA   "<table>\n<col width=\"150\"> <col width=\"50\">\n";
     print MAPA  "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
     print STA   "<tr><td>Existencias:</td><td align=\"right\"><b>$blue_stock</b></td></tr>\n";
     print MAPA  "<tr><td>Pérdidas:</td><td align=\"right\"><b>$blue_losts</b></td></tr>\n";
@@ -427,6 +427,148 @@ print MAPA  &print_start_html;
     print STA   "<tr><td>Por avión SUM (%):</td><td align=\"right\"><b>$blue_supply_city</b></td></tr>\n";    
     print MAPA  "</table><br><br></td></tr></table><br><br>\n";
     print STA   "</table><br><br></td></tr></table><br><br>\n";
+
+        if ($INVENTARIO) {
+    
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
+        print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
+        exit(0);
+    }       
+    
+        ## informe de inventario de aviones rojos
+        print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
+        print STA   "<table border=1 ><tr><td valign=\"top\">\n";
+
+        print MAPA  "<b>Inventario de aviones rojos:</b><br>\n";
+        print STA   "<b>Inventario de aviones rojos:</b><br>\n";
+
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+    
+    seek FLIGHTS, 0, 0;
+    while (<FLIGHTS>) {
+        if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
+        my $plane_model = $1;
+        my $plane_number = $3;
+        my $plane_lost = $5;
+        
+        print MAPA "<tr><td> $plane_model </td><td>"; 
+        print STA "<tr><td> $plane_model </td><td>"; 
+        
+        my $line_back = tell FLIGHTS;
+        seek FLIGHTS,0,0;
+            while (<FLIGHTS>){
+            if ($_ =~ m/^1,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+            print MAPA "$1,";
+            print STA "$1,";
+            $red_task_stock{$1} += $plane_number;
+            }
+        }
+        
+        if ($plane_number <= 10) { 
+            print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+        }
+        else {
+            if ( $plane_number <= 50 ) {
+            print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";         
+            }
+            else {
+            print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";            
+            }
+        }
+        
+        print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
+        print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n";  
+        
+        seek FLIGHTS, $line_back, 0;
+        }
+    }
+    
+    if ($red_task_stock{BD} == 0 || $red_task_stock{EBD} == 0 || $red_task_stock{ET} == 0 || $red_task_stock{AT} == 0 || $red_task_stock{I} == 0) {$red_stock_out = 1;}
+    
+    print MAPA  "</table><br><br>\n";
+    print STA   "</table><br><br>\n";
+
+    print MAPA "<br><br>\n";
+    print STA   "<br><br>\n";
+
+    print MAPA  "</td><td valign=\"top\">\n";
+    print STA   "</td><td valign=\"top\">\n";
+        
+    ## informe de inventario de aviones azules
+        print MAPA  "<b>Inventario de aviones azules:</b><br>\n";
+        print STA   "<b>Inventario de aviones azules:</b><br>\n";
+
+        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
+    
+    seek FLIGHTS, 0, 0;
+    while (<FLIGHTS>) {
+        if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
+        my $plane_model = $1;
+        my $plane_number = $3;
+        my $plane_lost = $5;
+        
+        print MAPA "<tr><td> $plane_model </td><td>"; 
+        print STA "<tr><td> $plane_model </td><td>"; 
+        
+        my $line_back = tell FLIGHTS;
+        seek FLIGHTS,0,0;
+            while (<FLIGHTS>){
+            if ($_ =~ m/^2,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
+            print MAPA "$1,";
+            print STA "$1,";
+            $blue_task_stock{$1} += $plane_number;          
+            }
+        }
+        
+        if ($plane_number <= 10) { 
+            print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
+        }
+        else {
+            if ( $plane_number <= 50 ) {
+            print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";         
+            }
+            else {
+            print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
+            print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";            
+            }
+        }
+
+        print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
+        print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
+        
+        seek FLIGHTS, $line_back, 0;
+        }
+    }
+    
+    if ($blue_task_stock{BD} == 0 || $blue_task_stock{EBD} == 0 || $blue_task_stock{ET} == 0 || $blue_task_stock{AT} == 0 || $blue_task_stock{I} == 0) {$blue_stock_out = 1;}   
+
+    print MAPA  "</table><br><br></td></tr></table><br><br>\n";
+    print STA   "</table><br><br></td></tr></table><br><br>\n";
+    
+    close (FLIGHTS);
+    
+    if ($PRODUCCION) {
+        if (open (ALB, "<$albaran")) {
+        seek ALB, 0, 0;
+        while (<ALB>) {
+            print MAPA;
+            print STA;
+        }
+        close (ALB);
+        }               
+    }
+    
+    }
     
     ## informe de daños aerodormos
     print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
@@ -566,148 +708,6 @@ print MAPA  &print_start_html;
     print STA   "<tr><td>Disponible :</td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\"><b>$blue_air%<b></font></td></tr>\n";
     print MAPA  "</table><br><br></td></tr></table><br><br>\n";
     print STA   "</table><br><br></td></tr></table><br><br>\n";    
-
-    if ($INVENTARIO) {
-	
-	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
-	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
-	    print "Please NOTIFY this error.\n";
-	    print &print_end_html();
-	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n\n";
-	    exit(0);
-	}    	
-	
-        ## informe de inventario de aviones rojos
-        print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
-        print STA   "<table border=1 ><tr><td valign=\"top\">\n";
-
-        print MAPA  "<b>Inventario de aviones rojos:</b><br>\n";
-        print STA   "<b>Inventario de aviones rojos:</b><br>\n";
-
-        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
-        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
-	
-	seek FLIGHTS, 0, 0;
-	while (<FLIGHTS>) {
-	    if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
-		my $plane_model = $1;
-		my $plane_number = $3;
-		my $plane_lost = $5;
-		
-		print MAPA "<tr><td> $plane_model </td><td>"; 
-		print STA "<tr><td> $plane_model </td><td>"; 
-		
-		my $line_back = tell FLIGHTS;
-		seek FLIGHTS,0,0;
-	        while (<FLIGHTS>){
-		    if ($_ =~ m/^1,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
-			print MAPA "$1,";
-			print STA "$1,";
-			$red_task_stock{$1} += $plane_number;
-		    }
-		}
-		
-		if ($plane_number <= 10) { 
-		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
-		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
-		}
-		else {
-		    if ( $plane_number <= 50 ) {
-			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
-			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";			
-		    }
-		    else {
-			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
-			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";			
-		    }
-		}
-		
-		print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
-		print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 	
-		
-		seek FLIGHTS, $line_back, 0;
-	    }
-	}
-	
-	if ($red_task_stock{BD} == 0 || $red_task_stock{EBD} == 0 || $red_task_stock{ET} == 0 || $red_task_stock{AT} == 0 || $red_task_stock{I} == 0) {$red_stock_out = 1;}
-	
-	print MAPA  "</table><br><br>\n";
-	print STA   "</table><br><br>\n";
-
-	print MAPA "<br><br>\n";
-	print STA   "<br><br>\n";
-
-	print MAPA  "</td><td valign=\"top\">\n";
-	print STA   "</td><td valign=\"top\">\n";
-        
-	## informe de inventario de aviones azules
-        print MAPA  "<b>Inventario de aviones azules:</b><br>\n";
-        print STA   "<b>Inventario de aviones azules:</b><br>\n";
-
-        print MAPA  "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
-        print STA   "<table><tr><td>Modelo</td><td>Tipo</td><td>Existencias</td><td>Pérdidas</td></tr>";
-	
-	seek FLIGHTS, 0, 0;
-	while (<FLIGHTS>) {
-	    if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){
-		my $plane_model = $1;
-		my $plane_number = $3;
-		my $plane_lost = $5;
-		
-		print MAPA "<tr><td> $plane_model </td><td>"; 
-		print STA "<tr><td> $plane_model </td><td>"; 
-		
-		my $line_back = tell FLIGHTS;
-		seek FLIGHTS,0,0;
-	        while (<FLIGHTS>){
-		    if ($_ =~ m/^2,[^,]+,$plane_model,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+:([^,]+),/){
-			print MAPA "$1,";
-			print STA "$1,";
-			$blue_task_stock{$1} += $plane_number;			
-		    }
-		}
-		
-		if ($plane_number <= 10) { 
-		    print MAPA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
-		    print STA "</td><td align=\"right\"><font color=\"red\"><b>$plane_number</b></font></td>";
-		}
-		else {
-		    if ( $plane_number <= 50 ) {
-			print MAPA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";
-			print STA "</td><td align=\"right\"><font color=\"blue\"><b>$plane_number</b></font></td>";			
-		    }
-		    else {
-			print MAPA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";
-			print STA "</td><td align=\"right\"><font color=\"green\"><b>$plane_number</b></font></td>";			
-		    }
-		}
-
-		print MAPA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
-		print STA "<td align=\"right\"><font color=\"black\">$plane_lost</td><td></tr>\n"; 
-		
-		seek FLIGHTS, $line_back, 0;
-	    }
-	}
-	
-	if ($blue_task_stock{BD} == 0 || $blue_task_stock{EBD} == 0 || $blue_task_stock{ET} == 0 || $blue_task_stock{AT} == 0 || $blue_task_stock{I} == 0) {$blue_stock_out = 1;}	
-
-	print MAPA  "</table><br><br></td></tr></table><br><br>\n";
-	print STA   "</table><br><br></td></tr></table><br><br>\n";
-	
-	close (FLIGHTS);
-	
-	if ($PRODUCCION) {
-	    if (open (ALB, "<$albaran")) {
-		seek ALB, 0, 0;
-		while (<ALB>) {
-		    print MAPA;
-		    print STA;
-		}
-		close (ALB);
-	    }    		    
-	}
-	
-    }
     
     ## informe de daños Ciudades
     print MAPA  "<br><br><table border=1 ><tr><td valign=\"top\">\n";
