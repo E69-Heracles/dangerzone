@@ -90,7 +90,8 @@ sub calc_sua_capacity($);
 sub get_map_vday();
 sub set_map_vday();
 sub is_in_radius($$$$$);
-sub print_map_and_points($)
+sub print_map_and_points($);
+sub print_time_and_weather($$$$$$$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -5175,13 +5176,7 @@ sub make_attack_page(){
     open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
 
     print_map_and_points(MAPA);
-    
-    print MAPA  "<br><br><font size=\"+1\"> Dia de campaña <b>$map_vday</b> de <b>$CAMPAIGN_MAX_VDAY</b><br>\n";
-    print MAPA  "<font size=\"+1\">Siguiente misión del día:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-    print STA   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
-
-    print MAPA  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
-    print STA   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
+    print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
 
     print MAPA  "<table border=1 ><tr><td valign=\"top\">\n";
     print STA   "<table border=1 ><tr><td valign=\"top\">\n";
