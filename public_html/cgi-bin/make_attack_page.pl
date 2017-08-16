@@ -2,6 +2,7 @@
 
 require "config.pl";
 require "ui.pl";
+require "dzclima.pl";
 require "dztools.pl";
 require "dzmap.pl";
 
@@ -107,6 +108,8 @@ sub print_headquarter($$);
 sub print_plane_inventory($$$);
 sub print_airfield_damage($$$);
 sub print_city_damage($$$);
+sub compute_time_and_weather($$$);
+sub get_report_nbr_for_read();
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -121,15 +124,6 @@ sub printdebug($) {
 }
 
 chdir $CGI_BIN_PATH; 
-
-if (!(open (COU,"<rep_counter.data"))){
-    die "ERROR: Can't open report counter file : $!\n";
-}
-$ext_rep_nbr=<COU>;
-$rep_count=$ext_rep_nbr;
-$rep_count =~ s/_//;
-close (COU);
-
 
 if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
     print "$big_red ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on main proc <br>\n";
@@ -149,90 +143,8 @@ my $af_blue_colapsed=0;
 my $red_hq_captured=0;
 my $blue_hq_captured=0;
 
-#CLIMA para la proxima mision
-
-my $hora;
-my $minutos;
-my $clima;
-my $nubes;
-srand;
-$mission_of_day=(($rep_count) % $MIS_PER_VDAY); # MoD for NEXT mission
-if ($mission_of_day==0) {$mission_of_day=$MIS_PER_VDAY;}
-
-my $map_vday = get_map_vday();
-
-my $time_increase= int((($SUNSET - $SUNRISE)*60) / $MIS_PER_VDAY); # (12 hours * 60 minutes/hour) / $MIS_PER_VDAY
-$hora=$SUNRISE;
-$minutos=0;
-$min_diff=($rep_count % $MIS_PER_VDAY) * $time_increase;
-$min_diff+=int(rand($min_diff));  # 0 ~ ($min_diff -1) random extra time.
-$hora+= int($min_diff /60);
-$minutos+= int($min_diff % 60);
-
-$clima=int(rand(100))+1; #1..100 
-$nubes=500+(int(rand(10))+1)*100; # 500 .. 1500
-
-my $new_clima=0;
-if (! open (CLIMA,"<clima.txt")) { # cant open weather file, we use random values
-    open (CLIMA,">clima.txt");
-    print CLIMA $hora."\n";
-    print CLIMA $minutos."\n";
-    print CLIMA $clima."\n";
-    print CLIMA $nubes."\n";
-    close(CLIMA);
-    print "WARNING: CAN'T OPEN clima.txt, creating one <br>\n";
-    $new_clima=1;
-}
-else { # we read weather values from file (warning, not cheking for corrup data file)
-    $hora=readline(CLIMA);
-    chop($hora);
-    $minutos=readline(CLIMA);
-    chop($minutos);
-    $clima=readline(CLIMA);
-    chop($clima);
-    $nubes=readline(CLIMA);
-    chop($nubes);
-    close(CLIMA);
-}
-
-    my $tipo_clima;
-    my $tipo_clima_spa;
-    if ($clima<=20){ # clima 1..20 -> 20% Clear
-	$tipo_clima="Clear";
-	$tipo_clima_spa="Despejado";
-	$nubes=" -- "; # para  la pagina del generador. (ya esta guardado en disco).
-    }
-    if ($clima>20 && $clima<=90){ # clima 21..90 -> 70% Good
-	$tipo_clima="Good";
-	$tipo_clima_spa="Bueno";	
-    }
-    if ($clima>90 && $clima<=95){ # clima 91..95 -> 5% Blind
-	$tipo_clima="Low Visibility";
-	$tipo_clima_spa="Baja visibilidad";	
-    }
-    if ($clima>95 && $clima<=99){ # clima 96..99 -> 4% Rain/Snow
-	$tipo_clima="Precipitations";
-	$tipo_clima_spa="Lluvia";	
-    }
-    if ($clima>99 && $clima<=100){ # clima only 100 -> 1% Strom
-	$tipo_clima="Storm";
-	$tipo_clima_spa="Tormenta";	
-    }
-
-    if ($new_clima){
-        my $localt="";
-        if ($WINDOWS) {
-    	$localt=localtime(time);
-        }
-        else {
-    	$localt=`date`;	
-        }
-        open (CLIMACTL,">>clima_control.txt");
-        print CLIMACTL "Manual change -  hora: $hora min: $minutos nubes: $nubes clima: $clima = ";    
-        print CLIMACTL "$tipo_clima : $localt";
-        close(CLIMACTL);
-    }
-
+    my $rep_nbr = get_report_nbr_for_read();
+    ($map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes) = compute_time_and_weather(0, STDOUT, $rep_nbr);
 
     $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
     my $Options_R="Options_R.txt";

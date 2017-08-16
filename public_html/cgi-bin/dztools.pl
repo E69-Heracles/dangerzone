@@ -22,7 +22,7 @@ sub set_sua_capacity($$){
     my $army = shift @_;
     my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
     
-    printdebug ("set_sua_capacity(): Entrando con capacidad $capacity");
+    printdebug ("set_sua_capacity(): Entrando con capacidad $capacity\n");
     
     open (TEMPGEO, ">temp_geo.data"); #
     seek GEO_OBJ, 0, 0;
@@ -39,7 +39,7 @@ sub set_sua_capacity($$){
 	print "$big_red FATAL ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on sub eventos_aire <br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
-	printdebug ("set_sua_capacity(): ERROR: Can't open File $GEOGRAFIC_COORDINATES: $!");
+	printdebug ("set_sua_capacity(): ERROR: Can't open File $GEOGRAFIC_COORDINATES: $!\n");
 	exit(0);
     }    
 }
@@ -306,7 +306,7 @@ sub calc_stocks_plane() {
 	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
-	printdebug (" ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()");
+	printdebug (" ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n");
 	exit(0);
     }    
 
@@ -338,7 +338,7 @@ sub calc_stocks_plane() {
     }
     
     $blue_stock = $planereal;
-    printdebug ("calc_stocks_plane(): rojos/perdidas $red_stock/$red_losts azules/perdidas $blue_stock/$blue_losts");    
+    printdebug ("calc_stocks_plane(): rojos/perdidas $red_stock/$red_losts azules/perdidas $blue_stock/$blue_losts\n");    
     return($red_stock, $blue_stock, $red_losts, $blue_losts);
 }
 
@@ -557,8 +557,76 @@ sub print_map_and_sta($$$) {
 ## Get army HQ
 sub get_hq($) {
     my $army = shift @_;
-    
+
     return ($army == 1) ? $RED_HQ : $BLUE_HQ;
+}
+
+## @Heracles@20170816
+## Print a text to a log if we are in debug mode
+sub print_log($$) {
+    
+    if ($DZDEBUG) 
+    {
+        my $log = shift (@_);
+        my $msg = shift (@_);
+        
+        print $log " Pid $$ : " .scalar(localtime(time)) . $msg . "\n";  
+    }
+}
+
+## @Heracles@20170816
+## Read the current mission number without locking rep_counter.data
+sub get_report_nbr_for_read() {
+    if (!(open (COU,"<rep_counter.data")))
+    {
+        die "ERROR: Can't open report counter file : $!\n";
+    }
+    
+    $ext_rep_nbr=<COU>;
+    $rep_count=$ext_rep_nbr;
+    $rep_count =~ s/_//;
+    close (COU);    
+
+    return $rep_count;
+}
+
+## @Heracles@20170816
+## Read and increment the current mission number locking rep_counter.data
+sub get_report_nbr(){
+
+    my $extend="_";
+    my $counter;
+    my $ret=0;
+    
+    if (!(open (COU,"<rep_counter.data")))
+    {
+        print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        unlink $parser_lock;
+        print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open report counter file : $!\n\n";
+        exit(0);
+    }
+
+    $counter=<COU>;
+    close(COU);
+    
+    if (!(open (COU,">rep_counter.data")))
+    {
+        print "$big_red ERROR:  Can't open report counter file : $! (update)<br>\n";
+        print "Please NOTIFY this error.\n";
+        print &print_end_html();
+        unlink $parser_lock;
+        print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open report counter file : $!\n\n";
+        exit(0);
+    }
+
+    $extend=$counter;
+    $counter =~ s/_//;
+    printf COU ("_%05.0f",$counter+1);
+    close(COU);
+    
+    return($extend); ## retorna:   _%05.0f
 }
 
 1;
