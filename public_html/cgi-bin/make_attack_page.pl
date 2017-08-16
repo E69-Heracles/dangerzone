@@ -4,6 +4,7 @@ require "config.pl";
 require "ui.pl";
 require "dztools.pl";
 require "dzmap.pl";
+require "dzoptions.pl";
 
 use IO::Handle;   # because autoflush
 use DBI();
@@ -101,6 +102,8 @@ sub printdebug($);
 sub get_report_nbr_for_read();
 sub print_map_page($$$$);
 
+sub tactical_targets($$$);
+
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
     return (sqrt(($x1-$x2)**2+($y1-$y2)**2));
@@ -142,50 +145,10 @@ open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
 open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
  
     my @red_possible=();
-    my $line_back;
     ## seleccion de objetivos al azar TACTICOS ROJOS
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:2.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $near=500000; # gran distancia para comenzar (500 km)
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:1/){ #sectores rojos
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				    # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
-					push (@red_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@red_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
+    $possible = tactical_targets(1, 2, GEO_OBJ);
+    push(@red_possible, @$possible);
+
     ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO AF)
     ## @Heracles@20110727
     ## Solo seleccionar AF para misión BA si quedan aviones BA
@@ -298,51 +261,11 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
     }
 
 
-#------------------------------------------------------
-
     ## seleccion de objetivos al azar TACTICOS AZULES
     my @blue_possible=();
-    seek GEO_OBJ,0,0;
-    while(<GEO_OBJ>) {
-	if ($_ =~  m/SEC[^,]+,([^,]+),([^,]+),([^,]+),[^:]*:1.*$/) {
-	    $tgt_name=$1;
-	    $cxo=$2;
-	    $cyo=$3;
-	    $line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo
-	    seek GEO_OBJ,0,0;
-	    while(<GEO_OBJ>) {
-		if ($_ =~ m/SEC[^,]+,[^,]+,([^,]+),([^,]+),[^,]+,[^:]+:2/){ #sectores azules
-		    $dist= distance($cxo,$cyo,$1,$2);
-		    if ($dist<16000) {
-			my $cityname="NONE";
-			seek GEO_OBJ,0,0;
-			while(<GEO_OBJ>) {
-			    if  ($_ =~ m/poblado,([^,]+),$tgt_name/ ) { # si es un sec con city: poblado,Obol,sector--A15
-				$cityname=$1;
-			    }
-			}
-			if ($cityname ne "NONE") {
-			    seek GEO_OBJ,0,0;
-			    while(<GEO_OBJ>) {
-				if ( $_ =~ m/^CT[0-9]{2},$cityname,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[12].*$/) {
-				   # print "valor da~nos $cityname = $1 \n";
-				    if ($1 >50) {
-					push (@blue_possible,$tgt_name);
-					last;
-				    }
-				}
-			    }
-			}
-			else {
-			    push (@blue_possible,$tgt_name);
-			    last;
-			}
-		    }
-		}
-	    }
-	    seek GEO_OBJ,$line_back,0; # regrresamos a la misma sig linea	    
-	}
-    }
+    $possible = tactical_targets(2, 1, GEO_OBJ);
+    push(@blue_possible, @$possible);
+
     ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO AF)
     ## @Heracles@20110727
     ## Solo seleccionar AF para misión BA si quedan aviones BA
