@@ -8,9 +8,12 @@ sub get_sua_capacity($);
 sub set_sua_capacity($$);
 sub calc_sum_plane_supply($$);
 sub calc_sectors_owned();
+sub get_hq($);
+
 sub print_headquarter_for_army($$$$$$$$$$$);
 sub print_plane_inventory_for_army($$$$$$);
 sub print_airfield_damage_for_army($$$$$);
+sub print_city_damage_for_army($$$$$);
 
 ## @Heracles@20170815
 ## Campaign map info header creation
@@ -291,7 +294,7 @@ sub print_airfield_damage($$$) {
 }
 
 ## @Heracles@20170815
-## Campaign map airfield damage info
+## Campaign map airfield damage info for army
 sub print_airfield_damage_for_army($$$$$) {
 
     my $map = shift @_;
@@ -343,28 +346,15 @@ sub print_airfield_damage_for_army($$$$$) {
             {
                 $afdam.="0";
             }
-            if ($afdam > 20) 
+
+            my $color = "green";
+            if ($afdam>=80) 
             {
-                if ($afdam>=80) 
-                {
-                    $af_colapsed++;
-                    if ($afdam<100) 
-                    {
-                        $afdam="&nbsp;".$afdam;
-                    }
-                    print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"red\"><b>$afdam%</b></font></td></tr>\n");
-                }
-                else 
-                {
-                    $afdam="&nbsp;".$afdam;
-                    print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"blue\"><b>$afdam%</b></font></td></tr>\n");
-                }
+                $af_colapsed++;
+                $color = "red";
             }
-            else 
-            {
-                $afdam="&nbsp;".$afdam;
-                print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"green\"><b>$afdam%</b></font></td></tr>\n");
-            }
+            $afdam="&nbsp;".$afdam;
+            print_map_and_sta($map, $sta, "<tr><td> $afname </td><td align=\"right\"> &nbsp;&nbsp;&nbsp;<font color=\"$color\"><b>$afdam%</b></font></td></tr>\n");
         }
     }
     
@@ -375,10 +365,69 @@ sub print_airfield_damage_for_army($$$$$) {
     }
     
     my $capacidad_percentage =  ($air / $air_pot) * 100.0;
-    my $capacidad = sprintf("%.2f", $capacidad_percentage);
+    my $capacidad = sprintf("%.2f", $capacidad_percentage); 
     print_map_and_sta($map, $sta, "</table><br><br>\n");
     print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td><b>Capacidad aerea: </b></td><td align=\"right\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=\"black\">$capacidad%</font></td></tr>\n");
     print_map_and_sta($map, $sta, "</table><br><br></td>");
 
     return (\@cg_bases, $af_total_colapsed);
+}
+
+## @Heracles@20170816
+## Campaign map city damage info
+sub print_city_damage($$$) {
+
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $geo = shift @_;
+
+    print_map_and_sta($map, $sta, "<table border=1 ><tr>");
+
+    $red_hq_captured = print_city_damage_for_army($map, $sta, $geo, "rojas", 1);
+    $blue_hq_captured = print_city_damage_for_army($map, $sta, $geo, "azules", 2);
+
+    print_map_and_sta($map, $sta, "</tr></table>\n");
+
+    return ($red_hq_captured, $blue_hq_captured);
+}
+
+## @Heracles@20170816
+## Campaign map city damage info for army
+sub print_city_damage_for_army($$$$$) {
+
+    my $map = shift @_;
+    my $sta = shift @_;
+    my $geo = shift @_;
+    my $army_color = shift @_;
+    my $army = shift @_;
+
+    print_map_and_sta($map, $sta, "<td valign=\"top\">\n");
+    print_map_and_sta($map, $sta, "<b>Estado de las ciudades $army_color:</b><br>\n");
+    print_map_and_sta($map, $sta, "<table><tr><td>Ciudad</td><td>Da&ntilde;o</td><td>Suministro</td></tr>");
+
+    seek $geo, 0, 0;
+    while(<$geo>) 
+    {
+        if ($_ =~ m/^(CT[0-9]+),([^,]+),.*,([^,]+),([^,]+):\Q$army\E/)
+        {
+            my $color = "green";
+            if ($3 >= $CITY_DAM) 
+            {
+                $color = "red";
+            }
+
+            print_map_and_sta($map, $sta, "<tr><td> $2 </td><td><font color=\"$color\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n");
+    
+            my $hq_captured = 0;
+            if ( $2 eq get_hq($army) ) 
+            { 
+                $hq_captured = 1;
+            }
+        }
+    }
+
+    print_map_and_sta($map, $sta, "</table><br><br></td>");
+
+    return $hq_captured;
+
 }

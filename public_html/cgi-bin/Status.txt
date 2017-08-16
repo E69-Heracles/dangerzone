@@ -161,9 +161,9 @@
 <col width="150"> <col width="50">
 <tr><td><b>Capacidad aerea: </b></td><td align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="black">100.00%</font></td></tr>
 </table><br><br></td></tr></table><br><br>
-<br><br><table border=1 ><tr><td valign="top">
+<table border=1 ><tr><td valign="top">
 <b>Estado de las ciudades rojas:</b><br>
-<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr><tr><td> Balti </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
+<table><tr><td>Ciudad</td><td>Da&ntilde;o</td><td>Suministro</td></tr><tr><td> Balti </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
 <tr><td> Rybnitsa </td><td><font color="green"><b> 0% </b></font></td><td> 40 Km.</td></tr>
 <tr><td> Ananyev </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>
 <tr><td> Odessa </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
@@ -194,11 +194,9 @@
 <tr><td> Sahaidac </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
 <tr><td> Sarateni </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
 <tr><td> Cornesti-Targ </td><td><font color="green"><b> 0% </b></font></td><td> 20 Km.</td></tr>
-</table><br><br>
-<br><br>
-</td><td valign="top">
+</table><br><br></td><td valign="top">
 <b>Estado de las ciudades azules:</b><br>
-<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr><tr><td> Botosani </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
+<table><tr><td>Ciudad</td><td>Da&ntilde;o</td><td>Suministro</td></tr><tr><td> Botosani </td><td><font color="green"><b> 0% </b></font></td><td> 30 Km.</td></tr>
 <tr><td> Roman </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
 <tr><td> Bacau </td><td><font color="green"><b> 0% </b></font></td><td> 25 Km.</td></tr>
 <tr><td> Focsani </td><td><font color="green"><b> 0% </b></font></td><td> 35 Km.</td></tr>

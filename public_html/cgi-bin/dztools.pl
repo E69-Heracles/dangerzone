@@ -553,4 +553,12 @@ sub print_map_and_sta($$$) {
     print $sta $text;
 }
 
+## @Heracles@20170816
+## Get army HQ
+sub get_hq($) {
+    my $army = shift @_;
+    
+    return ($army == 1) ? $RED_HQ : $BLUE_HQ;
+}
+
 1;

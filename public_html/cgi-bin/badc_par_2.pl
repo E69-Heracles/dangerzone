@@ -94,6 +94,7 @@ sub print_map_and_points($);
 sub print_time_and_weather($$$$$$$$);
 sub print_plane_inventory($$$);
 sub print_airfield_damage($$$);
+sub print_city_damage($$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -5189,73 +5190,7 @@ sub make_attack_page(){
     my @cg_red_bases = @$cg_red_bases;
     my @cg_blue_bases = @$cg_blue_bases;
 
-    ## informe de daños Ciudades
-    print MAPA  "<br><br><table border=1 ><tr><td valign=\"top\">\n";
-    print STA   "<br><br><table border=1 ><tr><td valign=\"top\">\n";
-
-    print MAPA  "<b>Estado de las ciudades rojas:</b><br>\n";
-    print STA   "<b>Estado de las ciudades rojas:</b><br>\n";
-
-    print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
-    print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministros</td></tr>";
-
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) {
-	if ($_ =~ m/^(CT[0-9]+),([^,]+),.*,([^,]+),([^,]+):1/){
-	    if ($3 > $CITY_DAM) {
-		print MAPA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		print STA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-	    }
-	    else {
-		if ( $3 > 25) {
-		    print MAPA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		    print STA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
-		}
-		else {
-		    print MAPA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		    print STA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
-		}
-	    }
-	    if ( $2 eq $BLUE_HQ ) { $blue_hq_captured = 1;}
-	}
-    }
-    print MAPA  "</table><br><br>\n";
-    print STA   "</table><br><br>\n";
-
-    print MAPA "<br><br>\n";
-    print STA   "<br><br>\n";
-
-    print MAPA  "</td><td valign=\"top\">\n";
-    print STA   "</td><td valign=\"top\">\n";
-
-    print MAPA  "<b>Estado de las ciudades azules:</b><br>\n";
-    print STA   "<b>Estado de las ciudades azules:</b><br>\n";
-
-    print MAPA  "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
-    print STA   "<table><tr><td>Ciudad</td><td>Daño</td><td>Suministro</td></tr>";
-
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) {
-	if ($_ =~ m/^(CT[0-9]+),([^,]+),.*,([^,]+),([^,]+):2/){
-	    if ($3 > $CITY_DAM) {
-		print MAPA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		print STA "<tr><td> $2 </td><td><font color=\"red\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-	    }
-	    else {
-		if ( $3 > 25) {
-		    print MAPA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		    print STA "<tr><td> $2 </td><td><font color=\"blue\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
-		}
-		else {
-		    print MAPA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";
-		    print STA "<tr><td> $2 </td><td><font color=\"green\"><b> $3% </b></font></td><td> $4 Km.</td></tr>\n";		    
-		}
-	    }
-	    if ( $2 eq $RED_HQ ) { $red_hq_captured = 1;}
-	}
-    }
-    print MAPA  "</table><br><br></td></tr></table>\n";
-    print STA   "</table><br><br></td></tr></table>\n";
+    ($red_hq_captured, $blue_hq_captured) = print_city_damage(MAPA, STA, GEO_OBJ);
 
     print MAPA  "<p><strong>Mapa del Frente:</strong><br>";
     print STA   "<p><strong>Mapa del Frente:</strong><br>";
