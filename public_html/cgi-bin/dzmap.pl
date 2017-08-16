@@ -1,5 +1,8 @@
 require "config.pl";
+require "dzclima.pl";
 require "dztools.pl";
+
+sub compute_time_and_weather($$$);
 
 sub calc_map_points();
 sub print_map_and_sta($$$);
@@ -429,5 +432,47 @@ sub print_city_damage_for_army($$$$$) {
     print_map_and_sta($map, $sta, "</table><br><br></td>");
 
     return $hq_captured;
+}
 
+## @Heracles@20170816
+## Campaign map page creation (old make_attack_page())
+sub print_map_page($$$$) {
+    
+    my $geo = shift @_;
+    my $log = shift @_;
+    my $weather_for_next_mission = shift @_; #allowed values 0 or 1
+    my $rep_nbr = shift @_;
+
+    ($map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes) = compute_time_and_weather($weather_for_next_mission, $log, $rep_nbr);
+
+    my $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
+    my $Status="Status.txt";
+
+    open (MAPA,">$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
+    open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
+
+    print_map_and_points(MAPA);    
+    print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
+   
+    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply) = print_headquarter(MAPA, STA);
+    ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out) = print_plane_inventory(MAPA, STA, $log);
+    ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed) = print_airfield_damage(MAPA, STA, $geo);
+    ($red_hq_captured, $blue_hq_captured) = print_city_damage(MAPA, STA, $geo);
+
+    print_map_and_sta(MAPA, STA, "<p><strong>Mapa del Frente:</strong><br>");
+
+    open (IMAP,"<$IMAP_DATA");
+    while(<IMAP>)
+    {
+        print MAPA;
+    }
+    close(IMAP);
+
+    my $footer = `php ../dz_page_footer.php`;
+    print MAPA $footer;
+
+    close (MAPA);
+    close (STA);
+
+    return ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured);
 }

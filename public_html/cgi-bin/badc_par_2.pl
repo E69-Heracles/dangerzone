@@ -1,10 +1,8 @@
 #!/usr/bin/perl 
 
-
 require "config.pl";
 require "cgi-lib.pl";
 require "ui.pl";
-require "dzclima.pl";
 require "dztools.pl";
 require "dzmap.pl";
 
@@ -92,12 +90,7 @@ sub get_map_vday();
 sub set_map_vday();
 sub is_in_radius($$$$$);
 
-sub print_map_and_points($);
-sub print_time_and_weather($$$$$$$$);
-sub print_plane_inventory($$$);
-sub print_airfield_damage($$$);
-sub print_city_damage($$$);
-sub compute_time_and_weather($$$);
+sub print_map_page($$$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -5062,47 +5055,21 @@ sub make_attack_page(){
 	I=>0
     );    
     
-    
-    ($map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes) = compute_time_and_weather(0, STDOUT, $rep_nbr);
 
-    $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
-    my $Options_R="Options_R.txt";
-    my $Options_B="Options_B.txt";
-    my $Status="Status.txt";
-    my $albaran="albaran.txt";
-
-    open (MAPA,">$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
-    open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
-    open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
-    open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
-
-    print_map_and_points(MAPA);
-    print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
-    
-    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply) = print_headquarter(MAPA, STA);
-    ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out) = print_plane_inventory(MAPA, STA, PAR_LOG);
+    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, PAR_LOG, 1, $rep_nbr);
     my %red_task_stock = %$red_task_stock;
     my %blue_task_stock = %$blue_task_stock;
-
-    ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed) = print_airfield_damage(MAPA, STA, GEO_OBJ);
     my @cg_red_bases = @$cg_red_bases;
     my @cg_blue_bases = @$cg_blue_bases;
+    
+    
+    my $Options_R="Options_R.txt";
+    my $Options_B="Options_B.txt";
+    my $albaran="albaran.txt";
 
-    ($red_hq_captured, $blue_hq_captured) = print_city_damage(MAPA, STA, GEO_OBJ);
+    open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
+    open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
 
-    print MAPA  "<p><strong>Mapa del Frente:</strong><br>";
-    print STA   "<p><strong>Mapa del Frente:</strong><br>";
-
-    open (IMAP,"<$IMAP_DATA");
-    while(<IMAP>){
-	print MAPA;
-    }
-    close(IMAP);
-#    print MAPA "<br><br><IMG SRC=\"/images/suply.jpg\" WIDTH=900 HEIGHT=780 BORDER=0 alt=\"Suply Radius\"><br><br>\n";
-    print MAPA  &print_end_html;
-
-    close (MAPA);
-    close (STA);
     
     ## @@Heracles - Fin de construccion de pagina del frente
     ## *****************************************************

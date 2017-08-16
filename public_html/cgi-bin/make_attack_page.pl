@@ -2,7 +2,6 @@
 
 require "config.pl";
 require "ui.pl";
-require "dzclima.pl";
 require "dztools.pl";
 require "dzmap.pl";
 
@@ -98,18 +97,9 @@ TOP
 # MAIN START
 sub distance ($$$$);
 sub printdebug($);
-sub get_af_in_radius($$$$);
-sub get_coord_city($);
-sub get_sum_radius($);
-sub get_map_vday();
-sub print_map_and_points($);
-sub print_time_and_weather($$$$$$$$);
-sub print_headquarter($$);
-sub print_plane_inventory($$$);
-sub print_airfield_damage($$$);
-sub print_city_damage($$$);
-sub compute_time_and_weather($$$);
+
 sub get_report_nbr_for_read();
+sub print_map_page($$$$);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -137,58 +127,20 @@ if (!open (FRONT, "<$FRONT_LINE")){
     die "ERROR: Can't open File $FRONT_LINE: $! on main proc\n";
 }
 
-# Condiciones de victoria
-my $af_red_colapsed=0;
-my $af_blue_colapsed=0;
-my $red_hq_captured=0;
-my $blue_hq_captured=0;
+my $rep_nbr = get_report_nbr_for_read();
+($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, STDOUT, 0, $rep_nbr);
+my %red_task_stock = %$red_task_stock;
+my %blue_task_stock = %$blue_task_stock;
+my @cg_red_bases = @$cg_red_bases;
+my @cg_blue_bases = @$cg_blue_bases;
 
-    my $rep_nbr = get_report_nbr_for_read();
-    ($map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes) = compute_time_and_weather(0, STDOUT, $rep_nbr);
 
-    $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
-    my $Options_R="Options_R.txt";
-    my $Options_B="Options_B.txt";
-    my $Status="Status.txt";
+my $Options_R="Options_R.txt";
+my $Options_B="Options_B.txt";
 
-#    no bakups
-#    eval `cp $PATH_TO_WEBROOT/$Options_R $DATA_BKUP/$Options_R$ext_rep_nbr`; # windows cmd?
-#    eval `cp $PATH_TO_WEBROOT/$Options_B $DATA_BKUP/$Options_B$ext_rep_nbr`; # windows cmd?
-
-    open (MAPA,">$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
-    open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
-    open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
-    open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";
-
-    print_map_and_points(MAPA);    
-    print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
-    
-    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply) = print_headquarter(MAPA, STA);
-    
-    ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out) = print_plane_inventory(MAPA, STA, STDOUT);
-    my %red_task_stock = %$red_task_stock;
-    my %blue_task_stock = %$blue_task_stock;
-
-    ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed) = print_airfield_damage(MAPA, STA, GEO_OBJ);
-    my @cg_red_bases = @$cg_red_bases;
-    my @cg_blue_bases = @$cg_blue_bases;
-
-    ($red_hq_captured, $blue_hq_captured) = print_city_damage(MAPA, STA, GEO_OBJ);
-
-    print MAPA  "<p><strong>Mapa del Frente:</strong><br>";
-    print STA   "<p><strong>Mapa del Frente:</strong><br>";
-
-    open (IMAP,"<$IMAP_DATA");
-    while(<IMAP>){
-	print MAPA;
-    }
-    close(IMAP);
-#    print MAPA "<br><br><IMG SRC=\"/images/suply.jpg\" WIDTH=900 HEIGHT=780 BORDER=0 alt=\"Suply Radius\"><br><br>\n";
-    print MAPA  &print_end_html;
-
-    close (MAPA);
-    close (STA);
-    
+open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
+open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
+ 
     my @red_possible=();
     my $line_back;
     ## seleccion de objetivos al azar TACTICOS ROJOS

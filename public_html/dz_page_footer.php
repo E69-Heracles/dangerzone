@@ -1,5 +1,5 @@
 <?php
-$file = $_SERVER['DOCUMENT_ROOT'] . "/cgi-bin/version.txt";
+$file = getenv("DOCUMENT_ROOT") . "/cgi-bin/version.txt";
 $contents = file($file);
 $version = implode($contents);
 ?>
