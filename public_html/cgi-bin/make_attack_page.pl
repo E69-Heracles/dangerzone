@@ -102,12 +102,7 @@ sub printdebug($);
 sub get_report_nbr_for_read();
 sub print_map_page($$$$);
 
-sub tactical_targets($$$);
-sub strategic_airfield_targets($$$$$);
-sub supply_airfield_targets($$$$$$);
-sub supply_city_targets($$$);
-sub strategic_city_targets($$$$$);
-
+sub mission_option_generation($$$$$$$$$);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -129,12 +124,6 @@ if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
     die "ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on main proc\n";
 }
 
-if (!open (FRONT, "<$FRONT_LINE")){
-    print "$big_red ERROR: Can't open File $FRONT_LINE: $! on main proc <br> \n";
-    print "Please NOTIFY this error.\n";
-    die "ERROR: Can't open File $FRONT_LINE: $! on main proc\n";
-}
-
 my $rep_nbr = get_report_nbr_for_read();
 ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, STDOUT, 0, $rep_nbr);
 my %red_task_stock = %$red_task_stock;
@@ -142,65 +131,9 @@ my %blue_task_stock = %$blue_task_stock;
 my @cg_red_bases = @$cg_red_bases;
 my @cg_blue_bases = @$cg_blue_bases;
 
+mission_option_generation(GEO_OBJ, \%red_task_stock, $red_capacity, $red_plane_supply, \@cg_red_bases, \%blue_task_stock, $blue_capacity, $blue_plane_supply, \@cg_blue_bases);
 
-my $Options_R="Options_R.txt";
-my $Options_B="Options_B.txt";
-
-open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
-open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
- 
-    my @red_possible=();
-    ## seleccion de objetivos TACTICOS ROJOS
-    $possible = tactical_targets(1, 2, GEO_OBJ);
-    push(@red_possible, @$possible);
-
-    ## seleccion de objetivos ESTRATEGICOS rojos (SOLO AF)
-    $possible = strategic_airfield_targets(1, 2, GEO_OBJ, FRONT, $red_task_stock{BA});
-    push(@red_possible, @$possible);
-
-    ## seleccion de SUMINISTROS A AERODROMOS ROJOS
-    $possible = supply_airfield_targets(1, $red_task_stock{SUM}, $red_capacity, $red_plane_supply, \@cg_red_bases, GEO_OBJ);
-    push(@red_possible, @$possible);
-
-    ## seleccion de SUMINISTROS A CIUDADES ROJAS
-    $possible = supply_city_targets(1, $red_task_stock{SUM}, GEO_OBJ);
-    push(@red_possible, @$possible);
-
-    ## seleccion de objetivos ESTRATEGICOS rojos (SOLO CIUDADES)    
-    $possible = strategic_city_targets(1, 2, GEO_OBJ, FRONT, $red_task_stock{BA});
-    push(@red_possible, @$possible);
-
-    ## seleccion de objetivos TACTICOS AZULES
-    my @blue_possible=();
-    $possible = tactical_targets(2, 1, GEO_OBJ);
-    push(@blue_possible, @$possible);
-
-    ## seleccion de objetivos ESTRATEGICOS AZULES (SOLO AF)
-    $possible = strategic_airfield_targets(2, 1, GEO_OBJ, FRONT, $blue_task_stock{BA});
-    push(@blue_possible, @$possible);    
-
-    ## seleccion de SUMINISTROS A AERODROMOS AZULES
-    $possible = supply_airfield_targets(2, $blue_task_stock{SUM}, $blue_capacity, $blue_plane_supply, \@cg_blue_bases, GEO_OBJ);
-    push(@blue_possible, @$possible);
-
-    ## seleccion de SUMINISTROS A CIUDADES AZULES
-    $possible = supply_city_targets(2, $blue_task_stock{SUM}, GEO_OBJ);
-    push(@blue_possible, @$possible);
-
-    ## seleccion de objetivos ESTRATEGICOS AZULES (SOLO CIUDADES)    
-    $possible = strategic_city_targets(2, 1, GEO_OBJ, FRONT, $blue_task_stock{BA});
-    push(@blue_possible, @$possible);
-
-my $k;
-for ($k=0; $k<scalar(@red_possible); $k++){
-    print OPR "<option value=\"$red_possible[$k]\">$red_possible[$k]</option>\n";
-}
-for ($k=0; $k<scalar(@blue_possible); $k++){
-    print OPB "<option value=\"$blue_possible[$k]\">$blue_possible[$k]</option>\n";
-}
-
-close (OPR);
-close (OPB);
+close(GEO_OBJ);
 
 print "Done\n";
 if ($unix_cgi){print &HtmlBot;}
