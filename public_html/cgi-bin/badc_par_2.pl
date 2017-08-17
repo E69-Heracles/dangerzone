@@ -94,6 +94,7 @@ sub print_map_page($$$$);
 
 sub tactical_targets($$$);
 sub strategic_airfield_targets($$$$$);
+sub supply_airfield_targets($$$$$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -5084,29 +5085,9 @@ sub make_attack_page(){
     push(@red_possible, @$possible);
 
     ## seleccion de SUMINISTROS A AERODROMOS ROJOS
-    ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM  y existen bases con sufucuente capacidad
-    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($red_capacity >= $red_plane_supply)) {
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):1/) {
-		$tgt_name= "SUA-" . $2;
-		$cxo=$3;
-		$cyo=$4;
-		$damage=$5;
-		my $cg_base=0;
-		foreach my $af_cg (@cg_red_bases) {
-		    if ($af_cg eq $2) {
-		        $cg_base = 1;
-		    }
-		}		
-		if ($damage > 0 && $damage < 100 && !$cg_base) {
-		    unshift (@red_possible,$tgt_name);
-		}
-	    }
-	}
-    }    
-    
+    $possible = supply_airfield_targets(1, $red_task_stock{SUM}, $red_capacity, $red_plane_supply, \@cg_red_bases, GEO_OBJ);
+    push(@red_possible, @$possible);
+
     ## seleccion de SUMINISTROS A CIUDADES ROJAS
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    
@@ -5176,29 +5157,9 @@ sub make_attack_page(){
     push(@blue_possible, @$possible);    
 
     ## seleccion de SUMINISTROS A AERODROMOS AZULES
-    ## @Heracles@20110805
-    ## Solo seleccionar suministro si quedan aviones SUM  y existen bases de CG con menos de 100% de danyo
-    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING && ($blue_capacity >= $blue_plane_supply)) {
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):2/) {
-		$tgt_name= "SUA-" . $2;
-		$cxo=$3;
-		$cyo=$4;
-		$damage=$5;
-		my $cg_base=0;
-		foreach my $af_cg (@cg_blue_bases) {
-		    if ($af_cg eq $2) {
-		        $cg_base = 1;
-		    }
-		}		
-		if ($damage > 0 && $damage < 100 && !$cg_base) {
-		    unshift (@blue_possible,$tgt_name);
-		}
-	    }
-	}
-    }    
-
+    $possible = supply_airfield_targets(2, $blue_task_stock{SUM}, $blue_capacity, $blue_plane_supply, \@cg_blue_bases, GEO_OBJ);
+    push(@blue_possible, @$possible);
+    
     ## seleccion de SUMINISTROS a CIUDADES Azules
     ## @Heracles@20110727
     ## Solo seleccionar suministro si quedan aviones SUM    

@@ -125,5 +125,53 @@ sub strategic_airfield_targets($$$$$) {
         }
     }
 
-        return \@possible;
+    return \@possible;
+}
+
+## @Heracles@20170816
+## Strategic airfield target generation
+sub supply_airfield_targets($$$$$$) {
+my $army =  shift @_;
+    
+    my $army = shift @_;
+    my $task_stock_SUM = shift @_;
+    my $capacity = shift @_;
+    my $plane_supply = shift @_;
+    my $cg_bases = shift @_;
+    my $geo = shift @_;
+
+    my @cg_bases = @$cg_bases;
+    my @possible = ();    
+
+    ## @Heracles@20110805
+    ## Solo seleccionar suministro si quedan aviones SUM
+    if ($task_stock_SUM >= $MIN_STOCK_FOR_FLYING && ($capacity >= $plane_supply)) 
+    {
+        seek $geo,0,0;
+        while(<$geo>) 
+        {
+            if ($_ =~  m/(AF[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^,]+):\Q$army\E/) 
+            {
+                $tgt_name= "SUA-" . $2;
+                $cxo=$3;
+                $cyo=$4;
+                $damage=$5;
+                
+                my $cg_base=0;
+                foreach my $af_cg (@cg_bases) 
+                {
+                    if ($af_cg eq $2) {
+                        $cg_base = 1;
+                    }
+                }       
+                
+                if ($damage > 0 && $damage < 100 && !$cg_base) 
+                {
+                    push (@possible,$tgt_name);
+                }
+            }
+        }
+    }
+
+    return \@possible;    
 }
