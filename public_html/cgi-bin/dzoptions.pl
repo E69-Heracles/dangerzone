@@ -129,9 +129,8 @@ sub strategic_airfield_targets($$$$$) {
 }
 
 ## @Heracles@20170816
-## Strategic airfield target generation
+## Supply airfield target generation
 sub supply_airfield_targets($$$$$$) {
-my $army =  shift @_;
     
     my $army = shift @_;
     my $task_stock_SUM = shift @_;
@@ -174,4 +173,54 @@ my $army =  shift @_;
     }
 
     return \@possible;    
+}
+
+## @Heracles@20170816
+## Supply city target generation
+sub supply_city_targets($$$) {
+    
+    my $army = shift @_;
+    my $task_stock_SUM = shift @_;
+    my $geo = shift @_;
+
+    my @possible = ();   
+
+    ## @Heracles@20110727
+    ## Solo seleccionar suministro si quedan aviones SUM    
+    if ($task_stock_SUM >= $MIN_STOCK_FOR_FLYING) 
+    {    
+        seek $geo,0,0;
+        while(<$geo>) 
+        {
+            if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):\Q$army\E.*$/) 
+            {
+                $tgt_name=$2;
+                $cxo=$3;
+                $cyo=$4;
+                
+                ## @Heracles@20110719@
+                ## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
+                my $my_city = $1;
+                $my_city =~ m/SUC([0-9]+)/;
+                $my_city = $1;
+                                                                                                
+                $line_back=tell $geo;                 ##lemos la posicion en el archivo      
+                seek $geo,0,0;
+                while(<$geo>) 
+                {
+                    if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[\Q$army\E].*$/) 
+                    {
+                        if ($1 > 0) 
+                        {
+                            push (@possible,$tgt_name);
+                        }
+                    }
+                }
+                seek $geo,$line_back,0; # regresamos a la misma sig linea        
+            }
+        }
+    }
+
+    return \@possible;
+
 }

@@ -105,6 +105,8 @@ sub print_map_page($$$$);
 sub tactical_targets($$$);
 sub strategic_airfield_targets($$$$$);
 sub supply_airfield_targets($$$$$$);
+sub supply_city_targets($$$);
+
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -160,35 +162,8 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
     push(@red_possible, @$possible);
 
     ## seleccion de SUMINISTROS A CIUDADES ROJAS
-    ## @Heracles@20110727
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($red_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {    
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-		$tgt_name=$2;
-		$cxo=$3;
-		$cyo=$4;
-	    
-		## @Heracles@20110719@
-		## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-		my $my_city = $1;
-		$my_city =~ m/SUC([0-9]+)/;
-		$my_city = $1;
-		$line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-		seek GEO_OBJ,0,0;
-		while(<GEO_OBJ>) {
-		    if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[1].*$/) {
-			if ($1 > 0) {
-			    unshift (@red_possible,$tgt_name);
-			}
-			printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		    }
-		}
-		seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	    }
-	}
-    }
+    $possible = supply_city_targets(1, $red_task_stock{SUM}, GEO_OBJ);
+    push(@red_possible, @$possible);
 
     ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)    
     ## @Heracles@20110727
@@ -230,39 +205,11 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
 
     ## seleccion de SUMINISTROS A AERODROMOS AZULES
     $possible = supply_airfield_targets(2, $blue_task_stock{SUM}, $blue_capacity, $blue_plane_supply, \@cg_blue_bases, GEO_OBJ);
-    push(@red_possible, @$possible);
+    push(@blue_possible, @$possible);
 
-    ## seleccion de SUMINISTROS a CIUDADES Azules
-    ## @Heracles@20110727
-    ## Solo seleccionar suministro si quedan aviones SUM    
-    if ($blue_task_stock{SUM} >= $MIN_STOCK_FOR_FLYING) {        
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/^(SUC[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-		$tgt_name=$2;
-		$cxo=$3;
-		$cyo=$4;
-
-		## @Heracles@20110719@
-		## No se pueden seleccionar como objetivo las ciudades con el 100% de suministro
-		my $my_city = $1;
-		$my_city =~ m/SUC([0-9]+)/;
-		$my_city = $1;
-		printdebug ("make_attack_page(): Buscando ciudad $tgt_name con codigo $my_city");	    
-		$line_back=tell GEO_OBJ;                 ##lemos la posicion en el archivo	    
-		seek GEO_OBJ,0,0;
-		while(<GEO_OBJ>) {
-		    if ( $_ =~ m/^CT$my_city,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^:]+:[2].*$/) {
-			if ($1 > 0) {
-			    unshift (@blue_possible,$tgt_name);
-			}
-			printdebug ("make_attack_page(): Suministro a ciudad $tgt_name con daño $1");
-		    }
-		}
-		seek GEO_OBJ,$line_back,0; # regresamos a la misma sig linea	    
-	    }
-	}
-    }
+    ## seleccion de SUMINISTROS A CIUDADES AZULES
+    $possible = supply_city_targets(2, $blue_task_stock{SUM}, GEO_OBJ);
+    push(@blue_possible, @$possible);
 
     ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
     ## @Heracles@20110727
