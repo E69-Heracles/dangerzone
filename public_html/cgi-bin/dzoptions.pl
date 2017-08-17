@@ -128,6 +128,60 @@ sub strategic_airfield_targets($$$$$) {
     return \@possible;
 }
 
+## @Heracles@20170817
+## Strategic airfield target generation
+sub strategic_city_targets($$$$$) {
+    
+    my $army =  shift @_;
+    my $army_target = shift @_;
+    my $geo = shift @_;
+    my $front = shift @_;
+    my $task_stock_BA = shift @_;
+
+    my @possible = ();
+
+    ## @Heracles@20110727
+    ## Solo seleccionar ciudad para misión BA si quedan aviones BA
+    if ($task_stock_BA >= $MIN_STOCK_FOR_FLYING) 
+    {
+        seek $geo,0,0;
+        while(<$geo>) 
+        {
+            if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):\Q$army_target\E.*$/) 
+            {
+                $tgt_name=$2;
+                $cxo=$3;
+                $cyo=$4;
+                $near=500000; # gran distancia para comenzar (500 km)
+                
+                seek $front,0,0;
+                while(<$front>) 
+                {
+                    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) \Q$army\E/)
+                    {
+                        $dist= distance($cxo,$cyo,$1,$2);
+                        if ($dist < $near) 
+                        {
+                            $near=$dist;
+                            if ($dist < $MAX_DIST_CITY_BA) 
+                            {
+                                last;
+                            }
+                        }
+                    }
+                }
+
+                if ($near < $MAX_DIST_CITY_BA) 
+                {
+                    push(@possible,$tgt_name);
+                }
+            }
+        }
+    }
+
+    return \@possible;
+}
+
 ## @Heracles@20170816
 ## Supply airfield target generation
 sub supply_airfield_targets($$$$$$) {

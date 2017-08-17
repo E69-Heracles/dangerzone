@@ -106,6 +106,7 @@ sub tactical_targets($$$);
 sub strategic_airfield_targets($$$$$);
 sub supply_airfield_targets($$$$$$);
 sub supply_city_targets($$$);
+sub strategic_city_targets($$$$$);
 
 
 sub distance ($$$$) {
@@ -165,34 +166,9 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
     $possible = supply_city_targets(1, $red_task_stock{SUM}, GEO_OBJ);
     push(@red_possible, @$possible);
 
-    ## seleccion de objetivos al azar ESTARTEGICOS rojos (SOLO CIUDADES)    
-    ## @Heracles@20110727
-    ## Solo seleccionar AF para misión BA si quedan aviones BA
-    if ($red_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):2.*$/) {
-		$tgt_name=$2;
-		$cxo=$3;
-		$cyo=$4;
-		$near=500000; # gran distancia para comenzar (500 km)
-		seek FRONT,0,0;
-		while(<FRONT>) {
-		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 1/){
-			$dist= distance($cxo,$cyo,$1,$2);
-			if ($dist < $near) {
-			    $near=$dist;
-			    if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
-			}
-		    }
-		}
-		if ($near <$MAX_DIST_CITY_BA) {
-		    unshift (@red_possible,$tgt_name);
-		}
-	    }
-	}
-    }
-
+    ## seleccion de objetivos ESTRATEGICOS rojos (SOLO CIUDADES)    
+    $possible = strategic_city_targets(1, 2, GEO_OBJ, FRONT, $red_task_stock{BA});
+    push(@red_possible, @$possible);
 
     ## seleccion de objetivos TACTICOS AZULES
     my @blue_possible=();
@@ -211,33 +187,9 @@ open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACT
     $possible = supply_city_targets(2, $blue_task_stock{SUM}, GEO_OBJ);
     push(@blue_possible, @$possible);
 
-    ## seleccion de objetivos al azar ESTARTEGICOS AZULES (SOLO CIUDADES)
-    ## @Heracles@20110727
-    ## Solo seleccionar ciudad para misión BA si quedan aviones BA
-    if ($blue_task_stock{BA} >= $MIN_STOCK_FOR_FLYING) {    
-	seek GEO_OBJ,0,0;
-	while(<GEO_OBJ>) {
-	    if ($_ =~  m/^(CT[0-9]{2}),([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):1.*$/) {
-		$tgt_name=$2;
-		$cxo=$3;
-		$cyo=$4;
-		$near=500000; # gran distancia para comenzar (500 km)
-		seek FRONT,0,0;
-		while(<FRONT>) {
-		    if ($_ =~ m/FrontMarker[0-9]?[0-9]?[0-9] ([^ ]+) ([^ ]+) 2/){
-			$dist= distance($cxo,$cyo,$1,$2);
-			if ($dist < $near) {
-			    $near=$dist;
-			    if ($dist<$MAX_DIST_CITY_BA) {last;}  #version 24 optim change
-			}
-		    }
-		}
-		if ($near <$MAX_DIST_CITY_BA) {
-		    unshift (@blue_possible,$tgt_name);
-		}
-	    }
-	}
-    }
+    ## seleccion de objetivos ESTRATEGICOS AZULES (SOLO CIUDADES)    
+    $possible = strategic_city_targets(2, 1, GEO_OBJ, FRONT, $blue_task_stock{BA});
+    push(@blue_possible, @$possible);
 
 my $k;
 for ($k=0; $k<scalar(@red_possible); $k++){
