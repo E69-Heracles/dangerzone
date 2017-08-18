@@ -150,7 +150,8 @@ sub print_headquarter_for_army($$$$$$$$$$$) {
     ## informe de capacidad de suministro a aeródromos
     print_map_and_sta($map, $sta, "<b>Suministro a aer&oacute;dromo: </b><br>\n");
 
-    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$capacity</b></td></tr>\n");
+    print_map_and_sta($map, $sta, "<table>\n<col width=\"150\"> <col width=\"50\">\n");
+    print_map_and_sta($map, $sta, "<tr><td>Capacidad SUA (%):</td><td align=\"right\"><b>$capacity</b></td></tr>\n");
     
     print_map_and_sta($map, $sta, "<tr><td>Por avi&oacute;n SUA (%):</td><td align=\"right\"><b>$plane_supply</b></td></tr>\n");    
     print_map_and_sta($map, $sta, "</table><br>\n");
