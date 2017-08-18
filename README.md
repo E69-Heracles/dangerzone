@@ -54,7 +54,7 @@ A lot of effort should be done in order to refactor the code to minimize bugs:
 
 ## Credits
 
-You will find JG10r_Dutertre's BADC 1.0 credits [here](./install.txt).
+You will find JG10r_Dutertre's BADC 1.0 credits [here](./Install.txt).
 
 Also I would like to thanks *Mertons* for his great generosity giving up his original server and the source code to evolve the original DangerZone 1.0 to the current DangerZone 2.0. Credits for he original DangerZone 1.0 (in spanish):
 
