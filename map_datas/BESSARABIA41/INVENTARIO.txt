@@ -1,0 +1,22 @@
+INVENTARIO BESSARABIA_1.941
+
+BANDO ROJO:
+
+TOTAL AVIONES:       793                                      895
+INVENTARIO (8O%):    634                                      715
+PRODUCCIÓN (20%):    159                                      180+246 (out of map)=426
+PRODUCCIÓN DIARIA:    15,9 (16 en números redondos)            43 (en números redondos) 
+(media de 10 virtuales)
+
+SUMINISTRO:           25                                       42
+
+
+BANDO AZUL:
+
+TOTAL AVIONES:       295                                      851
+INVENTARIO (8O%):    236                                      682
+PRODUCCIÓN (20%):     59                                      169+147 (out of map)=316
+PRODUCCIÓN DIARIA:    5,9 (6 en números redondos)              32 (en números redondos)
+(media de 10 virtuales)
+
+SUMINISTRO:           42                                       42

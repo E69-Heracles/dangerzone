@@ -10,7 +10,7 @@ include ("./dz_page_header.php");
 
 //	exit;  
 
-  	$hlname=$HTTP_GET_VARS['hlname'];
+  	$hlname=$_GET['hlname'];
 
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");
@@ -451,7 +451,7 @@ mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not con
 mysql_select_db("$database");
 
 
-//$hlname=$HTTP_POST_VARS['hlname'];
+//$hlname=$_POST['hlname'];
 
 $query="select * from badc_pilot_mis where hlname='$hlname' and campanya = \"$campanya\" and mapname =\"$mapa\" order by misrep DESC";
 if ($order=="ASC"){

@@ -1,39 +1,91 @@
 #config.pl for BADC campaign. unix stile paths.
 # if you use windows, read config_windows.pl
 
+$environment =  $ENV{'ENVIRONMENT'}; 
 
-$PATH_TO_WEBROOT      = "/home/s03e18df/public_html/dangerzone";
-$CGI_BIN_PATH         = "/home/s03e18df/public_html/dangerzone/cgi-bin";
-$CGI_TEMP_UPLOAD_DIR  = "/home/s03e18df/public_html/dangerzone/cgi-bin/tmp";
-$DATA_BKUP            = "/home/s03e18df/public_html/dangerzone/cgi-bin/data_bkup";
-$MAX_UPLOAD_SIZE      = 200000; # bytes
-$CJPEG_PROG           = "/usr/bin/cjpeg";           
-$CJPEG_FLAGS          = "-quality 70 -progressive";
-$HTPASSWD_PROG        = "/usr/local/apache/bin/htpasswd";        
-$HTPASSWD_FLAGS       = "-bc";                 #unix only, on windows is used stdout redirection
-$ZIP_PROG             = "/usr/bin/zip";             
-$ZIP_FLAGS            = "-qj";
-$GNUPLOT_PROG         = "/usr/bin/gnuplot";
-$AUX                  = ""; 
+# Development variables
+if ($environment eq "DEV")
+{
+    $PATH_TO_WEBROOT      = "/var/www/html/public_html/";
+    $CGI_BIN_PATH         = "/var/www/html/public_html/cgi-bin";
+    $CGI_TEMP_UPLOAD_DIR  = "/var/www/html/public_html/cgi-bin/tmp";
+    $DATA_BKUP            = "/var/www/html/public_html/cgi-bin/data_bkup";
+    $MAX_UPLOAD_SIZE      = 200000; # bytes
+    $CJPEG_PROG           = "/usr/bin/cjpeg";           
+    $CJPEG_FLAGS          = "-quality 70 -progressive";
+    $HTPASSWD_PROG        = "/usr/local/apache/bin/htpasswd";        
+    $HTPASSWD_FLAGS       = "-bc";                 #unix only, on windows is used stdout redirection
+    $ZIP_PROG             = "/usr/bin/zip";             
+    $ZIP_FLAGS            = "-qj";
+    $GNUPLOT_PROG         = "/usr/bin/gnuplot";
+    $AUX                  = ""; 
 
-srand;
-# cookies, SET EXPIRE TIME
-$cookie_expire="Sat, 29-Ago-09 00:00:00 GMT";
+    srand;
+    # cookies, SET EXPIRE TIME
+    $cookie_expire="Sat, 29-Ago-09 00:00:00 GMT";
 
-# allowed http_referers to insert request on database. (used on gen_opts_31.pl)
-# replace "your_website.com" and "www.your_website.com" with your domain 
-$allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
-$allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
+    # allowed http_referers to insert request on database. (used on gen_opts_31.pl)
+    # replace "your_website.com" and "www.your_website.com" with your domain 
+    $allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
+    $allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
 
-# db stuff
-$database="s03e18df_dangerzone";       # database name  (CHANGE THIS)
-$db_user="s03e18df_badc";        # database user  (CHANGE THIS)
-$db_upwd="Phoenix";  # database user password  (CHANGE THIS)
+    # db stuff
+    $database="badc";       # database name  (CHANGE THIS)
+    $db_user="badc_user";        # database user  (CHANGE THIS)
+    $db_upwd="badc_password";  # database user password  (CHANGE THIS)
 
 
-#super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
-$super_user="rEd69_Heracles";
-$DZDEBUG=1; # En debug
+    #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
+    $super_user="rEd69_Red1";
+    $DZDEBUG=1; # En debug
+
+    $require_auth_code=0; # require or not auth code for squadron register
+    $ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.
+
+    $MAP_NAME_LONG="Bessarabia. 1941";
+}
+# Production variables
+else
+{
+    $PATH_TO_WEBROOT      = "/home/s03e18df/public_html/dangerzone";
+    $CGI_BIN_PATH         = "/home/s03e18df/public_html/dangerzone/cgi-bin";
+    $CGI_TEMP_UPLOAD_DIR  = "/home/s03e18df/public_html/dangerzone/cgi-bin/tmp";
+    $DATA_BKUP            = "/home/s03e18df/public_html/dangerzone/cgi-bin/data_bkup";
+    $MAX_UPLOAD_SIZE      = 200000; # bytes
+    $CJPEG_PROG           = "/usr/bin/cjpeg";           
+    $CJPEG_FLAGS          = "-quality 70 -progressive";
+    $HTPASSWD_PROG        = "/usr/local/apache/bin/htpasswd";        
+    $HTPASSWD_FLAGS       = "-bc";                 #unix only, on windows is used stdout redirection
+    $ZIP_PROG             = "/usr/bin/zip";             
+    $ZIP_FLAGS            = "-qj";
+    $GNUPLOT_PROG         = "/usr/bin/gnuplot";
+    $AUX                  = ""; 
+
+    srand;
+    # cookies, SET EXPIRE TIME
+    $cookie_expire="Sat, 29-Ago-09 00:00:00 GMT";
+
+    # allowed http_referers to insert request on database. (used on gen_opts_31.pl)
+    # replace "your_website.com" and "www.your_website.com" with your domain 
+    $allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
+    $allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
+
+    # db stuff
+    $database="s03e18df_dangerzone";       # database name  (CHANGE THIS)
+    $db_user="s03e18df_badc";        # database user  (CHANGE THIS)
+    $db_upwd="Phoenix";  # database user password  (CHANGE THIS)
+
+
+    #super_user hyperlobby nick name (used in gen_opts_31.pl: allow  make_suply_image.pl)
+    $super_user="rEd69_Heracles";
+    $DZDEBUG=1; # En debug
+
+    $require_auth_code=1; # require or not auth code for squadron register
+    $ALLOW_AUTO_REGISTER=0; # allow pilots be registered automatically at repot time if he is unregistered.    
+
+    $MAP_NAME_LONG="Bessarabia. 1941";
+}
+
 
 # @Heracles@20110719@
 # Constantes para el sistema de inventario y produccion
@@ -52,7 +104,7 @@ $MIS_PER_VDAY=30; # mission per virtual day (change time and auto recover AF and
 $AF_VDAY_RECOVER=3; # % recovery of AF on each virtual day
 $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
 $CAP_SEC_RECOVER=20; # % recupero que recibe una ciudad o un aerodromo que acaba de ser conquistado por un bando
-$CITY_DAM=75;	# Daño en ciudad para poder ser conquistada
+$CITY_DAM=75;   # Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
 $PC_LOST=5;
 
@@ -123,9 +175,6 @@ $AAA_HIG_RED="vehicles.artillery.Artillery\$Zenit85mm_1939";
 ## Constante de los códigos de letras para los sectores de los mapas. de "A" a "BZ". Vigilar si existe un mapa mayor
 @LETRAS_SEC=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
 
-$require_auth_code=1; # require or not auth code for squadron register
-$ALLOW_AUTO_REGISTER=1; # allow pilots be registered automatically at repot time if he is unregistered.
-
 # this is for new registered players, if you allow to do planin set to 0
 # 1 is for not allow inital planning till a certan mission are flown
 $INIT_BAN_PLANNIG=0;
@@ -146,7 +195,6 @@ $MAX_NEGATIVE_VOTES=4; # amount of  negative votes when player loose planning ri
 #$MAP_NAME_LONG="Moscow. Winter 1944";
 #$MAP_NAME_LONG="Lvov. 1941"; 
 #$MAP_NAME_LONG="Smolensk. 1941";
-$MAP_NAME_LONG="Bessarabia. 1941";
 
 $CHAMP_TYPES_TOTAL=4;
 $CHAMP_TYPE_0_RAD=70;
@@ -215,31 +263,31 @@ if ( $MAP_NAME_LONG eq "Moscow. Winter 1941" || $MAP_NAME_LONG eq "Moscow. Early
     $TANKS_WP="MO_tank_wp.mis";  
     $FRONT_IMAGE="MO_000.bmp";
     $IMAP_DATA="MO_imap.data";
-    if ( $MAP_NAME_LONG eq "Moscow. Winter 1941") {	#Moscow. Winter 1941
-	$MAP_CODE="MO1";
-	$MAP_NAME_LOAD="Moscow/load.ini";
-	$FLIGHTS_DEF="MO_aircrafts_1941.data";  
-	@VVS_SUM_PLANES=("Li-2","TB3-4M-34R");
-	$VVS_TRP_SPEED=180; # average speed for human VVS suply plane
-	@VVS_BA_PLANES=("IL2 series1","IL2 series2","IL-2 Field Mod","IL-4-DB3B","PE-2 1940","R-10","SB-2M100A","SB2-M103","SU-2","TB3-4M-34R");
-	@VVS_AI_PLANES=("Li-2","IL-4-DB3B","R-10","SB-2M100A","SB2-M103","SU-2");
-	@LW_SUM_PLANES=("HE-111H2","JU-52");
-	$LW_TRP_SPEED=360; # average speed for human LW suply plane
-	@LW_BA_PLANES=("BF-110C4B","HE-111H2","JU-87B2","JU-88A4");
-	@LW_AI_PLANES=("JU-52","BF-110C4B");
+    if ( $MAP_NAME_LONG eq "Moscow. Winter 1941") { #Moscow. Winter 1941
+    $MAP_CODE="MO1";
+    $MAP_NAME_LOAD="Moscow/load.ini";
+    $FLIGHTS_DEF="MO_aircrafts_1941.data";  
+    @VVS_SUM_PLANES=("Li-2","TB3-4M-34R");
+    $VVS_TRP_SPEED=180; # average speed for human VVS suply plane
+    @VVS_BA_PLANES=("IL2 series1","IL2 series2","IL-2 Field Mod","IL-4-DB3B","PE-2 1940","R-10","SB-2M100A","SB2-M103","SU-2","TB3-4M-34R");
+    @VVS_AI_PLANES=("Li-2","IL-4-DB3B","R-10","SB-2M100A","SB2-M103","SU-2");
+    @LW_SUM_PLANES=("HE-111H2","JU-52");
+    $LW_TRP_SPEED=360; # average speed for human LW suply plane
+    @LW_BA_PLANES=("BF-110C4B","HE-111H2","JU-87B2","JU-88A4");
+    @LW_AI_PLANES=("JU-52","BF-110C4B");
     }
-    if ( $MAP_NAME_LONG eq "Moscow. Early 1942") {	#Moscow. Early 1942
-	$MAP_CODE="MO2";
-	$MAP_NAME_LOAD="Moscow/sload.ini";    
-	$FLIGHTS_DEF="MO_aircrafts_1942.data";  
-	@VVS_SUM_PLANES=("Li-2","TB3-4M-34R");
-	$VVS_TRP_SPEED=180; # average speed for human VVS suply plane
-	@VVS_BA_PLANES=("IL2 series2","IL2 series3","IL-2 Field Mod","IL-4-DB3B","IL-4-DB3M","PE-2 1940","R-10","SB-2M100A","SB2-M103","SU-2","TB3-4M-34R");
-	@VVS_AI_PLANES=("Li-2","IL-4-DB3B","IL-4-DB3M","PE-2 S84","R-10","SB-2M100A","SB2-M103","SU-2");
-	@LW_SUM_PLANES=("HE-111H2","JU-52");
-	$LW_TRP_SPEED=360; # average speed for human LW suply plane
-	@LW_BA_PLANES=("BF-110C4B","HE-111H2","JU-87B2","JU-88A4");
-	@LW_AI_PLANES=("JU-52","BF-110C4B");
+    if ( $MAP_NAME_LONG eq "Moscow. Early 1942") {  #Moscow. Early 1942
+    $MAP_CODE="MO2";
+    $MAP_NAME_LOAD="Moscow/sload.ini";    
+    $FLIGHTS_DEF="MO_aircrafts_1942.data";  
+    @VVS_SUM_PLANES=("Li-2","TB3-4M-34R");
+    $VVS_TRP_SPEED=180; # average speed for human VVS suply plane
+    @VVS_BA_PLANES=("IL2 series2","IL2 series3","IL-2 Field Mod","IL-4-DB3B","IL-4-DB3M","PE-2 1940","R-10","SB-2M100A","SB2-M103","SU-2","TB3-4M-34R");
+    @VVS_AI_PLANES=("Li-2","IL-4-DB3B","IL-4-DB3M","PE-2 S84","R-10","SB-2M100A","SB2-M103","SU-2");
+    @LW_SUM_PLANES=("HE-111H2","JU-52");
+    $LW_TRP_SPEED=360; # average speed for human LW suply plane
+    @LW_BA_PLANES=("BF-110C4B","HE-111H2","JU-87B2","JU-88A4");
+    @LW_AI_PLANES=("JU-52","BF-110C4B");
     }
 }
 
@@ -292,30 +340,30 @@ if ($MAP_NAME_LONG eq "Stalingrad. Late 1942" || $MAP_NAME_LONG eq "Stalingrad. 
     $FRONT_IMAGE="ST_000.bmp";
     $IMAP_DATA="ST_imap.data";
     if ($MAP_NAME_LONG eq "Stalingrad. Late 1942") { # Stalingrado Late 1942
-	$MAP_CODE="ST1";
-	$MAP_NAME_LOAD="Stgrad/sload.ini";
-	$FLIGHTS_DEF="ST_aircrafts_1942.data";  
-	@VVS_SUM_PLANES=("Li-2","PE-2 S84");
-	$VVS_TRP_SPEED=360; # average speed for human VVS suply plane -  ANTES PONIA 180
-	@VVS_BA_PLANES=("PE-2 S84","PE-2 S110");
-	@VVS_AI_PLANES=("Li-2","IL-4-DB3B","SB2-M103","SU-2");
-	@LW_SUM_PLANES=("JU-88A4","JU-52");
-	$LW_TRP_SPEED=360; # average speed for human LW suply plane
-	@LW_BA_PLANES=("JU-88A4");
-	@LW_AI_PLANES=("JU-52","BF-110C4B");
+    $MAP_CODE="ST1";
+    $MAP_NAME_LOAD="Stgrad/sload.ini";
+    $FLIGHTS_DEF="ST_aircrafts_1942.data";  
+    @VVS_SUM_PLANES=("Li-2","PE-2 S84");
+    $VVS_TRP_SPEED=360; # average speed for human VVS suply plane -  ANTES PONIA 180
+    @VVS_BA_PLANES=("PE-2 S84","PE-2 S110");
+    @VVS_AI_PLANES=("Li-2","IL-4-DB3B","SB2-M103","SU-2");
+    @LW_SUM_PLANES=("JU-88A4","JU-52");
+    $LW_TRP_SPEED=360; # average speed for human LW suply plane
+    @LW_BA_PLANES=("JU-88A4");
+    @LW_AI_PLANES=("JU-52","BF-110C4B");
     } 
     if ($MAP_NAME_LONG eq "Stalingrad. Early 1943") { # Stalingrado Early 1943
-	$MAP_CODE="ST2";
-	$MAP_NAME_LOAD="Stgrad/load.ini";    
-	$FLIGHTS_DEF="ST_aircrafts_1943.data";  
-	@VVS_SUM_PLANES=("Li-2","PE-2 S84");
-	$VVS_TRP_SPEED=360; # average speed for human VVS suply plane - ANTES PONIA 180
-	@VVS_BA_PLANES=("PE-2 S84","PE-2 S110");
-	@VVS_AI_PLANES=("Li-2","IL-4-DB3B","SB2-M103");
-	@LW_SUM_PLANES=("JU-88A4","JU-52");
-	$LW_TRP_SPEED=360; # average speed for human LW suply plane
-	@LW_BA_PLANES=("JU-88A4");
-	@LW_AI_PLANES=("JU-52","BF-110C4B");
+    $MAP_CODE="ST2";
+    $MAP_NAME_LOAD="Stgrad/load.ini";    
+    $FLIGHTS_DEF="ST_aircrafts_1943.data";  
+    @VVS_SUM_PLANES=("Li-2","PE-2 S84");
+    $VVS_TRP_SPEED=360; # average speed for human VVS suply plane - ANTES PONIA 180
+    @VVS_BA_PLANES=("PE-2 S84","PE-2 S110");
+    @VVS_AI_PLANES=("Li-2","IL-4-DB3B","SB2-M103");
+    @LW_SUM_PLANES=("JU-88A4","JU-52");
+    $LW_TRP_SPEED=360; # average speed for human LW suply plane
+    @LW_BA_PLANES=("JU-88A4");
+    @LW_AI_PLANES=("JU-52","BF-110C4B");
     }
 }
 
@@ -412,22 +460,22 @@ if ($MAP_NAME_LONG eq "Smolensk. 1944"){
     #tank types and aaa placement
     my $times= int(rand(100))+1; # 1 ~ 100
     if ($times>25) {
-	$ALLIED_TANKS_ATTK="Armor.3-T34";
-	$AXIS_TANKS_ATTK="Armor.3-PzIVJ";
-	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
-	$AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIVJ"; # notice "escaped $" 
-	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-	$LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
+    $ALLIED_TANKS_ATTK="Armor.3-T34";
+    $AXIS_TANKS_ATTK="Armor.3-PzIVJ";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIVJ"; # notice "escaped $" 
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
     }
     else {
-	$ALLIED_TANKS_ATTK="Armor.3-T70M";
-	$AXIS_TANKS_ATTK="Armor.3-PzIIIM";
-	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
-	my $rnd= int(rand(2));
-	if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-	else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-	$LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
+    $ALLIED_TANKS_ATTK="Armor.3-T70M";
+    $AXIS_TANKS_ATTK="Armor.3-PzIIIM";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
+    my $rnd= int(rand(2));
+    if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
+    else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
     }
     $GEOGRAFIC_COORDINATES="SM_geo_obj.data";
     $FRONT_LINE="SM_frontline.mis";
@@ -483,30 +531,30 @@ if ($MAP_NAME_LONG eq "Balaton. 1945"){
     #tank types and aaa placement
     my $times= int(rand(100))+1; # 1 ~ 100
     if ($times>25) {
-	# T34 vs PzIVJ
-#	$ALLIED_TANKS_ATTK="Armor.3-T34";
-#	$AXIS_TANKS_ATTK="Armor.3-PzIVJ";
-#	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
-#	$AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIVJ"; # notice "escaped $" 
+    # T34 vs PzIVJ
+#   $ALLIED_TANKS_ATTK="Armor.3-T34";
+#   $AXIS_TANKS_ATTK="Armor.3-PzIVJ";
+#   $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34"; # notice "escaped $"
+#   $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIVJ"; # notice "escaped $" 
 
-	# T34-85 vs PzVA
-	$ALLIED_TANKS_ATTK="Armor.3-T34_85";
-	$AXIS_TANKS_ATTK="Armor.3-PzVA";
-	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34_85"; # notice "escaped $"
-	$AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzVA"; # notice "escaped $" 
+    # T34-85 vs PzVA
+    $ALLIED_TANKS_ATTK="Armor.3-T34_85";
+    $AXIS_TANKS_ATTK="Armor.3-PzVA";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T34_85"; # notice "escaped $"
+    $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzVA"; # notice "escaped $" 
 
-	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-	$LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
     }
     else {
-	$ALLIED_TANKS_ATTK="Armor.3-T70M";
-	$AXIS_TANKS_ATTK="Armor.3-PzIIIM";
-	$ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
-	my $rnd= int(rand(2));
-	if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-	else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
-	$AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
-	$LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
+    $ALLIED_TANKS_ATTK="Armor.3-T70M";
+    $AXIS_TANKS_ATTK="Armor.3-PzIIIM";
+    $ALLIED_TANKS_DEF="vehicles.artillery.Artillery\$T70M"; # notice "escaped $"
+    my $rnd= int(rand(2));
+    if ($rnd){ $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
+    else { $AXIS_TANKS_DEF="vehicles.artillery.Artillery\$PzIIIM";} # notice "escaped $" 
+    $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
+    $LATE_AAA_IN_CHAMPS=0;  # place or not place advanced AAA, like nimrod and M16
     }
     $GEOGRAFIC_COORDINATES="BAL_geo_obj.data";
     $FRONT_LINE="BAL_frontline.mis";
@@ -821,18 +869,18 @@ if ($MAP_NAME_LONG eq "Bessarabia. 1941"){
     $AAA_IN_CHAMPS=1;       # place or not place AAA on field champs
     $LATE_AAA_IN_CHAMPS=1;  # place or not place advanced AAA, like nimrod and M16
 
-    $GEOGRAFIC_COORDINATES="BES41_geo_obj.data";
-    $FRONT_LINE="BES41_frontline.mis";
-    $RED_OBJ_FILE="BES41_red_obj.mis";
-    $BLUE_OBJ_FILE="BES41_blue_obj.mis";
-    $CITY_PLACES="BES41_city.mis";
-    $TANKS_WP="BES41_tank_wp.mis";  
-    $FRONT_IMAGE="BES41.bmp";
-    $IMAP_DATA="BES41_imap.data";
+    $GEOGRAFIC_COORDINATES="current_map/BES41_geo_obj.data";
+    $FRONT_LINE="current_map/BES41_frontline.mis";
+    $RED_OBJ_FILE="current_map/BES41_red_obj.mis";
+    $BLUE_OBJ_FILE="current_map/BES41_blue_obj.mis";
+    $CITY_PLACES="current_map/BES41_city.mis";
+    $TANKS_WP="current_map/BES41_tank_wp.mis";  
+    $FRONT_IMAGE="current_map/BES41.bmp";
+    $IMAP_DATA="current_map/BES41_imap.data";
 
     $MAP_CODE="BES41";
     $MAP_NAME_LOAD="Bessarabia/load.ini";
-    $FLIGHTS_DEF="BES41_aircrafts.data";  
+    $FLIGHTS_DEF="current_map/BES41_aircrafts.data";  
     @VVS_SUM_PLANES=("Li-2");
     $VVS_TRP_SPEED=270; # average speed for human VVS suply plane
     @VVS_BA_PLANES=("PE-2S1","SB-2M100A", "DB-3M","SB-2M103");
@@ -886,4 +934,4 @@ $parser_stop="_par.stop";  # manual stop parser, do not blocks generator
 $gen_stop="_gen.stop";     # manual stop generator, do not blocks parser
 
 # used in take_slot.pl
-$expire_seconds=1200; # set expire time 1800 seconds = 30 minutes
+$expire_seconds=1200; # set expire time 1800 seconds = 30 minutes    

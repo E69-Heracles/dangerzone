@@ -32,7 +32,7 @@ include ("./dz_page_header.php");
 <p>To report a mission you need to provide the <a href="manual.php#hostproc" title="Help: Host configuration">eventlog</a> (usually coop.txt) and indicate the mission number to report.<br><br>
 
 <?php
-list($hlname, $pwd) = split(' ', $HTTP_COOKIE_VARS["badc_user"]);
+list($hlname, $pwd) = split(' ', $_COOKIE["badc_user"]);
 ?>
 
     <FORM NAME=rep METHOD=POST ENCTYPE="multipart/form-data"

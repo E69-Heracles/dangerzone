@@ -6,20 +6,20 @@ include ("./dz_page_header.php");
 ?>
 
 <?php
-	$allow_images = $HTTP_COOKIE_VARS["badc_images"];
+	$allow_images = $_COOKIE["badc_images"];
 
 	$sort="";
-	$sort=$HTTP_GET_VARS['sort'];
+	$sort=$_GET['sort'];
 	if ($sort == ""){$sort="missions";}
 
 	$order="";
-	$order=$HTTP_GET_VARS['order'];
+	$order=$_GET['order'];
 	if ($order == ""){$order="DESC";}
 
 	if ($order=="ASC") {$inv_ord="DESC";}
 	else { $order=="DESC"; $inv_ord="ASC";}
 	
-  	$sqd=$HTTP_GET_VARS['sqd'];
+  	$sqd=$_GET['sqd'];
 	$html_sqd=$sqd;
 
 	$use_regex=0;
@@ -160,14 +160,14 @@ include ("./dz_page_header.php");
 
  
     $order="DESC"; // defalut order
-    if($HTTP_GET_VARS['order']) {$order=$HTTP_GET_VARS['order'];}
+    if($_GET['order']) {$order=$_GET['order'];}
     if ( $order != "ASC" && $order != "DESC") {print "Error: Unknow order: $order"; die;}
 
     $minmis=0; // default minmis
     $minmis_cmd=""; // default minmis_cmd
 
     $key="points"; // default key
-    if($HTTP_GET_VARS['key']) { $key=$HTTP_GET_VARS['key']; }
+    if($_GET['key']) { $key=$_GET['key']; }
     if ( $key != "missions"  && $key != "akills"    && $key != "gkills" && 
          $key != "friend_ak" && $key != "friend_gk" && $key != "chutes" &&
          $key != "smoke"     && $key != "lights"    && $key != "hlname" && $key != "points" &&

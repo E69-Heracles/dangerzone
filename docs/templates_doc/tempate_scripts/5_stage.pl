@@ -5,7 +5,7 @@
 use IO::Handle;
 $|=1;
 
-$IMAPFILENAME = "BES41_imap-grande.data";
+$IMAPFILENAME = "BES41_imap.data";
 $LETRAS = 34; # numero de letras en el mapa
 $PRIMERALETRA = "AA";
 $NUMEROS = 29; # numeros del mapa
@@ -41,7 +41,7 @@ for (my $j = $NUMEROS; $j > 0; $j--) {
             if ( $_ =~ m/area shape/) {
                 print STDOUT $_;
                 $line = $_;                
-                $sector = "title=\"sector--" . $LETRAS_SEC[$i] . $n . "\"";
+                $sector = "title=\"sector--" . $LETRAS_SEC[$i] . $n . "\" tooltip=\"" . $LETRAS_SEC[$i] . $n . "\" alt=\"sector--" . $LETRAS_SEC[$i] . $n . "\"";
                 $line =~ s/(^<area shape="rect") ([^\s]+  [^\s]+ \/>)/$1 $sector $2/;
                 print STDOUT $line;
                 print TEMPIMAPFILE $line;                

@@ -5,8 +5,8 @@
 ## Se generan :
 ## - 1 fichero de informe.
 ## - n ficheros de mision para ser cargados y comprobados en el IL-2.
-$FLIGHTS_DEF="SMO41_aircrafts.data";
-$MAP_NAME_LOAD="Smolensk/load.ini";
+$FLIGHTS_DEF="BES41_aircrafts.data";
+$MAP_NAME_LOAD="Bessarabia/load.ini";
 
 $FLIGHTS_REP="aircraft.rep";
 
@@ -349,18 +349,18 @@ sub analiza_formato() {
 		$static_air++;
 		next;	
         }
-        if ($_ =~ m/^([^,]+)=/ && $_ =~ m/;$/) {
+        if ($_ =~ m/^[^,]+=\S+;/) {
 		$squadrons++;
 		next;	
         }
-	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/) {
-		$redstock++;
-		next;
-	}
-	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/) {
-		$bluestock++;
-		next;
-	}	
+    	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/) {
+    		$redstock++;
+    		next;
+    	}
+    	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/) {
+    		$bluestock++;
+    		next;
+    	}	
         $noiden++;
         print REP $_;
         print REP "***ERROR*** Linia no identificada.\n";

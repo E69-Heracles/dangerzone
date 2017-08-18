@@ -11,7 +11,7 @@ include ("./dz_page_header.php");
 <table border="0" width=635><tr><td>
 <?php
 
-  	$sqd=$HTTP_GET_VARS['sqd'];
+  	$sqd=$_GET['sqd'];
 
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");
@@ -65,7 +65,7 @@ include ("./dz_page_header.php");
 <tr><td>
 <?php
 
-  	$sqd=$HTTP_GET_VARS['sqd'];
+  	$sqd=$_GET['sqd'];
 
 	mysql_connect("localhost", "$db_user","$db_upwd") or die ("Error - Could not connect: " . mysql_error()); 
 	mysql_select_db("$database");

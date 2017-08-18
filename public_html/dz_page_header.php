@@ -13,7 +13,7 @@
 	<!--<script type="text/JavaScript" src="js/curvycorners.js"></script>--> 
 	<script type="text/JavaScript" src="js/dz_menu.js"></script>
 	<script type="text/javascript" src="js/mapzoom.js"></script>
-
+	<script type="text/javascript" src="/js/cvi_tip_lib.js"></script>
 </head>
 <script type="text/javascript">
 
