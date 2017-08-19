@@ -1,3 +1,8 @@
 public_html/info.php
 public_html/cgi-bin/Pilot_log.txt
 public_html/cgi-bin/current_map/
+public_html/cgi-bin/options.txt
+public_html/tmp/
+public_html/gen/
+public_html/cgi-bin/Gen_log.txt
+public_html/cgi-bin/used_options.txt

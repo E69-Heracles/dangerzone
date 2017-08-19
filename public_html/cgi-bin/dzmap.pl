@@ -68,10 +68,10 @@ sub print_time_and_weather($$$$$$$$) {
 
     print $map  "<br><br><font size=\"+1\"> Dia de campa&ntilde;a <b>$map_vday</b> de <b>$CAMPAIGN_MAX_VDAY</b><br>\n";
     print $map  "<font size=\"+1\">Siguiente misi&oacute;n del d&iacute;a:<b> $mission_of_day / $MIS_PER_VDAY</b><br>\n";
-    print $sta   "<b>Siguiente misión del día:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
+    print $sta   "<b>Siguiente misi&oacute;n del d&iacute;a:</b> $mission_of_day / $MIS_PER_VDAY - $hora h $minutos m.<br>\n";
 
     print $map  "$hora h $minutos m - Clima: $tipo_clima_spa  - Nubes a $nubes metros. </font><br><br>\n\n";
-    print $sta   "<b>Previsión:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
+    print $sta   "<b>Previsi&oacute;n:</b> $tipo_clima_spa  - Nubes a $nubes metros. <br><br>\n\n";
 
 }
 

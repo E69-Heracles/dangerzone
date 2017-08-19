@@ -251,10 +251,10 @@ if ($slot =~ m/BW[123456][B|R]R$/) { # if he is in a request slot
     }
     if ( $hlname ne $super_user && $row[1] != $army) { # if is  NOT in same army (unless is the super_user)
 	if ($army==1){
-	    print "<font color=\"red\" size=\"+1\"> Error: VVS pilots can not make LW requests</font><br>\n";
+	    print "<font color=\"red\" size=\"+1\"> Error: VVS pilots cannot make LW requests</font><br>\n";
 	}
 	if ($army==2){
-	    print "<font color=\"red\" size=\"+1\"> Error: LW pilots can not make VVS requests</font><br>\n";
+	    print "<font color=\"red\" size=\"+1\"> Error: LW pilots cannot make VVS requests</font><br>\n";
 	}
 	print "<br><br><a href=\"/create.php\">Return to Generation page</a><br>\n";
 	print &print_end_html();
@@ -416,9 +416,9 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     total_hum = 0;
     total_ai  = 0;
       if (BAai ==1) {total_ai-=BA;}
-      else {total_hum-=BA;}
-//      if (BDai ==1) {total_ai-=BD;}
-//      else {total_hum-=BD;}
+//      else {total_hum-=BA;}
+      if (BDai ==1) {total_ai-=BD;}
+      else {total_hum-=BD;}
       if (EBAai ==1) {total_ai-=EBA;}
       else {total_hum-=EBA;}
       if (EBDai ==1) {total_ai-=EBD;}
@@ -431,31 +431,6 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     if ( -total_hum !=  document.genopts.max_human.value ) { 
         document.genopts.total_hum.style.background = "#cc0000";}
     else { document.genopts.total_hum.style.background = "#00cc00";}
-    
-    myString = new String(document.genopts.target.value);
-    if( myString.match(/SUA-/)) {
-        document.genopts.bomb_attk_nbr.value="";
-        document.genopts.bomb_attk_nbr.disabled=0;
-        document.genopts.bomb_attk_ai.checked=0;                
-        document.genopts.bomb_attk_ai.disabled=1;
-    }
-//    else if( myString.match(/sector-/) || 
-//        myString.match(/----/) ){
-//            document.genopts.bomb_attk_nbr.value=0;
-//	    document.genopts.bomb_attk_nbr.disabled=1;
-//	    document.genopts.bomb_attk_ai.checked=1;
-//	    document.genopts.bomb_attk_ai.disabled=1;
-//    }
-    else if (myString.match(/SUM-/)) {
-        document.genopts.bomb_attk_nbr.value="";
-	document.genopts.bomb_attk_nbr.disabled=0;
-	document.genopts.bomb_attk_ai.disabled=0;
-    }
-    else {
-           document.genopts.bomb_attk_nbr.value="";
-	   document.genopts.bomb_attk_nbr.disabled=0;
-           document.genopts.bomb_attk_ai.disabled=0;
-    }    
     
 }
 
@@ -563,7 +538,7 @@ VVS_Head3
     <td align="right">Grupo de ataque (<b>BA/SUM/AT</b>) :</td>
     <td align="right">Máximo núm. AT = 3</td>
         <td><select name="bomb_attk_nbr" size="1" style="width:36;"
-    onChange="setnumbers(bomb_attk_nbr.options[selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
+    onChange="setnumbers(bomb_attk_nbr.options[bomb_attk_nbr.selectedIndex].value,bomb_attk_ai.checked,fig_attk_nbr.value,fig_attk_ai.checked,
                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option selected value="0">0</option>
 VVS_Head4
@@ -586,7 +561,7 @@ VVS_Head4
     <td align="right">&nbsp;Cazas de ataque (<b>EBA/ESU/ET</b>) :</td>
     <td align="right">&nbsp;</td>
     <td><select name="fig_attk_nbr" size="1" style="width:36;"
-    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.options[selectedIndex]value,fig_attk_ai.checked,
+    onChange="setnumbers(bomb_attk_nbr.value,bomb_attk_ai.checked,fig_attk_nbr.options[selectedIndex].value,fig_attk_ai.checked,
                        bomb_def_nbr.value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 	<option selected value="0">0</option>
 VVS_Head5
@@ -612,8 +587,8 @@ VVS_Head5
                        bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 VVS_Head6
     ; # Emacs related
-    	print "<option selected value=" . $max_bd .">" . $max_bd . "</option>";
-        for ($my_i = 0; $my_i <= $max_bd; $my_i++){
+    	print "<option selected value=\"0\">0</option>";
+        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
                 print "<option value=\"$my_i\">$my_i</option>";
         }
         print "</select> </td>";
@@ -849,9 +824,9 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
     total_hum = 0;
     total_ai  = 0;
       if (BAai ==1) {total_ai-=BA;}
-      else {total_hum-=BA;}
-//      if (BDai ==1) {total_ai-=BD;}
-//      else {total_hum-=BD;}
+//      else {total_hum-=BA;}
+      if (BDai ==1) {total_ai-=BD;}
+      else {total_hum-=BD;}
       if (EBAai ==1) {total_ai-=EBA;}
       else {total_hum-=EBA;}
       if (EBDai ==1) {total_ai-=EBD;}
@@ -865,31 +840,6 @@ function setnumbers(BA,BAai,EBA,EBAai,BD,BDai,EBD,EBDai) {
         document.genopts.total_hum.style.background = "#cc0000";}
     else { document.genopts.total_hum.style.background = "#00cc00";}
     
-    myString = new String(document.genopts.target.value);
-    if( myString.match(/SUA-/)) {
-        document.genopts.bomb_attk_nbr.value="";
-        document.genopts.bomb_attk_nbr.disabled=0;
-        document.genopts.bomb_attk_ai.checked=0;        
-        document.genopts.bomb_attk_ai.disabled=1;
-    }
-//    else if( myString.match(/sector-/) || 
-//        myString.match(/----/) ){
-//            document.genopts.bomb_attk_nbr.value=0;
-//	    document.genopts.bomb_attk_nbr.disabled=1;
-//	    document.genopts.bomb_attk_ai.checked=1;
-//	    document.genopts.bomb_attk_ai.disabled=1;
-//    }
-    else if (myString.match(/SUM-/)) {
-        document.genopts.bomb_attk_nbr.value="";
-	document.genopts.bomb_attk_nbr.disabled=0;
-	document.genopts.bomb_attk_ai.disabled=0;
-    }
-    else {
-        document.genopts.bomb_attk_nbr.value="";
-	document.genopts.bomb_attk_nbr.disabled=0;
-        document.genopts.bomb_attk_ai.disabled=0;
-
-    }    
 }
 
 function Check(){
@@ -906,7 +856,7 @@ function Check(){
     myString = new String(document.genopts.target.value);
     if ( document.genopts.bomb_attk_nbr.value == 0){
 	if ( ! myString.match(/sector-/) ){
-	    alert ("Error: Attack group cant be 0.");
+	    alert ("Error: Attack group can't be 0.");
 	    return false;
 	}
     }
@@ -1047,8 +997,8 @@ LW_Head5
                        bomb_def_nbr.options[selectedIndex].value ,bomb_def_ai.checked ,fig_def_nbr.value,fig_def_ai.checked);">
 LW_Head6
     ; # Emacs related
-    	print "<option selected value=" . $max_bd .">" . $max_bd . "</option>";    
-        for ($my_i = 0; $my_i <= $max_bd; $my_i++){
+    	print "<option selected value=\"0\">0</option>";    
+        for ($my_i = 1; $my_i <= $max_bd; $my_i++){
                 print "<option value=\"$my_i\">$my_i</option>";
         }
         print "</select> </td>";

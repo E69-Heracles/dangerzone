@@ -13,7 +13,7 @@ if ($environment eq "DEV")
     $MAX_UPLOAD_SIZE      = 200000; # bytes
     $CJPEG_PROG           = "/usr/bin/cjpeg";           
     $CJPEG_FLAGS          = "-quality 70 -progressive";
-    $HTPASSWD_PROG        = "/usr/local/apache/bin/htpasswd";        
+    $HTPASSWD_PROG        = "/usr/bin/htpasswd";        
     $HTPASSWD_FLAGS       = "-bc";                 #unix only, on windows is used stdout redirection
     $ZIP_PROG             = "/usr/bin/zip";             
     $ZIP_FLAGS            = "-qj";
@@ -26,8 +26,8 @@ if ($environment eq "DEV")
 
     # allowed http_referers to insert request on database. (used on gen_opts_31.pl)
     # replace "your_website.com" and "www.your_website.com" with your domain 
-    $allowed_ref1="http://dangerzone.escuadronbo2.com/cgi-bin/take_slot.pl";
-    $allowed_ref2="http://www.escuadronbo2.com/dangerzone/cgi-bin/take_slot.pl";
+    $allowed_ref1="http://localhost/cgi-bin/take_slot.pl";
+    $allowed_ref2="http://192.168.99.100/cgi-bin/take_slot.pl";
 
     # db stuff
     $database="badc";       # database name  (CHANGE THIS)

@@ -6124,7 +6124,7 @@ if ($BLUE_ATTK_TACTIC==1){
 $extend= get_mission_nbr();
 
 # Zip code was a very first try to add a password to zip mission files.
-# but latar i discart this and use .htaccess acces control.  Anyway, this zip code is used as random
+# but later I discarded this and use .htaccess acces control.  Anyway, this zip code is used as random
 # text for making temopary folders and reduce name guessing.
 
 my @vocales = ("a","e","i","o","u"); # 5 vocales
