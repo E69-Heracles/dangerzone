@@ -50,7 +50,8 @@ Installed software versions for development environment:
 
 A lot of effort should be done in order to refactor the code to minimize bugs:
 
-  * make_attack_page.pl has a lot of duplicated code with badc_par_2.pl
+  * ~~make_attack_page.pl has a lot of duplicated code with badc_par_2.pl~~
+  * Simplify airfield supply system.
 
 ## Credits
 
