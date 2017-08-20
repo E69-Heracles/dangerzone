@@ -176,7 +176,8 @@ sub update_data(){
     }
     $dbh->do("UPDATE $sqd_file_tbl SET ak_x_mis = $ak_x_mis, gk_x_mis = $gk_x_mis, points_x_mis = $points_x_mis, kia_x_mis = $kia_x_mis  WHERE id=\"$sqd_id\"");
 
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "L ". scalar(localtime(time)) ." $boot_pilot has leaved $sqd_pref, by request from : $adm_hlname\n";
     close (PILOT_LOG);
 

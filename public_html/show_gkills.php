@@ -78,7 +78,7 @@ $tdoRED="<td class=\"ltr70R\">";
 		if (!$wasfriend){
 			printf ("
 				$tdo %d </td>\n
-				$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+				$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 				$tdo <b>&nbsp;%s&nbsp;</b></td>\n
 				$tdo &nbsp;%s&nbsp; </td>\n
 				$tdo &nbsp;%s&nbsp;</td>\n
@@ -87,7 +87,7 @@ $tdoRED="<td class=\"ltr70R\">";
 		else {
 			printf ("
 				$tdo %d </td>\n
-				$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+				$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 				$tdoRED<b>&nbsp;%s&nbsp;</b></td>\n
 				$tdo &nbsp;%s&nbsp; </td>\n
 				$tdoRED &nbsp;%s&nbsp;</td>\n

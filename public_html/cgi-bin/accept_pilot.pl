@@ -124,7 +124,8 @@ sub update_data(){
     }
     print "+ $new_pilot statistics transfered to squadron $sqd_pref <br>\n";
     
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "A ".scalar(localtime(time)) ." $adm_hlname has accepted $new_pilot into $sqd_pref\n";
     close (PILOT_LOG);
 

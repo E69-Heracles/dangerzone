@@ -512,7 +512,9 @@ VVS_Head3
 	    push (@red_tgt_used,$row[0]);
 	}
 	$sth->finish;
-	open(OPR,"Options_R.txt");
+
+    my $options_red_file = $PATH_DYNAMIC_TXT . "/" . "Options_R.txt";
+	open(OPR,"$options_red_file");
 	while(<OPR>){
 	    my $option=$_;
 	    my $ok=1;
@@ -653,13 +655,15 @@ VVS_Head8
 	print "<br>---<br>\n";
 	print "</td></tr></table><pre>\n\n\n</pre>\n";
 
-	open(VVSREC,"$CGI_BIN_PATH/tmp/vvsrec.txt");
+    my $vvsrec_file = $PATH_DYNAMIC_TMP . "/" . "vvsrec.txt";
+	open(VVSREC,"$vvsrec_file");
 	while(<VVSREC>){
 	    print
 	}
 	close(VVSREC);
 
-	open(STA,"Status.txt");
+    my $status_file = $PATH_DYNAMIC_TXT . "/" . "Status.txt";
+	open(STA,"$status_file");
 	while(<STA>){
 	    print
 	}
@@ -920,7 +924,8 @@ LW_Head3
 	}
 	$sth->finish;
 	
-	open(OPB,"Options_B.txt");
+    my $options_blue_file = $PATH_DYNAMIC_TXT . "/" . "Options_B.txt";
+	open(OPB,"$options_blue_file");
 	while(<OPB>){
 	    my $option=$_;
 	    my $ok=1;
@@ -1065,14 +1070,15 @@ LW_Head8
 	print "</td></tr></table><pre>\n\n\n</pre>\n";
 
 
-	open(LWREC,"$CGI_BIN_PATH/tmp/lwrec.txt");
+	open(LWREC,"$PATH_DYNAMIC_TMP/lwrec.txt");
 	while(<LWREC>){
 	    print
 	}
 	close(LWREC);
 
 
-	open(STA,"Status.txt");
+    my $status_file = $PATH_DYNAMIC_TXT . "/" . "Status.txt";
+	open(STA,"$status_file");
 	while(<STA>){
 	    print
 	}

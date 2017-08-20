@@ -500,7 +500,7 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 			$row[0]=preg_replace("/>/","&gt;",$row[0]);
 		}
 
-		printf(" $tdo &nbsp;<a href=\"/rep/%s\">%s</a>&nbsp;</td>\n $tdo &nbsp;%s&nbsp; </td>\n $tdo &nbsp;%s&nbsp; </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td> $tdoc %s </td> $tdoc %s </td>\n $tdoc %s </td>\n $tdo \n   $smtb   $tdor %s </td>\n   $tdor %s </td>\n   $tdor %s </td>\n   $tdoc|</td>\n   $tdor %s </td>\n   $tdor %s </td>\n   </td>\n $tdo &nbsp;%s&nbsp; </td></tr>\n", 
+		printf(" $tdo &nbsp;<a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n $tdo &nbsp;%s&nbsp; </td>\n $tdo &nbsp;%s&nbsp; </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td>\n $tdoc %s </td> $tdoc %s </td> $tdoc %s </td>\n $tdoc %s </td>\n $tdo \n   $smtb   $tdor %s </td>\n   $tdor %s </td>\n   $tdor %s </td>\n   $tdoc|</td>\n   $tdor %s </td>\n   $tdor %s </td>\n   </td>\n $tdo &nbsp;%s&nbsp; </td></tr>\n", 
 	$row[18], $row[18], $row[1], $row[28], $row[29], $row[3], $row[4], $row[5], $row[6],$row[7],$row[8], $row[9], $row[10], $row[11], $row[12], $row[13], $row[14], $row[15], $row[16]);
 	}
 } 
@@ -562,10 +562,10 @@ $tdoRED="<td class=\"ltr70c \">";
 
                 $wasfriend=$row2[6];
 		if (!$wasfriend){
-			printf ("$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n$tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
+			printf ("$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n$tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
 		}
 		else {
-			printf ("$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdoRED&nbsp;%s&nbsp; </td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
+			printf ("$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdoRED&nbsp;%s&nbsp; </td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
 		}
 
 	}
@@ -615,14 +615,14 @@ $tdoRED="<td class=\"ltr70c \">";
 		$wasfriend=$row3[5];
 		if (!$wasfriend){
 			printf ("
-				$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+				$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 				$tdo &nbsp;%s&nbsp; </td>\n
 				$tdo &nbsp;%s&nbsp;</td>\n
 				</tr>\n",$row3[1], $row3[1], $row3[3], $row3[4]);
 		}
 		else {
 			printf ("
-				$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+				$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 				$tdo &nbsp;%s&nbsp; </td>\n
 				$tdoRED &nbsp;%s&nbsp;</td>\n
 				</tr>\n",$row3[1], $row3[1], $row3[3], $row3[4]);
@@ -688,10 +688,10 @@ $tdoRED="<td class=\"ltr70c \">";
 
                 $wasfriend=$row2[6];
 		if (!$wasfriend){
-		    printf ("$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp; </td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
+		    printf ("$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp; </td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
 		}
 		else {
-		    printf ("$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdoRED &nbsp;%s&nbsp;</td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
+		    printf ("$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp;</td>\n $tdo &nbsp;<a href=\"/pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdoRED &nbsp;%s&nbsp;</td></tr>\n",$row2[1], $row2[1], $row2[3], $hlkilled, $row2[4], $row2[5]);
 		}
 	}
 
@@ -736,7 +736,7 @@ $tdol="<td class=\"ltr70c\" align=\"left\">";
 			$row3[2]=preg_replace("/>/","&gt;",$row3[2]);
 		}
 		printf ("
-	$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+	$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 	$tdo %s &nbsp;</td>\n
 	</tr>\n",$row3[0], $row3[0], $row3[1]);
 	}

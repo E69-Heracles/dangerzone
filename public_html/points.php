@@ -88,7 +88,7 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	if ($red_result && $red_result != "capture" && $red_result != "fail" ) {$red_result .= "%";}
 	if ($blue_result && $blue_result != "capture" && $blue_result != "fail" ) {$blue_result .= "%";}
 
-	printf(" $tdoC <a href=\"/rep/%s.html\">%s</a> $tdk $tdo %s [%s] $tdk $tdoC %s $tdk $tdo %s [%s] $tdk $tdoC %s $tdk", $row[9], $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points );
+	printf(" $tdoC <a href=\"$RELATIVE_DYNAMIC_REP/%s.html\">%s</a> $tdk $tdo %s [%s] $tdk $tdoC %s $tdk $tdo %s [%s] $tdk $tdoC %s $tdk", $row[9], $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points );
        
 } 
 print "</table>\n";

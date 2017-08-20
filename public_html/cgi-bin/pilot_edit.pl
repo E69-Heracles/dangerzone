@@ -179,7 +179,8 @@ sub update_data(){
 
     $dbh->do("UPDATE $pilot_file_tbl SET password = \"$pwd\", email = \"$email\", avatar = \"$avatar\" WHERE hlname=\"$hlname\"");
     
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "E ". scalar(localtime(time)) ." $hlname edited his profile\n";
     close (PILOT_LOG);
 

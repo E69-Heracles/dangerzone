@@ -476,7 +476,8 @@ sub get_map_vday(){
 
     my $dia;
     
-    if (!(open (VER,"<dia.txt"))){
+    my $day_file = $PATH_DYNAMIC_TXT . "/" . "dia.txt";
+    if (!(open (VER,"<$day_file"))){
 	print "$big_red ERROR: Can't open map vday file : $! (read)<br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
@@ -496,7 +497,8 @@ sub set_map_vday(){
 
     my $dia;
     
-    if (!(open (VER,"<dia.txt"))){
+    my $day_file = $PATH_DYNAMIC_TXT . "/" . "dia.txt";
+    if (!(open (VER,"<$day_file"))){
 	print "$big_red ERROR: Can't open map vday file : $! (read)<br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
@@ -508,7 +510,7 @@ sub set_map_vday(){
     $dia=<VER>;
     close(VER);
     
-    if (!(open (VER,">dia.txt"))){
+    if (!(open (VER,">$day_file"))){
 	print "$big_red ERROR:  Can't open map vday file : $! (update)<br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
@@ -577,7 +579,9 @@ sub print_log($$) {
 ## @Heracles@20170816
 ## Read the current mission number without locking rep_counter.data
 sub get_report_nbr_for_read() {
-    if (!(open (COU,"<rep_counter.data")))
+
+    my $rep_counter_file = $PATH_DYNAMIC_DATA . "/" . "rep_counter.data";
+    if (!(open (COU,"<$rep_counter_file")))
     {
         die "ERROR: Can't open report counter file : $!\n";
     }
@@ -598,7 +602,8 @@ sub get_report_nbr(){
     my $counter;
     my $ret=0;
     
-    if (!(open (COU,"<rep_counter.data")))
+    my $rep_counter_file = $PATH_DYNAMIC_DATA . "/" . "rep_counter.data";
+    if (!(open (COU,"<$rep_counter_file")))
     {
         print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
         print "Please NOTIFY this error.\n";
@@ -611,7 +616,7 @@ sub get_report_nbr(){
     $counter=<COU>;
     close(COU);
     
-    if (!(open (COU,">rep_counter.data")))
+    if (!(open (COU,">$rep_counter_file")))
     {
         print "$big_red ERROR:  Can't open report counter file : $! (update)<br>\n";
         print "Please NOTIFY this error.\n";

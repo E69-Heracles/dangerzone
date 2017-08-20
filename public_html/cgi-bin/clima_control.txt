@@ -1,1 +1,0 @@
-Manual change -  hora: 5 min: 50 nubes:  --  clima: 19 = Clear : Sun Aug 20 08:35:31 UTC 2017

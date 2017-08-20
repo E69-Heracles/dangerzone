@@ -46,9 +46,9 @@ sub print_map_and_points($) {
     
     print $map "<table>\n";
     print $map "<tr class=first><td colspan=8 align=center><h3>Puntuaci&oacute;n del Mapa</h3></td></tr>\n";   
-    print $map "<tr class=first><td  align=center valign=middle><nowrap><img src=\"images/luftwaffe_logo.gif\" width=40 height=40/></td>";
+    print $map "<tr class=first><td  align=center valign=middle><nowrap><img src=\"../images/luftwaffe_logo.gif\" width=40 height=40/></td>";
     print $map "<td>&nbsp;&nbsp;</td><td><b>$blue_points</b></nowrap></td>";
-    print $map "<td>&nbsp;&nbsp;</td><td  align=center valign=middle><img src=\"images/ws_logo.gif\" border=0 width=40 height=40/></td>";
+    print $map "<td>&nbsp;&nbsp;</td><td  align=center valign=middle><img src=\"../images/ws_logo.gif\" border=0 width=40 height=40/></td>";
     print $map "<td>&nbsp;&nbsp;</td><td><b>$red_points</b></nowrap></td>"; 
     print $map "</tr>";
     print $map "</table>\n";
@@ -191,7 +191,7 @@ sub print_plane_inventory($$$) {
     print_map_and_sta($map, $sta, "</tr></table><br><br>\n");
     close (FLIGHTS);
     
-    my $albaran="albaran.txt";
+    my $albaran=$PATH_DYNAMIC_TXT . "/" . "albaran.txt";
     if ($PRODUCCION) {
         if (open (ALB, "<$albaran")) {
         seek ALB, 0, 0;
@@ -446,8 +446,8 @@ sub print_map_page($$$$) {
 
     ($map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes) = compute_time_and_weather($weather_for_next_mission, $log, $rep_nbr);
 
-    my $MAP_FILE="$PATH_TO_WEBROOT/mapa.html";
-    my $Status="Status.txt";
+    my $MAP_FILE= $PATH_DYNAMIC_MAP . "/" . "mapa.html";
+    my $Status= $PATH_DYNAMIC_TXT . "/" . "Status.txt";
 
     open (MAPA,">$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
     open (STA,">$Status")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRS</font>";

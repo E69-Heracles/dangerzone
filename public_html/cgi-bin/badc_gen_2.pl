@@ -650,7 +650,8 @@ sub get_mission_times(){
     my $counter;
     my $ret=0;
     
-    if (!(open (COU,"<rep_counter.data"))){
+    my $rep_counter_file = $PATH_DYNAMIC_DATA . "/" . "rep_counter.data";
+    if (!(open (COU,"<$rep_counter_file"))){
 	print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
@@ -1259,7 +1260,8 @@ sub get_mission_nbr(){
     my $counter;
     my $ret=0;
     
-    if (!(open (COU,"<mis_counter.data"))){
+    my $mis_counter_file = $PATH_DYNAMIC_DATA . "/" . "mis_counter.data";
+    if (!(open (COU,"<$mis_counter_file"))){
 	print "$big_red Error: </font>  Can't open counter file R : $!\n";
 	unlink $gen_lock;
 	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Can't open counter file R: $! \n\n";
@@ -1268,7 +1270,7 @@ sub get_mission_nbr(){
     $counter=<COU>;
     close(COU);
     
-    if (!(open (COU,">mis_counter.data"))){
+    if (!(open (COU,">$mis_counter_file"))){
 	print "$big_red Error: </font>  Can't open counter file W : $!\n";
 	unlink $gen_lock;
 	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . " ERROR: Can't open counter file W: $! \n\n";
@@ -4589,7 +4591,8 @@ sub add_tank_biulding() {
 #-------
 sub print_briefing() {
 
-    open (DESC, ">$PATH_TO_WEBROOT/gen/badc$extend.properties"); 
+    my $desc_file = $PATH_DYNAMIC_GEN . "/" . "badc$extend.properties";
+    open (DESC, ">$desc_file"); 
 
     # calculamos la cantidad de grupos en cada lista.
     my $red_def_groups = (scalar(@red_def_grplst)/$grpentries);
@@ -5632,7 +5635,8 @@ sub print_details(){
 
 srand;  # randomize
 
-open (GEN_LOG, ">>Gen_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Gen_log.txt $!\n";
+my $gen_log = $PATH_DYNAMIC_TXT . "/" . "Gen_log.txt";
+open (GEN_LOG, ">>$gen_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Gen_log.txt $!\n";
 
 
 $Rhost="Rhost unknow";
@@ -5859,7 +5863,8 @@ if (! aviable_af() ) {
 #targets_areas
 #-------------
 if ($unix_cgi){
-    if (! open(OPT,"<options.txt")){
+    my $opt = $PATH_DYNAMIC_TXT . "/" . "options.txt";
+    if (! open(OPT,"<$opt")){
 	print "$big_red Error: </font>  Cant open options.txt file <br>\n";
 	unlink $gen_lock;
 	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . "  ERROR: Cant open options.txt file \n\n";
@@ -5946,8 +5951,8 @@ if ($unix_cgi){
 
     $red_ok=0;
     $blue_ok=0;
-    my $Options_R="Options_R.txt";
-    my $Options_B="Options_B.txt";
+    my $Options_R= $PATH_DYNAMIC_TXT . "/" . "Options_R.txt";
+    my $Options_B= $PATH_DYNAMIC_TXT . "/" . "Options_B.txt";
     open (OPR,"<$Options_R");
     open (OPB,"<$Options_B");
 
@@ -5984,7 +5989,8 @@ else {
 }
 
 if ($unix_cgi){
-    if (! open(U_OPT,">>used_options.txt")){
+    my $u_opt = $PATH_DYNAMIC_TXT . "/". "used_options.txt";
+    if (! open(U_OPT,">>$u_opt")){
 	print "$big_red Error: </font>  Cant open used_options.txt file.\n";
 	unlink $gen_lock;
 	print GEN_LOG "Pid $$ : " .scalar(localtime(time)) . "  ERROR: Cant open used_options.txt file.\n\n";
@@ -6133,8 +6139,11 @@ my @consonantes = ("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","
 $ZipCode= $extend . "_" . $consonantes[(int(rand(20)))] . $vocales[(int(rand(5)))] . $consonantes[(int(rand(20)))] .
     $vocales[(int(rand(5)))] . (chr(int(rand(10))+48)) . (chr(int(rand(10))+48)) ;
 
-open (MIS, ">$PATH_TO_WEBROOT/gen/badc$extend.mis"); 
-open (DET, ">$PATH_TO_WEBROOT/gen/det_badc$extend.txt");
+my $mis_file =  $PATH_DYNAMIC_GEN . "/" . "badc$extend.mis";
+open (MIS, ">$mis_file");
+
+my $mis_det_file =  $PATH_DYNAMIC_GEN . "/" . "det_badc$extend.txt";
+open (DET, ">$mis_det_file");
 
 
 # this initialize wheather to some random values. We will read values from the ones set on 
@@ -6145,7 +6154,8 @@ $clima=int(rand(98)); #1..97 this is a number to set weather
 $nubes=500+(int(rand(10))+1)*100; # 500 .. 1500 clouds
 
 
-if (! open (CLIMA,"<clima.txt")){ # cant open weather file, we use random values
+my $clima_file = $PATH_DYNAMIC_TXT . "/" . "clima.txt";
+if (! open (CLIMA,"<$clima_file")){ # cant open weather file, we use random values
     print GEN_LOG "WARNING: CAN'T OPEN clima.txt, using rand values <br>\n";
     print "WARNING: CAN'T OPEN clima.txt, using rand values <br>\n"; }
 else { # we read weather values from file (warning, not cheking for corrup data file)
@@ -6420,22 +6430,22 @@ else { # runing as cgi: make zip, password and offer download, track mission dat
 	eval `copy $PATH_TO_WEBROOT\\gen\\badc$extend.zip $PATH_TO_WEBROOT\\tmp\\$ZipCode\\badc$extend.zip`;
     }
     else {
-	eval `mkdir $PATH_TO_WEBROOT/tmp/$ZipCode`;       # temporay folder for download mission 
-	open (HTACC,">$PATH_TO_WEBROOT/tmp/$ZipCode/.htaccess"); # create an htaccess file
+	eval `mkdir $PATH_DYNAMIC_TMP/$ZipCode`;       # temporay folder for download mission 
+	open (HTACC,">$$PATH_DYNAMIC_TMP/$ZipCode/.htaccess"); # create an htaccess file
 	print HTACC "AuthName \"Enter your nickname and password.\"\n";
 	print HTACC "AuthType \"basic\"\n"; 
-	print HTACC "AuthUserFile $PATH_TO_WEBROOT/tmp/$ZipCode/passwd\n";
+	print HTACC "AuthUserFile $PATH_DYNAMIC_TMP/$ZipCode/passwd\n";
 	print HTACC "require valid-user\n";
 	close (HTACC);
-	eval `$HTPASSWD_PROG $HTPASSWD_FLAGS $PATH_TO_WEBROOT/tmp/$ZipCode/passwd $safe_name $safe_pwd`;
+	eval `$HTPASSWD_PROG $HTPASSWD_FLAGS $PATH_DYNAMIC_TMP/$ZipCode/passwd $safe_name $safe_pwd`;
 	# make zip can copy to temp place:
-	eval `$ZIP_PROG $ZIP_FLAGS $PATH_TO_WEBROOT/gen/badc$extend.zip $PATH_TO_WEBROOT/gen/badc$extend.mis $PATH_TO_WEBROOT/gen/badc$extend.properties`;
-	eval `cp $PATH_TO_WEBROOT/gen/badc$extend.zip $PATH_TO_WEBROOT/tmp/$ZipCode/badc$extend.zip`;
+	eval `$ZIP_PROG $ZIP_FLAGS $PATH_DYNAMIC_GEN/badc$extend.zip $PATH_DYNAMIC_GEN/badc$extend.mis $PATH_DYNAMIC_GEN/badc$extend.properties`;
+	eval `cp $PATH_DYNAMIC_GEN/badc$extend.zip $PATH_DYNAMIC_TMP/$ZipCode/badc$extend.zip`;
     }
 
     print "Mission generated ok.<br><br>\n";
     print "Save the mission with right mouse click and  \"save as\"<br>";
-    print "Mission: <a href=\"/tmp/$ZipCode/badc".$extend.".zip\">badc".$extend.".zip</a><br><br>";
+    print "Mission: <a href=\"$RELATIVE_DYNAMIC_TMP/$ZipCode/badc".$extend.".zip\">badc".$extend.".zip</a><br><br>";
     print "On autorization window write:<br>\n";
 
     if ($Dhost eq $safe_name) {
@@ -6457,7 +6467,7 @@ else { # runing as cgi: make zip, password and offer download, track mission dat
 
 
     print "<head>\n";
-    print "  <META HTTP-EQUIV=\'refresh\' CONTENT=\'1; URL=/tmp/$ZipCode/badc".$extend.".zip\'>";
+    print "  <META HTTP-EQUIV=\'refresh\' CONTENT=\'1; URL=$RELATIVE_DYNAMIC_TMP/$ZipCode/badc".$extend.".zip\'>";
     print "</head>\n";
 
     print &print_end_html();
@@ -6480,7 +6490,7 @@ else { # runing as cgi: make zip, password and offer download, track mission dat
     my $epoca = time; # current epoch
     $dbh->do("INSERT INTO $mis_prog VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",undef,$CAMPANYA,$MAP_NAME_LONG,("badc".$extend),$Dhost,$red_target,$blue_target,$Rhost,$Bhost,0,"-",$MP_date,$MP_time,$epoca,"","",0,0,0,0,1,"","",0);
     unlink $gen_lock;
-    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) ." Mission: /tmp/$ZipCode/badc".$extend.".zip \n\n";
+    print GEN_LOG "Pid $$ : " .scalar(localtime(time)) ." Mission: $RELATIVE_DYNAMIC_TMP/$ZipCode/badc".$extend.".zip \n\n";
     $dbh->disconnect();
 }
 close(GEN_LOG);

@@ -105,8 +105,8 @@ $html_sqd_name=$sqd_name;
 $html_sqd_name =~ s/</&lt;/g;
 $html_sqd_name =~ s/>/&gt;/g;
 
-
-open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
 print PILOT_LOG  "J ". scalar(localtime(time)) ." $hlname has request to join $sqd_name\n";
 close (PILOT_LOG);
 

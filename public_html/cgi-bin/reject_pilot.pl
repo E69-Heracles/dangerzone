@@ -103,7 +103,8 @@ sub update_data(){
     # Update pilot file, seting squadron NONE, ID=1 army =0
     $dbh->do("UPDATE $pilot_file_tbl SET  in_sqd_name=\"NONE\" , in_sqd_id =\"1\" , sqd_army=\"0\" WHERE hlname=\"$rej_pilot\"");
 
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "X ".scalar(localtime(time)) ." $adm_hlname has rejected $rej_pilot aplication for $sqd_pref\n";
     close (PILOT_LOG);
 

@@ -131,7 +131,8 @@ if ($avatar eq ""){
     my $fecha =($anio+1900)."-".($mes+1)."-".($dia);
     $dbh->do("INSERT INTO $pilot_file_tbl VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",undef,"",$hlname,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"NONE",1,0,0,$pwd1,$email,$avatar,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,$fecha,0.9,"",0,$INIT_BAN_PLANNIG);
 
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "R ". scalar(localtime(time)) ." $hlname has registered\n";
     close (PILOT_LOG);
 

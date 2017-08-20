@@ -346,7 +346,8 @@ sub get_mission_times(){
     my $counter;
     my $ret=0;
     
-    if (!(open (COU,"<rep_counter.data"))){
+    my $rep_counter_file = $PATH_DYNAMIC_DATA . "/" . "rep_counter.data";
+    if (!(open (COU,"<$rep_counter_file"))){
 	print "$big_red ERROR: Can't open report counter file : $! (read)<br>\n";
 	print "Please NOTIFY this error.\n";
 	print &print_end_html();
@@ -2912,12 +2913,12 @@ sub eventos_aire(){
 	    eval `copy $PATH_TO_WEBROOT\\images\\front.jpg $PATH_TO_WEBROOT\\images\\front$ext_rep_nbr.jpg`; # win
 	}
 	else {
-	    eval `cp $PATH_TO_WEBROOT/images/front.jpg $PATH_TO_WEBROOT/images/front$ext_rep_nbr.jpg`;
+	    eval `cp $PATH_DYNAMIC_FRONT/front.jpg $PATH_DYNAMIC_FRONT/front$ext_rep_nbr.jpg`;
 	}
     }
-    open (MAP_REP1,">$PATH_TO_WEBROOT/rep/map_1x$ext_rep_nbr.html");
-    open (MAP_REP2,">$PATH_TO_WEBROOT/rep/map_2x$ext_rep_nbr.html");
-    open (MAP_REP4,">$PATH_TO_WEBROOT/rep/map_4x$ext_rep_nbr.html");
+    open (MAP_REP1,">$PATH_DYNAMIC_REP/map_1x$ext_rep_nbr.html");
+    open (MAP_REP2,">$PATH_DYNAMIC_REP/map_2x$ext_rep_nbr.html");
+    open (MAP_REP4,">$PATH_DYNAMIC_REP/map_4x$ext_rep_nbr.html");
 
 
     print MAP_REP1 <<REP1;
@@ -4800,7 +4801,7 @@ sub calc_production_planes() {
     my $percent_mission = 0.0; # Numero de apariciones en relacion al total de misiones (normalizado 0..1)
     my $weight_total= 0.0;
     
-    my $albaran="albaran.txt";
+    my $albaran= $PATH_DYNAMIC_TXT . "/". "albaran.txt";
     
 	if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
 	    print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
@@ -5092,7 +5093,7 @@ sub make_attack_page(){
 	printdebug ("make_attack_page(): Puntos azules : $blue_points");
 	printdebug ("make_attack_page(): Puntos rojos : $red_points");		
 
-	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	my $TEMPMAP_FILE=" $PATH_DYNAMIC_MAP/temp_mapa.html";
 	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
 	open(TEMPMAPA, ">$TEMPMAP_FILE");
         seek MAPA,0,0;
@@ -5129,7 +5130,7 @@ sub make_attack_page(){
 	printdebug ("make_attack_page(): Aerodomos azules colapsados: $af_blue_colapsed");
 	printdebug ("make_attack_page(): Aerodomos azules colapsados: $af_red_colapsed");
 
-	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	my $TEMPMAP_FILE=" $PATH_DYNAMIC_MAP/temp_mapa.html";
 	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
 	open(TEMPMAPA, ">$TEMPMAP_FILE");
         seek MAPA,0,0;
@@ -5161,7 +5162,7 @@ sub make_attack_page(){
 	
 	printdebug ("make_attack_page(): Cuartel general capturado, campaña acabada.");
 
-	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	my $TEMPMAP_FILE="$PATH_DYNAMIC_MAP/temp_mapa.html";
 	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
 	open(TEMPMAPA, ">$TEMPMAP_FILE");
         seek MAPA,0,0;
@@ -5193,7 +5194,7 @@ sub make_attack_page(){
 	
 	printdebug ("make_attack_page(): Inventario sin existencias, campaña acabada.");
 
-	my $TEMPMAP_FILE="$PATH_TO_WEBROOT/temp_mapa.html";
+	my $TEMPMAP_FILE="$PATH_DYNAMIC_MAP/temp_mapa.html";
 	open (MAPA,"<$MAP_FILE")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA MAPA</font>";
 	open(TEMPMAPA, ">$TEMPMAP_FILE");
         seek MAPA,0,0;
@@ -5448,7 +5449,8 @@ sub make_image(){
 
 $|++;; # stdout HOT
 
-open (PAR_LOG,">>Par_log.txt");
+my $par_log = $PATH_DYNAMIC_TXT . "/" . "Par_log.txt";
+open (PAR_LOG,">>$par_log");
 autoflush PAR_LOG 1; # hot output
 print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." START PAR_VERSION: $PAR_VERSION\n";
 
@@ -5644,10 +5646,10 @@ $MIS_TO_REP=~ s/\.//g;
 $MIS_TO_REP=~ s/\'//g; 
 $MIS_TO_REP=~ s/\`//g; 
 
-$LOG_FILE="$PATH_TO_WEBROOT/rep/$MIS_TO_REP.log";
-$ZIP_FILE="$PATH_TO_WEBROOT/rep/$MIS_TO_REP.zip";
-$MIS_FILE="$PATH_TO_WEBROOT/gen/$MIS_TO_REP.mis";
-$DET_FILE="$PATH_TO_WEBROOT/gen/det_$MIS_TO_REP.txt";
+$LOG_FILE=$PATH_DYNAMIC_REP . "/" . "$MIS_TO_REP.log";
+$ZIP_FILE=$PATH_DYNAMIC_REP . "/" . "$MIS_TO_REP.zip";
+$MIS_FILE=$PATH_DYNAMIC_GEN . "/" . "$MIS_TO_REP.mis";
+$DET_FILE=$PATH_DYNAMIC_GEN . "/" . "det_$MIS_TO_REP.txt";
 
 print "Checking  for previous reports: ";
 if (open (ZIP,"<$ZIP_FILE")){ # si se puede abrir es porque ya existe el reporte
@@ -5857,8 +5859,8 @@ if (!open (LOG,"<$LOG_FILE")){  # reabrir
     exit(0);
 }
 
-
-open (WARN,">>$PATH_TO_WEBROOT/warn.txt");
+my $warn_file = $PATH_DYNAMIC_CONTENT . "/" . "warn.txt";
+open (WARN,">>$warn_file");
 $warnings=0;
 
 $stime_str=""; # start time string
@@ -6036,7 +6038,8 @@ my $cel_tb2_bgc="#dddddd";
 
 # OPEN HTML REPORT:
 
-open (HTML_REP,">$PATH_TO_WEBROOT/rep/rep$ext_rep_nbr.html"); #generamos uno
+my $rep_nbr_file = $PATH_DYNAMIC_REP . "/" . "rep$ext_rep_nbr.html";
+open (HTML_REP,">$rep_nbr_file"); #generamos uno
 
 
 print HTML_REP &print_start_html();
@@ -6121,14 +6124,14 @@ document.onmousemove=positiontip;
 
 <td> <table border="0">
 <tr><td align="right" class="ltr80" bgcolor="$cel_tb2_bgc">Mission file </td>
-    <td class="ltr80" bgcolor="$cel_tb2_bgc"><a href="/rep/$MIS_TO_REP.zip">$MIS_TO_REP.zip</a></td></tr>
+    <td class="ltr80" bgcolor="$cel_tb2_bgc"><a href="$RELATIVE_DYNAMIC_REP/$MIS_TO_REP.zip">$MIS_TO_REP.zip</a></td></tr>
 <tr><td align="right" class="ltr80" bgcolor="$cel_tb2_bgc">Event file </td>
-    <td class="ltr80" bgcolor="$cel_tb2_bgc"><a href="/rep/$MIS_TO_REP.log">$MIS_TO_REP.log</a></td></tr>
+    <td class="ltr80" bgcolor="$cel_tb2_bgc"><a href="$RELATIVE_DYNAMIC_REP/$MIS_TO_REP.log">$MIS_TO_REP.log</a></td></tr>
 <tr><td align="right" class="ltr80" bgcolor="$cel_tb2_bgc">Event maps </td>
     <td class="ltr80" bgcolor="$cel_tb2_bgc" > 
-       &nbsp;&nbsp; <a href="/rep/map_1x_$rep_nbr.html">1X</a>&nbsp;&nbsp; 
-        &nbsp;&nbsp;<a href="/rep/map_2x_$rep_nbr.html">2X</a>&nbsp;&nbsp; 
-        &nbsp;&nbsp;<a href="/rep/map_4x_$rep_nbr.html">4X</a>&nbsp;&nbsp;</td></tr>
+       &nbsp;&nbsp; <a href="$RELATIVE_DYNAMIC_REP/map_1x_$rep_nbr.html">1X</a>&nbsp;&nbsp; 
+        &nbsp;&nbsp;<a href="$RELATIVE_DYNAMIC_REP/map_2x_$rep_nbr.html">2X</a>&nbsp;&nbsp; 
+        &nbsp;&nbsp;<a href="$RELATIVE_DYNAMIC_REP/map_4x_$rep_nbr.html">4X</a>&nbsp;&nbsp;</td></tr>
 <tr><td align="right" class="ltr80" bgcolor="$cel_tb2_bgc">Generated </td>
     <td class="ltr80" bgcolor="$cel_tb2_bgc"> $gen_time </td></tr>
 <tr><td align="right" class="ltr80" bgcolor="$cel_tb2_bgc">Reported </td>
@@ -6327,7 +6330,7 @@ if ($unix_cgi) {
 	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp $PATH_TO_WEBROOT\\images\\front.jpg`; # win
     }
     else {
-	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT/images/front.jpg`;
+	eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_DYNAMIC_FRONT/front.jpg`;
     }
     unlink "front.bmp";
     print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." make front image ok\n";
@@ -6431,13 +6434,13 @@ else {
 	}
     }
     else {
-	eval `cp  $PATH_TO_WEBROOT/gen/$MIS_TO_REP.zip $PATH_TO_WEBROOT/rep/$MIS_TO_REP.zip`; 
+	eval `cp  $PATH_DYNAMIC_GEN/$MIS_TO_REP.zip $PATH_DYNAMIC_REP/$MIS_TO_REP.zip`; 
 	if ($ZipCode ne "") {
-	    eval `rm -fr $PATH_TO_WEBROOT/tmp/$ZipCode`;
-	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." $PATH_TO_WEBROOT/tmp/$ZipCode deleted ok\n";
-	    eval `rm  $PATH_TO_WEBROOT/gen/$MIS_TO_REP.zip`;  
-	    eval `rm  $PATH_TO_WEBROOT/gen/$MIS_TO_REP.mis`;  
-	    eval `rm  $PATH_TO_WEBROOT/gen/$MIS_TO_REP.properties`;
+	    eval `rm -fr $PATH_DYNAMIC_TMP/$ZipCode`;
+	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." $PATH_DYNAMIC_TMP/$ZipCode deleted ok\n";
+	    eval `rm  $PATH_DYNAMIC_GEN/$MIS_TO_REP.zip`;  
+	    eval `rm  $PATH_DYNAMIC_GEN/$MIS_TO_REP.mis`;  
+	    eval `rm  $PATH_DYNAMIC_GEN/$MIS_TO_REP.properties`;
 	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." $MIS_TO_REP zip/mis/prop deleted ok\n";
 	}
     }
@@ -6446,7 +6449,7 @@ else {
     close(PAR_LOG);
     sleep 2;
     print "\n\n</pre>\n";
-    print " Mission reported: <a href=\"/rep/rep".$ext_rep_nbr.".html\">rep".$ext_rep_nbr.".html</a><br>";
+    print " Mission reported: <a href=\"$RELATIVE_DYNAMIC_REP/rep".$ext_rep_nbr.".html\">rep".$ext_rep_nbr.".html</a><br>";
     
     print &print_end_html();
 

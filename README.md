@@ -38,7 +38,7 @@ You will find created two squadrons and two pilots per squadron in order to easy
   * rEd69 (Red squadron): with pilots rEd69_Red1 and rEd69_Red2
   * E69 (Blue squadron): with pilots E69_Blue1 and E69_Blue2
 
-Superuser for administrative task is rEd69_Red1.
+Superuser for administrative task is rEd69_Red1. All pilot's passwords are set to `123456`.
 
 Installed software versions for development environment:
 
@@ -52,6 +52,39 @@ A lot of effort should be done in order to refactor the code to minimize bugs:
 
   * ~~make_attack_page.pl has a lot of duplicated code with badc_par_2.pl~~
   * Simplify airfield supply system.
+
+## Instructions to start a campaign
+
+Create a `campaign` directory below your working directory, and a `gen`, `tmp` and `rep` directory below `campaign` :
+
+```bash
+$ mkdir "$DANGERZONE_WD"/campaign
+$ mkdir "$DANGERZONE_WD"/campaign/gen
+$ mkdir "$DANGERZONE_WD"/campaign/tmp
+$ mkdir "$DANGERZONE_WD"/campaign/rep
+```
+
+Then copy all the needed files for the campaign you want to start:
+
+  * .bmp file with the map,
+  * initial.mis
+  * city.mis
+  * frontline.mis
+  * blue_obj.mis
+  * red_obj.mis
+  * tank_wp.mis
+  * geo_obj.data
+  * aircrafts.data
+  * imap.data
+  * dia.txt
+  * mis_counter.data
+  * rep_counter.data
+
+Take the files in `$DANGERZONE_WD/map_datas/BESSARABIA41` as an example.
+
+After that you need to set all the campaign variables in `$DANGERZONE_WD/public_html/cgi-bin/config.pl`. And then create the campaign map page pointing your browser to `http://localhost/ref_map.html`.
+
+And you are ready to start generating missions.
 
 ## Credits
 

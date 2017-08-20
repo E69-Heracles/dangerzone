@@ -40,9 +40,10 @@ sub compute_time_and_weather($$$) {
     $nubes=500+(int(rand(10))+1)*100; # 500 .. 1500
 
     my $new_clima=0;
-    if ((! open (CLIMA,"<clima.txt")) || $weather_for_next_mission == 1)
+    my $clima_file = $PATH_DYNAMIC_TXT . "/" . "clima.txt";
+    if ((! open (CLIMA,"<$clima_file")) || $weather_for_next_mission == 1)
     {
-        open (CLIMA,">clima.txt");
+        open (CLIMA,">$clima_file");
         print CLIMA $hora."\n";
         print CLIMA $minutos."\n";
         print CLIMA $clima."\n";
@@ -96,7 +97,8 @@ sub compute_time_and_weather($$$) {
 
     if ($new_clima){
         my $localt=`date`; 
-        open (CLIMACTL,">>clima_control.txt");
+        my $climactrl_file = $PATH_DYNAMIC_TXT . "/" . "clima_control.txt";
+        open (CLIMACTL,">>$climactrl_file");
         
         if (weather_for_next_mission == 1)
         {

@@ -319,7 +319,7 @@ if ($WINDOWS) {
     eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp $PATH_TO_WEBROOT\\images\\front.jpg`; # win
 }
 else {
-    eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_TO_WEBROOT/images/front.jpg`;
+    eval `$CJPEG_PROG $CJPEG_FLAGS front.bmp > $PATH_DYNAMIC_FRONT/front.jpg`;
 }
 
 
@@ -327,7 +327,7 @@ if ($unix_cgi) {
     print "<p>Terminado, recargando pagina front map, aguarde....<br>\n";
     print <<HDPR;
     <head>
-      <META HTTP-EQUIV='refresh' CONTENT='3; URL=/mapa.html'>
+      <META HTTP-EQUIV='refresh' CONTENT='3; URL=$RELATIVE_DYNAMIC_MAP/mapa.html'>
     </head>
 HDPR
     ;

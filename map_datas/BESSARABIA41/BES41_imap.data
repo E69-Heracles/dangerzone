@@ -1,5 +1,5 @@
 <div id="mapper" unselectable="on">
-<img src="/images/front.jpg" onload="mapzoom.add(this,{buttons:false,bicubic:true,vacolor:'#000000',vafading:true,fading:true});" class="mapzoom" width="900" height="756" border="0" usemap="#map" />
+<img src="/campaign/front.jpg" onload="mapzoom.add(this,{buttons:false,bicubic:true,vacolor:'#000000',vafading:true,fading:true});" class="mapzoom" width="900" height="756" border="0" usemap="#map" />
 </div>
 
 <map name="map">

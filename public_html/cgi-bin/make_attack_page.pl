@@ -35,7 +35,7 @@ if ($unix_cgi){
 
 <div id="hoja">
 
-  <a href="/index.html"><img border="0" src="/images/logo.gif"  alt="Home" style="margin-left: 40px; margin-top: 0px" ></a>
+  <a href="/index.html"><img border="0" src="../images/logo.gif"  alt="Home" style="margin-left: 40px; margin-top: 0px" ></a>
   <br><br><br><br>
 
 <div id="central">

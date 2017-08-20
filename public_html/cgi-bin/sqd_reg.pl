@@ -109,13 +109,16 @@ my $auth_ok=0;
 
 if ($require_auth_code) { # value read from config.pl
 
+    my $keys_file = $PATH_DYNAMIC_TXT . "/" . "claves.txt";
     if (! open(CLA,"<claves.txt")){
 	print "Error: cant open claves.txt file.\n";
 	
 	print &print_end_html();
 	die " $0 : ". scalar(localtime(time))." cant open claves.txt file.\n";
     }
-    if (! open(U_CLA,"+<used_claves.txt")){
+
+    my $used_keys_file = $PATH_DYNAMIC_TXT . "/" . "used_claves.txt";
+    if (! open(U_CLA,"+<$used_keys_file")){
 	close (CLA);
 	print "Error: cant open used_claves.txt file.\n";
 	
@@ -149,7 +152,9 @@ if ($require_auth_code) { # value read from config.pl
 
     if (!$auth_ok){
 	print "Invalid autorization code<br>\n";
-	open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+	open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
 	print PILOT_LOG  "! ". scalar(localtime(time)) ." $co_hlname used invalid code: $auth_code\n";
 	close (PILOT_LOG);
 	
@@ -275,7 +280,8 @@ if ($row[0]>0) {  # misones >0
 }
 print "+ $co_hlname statistics transfered to $sqd_pref<br>\n";
 
-open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
 print PILOT_LOG  "S ". scalar(localtime(time)) ." $co_hlname registered squadron $sqd_pref - code used: $auth_code\n";
 close (PILOT_LOG);
 

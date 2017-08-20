@@ -80,7 +80,7 @@ $tdol="<td class=\"ltr70c\" align=\"left\">";
 
 		printf ("
 	$tdo %d </td>\n
-	$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n
+	$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n
 	$tdo <b>&nbsp;%s&nbsp;</b></td>\n
 	$tdo &nbsp;<a href=\"pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n ",($totalresc-$irc+1),$row4[1], $row4[1], $html_hlname, $rescatado, $row4[2]);
 	}

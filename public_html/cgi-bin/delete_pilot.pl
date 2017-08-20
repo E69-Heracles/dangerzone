@@ -91,7 +91,8 @@ sub update_data(){
     $dbh->do("DELETE from $ground_events_tbl WHERE hlkiller=\"$del_hlname\"");
     $dbh->do("DELETE from $rescue_tbl WHERE rescatador=\"$del_hlname\"");
 
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "- ". scalar(localtime(time)) ." $del_hlname has been deleted from database\n";
     close (PILOT_LOG);
 

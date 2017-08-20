@@ -83,10 +83,10 @@ $tdol="<td class=\"ltr70c\" align=\"left\">";
 
 		$wasfriend=$row[6];
 		if (!$wasfriend){
-		    printf ("$tdo %d </td>$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo <b>&nbsp;%s&nbsp;</b></td>\n$tdo &nbsp;%s&nbsp; </td>\n$tdo &nbsp;<a href=\"pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp; </td></tr>\n",($totalk-$i+1),$row[1], $row[1], $row[2], $row[3], $hlkilled, $row[4], $row[5]);
+		    printf ("$tdo %d </td>$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo <b>&nbsp;%s&nbsp;</b></td>\n$tdo &nbsp;%s&nbsp; </td>\n$tdo &nbsp;<a href=\"pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo &nbsp;%s&nbsp; </td></tr>\n",($totalk-$i+1),$row[1], $row[1], $row[2], $row[3], $hlkilled, $row[4], $row[5]);
                 }
 		else {
-		    printf ("$tdo %d </td>$tdo &nbsp; <a href=\"/rep/%s\">%s</a>&nbsp;</td>\n$tdo <font color=\"red\"><b>&nbsp;%s&nbsp;</b></font></td>\n$tdo &nbsp;%s&nbsp; </td>\n$tdo &nbsp;<a href=\"pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo<font color=\"red\">&nbsp;%s&nbsp;</font></td></tr>\n",($totalk-$i+1),$row[1], $row[1], $row[2], $row[3], $hlkilled, $row[4], $row[5]);
+		    printf ("$tdo %d </td>$tdo &nbsp; <a href=\"$RELATIVE_DYNAMIC_REP/%s\">%s</a>&nbsp;</td>\n$tdo <font color=\"red\"><b>&nbsp;%s&nbsp;</b></font></td>\n$tdo &nbsp;%s&nbsp; </td>\n$tdo &nbsp;<a href=\"pilot.php?hlname=%s\">%s</a>&nbsp;</td>\n$tdo<font color=\"red\">&nbsp;%s&nbsp;</font></td></tr>\n",($totalk-$i+1),$row[1], $row[1], $row[2], $row[3], $hlkilled, $row[4], $row[5]);
                 }
 	}
 ?> 

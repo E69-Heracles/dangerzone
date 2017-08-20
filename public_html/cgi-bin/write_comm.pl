@@ -139,14 +139,14 @@ FRM
 sub write_comment(){
 
 
-if (! -e "$PATH_TO_WEBROOT/rep/$repnbr.html") {
+if (! -e "$PATH_DYNAMIC_REP/$repnbr.html") {
     print "Error opening report file.<br>\n";
-    die " $0 : ". scalar(localtime(time))." File not exists $PATH_TO_WEBROOT/rep/$repnbr.html";
+    die " $0 : ". scalar(localtime(time))." File not exists $PATH_DYNAMIC_REP/$repnbr.html";
 }
 
-if (! open (REPORT, "+<$PATH_TO_WEBROOT/rep/$repnbr.html")) {
+if (! open (REPORT, "+<$PATH_DYNAMIC_REP/$repnbr.html")) {
     print "Error opening report file.<br>\n";
-    die " $0 : ". scalar(localtime(time))." Could not open $PATH_TO_WEBROOT/rep/$repnbr.html";
+    die " $0 : ". scalar(localtime(time))." Could not open $PATH_DYNAMIC_REP/$repnbr.html";
 }
 
 #seek warning: rewind depends on what O.S. you are: win use 2 bytes for newlines, unix only 1 byte
@@ -194,7 +194,7 @@ close REPORT;
 
 print<<Eoc;
   <head>
-    <META HTTP-EQUIV='refresh' CONTENT='2; URL=/rep/$repnbr.html#reports'>
+    <META HTTP-EQUIV='refresh' CONTENT='2; URL=$RELATIVE_DYNAMIC_REP/$repnbr.html#reports'>
   </head>
 Eoc
     ;

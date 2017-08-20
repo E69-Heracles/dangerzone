@@ -138,7 +138,7 @@ if (! $is_ok) {
 # verification that targets are listed on possible targets to attacks file list (Options_?.txt)
 $is_ok=0;
 if ($army eq "R") {
-    my $Options_R="Options_R.txt";
+    my $Options_R= $PATH_DYNAMIC_TXT . "/" . "Options_R.txt";
     open (OPR,"<$Options_R");
     while(<OPR>) {
 	if ($_ =~ m/$target/) { $is_ok=1; last;}
@@ -147,7 +147,7 @@ if ($army eq "R") {
     close(OPR);
 }
 else { # Army = B 
-    my $Options_B="Options_B.txt";
+    my $Options_B= $PATH_DYNAMIC_TXT . "/" . "Options_B.txt";
     open (OPB,"<$Options_B");
     while(<OPB>) {
 	if ($_ =~ m/$target/) { $is_ok=1; last;}
@@ -211,7 +211,8 @@ if ($hlname ne $super_user && $row[1] == 2 && $army eq "R") {
 my $epoca = time;
 my $ID= $epoca.",$army,$hlname,$total_hum,$target,$fig_attk_nbr,$fig_attk_ai,$fig_def_nbr,$fig_def_ai,$bomb_attk_type,$bomb_attk_nbr,$bomb_attk_ai,$bomb_def_type,$bomb_def_nbr,$bomb_def_ai,\n";
 
-if (! open(OPT,">>options.txt")){
+my $options_file = $PATH_DYNAMIC_TXT . "/" . "options.txt";
+if (! open(OPT,">>$options_file")){
     print "Error: No se puede abrir archivo de opciones para escribir.\n";
     die"no se puede abrir archivo de opciones para escribir.\n";
 }

@@ -155,7 +155,7 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	printf("    $tdo %d $tdk    $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk     $tdo %s $tdk    $tdo %s $tdk    $tdo %s $tdk", $i, $row[2], $row[10], $row[11], $host, $red_tgt, $blue_tgt);
 
 	if ($row[8] == 1) {  // is reported
-	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
+	    printf("    $tdo  <a href=\"$RELATIVE_DYNAMIC_REP/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
 	}
 	else {
 	    printf  ("    %s &nbsp;In progress: %.2d Minutes $tdk  </tr>\n",$tdo,$mins);
@@ -223,13 +223,13 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 
 	if ($coments == "") {$coments="0";}
 	if ($coments == "0") {
-		$coments="<a title=\" $coments notes\" href=\"/rep/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_0.gif\" alt=\"\"></a>"; }
+		$coments="<a title=\" $coments notes\" href=\"$RELATIVE_DYNAMIC_REP/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_0.gif\" alt=\"\"></a>"; }
 	else {
 
 		if ($coments =="1" || $coments =="2" ) {	
-			$coments="<a title=\"$coments notes\" href=\"/rep/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_1.gif\" alt=\"$coments notes\"></a>";
+			$coments="<a title=\"$coments notes\" href=\"$RELATIVE_DYNAMIC_REP/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_1.gif\" alt=\"$coments notes\"></a>";
 }		else {	
-			$coments="<a title=\"$coments notes\" href=\"/rep/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_3.gif\" alt=\"$coments notes\"></a>";
+			$coments="<a title=\"$coments notes\" href=\"$RELATIVE_DYNAMIC_REP/" . $mis_rep . ".html#reports\"><img border=\"0\" src=\"images/coments_3.gif\" alt=\"$coments notes\"></a>";
 		}
 	}
 
@@ -237,7 +237,7 @@ while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 	printf("    $tdo %d $tdk  $tdo %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdoC %s $tdk $tdo %s $tdk $tdoC %s $tdk $tdoC %s $tdk $tdoC %s $tdk ", $i, $misnum, $host, $side_won, $red_tgt, $red_result, $red_points,  $blue_tgt, $blue_result, $blue_points, $coments);
 
 	if ($row[8] == 1) {  // is reported
-	    printf("    $tdo  <a href=\"/rep/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
+	    printf("    $tdo  <a href=\"$RELATIVE_DYNAMIC_REP/%s.html\">%s.html</a>$tdk  </tr>\n", $row[9], $row[9]);
 	}
 	else {
 	    printf  ("    %s &nbsp;In progress: %.2d Minutes $tdk  </tr>\n",$tdo,$mins);

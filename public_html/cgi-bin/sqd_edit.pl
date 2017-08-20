@@ -327,7 +327,8 @@ sub update_data(){
     
     $dbh->do("Update  $sqd_file_tbl SET sqdname = \"$sqd_name\", coname =\"$co_hlname\", comail = \"$co_email\", xoname = \"$xo_hlname\", xomail = \"$xo_email\", allowxoedit = \"$xo_allowed\", sqdweb = \"$sqd_web\", sqdlogo = \"$sqd_logo\" WHERE sqdname8=\"$sqd_pref\"");
     
-    open (PILOT_LOG, ">>Pilot_log.txt") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
+    my $pilot_log = $PATH_DYNAMIC_TXT . "/" . "Pilot_log.txt";
+    open (PILOT_LOG, ">>$pilot_log") || die "$0 : " .scalar(localtime(time)) ." Can't open File Pilot_log.txt $!\n";
     print PILOT_LOG  "W ". scalar(localtime(time)) ." $co_hlname edited squadron $sqd_pref\n";
     close (PILOT_LOG);
 

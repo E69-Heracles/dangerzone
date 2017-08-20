@@ -297,8 +297,8 @@ sub mission_option_generation($$$$$$$$$) {
     my %blue_task_stock = %$blue_task_stock;
     my @cg_blue_bases = @$cg_blue_bases;
     
-    my $Options_R="Options_R.txt";
-    my $Options_B="Options_B.txt";
+    my $Options_R= $PATH_DYNAMIC_TXT . "/" . "Options_R.txt";
+    my $Options_B= $PATH_DYNAMIC_TXT . "/" . "Options_B.txt";
 
     open (OPR,">$Options_R")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SRO</font>";
     open (OPB,">$Options_B")|| print "<font color=\"ff0000\"> ERROR: NO SE PUEDE ACTUALIZAR LA PAGINA SBO</font>";
