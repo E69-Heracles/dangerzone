@@ -1,155 +1,359 @@
-## STALINGRADO 1942 Mod para DZ
-##este archivo se arma sacando los class.air de FB_aircrafts.data que coinciden con MAPA_planesets.data 
+##este archivo se arama sacando los class.air  de  FB_aircrafts.data que coniciden con MAPA_planesets.data 
 ## ademas cada class.air se incorpora. el % es cantidad de aviones cada 1000 o 2000?
 ## y opcionalmente los escuadrones que lo volaban. - NO IMPLEMENTADO AUN- CHECK
 ##
 # army,internal_code,external_name,human_flyable,class.air,def_weapons,def_fuel,def_alt,def_speed:tasks,%
 
 
-#---red squads
+#---red sqds
 
 rusfig=176IAP,3IAK,7IAP,4IAP;
 rusjab=11IAP,7IAP,4IAP;
 rusbom=34BAP,40BAP,80BAP;
 rustrp=34BAP,40BAP,80BAP;
-#-------
+#---
 
 
-# LA-5F   8/300  8/300
-1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:EBA,8,
-1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:ESU,8,
-1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:EBD,8,
-1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:ER,8,
-1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:I,8,
-1,rusfig,LA-5,1,air.LA_5,2xFAB100,100,3000,400:ET,8,
+# I-153 M62 7/300 0/300
+#1,rusjab,I-153-M62,1,air.I_153_M62,8xRS82,100,1000,350:BD,7,
+#1,rusjab,I-153-M62,1,air.I_153_M62,8xRS82,100,2000,350:BA,7,
+#1,rusfig,I-153-M62,1,air.I_153_M62,default,100,2000,350:I,7,
+#1,rusjab,I-153-M62,1,air.I_153_M62,8xRS82,100,2000,350:ET,7,
 
-# LA-5F   8/300  8/300
-1,rusfig,LA-5F,1,air.LA_5F,default,100,3000,400:EBA,8,
-1,rusfig,LA-5F,1,air.LA_5F,default,100,3000,400:ESU,8,
-1,rusfig,LA-5F,1,air.LA_5F,default,100,3000,400:EBD,8,
-1,rusfig,LA-5F,1,air.LA_5F,default,100,3000,400:ER,8,
-1,rusfig,LA-5F,1,air.LA_5F,default,100,3000,400:I,8,
-1,rusfig,LA-5F,1,air.LA_5F,2xFAB100,100,3000,400:ET,8,
 
-# P40-E 8/300 8/300
-1,rusjab,P-40E,1,air.P_40E,1000lb,100,3000,400:BD,8,
-1,rusfig,P-40E,1,air.P_40E,1000lb,100,3000,400:ET,8,
-1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBA,8,
-1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:ESU,8,
-1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBD,8,
-1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:ER,8,
-1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:I,8,
+# I-153 P 12/300  8/300
+1,rusjab,I-153P,1,air.I_153P,8xRS82,100,1000,350:BD,8,
+#1,rusjab,I-153P,1,air.I_153P,8xRS82,100,2000,350:BA,8,
+#1,rusfig,I-153P,1,air.I_153P,default,100,2000,350:I,8,
+#1,rusjab,I-153P,1,air.I_153P,8xRS82,100,2000,350:ET,8,
 
-#Yak-1  8/300  8/300
-1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:EBD,8,
-1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:EBA,8,
-1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:ESU,8,
-1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:ER,8,
-1,rusfig,Yak-1,1,air.YAK_1,6rs82,100,2500,400:I,8,
-1,rusfig,Yak-1,1,air.YAK_1,2fab100,100,2500,400:ET,8,
 
-#Yak - 1B  8/300  8/300
-1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:EBA,8,
-1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:ESU,8,
-1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:EBD,8,
-1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:ER,8,
-1,rusfig,Yak-1B,1,air.YAK_1B,6rs82,100,2500,400:I,8,
-1,rusfig,Yak-1B,1,air.YAK_1B,2fab100,100,2500,400:ET,8,
+# I-16t18   2/300  0/300
+#1,rusjab,I-16t18,1,air.I_16TYPE18,2fab100,100,2000,350:BA,2,
+#1,rusjab,I-16t18,1,air.I_16TYPE18,2fab100,100,1000,350:BD,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,default,100,2000,350:EBA,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,default,100,2000,350:ESU,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,default,100,2000,350:EBD,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,default,100,2000,350:ER,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,default,100,2000,350:I,2,
+#1,rusfig,I-16t18,1,air.I_16TYPE18,2fab100,100,2000,350:ET,2,
 
-#Yak-7BPF 8/300  8/300
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,default,100,2500,400:EBA,8,
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,default,100,2500,400:ESU,8,
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,default,100,2500,400:EBD,8,
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,default,100,2500,400:ER,8,
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,6xRS82,100,2500,400:I,8,
-1,rusfig,Yak-7BPF,1,air.YAK_7BPF,6xRS82,100,2500,400:ET,8,
 
-#Yak-9 8/300  8/300
-#1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:EBA,8,
-1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ESU,8,
-1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:EBD,8,
-1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ER,8,
-1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:I,8,
-1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ET,8,
+# I-16t24 29/300 26/300
+#1,rusjab,I-16t24,1,air.I_16TYPE24,2fab100,100,2000,350:BA,26,
+1,rusjab,I-16t24,1,air.I_16TYPE24,2fab100,100,1000,350:BD,26,
+1,rusfig,I-16t24,1,air.I_16TYPE24,default,100,2000,350:EBA,26,
+1,rusfig,I-16t24,1,air.I_16TYPE24,default,100,2000,350:ESU,26,
+1,rusfig,I-16t24,1,air.I_16TYPE24,default,100,2000,350:EBD,26,
+1,rusfig,I-16t24,1,air.I_16TYPE24,default,100,2000,350:ER,26,
+#1,rusfig,I-16t24,1,air.I_16TYPE24,6rs82,100,2000,350:I,26,
+1,rusfig,I-16t24,1,air.I_16TYPE24,2fab100,100,2000,350:ET,26,
 
-#P-39D-2 8/300  8/300
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:EBA,8,
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:ESU,8,
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:EBD,8,
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:ER,8,
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:I,8,
-1,rusfig,P-39D2,1,air.P_39D2,default,100,3000,400:ET,8,
+#hurricane Mk IIb 12/300  0/300
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:EBA,12,
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:ESU,12,
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:EBD,12,
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:ER,12,
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:I,12,
+#1,rusfig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:ET,12,
 
-#IL-2M (1942Early) 172/300  172/300
 
-1,rusbom,IL-2M Early 1942,1,air.IL_2MEarly,2xFAB250,100,1000,300:BD,172,
+#hurricane Mk IIb Fiel Mod 16/300  13/300
+1,rusfig,Hurricane-MkIIb-FMod,1,air.HurricaneMkIIbMod,default,100,2500,380:EBA,13,
+1,rusfig,Hurricane-MkIIb-FMod,1,air.HurricaneMkIIbMod,default,100,2500,380:ESU,13,
+1,rusfig,Hurricane-MkIIb-Fmod,1,air.HurricaneMkIIbMod,default,100,2500,380:EBD,13,
+1,rusfig,Hurricane-MkIIb-Fmod,1,air.HurricaneMkIIbMod,default,100,2500,380:ER,13,
+1,rusfig,Hurricane-MkIIb-Fmod,1,air.HurricaneMkIIbMod,default,100,2500,380:I,13,
+1,rusfig,Hurricane-MkIIb-Fmod,1,air.HurricaneMkIIbMod,default,100,2500,380:ET,13,
 
-#IL-2M (1942late) 172/300 172/300
-1,rusbom,IL-2M Late 1942,1,air.IL_2MLate,2xFAB250,100,1000,300:BD,172,
 
-#PE2 1942 Series84  172/300 172/300
-1,rusbom,PE-2 S84,0,air.PE_2SERIES84,2fab500,100,3000,380:BA,172,
+#LaGG3 1941 series4 3/300  0/300
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,default,100,3000,400:EBD,3,
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,default,100,3000,400:EBA,3,
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,default,100,3000,400:ESU,3,
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,default,100,3000,400:ER,3,
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,8xRS82,100,3000,400:I,3,
+#1,rusfig,LaGG-3S4,1,air.LAGG_3SERIES4,8xRS82,100,3000,400:ET,3,
 
-#PE2 1942 Series110 172/300 172/300
-1,rusbom,PE-2 S110,0,air.PE_2SERIES110,2fab500,100,3000,380:BA,172,
+#LaGG3 1942 series.29 12/300  14/300
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,default,100,3000,400:EBD,14,
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,default,100,3000,400:EBA,14,
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,default,100,3000,400:ESU,14,
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,default,100,3000,400:ER,14,
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,kinderwud,100,3000,400:I,14,
+1,rusfig,LaGG-3S29,1,air.LAGG_3SERIES29,8xRS82,100,3000,400:ET,14,
 
-#PE2 1942 Series84  112/300 112/300
-1,rustrp,PE-2 S84,1,air.PE_2SERIES84,default,100,1000,380:SUM,112,
+#LaGG3 1942 series.35 11/300  18/300
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,default,100,3000,400:EBD,18,
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,default,100,3000,400:EBA,18,
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,default,100,3000,400:ESU,18,
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,default,100,3000,400:ER,18,
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,kinderwud,100,3000,400:I,18,
+1,rusfig,LaGG-3S35,1,air.LAGG_3SERIES35,default,100,3000,400:ET,18,
 
-#Li-2  pongo 1 para que no haya error en el fichero Config.pl
-1,rustrp,Li-2,0,air.LI_2,default,100,2000,320:SUM,1
+#LaGG3 IT  0/300  2/300
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:EBD,2,
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:EBA,2,
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:ESU,2,
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:ER,2,
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:I,2,
+1,rusfig,LaGG-3IT,1,air.LAGG_3IT,default,100,3000,400:ET,2,
 
-#-------------------BLUE Squads
+
+# LA-5   5/300  14/300
+1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:EBA,14,
+1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:ESU,14,
+1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:EBD,14,
+1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:ER,14,
+1,rusfig,LA-5,1,air.LA_5,default,100,3000,400:I,14,
+1,rusfig,LA-5,1,air.LA_5,2xFAB100,100,3000,400:ET,14,
+
+# Mig3 - ud 15/300  12/300
+1,rusfig,MIG-3UD,1,air.MIG_3UD,default,100,3000,400:EBD,12,
+1,rusfig,MIG-3UD,1,air.MIG_3UD,default,100,3000,400:EBA,12,
+1,rusfig,MIG-3UD,1,air.MIG_3UD,default,100,3000,400:ESU,12,
+1,rusfig,MIG-3UD,1,air.MIG_3UD,default,100,3000,400:ER,12,
+1,rusfig,MIG-3UD,1,air.MIG_3UD,6xRS-82,100,3000,400:I,12,
+1,rusfig,MIG-3UD,1,air.MIG_3UD,6xRS-82,100,3000,400:ET,12,
+
+# Mig3 - UB  4/300 3/300
+1,rusfig,MIG-3UB,1,air.MIG_3UB,default,100,3000,400:EBD,3,
+1,rusfig,MIG-3UB,1,air.MIG_3UB,default,100,3000,400:EBA,3,
+1,rusfig,MIG-3UB,1,air.MIG_3UB,default,100,3000,400:ESU,3,
+1,rusfig,MIG-3UB,1,air.MIG_3UB,default,100,3000,400:ER,3,
+1,rusfig,MIG-3UB,1,air.MIG_3UB,6xRS-82,100,3000,400:I,3,
+1,rusfig,MIG-3UB,1,air.MIG_3UB,6xRS-82,100,3000,400:ET,3,
+
+# Mig3 - ShvaK 0/300  1/300
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:EBD,1,
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:EBA,1,
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:ESU,1,
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:ER,1,
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:I,1,
+1,rusfig,Mig3-ShvaK,1,air.MIG_3SHVAK,default,100,3000,400:ET,1,
+
+# P40-E 12/300 12/300
+1,rusjab,P-40E,1,air.P_40E,1000lb,100,3000,400:BD,12,
+1,rusfig,P-40E,1,air.P_40E,1000lb,100,3000,400:ET,12,
+1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBA,12,
+1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:ESU,12,
+1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:EBD,12,
+1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:ER,12,
+1,rusfig,P-40E,1,air.P_40E,default,100,3000,400:I,12,
+
+# P40-M 0/300 2/300
+1,rusjab,P40-M,1,air.P_40M,1000lb,100,3000,400:BD,2,
+1,rusfig,P40-M,1,air.P_40M,1000lb,100,3000,400:ET,2,
+1,rusfig,P40-M,1,air.P_40M,default,100,3000,400:EBA,2,
+1,rusfig,P40-M,1,air.P_40M,default,100,3000,400:ESU,2,
+1,rusfig,P40-M,1,air.P_40M,default,100,3000,400:EBD,2,
+1,rusfig,P40-M,1,air.P_40M,default,100,3000,400:ER,2,
+1,rusfig,P40-M,1,air.P_40M,default,100,3000,400:I,2,
+
+
+#Yak-1  15/300  18/300
+1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:EBD,18,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:EBA,18,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:ESU,18,
+1,rusfig,Yak-1,1,air.YAK_1,default,100,2500,400:ER,18,
+1,rusfig,Yak-1,1,air.YAK_1,6rs82,100,2500,400:I,18,
+1,rusfig,Yak-1,1,air.YAK_1,2fab100,100,2500,400:ET,18,
+
+#Yak - 1B  6/300  15/300
+1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:EBA,15,
+1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:ESU,15,
+1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:EBD,15,
+1,rusfig,Yak-1B,1,air.YAK_1B,default,100,2500,400:ER,15,
+1,rusfig,Yak-1B,1,air.YAK_1B,6rs82,100,2500,400:I,15,
+1,rusfig,Yak-1B,1,air.YAK_1B,2fab100,100,2500,400:ET,15,
+
+#Yak-7B 19/300  24/300
+1,rusfig,Yak-7B,1,air.YAK_7B,default,100,2500,400:EBA,24,
+1,rusfig,Yak-7B,1,air.YAK_7B,default,100,2500,400:ESU,24,
+1,rusfig,Yak-7B,1,air.YAK_7B,default,100,2500,400:EBD,24,
+1,rusfig,Yak-7B,1,air.YAK_7B,default,100,2500,400:ER,24,
+1,rusfig,Yak-7B,1,air.YAK_7B,6xRS82,100,2500,400:I,24,
+1,rusfig,Yak-7B,1,air.YAK_7B,6xRS82,100,2500,400:ET,24,
+
+#Yak-9 0/300  4/300
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:EBA,4,
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ESU,4,
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:EBD,4,
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ER,4,
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:I,4,
+1,rusfig,Yak-9,1,air.YAK_9,default,100,3000,400:ET,4,
+
+# IL2 series-3 47/300  52/300
+1,rusbom,IL2 series3,1,air.IL_2_1941Early,8xRS132,100,1000,370:BD,52,
+1,rusbom,IL2 series3,1,air.IL_2_1941Early,8xRS132,100,1000,370:BA,52,
+
+#IL-2 Field Mod 12/300  2/300
+1,rusbom,IL-2 Field Mod,1,air.IL_2_1941Late,8xRS132,100,1000,300:BA,2,
+1,rusbom,IL-2 Field Mod,1,air.IL_2_1941Late,8xRS132,100,1000,300:BD,2,
+
+#IL-2M (1942Early) 0/300  12/300
+1,rusbom,IL-2M Early 1942,1,air.IL_2MEarly,2xFAB250,100,1000,300:BA,12,
+1,rusbom,IL-2M Early 1942,1,air.IL_2MEarly,2xFAB250,100,1000,300:BD,12,
+
+#IL-2M (1942late) 0/300 8/300
+1,rusbom,IL-2M Late 1942,1,air.IL_2MLate,4xFAB50_4xRS82,100,1000,300:BA,8,
+1,rusbom,IL-2M Late 1942,1,air.IL_2MLate,2xFAB250,100,1000,300:BD,8,
+
+
+#B-25 VVS 4/300  2/300
+1,rusbom,B-25J1,0,air.B_25J1,2x1000lbs,100,3000,350:BA,2,
+#1,rusbom,B-25J1,0,air.B_25J1,2x1000lbs,100,1000,350:BD,2,
+
+# IL 4 DB3B 16/300   10/300
+#1,rusbom,IL-4-DB3B,0,air.IL_4_DB3B,3fab500,100,1000,350:BD,10,
+1,rusbom,IL-4-DB3B,0,air.IL_4_DB3B,3fab500,100,3000,350:BA,10,
+
+# IL 4 DB3M  0 (using all DB3B)
+#1,rusbom,IL-4-DB3M,0,air.IL_4_DB3M,3fab500,100,2000,350:BD,0,
+#1,rusbom,IL-4-DB3M,0,air.IL_4_DB3M,3fab500,100,2000,350:BA,0,
+
+#Li-2  
+1,rustrp,Li-2,0,air.LI_2,default,100,2000,320:SUM,1,
+
+#PE2 1942 3/300 1/300
+1,rusbom,PE-2 S84,0,air.PE_2SERIES84,6fab100,100,3000,380:BA,1,
+#1,rusbom,PE-2 S84,0,air.PE_2SERIES84,2fab500,100,3000,380:BD,1,
+
+#PE2 1942 series110 10/300   12/300
+1,rusbom,PE-2 S110,0,air.PE_2SERIES110,2fab500,100,3000,380:BA,12,
+#1,rusbom,PE-2 S110,0,air.PE_2SERIES110,2fab500,100,1000,380:BD,12,
+
+# Pe 3 bis 2/300  2/300
+1,rusbom,PE-3BIS,0,air.PE_3BIS,2fab1002fab50,100,1000,300:BD,2,
+1,rusbom,PE-3BIS,0,air.PE_3BIS,2fab1002fab50,100,3000,300:BA,2,
+
+#SB-2 M-103 2/300  0/300
+#1,rusbom,SB2-M103,0,air.SB_2M103,2xfab500,100,1000,300:BD,2,
+1,rusbom,SB2-M103,0,air.SB_2M103,2xfab500,100,3000,300:BA,2,
+
+#SU-2 6/300  0/300
+#1,rusbom,SU-2,0,air.SU_2,2fab250,100,3000,340:BA,6,
+#1,rusbom,SU-2,0,air.SU_2,2fab250,100,1000,340:BD,6,
+
+#TB3 4M 17
+#1,rustrp,TB3-4M-17,1,air.TB_3_4M_17,default,100,1000,140:SUM,30,
+
+#TB3 4M 34R
+1,rusbom,TB3-4M-34R,1,air.TB_3_4M_34R,8fab500,100,1000,340:BA,1,
+1,rustrp,TB3-4M-34R,1,air.TB_3_4M_34R,default,100,1000,140:SUM,1000,
+
+
+
+
+#-------------------BLUE Sqads
 gerfig=I_JG3,II_JG3,I_JG27,II_JG27,III_JG27,Stab_JG52,I_JG5_2,II_JG5_2,III_JG5_2;
 gerjab=I_LG2,III_KG27a;
 gerbom=Stab_KG27a,I_KG27a,II_KG27a,III_KG27a,Stab_KG51a,I_KG51a,II_KG51a,III_KG51a,Stab_KG53a,I_KG53a,II_KG53a,III_KG53a,Stab_KG55a;
 gertrp=KGrzbV102a;
-
+romfig=Eskadrila54,Eskadrila56;
+romjab=Eskadrila54,Eskadrila56;
+rombom=Eskadrila54,Eskadrila56;
+hunfig=5_1_FighterH,hu101VOhu,hu102VOhu;
+hunjab=5_1_FighterH,hu101VOhu,hu102VOhu;
+hunbom=hu2-4hu,hu3-5hu;
 
 #-------------------BLUE AIRCRAFTS
 
-# BF-109F4 12/300  12/300
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:I,12,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBD,12,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBA,12,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ESU,12,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ER,12,
-2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ET,12,
 
-#BF-109G2 12/300  12/300
-2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:EBA,12,
-2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:ESU,12,
-2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:EBD,12,
-2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:ER,12,
-2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:I,12,
-2,gerfig,BF-109G2,1,air.BF_109G2,R1-SC500,100,4000,400:ET,12,
+# P-11c  2/300  0/300 rom  +   0/300  0/300 ger
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:EBA,2,
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:ESU,2,
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:EBD,2,
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:ER,2,
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:I,2,
+#2,romfig,P-11c,1,air.P_11C,default,100,3000,350:ET,2,
 
-#FW-190A4 12/300  12/300
-2,gerfig,FW-190A4,1,air.FW_190A4,default,100,4000,400:EBA,12,
-2,gerfig,FW-190A4,1,air.FW_190A4,default,100,4000,400:ESU,12,
-2,gerfig,FW-190A4,1,air.FW_190A4,default,100,4000,400:EBD,12,
-2,gerfig,FW-190A4,1,air.FW_190A4,default,100,4000,400:ER,12,
-2,gerfig,FW-190A4,1,air.FW_190A4,default,100,4000,400:I,12,
-2,gerfig,FW-190A4,1,air.FW_190A4,R1-SC500,100,4000,400:ET,12,
 
-# BF-110G2  72/300  72/300
-2,gerbom,BF-110G2,1,air.BF_110G2,2sc250,100,4000,400:BD,72,
+# 109-E4  13/300 12/300 rom  +   0/300  0/300 ger
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:I,13,
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:EBA,13,
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:ESU,13,
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:EBD,13,
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:ER,13,
+#2,romfig,BF-109E4,1,air.BF_109E4,default,100,4000,25:ET,13,
 
-# JU-87-D3  72/300  72/300
-2,gerbom,JU-87D3,1,air.JU_87D3,1xSC1000,100,2000,380:BD,72,
+#109-E7B  14/300  13/300  rom  +  17/300 15/300 ger  
+2,romjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,1000,400:BD,13,
+2,romjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,4000,400:ET,13,
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,1000,400:BD,15,
+2,gerjab,BF-109E7B,1,air.BF_109E7,1xSC250,100,4000,400:ET,15,
 
-# JU-87-G1  72/300  72/300
-2,gerbom,JU-87G1,1,air.JU_87G1,1xSC1000,100,2000,380:BD,72,
 
-#JU-88-A4 216/300  216/300
-2,gerbom,JU-88A4,1,air.JU_88A4,2xSC1000,100,4000,380:BA,216,
+# IAR 80 6/300 0/300 rom  +  0/300  0/300 ger
+#2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:I,6,
+#2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:EBA,6,
+#2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:ESU,6,
+#2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:EBD,6,
+##2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:ET,6,
+#2,romfig,IAR-80,1,air.IAR_80,default,100,4000,400:ER,6,
 
-#JU-88-A4 216/300  72/300
-2,gertrp,JU-88A4,1,air.JU_88A4,default,100,2000,380:SUM,72,
+# IAR 81 4/300 (2A + 2C) 0/300  + 0/300 0/300 ger
+#2,romfig,IAR-81A,1,air.IAR_81A,default,100,4000,400:I,2,
+#2,romfig,IAR-81A,1,air.IAR_81A,default,100,4000,400:EBA,2,
+#2,romfig,IAR-81A,1,air.IAR_81A,default,100,4000,400:ESU,2,
+#2,romfig,IAR-81A,1,air.IAR_81A,default,100,4000,400:EBD,2,
+#2,romfig,IAR-81A,1,air.IAR_81A,1xSC250,100,4000,400:ET,2,
+#2,romfig,IAR-81A,1,air.IAR_81A,default,100,4000,400:ER,2,
 
-#Ju-52  pongo 1 para que no haya error en el fichero Config.pl
+#2,romfig,IAR-81C,1,air.IAR_81C,default,100,4000,400:I,2,
+#2,romfig,IAR-81C,1,air.IAR_81C,default,100,4000,400:EBA,2,
+#2,romfig,IAR-81C,1,air.IAR_81C,default,100,4000,400:ESU,2,
+#2,romfig,IAR-81C,1,air.IAR_81C,default,100,4000,400:EBD,2,
+#2,romfig,IAR-81C,1,air.IAR_81C,1xSC250,100,4000,400:ET,2,
+#2,romfig,IAR-81C,1,air.IAR_81C,default,100,4000,400:ER,2,
+
+# 109-F4 25/300  7/300
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:I,7,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBD,7,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:EBA,7,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ESU,7,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ER,7,
+2,gerfig,BF-109F4,1,air.BF_109F4,default,100,4000,400:ET,7,
+
+#109-G2 34/300  42/300
+2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:EBA,42,
+2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:ESU,42,
+2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:EBD,42,
+2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:ER,42,
+2,gerfig,BF-109G2,1,air.BF_109G2,default,100,4000,400:I,42,
+2,gerfig,BF-109G2,1,air.BF_109G2,R1-SC500,100,4000,400:ET,42,
+
+# BF110-C4 B  18/300  8/300
+2,gerbom,BF-110C4B,0,air.BF_110C4B,2sc250,100,4000,400:BA,8,
+2,gerbom,BF-110C4B,0,air.BF_110C4B,2sc250,100,1000,400:BD,8,
+
+# HE111-H2 9/300  7/300
+2,gerbom,HE-111H2,1,air.HE_111H2,4xSC250,100,4000,380:BA,7,
+#2,gerbom,HE-111H2,1,air.HE_111H2,4xSC250,100,1000,380:BD,7,
+
+# HE111-H6 16/300  37/300
+2,gerbom,HE-111H6,1,air.HE_111H6,2SC1000,100,4000,380:BA,37,
+#2,gerbom,HE-111H6,1,air.HE_111H6,2SC1000,100,1000,380:BD,37,
+2,gertrp,HE-111H6,1,air.HE_111H6,default,100,1000,380:SUM,1000,
+
+#Ju-52 
 2,gertrp,JU-52,0,air.JU_52_3MG4E,default,100,1000,320:SUM,1,
 
+#JU88-A4 41/300  28/300
+2,gerbom,JU-88A4,0,air.JU_88A4,2xSC1000,100,4000,380:BA,28,
+#2,gerbom,JU-88A4,0,air.JU_88A4,2xSC1000,100,1000,380:BD,28,
+
+
+# JU 87-B2 8/300 0/300 rom  + 7/300  6/300 ger  
+#2,rombom,JU-87B2,1,air.JU_87B2,1SC1000,100,3000,300:BA,8,
+#2,rombom,JU-87B2,1,air.JU_87B2,1SC1000,100,2000,300:BD,8,
+2,gerbom,JU-87B2,1,air.JU_87B2,1SC1000,100,3000,300:BA,6,
+2,gerbom,JU-87B2,1,air.JU_87B2,1SC1000,100,2000,300:BD,6,
+
+
+# JU 87 D3  30/300  31/300
+2,gerbom,JU-87D3,1,air.JU_87D3,1xSC1000,100,4000,380:BA,31,
+2,gerbom,JU-87D3,1,air.JU_87D3,1xSC1000,100,2000,380:BD,31,
 
 
 ##STATIC AIRCRAFTS:
@@ -218,3 +422,14 @@ SV213,2,OpelBlitz6700A_medic,vehicles.stationary.Stationary$OpelBlitz6700A_medic
 #
 
 
+#transferido mitad de bf107b y bf110b BA a  he111h2 y he111h6 pada BA
+#transferido mitad de he111hd y ju88 BD a JUB2 y Ju D3
+#aumentado el wspan de 10 a 15 para objetos estaticos
+#i153 no va mas como intercept
+#il4 db3 solo para BA
+#sb2 solo para BA
+#il2 series 3 +30 ambas tareas
+#il2 fielmod  +20 ambas tareas
+#il2 early 42 +50 BD
+
+#e7b, un poco para ET
