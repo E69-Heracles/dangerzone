@@ -49,7 +49,7 @@
 					<td width="208px"><a href="#" id="menu-2" class="menu">Para ver el estado de<br/>la campaña actual</a>
 						<div id="submenu-2" class="menu-text">
 							<nobr><span  class="submenu-text">
-							<a href="$RELATIVE_DYNAMIC_MAP/mapa.html">Mapa del Frente</a> |
+							<a href="<?php echo $RELATIVE_DYNAMIC_MAP; ?>/mapa.html">Mapa del Frente</a> |
 							<a href="last_mis.php">Misiones</a> |
 							<a href="all_sqds.php">Escuadrones</a> |
 							<a href="all_pilots.php">Pilotos</a> |

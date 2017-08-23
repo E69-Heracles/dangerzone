@@ -4,7 +4,7 @@ include ("./config.php");
 
 include ("./dz_page_header.php");
 ?>
-			<img class="modal_map" src="$RELATIVE_DYNAMIC_FRONT/front.jpg" WIDTH="675" HEIGHT="585" BORDER=0/>
+			<img class="modal_map" src="<?php echo $RELATIVE_DYNAMIC_FRONT; ?>/front.jpg" WIDTH="675" HEIGHT="585" BORDER=0/>
 			
 			<table cellpadding="0" cellspacing="0" width="835px" border=0>
 			<tr>
@@ -61,7 +61,7 @@ include ("./dz_page_header.php");
 					echo $contents[1];
 					?>
 			
-					<a href="$RELATIVE_DYNAMIC_MAP/mapa.html"><img id="map_icon" src="images/map_banner_kursk.jpg" border="2"></a><br/><br/>
+					<a href="<?php echo $RELATIVE_DYNAMIC_MAP; ?>/mapa.html"><img id="map_icon" src="images/map_banner_kursk.jpg" border="2"></a><br/><br/>
 					Para volarla, basta con que te conectes en el <a href="http://hyperfighter.sk/" target="main">HyperLobby</a> en alguna de las partidas 
 					que se lanzan diariamente en <b>Teamplay Room</b>, pero te rogamos encarecidamente que te leas antes el manual. 
 					Si te gusta la experiencia, puedes solicitar el alta de piloto en esta misma web o de tu escuadrón en 

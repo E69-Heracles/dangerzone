@@ -11,11 +11,11 @@ if ($environment == "DEV") {
     $campanya="ESTE";
     $mapa="Bessarabia. 1941";
 
-    $PATH_DYNAMIC_CONTENT = "/var/www/html/public_html/cgi-bin/current_map";
+    $PATH_DYNAMIC_CONTENT = "/var/www/html/public_html/campaign";
     $PATH_DYNAMIC_TXT     = $PATH_DYNAMIC_CONTENT;
-    $RELATIVE_DYNAMIC_REP = "/cgi-bin/current_map/rep";    
-    $RELATIVE_DYNAMIC_FRONT = "/cgi-bin/current_map";     
-    $RELATIVE_DYNAMIC_MAP = "/cgi-bin/current_map";                
+    $RELATIVE_DYNAMIC_REP = "/campaign/rep";    
+    $RELATIVE_DYNAMIC_FRONT = "/campaign";     
+    $RELATIVE_DYNAMIC_MAP = "/campaign";                
 } else {
 	// *******************    PRODUCTION VARIABLES - EDIT AS NEEDED  *************
     $database="s03e18df_dangerzone";
