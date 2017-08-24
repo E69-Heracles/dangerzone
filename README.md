@@ -62,6 +62,7 @@ $ mkdir "$DANGERZONE_WD"/campaign
 $ mkdir "$DANGERZONE_WD"/campaign/gen
 $ mkdir "$DANGERZONE_WD"/campaign/tmp
 $ mkdir "$DANGERZONE_WD"/campaign/rep
+$ mkdir "$DANGERZONE_WD"/campaign/data_bkup
 ```
 
 Then copy all the needed files for the campaign you want to start:

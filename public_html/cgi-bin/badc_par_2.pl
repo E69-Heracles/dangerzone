@@ -5,7 +5,9 @@ require "cgi-lib.pl";
 require "ui.pl";
 require "dztools.pl";
 require "dzmap.pl";
+require "dzoptions.pl";
 
+use File::Basename;
 use IO::Handle;   # because autoflush
 use DBI();
 use POSIX;
@@ -1472,7 +1474,7 @@ sub print_pilot_actions(){
     $blue_points=0;
 
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Pilotos en la misión:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Pilotos en la misi&oacute;n:</h3></center>\n\n";
     print HTML_REP "<center>\n  <table width=\"800\"border=1>\n";
 
 
@@ -2752,12 +2754,12 @@ sub print_airfield_losts_report(@) {
     my $k = 0;
     
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Informe de pérdidas de $af_name:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Informe de p&eacute;rdidas de $af_name:</h3></center>\n\n";
     print HTML_REP "<center>\n<table border=1>\n";
     print HTML_REP "  <tr bgcolor=\"#ffffff\">\n";
     print HTML_REP "    <td class=\"ltr70\">Piloto</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">Avión</td>\n";    
-    print HTML_REP "    <td class=\"ltr70\">Misión</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">Avi&oacute;n</td>\n";    
+    print HTML_REP "    <td class=\"ltr70\">Misi&oacute;n</td>\n";
     print HTML_REP "    <td class=\"ltr70\">Tipo</td>\n";
     print HTML_REP "    <td class=\"ltr70\">%</td>\n";
     print HTML_REP "  </tr>\n";
@@ -2778,7 +2780,7 @@ sub print_airfield_losts_report(@) {
 	    my $my_plane_name = $af_lost_print_list[$i][2];
 	    my $my_task = $af_lost_print_list[$i][3];
 	    my $my_damage = $af_lost_print_list[$i][4];
-	    my $my_lost = 'Avión';
+	    my $my_lost = 'Avi&oacute;n';
 	    my $pnt_comments="";
 
 	    
@@ -2794,13 +2796,13 @@ sub print_airfield_losts_report(@) {
 		}
 		if ($af_lost_print_list[$k][0] eq 'TRAFFIC') {
 		    if ( $af_lost_print_list[$i][2] eq $af_lost_print_list[$k][2]) {
-			$my_lost = 'Tráfico';
+			$my_lost = 'Tr&acute;fico';
 			for (my $i=0; $i < scalar(@traffic_pilots); $i++) {
 			    if ( $traffic_pilots[$i][0] eq $af_lost_print_list[$k][2]) {
 				($l_afd, $c_afd) = get_af_name($traffic_pilots[$i][1]);
 				($l_afa, $c_afa) = get_af_name($traffic_pilots[$i][2]);				
 				$pnt_comments = "Despega de " . $c_afd . " y aterriza en " . $c_afa ." <br>";
-				$pnt_comments .= "El aeródromo " . $c_afa . " recupera " . $my_damage . "% de daño <br>";
+				$pnt_comments .= "El aer&oacute;dromo " . $c_afa . " recupera " . $my_damage . "% de da&ntilde;o <br>";
 			    }
 			}
 			printdebug("print_airfield_losts_report(): TRAFFIC : $af_lost_print_list[$k][2]");				
@@ -2900,9 +2902,9 @@ sub eventos_aire(){
     print HTML_REP "  <tr bgcolor=\"#ffffff\">\n";
     print HTML_REP "    <td class=\"ltr70\">Hora</td>\n";
     print HTML_REP "    <td class=\"ltr70\">piloto</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">avión/obj.</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">avi&oacute;n/obj.</td>\n";
     print HTML_REP "    <td class=\"ltr70\">derriba</td>\n";
-    print HTML_REP "    <td class=\"ltr70\">avión</td>\n";
+    print HTML_REP "    <td class=\"ltr70\">avi&oacute;n</td>\n";
     print HTML_REP "  </tr>\n";
 
     my $down_x;
@@ -2928,7 +2930,7 @@ sub eventos_aire(){
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
+  <IMG alt="" src="../front$ext_rep_nbr.jpg" width="
 REP1
     ;
     my $width = int($ANCHO / 4);
@@ -2951,7 +2953,7 @@ REP12
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
+  <IMG alt="" src="../front$ext_rep_nbr.jpg" width="
 REP2
     ;
     $width = int($ANCHO / 2);
@@ -2974,7 +2976,7 @@ REP22
 <TITLE>MAPA</TITLE>
 <BODY bgColor="#ffffcc">
 <DIV style="LEFT: 0px; TOP: 0px; POSITION: absolute;">
-  <IMG alt="" src="../images/front$ext_rep_nbr.jpg" width="
+  <IMG alt="" src="../front$ext_rep_nbr.jpg" width="
 REP4
     ;
     $width = $ANCHO;
@@ -3303,8 +3305,8 @@ REP42
     ## Llamada a control de trafico entre aerodromos
     control_traffic();
 
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas totales rojas (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".(sum_array(@red_af1_kia) + sum_array(@red_af2_kia))." </b></td></tr>\n";
-    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas totales azules (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".(sum_array(@blue_af1_kia) + sum_array(@blue_af2_kia))."</b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacute;rdidas totales rojas (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $red_planes_destroyed / ".(sum_array(@red_af1_kia) + sum_array(@red_af2_kia))." </b></td></tr>\n";
+    print HTML_REP "<tr bgcolor=\"#ffffff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacuterdidas totales azules (Aviones/Pilotos)</td><td align=\"center\" class=\"ltr80\"><b> $blue_planes_destroyed / ".(sum_array(@blue_af1_kia) + sum_array(@blue_af2_kia))."</b></td></tr>\n";
 
     my $red_af1_name="";
     my $red_af2_name="";
@@ -3366,37 +3368,37 @@ REP42
 
     if ($red_af1_name ne "") {
 	if ($red_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $red_af1_name " . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af1_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacute;rdidas en  $red_af1_name " . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name ahora pertenece al ejército azul" . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af1_name ahora pertenece al ej&eacute;rcito azul" . sum_array(@red_af1_lost) . " / " . sum_array(@red_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($red_af2_name ne "") {
 	if ($red_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $red_af2_name " . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af2_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacute;rdidas en  $red_af2_name " . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $red_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # red_af capturado
-	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name ahora peteneces al ejército azul" . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ffdddd\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$red_af2_name ahora petenece al ej&eacute;rcito azul" . sum_array(@red_af2_lost) . " / " . sum_array(@red_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af1_name ne "") {
 	if ($blue_af1_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $blue_af1_name " . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af1_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacute;rdidas en  $blue_af1_name " . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af1_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af1 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name ahora pertenece al ejército rojo" . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af1_name ahora pertenece al ej&eacute;rcito rojo" . sum_array(@blue_af1_lost) . " / " . sum_array(@blue_af1_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
     if ($blue_af2_name ne "") {
 	if ($blue_af2_captured==0){
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">Pérdidas en  $blue_af2_name " . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af2_damage . " % </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">P&eacute;rdidas en  $blue_af2_name " . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> -". $blue_af2_damage . " % </b></td></tr>\n";
 	}
 	else { # blue_af2 capturado
-	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name ahora pertenece al ejército rojo" . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
+	    print HTML_REP "<tr bgcolor=\"#ddddff\"><td colspan=\"4\" align=\"center\" class=\"ltr70\">$blue_af2_name ahora pertenece al ej&eacute;rcito rojo" . sum_array(@blue_af2_lost) . " / " . sum_array(@blue_af2_kia) . "</td><td align=\"center\" class=\"ltr80\"><b> N/D </b></td></tr>\n";
 	}
     }
 
@@ -3772,23 +3774,23 @@ sub print_mis_objetive_result(){
     print HTML_REP "<center><h3><a href=\"#reports\">Informes de pilotos</a></h3></center>\n\n";
 
     print HTML_REP "<p><br><br>\n";
-    print HTML_REP "<center><h3>Resultado de la misión:</h3></center>\n\n";
+    print HTML_REP "<center><h3>Resultado de la misi&oacute;n:</h3></center>\n\n";
     print HTML_REP "<center>\n  <table border=1>\n";
 
     if ($RED_ATTK_TACTIC==1){
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque táctico</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque t&aacute;ctico</strong></center></td></tr>\n";
     }
 
     if ($RED_SUM==1){
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro a ciudad</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misi&oacute;n de suministro a ciudad</strong></center></td></tr>\n";
     }
     
     if ($RED_SUA==1){
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Misi&oacute;n de suministro a aer&oacute;dromo</strong></center></td></tr>\n";
     }    
 
     if ($RED_ATTK_TACTIC==0 && $RED_RECON==0 && $RED_SUM==0 && $RED_SUA==0){
-	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#eeaaaa\"><td><center><strong>Ataque estrat&eacute;gico</strong></center></td></tr>\n";
     }
 
     print HTML_REP "  <tr bgcolor=\"#ffcccc\"><td>\n";
@@ -3819,7 +3821,7 @@ sub print_mis_objetive_result(){
 		    if ($unix_cgi){ 
 			#print "    $1 - Tank destroyed by  $by $plane_by\n";
 		    }
-		    print HTML_REP  "    $1 - Tanques destruídos por $by $plane_by <br>\n";
+		    print HTML_REP  "    $1 - Tanques destru&iacute;dos por $by $plane_by <br>\n";
 		    $tank_killed++;
 		}
 	    }
@@ -3883,7 +3885,7 @@ sub print_mis_objetive_result(){
 	    #print  "    The estimated damage in $red_target is  ".$blue_damage."%.\n";
 	}
 	print HTML_REP "    Los rojos destruyen $obj_kill objetivos, en una area con $blue_objects objetives.<br>\n";
-	print HTML_REP "    El daño infligido en $red_target es <strong>".$blue_damage."%.</strong><br>\n";
+	print HTML_REP "    El da&ntilde;o infligido en $red_target es <strong>".$blue_damage."%.</strong><br>\n";
 	$red_result="$blue_damage"; # para mis_prog_tbl
     }
     
@@ -3891,19 +3893,19 @@ sub print_mis_objetive_result(){
     print HTML_REP "  <tr bgcolor=\"#ffffcc\"><td colspan=1></td></tr>\n\n"; # separador vvs/okl
     
     if ($BLUE_ATTK_TACTIC==1){
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque táctico</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque t&aacute;ctico</strong></center></td></tr>\n";
     }
 
     if ($BLUE_SUM==1){
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro a ciudad</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misi&oacute;n de suministro a ciudad</strong></center></td></tr>\n";
     }
     
     if ($BLUE_SUA==1){
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misión de suministro a aeródromo</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Misi&oacute;n de suministro a aer&oacute;dromo</strong></center></td></tr>\n";
     }    
 
     if ($BLUE_ATTK_TACTIC==0 && $BLUE_RECON==0 && $BLUE_SUM==0 && $BLUE_SUA==0){
-	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estratégico</strong></center></td></tr>\n";
+	print HTML_REP "  <tr bgcolor=\"#aaaaee\"><td><center><strong>Ataque estrat&eacute;gico</strong></center></td></tr>\n";
     }
     
     print HTML_REP "  <tr bgcolor=\"#ccccff\"><td>\n";
@@ -3936,7 +3938,7 @@ sub print_mis_objetive_result(){
 		    if ($unix_cgi){ 
 			#print "    $1 - Tank destroyed by  $by $plane_by\n";
 		    }
-		    print HTML_REP  "    $1 - Tanques destruídos por $by $plane_by<br>\n";
+		    print HTML_REP  "    $1 - Tanques destru&iacute;dos por $by $plane_by<br>\n";
 		    $tank_killed++;
 		}
 	    }
@@ -4001,7 +4003,7 @@ sub print_mis_objetive_result(){
 	#    print "    The estimated damage in $blue_target is ".$red_damage."%.\n";
 	}
 	print HTML_REP "    Los azules destruyen $obj_kill objetivos, en una area con $red_objects objetivos.<br>\n";
-	print HTML_REP "    El daño infligido en $blue_target es <strong>".$red_damage."%.</strong>\n";
+	print HTML_REP "    El da&ntilde;$ infligido en $blue_target es <strong>".$red_damage."%.</strong>\n";
 	$blue_result="$red_damage"; # para mis_prog_tbl
     }
     print HTML_REP "  </td></tr>\n  </table>\n</center>\n\n\n";
@@ -5969,14 +5971,16 @@ my $MR_epoca = time;
 $dbh->do("UPDATE $mis_prog SET reported = 1, rep_date = \"$MR_date\", rep_time = \"$MR_time\", rep_epoca = $MR_epoca, misrep = \"rep$ext_rep_nbr\" WHERE misnum=\"$MIS_TO_REP\" and campanya=\"$CAMPANYA\" and mapa=\"$MAP_NAME_LONG\"");
 print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." rep_nbr: $rep_nbr \n";
 
-open (DATA_BK, ">$DATA_BKUP/$GEOGRAFIC_COORDINATES$ext_rep_nbr");
+my $geo_obj_file_name = fileparse($GEOGRAFIC_COORDINATES);
+open (DATA_BK, ">$DATA_BKUP/$geo_obj_file_name$ext_rep_nbr");
 seek GEO_OBJ,0,0;
 while(<GEO_OBJ>) {
     print DATA_BK;
 }
 close(DATA_BK);
 
-open (DATA_BK, ">$DATA_BKUP/$FRONT_LINE$ext_rep_nbr");
+my $front_line_file_name = fileparse($FRONT_LINE);
+open (DATA_BK, ">$DATA_BKUP/$front_line_file_name$ext_rep_nbr");
 seek FRONT,0,0;
 while(<FRONT>) {
     print DATA_BK;
