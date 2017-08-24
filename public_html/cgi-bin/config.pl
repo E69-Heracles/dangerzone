@@ -952,10 +952,10 @@ if ($radio>50) { $LW_RADIO="&1";}
 
 
 #locks (if you change this, you have to update "create.php", because they monitor this filenames. (UP/DOWN)
-$parser_lock="_par.lock";  # indicates parser is working, not allow generation or new parser
-$gen_lock="_gen.lock";     # indicates generator is working, not allow parser or new generation
-$parser_stop="_par.stop";  # manual stop parser, do not blocks generator
-$gen_stop="_gen.stop";     # manual stop generator, do not blocks parser
+$parser_lock= $PATH_DYNAMIC_TXT . "/" . "_par.lock";  # indicates parser is working, not allow generation or new parser
+$gen_lock= $PATH_DYNAMIC_TXT . "/" . "_gen.lock";     # indicates generator is working, not allow parser or new generation
+$parser_stop= $PATH_DYNAMIC_TXT . "/" . "_par.stop";  # manual stop parser, do not blocks generator
+$gen_stop= $PATH_DYNAMIC_TXT . "/" . "_gen.stop";     # manual stop generator, do not blocks parser
 
 # used in take_slot.pl
 $expire_seconds=1200; # set expire time 1800 seconds = 30 minutes    

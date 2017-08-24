@@ -7,7 +7,7 @@ if ($environment == "DEV") {
     $database="badc";
     $db_user="badc_user";
     $db_upwd='badc_password';
-    $path_to_cgi_bin="/var/www/html/public_html/cgi-bin";
+    
     $campanya="ESTE";
     $mapa="Bessarabia. 1941";
 
@@ -16,12 +16,13 @@ if ($environment == "DEV") {
     $RELATIVE_DYNAMIC_REP = "/campaign/rep";    
     $RELATIVE_DYNAMIC_FRONT = "/campaign";     
     $RELATIVE_DYNAMIC_MAP = "/campaign";                
+
 } else {
 	// *******************    PRODUCTION VARIABLES - EDIT AS NEEDED  *************
     $database="s03e18df_dangerzone";
     $db_user="s03e18df_badc";
     $db_upwd='Phoenix';
-    $path_to_cgi_bin="/home/s03e18df/public_html/dangerzone/cgi-bin";
+
     $campanya="ESTE";
     $mapa="Bessarabia. 1941";
 
@@ -31,4 +32,6 @@ if ($environment == "DEV") {
     $RELATIVE_DYNAMIC_FRONT = "/images";    
     $RELATIVE_DYNAMIC_MAP = "";            
 }
+
+$path_to_cgi_bin=$PATH_DYNAMIC_TXT;
 ?>
