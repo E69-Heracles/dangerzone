@@ -102,7 +102,7 @@ sub printdebug($);
 sub get_report_nbr_for_read();
 sub print_map_page($$$$);
 
-sub mission_option_generation($$$$$$$$$);
+sub mission_option_generation($$$$$);
 
 sub distance ($$$$) {
     my ($x1,$y1,$x2,$y2)=@_;
@@ -125,13 +125,13 @@ if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
 }
 
 my $rep_nbr = get_report_nbr_for_read();
-($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, STDOUT, 0, $rep_nbr);
+($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, STDOUT, 0, $rep_nbr);
 my %red_task_stock = %$red_task_stock;
 my %blue_task_stock = %$blue_task_stock;
 my @cg_red_bases = @$cg_red_bases;
 my @cg_blue_bases = @$cg_blue_bases;
 
-mission_option_generation(GEO_OBJ, \%red_task_stock, $red_capacity, $red_plane_supply, \@cg_red_bases, \%blue_task_stock, $blue_capacity, $blue_plane_supply, \@cg_blue_bases);
+mission_option_generation(GEO_OBJ, \%red_task_stock, \@cg_red_bases, \%blue_task_stock, \@cg_blue_bases);
 
 close(GEO_OBJ);
 

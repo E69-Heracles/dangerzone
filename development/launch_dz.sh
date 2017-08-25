@@ -1,1 +1,1 @@
-docker run -d -p 80:80 -p 3306:3306 --rm --name dangerzone -v "$DANGERZONE_WD":/app e69/dangerzone
+docker run -d -p 80:80 -p 3306:3306 --memory=600m --rm --name dangerzone -v "$DANGERZONE_WD":/app e69/dangerzone

@@ -184,12 +184,10 @@ sub strategic_city_targets($$$$$) {
 
 ## @Heracles@20170816
 ## Supply airfield target generation
-sub supply_airfield_targets($$$$$$) {
+sub supply_airfield_targets($$$$) {
     
     my $army = shift @_;
     my $task_stock_SUM = shift @_;
-    my $capacity = shift @_;
-    my $plane_supply = shift @_;
     my $cg_bases = shift @_;
     my $geo = shift @_;
 
@@ -198,7 +196,7 @@ sub supply_airfield_targets($$$$$$) {
 
     ## @Heracles@20110805
     ## Solo seleccionar suministro si quedan aviones SUM
-    if ($task_stock_SUM >= $MIN_STOCK_FOR_FLYING && ($capacity >= $plane_supply)) 
+    if ($task_stock_SUM >= $MIN_STOCK_FOR_FLYING) 
     {
         seek $geo,0,0;
         while(<$geo>) 
@@ -280,16 +278,12 @@ sub supply_city_targets($$$) {
 
 ## @Heracles@20170817
 ## Mission options generation
-sub mission_option_generation($$$$$$$$$) {
+sub mission_option_generation($$$$$) {
 
     my $geo = shift @_;
     my $red_task_stock = shift @_;
-    my $red_capacity = shift @_;
-    my $red_plane_supply = shift @_;
     my $cg_red_bases = shift @_;
     my $blue_task_stock = shift @_;
-    my $blue_capacity = shift @_;
-    my $blue_plane_supply = shift @_;
     my $cg_blue_bases = shift @_;
 
     my %red_task_stock = %$red_task_stock;
@@ -320,7 +314,7 @@ sub mission_option_generation($$$$$$$$$) {
     push(@red_possible, @$possible);
 
     ## seleccion de SUMINISTROS A AERODROMOS ROJOS
-    $possible = supply_airfield_targets(1, $red_task_stock{SUM}, $red_capacity, $red_plane_supply, \@cg_red_bases, $geo);
+    $possible = supply_airfield_targets(1, $red_task_stock{SUM}, \@cg_red_bases, $geo);
     push(@red_possible, @$possible);
 
     ## seleccion de SUMINISTROS A CIUDADES ROJAS
@@ -341,7 +335,7 @@ sub mission_option_generation($$$$$$$$$) {
     push(@blue_possible, @$possible);    
 
     ## seleccion de SUMINISTROS A AERODROMOS AZULES
-    $possible = supply_airfield_targets(2, $blue_task_stock{SUM}, $blue_capacity, $blue_plane_supply, \@cg_blue_bases, $geo);
+    $possible = supply_airfield_targets(2, $blue_task_stock{SUM}, \@cg_blue_bases, $geo);
     push(@blue_possible, @$possible);
 
     ## seleccion de SUMINISTROS A CIUDADES AZULES

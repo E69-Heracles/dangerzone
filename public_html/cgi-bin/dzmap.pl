@@ -7,8 +7,6 @@ sub compute_time_and_weather($$$);
 sub calc_map_points();
 sub print_map_and_sta($$$);
 sub calc_stocks_plane();
-sub get_sua_capacity($);
-sub set_sua_capacity($$);
 sub calc_sum_plane_supply($$);
 sub calc_sectors_owned();
 sub get_hq($);
@@ -84,39 +82,33 @@ sub print_headquarter($$) {
 
     print_map_and_sta($map, $sta, "<table border=1 ><tr>");
 
+    my $red_sua_capacity = 0;
+    my $blue_sua_capacity = 0;    
+    my $red_initial = 0;
+    my $blue_initial = 0;
     my $red_stock = 0;
     my $blue_stock = 0;
     my $red_losts = 0;
     my $blue_losts = 0;
-    ($red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
+    ($red_sua_capacity, $blue_sua_capacity, $red_initial, $blue_initial, $red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
     
-    my $red_capacity=get_sua_capacity(1);
-    if ($red_capacity eq "-") {
-        $red_capacity = $red_stock;
-        set_sua_capacity ($red_stock, 1);
-    }
-
-    my $blue_capacity=get_sua_capacity(2);
-    if ($blue_capacity eq "-") {
-    $blue_capacity = $blue_stock;
-    set_sua_capacity ($blue_stock, 2);
-    }       
-
     my $red_plane_supply = 0;
     my $blue_plane_supply = 0;    
-    ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
+    ($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_sua_capacity, $blue_sua_capacity);
     
     my $blue_sectors = 0;
     my $red_sectors = 0;
                              
     ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
 
-    print_headquarter_for_army($map, $sta, "rojo", $RED_HQ, $red_stock, $red_losts, $VDAY_PRODUCTION_RED, $red_capacity, $red_plane_supply, $red_sectors, $red_supply_city);
-    print_headquarter_for_army($map, $sta, "azul", $BLUE_HQ, $blue_stock, $blue_losts, $VDAY_PRODUCTION_BLUE, $blue_capacity, $blue_plane_supply, $blue_sectors, $blue_supply_city);    
+    $red_sua_capacity = sprintf("%d", $red_sua_capacity * 100);
+    $blue_sua_capacity = sprintf("%d", $blue_sua_capacity * 100);
+
+    print_headquarter_for_army($map, $sta, "rojo", $RED_HQ, $red_stock, $red_losts, $VDAY_PRODUCTION_RED, $red_sua_capacity, $red_plane_supply, $red_sectors, $red_supply_city);
+    print_headquarter_for_army($map, $sta, "azul", $BLUE_HQ, $blue_stock, $blue_losts, $VDAY_PRODUCTION_BLUE, $blue_sua_capacity, $blue_plane_supply, $blue_sectors, $blue_supply_city);    
 
     print_map_and_sta($map, $sta, "</tr></table><br><br>\n");
 
-    return ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply)
 }
 
 ## @Heracles@20170815
@@ -454,8 +446,8 @@ sub print_map_page($$$$) {
 
     print_map_and_points(MAPA);    
     print_time_and_weather(MAPA, STA, $map_vday, $mission_of_day, $hora, $minutos, $tipo_clima_spa, $nubes);
-   
-    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply) = print_headquarter(MAPA, STA);
+    print_headquarter(MAPA, STA);
+
     ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out) = print_plane_inventory(MAPA, STA, $log);
     ($cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed) = print_airfield_damage(MAPA, STA, $geo);
     ($red_hq_captured, $blue_hq_captured) = print_city_damage(MAPA, STA, $geo);
@@ -475,5 +467,5 @@ sub print_map_page($$$$) {
     close (MAPA);
     close (STA);
 
-    return ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured);
+    return ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured);
 }

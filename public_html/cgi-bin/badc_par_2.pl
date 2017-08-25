@@ -85,16 +85,13 @@ sub get_coord_city($);
 sub get_sum_radius($);
 sub calc_stocks_plane();
 sub calc_sum_plane_supply($$);
-sub get_sua_capacity($);
-sub set_sua_capacity($$);
-sub calc_sua_capacity($);
 sub get_map_vday();
 sub set_map_vday();
 sub is_in_radius($$$$$);
 
 sub print_map_page($$$$);
 
-sub mission_option_generation($$$$$$$$$);
+sub mission_option_generation($$$$$);
 
 sub printdebug($) {
     if ($DZDEBUG) {
@@ -3662,98 +3659,107 @@ sub calc_af_resuply_air($){
     my $land_in_cg = 0;
     my $af_sum;
     my $my_name;
-    my $sup_capacity=get_sua_capacity($my_army);
-    my $carga_sua=0;
     
-    if ($my_army == 1) {
-	$sum_time = $RED_SUM_TIME;
-	$plane_supply = $red_plane_supply;
-	$af_sum = $red_target;
-	$af_sum =~ s/SUA-//;
-	$my_name = "Los rojos";
+    if ($my_army == 1) 
+    {
+    	$sum_time = $RED_SUM_TIME;
+    	$plane_supply = $red_plane_supply;
+    	$af_sum = $red_target;
+    	$af_sum =~ s/SUA-//;
+    	$my_name = "Los rojos";
     }
-    else {
-	$sum_time = $BLUE_SUM_TIME;
-	$plane_supply = $blue_plane_supply;
-	$af_sum = $blue_target;
-	$af_sum =~ s/SUA-//;
-	$my_name = "Los azules";
+    else 
+    {
+    	$sum_time = $BLUE_SUM_TIME;
+    	$plane_supply = $blue_plane_supply;
+    	$af_sum = $blue_target;
+    	$af_sum =~ s/SUA-//;
+    	$my_name = "Los azules";
     }
-    
-    if (($sup_capacity == 0) || ($plane_supply > $sup_capacity)) {return "0";}    
     
     # @pilot_list[][$hlname,$plane,$seat,$pos,$wing,$army]
-    for ($i=0 ; $i<$hpilots; $i++){ # lista pilotos
-        if($pilot_list[$i][5] == $my_army){ 
-	    $player_task=$pilot_list[$i][6];
-	    if ($player_task eq "SUA" && $pilot_list[$i][3] !~ m/"Art"/){ # si es un transport y no es artillero
-		
-		printdebug ("calc_af_resuply_air(): Analizando piloto SUA " . $pilot_list[$i][0] . " en avion " . $pilot_list[$i][1]);
-		
-		my $safe;
-		my $af_land;
-		my $af_short;
-		my $ltime;
-		$safe = 0;
-		$af_land = "NONE";
-		$ltime = 0;
-		for (my $j=0; $j < scalar(@af_land_pilots); $j++) {
-		    if ($af_land_pilots[$j][0] eq $pilot_list[$i][1]) {
-			$safe = 1;
-			($af_land, $af_short) = get_af_name($af_land_pilots[$j][1]);
-			$ltime = $af_land_pilots[$j][2];
-			last;
-		    }
-		}
-		
-		my $plane = $pilot_list[$i][1];
-		seek LOG, 0, 0;
-		while(<LOG>) {
-		    if ($_=~  m/([^ ]+) $plane landed at ([^ ]+) ([^ ]+)/){
-			my $land_time = $1;
-			my $cx = $2;
-			my $cy = $3;
-			my ($land_code, $land_af, $cx_af, $cy_af) = get_af_by_coord($cx, $cy, $my_army);
-			if ($land_af ne "NONE") {
-			    $land_in_cg = is_coord_in_cg_radius($cx_af, $cy_af, $my_army);
-			    if ($land_in_cg) {
-				printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " cargo suministros en $land_af en tiempo $land_time");							
-				push (@af_cgsup, $land_af);
-				$carga_sua += $plane_supply;
-				if ($safe && ($af_land eq $af_sum)) {
-				    printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo a salvo en $af_land en tiempo $ltime");							    
-				    if ((get_segundos($land_time) > get_segundos($stime_str)) && (get_segundos($land_time) < get_segundos($ltime))) { 
-				        if ( ( (get_segundos($ltime)-get_segundos($stime_str)) /60 ) <= $sum_time ) { # si aterrizo en un AF en tiempo de suministro
-					    print HTML_REP  "    - $pilot_list[$i][0] suministra $af_sum ($plane_supply %) ";
-					    print HTML_REP  "<br>\n";					    
-					    push(@af_resup, $af_land);
-					    $total += $plane_supply;
-					    last;
-					}
-					else {
-					    printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza de nuevo en af fuera de tiempo por" . (get_segundos($ltime)-get_segundos($stime_str)-$sum_time) . " segundos");
-					}					
-				    }
-				}
-				else {
-				    if ($safe) {
-					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo en $af_land cuando el objetivo era $af_sum");
-				    }
-				    else {
-					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " fue derribado");
-				    }
-				}
-			    }				
-			}
-		    }
-		}
-	    }
-	}
-	
-	if (($total == $sup_capacity) || (($total + $plane_supply) > $sup_capacity)) {last;}
+    for ($i=0 ; $i<$hpilots; $i++)
+    { # lista pilotos
+        if($pilot_list[$i][5] == $my_army)
+        { 
+    	    $player_task=$pilot_list[$i][6];
+    	    if ($player_task eq "SUA" && $pilot_list[$i][3] !~ m/"Art"/)
+            { # si es un transport y no es artillero
+        		
+        		printdebug ("calc_af_resuply_air(): Analizando piloto SUA " . $pilot_list[$i][0] . " en avion " . $pilot_list[$i][1]);
+        		
+        		my $safe;
+        		my $af_land;
+        		my $af_short;
+        		my $ltime;
+        		$safe = 0;
+        		$af_land = "NONE";
+        		$ltime = 0;
+        		for (my $j=0; $j < scalar(@af_land_pilots); $j++) 
+                {
+        		    if ($af_land_pilots[$j][0] eq $pilot_list[$i][1]) 
+                    {
+            			$safe = 1;
+            			($af_land, $af_short) = get_af_name($af_land_pilots[$j][1]);
+            			$ltime = $af_land_pilots[$j][2];
+            			last;
+        		    }
+        		}
+        		
+        		my $plane = $pilot_list[$i][1];
+        		seek LOG, 0, 0;
+        		while(<LOG>) 
+                {
+        		    if ($_=~  m/([^ ]+) $plane landed at ([^ ]+) ([^ ]+)/)
+                    {
+            			my $land_time = $1;
+            			my $cx = $2;
+            			my $cy = $3;
+            			my ($land_code, $land_af, $cx_af, $cy_af) = get_af_by_coord($cx, $cy, $my_army);
+            			if ($land_af ne "NONE") 
+                        {
+            			    $land_in_cg = is_coord_in_cg_radius($cx_af, $cy_af, $my_army);
+            			    if ($land_in_cg) 
+                            {
+                				printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " cargo suministros en $land_af en tiempo $land_time");							
+                				push (@af_cgsup, $land_af);
+                				if ($safe && ($af_land eq $af_sum)) 
+                                {
+                				    printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo a salvo en $af_land en tiempo $ltime");							    
+                				    if ((get_segundos($land_time) > get_segundos($stime_str)) && (get_segundos($land_time) < get_segundos($ltime))) 
+                                    { 
+                				        if ( ( (get_segundos($ltime)-get_segundos($stime_str)) /60 ) <= $sum_time ) 
+                                        { # si aterrizo en un AF en tiempo de suministro
+                    					    print HTML_REP  "    - $pilot_list[$i][0] suministra $af_sum ($plane_supply %) ";
+                    					    print HTML_REP  "<br>\n";					    
+                    					    push(@af_resup, $af_land);
+                    					    $total += $plane_supply;
+                					    last;
+                                        }
+                                        else 
+                                        {
+                					       printdebug ("calc_af_resuply_air(): $pilot_list[$i][0] aterriza de nuevo en af fuera de tiempo por" . (get_segundos($ltime)-get_segundos($stime_str)-$sum_time) . " segundos");
+                                        }					
+                				    }
+                				}
+                				else 
+                                {
+                				    if ($safe) 
+                                    {
+                    					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " aterrizo en $af_land cuando el objetivo era $af_sum");
+                				    }
+                				    else 
+                                    {
+                    					printdebug ("calc_af_resuply_air(): Piloto SUA " . $pilot_list[$i][0] . " fue derribado");
+                				    }
+                				}
+            			    }				
+            			}
+        		    }
+        		}
+	       }
+        }
     }
-    
-    if ($carga_sua > 0) { set_sua_capacity(($sup_capacity-$carga_sua), $my_army);}
     
     print HTML_REP "    --- <strong>" . $my_name . " suministran  $total % $af_sum </strong>.<br>\n";	    
     return $total;
@@ -4665,10 +4671,12 @@ sub check_sec_sumin(){
 
 
 
-sub check_day(){
+sub check_day() {
     $ext_rep_nbr =~ m/_([0-9]+)/;
     $rep_count=$1;
     
+    my $red_initial = 0;
+    my $blue_initial = 0;
     my $red_stock = 0;
     my $blue_stock = 0;
     my $red_losts = 0;
@@ -4679,100 +4687,70 @@ sub check_day(){
     my $cg_blue_cy = 0;
     my $cg_red_sum_radius = 0;
     my $cg_blue_sum_radius = 0;
-    my $red_capacity = 0;
-    my $blue_capacity = 0;
     
-    if (($rep_count%$MIS_PER_VDAY) ==0){ 
-	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
-	
-	set_map_vday();
-	
-	# @@Heracles@20110722@
-	# Calculamos la producción de aviones
-	if ($INVENTARIO && $PRODUCCION) {
-	    ($red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
-	    $red_capacity = get_sua_capacity(1);
-	    $red_capacity += calc_sua_capacity(1);
-	    set_sua_capacity($red_capacity,1);
-	    $blue_capacity = get_sua_capacity(2);
-	    $blue_capacity += calc_sua_capacity(2);	    
-	    set_sua_capacity($blue_capacity,2);	    
-
-	    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
-	    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
-	    ($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
-	    $cg_red_sum_radius = get_sum_radius($RED_HQ);
-
-	    print "</strong><font size=\"-1\" color=\"000000\">Calculando aviones enviados al frente...</br>";	    
-	    calc_production_planes();
-	    
-	}	
-	
-	open (TEMPGEO, ">temp_geo.data"); #
-	seek GEO_OBJ, 0, 0;
-	while(<GEO_OBJ>) {
-	    if ($_ !~ m/(^AF[0-9]{2},|^CT[0-9]{2},)/) { # si no es ciudad o AF
-		print TEMPGEO;
-	    }
-	    else { 
-		if ($_ =~ m/AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/){ 
-		    $dam=$4-$AF_VDAY_RECOVER;
-		    if ($INVENTARIO && $PRODUCCION) {
-			if ($dam >0) {
-			    if (distance($2, $3, $cg_red_cx, $cg_red_cy) <= $cg_red_sum_radius && $5 == 1) {
-				if ($dam <= $red_capacity) {
-				    $dam = 0;
-				    set_sua_capacity(($red_capacity-$dam), 1);
-				    printdebug("check_day(): $1 suministrado por CG rojo con $dam%");				
-				}
-				else {
-				    $dam = $dam - $red_capacity;
-				    set_sua_capacity(0,1);
-				    printdebug("check_day(): $1 suministrado por CG rojo con $red_capacity%");				
-				}
-			    }
-			    if (distance($2, $3, $cg_blue_cx, $cg_blue_cy) <= $cg_blue_sum_radius && $5 == 2) {
-				if ($dam <= $blue_capacity) {
-				    $dam = 0;
-				    set_sua_capacity(($blue_capacity-$dam), 2);
-				    printdebug("check_day(): $1 suministrado por CG azul con $dam%");				
-				}
-				else {
-				    $dam = $dam - $blue_capacity;
-				    set_sua_capacity(0,2);
-				    printdebug("check_day(): $1 suministrado por CG azul con $blue_capacity%");				
-				}
-			    }
-			}
-		    }
-		    if ($dam<0) {$dam=0;}
-		    $_ =~ s/^(AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,)([^,]+)(:[12])/$1.$dam.$3/e;
-		    print TEMPGEO;
-		}
-		if ($_ =~ m/CT[0-9]{2}/){ #   ext   cx    cy   rad_und tipo   zon   dam    sup_ra
-		    $_ =~ m/^[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^,]+,[^,]+,([^,]+),[^,]+:[12]/;
-		    $rad_und=$1;
-		    $dam=$2;
-		    $dam= int(($dam-$CT_VDAY_RECOVER)*100)/100;
-		    if ($dam<0){$dam=0;}
-		    $sup_rad=int($1 * (1-$dam/100));
-		    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+,[^,]+:([12])/$1,$dam,$sup_rad:$2/;
-		    print TEMPGEO;
-		}
-	    }
-	}
-	close(TEMPGEO);
-	close(GEO_OBJ);
-	unlink $GEOGRAFIC_COORDINATES;
-	rename "temp_geo.data",$GEOGRAFIC_COORDINATES;
-	if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
-	    print "$big_red ERROR Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n";
-	    print "Please NOTIFY this error.\n";
-	    print &print_end_html();
-	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n\n";
-	    exit(0);
-	}
-
+    if (($rep_count%$MIS_PER_VDAY) ==0)
+    { 
+    	print "$MIS_PER_VDAY missions  = NEW DAY</br>";
+    	
+    	set_map_vday();
+    	
+    	# @@Heracles@20110722@
+    	# Calculamos la producción de aviones
+    	if ($INVENTARIO && $PRODUCCION) 
+        {
+    	    print "</strong><font size=\"-1\" color=\"000000\">Calculando aviones enviados al frente...</br>";	    
+    	    calc_production_planes();   	    
+    	}	
+    	
+    	open (TEMPGEO, ">temp_geo.data"); #
+    	seek GEO_OBJ, 0, 0;
+    	while(<GEO_OBJ>) 
+        {
+    	    if ($_ !~ m/(^AF[0-9]{2},|^CT[0-9]{2},)/) 
+            { # si no es ciudad o AF
+    		print TEMPGEO;
+    	    }
+    	    else 
+            { 
+        		
+                if ($_ =~ m/AF[0-9]{2},([^,]+),([^,]+),([^,]+),[^,]+,[^,]+,[^,]+,[^,]+,([^:]+):([12])/)
+                { 
+        		    $dam=$4-$AF_VDAY_RECOVER;
+        		    
+                    if ($dam<0) 
+                    {
+                        $dam=0;
+                    }
+        		    
+                    $_ =~ s/^(AF[0-9]{2},[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,)([^,]+)(:[12])/$1.$dam.$3/e;
+        		    print TEMPGEO;
+        		}
+        		if ($_ =~ m/CT[0-9]{2}/)
+                { #   ext   cx    cy   rad_und tipo   zon   dam    sup_ra
+        		    $_ =~ m/^[^,]+,[^,]+,[^,]+,[^,]+,([^,]+),[^,]+,[^,]+,([^,]+),[^,]+:[12]/;
+        		    $rad_und=$1;
+        		    $dam=$2;
+        		    $dam= int(($dam-$CT_VDAY_RECOVER)*100)/100;
+        		    if ($dam<0){$dam=0;}
+        		    $sup_rad=int($1 * (1-$dam/100));
+        		    $_ =~ s/^([^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+,[^,]+),[^,]+,[^,]+:([12])/$1,$dam,$sup_rad:$2/;
+        		    print TEMPGEO;
+        		}
+    	    }
+    	}
+    	
+        close(TEMPGEO);
+    	close(GEO_OBJ);
+    	unlink $GEOGRAFIC_COORDINATES;
+    	rename "temp_geo.data",$GEOGRAFIC_COORDINATES;
+    	if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) 
+        {
+    	    print "$big_red ERROR Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n";
+    	    print "Please NOTIFY this error.\n";
+    	    print &print_end_html();
+    	    print PAR_LOG " Pid $$ : " .scalar(localtime(time)) ." ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on check_day\n\n";
+    	    exit(0);
+    	}
     }
 }
 
@@ -5061,14 +5039,14 @@ sub make_attack_page(){
     );    
     
 
-    ($red_capacity, $blue_capacity, $red_plane_supply, $blue_plane_supply, $red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, PAR_LOG, 1, $rep_nbr);
+    ($red_task_stock, $red_stock_out, $blue_task_stock, $blue_stock_out, $cg_red_bases, $af_red_colapsed, $cg_blue_bases, $af_blue_colapsed, $red_hq_captured, $blue_hq_captured) = print_map_page(GEO_OBJ, PAR_LOG, 1, $rep_nbr);
     my %red_task_stock = %$red_task_stock;
     my %blue_task_stock = %$blue_task_stock;
     my @cg_red_bases = @$cg_red_bases;
     my @cg_blue_bases = @$cg_blue_bases;
     
     
-    mission_option_generation(GEO_OBJ, \%red_task_stock, $red_capacity, $red_plane_supply, \@cg_red_bases, \%blue_task_stock, $blue_capacity, $blue_plane_supply, \@cg_blue_bases);
+    mission_option_generation(GEO_OBJ, \%red_task_stock, \@cg_red_bases, \%blue_task_stock, \@cg_blue_bases);
     
     ## *****************************************************
     ## @@Heracles - Fin de seleccion de objetivos
@@ -6200,15 +6178,19 @@ $red_supply_city = 0;
 $blue_supply_city = 0;
 ($red_sectors, $blue_sectors, $red_supply_city, $blue_supply_city) = calc_sectors_owned();
 
+$red_sua_capacity = 0;
+$blue_sua_capacity = 0;
+$red_initial = 0;
+$blue_initial =  0;
 $red_stock = 0;
 $blue_stock = 0;
 $red_losts = 0;
 $blue_losts = 0;
-($red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
+($red_sua_capacity, $blue_sua_capacity,$red_initial, $blue_initial, $red_stock, $blue_stock, $red_losts, $blue_losts) = calc_stocks_plane();
 
 $red_plane_supply = 0;
 $blue_plane_supply = 0;    
-($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_stock, $blue_stock);
+($red_plane_supply, $blue_plane_supply) = calc_sum_plane_supply($red_sua_capacity, $blue_sua_capacity);
 
 @land_in_base=(); # pilotos que aterrizan en su base (para descontar en cada rescat)
 @last_land_in_base=(); # pilotos que aterrizan por ultima vez en su base

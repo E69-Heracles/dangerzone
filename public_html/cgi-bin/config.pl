@@ -116,8 +116,6 @@ else
 $INVENTARIO=1; # Activa el sistema de inventario
 $PRODUCCION=1; # Activa el sistema de produccion
 $MIN_STOCK_FOR_FLYING=2; # Stock minimo de aviones para poder generar un vuelo.
-$SUM_STOCK_RATE_PLANE=1; # Ratio sobre inventario de suministro por avión
-$SUM_STOCK_RATE_CG_BASE=10; # Ratio sobre inventario de suministro diario por base
 
 # Constantes para el ajuste del algoritmo de produccion. Valores del 0..1 . deben sumar 1 los tres
 $TUNE_DELTA_TOTAL= 0.3; # Importancia de la perdida de aviones sobre el total de inventario (porcentaje perdidos sobre el total de aviones)
@@ -130,8 +128,6 @@ $CT_VDAY_RECOVER=5; # % recovery of CITY on each virtual day
 $CAP_SEC_RECOVER=20; # % recupero que recibe una ciudad o un aerodromo que acaba de ser conquistado por un bando
 $CITY_DAM=75;   # Daño en ciudad para poder ser conquistada
 $TTL_WITH_DEF=20; 
-$PC_LOST=5;
-
 
 ## @Heracles@20100103
 ## Airfield damage constants
@@ -150,6 +146,10 @@ $AF_HUMAN_FIGHTER_PILOT_LOST_DAM=2.0; # damage to AF per each HUMAN FIGHTER pilo
 $AF_IA_FIGHTER_PLANE_LOST_DAM=1.0; # damage to AF per each IA FIGHTER plane lost
 $AF_IA_FIGHTER_PILOT_LOST_DAM=1.0; # damage to AF per each IA FIGHTER pilot lost
 
+## @Heracles@20170824
+## Airfield supply constants. Fine tune to model supply capacity for both armies.
+$AF_SUA_RED = 5;
+$AF_SUA_BLUE = 4;
 
 $MIN_TIME_MIN=25; # minimun minutes of mission to accept a report
 $MIN_PILOT_NUM=4; # minumum total human players per mission
