@@ -16,6 +16,7 @@ if( ! open (MIS_IN, "<$MISION")){
 
 $MAP_RIGHT=0;
 $MAP_TOP=0;
+$LIMIT_FOR_SIMPLE_LETTERS = 264974.91;
 
 seek MIS_IN, 0, 0;
 while(<MIS_IN>) {
@@ -41,7 +42,17 @@ if (! (open (TKWP, "<$TANKS_WP"))){
 }
 
 
-my @letras=("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
+my @double_letters = ("AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ");
+my @simple_letters = ("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+my @letras;
+if ($MAP_RIGHT >= $LIMIT_FOR_SIMPLE_LETTERS)
+{
+    @letras = @double_letters;
+}
+else
+{
+    @letras = @simple_letters;
+}
 
 for (my $tgt_cx=5000; $tgt_cx<$MAP_RIGHT; $tgt_cx+=10000) {   # coord X
     for (my $tgt_cy=5000; $tgt_cy<$MAP_TOP; $tgt_cy+=10000) { # coord Y
