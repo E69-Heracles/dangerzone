@@ -1,0 +1,246 @@
+#---red sqds
+
+brifig=RAF_No073SQN,RAF_No033SQN,RAF_No043SQN;
+brijab=RAF_No065SQN;
+bribom=RAF_No073SQN,RAF_No073SQN,RAF_No045SQN;
+britrp=RAF_No096SQN;
+
+### --------------------- ALLIED PLANES
+
+#B-24 J
+1,bribom,B-24J,1,air.B_24J,default,100,3000,400:BA,500,
+
+#B17-F
+1,bribom,B-17F,1,air.B_17F,default,100,3000,400:BA,500,
+
+#HALIFAX MK III
+1,bribom,Halifax B-MKIII,1,air.HalifaxBMkIII,default,100,3000,400:BA,500,
+
+#A20-C
+1,bribom,A-20C,1,air.A_20C,default,100,3000,400:BA,500,
+
+#Beaufighter
+1,bribom,BeaufighterMkI,1,air.BEAUMKI,default,100,3000,400:BA,500,
+
+1,bribom,Mosquito B.MK.IV 1941,1,air.MOSQUITO4,default,100,3000,400:BA,500,
+
+#Blenheim Mk.IV
+1,bribom,Blenheim Mk.IV,1,air.BlenheimMkIV,default,100,3000,400:BA,500,
+
+#Blenheim Mk.IF, 1940*
+1,britrp,BlenheimMkIF,1,air.BLENHEIM1F,default,100,3000,400:SUM,100,
+
+#Stinson L5
+1,britrp,Stinson L51,1,air.L_5,default,100,3000,400:SUM,100,
+
+#hurricane Mk IIb 12/300  0/300
+1,brifig,Hurricane-MkIIb,1,air.HurricaneMkIIb,default,100,2500,380:EBA,100,
+
+# P-39N1:  14/300 Pro +  6/300 Kur = 20
+1,brifig,P-39N1,1,air.P_39N,default,100,2500,400:EBA,100,
+
+# P40-E 6/300  8/300
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:EBA,100,
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:ESU,100,
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:EBD,100,
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:ER,100,
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:I,100,
+1,brifig,P-40E,1,air.P_40E,default,100,3000,400:ET,100,
+
+# Spitfire LF Vc(2) trop CW,1942
+1,brifig,Spitfire LF Vc2 trop,1,air.SPITFIRE5C2LFCLP,default,100,3000,400:EBA,21,
+1,brifig,Spitfire LF Vc2 trop,1,air.SPITFIRE5C2LFCLP,default,100,3000,400:ESU,21,
+1,brifig,Spitfire LF Vc2 trop,1,air.SPITFIRE5C2LFCLP,default,100,3000,400:EBD,21,
+1,brifig,Spitfire LF Vc2 trop,1,air.SPITFIRE5C2LFCLP,default,100,3000,400:ER,21,
+1,brifig,Spitfire LF Vc2 trop,1,air.SPITFIRE5C2LFCLP,default,100,3000,400:I,21,
+
+#P-51C-NT, 1943
+#1,brifig,P-51C-NT,1,air.P_51C,default,100,3000,400:EBA,21,
+#1,brifig,P-51C-NT,1,air.P_51C,default,100,3000,400:ESU,21,
+#1,brifig,P-51C-NT,1,air.P_51C,default,100,3000,400:I,21,
+#1,brifig,P-51C-NT,1,air.P_51C,default,100,3000,400:ER,21,
+
+
+#-------------------BLUE Sqads
+gerfig=I_JG3,II_JG3,I_JG27,II_JG27,III_JG27,Stab_JG52,I_JG5_2,II_JG5_2,III_JG5_2;
+gerjab=I_LG2,III_KG27a;
+gerbom=Stab_KG27a,I_KG27a,II_KG27a,III_KG27a,Stab_KG51a,I_KG51a,II_KG51a,III_KG51a,Stab_KG53a,I_KG53a,II_KG53a,III_KG53a,Stab_KG55a;
+gertrp=KGrzbV102a;
+romfig=Eskadrila54,Eskadrila56;
+romjab=Eskadrila54,Eskadrila56;
+rombom=Eskadrila54,Eskadrila56;
+hunfig=5_1_FighterH,hu101VOhu,hu102VOhu;
+hunjab=5_1_FighterH,hu101VOhu,hu102VOhu;
+hunbom=hu2-4hu,hu3-5hu;
+  
+### --------------------- GERMAN PLANES
+#HS-129-B2
+2,gerbom,HS_129B2,1,air.HS_129B2,default,50,2000,380:BD,50,	
+
+#FW_190A3
+2,gerbom,FW-190A3,1,air.FW_190A3,default,50,2000,380:BD,50,	
+
+#Heavy Bombers
+#JU_88A4 BA 50
+2,gerbom,JU_88A4Tropical,1,air.JU_88A4,default,100,4000,350:BA,50,
+
+#SM79 BA 50
+2,gerbom,SM79,1,air.SM79i,default,100,4000,350:BA,50,
+
+
+#Fighters
+#109-E3
+2,gerfig,BF 109/E3,1,air.BF_109E3,default,100,3000,350:EBA,100,
+2,gerfig,BF 109/E3,1,air.BF_109E3,default,100,3000,350:ESU,100,
+2,gerfig,BF 109/E3,1,air.BF_109E3,default,100,3000,350:EBD,100,
+2,gerfig,BF 109/E3,1,air.BF_109E3,default,100,3000,350:ET,100,
+2,gerfig,BF 109/E3,1,air.BF_109E3,default,100,3000,350:I,100,
+
+#109-F2
+2,gerfig,BF 109/F2,1,air.BF_109F2,default,100,3000,350:EBA,100,
+2,gerfig,BF 109/F2,1,air.BF_109F2,default,100,3000,350:ESU,100,
+2,gerfig,BF 109/F2,1,air.BF_109F2,default,100,3000,350:EBD,100,
+2,gerfig,BF 109/F2,1,air.BF_109F2,default,100,3000,350:ET,100,
+2,gerfig,BF 109/F2,1,air.BF_109F2,default,100,3000,350:I,100,
+
+#RE 2002 1940
+2,gerfig,MC 200 Serie 7 1941,1,air.RE_2002,default,100,3000,350:EBA,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.RE_2002,default,100,3000,350:ESU,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.RE_2002,default,100,3000,350:EBD,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.RE_2002,default,100,3000,350:ET,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.RE_2002,default,100,3000,350:I,100,
+
+#MC200 Serie 7 1941
+2,gerfig,MC 200 Serie 7 1941,1,air.MC_200_7,default,100,3000,350:EBA,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.MC_200_7,default,100,3000,350:ESU,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.MC_200_7,default,100,3000,350:EBD,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.MC_200_7,default,100,3000,350:ET,100,
+2,gerfig,MC 200 Serie 7 1941,1,air.MC_200_7,default,100,3000,350:I,100,
+
+#MC202 VII 1941
+2,gerfig,MC 202 VII 1942,1,air.MC_202_7,default,100,3000,350:EBA,100,
+2,gerfig,MC 202 VII 1942,1,air.MC_202_7,default,100,3000,350:ESU,100,
+2,gerfig,MC 202 VII 1942,1,air.MC_202_7,default,100,3000,350:EBD,100,
+2,gerfig,MC 202 VII 1942,1,air.MC_202_7,default,100,3000,350:ET,100,
+2,gerfig,MC 202 VII 1942,1,air.MC_202_7,default,100,3000,350:I,100,
+
+#FW 190 A2
+#2,gerfig,FW190/A2,1,air.FW_189A2,default,100,3000,350:EBA,100,
+#2,gerfig,FW190/A2,1,air.FW_189A2,default,100,3000,350:ESU,100,
+#2,gerfig,FW190/A2,1,air.FW_189A2,default,100,3000,350:EBD,100,
+#2,gerfig,FW190/A2,1,air.FW_189A2,default,100,3000,350:ET,100,
+#2,gerfig,FW190/A2,1,air.FW_189A2,default,100,3000,350:I,100,
+
+
+# 109-F4 Hungarian: 6/300 Pro + 0/300 Kur = 6
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:EBA,100,
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:ESU,100,
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:EBD,100,
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:ER,100,
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:I,100,
+2,gerfig,BF-109F4 Trop,1,air.BF_109F4trop,default,100,4000,400:ET,100,
+
+#Resupply
+#FI_156 Storch
+2,gertrp,FI_156 Storch,1,air.FI_156,default,100,3000,350:SUM,100,
+#JU_52
+2,gertrp,Ju-52/3mg4e,1,air.JU_52_3MG4E,default,100,3000,350:SUM,100,
+
+#Ground Attack
+#JU-87 D mk 3
+2,gerbom,JU-87D3,1,air.JU_87D3,default,50,2000,380:BD,100,	
+
+#JU-87 D mk 5
+2,gerbom,JU-87D5,1,air.JU_87D5,default,50,2000,380:BD,100,	
+2,gerbom,JU-87D5,1,air.JU_87D5,default,50,2000,380:BA,100,	
+
+#CantZ1007 BA 50
+2,gerbom,Cantz.1007 bis 1939,1,air.CantZ1007bis,default,100,4000,350:BA,50,
+
+#
+2,gerbom,FW-200C3U4,1,air.FW_200C3U4,default,100,4000,350:BA,50,
+
+##STATIC AIRCRAFTS:
+##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!  
+
+ST101,1,Spitfire LF Vc2 trop,vehicles.planes.Plane$SPITFIRE5C2LFCLP,15:30
+ST102,1,P-40E,vehicles.planes.Plane$P_40E,18:60
+ST103,1,Spitfire LF Vc2 trop,vehicles.planes.Plane$SPITFIRE5C2LFCLP,15:90
+ST104,1,P-40E,vehicles.planes.Plane$P_40E,15:120
+ST105,1,P-39N1,vehicles.planes.Plane$P_39N1,15:150
+ST106,1,Spitfire LF Vc2 trop,vehicles.planes.Plane$SPITFIRE5C2LFCLP,15:180
+ST107,1,P-39N1,vehicles.planes.Plane$P_39N1,15:210
+ST108,1,P-40E,vehicles.planes.Plane$P_40E,15:240
+ST109,1,Spitfire LF Vc2 trop,vehicles.planes.Plane$SPITFIRE5C2LFCLP,15:270
+ST110,1,P-40E,vehicles.planes.Plane$P_40E,15:300
+ST111,1,P-40E,vehicles.planes.Plane$P_40E,15:330
+ST112,1,Spitfire LF Vc2 trop,vehicles.planes.Plane$SPITFIRE5C2LFCLP,15:360
+ST113,1,P-39N1,vehicles.planes.Plane$P_39N1,15:390
+ST114,1,A-20C,vehicles.planes.Plane$A_20C,35:420
+ST115,1,A-20C,vehicles.planes.Plane$A_20C,25:600
+ST116,1,BeaufighterMkI,vehicles.planes.Plane$BEAUMKI,25:700
+ST117,1,BeaufighterMkI,vehicles.planes.Plane$BEAUMKI,25:730
+ST118,1,BeaufighterMkI,vehicles.planes.Plane$BEAUMKI,35:800
+ST119,1,A-20C,vehicles.planes.Plane$A_20C,35:850
+ST120,1,Stinson L51,vehicles.planes.Plane$L_5,30:890
+ST121,1,Stinson L51,vehicles.planes.Plane$L_5,35:920
+ST122,1,Stinson L51,vehicles.planes.Plane$L_5,45:950
+ST122,1,ZIS6 fuel,vehicles.stationary.Stationary$ZIS6_fuel,15:1000
+
+
+ST201,2,BF-109F4,vehicles.planes.Plane$BF_109F4,15:30
+ST202,2,FW-190A3,vehicles.planes.Plane$FW_190A3,15:90
+ST203,2,BF-109F4,vehicles.planes.Plane$BF_109F4,15:120
+ST204,2,Fiat-CR42,vehicles.planes.Plane$CR_42,25:180
+ST205,2,FW-190A3,vehicles.planes.Plane$FW_190A3,15:250
+ST206,2,FW-190A3,vehicles.planes.Plane$FW_190A3,15:300
+ST207,2,FW-190A3,vehicles.planes.Plane$FW_190A3,25:330
+ST208,2,JU-87D3,vehicles.planes.Plane$JU_87D3,30:500
+ST209,2,FI_156 Storch,vehicles.planes.Plane$FI_156,35:550
+ST210,2,FW-190A3,vehicles.planes.Plane$FW_190A3,15:570
+ST211,2,JU-87D5,vehicles.planes.Plane$JU_87D5,25:750
+ST212,2,JU-87D3,vehicles.planes.Plane$JU_87D3,25:780
+ST213,2,JU_88A4Tropical,vehicles.planes.Plane$JU_88A4,30:920
+ST214,2,Opel Fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:1000
+
+
+
+
+##STATIC VEHICLES:
+##STATIC_CODE,ARMY,externalname,object_name,wingspan,frecuencia en O/oo incremental!!
+# 90%vehiculos en gral +    4%fuel +   +  3%radio + 3%medic
+
+
+SV101,1,GAZ67,vehicles.stationary.Stationary$GAZ67,15:100
+SV102,1,GAZ67t,vehicles.stationary.Stationary$GAZ67t,15:200
+SV103,1,GAZ_M1,vehicles.stationary.Stationary$GAZ_M1,15:300
+SV104,1,ZIS5_PC,vehicles.stationary.Stationary$ZIS5_PC,15:400
+SV105,1,StudebeckerTruck,vehicles.stationary.Stationary$StudebeckerTruck,15:550
+SV106,1,StudebeckerRocket,vehicles.stationary.Stationary$StudebeckerRocket,15:650
+SV107,1,Katyusha,vehicles.stationary.Stationary$Katyusha,15:750
+SV109,1,ZIS5_AA,vehicles.stationary.Stationary$ZIS5_AA,15:825
+SV112,1,BA_10,vehicles.stationary.Stationary$BA_10,15:900
+#90% up to here
+SV108,1,ZIS6_fuel,vehicles.stationary.Stationary$ZIS6_fuel,15:940
+#up line is 4% fuel
+SV113,1,ZIS5_radio,vehicles.stationary.Stationary$ZIS5_radio,15:970
+SV114,1,ZIS5_medic,vehicles.stationary.Stationary$ZIS5_medic,15:1000
+#up lines are 3%radio and  3%medic
+
+##alemanes igual
+SV201,2,VW82,vehicles.stationary.Stationary$VW82,15:80
+SV202,2,VW82t,vehicles.stationary.Stationary$VW82t,15:160
+SV203,2,OpelKadett,vehicles.stationary.Stationary$OpelKadett,15:260
+SV204,2,OpelBlitz36S,vehicles.stationary.Stationary$OpelBlitz36S,15:340
+SV205,2,OpelBlitz6700A,vehicles.stationary.Stationary$OpelBlitz6700A,15:440
+SV206,2,Kettenkrad,vehicles.stationary.Stationary$Kettenkrad,15:500
+SV207,2,RSO,vehicles.stationary.Stationary$RSO,15:580
+SV208,2,OpelBlitzMaultier,vehicles.stationary.Stationary$OpelBlitzMaultier,15:680
+SV209,2,OpelBlitzMaultierRocket,vehicles.stationary.Stationary$OpelBlitzMaultierRocket,15:820
+SV210,2,OpelBlitzMaultierAA,vehicles.stationary.Stationary$OpelBlitzMaultierAA,15:900
+#90% up to here
+SV211,2,OpelBlitz6700A_fuel,vehicles.stationary.Stationary$OpelBlitz6700A_fuel,15:940
+#up line is 4% fuel
+SV212,2,OpelBlitz6700A_radio,vehicles.stationary.Stationary$OpelBlitz6700A_radio,15:970
+SV213,2,OpelBlitz6700A_medic,vehicles.stationary.Stationary$OpelBlitz6700A_medic,15:1000
+#up lines are 3%radio and  3%medic

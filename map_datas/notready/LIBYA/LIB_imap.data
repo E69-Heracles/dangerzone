@@ -1,0 +1,1518 @@
+<IMG SRC='/images/front.jpg' WIDTH=1075 HEIGHT=896 BORDER=0 alt='' USEMAP='#map'>
+<map NAME='map'>
+<area shape ='rect' coords='0,861,35,895'  onMouseOver='ShowInfo(event,0,0)' onMouseOut='HideInfo(0,0)' />
+<area shape ='rect' coords='35,861,70,895'  onMouseOver='ShowInfo(event,1,0)' onMouseOut='HideInfo(1,0)' />
+<area shape ='rect' coords='70,861,105,895'  onMouseOver='ShowInfo(event,2,0)' onMouseOut='HideInfo(2,0)' />
+<area shape ='rect' coords='105,861,140,895'  onMouseOver='ShowInfo(event,3,0)' onMouseOut='HideInfo(3,0)' />
+<area shape ='rect' coords='140,861,175,895'  onMouseOver='ShowInfo(event,4,0)' onMouseOut='HideInfo(4,0)' />
+<area shape ='rect' coords='175,861,210,895'  onMouseOver='ShowInfo(event,5,0)' onMouseOut='HideInfo(5,0)' />
+<area shape ='rect' coords='210,861,245,895'  onMouseOver='ShowInfo(event,6,0)' onMouseOut='HideInfo(6,0)' />
+<area shape ='rect' coords='245,861,280,895'  onMouseOver='ShowInfo(event,7,0)' onMouseOut='HideInfo(7,0)' />
+<area shape ='rect' coords='280,861,315,895'  onMouseOver='ShowInfo(event,8,0)' onMouseOut='HideInfo(8,0)' />
+<area shape ='rect' coords='315,861,350,895'  onMouseOver='ShowInfo(event,9,0)' onMouseOut='HideInfo(9,0)' />
+<area shape ='rect' coords='350,861,385,895'  onMouseOver='ShowInfo(event,10,0)' onMouseOut='HideInfo(10,0)' />
+<area shape ='rect' coords='385,861,420,895'  onMouseOver='ShowInfo(event,11,0)' onMouseOut='HideInfo(11,0)' />
+<area shape ='rect' coords='420,861,455,895'  onMouseOver='ShowInfo(event,12,0)' onMouseOut='HideInfo(12,0)' />
+<area shape ='rect' coords='455,861,490,895'  onMouseOver='ShowInfo(event,13,0)' onMouseOut='HideInfo(13,0)' />
+<area shape ='rect' coords='490,861,525,895'  onMouseOver='ShowInfo(event,14,0)' onMouseOut='HideInfo(14,0)' />
+<area shape ='rect' coords='525,861,560,895'  onMouseOver='ShowInfo(event,15,0)' onMouseOut='HideInfo(15,0)' />
+<area shape ='rect' coords='560,861,595,895'  onMouseOver='ShowInfo(event,16,0)' onMouseOut='HideInfo(16,0)' />
+<area shape ='rect' coords='595,861,630,895'  onMouseOver='ShowInfo(event,17,0)' onMouseOut='HideInfo(17,0)' />
+<area shape ='rect' coords='630,861,665,895'  onMouseOver='ShowInfo(event,18,0)' onMouseOut='HideInfo(18,0)' />
+<area shape ='rect' coords='665,861,700,895'  onMouseOver='ShowInfo(event,19,0)' onMouseOut='HideInfo(19,0)' />
+<area shape ='rect' coords='700,861,735,895'  onMouseOver='ShowInfo(event,20,0)' onMouseOut='HideInfo(20,0)' />
+<area shape ='rect' coords='735,861,770,895'  onMouseOver='ShowInfo(event,21,0)' onMouseOut='HideInfo(21,0)' />
+<area shape ='rect' coords='770,861,805,895'  onMouseOver='ShowInfo(event,22,0)' onMouseOut='HideInfo(22,0)' />
+<area shape ='rect' coords='805,861,840,895'  onMouseOver='ShowInfo(event,23,0)' onMouseOut='HideInfo(23,0)' />
+<area shape ='rect' coords='840,861,875,895'  onMouseOver='ShowInfo(event,24,0)' onMouseOut='HideInfo(24,0)' />
+<area shape ='rect' coords='875,861,910,895'  onMouseOver='ShowInfo(event,25,0)' onMouseOut='HideInfo(25,0)' />
+<area shape ='rect' coords='910,861,945,895'  onMouseOver='ShowInfo(event,26,0)' onMouseOut='HideInfo(26,0)' />
+<area shape ='rect' coords='945,861,980,895'  onMouseOver='ShowInfo(event,27,0)' onMouseOut='HideInfo(27,0)' />
+<area shape ='rect' coords='980,861,1015,895'  onMouseOver='ShowInfo(event,28,0)' onMouseOut='HideInfo(28,0)' />
+<area shape ='rect' coords='1015,861,1050,895'  onMouseOver='ShowInfo(event,29,0)' onMouseOut='HideInfo(29,0)' />
+<area shape ='rect' coords='0,826,35,860'  onMouseOver='ShowInfo(event,0,1)' onMouseOut='HideInfo(0,1)' />
+<area shape ='rect' coords='35,826,70,860'  onMouseOver='ShowInfo(event,1,1)' onMouseOut='HideInfo(1,1)' />
+<area shape ='rect' coords='70,826,105,860'  onMouseOver='ShowInfo(event,2,1)' onMouseOut='HideInfo(2,1)' />
+<area shape ='rect' coords='105,826,140,860'  onMouseOver='ShowInfo(event,3,1)' onMouseOut='HideInfo(3,1)' />
+<area shape ='rect' coords='140,826,175,860'  onMouseOver='ShowInfo(event,4,1)' onMouseOut='HideInfo(4,1)' />
+<area shape ='rect' coords='175,826,210,860'  onMouseOver='ShowInfo(event,5,1)' onMouseOut='HideInfo(5,1)' />
+<area shape ='rect' coords='210,826,245,860'  onMouseOver='ShowInfo(event,6,1)' onMouseOut='HideInfo(6,1)' />
+<area shape ='rect' coords='245,826,280,860'  onMouseOver='ShowInfo(event,7,1)' onMouseOut='HideInfo(7,1)' />
+<area shape ='rect' coords='280,826,315,860'  onMouseOver='ShowInfo(event,8,1)' onMouseOut='HideInfo(8,1)' />
+<area shape ='rect' coords='315,826,350,860'  onMouseOver='ShowInfo(event,9,1)' onMouseOut='HideInfo(9,1)' />
+<area shape ='rect' coords='350,826,385,860'  onMouseOver='ShowInfo(event,10,1)' onMouseOut='HideInfo(10,1)' />
+<area shape ='rect' coords='385,826,420,860'  onMouseOver='ShowInfo(event,11,1)' onMouseOut='HideInfo(11,1)' />
+<area shape ='rect' coords='420,826,455,860'  onMouseOver='ShowInfo(event,12,1)' onMouseOut='HideInfo(12,1)' />
+<area shape ='rect' coords='455,826,490,860'  onMouseOver='ShowInfo(event,13,1)' onMouseOut='HideInfo(13,1)' />
+<area shape ='rect' coords='490,826,525,860'  onMouseOver='ShowInfo(event,14,1)' onMouseOut='HideInfo(14,1)' />
+<area shape ='rect' coords='525,826,560,860'  onMouseOver='ShowInfo(event,15,1)' onMouseOut='HideInfo(15,1)' />
+<area shape ='rect' coords='560,826,595,860'  onMouseOver='ShowInfo(event,16,1)' onMouseOut='HideInfo(16,1)' />
+<area shape ='rect' coords='595,826,630,860'  onMouseOver='ShowInfo(event,17,1)' onMouseOut='HideInfo(17,1)' />
+<area shape ='rect' coords='630,826,665,860'  onMouseOver='ShowInfo(event,18,1)' onMouseOut='HideInfo(18,1)' />
+<area shape ='rect' coords='665,826,700,860'  onMouseOver='ShowInfo(event,19,1)' onMouseOut='HideInfo(19,1)' />
+<area shape ='rect' coords='700,826,735,860'  onMouseOver='ShowInfo(event,20,1)' onMouseOut='HideInfo(20,1)' />
+<area shape ='rect' coords='735,826,770,860'  onMouseOver='ShowInfo(event,21,1)' onMouseOut='HideInfo(21,1)' />
+<area shape ='rect' coords='770,826,805,860'  onMouseOver='ShowInfo(event,22,1)' onMouseOut='HideInfo(22,1)' />
+<area shape ='rect' coords='805,826,840,860'  onMouseOver='ShowInfo(event,23,1)' onMouseOut='HideInfo(23,1)' />
+<area shape ='rect' coords='840,826,875,860'  onMouseOver='ShowInfo(event,24,1)' onMouseOut='HideInfo(24,1)' />
+<area shape ='rect' coords='875,826,910,860'  onMouseOver='ShowInfo(event,25,1)' onMouseOut='HideInfo(25,1)' />
+<area shape ='rect' coords='910,826,945,860'  onMouseOver='ShowInfo(event,26,1)' onMouseOut='HideInfo(26,1)' />
+<area shape ='rect' coords='945,826,980,860'  onMouseOver='ShowInfo(event,27,1)' onMouseOut='HideInfo(27,1)' />
+<area shape ='rect' coords='980,826,1015,860'  onMouseOver='ShowInfo(event,28,1)' onMouseOut='HideInfo(28,1)' />
+<area shape ='rect' coords='1015,826,1050,860'  onMouseOver='ShowInfo(event,29,1)' onMouseOut='HideInfo(29,1)' />
+<area shape ='rect' coords='0,791,35,825'  onMouseOver='ShowInfo(event,0,2)' onMouseOut='HideInfo(0,2)' />
+<area shape ='rect' coords='35,791,70,825'  onMouseOver='ShowInfo(event,1,2)' onMouseOut='HideInfo(1,2)' />
+<area shape ='rect' coords='70,791,105,825'  onMouseOver='ShowInfo(event,2,2)' onMouseOut='HideInfo(2,2)' />
+<area shape ='rect' coords='105,791,140,825'  onMouseOver='ShowInfo(event,3,2)' onMouseOut='HideInfo(3,2)' />
+<area shape ='rect' coords='140,791,175,825'  onMouseOver='ShowInfo(event,4,2)' onMouseOut='HideInfo(4,2)' />
+<area shape ='rect' coords='175,791,210,825'  onMouseOver='ShowInfo(event,5,2)' onMouseOut='HideInfo(5,2)' />
+<area shape ='rect' coords='210,791,245,825'  onMouseOver='ShowInfo(event,6,2)' onMouseOut='HideInfo(6,2)' />
+<area shape ='rect' coords='245,791,280,825'  onMouseOver='ShowInfo(event,7,2)' onMouseOut='HideInfo(7,2)' />
+<area shape ='rect' coords='280,791,315,825'  onMouseOver='ShowInfo(event,8,2)' onMouseOut='HideInfo(8,2)' />
+<area shape ='rect' coords='315,791,350,825'  onMouseOver='ShowInfo(event,9,2)' onMouseOut='HideInfo(9,2)' />
+<area shape ='rect' coords='350,791,385,825'  onMouseOver='ShowInfo(event,10,2)' onMouseOut='HideInfo(10,2)' />
+<area shape ='rect' coords='385,791,420,825'  onMouseOver='ShowInfo(event,11,2)' onMouseOut='HideInfo(11,2)' />
+<area shape ='rect' coords='420,791,455,825'  onMouseOver='ShowInfo(event,12,2)' onMouseOut='HideInfo(12,2)' />
+<area shape ='rect' coords='455,791,490,825'  onMouseOver='ShowInfo(event,13,2)' onMouseOut='HideInfo(13,2)' />
+<area shape ='rect' coords='490,791,525,825'  onMouseOver='ShowInfo(event,14,2)' onMouseOut='HideInfo(14,2)' />
+<area shape ='rect' coords='525,791,560,825'  onMouseOver='ShowInfo(event,15,2)' onMouseOut='HideInfo(15,2)' />
+<area shape ='rect' coords='560,791,595,825'  onMouseOver='ShowInfo(event,16,2)' onMouseOut='HideInfo(16,2)' />
+<area shape ='rect' coords='595,791,630,825'  onMouseOver='ShowInfo(event,17,2)' onMouseOut='HideInfo(17,2)' />
+<area shape ='rect' coords='630,791,665,825'  onMouseOver='ShowInfo(event,18,2)' onMouseOut='HideInfo(18,2)' />
+<area shape ='rect' coords='665,791,700,825'  onMouseOver='ShowInfo(event,19,2)' onMouseOut='HideInfo(19,2)' />
+<area shape ='rect' coords='700,791,735,825'  onMouseOver='ShowInfo(event,20,2)' onMouseOut='HideInfo(20,2)' />
+<area shape ='rect' coords='735,791,770,825'  onMouseOver='ShowInfo(event,21,2)' onMouseOut='HideInfo(21,2)' />
+<area shape ='rect' coords='770,791,805,825'  onMouseOver='ShowInfo(event,22,2)' onMouseOut='HideInfo(22,2)' />
+<area shape ='rect' coords='805,791,840,825'  onMouseOver='ShowInfo(event,23,2)' onMouseOut='HideInfo(23,2)' />
+<area shape ='rect' coords='840,791,875,825'  onMouseOver='ShowInfo(event,24,2)' onMouseOut='HideInfo(24,2)' />
+<area shape ='rect' coords='875,791,910,825'  onMouseOver='ShowInfo(event,25,2)' onMouseOut='HideInfo(25,2)' />
+<area shape ='rect' coords='910,791,945,825'  onMouseOver='ShowInfo(event,26,2)' onMouseOut='HideInfo(26,2)' />
+<area shape ='rect' coords='945,791,980,825'  onMouseOver='ShowInfo(event,27,2)' onMouseOut='HideInfo(27,2)' />
+<area shape ='rect' coords='980,791,1015,825'  onMouseOver='ShowInfo(event,28,2)' onMouseOut='HideInfo(28,2)' />
+<area shape ='rect' coords='1015,791,1050,825'  onMouseOver='ShowInfo(event,29,2)' onMouseOut='HideInfo(29,2)' />
+<area shape ='rect' coords='0,756,35,790'  onMouseOver='ShowInfo(event,0,3)' onMouseOut='HideInfo(0,3)' />
+<area shape ='rect' coords='35,756,70,790'  onMouseOver='ShowInfo(event,1,3)' onMouseOut='HideInfo(1,3)' />
+<area shape ='rect' coords='70,756,105,790'  onMouseOver='ShowInfo(event,2,3)' onMouseOut='HideInfo(2,3)' />
+<area shape ='rect' coords='105,756,140,790'  onMouseOver='ShowInfo(event,3,3)' onMouseOut='HideInfo(3,3)' />
+<area shape ='rect' coords='140,756,175,790'  onMouseOver='ShowInfo(event,4,3)' onMouseOut='HideInfo(4,3)' />
+<area shape ='rect' coords='175,756,210,790'  onMouseOver='ShowInfo(event,5,3)' onMouseOut='HideInfo(5,3)' />
+<area shape ='rect' coords='210,756,245,790'  onMouseOver='ShowInfo(event,6,3)' onMouseOut='HideInfo(6,3)' />
+<area shape ='rect' coords='245,756,280,790'  onMouseOver='ShowInfo(event,7,3)' onMouseOut='HideInfo(7,3)' />
+<area shape ='rect' coords='280,756,315,790'  onMouseOver='ShowInfo(event,8,3)' onMouseOut='HideInfo(8,3)' />
+<area shape ='rect' coords='315,756,350,790'  onMouseOver='ShowInfo(event,9,3)' onMouseOut='HideInfo(9,3)' />
+<area shape ='rect' coords='350,756,385,790'  onMouseOver='ShowInfo(event,10,3)' onMouseOut='HideInfo(10,3)' />
+<area shape ='rect' coords='385,756,420,790'  onMouseOver='ShowInfo(event,11,3)' onMouseOut='HideInfo(11,3)' />
+<area shape ='rect' coords='420,756,455,790'  onMouseOver='ShowInfo(event,12,3)' onMouseOut='HideInfo(12,3)' />
+<area shape ='rect' coords='455,756,490,790'  onMouseOver='ShowInfo(event,13,3)' onMouseOut='HideInfo(13,3)' />
+<area shape ='rect' coords='490,756,525,790'  onMouseOver='ShowInfo(event,14,3)' onMouseOut='HideInfo(14,3)' />
+<area shape ='rect' coords='525,756,560,790'  onMouseOver='ShowInfo(event,15,3)' onMouseOut='HideInfo(15,3)' />
+<area shape ='rect' coords='560,756,595,790'  onMouseOver='ShowInfo(event,16,3)' onMouseOut='HideInfo(16,3)' />
+<area shape ='rect' coords='595,756,630,790'  onMouseOver='ShowInfo(event,17,3)' onMouseOut='HideInfo(17,3)' />
+<area shape ='rect' coords='630,756,665,790'  onMouseOver='ShowInfo(event,18,3)' onMouseOut='HideInfo(18,3)' />
+<area shape ='rect' coords='665,756,700,790'  onMouseOver='ShowInfo(event,19,3)' onMouseOut='HideInfo(19,3)' />
+<area shape ='rect' coords='700,756,735,790'  onMouseOver='ShowInfo(event,20,3)' onMouseOut='HideInfo(20,3)' />
+<area shape ='rect' coords='735,756,770,790'  onMouseOver='ShowInfo(event,21,3)' onMouseOut='HideInfo(21,3)' />
+<area shape ='rect' coords='770,756,805,790'  onMouseOver='ShowInfo(event,22,3)' onMouseOut='HideInfo(22,3)' />
+<area shape ='rect' coords='805,756,840,790'  onMouseOver='ShowInfo(event,23,3)' onMouseOut='HideInfo(23,3)' />
+<area shape ='rect' coords='840,756,875,790'  onMouseOver='ShowInfo(event,24,3)' onMouseOut='HideInfo(24,3)' />
+<area shape ='rect' coords='875,756,910,790'  onMouseOver='ShowInfo(event,25,3)' onMouseOut='HideInfo(25,3)' />
+<area shape ='rect' coords='910,756,945,790'  onMouseOver='ShowInfo(event,26,3)' onMouseOut='HideInfo(26,3)' />
+<area shape ='rect' coords='945,756,980,790'  onMouseOver='ShowInfo(event,27,3)' onMouseOut='HideInfo(27,3)' />
+<area shape ='rect' coords='980,756,1015,790'  onMouseOver='ShowInfo(event,28,3)' onMouseOut='HideInfo(28,3)' />
+<area shape ='rect' coords='1015,756,1050,790'  onMouseOver='ShowInfo(event,29,3)' onMouseOut='HideInfo(29,3)' />
+<area shape ='rect' coords='0,721,35,755'  onMouseOver='ShowInfo(event,0,4)' onMouseOut='HideInfo(0,4)' />
+<area shape ='rect' coords='35,721,70,755'  onMouseOver='ShowInfo(event,1,4)' onMouseOut='HideInfo(1,4)' />
+<area shape ='rect' coords='70,721,105,755'  onMouseOver='ShowInfo(event,2,4)' onMouseOut='HideInfo(2,4)' />
+<area shape ='rect' coords='105,721,140,755'  onMouseOver='ShowInfo(event,3,4)' onMouseOut='HideInfo(3,4)' />
+<area shape ='rect' coords='140,721,175,755'  onMouseOver='ShowInfo(event,4,4)' onMouseOut='HideInfo(4,4)' />
+<area shape ='rect' coords='175,721,210,755'  onMouseOver='ShowInfo(event,5,4)' onMouseOut='HideInfo(5,4)' />
+<area shape ='rect' coords='210,721,245,755'  onMouseOver='ShowInfo(event,6,4)' onMouseOut='HideInfo(6,4)' />
+<area shape ='rect' coords='245,721,280,755'  onMouseOver='ShowInfo(event,7,4)' onMouseOut='HideInfo(7,4)' />
+<area shape ='rect' coords='280,721,315,755'  onMouseOver='ShowInfo(event,8,4)' onMouseOut='HideInfo(8,4)' />
+<area shape ='rect' coords='315,721,350,755'  onMouseOver='ShowInfo(event,9,4)' onMouseOut='HideInfo(9,4)' />
+<area shape ='rect' coords='350,721,385,755'  onMouseOver='ShowInfo(event,10,4)' onMouseOut='HideInfo(10,4)' />
+<area shape ='rect' coords='385,721,420,755'  onMouseOver='ShowInfo(event,11,4)' onMouseOut='HideInfo(11,4)' />
+<area shape ='rect' coords='420,721,455,755'  onMouseOver='ShowInfo(event,12,4)' onMouseOut='HideInfo(12,4)' />
+<area shape ='rect' coords='455,721,490,755'  onMouseOver='ShowInfo(event,13,4)' onMouseOut='HideInfo(13,4)' />
+<area shape ='rect' coords='490,721,525,755'  onMouseOver='ShowInfo(event,14,4)' onMouseOut='HideInfo(14,4)' />
+<area shape ='rect' coords='525,721,560,755'  onMouseOver='ShowInfo(event,15,4)' onMouseOut='HideInfo(15,4)' />
+<area shape ='rect' coords='560,721,595,755'  onMouseOver='ShowInfo(event,16,4)' onMouseOut='HideInfo(16,4)' />
+<area shape ='rect' coords='595,721,630,755'  onMouseOver='ShowInfo(event,17,4)' onMouseOut='HideInfo(17,4)' />
+<area shape ='rect' coords='630,721,665,755'  onMouseOver='ShowInfo(event,18,4)' onMouseOut='HideInfo(18,4)' />
+<area shape ='rect' coords='665,721,700,755'  onMouseOver='ShowInfo(event,19,4)' onMouseOut='HideInfo(19,4)' />
+<area shape ='rect' coords='700,721,735,755'  onMouseOver='ShowInfo(event,20,4)' onMouseOut='HideInfo(20,4)' />
+<area shape ='rect' coords='735,721,770,755'  onMouseOver='ShowInfo(event,21,4)' onMouseOut='HideInfo(21,4)' />
+<area shape ='rect' coords='770,721,805,755'  onMouseOver='ShowInfo(event,22,4)' onMouseOut='HideInfo(22,4)' />
+<area shape ='rect' coords='805,721,840,755'  onMouseOver='ShowInfo(event,23,4)' onMouseOut='HideInfo(23,4)' />
+<area shape ='rect' coords='840,721,875,755'  onMouseOver='ShowInfo(event,24,4)' onMouseOut='HideInfo(24,4)' />
+<area shape ='rect' coords='875,721,910,755'  onMouseOver='ShowInfo(event,25,4)' onMouseOut='HideInfo(25,4)' />
+<area shape ='rect' coords='910,721,945,755'  onMouseOver='ShowInfo(event,26,4)' onMouseOut='HideInfo(26,4)' />
+<area shape ='rect' coords='945,721,980,755'  onMouseOver='ShowInfo(event,27,4)' onMouseOut='HideInfo(27,4)' />
+<area shape ='rect' coords='980,721,1015,755'  onMouseOver='ShowInfo(event,28,4)' onMouseOut='HideInfo(28,4)' />
+<area shape ='rect' coords='1015,721,1050,755'  onMouseOver='ShowInfo(event,29,4)' onMouseOut='HideInfo(29,4)' />
+<area shape ='rect' coords='0,686,35,720'  onMouseOver='ShowInfo(event,0,5)' onMouseOut='HideInfo(0,5)' />
+<area shape ='rect' coords='35,686,70,720'  onMouseOver='ShowInfo(event,1,5)' onMouseOut='HideInfo(1,5)' />
+<area shape ='rect' coords='70,686,105,720'  onMouseOver='ShowInfo(event,2,5)' onMouseOut='HideInfo(2,5)' />
+<area shape ='rect' coords='105,686,140,720'  onMouseOver='ShowInfo(event,3,5)' onMouseOut='HideInfo(3,5)' />
+<area shape ='rect' coords='140,686,175,720'  onMouseOver='ShowInfo(event,4,5)' onMouseOut='HideInfo(4,5)' />
+<area shape ='rect' coords='175,686,210,720'  onMouseOver='ShowInfo(event,5,5)' onMouseOut='HideInfo(5,5)' />
+<area shape ='rect' coords='210,686,245,720'  onMouseOver='ShowInfo(event,6,5)' onMouseOut='HideInfo(6,5)' />
+<area shape ='rect' coords='245,686,280,720'  onMouseOver='ShowInfo(event,7,5)' onMouseOut='HideInfo(7,5)' />
+<area shape ='rect' coords='280,686,315,720'  onMouseOver='ShowInfo(event,8,5)' onMouseOut='HideInfo(8,5)' />
+<area shape ='rect' coords='315,686,350,720'  onMouseOver='ShowInfo(event,9,5)' onMouseOut='HideInfo(9,5)' />
+<area shape ='rect' coords='350,686,385,720'  onMouseOver='ShowInfo(event,10,5)' onMouseOut='HideInfo(10,5)' />
+<area shape ='rect' coords='385,686,420,720'  onMouseOver='ShowInfo(event,11,5)' onMouseOut='HideInfo(11,5)' />
+<area shape ='rect' coords='420,686,455,720'  onMouseOver='ShowInfo(event,12,5)' onMouseOut='HideInfo(12,5)' />
+<area shape ='rect' coords='455,686,490,720'  onMouseOver='ShowInfo(event,13,5)' onMouseOut='HideInfo(13,5)' />
+<area shape ='rect' coords='490,686,525,720'  onMouseOver='ShowInfo(event,14,5)' onMouseOut='HideInfo(14,5)' />
+<area shape ='rect' coords='525,686,560,720'  onMouseOver='ShowInfo(event,15,5)' onMouseOut='HideInfo(15,5)' />
+<area shape ='rect' coords='560,686,595,720'  onMouseOver='ShowInfo(event,16,5)' onMouseOut='HideInfo(16,5)' />
+<area shape ='rect' coords='595,686,630,720'  onMouseOver='ShowInfo(event,17,5)' onMouseOut='HideInfo(17,5)' />
+<area shape ='rect' coords='630,686,665,720'  onMouseOver='ShowInfo(event,18,5)' onMouseOut='HideInfo(18,5)' />
+<area shape ='rect' coords='665,686,700,720'  onMouseOver='ShowInfo(event,19,5)' onMouseOut='HideInfo(19,5)' />
+<area shape ='rect' coords='700,686,735,720'  onMouseOver='ShowInfo(event,20,5)' onMouseOut='HideInfo(20,5)' />
+<area shape ='rect' coords='735,686,770,720'  onMouseOver='ShowInfo(event,21,5)' onMouseOut='HideInfo(21,5)' />
+<area shape ='rect' coords='770,686,805,720'  onMouseOver='ShowInfo(event,22,5)' onMouseOut='HideInfo(22,5)' />
+<area shape ='rect' coords='805,686,840,720'  onMouseOver='ShowInfo(event,23,5)' onMouseOut='HideInfo(23,5)' />
+<area shape ='rect' coords='840,686,875,720'  onMouseOver='ShowInfo(event,24,5)' onMouseOut='HideInfo(24,5)' />
+<area shape ='rect' coords='875,686,910,720'  onMouseOver='ShowInfo(event,25,5)' onMouseOut='HideInfo(25,5)' />
+<area shape ='rect' coords='910,686,945,720'  onMouseOver='ShowInfo(event,26,5)' onMouseOut='HideInfo(26,5)' />
+<area shape ='rect' coords='945,686,980,720'  onMouseOver='ShowInfo(event,27,5)' onMouseOut='HideInfo(27,5)' />
+<area shape ='rect' coords='980,686,1015,720'  onMouseOver='ShowInfo(event,28,5)' onMouseOut='HideInfo(28,5)' />
+<area shape ='rect' coords='1015,686,1050,720'  onMouseOver='ShowInfo(event,29,5)' onMouseOut='HideInfo(29,5)' />
+<area shape ='rect' coords='0,651,35,685'  onMouseOver='ShowInfo(event,0,6)' onMouseOut='HideInfo(0,6)' />
+<area shape ='rect' coords='35,651,70,685'  onMouseOver='ShowInfo(event,1,6)' onMouseOut='HideInfo(1,6)' />
+<area shape ='rect' coords='70,651,105,685'  onMouseOver='ShowInfo(event,2,6)' onMouseOut='HideInfo(2,6)' />
+<area shape ='rect' coords='105,651,140,685'  onMouseOver='ShowInfo(event,3,6)' onMouseOut='HideInfo(3,6)' />
+<area shape ='rect' coords='140,651,175,685'  onMouseOver='ShowInfo(event,4,6)' onMouseOut='HideInfo(4,6)' />
+<area shape ='rect' coords='175,651,210,685'  onMouseOver='ShowInfo(event,5,6)' onMouseOut='HideInfo(5,6)' />
+<area shape ='rect' coords='210,651,245,685'  onMouseOver='ShowInfo(event,6,6)' onMouseOut='HideInfo(6,6)' />
+<area shape ='rect' coords='245,651,280,685'  onMouseOver='ShowInfo(event,7,6)' onMouseOut='HideInfo(7,6)' />
+<area shape ='rect' coords='280,651,315,685'  onMouseOver='ShowInfo(event,8,6)' onMouseOut='HideInfo(8,6)' />
+<area shape ='rect' coords='315,651,350,685'  onMouseOver='ShowInfo(event,9,6)' onMouseOut='HideInfo(9,6)' />
+<area shape ='rect' coords='350,651,385,685'  onMouseOver='ShowInfo(event,10,6)' onMouseOut='HideInfo(10,6)' />
+<area shape ='rect' coords='385,651,420,685'  onMouseOver='ShowInfo(event,11,6)' onMouseOut='HideInfo(11,6)' />
+<area shape ='rect' coords='420,651,455,685'  onMouseOver='ShowInfo(event,12,6)' onMouseOut='HideInfo(12,6)' />
+<area shape ='rect' coords='455,651,490,685'  onMouseOver='ShowInfo(event,13,6)' onMouseOut='HideInfo(13,6)' />
+<area shape ='rect' coords='490,651,525,685'  onMouseOver='ShowInfo(event,14,6)' onMouseOut='HideInfo(14,6)' />
+<area shape ='rect' coords='525,651,560,685'  onMouseOver='ShowInfo(event,15,6)' onMouseOut='HideInfo(15,6)' />
+<area shape ='rect' coords='560,651,595,685'  onMouseOver='ShowInfo(event,16,6)' onMouseOut='HideInfo(16,6)' />
+<area shape ='rect' coords='595,651,630,685'  onMouseOver='ShowInfo(event,17,6)' onMouseOut='HideInfo(17,6)' />
+<area shape ='rect' coords='630,651,665,685'  onMouseOver='ShowInfo(event,18,6)' onMouseOut='HideInfo(18,6)' />
+<area shape ='rect' coords='665,651,700,685'  onMouseOver='ShowInfo(event,19,6)' onMouseOut='HideInfo(19,6)' />
+<area shape ='rect' coords='700,651,735,685'  onMouseOver='ShowInfo(event,20,6)' onMouseOut='HideInfo(20,6)' />
+<area shape ='rect' coords='735,651,770,685'  onMouseOver='ShowInfo(event,21,6)' onMouseOut='HideInfo(21,6)' />
+<area shape ='rect' coords='770,651,805,685'  onMouseOver='ShowInfo(event,22,6)' onMouseOut='HideInfo(22,6)' />
+<area shape ='rect' coords='805,651,840,685'  onMouseOver='ShowInfo(event,23,6)' onMouseOut='HideInfo(23,6)' />
+<area shape ='rect' coords='840,651,875,685'  onMouseOver='ShowInfo(event,24,6)' onMouseOut='HideInfo(24,6)' />
+<area shape ='rect' coords='875,651,910,685'  onMouseOver='ShowInfo(event,25,6)' onMouseOut='HideInfo(25,6)' />
+<area shape ='rect' coords='910,651,945,685'  onMouseOver='ShowInfo(event,26,6)' onMouseOut='HideInfo(26,6)' />
+<area shape ='rect' coords='945,651,980,685'  onMouseOver='ShowInfo(event,27,6)' onMouseOut='HideInfo(27,6)' />
+<area shape ='rect' coords='980,651,1015,685'  onMouseOver='ShowInfo(event,28,6)' onMouseOut='HideInfo(28,6)' />
+<area shape ='rect' coords='1015,651,1050,685'  onMouseOver='ShowInfo(event,29,6)' onMouseOut='HideInfo(29,6)' />
+<area shape ='rect' coords='0,616,35,650'  onMouseOver='ShowInfo(event,0,7)' onMouseOut='HideInfo(0,7)' />
+<area shape ='rect' coords='35,616,70,650'  onMouseOver='ShowInfo(event,1,7)' onMouseOut='HideInfo(1,7)' />
+<area shape ='rect' coords='70,616,105,650'  onMouseOver='ShowInfo(event,2,7)' onMouseOut='HideInfo(2,7)' />
+<area shape ='rect' coords='105,616,140,650'  onMouseOver='ShowInfo(event,3,7)' onMouseOut='HideInfo(3,7)' />
+<area shape ='rect' coords='140,616,175,650'  onMouseOver='ShowInfo(event,4,7)' onMouseOut='HideInfo(4,7)' />
+<area shape ='rect' coords='175,616,210,650'  onMouseOver='ShowInfo(event,5,7)' onMouseOut='HideInfo(5,7)' />
+<area shape ='rect' coords='210,616,245,650'  onMouseOver='ShowInfo(event,6,7)' onMouseOut='HideInfo(6,7)' />
+<area shape ='rect' coords='245,616,280,650'  onMouseOver='ShowInfo(event,7,7)' onMouseOut='HideInfo(7,7)' />
+<area shape ='rect' coords='280,616,315,650'  onMouseOver='ShowInfo(event,8,7)' onMouseOut='HideInfo(8,7)' />
+<area shape ='rect' coords='315,616,350,650'  onMouseOver='ShowInfo(event,9,7)' onMouseOut='HideInfo(9,7)' />
+<area shape ='rect' coords='350,616,385,650'  onMouseOver='ShowInfo(event,10,7)' onMouseOut='HideInfo(10,7)' />
+<area shape ='rect' coords='385,616,420,650'  onMouseOver='ShowInfo(event,11,7)' onMouseOut='HideInfo(11,7)' />
+<area shape ='rect' coords='420,616,455,650'  onMouseOver='ShowInfo(event,12,7)' onMouseOut='HideInfo(12,7)' />
+<area shape ='rect' coords='455,616,490,650'  onMouseOver='ShowInfo(event,13,7)' onMouseOut='HideInfo(13,7)' />
+<area shape ='rect' coords='490,616,525,650'  onMouseOver='ShowInfo(event,14,7)' onMouseOut='HideInfo(14,7)' />
+<area shape ='rect' coords='525,616,560,650'  onMouseOver='ShowInfo(event,15,7)' onMouseOut='HideInfo(15,7)' />
+<area shape ='rect' coords='560,616,595,650'  onMouseOver='ShowInfo(event,16,7)' onMouseOut='HideInfo(16,7)' />
+<area shape ='rect' coords='595,616,630,650'  onMouseOver='ShowInfo(event,17,7)' onMouseOut='HideInfo(17,7)' />
+<area shape ='rect' coords='630,616,665,650'  onMouseOver='ShowInfo(event,18,7)' onMouseOut='HideInfo(18,7)' />
+<area shape ='rect' coords='665,616,700,650'  onMouseOver='ShowInfo(event,19,7)' onMouseOut='HideInfo(19,7)' />
+<area shape ='rect' coords='700,616,735,650'  onMouseOver='ShowInfo(event,20,7)' onMouseOut='HideInfo(20,7)' />
+<area shape ='rect' coords='735,616,770,650'  onMouseOver='ShowInfo(event,21,7)' onMouseOut='HideInfo(21,7)' />
+<area shape ='rect' coords='770,616,805,650'  onMouseOver='ShowInfo(event,22,7)' onMouseOut='HideInfo(22,7)' />
+<area shape ='rect' coords='805,616,840,650'  onMouseOver='ShowInfo(event,23,7)' onMouseOut='HideInfo(23,7)' />
+<area shape ='rect' coords='840,616,875,650'  onMouseOver='ShowInfo(event,24,7)' onMouseOut='HideInfo(24,7)' />
+<area shape ='rect' coords='875,616,910,650'  onMouseOver='ShowInfo(event,25,7)' onMouseOut='HideInfo(25,7)' />
+<area shape ='rect' coords='910,616,945,650'  onMouseOver='ShowInfo(event,26,7)' onMouseOut='HideInfo(26,7)' />
+<area shape ='rect' coords='945,616,980,650'  onMouseOver='ShowInfo(event,27,7)' onMouseOut='HideInfo(27,7)' />
+<area shape ='rect' coords='980,616,1015,650'  onMouseOver='ShowInfo(event,28,7)' onMouseOut='HideInfo(28,7)' />
+<area shape ='rect' coords='1015,616,1050,650'  onMouseOver='ShowInfo(event,29,7)' onMouseOut='HideInfo(29,7)' />
+<area shape ='rect' coords='0,581,35,615'  onMouseOver='ShowInfo(event,0,8)' onMouseOut='HideInfo(0,8)' />
+<area shape ='rect' coords='35,581,70,615'  onMouseOver='ShowInfo(event,1,8)' onMouseOut='HideInfo(1,8)' />
+<area shape ='rect' coords='70,581,105,615'  onMouseOver='ShowInfo(event,2,8)' onMouseOut='HideInfo(2,8)' />
+<area shape ='rect' coords='105,581,140,615'  onMouseOver='ShowInfo(event,3,8)' onMouseOut='HideInfo(3,8)' />
+<area shape ='rect' coords='140,581,175,615'  onMouseOver='ShowInfo(event,4,8)' onMouseOut='HideInfo(4,8)' />
+<area shape ='rect' coords='175,581,210,615'  onMouseOver='ShowInfo(event,5,8)' onMouseOut='HideInfo(5,8)' />
+<area shape ='rect' coords='210,581,245,615'  onMouseOver='ShowInfo(event,6,8)' onMouseOut='HideInfo(6,8)' />
+<area shape ='rect' coords='245,581,280,615'  onMouseOver='ShowInfo(event,7,8)' onMouseOut='HideInfo(7,8)' />
+<area shape ='rect' coords='280,581,315,615'  onMouseOver='ShowInfo(event,8,8)' onMouseOut='HideInfo(8,8)' />
+<area shape ='rect' coords='315,581,350,615'  onMouseOver='ShowInfo(event,9,8)' onMouseOut='HideInfo(9,8)' />
+<area shape ='rect' coords='350,581,385,615'  onMouseOver='ShowInfo(event,10,8)' onMouseOut='HideInfo(10,8)' />
+<area shape ='rect' coords='385,581,420,615'  onMouseOver='ShowInfo(event,11,8)' onMouseOut='HideInfo(11,8)' />
+<area shape ='rect' coords='420,581,455,615'  onMouseOver='ShowInfo(event,12,8)' onMouseOut='HideInfo(12,8)' />
+<area shape ='rect' coords='455,581,490,615'  onMouseOver='ShowInfo(event,13,8)' onMouseOut='HideInfo(13,8)' />
+<area shape ='rect' coords='490,581,525,615'  onMouseOver='ShowInfo(event,14,8)' onMouseOut='HideInfo(14,8)' />
+<area shape ='rect' coords='525,581,560,615'  onMouseOver='ShowInfo(event,15,8)' onMouseOut='HideInfo(15,8)' />
+<area shape ='rect' coords='560,581,595,615'  onMouseOver='ShowInfo(event,16,8)' onMouseOut='HideInfo(16,8)' />
+<area shape ='rect' coords='595,581,630,615'  onMouseOver='ShowInfo(event,17,8)' onMouseOut='HideInfo(17,8)' />
+<area shape ='rect' coords='630,581,665,615'  onMouseOver='ShowInfo(event,18,8)' onMouseOut='HideInfo(18,8)' />
+<area shape ='rect' coords='665,581,700,615'  onMouseOver='ShowInfo(event,19,8)' onMouseOut='HideInfo(19,8)' />
+<area shape ='rect' coords='700,581,735,615'  onMouseOver='ShowInfo(event,20,8)' onMouseOut='HideInfo(20,8)' />
+<area shape ='rect' coords='735,581,770,615'  onMouseOver='ShowInfo(event,21,8)' onMouseOut='HideInfo(21,8)' />
+<area shape ='rect' coords='770,581,805,615'  onMouseOver='ShowInfo(event,22,8)' onMouseOut='HideInfo(22,8)' />
+<area shape ='rect' coords='805,581,840,615'  onMouseOver='ShowInfo(event,23,8)' onMouseOut='HideInfo(23,8)' />
+<area shape ='rect' coords='840,581,875,615'  onMouseOver='ShowInfo(event,24,8)' onMouseOut='HideInfo(24,8)' />
+<area shape ='rect' coords='875,581,910,615'  onMouseOver='ShowInfo(event,25,8)' onMouseOut='HideInfo(25,8)' />
+<area shape ='rect' coords='910,581,945,615'  onMouseOver='ShowInfo(event,26,8)' onMouseOut='HideInfo(26,8)' />
+<area shape ='rect' coords='945,581,980,615'  onMouseOver='ShowInfo(event,27,8)' onMouseOut='HideInfo(27,8)' />
+<area shape ='rect' coords='980,581,1015,615'  onMouseOver='ShowInfo(event,28,8)' onMouseOut='HideInfo(28,8)' />
+<area shape ='rect' coords='1015,581,1050,615'  onMouseOver='ShowInfo(event,29,8)' onMouseOut='HideInfo(29,8)' />
+<area shape ='rect' coords='0,546,35,580'  onMouseOver='ShowInfo(event,0,9)' onMouseOut='HideInfo(0,9)' />
+<area shape ='rect' coords='35,546,70,580'  onMouseOver='ShowInfo(event,1,9)' onMouseOut='HideInfo(1,9)' />
+<area shape ='rect' coords='70,546,105,580'  onMouseOver='ShowInfo(event,2,9)' onMouseOut='HideInfo(2,9)' />
+<area shape ='rect' coords='105,546,140,580'  onMouseOver='ShowInfo(event,3,9)' onMouseOut='HideInfo(3,9)' />
+<area shape ='rect' coords='140,546,175,580'  onMouseOver='ShowInfo(event,4,9)' onMouseOut='HideInfo(4,9)' />
+<area shape ='rect' coords='175,546,210,580'  onMouseOver='ShowInfo(event,5,9)' onMouseOut='HideInfo(5,9)' />
+<area shape ='rect' coords='210,546,245,580'  onMouseOver='ShowInfo(event,6,9)' onMouseOut='HideInfo(6,9)' />
+<area shape ='rect' coords='245,546,280,580'  onMouseOver='ShowInfo(event,7,9)' onMouseOut='HideInfo(7,9)' />
+<area shape ='rect' coords='280,546,315,580'  onMouseOver='ShowInfo(event,8,9)' onMouseOut='HideInfo(8,9)' />
+<area shape ='rect' coords='315,546,350,580'  onMouseOver='ShowInfo(event,9,9)' onMouseOut='HideInfo(9,9)' />
+<area shape ='rect' coords='350,546,385,580'  onMouseOver='ShowInfo(event,10,9)' onMouseOut='HideInfo(10,9)' />
+<area shape ='rect' coords='385,546,420,580'  onMouseOver='ShowInfo(event,11,9)' onMouseOut='HideInfo(11,9)' />
+<area shape ='rect' coords='420,546,455,580'  onMouseOver='ShowInfo(event,12,9)' onMouseOut='HideInfo(12,9)' />
+<area shape ='rect' coords='455,546,490,580'  onMouseOver='ShowInfo(event,13,9)' onMouseOut='HideInfo(13,9)' />
+<area shape ='rect' coords='490,546,525,580'  onMouseOver='ShowInfo(event,14,9)' onMouseOut='HideInfo(14,9)' />
+<area shape ='rect' coords='525,546,560,580'  onMouseOver='ShowInfo(event,15,9)' onMouseOut='HideInfo(15,9)' />
+<area shape ='rect' coords='560,546,595,580'  onMouseOver='ShowInfo(event,16,9)' onMouseOut='HideInfo(16,9)' />
+<area shape ='rect' coords='595,546,630,580'  onMouseOver='ShowInfo(event,17,9)' onMouseOut='HideInfo(17,9)' />
+<area shape ='rect' coords='630,546,665,580'  onMouseOver='ShowInfo(event,18,9)' onMouseOut='HideInfo(18,9)' />
+<area shape ='rect' coords='665,546,700,580'  onMouseOver='ShowInfo(event,19,9)' onMouseOut='HideInfo(19,9)' />
+<area shape ='rect' coords='700,546,735,580'  onMouseOver='ShowInfo(event,20,9)' onMouseOut='HideInfo(20,9)' />
+<area shape ='rect' coords='735,546,770,580'  onMouseOver='ShowInfo(event,21,9)' onMouseOut='HideInfo(21,9)' />
+<area shape ='rect' coords='770,546,805,580'  onMouseOver='ShowInfo(event,22,9)' onMouseOut='HideInfo(22,9)' />
+<area shape ='rect' coords='805,546,840,580'  onMouseOver='ShowInfo(event,23,9)' onMouseOut='HideInfo(23,9)' />
+<area shape ='rect' coords='840,546,875,580'  onMouseOver='ShowInfo(event,24,9)' onMouseOut='HideInfo(24,9)' />
+<area shape ='rect' coords='875,546,910,580'  onMouseOver='ShowInfo(event,25,9)' onMouseOut='HideInfo(25,9)' />
+<area shape ='rect' coords='910,546,945,580'  onMouseOver='ShowInfo(event,26,9)' onMouseOut='HideInfo(26,9)' />
+<area shape ='rect' coords='945,546,980,580'  onMouseOver='ShowInfo(event,27,9)' onMouseOut='HideInfo(27,9)' />
+<area shape ='rect' coords='980,546,1015,580'  onMouseOver='ShowInfo(event,28,9)' onMouseOut='HideInfo(28,9)' />
+<area shape ='rect' coords='1015,546,1050,580'  onMouseOver='ShowInfo(event,29,9)' onMouseOut='HideInfo(29,9)' />
+<area shape ='rect' coords='0,511,35,545'  onMouseOver='ShowInfo(event,0,10)' onMouseOut='HideInfo(0,10)' />
+<area shape ='rect' coords='35,511,70,545'  onMouseOver='ShowInfo(event,1,10)' onMouseOut='HideInfo(1,10)' />
+<area shape ='rect' coords='70,511,105,545'  onMouseOver='ShowInfo(event,2,10)' onMouseOut='HideInfo(2,10)' />
+<area shape ='rect' coords='105,511,140,545'  onMouseOver='ShowInfo(event,3,10)' onMouseOut='HideInfo(3,10)' />
+<area shape ='rect' coords='140,511,175,545'  onMouseOver='ShowInfo(event,4,10)' onMouseOut='HideInfo(4,10)' />
+<area shape ='rect' coords='175,511,210,545'  onMouseOver='ShowInfo(event,5,10)' onMouseOut='HideInfo(5,10)' />
+<area shape ='rect' coords='210,511,245,545'  onMouseOver='ShowInfo(event,6,10)' onMouseOut='HideInfo(6,10)' />
+<area shape ='rect' coords='245,511,280,545'  onMouseOver='ShowInfo(event,7,10)' onMouseOut='HideInfo(7,10)' />
+<area shape ='rect' coords='280,511,315,545'  onMouseOver='ShowInfo(event,8,10)' onMouseOut='HideInfo(8,10)' />
+<area shape ='rect' coords='315,511,350,545'  onMouseOver='ShowInfo(event,9,10)' onMouseOut='HideInfo(9,10)' />
+<area shape ='rect' coords='350,511,385,545'  onMouseOver='ShowInfo(event,10,10)' onMouseOut='HideInfo(10,10)' />
+<area shape ='rect' coords='385,511,420,545'  onMouseOver='ShowInfo(event,11,10)' onMouseOut='HideInfo(11,10)' />
+<area shape ='rect' coords='420,511,455,545'  onMouseOver='ShowInfo(event,12,10)' onMouseOut='HideInfo(12,10)' />
+<area shape ='rect' coords='455,511,490,545'  onMouseOver='ShowInfo(event,13,10)' onMouseOut='HideInfo(13,10)' />
+<area shape ='rect' coords='490,511,525,545'  onMouseOver='ShowInfo(event,14,10)' onMouseOut='HideInfo(14,10)' />
+<area shape ='rect' coords='525,511,560,545'  onMouseOver='ShowInfo(event,15,10)' onMouseOut='HideInfo(15,10)' />
+<area shape ='rect' coords='560,511,595,545'  onMouseOver='ShowInfo(event,16,10)' onMouseOut='HideInfo(16,10)' />
+<area shape ='rect' coords='595,511,630,545'  onMouseOver='ShowInfo(event,17,10)' onMouseOut='HideInfo(17,10)' />
+<area shape ='rect' coords='630,511,665,545'  onMouseOver='ShowInfo(event,18,10)' onMouseOut='HideInfo(18,10)' />
+<area shape ='rect' coords='665,511,700,545'  onMouseOver='ShowInfo(event,19,10)' onMouseOut='HideInfo(19,10)' />
+<area shape ='rect' coords='700,511,735,545'  onMouseOver='ShowInfo(event,20,10)' onMouseOut='HideInfo(20,10)' />
+<area shape ='rect' coords='735,511,770,545'  onMouseOver='ShowInfo(event,21,10)' onMouseOut='HideInfo(21,10)' />
+<area shape ='rect' coords='770,511,805,545'  onMouseOver='ShowInfo(event,22,10)' onMouseOut='HideInfo(22,10)' />
+<area shape ='rect' coords='805,511,840,545'  onMouseOver='ShowInfo(event,23,10)' onMouseOut='HideInfo(23,10)' />
+<area shape ='rect' coords='840,511,875,545'  onMouseOver='ShowInfo(event,24,10)' onMouseOut='HideInfo(24,10)' />
+<area shape ='rect' coords='875,511,910,545'  onMouseOver='ShowInfo(event,25,10)' onMouseOut='HideInfo(25,10)' />
+<area shape ='rect' coords='910,511,945,545'  onMouseOver='ShowInfo(event,26,10)' onMouseOut='HideInfo(26,10)' />
+<area shape ='rect' coords='945,511,980,545'  onMouseOver='ShowInfo(event,27,10)' onMouseOut='HideInfo(27,10)' />
+<area shape ='rect' coords='980,511,1015,545'  onMouseOver='ShowInfo(event,28,10)' onMouseOut='HideInfo(28,10)' />
+<area shape ='rect' coords='1015,511,1050,545'  onMouseOver='ShowInfo(event,29,10)' onMouseOut='HideInfo(29,10)' />
+<area shape ='rect' coords='0,476,35,510'  onMouseOver='ShowInfo(event,0,11)' onMouseOut='HideInfo(0,11)' />
+<area shape ='rect' coords='35,476,70,510'  onMouseOver='ShowInfo(event,1,11)' onMouseOut='HideInfo(1,11)' />
+<area shape ='rect' coords='70,476,105,510'  onMouseOver='ShowInfo(event,2,11)' onMouseOut='HideInfo(2,11)' />
+<area shape ='rect' coords='105,476,140,510'  onMouseOver='ShowInfo(event,3,11)' onMouseOut='HideInfo(3,11)' />
+<area shape ='rect' coords='140,476,175,510'  onMouseOver='ShowInfo(event,4,11)' onMouseOut='HideInfo(4,11)' />
+<area shape ='rect' coords='175,476,210,510'  onMouseOver='ShowInfo(event,5,11)' onMouseOut='HideInfo(5,11)' />
+<area shape ='rect' coords='210,476,245,510'  onMouseOver='ShowInfo(event,6,11)' onMouseOut='HideInfo(6,11)' />
+<area shape ='rect' coords='245,476,280,510'  onMouseOver='ShowInfo(event,7,11)' onMouseOut='HideInfo(7,11)' />
+<area shape ='rect' coords='280,476,315,510'  onMouseOver='ShowInfo(event,8,11)' onMouseOut='HideInfo(8,11)' />
+<area shape ='rect' coords='315,476,350,510'  onMouseOver='ShowInfo(event,9,11)' onMouseOut='HideInfo(9,11)' />
+<area shape ='rect' coords='350,476,385,510'  onMouseOver='ShowInfo(event,10,11)' onMouseOut='HideInfo(10,11)' />
+<area shape ='rect' coords='385,476,420,510'  onMouseOver='ShowInfo(event,11,11)' onMouseOut='HideInfo(11,11)' />
+<area shape ='rect' coords='420,476,455,510'  onMouseOver='ShowInfo(event,12,11)' onMouseOut='HideInfo(12,11)' />
+<area shape ='rect' coords='455,476,490,510'  onMouseOver='ShowInfo(event,13,11)' onMouseOut='HideInfo(13,11)' />
+<area shape ='rect' coords='490,476,525,510'  onMouseOver='ShowInfo(event,14,11)' onMouseOut='HideInfo(14,11)' />
+<area shape ='rect' coords='525,476,560,510'  onMouseOver='ShowInfo(event,15,11)' onMouseOut='HideInfo(15,11)' />
+<area shape ='rect' coords='560,476,595,510'  onMouseOver='ShowInfo(event,16,11)' onMouseOut='HideInfo(16,11)' />
+<area shape ='rect' coords='595,476,630,510'  onMouseOver='ShowInfo(event,17,11)' onMouseOut='HideInfo(17,11)' />
+<area shape ='rect' coords='630,476,665,510'  onMouseOver='ShowInfo(event,18,11)' onMouseOut='HideInfo(18,11)' />
+<area shape ='rect' coords='665,476,700,510'  onMouseOver='ShowInfo(event,19,11)' onMouseOut='HideInfo(19,11)' />
+<area shape ='rect' coords='700,476,735,510'  onMouseOver='ShowInfo(event,20,11)' onMouseOut='HideInfo(20,11)' />
+<area shape ='rect' coords='735,476,770,510'  onMouseOver='ShowInfo(event,21,11)' onMouseOut='HideInfo(21,11)' />
+<area shape ='rect' coords='770,476,805,510'  onMouseOver='ShowInfo(event,22,11)' onMouseOut='HideInfo(22,11)' />
+<area shape ='rect' coords='805,476,840,510'  onMouseOver='ShowInfo(event,23,11)' onMouseOut='HideInfo(23,11)' />
+<area shape ='rect' coords='840,476,875,510'  onMouseOver='ShowInfo(event,24,11)' onMouseOut='HideInfo(24,11)' />
+<area shape ='rect' coords='875,476,910,510'  onMouseOver='ShowInfo(event,25,11)' onMouseOut='HideInfo(25,11)' />
+<area shape ='rect' coords='910,476,945,510'  onMouseOver='ShowInfo(event,26,11)' onMouseOut='HideInfo(26,11)' />
+<area shape ='rect' coords='945,476,980,510'  onMouseOver='ShowInfo(event,27,11)' onMouseOut='HideInfo(27,11)' />
+<area shape ='rect' coords='980,476,1015,510'  onMouseOver='ShowInfo(event,28,11)' onMouseOut='HideInfo(28,11)' />
+<area shape ='rect' coords='1015,476,1050,510'  onMouseOver='ShowInfo(event,29,11)' onMouseOut='HideInfo(29,11)' />
+<area shape ='rect' coords='0,441,35,475'  onMouseOver='ShowInfo(event,0,12)' onMouseOut='HideInfo(0,12)' />
+<area shape ='rect' coords='35,441,70,475'  onMouseOver='ShowInfo(event,1,12)' onMouseOut='HideInfo(1,12)' />
+<area shape ='rect' coords='70,441,105,475'  onMouseOver='ShowInfo(event,2,12)' onMouseOut='HideInfo(2,12)' />
+<area shape ='rect' coords='105,441,140,475'  onMouseOver='ShowInfo(event,3,12)' onMouseOut='HideInfo(3,12)' />
+<area shape ='rect' coords='140,441,175,475'  onMouseOver='ShowInfo(event,4,12)' onMouseOut='HideInfo(4,12)' />
+<area shape ='rect' coords='175,441,210,475'  onMouseOver='ShowInfo(event,5,12)' onMouseOut='HideInfo(5,12)' />
+<area shape ='rect' coords='210,441,245,475'  onMouseOver='ShowInfo(event,6,12)' onMouseOut='HideInfo(6,12)' />
+<area shape ='rect' coords='245,441,280,475'  onMouseOver='ShowInfo(event,7,12)' onMouseOut='HideInfo(7,12)' />
+<area shape ='rect' coords='280,441,315,475'  onMouseOver='ShowInfo(event,8,12)' onMouseOut='HideInfo(8,12)' />
+<area shape ='rect' coords='315,441,350,475'  onMouseOver='ShowInfo(event,9,12)' onMouseOut='HideInfo(9,12)' />
+<area shape ='rect' coords='350,441,385,475'  onMouseOver='ShowInfo(event,10,12)' onMouseOut='HideInfo(10,12)' />
+<area shape ='rect' coords='385,441,420,475'  onMouseOver='ShowInfo(event,11,12)' onMouseOut='HideInfo(11,12)' />
+<area shape ='rect' coords='420,441,455,475'  onMouseOver='ShowInfo(event,12,12)' onMouseOut='HideInfo(12,12)' />
+<area shape ='rect' coords='455,441,490,475'  onMouseOver='ShowInfo(event,13,12)' onMouseOut='HideInfo(13,12)' />
+<area shape ='rect' coords='490,441,525,475'  onMouseOver='ShowInfo(event,14,12)' onMouseOut='HideInfo(14,12)' />
+<area shape ='rect' coords='525,441,560,475'  onMouseOver='ShowInfo(event,15,12)' onMouseOut='HideInfo(15,12)' />
+<area shape ='rect' coords='560,441,595,475'  onMouseOver='ShowInfo(event,16,12)' onMouseOut='HideInfo(16,12)' />
+<area shape ='rect' coords='595,441,630,475'  onMouseOver='ShowInfo(event,17,12)' onMouseOut='HideInfo(17,12)' />
+<area shape ='rect' coords='630,441,665,475'  onMouseOver='ShowInfo(event,18,12)' onMouseOut='HideInfo(18,12)' />
+<area shape ='rect' coords='665,441,700,475'  onMouseOver='ShowInfo(event,19,12)' onMouseOut='HideInfo(19,12)' />
+<area shape ='rect' coords='700,441,735,475'  onMouseOver='ShowInfo(event,20,12)' onMouseOut='HideInfo(20,12)' />
+<area shape ='rect' coords='735,441,770,475'  onMouseOver='ShowInfo(event,21,12)' onMouseOut='HideInfo(21,12)' />
+<area shape ='rect' coords='770,441,805,475'  onMouseOver='ShowInfo(event,22,12)' onMouseOut='HideInfo(22,12)' />
+<area shape ='rect' coords='805,441,840,475'  onMouseOver='ShowInfo(event,23,12)' onMouseOut='HideInfo(23,12)' />
+<area shape ='rect' coords='840,441,875,475'  onMouseOver='ShowInfo(event,24,12)' onMouseOut='HideInfo(24,12)' />
+<area shape ='rect' coords='875,441,910,475'  onMouseOver='ShowInfo(event,25,12)' onMouseOut='HideInfo(25,12)' />
+<area shape ='rect' coords='910,441,945,475'  onMouseOver='ShowInfo(event,26,12)' onMouseOut='HideInfo(26,12)' />
+<area shape ='rect' coords='945,441,980,475'  onMouseOver='ShowInfo(event,27,12)' onMouseOut='HideInfo(27,12)' />
+<area shape ='rect' coords='980,441,1015,475'  onMouseOver='ShowInfo(event,28,12)' onMouseOut='HideInfo(28,12)' />
+<area shape ='rect' coords='1015,441,1050,475'  onMouseOver='ShowInfo(event,29,12)' onMouseOut='HideInfo(29,12)' />
+<area shape ='rect' coords='0,406,35,440'  onMouseOver='ShowInfo(event,0,13)' onMouseOut='HideInfo(0,13)' />
+<area shape ='rect' coords='35,406,70,440'  onMouseOver='ShowInfo(event,1,13)' onMouseOut='HideInfo(1,13)' />
+<area shape ='rect' coords='70,406,105,440'  onMouseOver='ShowInfo(event,2,13)' onMouseOut='HideInfo(2,13)' />
+<area shape ='rect' coords='105,406,140,440'  onMouseOver='ShowInfo(event,3,13)' onMouseOut='HideInfo(3,13)' />
+<area shape ='rect' coords='140,406,175,440'  onMouseOver='ShowInfo(event,4,13)' onMouseOut='HideInfo(4,13)' />
+<area shape ='rect' coords='175,406,210,440'  onMouseOver='ShowInfo(event,5,13)' onMouseOut='HideInfo(5,13)' />
+<area shape ='rect' coords='210,406,245,440'  onMouseOver='ShowInfo(event,6,13)' onMouseOut='HideInfo(6,13)' />
+<area shape ='rect' coords='245,406,280,440'  onMouseOver='ShowInfo(event,7,13)' onMouseOut='HideInfo(7,13)' />
+<area shape ='rect' coords='280,406,315,440'  onMouseOver='ShowInfo(event,8,13)' onMouseOut='HideInfo(8,13)' />
+<area shape ='rect' coords='315,406,350,440'  onMouseOver='ShowInfo(event,9,13)' onMouseOut='HideInfo(9,13)' />
+<area shape ='rect' coords='350,406,385,440'  onMouseOver='ShowInfo(event,10,13)' onMouseOut='HideInfo(10,13)' />
+<area shape ='rect' coords='385,406,420,440'  onMouseOver='ShowInfo(event,11,13)' onMouseOut='HideInfo(11,13)' />
+<area shape ='rect' coords='420,406,455,440'  onMouseOver='ShowInfo(event,12,13)' onMouseOut='HideInfo(12,13)' />
+<area shape ='rect' coords='455,406,490,440'  onMouseOver='ShowInfo(event,13,13)' onMouseOut='HideInfo(13,13)' />
+<area shape ='rect' coords='490,406,525,440'  onMouseOver='ShowInfo(event,14,13)' onMouseOut='HideInfo(14,13)' />
+<area shape ='rect' coords='525,406,560,440'  onMouseOver='ShowInfo(event,15,13)' onMouseOut='HideInfo(15,13)' />
+<area shape ='rect' coords='560,406,595,440'  onMouseOver='ShowInfo(event,16,13)' onMouseOut='HideInfo(16,13)' />
+<area shape ='rect' coords='595,406,630,440'  onMouseOver='ShowInfo(event,17,13)' onMouseOut='HideInfo(17,13)' />
+<area shape ='rect' coords='630,406,665,440'  onMouseOver='ShowInfo(event,18,13)' onMouseOut='HideInfo(18,13)' />
+<area shape ='rect' coords='665,406,700,440'  onMouseOver='ShowInfo(event,19,13)' onMouseOut='HideInfo(19,13)' />
+<area shape ='rect' coords='700,406,735,440'  onMouseOver='ShowInfo(event,20,13)' onMouseOut='HideInfo(20,13)' />
+<area shape ='rect' coords='735,406,770,440'  onMouseOver='ShowInfo(event,21,13)' onMouseOut='HideInfo(21,13)' />
+<area shape ='rect' coords='770,406,805,440'  onMouseOver='ShowInfo(event,22,13)' onMouseOut='HideInfo(22,13)' />
+<area shape ='rect' coords='805,406,840,440'  onMouseOver='ShowInfo(event,23,13)' onMouseOut='HideInfo(23,13)' />
+<area shape ='rect' coords='840,406,875,440'  onMouseOver='ShowInfo(event,24,13)' onMouseOut='HideInfo(24,13)' />
+<area shape ='rect' coords='875,406,910,440'  onMouseOver='ShowInfo(event,25,13)' onMouseOut='HideInfo(25,13)' />
+<area shape ='rect' coords='910,406,945,440'  onMouseOver='ShowInfo(event,26,13)' onMouseOut='HideInfo(26,13)' />
+<area shape ='rect' coords='945,406,980,440'  onMouseOver='ShowInfo(event,27,13)' onMouseOut='HideInfo(27,13)' />
+<area shape ='rect' coords='980,406,1015,440'  onMouseOver='ShowInfo(event,28,13)' onMouseOut='HideInfo(28,13)' />
+<area shape ='rect' coords='1015,406,1050,440'  onMouseOver='ShowInfo(event,29,13)' onMouseOut='HideInfo(29,13)' />
+<area shape ='rect' coords='0,371,35,405'  onMouseOver='ShowInfo(event,0,14)' onMouseOut='HideInfo(0,14)' />
+<area shape ='rect' coords='35,371,70,405'  onMouseOver='ShowInfo(event,1,14)' onMouseOut='HideInfo(1,14)' />
+<area shape ='rect' coords='70,371,105,405'  onMouseOver='ShowInfo(event,2,14)' onMouseOut='HideInfo(2,14)' />
+<area shape ='rect' coords='105,371,140,405'  onMouseOver='ShowInfo(event,3,14)' onMouseOut='HideInfo(3,14)' />
+<area shape ='rect' coords='140,371,175,405'  onMouseOver='ShowInfo(event,4,14)' onMouseOut='HideInfo(4,14)' />
+<area shape ='rect' coords='175,371,210,405'  onMouseOver='ShowInfo(event,5,14)' onMouseOut='HideInfo(5,14)' />
+<area shape ='rect' coords='210,371,245,405'  onMouseOver='ShowInfo(event,6,14)' onMouseOut='HideInfo(6,14)' />
+<area shape ='rect' coords='245,371,280,405'  onMouseOver='ShowInfo(event,7,14)' onMouseOut='HideInfo(7,14)' />
+<area shape ='rect' coords='280,371,315,405'  onMouseOver='ShowInfo(event,8,14)' onMouseOut='HideInfo(8,14)' />
+<area shape ='rect' coords='315,371,350,405'  onMouseOver='ShowInfo(event,9,14)' onMouseOut='HideInfo(9,14)' />
+<area shape ='rect' coords='350,371,385,405'  onMouseOver='ShowInfo(event,10,14)' onMouseOut='HideInfo(10,14)' />
+<area shape ='rect' coords='385,371,420,405'  onMouseOver='ShowInfo(event,11,14)' onMouseOut='HideInfo(11,14)' />
+<area shape ='rect' coords='420,371,455,405'  onMouseOver='ShowInfo(event,12,14)' onMouseOut='HideInfo(12,14)' />
+<area shape ='rect' coords='455,371,490,405'  onMouseOver='ShowInfo(event,13,14)' onMouseOut='HideInfo(13,14)' />
+<area shape ='rect' coords='490,371,525,405'  onMouseOver='ShowInfo(event,14,14)' onMouseOut='HideInfo(14,14)' />
+<area shape ='rect' coords='525,371,560,405'  onMouseOver='ShowInfo(event,15,14)' onMouseOut='HideInfo(15,14)' />
+<area shape ='rect' coords='560,371,595,405'  onMouseOver='ShowInfo(event,16,14)' onMouseOut='HideInfo(16,14)' />
+<area shape ='rect' coords='595,371,630,405'  onMouseOver='ShowInfo(event,17,14)' onMouseOut='HideInfo(17,14)' />
+<area shape ='rect' coords='630,371,665,405'  onMouseOver='ShowInfo(event,18,14)' onMouseOut='HideInfo(18,14)' />
+<area shape ='rect' coords='665,371,700,405'  onMouseOver='ShowInfo(event,19,14)' onMouseOut='HideInfo(19,14)' />
+<area shape ='rect' coords='700,371,735,405'  onMouseOver='ShowInfo(event,20,14)' onMouseOut='HideInfo(20,14)' />
+<area shape ='rect' coords='735,371,770,405'  onMouseOver='ShowInfo(event,21,14)' onMouseOut='HideInfo(21,14)' />
+<area shape ='rect' coords='770,371,805,405'  onMouseOver='ShowInfo(event,22,14)' onMouseOut='HideInfo(22,14)' />
+<area shape ='rect' coords='805,371,840,405'  onMouseOver='ShowInfo(event,23,14)' onMouseOut='HideInfo(23,14)' />
+<area shape ='rect' coords='840,371,875,405'  onMouseOver='ShowInfo(event,24,14)' onMouseOut='HideInfo(24,14)' />
+<area shape ='rect' coords='875,371,910,405'  onMouseOver='ShowInfo(event,25,14)' onMouseOut='HideInfo(25,14)' />
+<area shape ='rect' coords='910,371,945,405'  onMouseOver='ShowInfo(event,26,14)' onMouseOut='HideInfo(26,14)' />
+<area shape ='rect' coords='945,371,980,405'  onMouseOver='ShowInfo(event,27,14)' onMouseOut='HideInfo(27,14)' />
+<area shape ='rect' coords='980,371,1015,405'  onMouseOver='ShowInfo(event,28,14)' onMouseOut='HideInfo(28,14)' />
+<area shape ='rect' coords='1015,371,1050,405'  onMouseOver='ShowInfo(event,29,14)' onMouseOut='HideInfo(29,14)' />
+<area shape ='rect' coords='0,336,35,370'  onMouseOver='ShowInfo(event,0,15)' onMouseOut='HideInfo(0,15)' />
+<area shape ='rect' coords='35,336,70,370'  onMouseOver='ShowInfo(event,1,15)' onMouseOut='HideInfo(1,15)' />
+<area shape ='rect' coords='70,336,105,370'  onMouseOver='ShowInfo(event,2,15)' onMouseOut='HideInfo(2,15)' />
+<area shape ='rect' coords='105,336,140,370'  onMouseOver='ShowInfo(event,3,15)' onMouseOut='HideInfo(3,15)' />
+<area shape ='rect' coords='140,336,175,370'  onMouseOver='ShowInfo(event,4,15)' onMouseOut='HideInfo(4,15)' />
+<area shape ='rect' coords='175,336,210,370'  onMouseOver='ShowInfo(event,5,15)' onMouseOut='HideInfo(5,15)' />
+<area shape ='rect' coords='210,336,245,370'  onMouseOver='ShowInfo(event,6,15)' onMouseOut='HideInfo(6,15)' />
+<area shape ='rect' coords='245,336,280,370'  onMouseOver='ShowInfo(event,7,15)' onMouseOut='HideInfo(7,15)' />
+<area shape ='rect' coords='280,336,315,370'  onMouseOver='ShowInfo(event,8,15)' onMouseOut='HideInfo(8,15)' />
+<area shape ='rect' coords='315,336,350,370'  onMouseOver='ShowInfo(event,9,15)' onMouseOut='HideInfo(9,15)' />
+<area shape ='rect' coords='350,336,385,370'  onMouseOver='ShowInfo(event,10,15)' onMouseOut='HideInfo(10,15)' />
+<area shape ='rect' coords='385,336,420,370'  onMouseOver='ShowInfo(event,11,15)' onMouseOut='HideInfo(11,15)' />
+<area shape ='rect' coords='420,336,455,370'  onMouseOver='ShowInfo(event,12,15)' onMouseOut='HideInfo(12,15)' />
+<area shape ='rect' coords='455,336,490,370'  onMouseOver='ShowInfo(event,13,15)' onMouseOut='HideInfo(13,15)' />
+<area shape ='rect' coords='490,336,525,370'  onMouseOver='ShowInfo(event,14,15)' onMouseOut='HideInfo(14,15)' />
+<area shape ='rect' coords='525,336,560,370'  onMouseOver='ShowInfo(event,15,15)' onMouseOut='HideInfo(15,15)' />
+<area shape ='rect' coords='560,336,595,370'  onMouseOver='ShowInfo(event,16,15)' onMouseOut='HideInfo(16,15)' />
+<area shape ='rect' coords='595,336,630,370'  onMouseOver='ShowInfo(event,17,15)' onMouseOut='HideInfo(17,15)' />
+<area shape ='rect' coords='630,336,665,370'  onMouseOver='ShowInfo(event,18,15)' onMouseOut='HideInfo(18,15)' />
+<area shape ='rect' coords='665,336,700,370'  onMouseOver='ShowInfo(event,19,15)' onMouseOut='HideInfo(19,15)' />
+<area shape ='rect' coords='700,336,735,370'  onMouseOver='ShowInfo(event,20,15)' onMouseOut='HideInfo(20,15)' />
+<area shape ='rect' coords='735,336,770,370'  onMouseOver='ShowInfo(event,21,15)' onMouseOut='HideInfo(21,15)' />
+<area shape ='rect' coords='770,336,805,370'  onMouseOver='ShowInfo(event,22,15)' onMouseOut='HideInfo(22,15)' />
+<area shape ='rect' coords='805,336,840,370'  onMouseOver='ShowInfo(event,23,15)' onMouseOut='HideInfo(23,15)' />
+<area shape ='rect' coords='840,336,875,370'  onMouseOver='ShowInfo(event,24,15)' onMouseOut='HideInfo(24,15)' />
+<area shape ='rect' coords='875,336,910,370'  onMouseOver='ShowInfo(event,25,15)' onMouseOut='HideInfo(25,15)' />
+<area shape ='rect' coords='910,336,945,370'  onMouseOver='ShowInfo(event,26,15)' onMouseOut='HideInfo(26,15)' />
+<area shape ='rect' coords='945,336,980,370'  onMouseOver='ShowInfo(event,27,15)' onMouseOut='HideInfo(27,15)' />
+<area shape ='rect' coords='980,336,1015,370'  onMouseOver='ShowInfo(event,28,15)' onMouseOut='HideInfo(28,15)' />
+<area shape ='rect' coords='1015,336,1050,370'  onMouseOver='ShowInfo(event,29,15)' onMouseOut='HideInfo(29,15)' />
+<area shape ='rect' coords='0,301,35,335'  onMouseOver='ShowInfo(event,0,16)' onMouseOut='HideInfo(0,16)' />
+<area shape ='rect' coords='35,301,70,335'  onMouseOver='ShowInfo(event,1,16)' onMouseOut='HideInfo(1,16)' />
+<area shape ='rect' coords='70,301,105,335'  onMouseOver='ShowInfo(event,2,16)' onMouseOut='HideInfo(2,16)' />
+<area shape ='rect' coords='105,301,140,335'  onMouseOver='ShowInfo(event,3,16)' onMouseOut='HideInfo(3,16)' />
+<area shape ='rect' coords='140,301,175,335'  onMouseOver='ShowInfo(event,4,16)' onMouseOut='HideInfo(4,16)' />
+<area shape ='rect' coords='175,301,210,335'  onMouseOver='ShowInfo(event,5,16)' onMouseOut='HideInfo(5,16)' />
+<area shape ='rect' coords='210,301,245,335'  onMouseOver='ShowInfo(event,6,16)' onMouseOut='HideInfo(6,16)' />
+<area shape ='rect' coords='245,301,280,335'  onMouseOver='ShowInfo(event,7,16)' onMouseOut='HideInfo(7,16)' />
+<area shape ='rect' coords='280,301,315,335'  onMouseOver='ShowInfo(event,8,16)' onMouseOut='HideInfo(8,16)' />
+<area shape ='rect' coords='315,301,350,335'  onMouseOver='ShowInfo(event,9,16)' onMouseOut='HideInfo(9,16)' />
+<area shape ='rect' coords='350,301,385,335'  onMouseOver='ShowInfo(event,10,16)' onMouseOut='HideInfo(10,16)' />
+<area shape ='rect' coords='385,301,420,335'  onMouseOver='ShowInfo(event,11,16)' onMouseOut='HideInfo(11,16)' />
+<area shape ='rect' coords='420,301,455,335'  onMouseOver='ShowInfo(event,12,16)' onMouseOut='HideInfo(12,16)' />
+<area shape ='rect' coords='455,301,490,335'  onMouseOver='ShowInfo(event,13,16)' onMouseOut='HideInfo(13,16)' />
+<area shape ='rect' coords='490,301,525,335'  onMouseOver='ShowInfo(event,14,16)' onMouseOut='HideInfo(14,16)' />
+<area shape ='rect' coords='525,301,560,335'  onMouseOver='ShowInfo(event,15,16)' onMouseOut='HideInfo(15,16)' />
+<area shape ='rect' coords='560,301,595,335'  onMouseOver='ShowInfo(event,16,16)' onMouseOut='HideInfo(16,16)' />
+<area shape ='rect' coords='595,301,630,335'  onMouseOver='ShowInfo(event,17,16)' onMouseOut='HideInfo(17,16)' />
+<area shape ='rect' coords='630,301,665,335'  onMouseOver='ShowInfo(event,18,16)' onMouseOut='HideInfo(18,16)' />
+<area shape ='rect' coords='665,301,700,335'  onMouseOver='ShowInfo(event,19,16)' onMouseOut='HideInfo(19,16)' />
+<area shape ='rect' coords='700,301,735,335'  onMouseOver='ShowInfo(event,20,16)' onMouseOut='HideInfo(20,16)' />
+<area shape ='rect' coords='735,301,770,335'  onMouseOver='ShowInfo(event,21,16)' onMouseOut='HideInfo(21,16)' />
+<area shape ='rect' coords='770,301,805,335'  onMouseOver='ShowInfo(event,22,16)' onMouseOut='HideInfo(22,16)' />
+<area shape ='rect' coords='805,301,840,335'  onMouseOver='ShowInfo(event,23,16)' onMouseOut='HideInfo(23,16)' />
+<area shape ='rect' coords='840,301,875,335'  onMouseOver='ShowInfo(event,24,16)' onMouseOut='HideInfo(24,16)' />
+<area shape ='rect' coords='875,301,910,335'  onMouseOver='ShowInfo(event,25,16)' onMouseOut='HideInfo(25,16)' />
+<area shape ='rect' coords='910,301,945,335'  onMouseOver='ShowInfo(event,26,16)' onMouseOut='HideInfo(26,16)' />
+<area shape ='rect' coords='945,301,980,335'  onMouseOver='ShowInfo(event,27,16)' onMouseOut='HideInfo(27,16)' />
+<area shape ='rect' coords='980,301,1015,335'  onMouseOver='ShowInfo(event,28,16)' onMouseOut='HideInfo(28,16)' />
+<area shape ='rect' coords='1015,301,1050,335'  onMouseOver='ShowInfo(event,29,16)' onMouseOut='HideInfo(29,16)' />
+<area shape ='rect' coords='0,266,35,300'  onMouseOver='ShowInfo(event,0,17)' onMouseOut='HideInfo(0,17)' />
+<area shape ='rect' coords='35,266,70,300'  onMouseOver='ShowInfo(event,1,17)' onMouseOut='HideInfo(1,17)' />
+<area shape ='rect' coords='70,266,105,300'  onMouseOver='ShowInfo(event,2,17)' onMouseOut='HideInfo(2,17)' />
+<area shape ='rect' coords='105,266,140,300'  onMouseOver='ShowInfo(event,3,17)' onMouseOut='HideInfo(3,17)' />
+<area shape ='rect' coords='140,266,175,300'  onMouseOver='ShowInfo(event,4,17)' onMouseOut='HideInfo(4,17)' />
+<area shape ='rect' coords='175,266,210,300'  onMouseOver='ShowInfo(event,5,17)' onMouseOut='HideInfo(5,17)' />
+<area shape ='rect' coords='210,266,245,300'  onMouseOver='ShowInfo(event,6,17)' onMouseOut='HideInfo(6,17)' />
+<area shape ='rect' coords='245,266,280,300'  onMouseOver='ShowInfo(event,7,17)' onMouseOut='HideInfo(7,17)' />
+<area shape ='rect' coords='280,266,315,300'  onMouseOver='ShowInfo(event,8,17)' onMouseOut='HideInfo(8,17)' />
+<area shape ='rect' coords='315,266,350,300'  onMouseOver='ShowInfo(event,9,17)' onMouseOut='HideInfo(9,17)' />
+<area shape ='rect' coords='350,266,385,300'  onMouseOver='ShowInfo(event,10,17)' onMouseOut='HideInfo(10,17)' />
+<area shape ='rect' coords='385,266,420,300'  onMouseOver='ShowInfo(event,11,17)' onMouseOut='HideInfo(11,17)' />
+<area shape ='rect' coords='420,266,455,300'  onMouseOver='ShowInfo(event,12,17)' onMouseOut='HideInfo(12,17)' />
+<area shape ='rect' coords='455,266,490,300'  onMouseOver='ShowInfo(event,13,17)' onMouseOut='HideInfo(13,17)' />
+<area shape ='rect' coords='490,266,525,300'  onMouseOver='ShowInfo(event,14,17)' onMouseOut='HideInfo(14,17)' />
+<area shape ='rect' coords='525,266,560,300'  onMouseOver='ShowInfo(event,15,17)' onMouseOut='HideInfo(15,17)' />
+<area shape ='rect' coords='560,266,595,300'  onMouseOver='ShowInfo(event,16,17)' onMouseOut='HideInfo(16,17)' />
+<area shape ='rect' coords='595,266,630,300'  onMouseOver='ShowInfo(event,17,17)' onMouseOut='HideInfo(17,17)' />
+<area shape ='rect' coords='630,266,665,300'  onMouseOver='ShowInfo(event,18,17)' onMouseOut='HideInfo(18,17)' />
+<area shape ='rect' coords='665,266,700,300'  onMouseOver='ShowInfo(event,19,17)' onMouseOut='HideInfo(19,17)' />
+<area shape ='rect' coords='700,266,735,300'  onMouseOver='ShowInfo(event,20,17)' onMouseOut='HideInfo(20,17)' />
+<area shape ='rect' coords='735,266,770,300'  onMouseOver='ShowInfo(event,21,17)' onMouseOut='HideInfo(21,17)' />
+<area shape ='rect' coords='770,266,805,300'  onMouseOver='ShowInfo(event,22,17)' onMouseOut='HideInfo(22,17)' />
+<area shape ='rect' coords='805,266,840,300'  onMouseOver='ShowInfo(event,23,17)' onMouseOut='HideInfo(23,17)' />
+<area shape ='rect' coords='840,266,875,300'  onMouseOver='ShowInfo(event,24,17)' onMouseOut='HideInfo(24,17)' />
+<area shape ='rect' coords='875,266,910,300'  onMouseOver='ShowInfo(event,25,17)' onMouseOut='HideInfo(25,17)' />
+<area shape ='rect' coords='910,266,945,300'  onMouseOver='ShowInfo(event,26,17)' onMouseOut='HideInfo(26,17)' />
+<area shape ='rect' coords='945,266,980,300'  onMouseOver='ShowInfo(event,27,17)' onMouseOut='HideInfo(27,17)' />
+<area shape ='rect' coords='980,266,1015,300'  onMouseOver='ShowInfo(event,28,17)' onMouseOut='HideInfo(28,17)' />
+<area shape ='rect' coords='1015,266,1050,300'  onMouseOver='ShowInfo(event,29,17)' onMouseOut='HideInfo(29,17)' />
+<area shape ='rect' coords='0,231,35,265'  onMouseOver='ShowInfo(event,0,18)' onMouseOut='HideInfo(0,18)' />
+<area shape ='rect' coords='35,231,70,265'  onMouseOver='ShowInfo(event,1,18)' onMouseOut='HideInfo(1,18)' />
+<area shape ='rect' coords='70,231,105,265'  onMouseOver='ShowInfo(event,2,18)' onMouseOut='HideInfo(2,18)' />
+<area shape ='rect' coords='105,231,140,265'  onMouseOver='ShowInfo(event,3,18)' onMouseOut='HideInfo(3,18)' />
+<area shape ='rect' coords='140,231,175,265'  onMouseOver='ShowInfo(event,4,18)' onMouseOut='HideInfo(4,18)' />
+<area shape ='rect' coords='175,231,210,265'  onMouseOver='ShowInfo(event,5,18)' onMouseOut='HideInfo(5,18)' />
+<area shape ='rect' coords='210,231,245,265'  onMouseOver='ShowInfo(event,6,18)' onMouseOut='HideInfo(6,18)' />
+<area shape ='rect' coords='245,231,280,265'  onMouseOver='ShowInfo(event,7,18)' onMouseOut='HideInfo(7,18)' />
+<area shape ='rect' coords='280,231,315,265'  onMouseOver='ShowInfo(event,8,18)' onMouseOut='HideInfo(8,18)' />
+<area shape ='rect' coords='315,231,350,265'  onMouseOver='ShowInfo(event,9,18)' onMouseOut='HideInfo(9,18)' />
+<area shape ='rect' coords='350,231,385,265'  onMouseOver='ShowInfo(event,10,18)' onMouseOut='HideInfo(10,18)' />
+<area shape ='rect' coords='385,231,420,265'  onMouseOver='ShowInfo(event,11,18)' onMouseOut='HideInfo(11,18)' />
+<area shape ='rect' coords='420,231,455,265'  onMouseOver='ShowInfo(event,12,18)' onMouseOut='HideInfo(12,18)' />
+<area shape ='rect' coords='455,231,490,265'  onMouseOver='ShowInfo(event,13,18)' onMouseOut='HideInfo(13,18)' />
+<area shape ='rect' coords='490,231,525,265'  onMouseOver='ShowInfo(event,14,18)' onMouseOut='HideInfo(14,18)' />
+<area shape ='rect' coords='525,231,560,265'  onMouseOver='ShowInfo(event,15,18)' onMouseOut='HideInfo(15,18)' />
+<area shape ='rect' coords='560,231,595,265'  onMouseOver='ShowInfo(event,16,18)' onMouseOut='HideInfo(16,18)' />
+<area shape ='rect' coords='595,231,630,265'  onMouseOver='ShowInfo(event,17,18)' onMouseOut='HideInfo(17,18)' />
+<area shape ='rect' coords='630,231,665,265'  onMouseOver='ShowInfo(event,18,18)' onMouseOut='HideInfo(18,18)' />
+<area shape ='rect' coords='665,231,700,265'  onMouseOver='ShowInfo(event,19,18)' onMouseOut='HideInfo(19,18)' />
+<area shape ='rect' coords='700,231,735,265'  onMouseOver='ShowInfo(event,20,18)' onMouseOut='HideInfo(20,18)' />
+<area shape ='rect' coords='735,231,770,265'  onMouseOver='ShowInfo(event,21,18)' onMouseOut='HideInfo(21,18)' />
+<area shape ='rect' coords='770,231,805,265'  onMouseOver='ShowInfo(event,22,18)' onMouseOut='HideInfo(22,18)' />
+<area shape ='rect' coords='805,231,840,265'  onMouseOver='ShowInfo(event,23,18)' onMouseOut='HideInfo(23,18)' />
+<area shape ='rect' coords='840,231,875,265'  onMouseOver='ShowInfo(event,24,18)' onMouseOut='HideInfo(24,18)' />
+<area shape ='rect' coords='875,231,910,265'  onMouseOver='ShowInfo(event,25,18)' onMouseOut='HideInfo(25,18)' />
+<area shape ='rect' coords='910,231,945,265'  onMouseOver='ShowInfo(event,26,18)' onMouseOut='HideInfo(26,18)' />
+<area shape ='rect' coords='945,231,980,265'  onMouseOver='ShowInfo(event,27,18)' onMouseOut='HideInfo(27,18)' />
+<area shape ='rect' coords='980,231,1015,265'  onMouseOver='ShowInfo(event,28,18)' onMouseOut='HideInfo(28,18)' />
+<area shape ='rect' coords='1015,231,1050,265'  onMouseOver='ShowInfo(event,29,18)' onMouseOut='HideInfo(29,18)' />
+<area shape ='rect' coords='0,196,35,230'  onMouseOver='ShowInfo(event,0,19)' onMouseOut='HideInfo(0,19)' />
+<area shape ='rect' coords='35,196,70,230'  onMouseOver='ShowInfo(event,1,19)' onMouseOut='HideInfo(1,19)' />
+<area shape ='rect' coords='70,196,105,230'  onMouseOver='ShowInfo(event,2,19)' onMouseOut='HideInfo(2,19)' />
+<area shape ='rect' coords='105,196,140,230'  onMouseOver='ShowInfo(event,3,19)' onMouseOut='HideInfo(3,19)' />
+<area shape ='rect' coords='140,196,175,230'  onMouseOver='ShowInfo(event,4,19)' onMouseOut='HideInfo(4,19)' />
+<area shape ='rect' coords='175,196,210,230'  onMouseOver='ShowInfo(event,5,19)' onMouseOut='HideInfo(5,19)' />
+<area shape ='rect' coords='210,196,245,230'  onMouseOver='ShowInfo(event,6,19)' onMouseOut='HideInfo(6,19)' />
+<area shape ='rect' coords='245,196,280,230'  onMouseOver='ShowInfo(event,7,19)' onMouseOut='HideInfo(7,19)' />
+<area shape ='rect' coords='280,196,315,230'  onMouseOver='ShowInfo(event,8,19)' onMouseOut='HideInfo(8,19)' />
+<area shape ='rect' coords='315,196,350,230'  onMouseOver='ShowInfo(event,9,19)' onMouseOut='HideInfo(9,19)' />
+<area shape ='rect' coords='350,196,385,230'  onMouseOver='ShowInfo(event,10,19)' onMouseOut='HideInfo(10,19)' />
+<area shape ='rect' coords='385,196,420,230'  onMouseOver='ShowInfo(event,11,19)' onMouseOut='HideInfo(11,19)' />
+<area shape ='rect' coords='420,196,455,230'  onMouseOver='ShowInfo(event,12,19)' onMouseOut='HideInfo(12,19)' />
+<area shape ='rect' coords='455,196,490,230'  onMouseOver='ShowInfo(event,13,19)' onMouseOut='HideInfo(13,19)' />
+<area shape ='rect' coords='490,196,525,230'  onMouseOver='ShowInfo(event,14,19)' onMouseOut='HideInfo(14,19)' />
+<area shape ='rect' coords='525,196,560,230'  onMouseOver='ShowInfo(event,15,19)' onMouseOut='HideInfo(15,19)' />
+<area shape ='rect' coords='560,196,595,230'  onMouseOver='ShowInfo(event,16,19)' onMouseOut='HideInfo(16,19)' />
+<area shape ='rect' coords='595,196,630,230'  onMouseOver='ShowInfo(event,17,19)' onMouseOut='HideInfo(17,19)' />
+<area shape ='rect' coords='630,196,665,230'  onMouseOver='ShowInfo(event,18,19)' onMouseOut='HideInfo(18,19)' />
+<area shape ='rect' coords='665,196,700,230'  onMouseOver='ShowInfo(event,19,19)' onMouseOut='HideInfo(19,19)' />
+<area shape ='rect' coords='700,196,735,230'  onMouseOver='ShowInfo(event,20,19)' onMouseOut='HideInfo(20,19)' />
+<area shape ='rect' coords='735,196,770,230'  onMouseOver='ShowInfo(event,21,19)' onMouseOut='HideInfo(21,19)' />
+<area shape ='rect' coords='770,196,805,230'  onMouseOver='ShowInfo(event,22,19)' onMouseOut='HideInfo(22,19)' />
+<area shape ='rect' coords='805,196,840,230'  onMouseOver='ShowInfo(event,23,19)' onMouseOut='HideInfo(23,19)' />
+<area shape ='rect' coords='840,196,875,230'  onMouseOver='ShowInfo(event,24,19)' onMouseOut='HideInfo(24,19)' />
+<area shape ='rect' coords='875,196,910,230'  onMouseOver='ShowInfo(event,25,19)' onMouseOut='HideInfo(25,19)' />
+<area shape ='rect' coords='910,196,945,230'  onMouseOver='ShowInfo(event,26,19)' onMouseOut='HideInfo(26,19)' />
+<area shape ='rect' coords='945,196,980,230'  onMouseOver='ShowInfo(event,27,19)' onMouseOut='HideInfo(27,19)' />
+<area shape ='rect' coords='980,196,1015,230'  onMouseOver='ShowInfo(event,28,19)' onMouseOut='HideInfo(28,19)' />
+<area shape ='rect' coords='1015,196,1050,230'  onMouseOver='ShowInfo(event,29,19)' onMouseOut='HideInfo(29,19)' />
+<area shape ='rect' coords='0,161,35,195'  onMouseOver='ShowInfo(event,0,20)' onMouseOut='HideInfo(0,20)' />
+<area shape ='rect' coords='35,161,70,195'  onMouseOver='ShowInfo(event,1,20)' onMouseOut='HideInfo(1,20)' />
+<area shape ='rect' coords='70,161,105,195'  onMouseOver='ShowInfo(event,2,20)' onMouseOut='HideInfo(2,20)' />
+<area shape ='rect' coords='105,161,140,195'  onMouseOver='ShowInfo(event,3,20)' onMouseOut='HideInfo(3,20)' />
+<area shape ='rect' coords='140,161,175,195'  onMouseOver='ShowInfo(event,4,20)' onMouseOut='HideInfo(4,20)' />
+<area shape ='rect' coords='175,161,210,195'  onMouseOver='ShowInfo(event,5,20)' onMouseOut='HideInfo(5,20)' />
+<area shape ='rect' coords='210,161,245,195'  onMouseOver='ShowInfo(event,6,20)' onMouseOut='HideInfo(6,20)' />
+<area shape ='rect' coords='245,161,280,195'  onMouseOver='ShowInfo(event,7,20)' onMouseOut='HideInfo(7,20)' />
+<area shape ='rect' coords='280,161,315,195'  onMouseOver='ShowInfo(event,8,20)' onMouseOut='HideInfo(8,20)' />
+<area shape ='rect' coords='315,161,350,195'  onMouseOver='ShowInfo(event,9,20)' onMouseOut='HideInfo(9,20)' />
+<area shape ='rect' coords='350,161,385,195'  onMouseOver='ShowInfo(event,10,20)' onMouseOut='HideInfo(10,20)' />
+<area shape ='rect' coords='385,161,420,195'  onMouseOver='ShowInfo(event,11,20)' onMouseOut='HideInfo(11,20)' />
+<area shape ='rect' coords='420,161,455,195'  onMouseOver='ShowInfo(event,12,20)' onMouseOut='HideInfo(12,20)' />
+<area shape ='rect' coords='455,161,490,195'  onMouseOver='ShowInfo(event,13,20)' onMouseOut='HideInfo(13,20)' />
+<area shape ='rect' coords='490,161,525,195'  onMouseOver='ShowInfo(event,14,20)' onMouseOut='HideInfo(14,20)' />
+<area shape ='rect' coords='525,161,560,195'  onMouseOver='ShowInfo(event,15,20)' onMouseOut='HideInfo(15,20)' />
+<area shape ='rect' coords='560,161,595,195'  onMouseOver='ShowInfo(event,16,20)' onMouseOut='HideInfo(16,20)' />
+<area shape ='rect' coords='595,161,630,195'  onMouseOver='ShowInfo(event,17,20)' onMouseOut='HideInfo(17,20)' />
+<area shape ='rect' coords='630,161,665,195'  onMouseOver='ShowInfo(event,18,20)' onMouseOut='HideInfo(18,20)' />
+<area shape ='rect' coords='665,161,700,195'  onMouseOver='ShowInfo(event,19,20)' onMouseOut='HideInfo(19,20)' />
+<area shape ='rect' coords='700,161,735,195'  onMouseOver='ShowInfo(event,20,20)' onMouseOut='HideInfo(20,20)' />
+<area shape ='rect' coords='735,161,770,195'  onMouseOver='ShowInfo(event,21,20)' onMouseOut='HideInfo(21,20)' />
+<area shape ='rect' coords='770,161,805,195'  onMouseOver='ShowInfo(event,22,20)' onMouseOut='HideInfo(22,20)' />
+<area shape ='rect' coords='805,161,840,195'  onMouseOver='ShowInfo(event,23,20)' onMouseOut='HideInfo(23,20)' />
+<area shape ='rect' coords='840,161,875,195'  onMouseOver='ShowInfo(event,24,20)' onMouseOut='HideInfo(24,20)' />
+<area shape ='rect' coords='875,161,910,195'  onMouseOver='ShowInfo(event,25,20)' onMouseOut='HideInfo(25,20)' />
+<area shape ='rect' coords='910,161,945,195'  onMouseOver='ShowInfo(event,26,20)' onMouseOut='HideInfo(26,20)' />
+<area shape ='rect' coords='945,161,980,195'  onMouseOver='ShowInfo(event,27,20)' onMouseOut='HideInfo(27,20)' />
+<area shape ='rect' coords='980,161,1015,195'  onMouseOver='ShowInfo(event,28,20)' onMouseOut='HideInfo(28,20)' />
+<area shape ='rect' coords='1015,161,1050,195'  onMouseOver='ShowInfo(event,29,20)' onMouseOut='HideInfo(29,20)' />
+<area shape ='rect' coords='0,126,35,160'  onMouseOver='ShowInfo(event,0,21)' onMouseOut='HideInfo(0,21)' />
+<area shape ='rect' coords='35,126,70,160'  onMouseOver='ShowInfo(event,1,21)' onMouseOut='HideInfo(1,21)' />
+<area shape ='rect' coords='70,126,105,160'  onMouseOver='ShowInfo(event,2,21)' onMouseOut='HideInfo(2,21)' />
+<area shape ='rect' coords='105,126,140,160'  onMouseOver='ShowInfo(event,3,21)' onMouseOut='HideInfo(3,21)' />
+<area shape ='rect' coords='140,126,175,160'  onMouseOver='ShowInfo(event,4,21)' onMouseOut='HideInfo(4,21)' />
+<area shape ='rect' coords='175,126,210,160'  onMouseOver='ShowInfo(event,5,21)' onMouseOut='HideInfo(5,21)' />
+<area shape ='rect' coords='210,126,245,160'  onMouseOver='ShowInfo(event,6,21)' onMouseOut='HideInfo(6,21)' />
+<area shape ='rect' coords='245,126,280,160'  onMouseOver='ShowInfo(event,7,21)' onMouseOut='HideInfo(7,21)' />
+<area shape ='rect' coords='280,126,315,160'  onMouseOver='ShowInfo(event,8,21)' onMouseOut='HideInfo(8,21)' />
+<area shape ='rect' coords='315,126,350,160'  onMouseOver='ShowInfo(event,9,21)' onMouseOut='HideInfo(9,21)' />
+<area shape ='rect' coords='350,126,385,160'  onMouseOver='ShowInfo(event,10,21)' onMouseOut='HideInfo(10,21)' />
+<area shape ='rect' coords='385,126,420,160'  onMouseOver='ShowInfo(event,11,21)' onMouseOut='HideInfo(11,21)' />
+<area shape ='rect' coords='420,126,455,160'  onMouseOver='ShowInfo(event,12,21)' onMouseOut='HideInfo(12,21)' />
+<area shape ='rect' coords='455,126,490,160'  onMouseOver='ShowInfo(event,13,21)' onMouseOut='HideInfo(13,21)' />
+<area shape ='rect' coords='490,126,525,160'  onMouseOver='ShowInfo(event,14,21)' onMouseOut='HideInfo(14,21)' />
+<area shape ='rect' coords='525,126,560,160'  onMouseOver='ShowInfo(event,15,21)' onMouseOut='HideInfo(15,21)' />
+<area shape ='rect' coords='560,126,595,160'  onMouseOver='ShowInfo(event,16,21)' onMouseOut='HideInfo(16,21)' />
+<area shape ='rect' coords='595,126,630,160'  onMouseOver='ShowInfo(event,17,21)' onMouseOut='HideInfo(17,21)' />
+<area shape ='rect' coords='630,126,665,160'  onMouseOver='ShowInfo(event,18,21)' onMouseOut='HideInfo(18,21)' />
+<area shape ='rect' coords='665,126,700,160'  onMouseOver='ShowInfo(event,19,21)' onMouseOut='HideInfo(19,21)' />
+<area shape ='rect' coords='700,126,735,160'  onMouseOver='ShowInfo(event,20,21)' onMouseOut='HideInfo(20,21)' />
+<area shape ='rect' coords='735,126,770,160'  onMouseOver='ShowInfo(event,21,21)' onMouseOut='HideInfo(21,21)' />
+<area shape ='rect' coords='770,126,805,160'  onMouseOver='ShowInfo(event,22,21)' onMouseOut='HideInfo(22,21)' />
+<area shape ='rect' coords='805,126,840,160'  onMouseOver='ShowInfo(event,23,21)' onMouseOut='HideInfo(23,21)' />
+<area shape ='rect' coords='840,126,875,160'  onMouseOver='ShowInfo(event,24,21)' onMouseOut='HideInfo(24,21)' />
+<area shape ='rect' coords='875,126,910,160'  onMouseOver='ShowInfo(event,25,21)' onMouseOut='HideInfo(25,21)' />
+<area shape ='rect' coords='910,126,945,160'  onMouseOver='ShowInfo(event,26,21)' onMouseOut='HideInfo(26,21)' />
+<area shape ='rect' coords='945,126,980,160'  onMouseOver='ShowInfo(event,27,21)' onMouseOut='HideInfo(27,21)' />
+<area shape ='rect' coords='980,126,1015,160'  onMouseOver='ShowInfo(event,28,21)' onMouseOut='HideInfo(28,21)' />
+<area shape ='rect' coords='1015,126,1050,160'  onMouseOver='ShowInfo(event,29,21)' onMouseOut='HideInfo(29,21)' />
+<area shape ='rect' coords='0,91,35,125'  onMouseOver='ShowInfo(event,0,22)' onMouseOut='HideInfo(0,22)' />
+<area shape ='rect' coords='35,91,70,125'  onMouseOver='ShowInfo(event,1,22)' onMouseOut='HideInfo(1,22)' />
+<area shape ='rect' coords='70,91,105,125'  onMouseOver='ShowInfo(event,2,22)' onMouseOut='HideInfo(2,22)' />
+<area shape ='rect' coords='105,91,140,125'  onMouseOver='ShowInfo(event,3,22)' onMouseOut='HideInfo(3,22)' />
+<area shape ='rect' coords='140,91,175,125'  onMouseOver='ShowInfo(event,4,22)' onMouseOut='HideInfo(4,22)' />
+<area shape ='rect' coords='175,91,210,125'  onMouseOver='ShowInfo(event,5,22)' onMouseOut='HideInfo(5,22)' />
+<area shape ='rect' coords='210,91,245,125'  onMouseOver='ShowInfo(event,6,22)' onMouseOut='HideInfo(6,22)' />
+<area shape ='rect' coords='245,91,280,125'  onMouseOver='ShowInfo(event,7,22)' onMouseOut='HideInfo(7,22)' />
+<area shape ='rect' coords='280,91,315,125'  onMouseOver='ShowInfo(event,8,22)' onMouseOut='HideInfo(8,22)' />
+<area shape ='rect' coords='315,91,350,125'  onMouseOver='ShowInfo(event,9,22)' onMouseOut='HideInfo(9,22)' />
+<area shape ='rect' coords='350,91,385,125'  onMouseOver='ShowInfo(event,10,22)' onMouseOut='HideInfo(10,22)' />
+<area shape ='rect' coords='385,91,420,125'  onMouseOver='ShowInfo(event,11,22)' onMouseOut='HideInfo(11,22)' />
+<area shape ='rect' coords='420,91,455,125'  onMouseOver='ShowInfo(event,12,22)' onMouseOut='HideInfo(12,22)' />
+<area shape ='rect' coords='455,91,490,125'  onMouseOver='ShowInfo(event,13,22)' onMouseOut='HideInfo(13,22)' />
+<area shape ='rect' coords='490,91,525,125'  onMouseOver='ShowInfo(event,14,22)' onMouseOut='HideInfo(14,22)' />
+<area shape ='rect' coords='525,91,560,125'  onMouseOver='ShowInfo(event,15,22)' onMouseOut='HideInfo(15,22)' />
+<area shape ='rect' coords='560,91,595,125'  onMouseOver='ShowInfo(event,16,22)' onMouseOut='HideInfo(16,22)' />
+<area shape ='rect' coords='595,91,630,125'  onMouseOver='ShowInfo(event,17,22)' onMouseOut='HideInfo(17,22)' />
+<area shape ='rect' coords='630,91,665,125'  onMouseOver='ShowInfo(event,18,22)' onMouseOut='HideInfo(18,22)' />
+<area shape ='rect' coords='665,91,700,125'  onMouseOver='ShowInfo(event,19,22)' onMouseOut='HideInfo(19,22)' />
+<area shape ='rect' coords='700,91,735,125'  onMouseOver='ShowInfo(event,20,22)' onMouseOut='HideInfo(20,22)' />
+<area shape ='rect' coords='735,91,770,125'  onMouseOver='ShowInfo(event,21,22)' onMouseOut='HideInfo(21,22)' />
+<area shape ='rect' coords='770,91,805,125'  onMouseOver='ShowInfo(event,22,22)' onMouseOut='HideInfo(22,22)' />
+<area shape ='rect' coords='805,91,840,125'  onMouseOver='ShowInfo(event,23,22)' onMouseOut='HideInfo(23,22)' />
+<area shape ='rect' coords='840,91,875,125'  onMouseOver='ShowInfo(event,24,22)' onMouseOut='HideInfo(24,22)' />
+<area shape ='rect' coords='875,91,910,125'  onMouseOver='ShowInfo(event,25,22)' onMouseOut='HideInfo(25,22)' />
+<area shape ='rect' coords='910,91,945,125'  onMouseOver='ShowInfo(event,26,22)' onMouseOut='HideInfo(26,22)' />
+<area shape ='rect' coords='945,91,980,125'  onMouseOver='ShowInfo(event,27,22)' onMouseOut='HideInfo(27,22)' />
+<area shape ='rect' coords='980,91,1015,125'  onMouseOver='ShowInfo(event,28,22)' onMouseOut='HideInfo(28,22)' />
+<area shape ='rect' coords='1015,91,1050,125'  onMouseOver='ShowInfo(event,29,22)' onMouseOut='HideInfo(29,22)' />
+<area shape ='rect' coords='0,56,35,90'  onMouseOver='ShowInfo(event,0,23)' onMouseOut='HideInfo(0,23)' />
+<area shape ='rect' coords='35,56,70,90'  onMouseOver='ShowInfo(event,1,23)' onMouseOut='HideInfo(1,23)' />
+<area shape ='rect' coords='70,56,105,90'  onMouseOver='ShowInfo(event,2,23)' onMouseOut='HideInfo(2,23)' />
+<area shape ='rect' coords='105,56,140,90'  onMouseOver='ShowInfo(event,3,23)' onMouseOut='HideInfo(3,23)' />
+<area shape ='rect' coords='140,56,175,90'  onMouseOver='ShowInfo(event,4,23)' onMouseOut='HideInfo(4,23)' />
+<area shape ='rect' coords='175,56,210,90'  onMouseOver='ShowInfo(event,5,23)' onMouseOut='HideInfo(5,23)' />
+<area shape ='rect' coords='210,56,245,90'  onMouseOver='ShowInfo(event,6,23)' onMouseOut='HideInfo(6,23)' />
+<area shape ='rect' coords='245,56,280,90'  onMouseOver='ShowInfo(event,7,23)' onMouseOut='HideInfo(7,23)' />
+<area shape ='rect' coords='280,56,315,90'  onMouseOver='ShowInfo(event,8,23)' onMouseOut='HideInfo(8,23)' />
+<area shape ='rect' coords='315,56,350,90'  onMouseOver='ShowInfo(event,9,23)' onMouseOut='HideInfo(9,23)' />
+<area shape ='rect' coords='350,56,385,90'  onMouseOver='ShowInfo(event,10,23)' onMouseOut='HideInfo(10,23)' />
+<area shape ='rect' coords='385,56,420,90'  onMouseOver='ShowInfo(event,11,23)' onMouseOut='HideInfo(11,23)' />
+<area shape ='rect' coords='420,56,455,90'  onMouseOver='ShowInfo(event,12,23)' onMouseOut='HideInfo(12,23)' />
+<area shape ='rect' coords='455,56,490,90'  onMouseOver='ShowInfo(event,13,23)' onMouseOut='HideInfo(13,23)' />
+<area shape ='rect' coords='490,56,525,90'  onMouseOver='ShowInfo(event,14,23)' onMouseOut='HideInfo(14,23)' />
+<area shape ='rect' coords='525,56,560,90'  onMouseOver='ShowInfo(event,15,23)' onMouseOut='HideInfo(15,23)' />
+<area shape ='rect' coords='560,56,595,90'  onMouseOver='ShowInfo(event,16,23)' onMouseOut='HideInfo(16,23)' />
+<area shape ='rect' coords='595,56,630,90'  onMouseOver='ShowInfo(event,17,23)' onMouseOut='HideInfo(17,23)' />
+<area shape ='rect' coords='630,56,665,90'  onMouseOver='ShowInfo(event,18,23)' onMouseOut='HideInfo(18,23)' />
+<area shape ='rect' coords='665,56,700,90'  onMouseOver='ShowInfo(event,19,23)' onMouseOut='HideInfo(19,23)' />
+<area shape ='rect' coords='700,56,735,90'  onMouseOver='ShowInfo(event,20,23)' onMouseOut='HideInfo(20,23)' />
+<area shape ='rect' coords='735,56,770,90'  onMouseOver='ShowInfo(event,21,23)' onMouseOut='HideInfo(21,23)' />
+<area shape ='rect' coords='770,56,805,90'  onMouseOver='ShowInfo(event,22,23)' onMouseOut='HideInfo(22,23)' />
+<area shape ='rect' coords='805,56,840,90'  onMouseOver='ShowInfo(event,23,23)' onMouseOut='HideInfo(23,23)' />
+<area shape ='rect' coords='840,56,875,90'  onMouseOver='ShowInfo(event,24,23)' onMouseOut='HideInfo(24,23)' />
+<area shape ='rect' coords='875,56,910,90'  onMouseOver='ShowInfo(event,25,23)' onMouseOut='HideInfo(25,23)' />
+<area shape ='rect' coords='910,56,945,90'  onMouseOver='ShowInfo(event,26,23)' onMouseOut='HideInfo(26,23)' />
+<area shape ='rect' coords='945,56,980,90'  onMouseOver='ShowInfo(event,27,23)' onMouseOut='HideInfo(27,23)' />
+<area shape ='rect' coords='980,56,1015,90'  onMouseOver='ShowInfo(event,28,23)' onMouseOut='HideInfo(28,23)' />
+<area shape ='rect' coords='1015,56,1050,90'  onMouseOver='ShowInfo(event,29,23)' onMouseOut='HideInfo(29,23)' />
+<area shape ='rect' coords='0,21,35,55'  onMouseOver='ShowInfo(event,0,24)' onMouseOut='HideInfo(0,24)' />
+<area shape ='rect' coords='35,21,70,55'  onMouseOver='ShowInfo(event,1,24)' onMouseOut='HideInfo(1,24)' />
+<area shape ='rect' coords='70,21,105,55'  onMouseOver='ShowInfo(event,2,24)' onMouseOut='HideInfo(2,24)' />
+<area shape ='rect' coords='105,21,140,55'  onMouseOver='ShowInfo(event,3,24)' onMouseOut='HideInfo(3,24)' />
+<area shape ='rect' coords='140,21,175,55'  onMouseOver='ShowInfo(event,4,24)' onMouseOut='HideInfo(4,24)' />
+<area shape ='rect' coords='175,21,210,55'  onMouseOver='ShowInfo(event,5,24)' onMouseOut='HideInfo(5,24)' />
+<area shape ='rect' coords='210,21,245,55'  onMouseOver='ShowInfo(event,6,24)' onMouseOut='HideInfo(6,24)' />
+<area shape ='rect' coords='245,21,280,55'  onMouseOver='ShowInfo(event,7,24)' onMouseOut='HideInfo(7,24)' />
+<area shape ='rect' coords='280,21,315,55'  onMouseOver='ShowInfo(event,8,24)' onMouseOut='HideInfo(8,24)' />
+<area shape ='rect' coords='315,21,350,55'  onMouseOver='ShowInfo(event,9,24)' onMouseOut='HideInfo(9,24)' />
+<area shape ='rect' coords='350,21,385,55'  onMouseOver='ShowInfo(event,10,24)' onMouseOut='HideInfo(10,24)' />
+<area shape ='rect' coords='385,21,420,55'  onMouseOver='ShowInfo(event,11,24)' onMouseOut='HideInfo(11,24)' />
+<area shape ='rect' coords='420,21,455,55'  onMouseOver='ShowInfo(event,12,24)' onMouseOut='HideInfo(12,24)' />
+<area shape ='rect' coords='455,21,490,55'  onMouseOver='ShowInfo(event,13,24)' onMouseOut='HideInfo(13,24)' />
+<area shape ='rect' coords='490,21,525,55'  onMouseOver='ShowInfo(event,14,24)' onMouseOut='HideInfo(14,24)' />
+<area shape ='rect' coords='525,21,560,55'  onMouseOver='ShowInfo(event,15,24)' onMouseOut='HideInfo(15,24)' />
+<area shape ='rect' coords='560,21,595,55'  onMouseOver='ShowInfo(event,16,24)' onMouseOut='HideInfo(16,24)' />
+<area shape ='rect' coords='595,21,630,55'  onMouseOver='ShowInfo(event,17,24)' onMouseOut='HideInfo(17,24)' />
+<area shape ='rect' coords='630,21,665,55'  onMouseOver='ShowInfo(event,18,24)' onMouseOut='HideInfo(18,24)' />
+<area shape ='rect' coords='665,21,700,55'  onMouseOver='ShowInfo(event,19,24)' onMouseOut='HideInfo(19,24)' />
+<area shape ='rect' coords='700,21,735,55'  onMouseOver='ShowInfo(event,20,24)' onMouseOut='HideInfo(20,24)' />
+<area shape ='rect' coords='735,21,770,55'  onMouseOver='ShowInfo(event,21,24)' onMouseOut='HideInfo(21,24)' />
+<area shape ='rect' coords='770,21,805,55'  onMouseOver='ShowInfo(event,22,24)' onMouseOut='HideInfo(22,24)' />
+<area shape ='rect' coords='805,21,840,55'  onMouseOver='ShowInfo(event,23,24)' onMouseOut='HideInfo(23,24)' />
+<area shape ='rect' coords='840,21,875,55'  onMouseOver='ShowInfo(event,24,24)' onMouseOut='HideInfo(24,24)' />
+<area shape ='rect' coords='875,21,910,55'  onMouseOver='ShowInfo(event,25,24)' onMouseOut='HideInfo(25,24)' />
+<area shape ='rect' coords='910,21,945,55'  onMouseOver='ShowInfo(event,26,24)' onMouseOut='HideInfo(26,24)' />
+<area shape ='rect' coords='945,21,980,55'  onMouseOver='ShowInfo(event,27,24)' onMouseOut='HideInfo(27,24)' />
+<area shape ='rect' coords='980,21,1015,55'  onMouseOver='ShowInfo(event,28,24)' onMouseOut='HideInfo(28,24)' />
+<area shape ='rect' coords='1015,21,1050,55'  onMouseOver='ShowInfo(event,29,24)' onMouseOut='HideInfo(29,24)' />
+</map>
+<div id=sector_0_0 name=sector_0_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_0 name=sector_1_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_0 name=sector_2_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_0 name=sector_3_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_0 name=sector_4_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_0 name=sector_5_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_0 name=sector_6_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_0 name=sector_7_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_0 name=sector_8_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_0 name=sector_9_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_0 name=sector_10_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_0 name=sector_11_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_0 name=sector_12_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_0 name=sector_13_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_0 name=sector_14_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_0 name=sector_15_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_0 name=sector_16_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_0 name=sector_17_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_0 name=sector_18_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_0 name=sector_19_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_0 name=sector_20_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_0 name=sector_21_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_0 name=sector_22_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_0 name=sector_23_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_0 name=sector_24_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_0 name=sector_25_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_0 name=sector_26_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_0 name=sector_27_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_0 name=sector_28_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_0 name=sector_29_0 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_1 name=sector_0_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_1 name=sector_1_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_1 name=sector_2_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_1 name=sector_3_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_1 name=sector_4_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_1 name=sector_5_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_1 name=sector_6_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_1 name=sector_7_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_1 name=sector_8_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_1 name=sector_9_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_1 name=sector_10_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_1 name=sector_11_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_1 name=sector_12_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_1 name=sector_13_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_1 name=sector_14_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_1 name=sector_15_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_1 name=sector_16_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_1 name=sector_17_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_1 name=sector_18_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_1 name=sector_19_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_1 name=sector_20_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_1 name=sector_21_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_1 name=sector_22_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_1 name=sector_23_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_1 name=sector_24_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_1 name=sector_25_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_1 name=sector_26_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_1 name=sector_27_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_1 name=sector_28_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_1 name=sector_29_1 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_2 name=sector_0_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_2 name=sector_1_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_2 name=sector_2_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_2 name=sector_3_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_2 name=sector_4_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_2 name=sector_5_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_2 name=sector_6_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_2 name=sector_7_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_2 name=sector_8_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_2 name=sector_9_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_2 name=sector_10_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_2 name=sector_11_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_2 name=sector_12_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_2 name=sector_13_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_2 name=sector_14_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_2 name=sector_15_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_2 name=sector_16_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_2 name=sector_17_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_2 name=sector_18_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_2 name=sector_19_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_2 name=sector_20_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_2 name=sector_21_2 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_2 name=sector_22_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW03 defend:30 attack: 0</span></br></div>
+<div id=sector_23_2 name=sector_23_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX03 defend:30 attack: 0</span></br></div>
+<div id=sector_24_2 name=sector_24_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY03 defend:30 attack: 0</span></br></div>
+<div id=sector_25_2 name=sector_25_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ03 defend:16 attack: 0</span></br></div>
+<div id=sector_26_2 name=sector_26_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA03 defend:16 attack: 0</span></br></div>
+<div id=sector_27_2 name=sector_27_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB03 defend:16 attack: 0</span></br></div>
+<div id=sector_28_2 name=sector_28_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC03 defend:16 attack: 0</span></br></div>
+<div id=sector_29_2 name=sector_29_2 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD03 defend:16 attack: 0</span></br></div>
+<div id=sector_0_3 name=sector_0_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_3 name=sector_1_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_3 name=sector_2_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_3 name=sector_3_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_3 name=sector_4_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_3 name=sector_5_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_3 name=sector_6_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_3 name=sector_7_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_3 name=sector_8_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_3 name=sector_9_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_3 name=sector_10_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_3 name=sector_11_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_3 name=sector_12_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_3 name=sector_13_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_3 name=sector_14_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_3 name=sector_15_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_3 name=sector_16_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_3 name=sector_17_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_3 name=sector_18_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_3 name=sector_19_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_3 name=sector_20_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_3 name=sector_21_3 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_3 name=sector_22_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW04 defend:30 attack: 0</span></br></div>
+<div id=sector_23_3 name=sector_23_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX04 defend:30 attack: 0</span></br></div>
+<div id=sector_24_3 name=sector_24_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY04 defend:30 attack: 0</span></br></div>
+<div id=sector_25_3 name=sector_25_3 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AZ04 damage:0</span></br><span align=left>sector-AZ04 defend:30 attack: 0</span></br></div>
+<div id=sector_26_3 name=sector_26_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA04 defend:30 attack: 0</span></br></div>
+<div id=sector_27_3 name=sector_27_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB04 defend:16 attack: 0</span></br></div>
+<div id=sector_28_3 name=sector_28_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC04 defend:16 attack: 0</span></br></div>
+<div id=sector_29_3 name=sector_29_3 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD04 defend:16 attack: 0</span></br></div>
+<div id=sector_0_4 name=sector_0_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_4 name=sector_1_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_4 name=sector_2_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_4 name=sector_3_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_4 name=sector_4_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_4 name=sector_5_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_4 name=sector_6_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_4 name=sector_7_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_4 name=sector_8_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_4 name=sector_9_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_4 name=sector_10_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_4 name=sector_11_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_4 name=sector_12_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_4 name=sector_13_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_4 name=sector_14_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_4 name=sector_15_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_4 name=sector_16_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_4 name=sector_17_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_4 name=sector_18_4 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_4 name=sector_19_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT05 defend:30 attack: 0</span></br></div>
+<div id=sector_20_4 name=sector_20_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU05 defend:30 attack: 0</span></br></div>
+<div id=sector_21_4 name=sector_21_4 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AV05 damage:0</span></br><span align=left>sector-AV05 defend:30 attack: 0</span></br></div>
+<div id=sector_22_4 name=sector_22_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW05 defend:30 attack: 0</span></br></div>
+<div id=sector_23_4 name=sector_23_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX05 defend:30 attack: 0</span></br></div>
+<div id=sector_24_4 name=sector_24_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY05 defend:30 attack: 0</span></br></div>
+<div id=sector_25_4 name=sector_25_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ05 defend:30 attack: 0</span></br></div>
+<div id=sector_26_4 name=sector_26_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA05 defend:30 attack: 0</span></br></div>
+<div id=sector_27_4 name=sector_27_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB05 defend:16 attack: 0</span></br></div>
+<div id=sector_28_4 name=sector_28_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC05 defend:16 attack: 0</span></br></div>
+<div id=sector_29_4 name=sector_29_4 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD05 defend:16 attack: 0</span></br></div>
+<div id=sector_0_5 name=sector_0_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_5 name=sector_1_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_5 name=sector_2_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_5 name=sector_3_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_5 name=sector_4_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_5 name=sector_5_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_5 name=sector_6_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_5 name=sector_7_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_5 name=sector_8_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_5 name=sector_9_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_5 name=sector_10_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_5 name=sector_11_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_5 name=sector_12_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_5 name=sector_13_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_5 name=sector_14_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_5 name=sector_15_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_5 name=sector_16_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_5 name=sector_17_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_5 name=sector_18_5 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_5 name=sector_19_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT06 defend:30 attack: 0</span></br></div>
+<div id=sector_20_5 name=sector_20_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU06 defend:30 attack: 0</span></br></div>
+<div id=sector_21_5 name=sector_21_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV06 defend:30 attack: 0</span></br></div>
+<div id=sector_22_5 name=sector_22_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW06 defend:30 attack: 0</span></br></div>
+<div id=sector_23_5 name=sector_23_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX06 defend:30 attack: 0</span></br></div>
+<div id=sector_24_5 name=sector_24_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY06 defend:30 attack: 0</span></br></div>
+<div id=sector_25_5 name=sector_25_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ06 defend:30 attack: 0</span></br></div>
+<div id=sector_26_5 name=sector_26_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA06 defend:30 attack: 0</span></br></div>
+<div id=sector_27_5 name=sector_27_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB06 defend:30 attack: 0</span></br></div>
+<div id=sector_28_5 name=sector_28_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC06 defend:30 attack: 0</span></br></div>
+<div id=sector_29_5 name=sector_29_5 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD06 defend:16 attack: 0</span></br></div>
+<div id=sector_0_6 name=sector_0_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_6 name=sector_1_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_6 name=sector_2_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_6 name=sector_3_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_6 name=sector_4_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_6 name=sector_5_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_6 name=sector_6_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_6 name=sector_7_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_6 name=sector_8_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_6 name=sector_9_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_6 name=sector_10_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_6 name=sector_11_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_6 name=sector_12_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_6 name=sector_13_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_6 name=sector_14_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_6 name=sector_15_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_6 name=sector_16_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_6 name=sector_17_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_6 name=sector_18_6 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_6 name=sector_19_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT07 defend:30 attack: 0</span></br></div>
+<div id=sector_20_6 name=sector_20_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU07 defend:30 attack: 0</span></br></div>
+<div id=sector_21_6 name=sector_21_6 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AV07 damage:0</span></br><span align=left>sector-AV07 defend:30 attack: 0</span></br></div>
+<div id=sector_22_6 name=sector_22_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW07 defend:30 attack: 0</span></br></div>
+<div id=sector_23_6 name=sector_23_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX07 defend:30 attack: 0</span></br><span align=left>City:MONTGOMERY HQ damage:0</span></br></div>
+<div id=sector_24_6 name=sector_24_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY07 defend:30 attack: 0</span></br></div>
+<div id=sector_25_6 name=sector_25_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ07 defend:30 attack: 0</span></br></div>
+<div id=sector_26_6 name=sector_26_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA07 defend:30 attack: 0</span></br></div>
+<div id=sector_27_6 name=sector_27_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB07 defend:30 attack: 0</span></br></div>
+<div id=sector_28_6 name=sector_28_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC07 defend:30 attack: 0</span></br></div>
+<div id=sector_29_6 name=sector_29_6 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD07 defend:30 attack: 0</span></br></div>
+<div id=sector_0_7 name=sector_0_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_7 name=sector_1_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_7 name=sector_2_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_7 name=sector_3_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_7 name=sector_4_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_7 name=sector_5_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_7 name=sector_6_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_7 name=sector_7_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_7 name=sector_8_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_7 name=sector_9_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_7 name=sector_10_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_7 name=sector_11_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_7 name=sector_12_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_7 name=sector_13_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_7 name=sector_14_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_7 name=sector_15_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_7 name=sector_16_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_7 name=sector_17_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_7 name=sector_18_7 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_7 name=sector_19_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT08 defend:30 attack: 0</span></br></div>
+<div id=sector_20_7 name=sector_20_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU08 defend:30 attack: 0</span></br></div>
+<div id=sector_21_7 name=sector_21_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV08 defend:30 attack: 0</span></br></div>
+<div id=sector_22_7 name=sector_22_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW08 defend:30 attack: 0</span></br></div>
+<div id=sector_23_7 name=sector_23_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX08 defend:30 attack: 0</span></br></div>
+<div id=sector_24_7 name=sector_24_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY08 defend:30 attack: 0</span></br></div>
+<div id=sector_25_7 name=sector_25_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ08 defend:30 attack: 0</span></br></div>
+<div id=sector_26_7 name=sector_26_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA08 defend:30 attack: 0</span></br></div>
+<div id=sector_27_7 name=sector_27_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB08 defend:30 attack: 0</span></br><span align=left>City:Sofafi damage:0</span></br></div>
+<div id=sector_28_7 name=sector_28_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC08 defend:30 attack: 0</span></br></div>
+<div id=sector_29_7 name=sector_29_7 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD08 defend:30 attack: 0</span></br></div>
+<div id=sector_0_8 name=sector_0_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_8 name=sector_1_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_8 name=sector_2_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_8 name=sector_3_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_8 name=sector_4_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_8 name=sector_5_8 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_8 name=sector_6_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG09 defend:30 attack: 0</span></br></div>
+<div id=sector_7_8 name=sector_7_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH09 defend:30 attack: 0</span></br></div>
+<div id=sector_8_8 name=sector_8_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI09 defend:30 attack: 0</span></br></div>
+<div id=sector_9_8 name=sector_9_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ09 defend:30 attack: 0</span></br></div>
+<div id=sector_10_8 name=sector_10_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK09 defend:30 attack: 0</span></br></div>
+<div id=sector_11_8 name=sector_11_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL09 defend:30 attack: 0</span></br></div>
+<div id=sector_12_8 name=sector_12_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM09 defend:6 attack: 30</span></br></div>
+<div id=sector_13_8 name=sector_13_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN09 defend:30 attack: 6</span></br></div>
+<div id=sector_14_8 name=sector_14_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO09 defend:30 attack: 0</span></br></div>
+<div id=sector_15_8 name=sector_15_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP09 defend:30 attack: 0</span></br></div>
+<div id=sector_16_8 name=sector_16_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ09 defend:30 attack: 0</span></br></div>
+<div id=sector_17_8 name=sector_17_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR09 defend:30 attack: 0</span></br></div>
+<div id=sector_18_8 name=sector_18_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS09 defend:30 attack: 0</span></br></div>
+<div id=sector_19_8 name=sector_19_8 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AT09 damage:0</span></br><span align=left>sector-AT09 defend:30 attack: 0</span></br><span align=left>City:Sheferzen damage:0</span></br></div>
+<div id=sector_20_8 name=sector_20_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU09 defend:30 attack: 0</span></br></div>
+<div id=sector_21_8 name=sector_21_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV09 defend:30 attack: 0</span></br></div>
+<div id=sector_22_8 name=sector_22_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW09 defend:30 attack: 0</span></br></div>
+<div id=sector_23_8 name=sector_23_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX09 defend:30 attack: 0</span></br></div>
+<div id=sector_24_8 name=sector_24_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY09 defend:30 attack: 0</span></br></div>
+<div id=sector_25_8 name=sector_25_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ09 defend:30 attack: 0</span></br></div>
+<div id=sector_26_8 name=sector_26_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA09 defend:30 attack: 0</span></br></div>
+<div id=sector_27_8 name=sector_27_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB09 defend:30 attack: 0</span></br></div>
+<div id=sector_28_8 name=sector_28_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC09 defend:30 attack: 0</span></br></div>
+<div id=sector_29_8 name=sector_29_8 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD09 defend:30 attack: 0</span></br></div>
+<div id=sector_0_9 name=sector_0_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_9 name=sector_1_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_9 name=sector_2_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_9 name=sector_3_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_9 name=sector_4_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_9 name=sector_5_9 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_9 name=sector_6_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG10 defend:30 attack: 0</span></br></div>
+<div id=sector_7_9 name=sector_7_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH10 defend:30 attack: 0</span></br></div>
+<div id=sector_8_9 name=sector_8_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI10 defend:30 attack: 0</span></br></div>
+<div id=sector_9_9 name=sector_9_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ10 defend:30 attack: 0</span></br></div>
+<div id=sector_10_9 name=sector_10_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK10 defend:30 attack: 0</span></br></div>
+<div id=sector_11_9 name=sector_11_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL10 defend:30 attack: 0</span></br></div>
+<div id=sector_12_9 name=sector_12_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM10 defend:6 attack: 30</span></br></div>
+<div id=sector_13_9 name=sector_13_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN10 defend:30 attack: 5</span></br></div>
+<div id=sector_14_9 name=sector_14_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO10 defend:30 attack: 0</span></br></div>
+<div id=sector_15_9 name=sector_15_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP10 defend:30 attack: 0</span></br></div>
+<div id=sector_16_9 name=sector_16_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ10 defend:30 attack: 0</span></br></div>
+<div id=sector_17_9 name=sector_17_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR10 defend:30 attack: 0</span></br></div>
+<div id=sector_18_9 name=sector_18_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS10 defend:30 attack: 0</span></br></div>
+<div id=sector_19_9 name=sector_19_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT10 defend:30 attack: 0</span></br></div>
+<div id=sector_20_9 name=sector_20_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU10 defend:30 attack: 0</span></br></div>
+<div id=sector_21_9 name=sector_21_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV10 defend:30 attack: 0</span></br></div>
+<div id=sector_22_9 name=sector_22_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW10 defend:30 attack: 0</span></br></div>
+<div id=sector_23_9 name=sector_23_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX10 defend:30 attack: 0</span></br></div>
+<div id=sector_24_9 name=sector_24_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY10 defend:30 attack: 0</span></br></div>
+<div id=sector_25_9 name=sector_25_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ10 defend:30 attack: 0</span></br></div>
+<div id=sector_26_9 name=sector_26_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA10 defend:30 attack: 0</span></br></div>
+<div id=sector_27_9 name=sector_27_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-BB10 defend:30 attack: 0</span></br></div>
+<div id=sector_28_9 name=sector_28_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC10 defend:30 attack: 0</span></br></div>
+<div id=sector_29_9 name=sector_29_9 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD10 defend:30 attack: 0</span></br></div>
+<div id=sector_0_10 name=sector_0_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_10 name=sector_1_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_10 name=sector_2_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_10 name=sector_3_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_10 name=sector_4_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_10 name=sector_5_10 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_10 name=sector_6_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG11 defend:30 attack: 0</span></br></div>
+<div id=sector_7_10 name=sector_7_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH11 defend:30 attack: 0</span></br></div>
+<div id=sector_8_10 name=sector_8_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI11 defend:30 attack: 0</span></br><span align=left>City:Bir Hacheim damage:6</span></br></div>
+<div id=sector_9_10 name=sector_9_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ11 defend:30 attack: 0</span></br></div>
+<div id=sector_10_10 name=sector_10_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK11 defend:30 attack: 0</span></br></div>
+<div id=sector_11_10 name=sector_11_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL11 defend:30 attack: 0</span></br></div>
+<div id=sector_12_10 name=sector_12_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM11 defend:4 attack: 30</span></br></div>
+<div id=sector_13_10 name=sector_13_10 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AN11 damage:11.25</span></br><span align=left>sector-AN11 defend:30 attack: 3</span></br></div>
+<div id=sector_14_10 name=sector_14_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO11 defend:30 attack: 0</span></br></div>
+<div id=sector_15_10 name=sector_15_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP11 defend:30 attack: 0</span></br></div>
+<div id=sector_16_10 name=sector_16_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ11 defend:30 attack: 0</span></br></div>
+<div id=sector_17_10 name=sector_17_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR11 defend:30 attack: 0</span></br></div>
+<div id=sector_18_10 name=sector_18_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS11 defend:30 attack: 0</span></br></div>
+<div id=sector_19_10 name=sector_19_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT11 defend:30 attack: 0</span></br></div>
+<div id=sector_20_10 name=sector_20_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU11 defend:30 attack: 0</span></br></div>
+<div id=sector_21_10 name=sector_21_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV11 defend:30 attack: 0</span></br></div>
+<div id=sector_22_10 name=sector_22_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW11 defend:30 attack: 0</span></br></div>
+<div id=sector_23_10 name=sector_23_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX11 defend:30 attack: 0</span></br></div>
+<div id=sector_24_10 name=sector_24_10 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AY11 damage:0</span></br><span align=left>sector-AY11 defend:30 attack: 0</span></br><span align=left>City:Sylûm damage:0</span></br></div>
+<div id=sector_25_10 name=sector_25_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-AZ11 defend:30 attack: 0</span></br></div>
+<div id=sector_26_10 name=sector_26_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-BA11 defend:30 attack: 0</span></br></div>
+<div id=sector_27_10 name=sector_27_10 style='display: none; text-align:left;background-color: white'><span align=left>AirField-BB11 damage:0</span></br><span align=left>sector-BB11 defend:30 attack: 0</span></br><span align=left>City:BuQ BuQi damage:0</span></br></div>
+<div id=sector_28_10 name=sector_28_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-BC11 defend:30 attack: 0</span></br></div>
+<div id=sector_29_10 name=sector_29_10 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD11 defend:30 attack: 0</span></br></div>
+<div id=sector_0_11 name=sector_0_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_11 name=sector_1_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_11 name=sector_2_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_11 name=sector_3_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_11 name=sector_4_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_11 name=sector_5_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_11 name=sector_6_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG12 defend:30 attack: 0</span></br></div>
+<div id=sector_7_11 name=sector_7_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH12 defend:30 attack: 0</span></br></div>
+<div id=sector_8_11 name=sector_8_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI12 defend:30 attack: 0</span></br></div>
+<div id=sector_9_11 name=sector_9_11 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AJ12 damage:21.75</span></br><span align=left>sector-AJ12 defend:30 attack: 0</span></br></div>
+<div id=sector_10_11 name=sector_10_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK12 defend:30 attack: 0</span></br></div>
+<div id=sector_11_11 name=sector_11_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL12 defend:28 attack: 0</span></br></div>
+<div id=sector_12_11 name=sector_12_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM12 defend:4 attack: 30</span></br></div>
+<div id=sector_13_11 name=sector_13_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN12 defend:0 attack: 30</span></br></div>
+<div id=sector_14_11 name=sector_14_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO12 defend:30 attack: 13</span></br></div>
+<div id=sector_15_11 name=sector_15_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP12 defend:30 attack: 0</span></br><span align=left>City:Bir EL Gobi damage:0</span></br></div>
+<div id=sector_16_11 name=sector_16_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ12 defend:30 attack: 0</span></br></div>
+<div id=sector_17_11 name=sector_17_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR12 defend:30 attack: 0</span></br></div>
+<div id=sector_18_11 name=sector_18_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS12 defend:30 attack: 0</span></br></div>
+<div id=sector_19_11 name=sector_19_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT12 defend:16 attack: 0</span></br></div>
+<div id=sector_20_11 name=sector_20_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU12 defend:30 attack: 0</span></br></div>
+<div id=sector_21_11 name=sector_21_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV12 defend:30 attack: 0</span></br></div>
+<div id=sector_22_11 name=sector_22_11 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AW12 damage:0</span></br><span align=left>sector-AW12 defend:30 attack: 0</span></br><span align=left>City:Capuzzo damage:0</span></br></div>
+<div id=sector_23_11 name=sector_23_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX12 defend:30 attack: 0</span></br></div>
+<div id=sector_24_11 name=sector_24_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-AY12 defend:30 attack: 0</span></br></div>
+<div id=sector_25_11 name=sector_25_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_11 name=sector_26_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_11 name=sector_27_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_11 name=sector_28_11 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_11 name=sector_29_11 style='display: none; text-align:left;background-color: white'><span align=left>sector-BD12 defend:30 attack: 0</span></br></div>
+<div id=sector_0_12 name=sector_0_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_1_12 name=sector_1_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_12 name=sector_2_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_12 name=sector_3_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_12 name=sector_4_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_12 name=sector_5_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_12 name=sector_6_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG13 defend:30 attack: 0</span></br></div>
+<div id=sector_7_12 name=sector_7_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH13 defend:30 attack: 0</span></br></div>
+<div id=sector_8_12 name=sector_8_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI13 defend:30 attack: 0</span></br></div>
+<div id=sector_9_12 name=sector_9_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ13 defend:30 attack: 0</span></br></div>
+<div id=sector_10_12 name=sector_10_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK13 defend:30 attack: 0</span></br></div>
+<div id=sector_11_12 name=sector_11_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL13 defend:28 attack: 0</span></br></div>
+<div id=sector_12_12 name=sector_12_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM13 defend:28 attack: 0</span></br></div>
+<div id=sector_13_12 name=sector_13_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN13 defend:26 attack: 30</span></br></div>
+<div id=sector_14_12 name=sector_14_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO13 defend:30 attack: 18</span></br></div>
+<div id=sector_15_12 name=sector_15_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP13 defend:30 attack: 0</span></br></div>
+<div id=sector_16_12 name=sector_16_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ13 defend:30 attack: 0</span></br></div>
+<div id=sector_17_12 name=sector_17_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR13 defend:30 attack: 0</span></br></div>
+<div id=sector_18_12 name=sector_18_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS13 defend:30 attack: 0</span></br></div>
+<div id=sector_19_12 name=sector_19_12 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AT13 damage:1.75</span></br><span align=left>sector-AT13 defend:30 attack: 0</span></br></div>
+<div id=sector_20_12 name=sector_20_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU13 defend:30 attack: 0</span></br></div>
+<div id=sector_21_12 name=sector_21_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV13 defend:30 attack: 0</span></br></div>
+<div id=sector_22_12 name=sector_22_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW13 defend:30 attack: 0</span></br></div>
+<div id=sector_23_12 name=sector_23_12 style='display: none; text-align:left;background-color: white'><span align=left>sector-AX13 defend:30 attack: 0</span></br></div>
+<div id=sector_24_12 name=sector_24_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_12 name=sector_25_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_12 name=sector_26_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_12 name=sector_27_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_12 name=sector_28_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_12 name=sector_29_12 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_13 name=sector_0_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA14 defend:30 attack: 0</span></br></div>
+<div id=sector_1_13 name=sector_1_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB14 defend:30 attack: 0</span></br></div>
+<div id=sector_2_13 name=sector_2_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC14 defend:30 attack: 0</span></br></div>
+<div id=sector_3_13 name=sector_3_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD14 defend:30 attack: 0</span></br></div>
+<div id=sector_4_13 name=sector_4_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE14 defend:30 attack: 0</span></br></div>
+<div id=sector_5_13 name=sector_5_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF14 defend:30 attack: 0</span></br></div>
+<div id=sector_6_13 name=sector_6_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG14 defend:30 attack: 0</span></br></div>
+<div id=sector_7_13 name=sector_7_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH14 defend:30 attack: 0</span></br></div>
+<div id=sector_8_13 name=sector_8_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI14 defend:30 attack: 0</span></br></div>
+<div id=sector_9_13 name=sector_9_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ14 defend:30 attack: 0</span></br></div>
+<div id=sector_10_13 name=sector_10_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK14 defend:30 attack: 0</span></br></div>
+<div id=sector_11_13 name=sector_11_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL14 defend:30 attack: 0</span></br></div>
+<div id=sector_12_13 name=sector_12_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM14 defend:30 attack: 0</span></br></div>
+<div id=sector_13_13 name=sector_13_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN14 defend:30 attack: 30</span></br></div>
+<div id=sector_14_13 name=sector_14_13 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AO14 damage:0</span></br><span align=left>sector-AO14 defend:30 attack: 28</span></br></div>
+<div id=sector_15_13 name=sector_15_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP14 defend:30 attack: 0</span></br></div>
+<div id=sector_16_13 name=sector_16_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ14 defend:30 attack: 0</span></br></div>
+<div id=sector_17_13 name=sector_17_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR14 defend:30 attack: 0</span></br></div>
+<div id=sector_18_13 name=sector_18_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS14 defend:30 attack: 0</span></br></div>
+<div id=sector_19_13 name=sector_19_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT14 defend:30 attack: 0</span></br></div>
+<div id=sector_20_13 name=sector_20_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU14 defend:30 attack: 0</span></br></div>
+<div id=sector_21_13 name=sector_21_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV14 defend:30 attack: 0</span></br></div>
+<div id=sector_22_13 name=sector_22_13 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW14 defend:30 attack: 0</span></br></div>
+<div id=sector_23_13 name=sector_23_13 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AX14 damage:0</span></br><span align=left>sector-AX14 defend:30 attack: 0</span></br><span align=left>City:Burdha damage:0</span></br></div>
+<div id=sector_24_13 name=sector_24_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_13 name=sector_25_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_13 name=sector_26_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_13 name=sector_27_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_13 name=sector_28_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_13 name=sector_29_13 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_14 name=sector_0_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA15 defend:30 attack: 0</span></br></div>
+<div id=sector_1_14 name=sector_1_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB15 defend:30 attack: 0</span></br></div>
+<div id=sector_2_14 name=sector_2_14 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AC15 damage:0</span></br><span align=left>sector-AC15 defend:30 attack: 0</span></br><span align=left>City:Todd el ahmar damage:0</span></br></div>
+<div id=sector_3_14 name=sector_3_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD15 defend:30 attack: 0</span></br></div>
+<div id=sector_4_14 name=sector_4_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE15 defend:30 attack: 0</span></br></div>
+<div id=sector_5_14 name=sector_5_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF15 defend:30 attack: 0</span></br></div>
+<div id=sector_6_14 name=sector_6_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG15 defend:30 attack: 0</span></br></div>
+<div id=sector_7_14 name=sector_7_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH15 defend:30 attack: 0</span></br></div>
+<div id=sector_8_14 name=sector_8_14 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AI15 damage:22.75</span></br><span align=left>sector-AI15 defend:30 attack: 0</span></br></div>
+<div id=sector_9_14 name=sector_9_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ15 defend:30 attack: 0</span></br></div>
+<div id=sector_10_14 name=sector_10_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK15 defend:30 attack: 0</span></br></div>
+<div id=sector_11_14 name=sector_11_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL15 defend:30 attack: 0</span></br></div>
+<div id=sector_12_14 name=sector_12_14 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AM15 damage:0</span></br><span align=left>sector-AM15 defend:30 attack: 0</span></br><span align=left>City:El Adhem damage:9.9</span></br></div>
+<div id=sector_13_14 name=sector_13_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN15 defend:30 attack: 30</span></br></div>
+<div id=sector_14_14 name=sector_14_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO15 defend:30 attack: 30</span></br></div>
+<div id=sector_15_14 name=sector_15_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP15 defend:30 attack: 0</span></br></div>
+<div id=sector_16_14 name=sector_16_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ15 defend:30 attack: 0</span></br></div>
+<div id=sector_17_14 name=sector_17_14 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AR15 damage:0</span></br><span align=left>sector-AR15 defend:30 attack: 0</span></br><span align=left>City:Gambut damage:0</span></br></div>
+<div id=sector_18_14 name=sector_18_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS15 defend:30 attack: 0</span></br></div>
+<div id=sector_19_14 name=sector_19_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AT15 defend:30 attack: 0</span></br></div>
+<div id=sector_20_14 name=sector_20_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU15 defend:30 attack: 0</span></br><span align=left>City:Quasr al Jadd damage:0</span></br></div>
+<div id=sector_21_14 name=sector_21_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV15 defend:30 attack: 0</span></br></div>
+<div id=sector_22_14 name=sector_22_14 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW15 defend:30 attack: 0</span></br></div>
+<div id=sector_23_14 name=sector_23_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_14 name=sector_24_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_14 name=sector_25_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_14 name=sector_26_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_14 name=sector_27_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_14 name=sector_28_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_14 name=sector_29_14 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_15 name=sector_0_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA16 defend:30 attack: 0</span></br></div>
+<div id=sector_1_15 name=sector_1_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB16 defend:30 attack: 0</span></br></div>
+<div id=sector_2_15 name=sector_2_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC16 defend:30 attack: 0</span></br></div>
+<div id=sector_3_15 name=sector_3_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD16 defend:30 attack: 0</span></br></div>
+<div id=sector_4_15 name=sector_4_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE16 defend:30 attack: 0</span></br></div>
+<div id=sector_5_15 name=sector_5_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF16 defend:30 attack: 0</span></br></div>
+<div id=sector_6_15 name=sector_6_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG16 defend:30 attack: 0</span></br></div>
+<div id=sector_7_15 name=sector_7_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH16 defend:30 attack: 0</span></br></div>
+<div id=sector_8_15 name=sector_8_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI16 defend:30 attack: 0</span></br></div>
+<div id=sector_9_15 name=sector_9_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ16 defend:30 attack: 0</span></br></div>
+<div id=sector_10_15 name=sector_10_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK16 defend:30 attack: 0</span></br></div>
+<div id=sector_11_15 name=sector_11_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL16 defend:30 attack: 0</span></br></div>
+<div id=sector_12_15 name=sector_12_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AM16 defend:30 attack: 0</span></br></div>
+<div id=sector_13_15 name=sector_13_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AN16 defend:30 attack: 30</span></br></div>
+<div id=sector_14_15 name=sector_14_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AO16 defend:30 attack: 30</span></br></div>
+<div id=sector_15_15 name=sector_15_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AP16 defend:30 attack: 0</span></br><span align=left>City:Kwarah damage:0</span></br></div>
+<div id=sector_16_15 name=sector_16_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AQ16 defend:30 attack: 0</span></br></div>
+<div id=sector_17_15 name=sector_17_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AR16 defend:30 attack: 0</span></br></div>
+<div id=sector_18_15 name=sector_18_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AS16 defend:30 attack: 0</span></br></div>
+<div id=sector_19_15 name=sector_19_15 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AT16 damage:2.5</span></br><span align=left>sector-AT16 defend:30 attack: 0</span></br><span align=left>City:Marsa Lucc damage:0</span></br></div>
+<div id=sector_20_15 name=sector_20_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AU16 defend:30 attack: 0</span></br></div>
+<div id=sector_21_15 name=sector_21_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AV16 defend:30 attack: 0</span></br></div>
+<div id=sector_22_15 name=sector_22_15 style='display: none; text-align:left;background-color: white'><span align=left>sector-AW16 defend:30 attack: 0</span></br><span align=left>City:Ras El Milh damage:0</span></br></div>
+<div id=sector_23_15 name=sector_23_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_15 name=sector_24_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_15 name=sector_25_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_15 name=sector_26_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_15 name=sector_27_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_15 name=sector_28_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_15 name=sector_29_15 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_16 name=sector_0_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA17 defend:30 attack: 0</span></br></div>
+<div id=sector_1_16 name=sector_1_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB17 defend:30 attack: 0</span></br></div>
+<div id=sector_2_16 name=sector_2_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC17 defend:30 attack: 0</span></br></div>
+<div id=sector_3_16 name=sector_3_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD17 defend:30 attack: 0</span></br></div>
+<div id=sector_4_16 name=sector_4_16 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AE17 damage:0</span></br><span align=left>sector-AE17 defend:30 attack: 0</span></br></div>
+<div id=sector_5_16 name=sector_5_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF17 defend:30 attack: 0</span></br></div>
+<div id=sector_6_16 name=sector_6_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG17 defend:30 attack: 0</span></br></div>
+<div id=sector_7_16 name=sector_7_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AH17 defend:30 attack: 0</span></br></div>
+<div id=sector_8_16 name=sector_8_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI17 defend:30 attack: 0</span></br></div>
+<div id=sector_9_16 name=sector_9_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ17 defend:30 attack: 0</span></br></div>
+<div id=sector_10_16 name=sector_10_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK17 defend:30 attack: 0</span></br><span align=left>City:Acroma damage:0</span></br></div>
+<div id=sector_11_16 name=sector_11_16 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL17 defend:30 attack: 0</span></br></div>
+<div id=sector_12_16 name=sector_12_16 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AM17E damage:0</span></br><span align=left>AirField-AM17W damage:5</span></br><span align=left>sector-AM17 defend:30 attack: 0</span></br></div>
+<div id=sector_13_16 name=sector_13_16 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AN17N damage:0</span></br><span align=left>sector-AN17 defend:30 attack: 30</span></br><span align=left>City:Tobruk damage:0</span></br></div>
+<div id=sector_14_16 name=sector_14_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_16 name=sector_15_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_16 name=sector_16_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_16 name=sector_17_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_16 name=sector_18_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_16 name=sector_19_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_16 name=sector_20_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_16 name=sector_21_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_16 name=sector_22_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_16 name=sector_23_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_16 name=sector_24_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_16 name=sector_25_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_16 name=sector_26_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_16 name=sector_27_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_16 name=sector_28_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_16 name=sector_29_16 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_17 name=sector_0_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA18 defend:30 attack: 0</span></br></div>
+<div id=sector_1_17 name=sector_1_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB18 defend:30 attack: 0</span></br></div>
+<div id=sector_2_17 name=sector_2_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC18 defend:30 attack: 0</span></br></div>
+<div id=sector_3_17 name=sector_3_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD18 defend:30 attack: 0</span></br></div>
+<div id=sector_4_17 name=sector_4_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE18 defend:30 attack: 0</span></br></div>
+<div id=sector_5_17 name=sector_5_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF18 defend:30 attack: 0</span></br></div>
+<div id=sector_6_17 name=sector_6_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG18 defend:30 attack: 0</span></br></div>
+<div id=sector_7_17 name=sector_7_17 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AH18 damage:0</span></br><span align=left>sector-AH18 defend:30 attack: 0</span></br><span align=left>City:Gazala damage:0</span></br></div>
+<div id=sector_8_17 name=sector_8_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AI18 defend:30 attack: 0</span></br><span align=left>City:Qurdahah damage:0</span></br></div>
+<div id=sector_9_17 name=sector_9_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AJ18 defend:30 attack: 0</span></br></div>
+<div id=sector_10_17 name=sector_10_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AK18 defend:30 attack: 0</span></br></div>
+<div id=sector_11_17 name=sector_11_17 style='display: none; text-align:left;background-color: white'><span align=left>sector-AL18 defend:30 attack: 0</span></br></div>
+<div id=sector_12_17 name=sector_12_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_17 name=sector_13_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_17 name=sector_14_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_17 name=sector_15_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_17 name=sector_16_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_17 name=sector_17_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_17 name=sector_18_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_17 name=sector_19_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_17 name=sector_20_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_17 name=sector_21_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_17 name=sector_22_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_17 name=sector_23_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_17 name=sector_24_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_17 name=sector_25_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_17 name=sector_26_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_17 name=sector_27_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_17 name=sector_28_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_17 name=sector_29_17 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_18 name=sector_0_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA19 defend:30 attack: 0</span></br></div>
+<div id=sector_1_18 name=sector_1_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB19 defend:30 attack: 0</span></br></div>
+<div id=sector_2_18 name=sector_2_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC19 defend:30 attack: 0</span></br></div>
+<div id=sector_3_18 name=sector_3_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD19 defend:30 attack: 0</span></br></div>
+<div id=sector_4_18 name=sector_4_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE19 defend:30 attack: 0</span></br></div>
+<div id=sector_5_18 name=sector_5_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF19 defend:30 attack: 0</span></br></div>
+<div id=sector_6_18 name=sector_6_18 style='display: none; text-align:left;background-color: white'><span align=left>sector-AG19 defend:30 attack: 0</span></br></div>
+<div id=sector_7_18 name=sector_7_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_18 name=sector_8_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_18 name=sector_9_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_18 name=sector_10_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_18 name=sector_11_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_18 name=sector_12_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_18 name=sector_13_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_18 name=sector_14_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_18 name=sector_15_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_18 name=sector_16_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_18 name=sector_17_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_18 name=sector_18_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_18 name=sector_19_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_18 name=sector_20_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_18 name=sector_21_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_18 name=sector_22_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_18 name=sector_23_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_18 name=sector_24_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_18 name=sector_25_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_18 name=sector_26_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_18 name=sector_27_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_18 name=sector_28_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_18 name=sector_29_18 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_19 name=sector_0_19 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA20 defend:30 attack: 0</span></br></div>
+<div id=sector_1_19 name=sector_1_19 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB20 defend:30 attack: 0</span></br></div>
+<div id=sector_2_19 name=sector_2_19 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC20 defend:30 attack: 0</span></br></div>
+<div id=sector_3_19 name=sector_3_19 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD20 defend:30 attack: 0</span></br></div>
+<div id=sector_4_19 name=sector_4_19 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AE20 damage:0</span></br><span align=left>sector-AE20 defend:30 attack: 0</span></br><span align=left>City:Tmimi damage:0</span></br></div>
+<div id=sector_5_19 name=sector_5_19 style='display: none; text-align:left;background-color: white'><span align=left>sector-AF20 defend:30 attack: 0</span></br></div>
+<div id=sector_6_19 name=sector_6_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_19 name=sector_7_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_19 name=sector_8_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_19 name=sector_9_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_19 name=sector_10_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_19 name=sector_11_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_19 name=sector_12_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_19 name=sector_13_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_19 name=sector_14_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_19 name=sector_15_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_19 name=sector_16_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_19 name=sector_17_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_19 name=sector_18_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_19 name=sector_19_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_19 name=sector_20_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_19 name=sector_21_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_19 name=sector_22_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_19 name=sector_23_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_19 name=sector_24_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_19 name=sector_25_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_19 name=sector_26_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_19 name=sector_27_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_19 name=sector_28_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_19 name=sector_29_19 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_20 name=sector_0_20 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA21 defend:30 attack: 0</span></br></div>
+<div id=sector_1_20 name=sector_1_20 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB21 defend:30 attack: 0</span></br><span align=left>City:ROMMEL HQ damage:0</span></br></div>
+<div id=sector_2_20 name=sector_2_20 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC21 defend:30 attack: 0</span></br></div>
+<div id=sector_3_20 name=sector_3_20 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD21 defend:30 attack: 0</span></br></div>
+<div id=sector_4_20 name=sector_4_20 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE21 defend:30 attack: 0</span></br><span align=left>City:La Bomba damage:0</span></br></div>
+<div id=sector_5_20 name=sector_5_20 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AF21 damage:0</span></br><span align=left>sector-AF21 defend:30 attack: 0</span></br></div>
+<div id=sector_6_20 name=sector_6_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_20 name=sector_7_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_20 name=sector_8_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_20 name=sector_9_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_20 name=sector_10_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_20 name=sector_11_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_20 name=sector_12_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_20 name=sector_13_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_20 name=sector_14_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_20 name=sector_15_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_20 name=sector_16_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_20 name=sector_17_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_20 name=sector_18_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_20 name=sector_19_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_20 name=sector_20_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_20 name=sector_21_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_20 name=sector_22_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_20 name=sector_23_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_20 name=sector_24_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_20 name=sector_25_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_20 name=sector_26_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_20 name=sector_27_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_20 name=sector_28_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_20 name=sector_29_20 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_21 name=sector_0_21 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA22 defend:30 attack: 0</span></br></div>
+<div id=sector_1_21 name=sector_1_21 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB22 defend:30 attack: 0</span></br></div>
+<div id=sector_2_21 name=sector_2_21 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC22 defend:30 attack: 0</span></br></div>
+<div id=sector_3_21 name=sector_3_21 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD22 defend:30 attack: 0</span></br></div>
+<div id=sector_4_21 name=sector_4_21 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE22 defend:30 attack: 0</span></br><span align=left>City:Um irrizam damage:0</span></br></div>
+<div id=sector_5_21 name=sector_5_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_21 name=sector_6_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_21 name=sector_7_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_21 name=sector_8_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_21 name=sector_9_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_21 name=sector_10_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_21 name=sector_11_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_21 name=sector_12_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_21 name=sector_13_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_21 name=sector_14_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_21 name=sector_15_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_21 name=sector_16_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_21 name=sector_17_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_21 name=sector_18_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_21 name=sector_19_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_21 name=sector_20_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_21 name=sector_21_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_21 name=sector_22_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_21 name=sector_23_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_21 name=sector_24_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_21 name=sector_25_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_21 name=sector_26_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_21 name=sector_27_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_21 name=sector_28_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_21 name=sector_29_21 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_22 name=sector_0_22 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA23 defend:30 attack: 0</span></br></div>
+<div id=sector_1_22 name=sector_1_22 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AB23 damage:0</span></br><span align=left>sector-AB23 defend:30 attack: 0</span></br><span align=left>City:Martubah damage:0</span></br></div>
+<div id=sector_2_22 name=sector_2_22 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC23 defend:30 attack: 0</span></br></div>
+<div id=sector_3_22 name=sector_3_22 style='display: none; text-align:left;background-color: white'><span align=left>sector-AD23 defend:30 attack: 0</span></br></div>
+<div id=sector_4_22 name=sector_4_22 style='display: none; text-align:left;background-color: white'><span align=left>sector-AE23 defend:30 attack: 0</span></br></div>
+<div id=sector_5_22 name=sector_5_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_22 name=sector_6_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_22 name=sector_7_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_22 name=sector_8_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_22 name=sector_9_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_22 name=sector_10_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_22 name=sector_11_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_22 name=sector_12_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_22 name=sector_13_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_22 name=sector_14_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_22 name=sector_15_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_22 name=sector_16_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_22 name=sector_17_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_22 name=sector_18_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_22 name=sector_19_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_22 name=sector_20_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_22 name=sector_21_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_22 name=sector_22_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_22 name=sector_23_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_22 name=sector_24_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_22 name=sector_25_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_22 name=sector_26_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_22 name=sector_27_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_22 name=sector_28_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_22 name=sector_29_22 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_23 name=sector_0_23 style='display: none; text-align:left;background-color: white'><span align=left>sector-AA24 defend:30 attack: 0</span></br></div>
+<div id=sector_1_23 name=sector_1_23 style='display: none; text-align:left;background-color: white'><span align=left>sector-AB24 defend:30 attack: 0</span></br></div>
+<div id=sector_2_23 name=sector_2_23 style='display: none; text-align:left;background-color: white'><span align=left>sector-AC24 defend:30 attack: 0</span></br></div>
+<div id=sector_3_23 name=sector_3_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_23 name=sector_4_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_23 name=sector_5_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_23 name=sector_6_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_23 name=sector_7_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_23 name=sector_8_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_23 name=sector_9_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_23 name=sector_10_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_23 name=sector_11_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_23 name=sector_12_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_23 name=sector_13_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_23 name=sector_14_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_23 name=sector_15_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_23 name=sector_16_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_23 name=sector_17_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_23 name=sector_18_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_23 name=sector_19_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_23 name=sector_20_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_23 name=sector_21_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_23 name=sector_22_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_23 name=sector_23_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_23 name=sector_24_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_23 name=sector_25_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_23 name=sector_26_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_23 name=sector_27_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_23 name=sector_28_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_23 name=sector_29_23 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_0_24 name=sector_0_24 style='display: none; text-align:left;background-color: white'><span align=left>AirField-AA25 damage:0</span></br><span align=left>sector-AA25 defend:30 attack: 0</span></br><span align=left>City:Darnah damage:0</span></br></div>
+<div id=sector_1_24 name=sector_1_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_2_24 name=sector_2_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_3_24 name=sector_3_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_4_24 name=sector_4_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_5_24 name=sector_5_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_6_24 name=sector_6_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_7_24 name=sector_7_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_8_24 name=sector_8_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_9_24 name=sector_9_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_10_24 name=sector_10_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_11_24 name=sector_11_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_12_24 name=sector_12_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_13_24 name=sector_13_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_14_24 name=sector_14_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_15_24 name=sector_15_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_16_24 name=sector_16_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_17_24 name=sector_17_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_18_24 name=sector_18_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_19_24 name=sector_19_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_20_24 name=sector_20_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_21_24 name=sector_21_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_22_24 name=sector_22_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_23_24 name=sector_23_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_24_24 name=sector_24_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_25_24 name=sector_25_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_26_24 name=sector_26_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_27_24 name=sector_27_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_28_24 name=sector_28_24 style='display: none; text-align:left;background-color: white'></div>
+<div id=sector_29_24 name=sector_29_24 style='display: none; text-align:left;background-color: white'></div>
+<script type="text/javascript">
+function ShowInfo(event,x,y)
+{
+	document.getElementById('sector_'+x+'_'+y).style.position="absolute";
+	document.getElementById('sector_'+x+'_'+y).style.left=(event.clientX+1+document.body.scrollLeft)+"px";
+	document.getElementById('sector_'+x+'_'+y).style.top=(event.clientY+1+document.body.scrollTop)+"px";
+	document.getElementById('sector_'+x+'_'+y).style.zIndex=1;
+	document.getElementById('sector_'+x+'_'+y).style.display="block";
+	
+}
+function HideInfo(x,y)
+{
+	document.getElementById('sector_'+x+'_'+y).style.display="none";
+}
+</script>		

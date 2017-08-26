@@ -1,0 +1,33 @@
+[MAIN]
+  MAP JV69_LYBIA_N-E/JV69_M_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  0_Static vehicles.planes.Plane$LI_2 1 215468.72 61754.36 211.48 0.0 gb
+  1_Static vehicles.planes.Plane$LI_2 1 229751.74 113078.43 539.10 0.0 gb
+  2_Static vehicles.planes.Plane$LI_2 1 233438.50 131152.12 269.10 0.0 gb
+  3_Static vehicles.planes.Plane$LI_2 1 192473.23 158127.22 220.03 0.0 gb
+  4_Static vehicles.planes.Plane$LI_2 1 178282.82 147527.29 224.10 0.0 gb
+  5_Static vehicles.planes.Plane$LI_2 1 148634.38 137932.84 401.52 0.0 gb
+  6_Static vehicles.planes.Plane$LI_2 1 134365.16 107584.39 187.75 0.0 gb
+  7_Static vehicles.planes.Plane$LI_2 1 196626.42 88652.98 270.42 0.0 gb
+  8_Static vehicles.planes.Plane$LI_2 1 215530.79 47350.44 231.42 0.0 gb
+  9_Static vehicles.planes.Plane$LI_2 1 249888.90 39832.15 352.82 0.0 gb
+  11_Static vehicles.planes.Plane$LI_2 1 273247.82 106232.71 239.91 0.0 gb
+  12_Static vehicles.planes.Plane$LI_2 1 243051.04 110195.86 402.30 0.0 gb
+  13_Static vehicles.planes.Plane$LI_2 1 126538.77 140178.13 538.60 0.0 gb
+  14_Static vehicles.planes.Plane$LI_2 1 126085.44 161559.42 539.09 0.0 gb
+  15_Static vehicles.planes.Plane$LI_2 1 129714.51 163695.02 539.04 0.0 gb
+  16_Static vehicles.planes.Plane$LI_2 1 131809.34 167989.29 463.59 0.0 gb
+  17_Static vehicles.planes.Plane$LI_2 1 72818.74 175946.38 223.59 0.0 gb
+  18_Static vehicles.planes.Plane$LI_2 1 45705.22 193393.90 223.59 0.0 gb
+  19_Static vehicles.planes.Plane$LI_2 1 51568.69 206812.60 315.00 0.0 gb
+  20_Static vehicles.planes.Plane$LI_2 1 18111.14 221035.29 480.00 0.0 gb
+  21_Static vehicles.planes.Plane$LI_2 1 4848.85 242267.94 480.00 0.0 gb
+  22_Static vehicles.planes.Plane$LI_2 1 26759.30 146044.99 255.00 0.0 gb
+[Buildings]
+[Bridge]
+[House]

@@ -1,0 +1,38 @@
+[MAIN]
+MAP vol_ItalyAfricaGreece/vol_ita_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 10000_Static vehicles.planes.Plane$JU_52_3MG4E 2 4033.49 140928.86 360.00 0.0
+ 10001_Static vehicles.planes.Plane$JU_52_3MG4E 2 9206.50 136448.25 360.00 0.0
+ 10002_Static vehicles.planes.Plane$JU_52_3MG4E 2 18045.41 136226.14 360.00 0.0
+ 10003_Static vehicles.planes.Plane$JU_52_3MG4E 2 8867.74 127160.32 360.00 0.0
+ 10004_Static vehicles.planes.Plane$JU_52_3MG4E 2 15318.05 117470.68 360.00 0.0
+ 10005_Static vehicles.planes.Plane$JU_52_3MG4E 2 14572.55 97121.97 360.00 0.0
+ 10006_Static vehicles.planes.Plane$JU_52_3MG4E 2 16280.56 78904.25 360.00 0.0
+ 10007_Static vehicles.planes.Plane$JU_52_3MG4E 2 41338.78 59182.13 360.00 0.0
+ 10008_Static vehicles.planes.Plane$JU_52_3MG4E 2 47189.39 44331.34 360.00 0.0
+ 10009_Static vehicles.planes.Plane$JU_52_3MG4E 2 69391.76 58051.73 360.00 0.0
+ 10010_Static vehicles.planes.Plane$JU_52_3MG4E 2 103469.99 46419.29 360.00 0.0
+ 10011_Static vehicles.planes.Plane$JU_52_3MG4E 2 136099.45 21178.68 360.00 0.0
+ 10012_Static vehicles.planes.Plane$JU_52_3MG4E 2 196209.75 7298.64 360.00 0.0
+ 10013_Static vehicles.planes.Plane$JU_52_3MG4E 2 209006.24 42716.32 360.00 0.0
+ 10014_Static vehicles.planes.Plane$JU_52_3MG4E 2 243856.66 55440.01 360.00 0.0
+ 10015_Static vehicles.planes.Plane$JU_52_3MG4E 2 260383.20 51956.28 360.00 0.0
+ 10016_Static vehicles.planes.Plane$JU_52_3MG4E 2 264812.78 47305.38 360.00 0.0
+ 10017_Static vehicles.planes.Plane$JU_52_3MG4E 2 274071.86 43884.43 360.00 0.0
+ 10018_Static vehicles.planes.Plane$JU_52_3MG4E 2 283030.59 42691.09 360.00 0.0
+ 10019_Static vehicles.planes.Plane$JU_52_3MG4E 2 282975.88 37406.56 360.00 0.0
+ 10020_Static vehicles.planes.Plane$JU_52_3MG4E 2 292672.20 37766.57 360.00 0.0
+ 10021_Static vehicles.planes.Plane$JU_52_3MG4E 2 292726.80 16763.92 360.00 0.0
+ 10022_Static vehicles.planes.Plane$JU_52_3MG4E 2 234250.39 25938.93 360.00 0.0
+ 10023_Static vehicles.planes.Plane$JU_52_3MG4E 2 164471.01 7439.29 360.00 0.0
+ 10024_Static vehicles.planes.Plane$JU_52_3MG4E 2 106857.20 13802.08 360.00 0.0
+ 10025_Static vehicles.planes.Plane$JU_52_3MG4E 2 78767.89 27645.79 363.59 0.0
+ 10026_Static vehicles.planes.Plane$JU_52_3MG4E 2 16107.49 45343.60 355.50 0.0
+[Buildings]
+[Bridge]
+[House]
