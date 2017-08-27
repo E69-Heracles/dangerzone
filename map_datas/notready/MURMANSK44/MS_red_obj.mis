@@ -1,0 +1,21 @@
+[MAIN]
+MAP mixx_Zapolar'e/mix_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 115313.74 104793.11 272.00 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 82568.27 40683.01 272.00 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 125477.13 74989.97 272.00 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 153824.65 76364.69 272.00 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 186869.06 112432.33 272.00 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 218504.90 63734.64 272.00 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 241439.32 38864.62 272.00 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 220591.54 13900.85 272.00 0.0
+ 8_Static vehicles.planes.Plane$LI_2 1 233172.64 10202.37 272.01 0.0
+ 9_Static vehicles.planes.Plane$LI_2 1 267096.41 65638.86 272.01 0.0
+[Buildings]
+[Bridge]
+[House]

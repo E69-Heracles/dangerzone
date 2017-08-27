@@ -1,0 +1,1518 @@
+ <img src="../images/front.jpg" width="1440" height="768" border="0" alt="Mapa del Frente" usemap="#map">
+ <map name="map">
+  <area shape ="rect" coords="0,721,47,767"  onMouseOver="ShowInfo(event,0,0)" onMouseOut="HideInfo(0,0)">
+  <area shape ="rect" coords="47,721,94,767"  onMouseOver="ShowInfo(event,1,0)" onMouseOut="HideInfo(1,0)">
+  <area shape ="rect" coords="94,721,141,767"  onMouseOver="ShowInfo(event,2,0)" onMouseOut="HideInfo(2,0)">
+  <area shape ="rect" coords="141,721,188,767"  onMouseOver="ShowInfo(event,3,0)" onMouseOut="HideInfo(3,0)">
+  <area shape ="rect" coords="188,721,235,767"  onMouseOver="ShowInfo(event,4,0)" onMouseOut="HideInfo(4,0)">
+  <area shape ="rect" coords="235,721,282,767"  onMouseOver="ShowInfo(event,5,0)" onMouseOut="HideInfo(5,0)">
+  <area shape ="rect" coords="282,721,329,767"  onMouseOver="ShowInfo(event,6,0)" onMouseOut="HideInfo(6,0)">
+  <area shape ="rect" coords="329,721,376,767"  onMouseOver="ShowInfo(event,7,0)" onMouseOut="HideInfo(7,0)">
+  <area shape ="rect" coords="376,721,423,767"  onMouseOver="ShowInfo(event,8,0)" onMouseOut="HideInfo(8,0)">
+  <area shape ="rect" coords="423,721,470,767"  onMouseOver="ShowInfo(event,9,0)" onMouseOut="HideInfo(9,0)">
+  <area shape ="rect" coords="470,721,517,767"  onMouseOver="ShowInfo(event,10,0)" onMouseOut="HideInfo(10,0)">
+  <area shape ="rect" coords="517,721,564,767"  onMouseOver="ShowInfo(event,11,0)" onMouseOut="HideInfo(11,0)">
+  <area shape ="rect" coords="564,721,611,767"  onMouseOver="ShowInfo(event,12,0)" onMouseOut="HideInfo(12,0)">
+  <area shape ="rect" coords="611,721,658,767"  onMouseOver="ShowInfo(event,13,0)" onMouseOut="HideInfo(13,0)">
+  <area shape ="rect" coords="658,721,705,767"  onMouseOver="ShowInfo(event,14,0)" onMouseOut="HideInfo(14,0)">
+  <area shape ="rect" coords="705,721,752,767"  onMouseOver="ShowInfo(event,15,0)" onMouseOut="HideInfo(15,0)">
+  <area shape ="rect" coords="752,721,799,767"  onMouseOver="ShowInfo(event,16,0)" onMouseOut="HideInfo(16,0)">
+  <area shape ="rect" coords="799,721,846,767"  onMouseOver="ShowInfo(event,17,0)" onMouseOut="HideInfo(17,0)">
+  <area shape ="rect" coords="846,721,893,767"  onMouseOver="ShowInfo(event,18,0)" onMouseOut="HideInfo(18,0)">
+  <area shape ="rect" coords="893,721,940,767"  onMouseOver="ShowInfo(event,19,0)" onMouseOut="HideInfo(19,0)">
+  <area shape ="rect" coords="940,721,987,767"  onMouseOver="ShowInfo(event,20,0)" onMouseOut="HideInfo(20,0)">
+  <area shape ="rect" coords="987,721,1034,767"  onMouseOver="ShowInfo(event,21,0)" onMouseOut="HideInfo(21,0)">
+  <area shape ="rect" coords="1034,721,1081,767"  onMouseOver="ShowInfo(event,22,0)" onMouseOut="HideInfo(22,0)">
+  <area shape ="rect" coords="1081,721,1128,767"  onMouseOver="ShowInfo(event,23,0)" onMouseOut="HideInfo(23,0)">
+  <area shape ="rect" coords="1128,721,1175,767"  onMouseOver="ShowInfo(event,24,0)" onMouseOut="HideInfo(24,0)">
+  <area shape ="rect" coords="1175,721,1222,767"  onMouseOver="ShowInfo(event,25,0)" onMouseOut="HideInfo(25,0)">
+  <area shape ="rect" coords="1222,721,1269,767"  onMouseOver="ShowInfo(event,26,0)" onMouseOut="HideInfo(26,0)">
+  <area shape ="rect" coords="1269,721,1316,767"  onMouseOver="ShowInfo(event,27,0)" onMouseOut="HideInfo(27,0)">
+  <area shape ="rect" coords="1316,721,1363,767"  onMouseOver="ShowInfo(event,28,0)" onMouseOut="HideInfo(28,0)">
+  <area shape ="rect" coords="1363,721,1410,767"  onMouseOver="ShowInfo(event,29,0)" onMouseOut="HideInfo(29,0)">
+  <area shape ="rect" coords="0,674,47,720"  onMouseOver="ShowInfo(event,0,1)" onMouseOut="HideInfo(0,1)">
+  <area shape ="rect" coords="47,674,94,720"  onMouseOver="ShowInfo(event,1,1)" onMouseOut="HideInfo(1,1)">
+  <area shape ="rect" coords="94,674,141,720"  onMouseOver="ShowInfo(event,2,1)" onMouseOut="HideInfo(2,1)">
+  <area shape ="rect" coords="141,674,188,720"  onMouseOver="ShowInfo(event,3,1)" onMouseOut="HideInfo(3,1)">
+  <area shape ="rect" coords="188,674,235,720"  onMouseOver="ShowInfo(event,4,1)" onMouseOut="HideInfo(4,1)">
+  <area shape ="rect" coords="235,674,282,720"  onMouseOver="ShowInfo(event,5,1)" onMouseOut="HideInfo(5,1)">
+  <area shape ="rect" coords="282,674,329,720"  onMouseOver="ShowInfo(event,6,1)" onMouseOut="HideInfo(6,1)">
+  <area shape ="rect" coords="329,674,376,720"  onMouseOver="ShowInfo(event,7,1)" onMouseOut="HideInfo(7,1)">
+  <area shape ="rect" coords="376,674,423,720"  onMouseOver="ShowInfo(event,8,1)" onMouseOut="HideInfo(8,1)">
+  <area shape ="rect" coords="423,674,470,720"  onMouseOver="ShowInfo(event,9,1)" onMouseOut="HideInfo(9,1)">
+  <area shape ="rect" coords="470,674,517,720"  onMouseOver="ShowInfo(event,10,1)" onMouseOut="HideInfo(10,1)">
+  <area shape ="rect" coords="517,674,564,720"  onMouseOver="ShowInfo(event,11,1)" onMouseOut="HideInfo(11,1)">
+  <area shape ="rect" coords="564,674,611,720"  onMouseOver="ShowInfo(event,12,1)" onMouseOut="HideInfo(12,1)">
+  <area shape ="rect" coords="611,674,658,720"  onMouseOver="ShowInfo(event,13,1)" onMouseOut="HideInfo(13,1)">
+  <area shape ="rect" coords="658,674,705,720"  onMouseOver="ShowInfo(event,14,1)" onMouseOut="HideInfo(14,1)">
+  <area shape ="rect" coords="705,674,752,720"  onMouseOver="ShowInfo(event,15,1)" onMouseOut="HideInfo(15,1)">
+  <area shape ="rect" coords="752,674,799,720"  onMouseOver="ShowInfo(event,16,1)" onMouseOut="HideInfo(16,1)">
+  <area shape ="rect" coords="799,674,846,720"  onMouseOver="ShowInfo(event,17,1)" onMouseOut="HideInfo(17,1)">
+  <area shape ="rect" coords="846,674,893,720"  onMouseOver="ShowInfo(event,18,1)" onMouseOut="HideInfo(18,1)">
+  <area shape ="rect" coords="893,674,940,720"  onMouseOver="ShowInfo(event,19,1)" onMouseOut="HideInfo(19,1)">
+  <area shape ="rect" coords="940,674,987,720"  onMouseOver="ShowInfo(event,20,1)" onMouseOut="HideInfo(20,1)">
+  <area shape ="rect" coords="987,674,1034,720"  onMouseOver="ShowInfo(event,21,1)" onMouseOut="HideInfo(21,1)">
+  <area shape ="rect" coords="1034,674,1081,720"  onMouseOver="ShowInfo(event,22,1)" onMouseOut="HideInfo(22,1)">
+  <area shape ="rect" coords="1081,674,1128,720"  onMouseOver="ShowInfo(event,23,1)" onMouseOut="HideInfo(23,1)">
+  <area shape ="rect" coords="1128,674,1175,720"  onMouseOver="ShowInfo(event,24,1)" onMouseOut="HideInfo(24,1)">
+  <area shape ="rect" coords="1175,674,1222,720"  onMouseOver="ShowInfo(event,25,1)" onMouseOut="HideInfo(25,1)">
+  <area shape ="rect" coords="1222,674,1269,720"  onMouseOver="ShowInfo(event,26,1)" onMouseOut="HideInfo(26,1)">
+  <area shape ="rect" coords="1269,674,1316,720"  onMouseOver="ShowInfo(event,27,1)" onMouseOut="HideInfo(27,1)">
+  <area shape ="rect" coords="1316,674,1363,720"  onMouseOver="ShowInfo(event,28,1)" onMouseOut="HideInfo(28,1)">
+  <area shape ="rect" coords="1363,674,1410,720"  onMouseOver="ShowInfo(event,29,1)" onMouseOut="HideInfo(29,1)">
+  <area shape ="rect" coords="0,627,47,673"  onMouseOver="ShowInfo(event,0,2)" onMouseOut="HideInfo(0,2)">
+  <area shape ="rect" coords="47,627,94,673"  onMouseOver="ShowInfo(event,1,2)" onMouseOut="HideInfo(1,2)">
+  <area shape ="rect" coords="94,627,141,673"  onMouseOver="ShowInfo(event,2,2)" onMouseOut="HideInfo(2,2)">
+  <area shape ="rect" coords="141,627,188,673"  onMouseOver="ShowInfo(event,3,2)" onMouseOut="HideInfo(3,2)">
+  <area shape ="rect" coords="188,627,235,673"  onMouseOver="ShowInfo(event,4,2)" onMouseOut="HideInfo(4,2)">
+  <area shape ="rect" coords="235,627,282,673"  onMouseOver="ShowInfo(event,5,2)" onMouseOut="HideInfo(5,2)">
+  <area shape ="rect" coords="282,627,329,673"  onMouseOver="ShowInfo(event,6,2)" onMouseOut="HideInfo(6,2)">
+  <area shape ="rect" coords="329,627,376,673"  onMouseOver="ShowInfo(event,7,2)" onMouseOut="HideInfo(7,2)">
+  <area shape ="rect" coords="376,627,423,673"  onMouseOver="ShowInfo(event,8,2)" onMouseOut="HideInfo(8,2)">
+  <area shape ="rect" coords="423,627,470,673"  onMouseOver="ShowInfo(event,9,2)" onMouseOut="HideInfo(9,2)">
+  <area shape ="rect" coords="470,627,517,673"  onMouseOver="ShowInfo(event,10,2)" onMouseOut="HideInfo(10,2)">
+  <area shape ="rect" coords="517,627,564,673"  onMouseOver="ShowInfo(event,11,2)" onMouseOut="HideInfo(11,2)">
+  <area shape ="rect" coords="564,627,611,673"  onMouseOver="ShowInfo(event,12,2)" onMouseOut="HideInfo(12,2)">
+  <area shape ="rect" coords="611,627,658,673"  onMouseOver="ShowInfo(event,13,2)" onMouseOut="HideInfo(13,2)">
+  <area shape ="rect" coords="658,627,705,673"  onMouseOver="ShowInfo(event,14,2)" onMouseOut="HideInfo(14,2)">
+  <area shape ="rect" coords="705,627,752,673"  onMouseOver="ShowInfo(event,15,2)" onMouseOut="HideInfo(15,2)">
+  <area shape ="rect" coords="752,627,799,673"  onMouseOver="ShowInfo(event,16,2)" onMouseOut="HideInfo(16,2)">
+  <area shape ="rect" coords="799,627,846,673"  onMouseOver="ShowInfo(event,17,2)" onMouseOut="HideInfo(17,2)">
+  <area shape ="rect" coords="846,627,893,673"  onMouseOver="ShowInfo(event,18,2)" onMouseOut="HideInfo(18,2)">
+  <area shape ="rect" coords="893,627,940,673"  onMouseOver="ShowInfo(event,19,2)" onMouseOut="HideInfo(19,2)">
+  <area shape ="rect" coords="940,627,987,673"  onMouseOver="ShowInfo(event,20,2)" onMouseOut="HideInfo(20,2)">
+  <area shape ="rect" coords="987,627,1034,673"  onMouseOver="ShowInfo(event,21,2)" onMouseOut="HideInfo(21,2)">
+  <area shape ="rect" coords="1034,627,1081,673"  onMouseOver="ShowInfo(event,22,2)" onMouseOut="HideInfo(22,2)">
+  <area shape ="rect" coords="1081,627,1128,673"  onMouseOver="ShowInfo(event,23,2)" onMouseOut="HideInfo(23,2)">
+  <area shape ="rect" coords="1128,627,1175,673"  onMouseOver="ShowInfo(event,24,2)" onMouseOut="HideInfo(24,2)">
+  <area shape ="rect" coords="1175,627,1222,673"  onMouseOver="ShowInfo(event,25,2)" onMouseOut="HideInfo(25,2)">
+  <area shape ="rect" coords="1222,627,1269,673"  onMouseOver="ShowInfo(event,26,2)" onMouseOut="HideInfo(26,2)">
+  <area shape ="rect" coords="1269,627,1316,673"  onMouseOver="ShowInfo(event,27,2)" onMouseOut="HideInfo(27,2)">
+  <area shape ="rect" coords="1316,627,1363,673"  onMouseOver="ShowInfo(event,28,2)" onMouseOut="HideInfo(28,2)">
+  <area shape ="rect" coords="1363,627,1410,673"  onMouseOver="ShowInfo(event,29,2)" onMouseOut="HideInfo(29,2)">
+  <area shape ="rect" coords="0,580,47,626"  onMouseOver="ShowInfo(event,0,3)" onMouseOut="HideInfo(0,3)">
+  <area shape ="rect" coords="47,580,94,626"  onMouseOver="ShowInfo(event,1,3)" onMouseOut="HideInfo(1,3)">
+  <area shape ="rect" coords="94,580,141,626"  onMouseOver="ShowInfo(event,2,3)" onMouseOut="HideInfo(2,3)">
+  <area shape ="rect" coords="141,580,188,626"  onMouseOver="ShowInfo(event,3,3)" onMouseOut="HideInfo(3,3)">
+  <area shape ="rect" coords="188,580,235,626"  onMouseOver="ShowInfo(event,4,3)" onMouseOut="HideInfo(4,3)">
+  <area shape ="rect" coords="235,580,282,626"  onMouseOver="ShowInfo(event,5,3)" onMouseOut="HideInfo(5,3)">
+  <area shape ="rect" coords="282,580,329,626"  onMouseOver="ShowInfo(event,6,3)" onMouseOut="HideInfo(6,3)">
+  <area shape ="rect" coords="329,580,376,626"  onMouseOver="ShowInfo(event,7,3)" onMouseOut="HideInfo(7,3)">
+  <area shape ="rect" coords="376,580,423,626"  onMouseOver="ShowInfo(event,8,3)" onMouseOut="HideInfo(8,3)">
+  <area shape ="rect" coords="423,580,470,626"  onMouseOver="ShowInfo(event,9,3)" onMouseOut="HideInfo(9,3)">
+  <area shape ="rect" coords="470,580,517,626"  onMouseOver="ShowInfo(event,10,3)" onMouseOut="HideInfo(10,3)">
+  <area shape ="rect" coords="517,580,564,626"  onMouseOver="ShowInfo(event,11,3)" onMouseOut="HideInfo(11,3)">
+  <area shape ="rect" coords="564,580,611,626"  onMouseOver="ShowInfo(event,12,3)" onMouseOut="HideInfo(12,3)">
+  <area shape ="rect" coords="611,580,658,626"  onMouseOver="ShowInfo(event,13,3)" onMouseOut="HideInfo(13,3)">
+  <area shape ="rect" coords="658,580,705,626"  onMouseOver="ShowInfo(event,14,3)" onMouseOut="HideInfo(14,3)">
+  <area shape ="rect" coords="705,580,752,626"  onMouseOver="ShowInfo(event,15,3)" onMouseOut="HideInfo(15,3)">
+  <area shape ="rect" coords="752,580,799,626"  onMouseOver="ShowInfo(event,16,3)" onMouseOut="HideInfo(16,3)">
+  <area shape ="rect" coords="799,580,846,626"  onMouseOver="ShowInfo(event,17,3)" onMouseOut="HideInfo(17,3)">
+  <area shape ="rect" coords="846,580,893,626"  onMouseOver="ShowInfo(event,18,3)" onMouseOut="HideInfo(18,3)">
+  <area shape ="rect" coords="893,580,940,626"  onMouseOver="ShowInfo(event,19,3)" onMouseOut="HideInfo(19,3)">
+  <area shape ="rect" coords="940,580,987,626"  onMouseOver="ShowInfo(event,20,3)" onMouseOut="HideInfo(20,3)">
+  <area shape ="rect" coords="987,580,1034,626"  onMouseOver="ShowInfo(event,21,3)" onMouseOut="HideInfo(21,3)">
+  <area shape ="rect" coords="1034,580,1081,626"  onMouseOver="ShowInfo(event,22,3)" onMouseOut="HideInfo(22,3)">
+  <area shape ="rect" coords="1081,580,1128,626"  onMouseOver="ShowInfo(event,23,3)" onMouseOut="HideInfo(23,3)">
+  <area shape ="rect" coords="1128,580,1175,626"  onMouseOver="ShowInfo(event,24,3)" onMouseOut="HideInfo(24,3)">
+  <area shape ="rect" coords="1175,580,1222,626"  onMouseOver="ShowInfo(event,25,3)" onMouseOut="HideInfo(25,3)">
+  <area shape ="rect" coords="1222,580,1269,626"  onMouseOver="ShowInfo(event,26,3)" onMouseOut="HideInfo(26,3)">
+  <area shape ="rect" coords="1269,580,1316,626"  onMouseOver="ShowInfo(event,27,3)" onMouseOut="HideInfo(27,3)">
+  <area shape ="rect" coords="1316,580,1363,626"  onMouseOver="ShowInfo(event,28,3)" onMouseOut="HideInfo(28,3)">
+  <area shape ="rect" coords="1363,580,1410,626"  onMouseOver="ShowInfo(event,29,3)" onMouseOut="HideInfo(29,3)">
+  <area shape ="rect" coords="0,533,47,579"  onMouseOver="ShowInfo(event,0,4)" onMouseOut="HideInfo(0,4)">
+  <area shape ="rect" coords="47,533,94,579"  onMouseOver="ShowInfo(event,1,4)" onMouseOut="HideInfo(1,4)">
+  <area shape ="rect" coords="94,533,141,579"  onMouseOver="ShowInfo(event,2,4)" onMouseOut="HideInfo(2,4)">
+  <area shape ="rect" coords="141,533,188,579"  onMouseOver="ShowInfo(event,3,4)" onMouseOut="HideInfo(3,4)">
+  <area shape ="rect" coords="188,533,235,579"  onMouseOver="ShowInfo(event,4,4)" onMouseOut="HideInfo(4,4)">
+  <area shape ="rect" coords="235,533,282,579"  onMouseOver="ShowInfo(event,5,4)" onMouseOut="HideInfo(5,4)">
+  <area shape ="rect" coords="282,533,329,579"  onMouseOver="ShowInfo(event,6,4)" onMouseOut="HideInfo(6,4)">
+  <area shape ="rect" coords="329,533,376,579"  onMouseOver="ShowInfo(event,7,4)" onMouseOut="HideInfo(7,4)">
+  <area shape ="rect" coords="376,533,423,579"  onMouseOver="ShowInfo(event,8,4)" onMouseOut="HideInfo(8,4)">
+  <area shape ="rect" coords="423,533,470,579"  onMouseOver="ShowInfo(event,9,4)" onMouseOut="HideInfo(9,4)">
+  <area shape ="rect" coords="470,533,517,579"  onMouseOver="ShowInfo(event,10,4)" onMouseOut="HideInfo(10,4)">
+  <area shape ="rect" coords="517,533,564,579"  onMouseOver="ShowInfo(event,11,4)" onMouseOut="HideInfo(11,4)">
+  <area shape ="rect" coords="564,533,611,579"  onMouseOver="ShowInfo(event,12,4)" onMouseOut="HideInfo(12,4)">
+  <area shape ="rect" coords="611,533,658,579"  onMouseOver="ShowInfo(event,13,4)" onMouseOut="HideInfo(13,4)">
+  <area shape ="rect" coords="658,533,705,579"  onMouseOver="ShowInfo(event,14,4)" onMouseOut="HideInfo(14,4)">
+  <area shape ="rect" coords="705,533,752,579"  onMouseOver="ShowInfo(event,15,4)" onMouseOut="HideInfo(15,4)">
+  <area shape ="rect" coords="752,533,799,579"  onMouseOver="ShowInfo(event,16,4)" onMouseOut="HideInfo(16,4)">
+  <area shape ="rect" coords="799,533,846,579"  onMouseOver="ShowInfo(event,17,4)" onMouseOut="HideInfo(17,4)">
+  <area shape ="rect" coords="846,533,893,579"  onMouseOver="ShowInfo(event,18,4)" onMouseOut="HideInfo(18,4)">
+  <area shape ="rect" coords="893,533,940,579"  onMouseOver="ShowInfo(event,19,4)" onMouseOut="HideInfo(19,4)">
+  <area shape ="rect" coords="940,533,987,579"  onMouseOver="ShowInfo(event,20,4)" onMouseOut="HideInfo(20,4)">
+  <area shape ="rect" coords="987,533,1034,579"  onMouseOver="ShowInfo(event,21,4)" onMouseOut="HideInfo(21,4)">
+  <area shape ="rect" coords="1034,533,1081,579"  onMouseOver="ShowInfo(event,22,4)" onMouseOut="HideInfo(22,4)">
+  <area shape ="rect" coords="1081,533,1128,579"  onMouseOver="ShowInfo(event,23,4)" onMouseOut="HideInfo(23,4)">
+  <area shape ="rect" coords="1128,533,1175,579"  onMouseOver="ShowInfo(event,24,4)" onMouseOut="HideInfo(24,4)">
+  <area shape ="rect" coords="1175,533,1222,579"  onMouseOver="ShowInfo(event,25,4)" onMouseOut="HideInfo(25,4)">
+  <area shape ="rect" coords="1222,533,1269,579"  onMouseOver="ShowInfo(event,26,4)" onMouseOut="HideInfo(26,4)">
+  <area shape ="rect" coords="1269,533,1316,579"  onMouseOver="ShowInfo(event,27,4)" onMouseOut="HideInfo(27,4)">
+  <area shape ="rect" coords="1316,533,1363,579"  onMouseOver="ShowInfo(event,28,4)" onMouseOut="HideInfo(28,4)">
+  <area shape ="rect" coords="1363,533,1410,579"  onMouseOver="ShowInfo(event,29,4)" onMouseOut="HideInfo(29,4)">
+  <area shape ="rect" coords="0,486,47,532"  onMouseOver="ShowInfo(event,0,5)" onMouseOut="HideInfo(0,5)">
+  <area shape ="rect" coords="47,486,94,532"  onMouseOver="ShowInfo(event,1,5)" onMouseOut="HideInfo(1,5)">
+  <area shape ="rect" coords="94,486,141,532"  onMouseOver="ShowInfo(event,2,5)" onMouseOut="HideInfo(2,5)">
+  <area shape ="rect" coords="141,486,188,532"  onMouseOver="ShowInfo(event,3,5)" onMouseOut="HideInfo(3,5)">
+  <area shape ="rect" coords="188,486,235,532"  onMouseOver="ShowInfo(event,4,5)" onMouseOut="HideInfo(4,5)">
+  <area shape ="rect" coords="235,486,282,532"  onMouseOver="ShowInfo(event,5,5)" onMouseOut="HideInfo(5,5)">
+  <area shape ="rect" coords="282,486,329,532"  onMouseOver="ShowInfo(event,6,5)" onMouseOut="HideInfo(6,5)">
+  <area shape ="rect" coords="329,486,376,532"  onMouseOver="ShowInfo(event,7,5)" onMouseOut="HideInfo(7,5)">
+  <area shape ="rect" coords="376,486,423,532"  onMouseOver="ShowInfo(event,8,5)" onMouseOut="HideInfo(8,5)">
+  <area shape ="rect" coords="423,486,470,532"  onMouseOver="ShowInfo(event,9,5)" onMouseOut="HideInfo(9,5)">
+  <area shape ="rect" coords="470,486,517,532"  onMouseOver="ShowInfo(event,10,5)" onMouseOut="HideInfo(10,5)">
+  <area shape ="rect" coords="517,486,564,532"  onMouseOver="ShowInfo(event,11,5)" onMouseOut="HideInfo(11,5)">
+  <area shape ="rect" coords="564,486,611,532"  onMouseOver="ShowInfo(event,12,5)" onMouseOut="HideInfo(12,5)">
+  <area shape ="rect" coords="611,486,658,532"  onMouseOver="ShowInfo(event,13,5)" onMouseOut="HideInfo(13,5)">
+  <area shape ="rect" coords="658,486,705,532"  onMouseOver="ShowInfo(event,14,5)" onMouseOut="HideInfo(14,5)">
+  <area shape ="rect" coords="705,486,752,532"  onMouseOver="ShowInfo(event,15,5)" onMouseOut="HideInfo(15,5)">
+  <area shape ="rect" coords="752,486,799,532"  onMouseOver="ShowInfo(event,16,5)" onMouseOut="HideInfo(16,5)">
+  <area shape ="rect" coords="799,486,846,532"  onMouseOver="ShowInfo(event,17,5)" onMouseOut="HideInfo(17,5)">
+  <area shape ="rect" coords="846,486,893,532"  onMouseOver="ShowInfo(event,18,5)" onMouseOut="HideInfo(18,5)">
+  <area shape ="rect" coords="893,486,940,532"  onMouseOver="ShowInfo(event,19,5)" onMouseOut="HideInfo(19,5)">
+  <area shape ="rect" coords="940,486,987,532"  onMouseOver="ShowInfo(event,20,5)" onMouseOut="HideInfo(20,5)">
+  <area shape ="rect" coords="987,486,1034,532"  onMouseOver="ShowInfo(event,21,5)" onMouseOut="HideInfo(21,5)">
+  <area shape ="rect" coords="1034,486,1081,532"  onMouseOver="ShowInfo(event,22,5)" onMouseOut="HideInfo(22,5)">
+  <area shape ="rect" coords="1081,486,1128,532"  onMouseOver="ShowInfo(event,23,5)" onMouseOut="HideInfo(23,5)">
+  <area shape ="rect" coords="1128,486,1175,532"  onMouseOver="ShowInfo(event,24,5)" onMouseOut="HideInfo(24,5)">
+  <area shape ="rect" coords="1175,486,1222,532"  onMouseOver="ShowInfo(event,25,5)" onMouseOut="HideInfo(25,5)">
+  <area shape ="rect" coords="1222,486,1269,532"  onMouseOver="ShowInfo(event,26,5)" onMouseOut="HideInfo(26,5)">
+  <area shape ="rect" coords="1269,486,1316,532"  onMouseOver="ShowInfo(event,27,5)" onMouseOut="HideInfo(27,5)">
+  <area shape ="rect" coords="1316,486,1363,532"  onMouseOver="ShowInfo(event,28,5)" onMouseOut="HideInfo(28,5)">
+  <area shape ="rect" coords="1363,486,1410,532"  onMouseOver="ShowInfo(event,29,5)" onMouseOut="HideInfo(29,5)">
+  <area shape ="rect" coords="0,439,47,485"  onMouseOver="ShowInfo(event,0,6)" onMouseOut="HideInfo(0,6)">
+  <area shape ="rect" coords="47,439,94,485"  onMouseOver="ShowInfo(event,1,6)" onMouseOut="HideInfo(1,6)">
+  <area shape ="rect" coords="94,439,141,485"  onMouseOver="ShowInfo(event,2,6)" onMouseOut="HideInfo(2,6)">
+  <area shape ="rect" coords="141,439,188,485"  onMouseOver="ShowInfo(event,3,6)" onMouseOut="HideInfo(3,6)">
+  <area shape ="rect" coords="188,439,235,485"  onMouseOver="ShowInfo(event,4,6)" onMouseOut="HideInfo(4,6)">
+  <area shape ="rect" coords="235,439,282,485"  onMouseOver="ShowInfo(event,5,6)" onMouseOut="HideInfo(5,6)">
+  <area shape ="rect" coords="282,439,329,485"  onMouseOver="ShowInfo(event,6,6)" onMouseOut="HideInfo(6,6)">
+  <area shape ="rect" coords="329,439,376,485"  onMouseOver="ShowInfo(event,7,6)" onMouseOut="HideInfo(7,6)">
+  <area shape ="rect" coords="376,439,423,485"  onMouseOver="ShowInfo(event,8,6)" onMouseOut="HideInfo(8,6)">
+  <area shape ="rect" coords="423,439,470,485"  onMouseOver="ShowInfo(event,9,6)" onMouseOut="HideInfo(9,6)">
+  <area shape ="rect" coords="470,439,517,485"  onMouseOver="ShowInfo(event,10,6)" onMouseOut="HideInfo(10,6)">
+  <area shape ="rect" coords="517,439,564,485"  onMouseOver="ShowInfo(event,11,6)" onMouseOut="HideInfo(11,6)">
+  <area shape ="rect" coords="564,439,611,485"  onMouseOver="ShowInfo(event,12,6)" onMouseOut="HideInfo(12,6)">
+  <area shape ="rect" coords="611,439,658,485"  onMouseOver="ShowInfo(event,13,6)" onMouseOut="HideInfo(13,6)">
+  <area shape ="rect" coords="658,439,705,485"  onMouseOver="ShowInfo(event,14,6)" onMouseOut="HideInfo(14,6)">
+  <area shape ="rect" coords="705,439,752,485"  onMouseOver="ShowInfo(event,15,6)" onMouseOut="HideInfo(15,6)">
+  <area shape ="rect" coords="752,439,799,485"  onMouseOver="ShowInfo(event,16,6)" onMouseOut="HideInfo(16,6)">
+  <area shape ="rect" coords="799,439,846,485"  onMouseOver="ShowInfo(event,17,6)" onMouseOut="HideInfo(17,6)">
+  <area shape ="rect" coords="846,439,893,485"  onMouseOver="ShowInfo(event,18,6)" onMouseOut="HideInfo(18,6)">
+  <area shape ="rect" coords="893,439,940,485"  onMouseOver="ShowInfo(event,19,6)" onMouseOut="HideInfo(19,6)">
+  <area shape ="rect" coords="940,439,987,485"  onMouseOver="ShowInfo(event,20,6)" onMouseOut="HideInfo(20,6)">
+  <area shape ="rect" coords="987,439,1034,485"  onMouseOver="ShowInfo(event,21,6)" onMouseOut="HideInfo(21,6)">
+  <area shape ="rect" coords="1034,439,1081,485"  onMouseOver="ShowInfo(event,22,6)" onMouseOut="HideInfo(22,6)">
+  <area shape ="rect" coords="1081,439,1128,485"  onMouseOver="ShowInfo(event,23,6)" onMouseOut="HideInfo(23,6)">
+  <area shape ="rect" coords="1128,439,1175,485"  onMouseOver="ShowInfo(event,24,6)" onMouseOut="HideInfo(24,6)">
+  <area shape ="rect" coords="1175,439,1222,485"  onMouseOver="ShowInfo(event,25,6)" onMouseOut="HideInfo(25,6)">
+  <area shape ="rect" coords="1222,439,1269,485"  onMouseOver="ShowInfo(event,26,6)" onMouseOut="HideInfo(26,6)">
+  <area shape ="rect" coords="1269,439,1316,485"  onMouseOver="ShowInfo(event,27,6)" onMouseOut="HideInfo(27,6)">
+  <area shape ="rect" coords="1316,439,1363,485"  onMouseOver="ShowInfo(event,28,6)" onMouseOut="HideInfo(28,6)">
+  <area shape ="rect" coords="1363,439,1410,485"  onMouseOver="ShowInfo(event,29,6)" onMouseOut="HideInfo(29,6)">
+  <area shape ="rect" coords="0,392,47,438"  onMouseOver="ShowInfo(event,0,7)" onMouseOut="HideInfo(0,7)">
+  <area shape ="rect" coords="47,392,94,438"  onMouseOver="ShowInfo(event,1,7)" onMouseOut="HideInfo(1,7)">
+  <area shape ="rect" coords="94,392,141,438"  onMouseOver="ShowInfo(event,2,7)" onMouseOut="HideInfo(2,7)">
+  <area shape ="rect" coords="141,392,188,438"  onMouseOver="ShowInfo(event,3,7)" onMouseOut="HideInfo(3,7)">
+  <area shape ="rect" coords="188,392,235,438"  onMouseOver="ShowInfo(event,4,7)" onMouseOut="HideInfo(4,7)">
+  <area shape ="rect" coords="235,392,282,438"  onMouseOver="ShowInfo(event,5,7)" onMouseOut="HideInfo(5,7)">
+  <area shape ="rect" coords="282,392,329,438"  onMouseOver="ShowInfo(event,6,7)" onMouseOut="HideInfo(6,7)">
+  <area shape ="rect" coords="329,392,376,438"  onMouseOver="ShowInfo(event,7,7)" onMouseOut="HideInfo(7,7)">
+  <area shape ="rect" coords="376,392,423,438"  onMouseOver="ShowInfo(event,8,7)" onMouseOut="HideInfo(8,7)">
+  <area shape ="rect" coords="423,392,470,438"  onMouseOver="ShowInfo(event,9,7)" onMouseOut="HideInfo(9,7)">
+  <area shape ="rect" coords="470,392,517,438"  onMouseOver="ShowInfo(event,10,7)" onMouseOut="HideInfo(10,7)">
+  <area shape ="rect" coords="517,392,564,438"  onMouseOver="ShowInfo(event,11,7)" onMouseOut="HideInfo(11,7)">
+  <area shape ="rect" coords="564,392,611,438"  onMouseOver="ShowInfo(event,12,7)" onMouseOut="HideInfo(12,7)">
+  <area shape ="rect" coords="611,392,658,438"  onMouseOver="ShowInfo(event,13,7)" onMouseOut="HideInfo(13,7)">
+  <area shape ="rect" coords="658,392,705,438"  onMouseOver="ShowInfo(event,14,7)" onMouseOut="HideInfo(14,7)">
+  <area shape ="rect" coords="705,392,752,438"  onMouseOver="ShowInfo(event,15,7)" onMouseOut="HideInfo(15,7)">
+  <area shape ="rect" coords="752,392,799,438"  onMouseOver="ShowInfo(event,16,7)" onMouseOut="HideInfo(16,7)">
+  <area shape ="rect" coords="799,392,846,438"  onMouseOver="ShowInfo(event,17,7)" onMouseOut="HideInfo(17,7)">
+  <area shape ="rect" coords="846,392,893,438"  onMouseOver="ShowInfo(event,18,7)" onMouseOut="HideInfo(18,7)">
+  <area shape ="rect" coords="893,392,940,438"  onMouseOver="ShowInfo(event,19,7)" onMouseOut="HideInfo(19,7)">
+  <area shape ="rect" coords="940,392,987,438"  onMouseOver="ShowInfo(event,20,7)" onMouseOut="HideInfo(20,7)">
+  <area shape ="rect" coords="987,392,1034,438"  onMouseOver="ShowInfo(event,21,7)" onMouseOut="HideInfo(21,7)">
+  <area shape ="rect" coords="1034,392,1081,438"  onMouseOver="ShowInfo(event,22,7)" onMouseOut="HideInfo(22,7)">
+  <area shape ="rect" coords="1081,392,1128,438"  onMouseOver="ShowInfo(event,23,7)" onMouseOut="HideInfo(23,7)">
+  <area shape ="rect" coords="1128,392,1175,438"  onMouseOver="ShowInfo(event,24,7)" onMouseOut="HideInfo(24,7)">
+  <area shape ="rect" coords="1175,392,1222,438"  onMouseOver="ShowInfo(event,25,7)" onMouseOut="HideInfo(25,7)">
+  <area shape ="rect" coords="1222,392,1269,438"  onMouseOver="ShowInfo(event,26,7)" onMouseOut="HideInfo(26,7)">
+  <area shape ="rect" coords="1269,392,1316,438"  onMouseOver="ShowInfo(event,27,7)" onMouseOut="HideInfo(27,7)">
+  <area shape ="rect" coords="1316,392,1363,438"  onMouseOver="ShowInfo(event,28,7)" onMouseOut="HideInfo(28,7)">
+  <area shape ="rect" coords="1363,392,1410,438"  onMouseOver="ShowInfo(event,29,7)" onMouseOut="HideInfo(29,7)">
+  <area shape ="rect" coords="0,345,47,391"  onMouseOver="ShowInfo(event,0,8)" onMouseOut="HideInfo(0,8)">
+  <area shape ="rect" coords="47,345,94,391"  onMouseOver="ShowInfo(event,1,8)" onMouseOut="HideInfo(1,8)">
+  <area shape ="rect" coords="94,345,141,391"  onMouseOver="ShowInfo(event,2,8)" onMouseOut="HideInfo(2,8)">
+  <area shape ="rect" coords="141,345,188,391"  onMouseOver="ShowInfo(event,3,8)" onMouseOut="HideInfo(3,8)">
+  <area shape ="rect" coords="188,345,235,391"  onMouseOver="ShowInfo(event,4,8)" onMouseOut="HideInfo(4,8)">
+  <area shape ="rect" coords="235,345,282,391"  onMouseOver="ShowInfo(event,5,8)" onMouseOut="HideInfo(5,8)">
+  <area shape ="rect" coords="282,345,329,391"  onMouseOver="ShowInfo(event,6,8)" onMouseOut="HideInfo(6,8)">
+  <area shape ="rect" coords="329,345,376,391"  onMouseOver="ShowInfo(event,7,8)" onMouseOut="HideInfo(7,8)">
+  <area shape ="rect" coords="376,345,423,391"  onMouseOver="ShowInfo(event,8,8)" onMouseOut="HideInfo(8,8)">
+  <area shape ="rect" coords="423,345,470,391"  onMouseOver="ShowInfo(event,9,8)" onMouseOut="HideInfo(9,8)">
+  <area shape ="rect" coords="470,345,517,391"  onMouseOver="ShowInfo(event,10,8)" onMouseOut="HideInfo(10,8)">
+  <area shape ="rect" coords="517,345,564,391"  onMouseOver="ShowInfo(event,11,8)" onMouseOut="HideInfo(11,8)">
+  <area shape ="rect" coords="564,345,611,391"  onMouseOver="ShowInfo(event,12,8)" onMouseOut="HideInfo(12,8)">
+  <area shape ="rect" coords="611,345,658,391"  onMouseOver="ShowInfo(event,13,8)" onMouseOut="HideInfo(13,8)">
+  <area shape ="rect" coords="658,345,705,391"  onMouseOver="ShowInfo(event,14,8)" onMouseOut="HideInfo(14,8)">
+  <area shape ="rect" coords="705,345,752,391"  onMouseOver="ShowInfo(event,15,8)" onMouseOut="HideInfo(15,8)">
+  <area shape ="rect" coords="752,345,799,391"  onMouseOver="ShowInfo(event,16,8)" onMouseOut="HideInfo(16,8)">
+  <area shape ="rect" coords="799,345,846,391"  onMouseOver="ShowInfo(event,17,8)" onMouseOut="HideInfo(17,8)">
+  <area shape ="rect" coords="846,345,893,391"  onMouseOver="ShowInfo(event,18,8)" onMouseOut="HideInfo(18,8)">
+  <area shape ="rect" coords="893,345,940,391"  onMouseOver="ShowInfo(event,19,8)" onMouseOut="HideInfo(19,8)">
+  <area shape ="rect" coords="940,345,987,391"  onMouseOver="ShowInfo(event,20,8)" onMouseOut="HideInfo(20,8)">
+  <area shape ="rect" coords="987,345,1034,391"  onMouseOver="ShowInfo(event,21,8)" onMouseOut="HideInfo(21,8)">
+  <area shape ="rect" coords="1034,345,1081,391"  onMouseOver="ShowInfo(event,22,8)" onMouseOut="HideInfo(22,8)">
+  <area shape ="rect" coords="1081,345,1128,391"  onMouseOver="ShowInfo(event,23,8)" onMouseOut="HideInfo(23,8)">
+  <area shape ="rect" coords="1128,345,1175,391"  onMouseOver="ShowInfo(event,24,8)" onMouseOut="HideInfo(24,8)">
+  <area shape ="rect" coords="1175,345,1222,391"  onMouseOver="ShowInfo(event,25,8)" onMouseOut="HideInfo(25,8)">
+  <area shape ="rect" coords="1222,345,1269,391"  onMouseOver="ShowInfo(event,26,8)" onMouseOut="HideInfo(26,8)">
+  <area shape ="rect" coords="1269,345,1316,391"  onMouseOver="ShowInfo(event,27,8)" onMouseOut="HideInfo(27,8)">
+  <area shape ="rect" coords="1316,345,1363,391"  onMouseOver="ShowInfo(event,28,8)" onMouseOut="HideInfo(28,8)">
+  <area shape ="rect" coords="1363,345,1410,391"  onMouseOver="ShowInfo(event,29,8)" onMouseOut="HideInfo(29,8)">
+  <area shape ="rect" coords="0,298,47,344"  onMouseOver="ShowInfo(event,0,9)" onMouseOut="HideInfo(0,9)">
+  <area shape ="rect" coords="47,298,94,344"  onMouseOver="ShowInfo(event,1,9)" onMouseOut="HideInfo(1,9)">
+  <area shape ="rect" coords="94,298,141,344"  onMouseOver="ShowInfo(event,2,9)" onMouseOut="HideInfo(2,9)">
+  <area shape ="rect" coords="141,298,188,344"  onMouseOver="ShowInfo(event,3,9)" onMouseOut="HideInfo(3,9)">
+  <area shape ="rect" coords="188,298,235,344"  onMouseOver="ShowInfo(event,4,9)" onMouseOut="HideInfo(4,9)">
+  <area shape ="rect" coords="235,298,282,344"  onMouseOver="ShowInfo(event,5,9)" onMouseOut="HideInfo(5,9)">
+  <area shape ="rect" coords="282,298,329,344"  onMouseOver="ShowInfo(event,6,9)" onMouseOut="HideInfo(6,9)">
+  <area shape ="rect" coords="329,298,376,344"  onMouseOver="ShowInfo(event,7,9)" onMouseOut="HideInfo(7,9)">
+  <area shape ="rect" coords="376,298,423,344"  onMouseOver="ShowInfo(event,8,9)" onMouseOut="HideInfo(8,9)">
+  <area shape ="rect" coords="423,298,470,344"  onMouseOver="ShowInfo(event,9,9)" onMouseOut="HideInfo(9,9)">
+  <area shape ="rect" coords="470,298,517,344"  onMouseOver="ShowInfo(event,10,9)" onMouseOut="HideInfo(10,9)">
+  <area shape ="rect" coords="517,298,564,344"  onMouseOver="ShowInfo(event,11,9)" onMouseOut="HideInfo(11,9)">
+  <area shape ="rect" coords="564,298,611,344"  onMouseOver="ShowInfo(event,12,9)" onMouseOut="HideInfo(12,9)">
+  <area shape ="rect" coords="611,298,658,344"  onMouseOver="ShowInfo(event,13,9)" onMouseOut="HideInfo(13,9)">
+  <area shape ="rect" coords="658,298,705,344"  onMouseOver="ShowInfo(event,14,9)" onMouseOut="HideInfo(14,9)">
+  <area shape ="rect" coords="705,298,752,344"  onMouseOver="ShowInfo(event,15,9)" onMouseOut="HideInfo(15,9)">
+  <area shape ="rect" coords="752,298,799,344"  onMouseOver="ShowInfo(event,16,9)" onMouseOut="HideInfo(16,9)">
+  <area shape ="rect" coords="799,298,846,344"  onMouseOver="ShowInfo(event,17,9)" onMouseOut="HideInfo(17,9)">
+  <area shape ="rect" coords="846,298,893,344"  onMouseOver="ShowInfo(event,18,9)" onMouseOut="HideInfo(18,9)">
+  <area shape ="rect" coords="893,298,940,344"  onMouseOver="ShowInfo(event,19,9)" onMouseOut="HideInfo(19,9)">
+  <area shape ="rect" coords="940,298,987,344"  onMouseOver="ShowInfo(event,20,9)" onMouseOut="HideInfo(20,9)">
+  <area shape ="rect" coords="987,298,1034,344"  onMouseOver="ShowInfo(event,21,9)" onMouseOut="HideInfo(21,9)">
+  <area shape ="rect" coords="1034,298,1081,344"  onMouseOver="ShowInfo(event,22,9)" onMouseOut="HideInfo(22,9)">
+  <area shape ="rect" coords="1081,298,1128,344"  onMouseOver="ShowInfo(event,23,9)" onMouseOut="HideInfo(23,9)">
+  <area shape ="rect" coords="1128,298,1175,344"  onMouseOver="ShowInfo(event,24,9)" onMouseOut="HideInfo(24,9)">
+  <area shape ="rect" coords="1175,298,1222,344"  onMouseOver="ShowInfo(event,25,9)" onMouseOut="HideInfo(25,9)">
+  <area shape ="rect" coords="1222,298,1269,344"  onMouseOver="ShowInfo(event,26,9)" onMouseOut="HideInfo(26,9)">
+  <area shape ="rect" coords="1269,298,1316,344"  onMouseOver="ShowInfo(event,27,9)" onMouseOut="HideInfo(27,9)">
+  <area shape ="rect" coords="1316,298,1363,344"  onMouseOver="ShowInfo(event,28,9)" onMouseOut="HideInfo(28,9)">
+  <area shape ="rect" coords="1363,298,1410,344"  onMouseOver="ShowInfo(event,29,9)" onMouseOut="HideInfo(29,9)">
+  <area shape ="rect" coords="0,251,47,297"  onMouseOver="ShowInfo(event,0,10)" onMouseOut="HideInfo(0,10)">
+  <area shape ="rect" coords="47,251,94,297"  onMouseOver="ShowInfo(event,1,10)" onMouseOut="HideInfo(1,10)">
+  <area shape ="rect" coords="94,251,141,297"  onMouseOver="ShowInfo(event,2,10)" onMouseOut="HideInfo(2,10)">
+  <area shape ="rect" coords="141,251,188,297"  onMouseOver="ShowInfo(event,3,10)" onMouseOut="HideInfo(3,10)">
+  <area shape ="rect" coords="188,251,235,297"  onMouseOver="ShowInfo(event,4,10)" onMouseOut="HideInfo(4,10)">
+  <area shape ="rect" coords="235,251,282,297"  onMouseOver="ShowInfo(event,5,10)" onMouseOut="HideInfo(5,10)">
+  <area shape ="rect" coords="282,251,329,297"  onMouseOver="ShowInfo(event,6,10)" onMouseOut="HideInfo(6,10)">
+  <area shape ="rect" coords="329,251,376,297"  onMouseOver="ShowInfo(event,7,10)" onMouseOut="HideInfo(7,10)">
+  <area shape ="rect" coords="376,251,423,297"  onMouseOver="ShowInfo(event,8,10)" onMouseOut="HideInfo(8,10)">
+  <area shape ="rect" coords="423,251,470,297"  onMouseOver="ShowInfo(event,9,10)" onMouseOut="HideInfo(9,10)">
+  <area shape ="rect" coords="470,251,517,297"  onMouseOver="ShowInfo(event,10,10)" onMouseOut="HideInfo(10,10)">
+  <area shape ="rect" coords="517,251,564,297"  onMouseOver="ShowInfo(event,11,10)" onMouseOut="HideInfo(11,10)">
+  <area shape ="rect" coords="564,251,611,297"  onMouseOver="ShowInfo(event,12,10)" onMouseOut="HideInfo(12,10)">
+  <area shape ="rect" coords="611,251,658,297"  onMouseOver="ShowInfo(event,13,10)" onMouseOut="HideInfo(13,10)">
+  <area shape ="rect" coords="658,251,705,297"  onMouseOver="ShowInfo(event,14,10)" onMouseOut="HideInfo(14,10)">
+  <area shape ="rect" coords="705,251,752,297"  onMouseOver="ShowInfo(event,15,10)" onMouseOut="HideInfo(15,10)">
+  <area shape ="rect" coords="752,251,799,297"  onMouseOver="ShowInfo(event,16,10)" onMouseOut="HideInfo(16,10)">
+  <area shape ="rect" coords="799,251,846,297"  onMouseOver="ShowInfo(event,17,10)" onMouseOut="HideInfo(17,10)">
+  <area shape ="rect" coords="846,251,893,297"  onMouseOver="ShowInfo(event,18,10)" onMouseOut="HideInfo(18,10)">
+  <area shape ="rect" coords="893,251,940,297"  onMouseOver="ShowInfo(event,19,10)" onMouseOut="HideInfo(19,10)">
+  <area shape ="rect" coords="940,251,987,297"  onMouseOver="ShowInfo(event,20,10)" onMouseOut="HideInfo(20,10)">
+  <area shape ="rect" coords="987,251,1034,297"  onMouseOver="ShowInfo(event,21,10)" onMouseOut="HideInfo(21,10)">
+  <area shape ="rect" coords="1034,251,1081,297"  onMouseOver="ShowInfo(event,22,10)" onMouseOut="HideInfo(22,10)">
+  <area shape ="rect" coords="1081,251,1128,297"  onMouseOver="ShowInfo(event,23,10)" onMouseOut="HideInfo(23,10)">
+  <area shape ="rect" coords="1128,251,1175,297"  onMouseOver="ShowInfo(event,24,10)" onMouseOut="HideInfo(24,10)">
+  <area shape ="rect" coords="1175,251,1222,297"  onMouseOver="ShowInfo(event,25,10)" onMouseOut="HideInfo(25,10)">
+  <area shape ="rect" coords="1222,251,1269,297"  onMouseOver="ShowInfo(event,26,10)" onMouseOut="HideInfo(26,10)">
+  <area shape ="rect" coords="1269,251,1316,297"  onMouseOver="ShowInfo(event,27,10)" onMouseOut="HideInfo(27,10)">
+  <area shape ="rect" coords="1316,251,1363,297"  onMouseOver="ShowInfo(event,28,10)" onMouseOut="HideInfo(28,10)">
+  <area shape ="rect" coords="1363,251,1410,297"  onMouseOver="ShowInfo(event,29,10)" onMouseOut="HideInfo(29,10)">
+  <area shape ="rect" coords="0,204,47,250"  onMouseOver="ShowInfo(event,0,11)" onMouseOut="HideInfo(0,11)">
+  <area shape ="rect" coords="47,204,94,250"  onMouseOver="ShowInfo(event,1,11)" onMouseOut="HideInfo(1,11)">
+  <area shape ="rect" coords="94,204,141,250"  onMouseOver="ShowInfo(event,2,11)" onMouseOut="HideInfo(2,11)">
+  <area shape ="rect" coords="141,204,188,250"  onMouseOver="ShowInfo(event,3,11)" onMouseOut="HideInfo(3,11)">
+  <area shape ="rect" coords="188,204,235,250"  onMouseOver="ShowInfo(event,4,11)" onMouseOut="HideInfo(4,11)">
+  <area shape ="rect" coords="235,204,282,250"  onMouseOver="ShowInfo(event,5,11)" onMouseOut="HideInfo(5,11)">
+  <area shape ="rect" coords="282,204,329,250"  onMouseOver="ShowInfo(event,6,11)" onMouseOut="HideInfo(6,11)">
+  <area shape ="rect" coords="329,204,376,250"  onMouseOver="ShowInfo(event,7,11)" onMouseOut="HideInfo(7,11)">
+  <area shape ="rect" coords="376,204,423,250"  onMouseOver="ShowInfo(event,8,11)" onMouseOut="HideInfo(8,11)">
+  <area shape ="rect" coords="423,204,470,250"  onMouseOver="ShowInfo(event,9,11)" onMouseOut="HideInfo(9,11)">
+  <area shape ="rect" coords="470,204,517,250"  onMouseOver="ShowInfo(event,10,11)" onMouseOut="HideInfo(10,11)">
+  <area shape ="rect" coords="517,204,564,250"  onMouseOver="ShowInfo(event,11,11)" onMouseOut="HideInfo(11,11)">
+  <area shape ="rect" coords="564,204,611,250"  onMouseOver="ShowInfo(event,12,11)" onMouseOut="HideInfo(12,11)">
+  <area shape ="rect" coords="611,204,658,250"  onMouseOver="ShowInfo(event,13,11)" onMouseOut="HideInfo(13,11)">
+  <area shape ="rect" coords="658,204,705,250"  onMouseOver="ShowInfo(event,14,11)" onMouseOut="HideInfo(14,11)">
+  <area shape ="rect" coords="705,204,752,250"  onMouseOver="ShowInfo(event,15,11)" onMouseOut="HideInfo(15,11)">
+  <area shape ="rect" coords="752,204,799,250"  onMouseOver="ShowInfo(event,16,11)" onMouseOut="HideInfo(16,11)">
+  <area shape ="rect" coords="799,204,846,250"  onMouseOver="ShowInfo(event,17,11)" onMouseOut="HideInfo(17,11)">
+  <area shape ="rect" coords="846,204,893,250"  onMouseOver="ShowInfo(event,18,11)" onMouseOut="HideInfo(18,11)">
+  <area shape ="rect" coords="893,204,940,250"  onMouseOver="ShowInfo(event,19,11)" onMouseOut="HideInfo(19,11)">
+  <area shape ="rect" coords="940,204,987,250"  onMouseOver="ShowInfo(event,20,11)" onMouseOut="HideInfo(20,11)">
+  <area shape ="rect" coords="987,204,1034,250"  onMouseOver="ShowInfo(event,21,11)" onMouseOut="HideInfo(21,11)">
+  <area shape ="rect" coords="1034,204,1081,250"  onMouseOver="ShowInfo(event,22,11)" onMouseOut="HideInfo(22,11)">
+  <area shape ="rect" coords="1081,204,1128,250"  onMouseOver="ShowInfo(event,23,11)" onMouseOut="HideInfo(23,11)">
+  <area shape ="rect" coords="1128,204,1175,250"  onMouseOver="ShowInfo(event,24,11)" onMouseOut="HideInfo(24,11)">
+  <area shape ="rect" coords="1175,204,1222,250"  onMouseOver="ShowInfo(event,25,11)" onMouseOut="HideInfo(25,11)">
+  <area shape ="rect" coords="1222,204,1269,250"  onMouseOver="ShowInfo(event,26,11)" onMouseOut="HideInfo(26,11)">
+  <area shape ="rect" coords="1269,204,1316,250"  onMouseOver="ShowInfo(event,27,11)" onMouseOut="HideInfo(27,11)">
+  <area shape ="rect" coords="1316,204,1363,250"  onMouseOver="ShowInfo(event,28,11)" onMouseOut="HideInfo(28,11)">
+  <area shape ="rect" coords="1363,204,1410,250"  onMouseOver="ShowInfo(event,29,11)" onMouseOut="HideInfo(29,11)">
+  <area shape ="rect" coords="0,157,47,203"  onMouseOver="ShowInfo(event,0,12)" onMouseOut="HideInfo(0,12)">
+  <area shape ="rect" coords="47,157,94,203"  onMouseOver="ShowInfo(event,1,12)" onMouseOut="HideInfo(1,12)">
+  <area shape ="rect" coords="94,157,141,203"  onMouseOver="ShowInfo(event,2,12)" onMouseOut="HideInfo(2,12)">
+  <area shape ="rect" coords="141,157,188,203"  onMouseOver="ShowInfo(event,3,12)" onMouseOut="HideInfo(3,12)">
+  <area shape ="rect" coords="188,157,235,203"  onMouseOver="ShowInfo(event,4,12)" onMouseOut="HideInfo(4,12)">
+  <area shape ="rect" coords="235,157,282,203"  onMouseOver="ShowInfo(event,5,12)" onMouseOut="HideInfo(5,12)">
+  <area shape ="rect" coords="282,157,329,203"  onMouseOver="ShowInfo(event,6,12)" onMouseOut="HideInfo(6,12)">
+  <area shape ="rect" coords="329,157,376,203"  onMouseOver="ShowInfo(event,7,12)" onMouseOut="HideInfo(7,12)">
+  <area shape ="rect" coords="376,157,423,203"  onMouseOver="ShowInfo(event,8,12)" onMouseOut="HideInfo(8,12)">
+  <area shape ="rect" coords="423,157,470,203"  onMouseOver="ShowInfo(event,9,12)" onMouseOut="HideInfo(9,12)">
+  <area shape ="rect" coords="470,157,517,203"  onMouseOver="ShowInfo(event,10,12)" onMouseOut="HideInfo(10,12)">
+  <area shape ="rect" coords="517,157,564,203"  onMouseOver="ShowInfo(event,11,12)" onMouseOut="HideInfo(11,12)">
+  <area shape ="rect" coords="564,157,611,203"  onMouseOver="ShowInfo(event,12,12)" onMouseOut="HideInfo(12,12)">
+  <area shape ="rect" coords="611,157,658,203"  onMouseOver="ShowInfo(event,13,12)" onMouseOut="HideInfo(13,12)">
+  <area shape ="rect" coords="658,157,705,203"  onMouseOver="ShowInfo(event,14,12)" onMouseOut="HideInfo(14,12)">
+  <area shape ="rect" coords="705,157,752,203"  onMouseOver="ShowInfo(event,15,12)" onMouseOut="HideInfo(15,12)">
+  <area shape ="rect" coords="752,157,799,203"  onMouseOver="ShowInfo(event,16,12)" onMouseOut="HideInfo(16,12)">
+  <area shape ="rect" coords="799,157,846,203"  onMouseOver="ShowInfo(event,17,12)" onMouseOut="HideInfo(17,12)">
+  <area shape ="rect" coords="846,157,893,203"  onMouseOver="ShowInfo(event,18,12)" onMouseOut="HideInfo(18,12)">
+  <area shape ="rect" coords="893,157,940,203"  onMouseOver="ShowInfo(event,19,12)" onMouseOut="HideInfo(19,12)">
+  <area shape ="rect" coords="940,157,987,203"  onMouseOver="ShowInfo(event,20,12)" onMouseOut="HideInfo(20,12)">
+  <area shape ="rect" coords="987,157,1034,203"  onMouseOver="ShowInfo(event,21,12)" onMouseOut="HideInfo(21,12)">
+  <area shape ="rect" coords="1034,157,1081,203"  onMouseOver="ShowInfo(event,22,12)" onMouseOut="HideInfo(22,12)">
+  <area shape ="rect" coords="1081,157,1128,203"  onMouseOver="ShowInfo(event,23,12)" onMouseOut="HideInfo(23,12)">
+  <area shape ="rect" coords="1128,157,1175,203"  onMouseOver="ShowInfo(event,24,12)" onMouseOut="HideInfo(24,12)">
+  <area shape ="rect" coords="1175,157,1222,203"  onMouseOver="ShowInfo(event,25,12)" onMouseOut="HideInfo(25,12)">
+  <area shape ="rect" coords="1222,157,1269,203"  onMouseOver="ShowInfo(event,26,12)" onMouseOut="HideInfo(26,12)">
+  <area shape ="rect" coords="1269,157,1316,203"  onMouseOver="ShowInfo(event,27,12)" onMouseOut="HideInfo(27,12)">
+  <area shape ="rect" coords="1316,157,1363,203"  onMouseOver="ShowInfo(event,28,12)" onMouseOut="HideInfo(28,12)">
+  <area shape ="rect" coords="1363,157,1410,203"  onMouseOver="ShowInfo(event,29,12)" onMouseOut="HideInfo(29,12)">
+  <area shape ="rect" coords="0,110,47,156"  onMouseOver="ShowInfo(event,0,13)" onMouseOut="HideInfo(0,13)">
+  <area shape ="rect" coords="47,110,94,156"  onMouseOver="ShowInfo(event,1,13)" onMouseOut="HideInfo(1,13)">
+  <area shape ="rect" coords="94,110,141,156"  onMouseOver="ShowInfo(event,2,13)" onMouseOut="HideInfo(2,13)">
+  <area shape ="rect" coords="141,110,188,156"  onMouseOver="ShowInfo(event,3,13)" onMouseOut="HideInfo(3,13)">
+  <area shape ="rect" coords="188,110,235,156"  onMouseOver="ShowInfo(event,4,13)" onMouseOut="HideInfo(4,13)">
+  <area shape ="rect" coords="235,110,282,156"  onMouseOver="ShowInfo(event,5,13)" onMouseOut="HideInfo(5,13)">
+  <area shape ="rect" coords="282,110,329,156"  onMouseOver="ShowInfo(event,6,13)" onMouseOut="HideInfo(6,13)">
+  <area shape ="rect" coords="329,110,376,156"  onMouseOver="ShowInfo(event,7,13)" onMouseOut="HideInfo(7,13)">
+  <area shape ="rect" coords="376,110,423,156"  onMouseOver="ShowInfo(event,8,13)" onMouseOut="HideInfo(8,13)">
+  <area shape ="rect" coords="423,110,470,156"  onMouseOver="ShowInfo(event,9,13)" onMouseOut="HideInfo(9,13)">
+  <area shape ="rect" coords="470,110,517,156"  onMouseOver="ShowInfo(event,10,13)" onMouseOut="HideInfo(10,13)">
+  <area shape ="rect" coords="517,110,564,156"  onMouseOver="ShowInfo(event,11,13)" onMouseOut="HideInfo(11,13)">
+  <area shape ="rect" coords="564,110,611,156"  onMouseOver="ShowInfo(event,12,13)" onMouseOut="HideInfo(12,13)">
+  <area shape ="rect" coords="611,110,658,156"  onMouseOver="ShowInfo(event,13,13)" onMouseOut="HideInfo(13,13)">
+  <area shape ="rect" coords="658,110,705,156"  onMouseOver="ShowInfo(event,14,13)" onMouseOut="HideInfo(14,13)">
+  <area shape ="rect" coords="705,110,752,156"  onMouseOver="ShowInfo(event,15,13)" onMouseOut="HideInfo(15,13)">
+  <area shape ="rect" coords="752,110,799,156"  onMouseOver="ShowInfo(event,16,13)" onMouseOut="HideInfo(16,13)">
+  <area shape ="rect" coords="799,110,846,156"  onMouseOver="ShowInfo(event,17,13)" onMouseOut="HideInfo(17,13)">
+  <area shape ="rect" coords="846,110,893,156"  onMouseOver="ShowInfo(event,18,13)" onMouseOut="HideInfo(18,13)">
+  <area shape ="rect" coords="893,110,940,156"  onMouseOver="ShowInfo(event,19,13)" onMouseOut="HideInfo(19,13)">
+  <area shape ="rect" coords="940,110,987,156"  onMouseOver="ShowInfo(event,20,13)" onMouseOut="HideInfo(20,13)">
+  <area shape ="rect" coords="987,110,1034,156"  onMouseOver="ShowInfo(event,21,13)" onMouseOut="HideInfo(21,13)">
+  <area shape ="rect" coords="1034,110,1081,156"  onMouseOver="ShowInfo(event,22,13)" onMouseOut="HideInfo(22,13)">
+  <area shape ="rect" coords="1081,110,1128,156"  onMouseOver="ShowInfo(event,23,13)" onMouseOut="HideInfo(23,13)">
+  <area shape ="rect" coords="1128,110,1175,156"  onMouseOver="ShowInfo(event,24,13)" onMouseOut="HideInfo(24,13)">
+  <area shape ="rect" coords="1175,110,1222,156"  onMouseOver="ShowInfo(event,25,13)" onMouseOut="HideInfo(25,13)">
+  <area shape ="rect" coords="1222,110,1269,156"  onMouseOver="ShowInfo(event,26,13)" onMouseOut="HideInfo(26,13)">
+  <area shape ="rect" coords="1269,110,1316,156"  onMouseOver="ShowInfo(event,27,13)" onMouseOut="HideInfo(27,13)">
+  <area shape ="rect" coords="1316,110,1363,156"  onMouseOver="ShowInfo(event,28,13)" onMouseOut="HideInfo(28,13)">
+  <area shape ="rect" coords="1363,110,1410,156"  onMouseOver="ShowInfo(event,29,13)" onMouseOut="HideInfo(29,13)">
+  <area shape ="rect" coords="0,63,47,109"  onMouseOver="ShowInfo(event,0,14)" onMouseOut="HideInfo(0,14)">
+  <area shape ="rect" coords="47,63,94,109"  onMouseOver="ShowInfo(event,1,14)" onMouseOut="HideInfo(1,14)">
+  <area shape ="rect" coords="94,63,141,109"  onMouseOver="ShowInfo(event,2,14)" onMouseOut="HideInfo(2,14)">
+  <area shape ="rect" coords="141,63,188,109"  onMouseOver="ShowInfo(event,3,14)" onMouseOut="HideInfo(3,14)">
+  <area shape ="rect" coords="188,63,235,109"  onMouseOver="ShowInfo(event,4,14)" onMouseOut="HideInfo(4,14)">
+  <area shape ="rect" coords="235,63,282,109"  onMouseOver="ShowInfo(event,5,14)" onMouseOut="HideInfo(5,14)">
+  <area shape ="rect" coords="282,63,329,109"  onMouseOver="ShowInfo(event,6,14)" onMouseOut="HideInfo(6,14)">
+  <area shape ="rect" coords="329,63,376,109"  onMouseOver="ShowInfo(event,7,14)" onMouseOut="HideInfo(7,14)">
+  <area shape ="rect" coords="376,63,423,109"  onMouseOver="ShowInfo(event,8,14)" onMouseOut="HideInfo(8,14)">
+  <area shape ="rect" coords="423,63,470,109"  onMouseOver="ShowInfo(event,9,14)" onMouseOut="HideInfo(9,14)">
+  <area shape ="rect" coords="470,63,517,109"  onMouseOver="ShowInfo(event,10,14)" onMouseOut="HideInfo(10,14)">
+  <area shape ="rect" coords="517,63,564,109"  onMouseOver="ShowInfo(event,11,14)" onMouseOut="HideInfo(11,14)">
+  <area shape ="rect" coords="564,63,611,109"  onMouseOver="ShowInfo(event,12,14)" onMouseOut="HideInfo(12,14)">
+  <area shape ="rect" coords="611,63,658,109"  onMouseOver="ShowInfo(event,13,14)" onMouseOut="HideInfo(13,14)">
+  <area shape ="rect" coords="658,63,705,109"  onMouseOver="ShowInfo(event,14,14)" onMouseOut="HideInfo(14,14)">
+  <area shape ="rect" coords="705,63,752,109"  onMouseOver="ShowInfo(event,15,14)" onMouseOut="HideInfo(15,14)">
+  <area shape ="rect" coords="752,63,799,109"  onMouseOver="ShowInfo(event,16,14)" onMouseOut="HideInfo(16,14)">
+  <area shape ="rect" coords="799,63,846,109"  onMouseOver="ShowInfo(event,17,14)" onMouseOut="HideInfo(17,14)">
+  <area shape ="rect" coords="846,63,893,109"  onMouseOver="ShowInfo(event,18,14)" onMouseOut="HideInfo(18,14)">
+  <area shape ="rect" coords="893,63,940,109"  onMouseOver="ShowInfo(event,19,14)" onMouseOut="HideInfo(19,14)">
+  <area shape ="rect" coords="940,63,987,109"  onMouseOver="ShowInfo(event,20,14)" onMouseOut="HideInfo(20,14)">
+  <area shape ="rect" coords="987,63,1034,109"  onMouseOver="ShowInfo(event,21,14)" onMouseOut="HideInfo(21,14)">
+  <area shape ="rect" coords="1034,63,1081,109"  onMouseOver="ShowInfo(event,22,14)" onMouseOut="HideInfo(22,14)">
+  <area shape ="rect" coords="1081,63,1128,109"  onMouseOver="ShowInfo(event,23,14)" onMouseOut="HideInfo(23,14)">
+  <area shape ="rect" coords="1128,63,1175,109"  onMouseOver="ShowInfo(event,24,14)" onMouseOut="HideInfo(24,14)">
+  <area shape ="rect" coords="1175,63,1222,109"  onMouseOver="ShowInfo(event,25,14)" onMouseOut="HideInfo(25,14)">
+  <area shape ="rect" coords="1222,63,1269,109"  onMouseOver="ShowInfo(event,26,14)" onMouseOut="HideInfo(26,14)">
+  <area shape ="rect" coords="1269,63,1316,109"  onMouseOver="ShowInfo(event,27,14)" onMouseOut="HideInfo(27,14)">
+  <area shape ="rect" coords="1316,63,1363,109"  onMouseOver="ShowInfo(event,28,14)" onMouseOut="HideInfo(28,14)">
+  <area shape ="rect" coords="1363,63,1410,109"  onMouseOver="ShowInfo(event,29,14)" onMouseOut="HideInfo(29,14)">
+  <area shape ="rect" coords="0,16,47,62"  onMouseOver="ShowInfo(event,0,15)" onMouseOut="HideInfo(0,15)">
+  <area shape ="rect" coords="47,16,94,62"  onMouseOver="ShowInfo(event,1,15)" onMouseOut="HideInfo(1,15)">
+  <area shape ="rect" coords="94,16,141,62"  onMouseOver="ShowInfo(event,2,15)" onMouseOut="HideInfo(2,15)">
+  <area shape ="rect" coords="141,16,188,62"  onMouseOver="ShowInfo(event,3,15)" onMouseOut="HideInfo(3,15)">
+  <area shape ="rect" coords="188,16,235,62"  onMouseOver="ShowInfo(event,4,15)" onMouseOut="HideInfo(4,15)">
+  <area shape ="rect" coords="235,16,282,62"  onMouseOver="ShowInfo(event,5,15)" onMouseOut="HideInfo(5,15)">
+  <area shape ="rect" coords="282,16,329,62"  onMouseOver="ShowInfo(event,6,15)" onMouseOut="HideInfo(6,15)">
+  <area shape ="rect" coords="329,16,376,62"  onMouseOver="ShowInfo(event,7,15)" onMouseOut="HideInfo(7,15)">
+  <area shape ="rect" coords="376,16,423,62"  onMouseOver="ShowInfo(event,8,15)" onMouseOut="HideInfo(8,15)">
+  <area shape ="rect" coords="423,16,470,62"  onMouseOver="ShowInfo(event,9,15)" onMouseOut="HideInfo(9,15)">
+  <area shape ="rect" coords="470,16,517,62"  onMouseOver="ShowInfo(event,10,15)" onMouseOut="HideInfo(10,15)">
+  <area shape ="rect" coords="517,16,564,62"  onMouseOver="ShowInfo(event,11,15)" onMouseOut="HideInfo(11,15)">
+  <area shape ="rect" coords="564,16,611,62"  onMouseOver="ShowInfo(event,12,15)" onMouseOut="HideInfo(12,15)">
+  <area shape ="rect" coords="611,16,658,62"  onMouseOver="ShowInfo(event,13,15)" onMouseOut="HideInfo(13,15)">
+  <area shape ="rect" coords="658,16,705,62"  onMouseOver="ShowInfo(event,14,15)" onMouseOut="HideInfo(14,15)">
+  <area shape ="rect" coords="705,16,752,62"  onMouseOver="ShowInfo(event,15,15)" onMouseOut="HideInfo(15,15)">
+  <area shape ="rect" coords="752,16,799,62"  onMouseOver="ShowInfo(event,16,15)" onMouseOut="HideInfo(16,15)">
+  <area shape ="rect" coords="799,16,846,62"  onMouseOver="ShowInfo(event,17,15)" onMouseOut="HideInfo(17,15)">
+  <area shape ="rect" coords="846,16,893,62"  onMouseOver="ShowInfo(event,18,15)" onMouseOut="HideInfo(18,15)">
+  <area shape ="rect" coords="893,16,940,62"  onMouseOver="ShowInfo(event,19,15)" onMouseOut="HideInfo(19,15)">
+  <area shape ="rect" coords="940,16,987,62"  onMouseOver="ShowInfo(event,20,15)" onMouseOut="HideInfo(20,15)">
+  <area shape ="rect" coords="987,16,1034,62"  onMouseOver="ShowInfo(event,21,15)" onMouseOut="HideInfo(21,15)">
+  <area shape ="rect" coords="1034,16,1081,62"  onMouseOver="ShowInfo(event,22,15)" onMouseOut="HideInfo(22,15)">
+  <area shape ="rect" coords="1081,16,1128,62"  onMouseOver="ShowInfo(event,23,15)" onMouseOut="HideInfo(23,15)">
+  <area shape ="rect" coords="1128,16,1175,62"  onMouseOver="ShowInfo(event,24,15)" onMouseOut="HideInfo(24,15)">
+  <area shape ="rect" coords="1175,16,1222,62"  onMouseOver="ShowInfo(event,25,15)" onMouseOut="HideInfo(25,15)">
+  <area shape ="rect" coords="1222,16,1269,62"  onMouseOver="ShowInfo(event,26,15)" onMouseOut="HideInfo(26,15)">
+  <area shape ="rect" coords="1269,16,1316,62"  onMouseOver="ShowInfo(event,27,15)" onMouseOut="HideInfo(27,15)">
+  <area shape ="rect" coords="1316,16,1363,62"  onMouseOver="ShowInfo(event,28,15)" onMouseOut="HideInfo(28,15)">
+  <area shape ="rect" coords="1363,16,1410,62"  onMouseOver="ShowInfo(event,29,15)" onMouseOut="HideInfo(29,15)">
+  <area shape ="rect" coords="0,-31,47,15"  onMouseOver="ShowInfo(event,0,16)" onMouseOut="HideInfo(0,16)">
+  <area shape ="rect" coords="47,-31,94,15"  onMouseOver="ShowInfo(event,1,16)" onMouseOut="HideInfo(1,16)">
+  <area shape ="rect" coords="94,-31,141,15"  onMouseOver="ShowInfo(event,2,16)" onMouseOut="HideInfo(2,16)">
+  <area shape ="rect" coords="141,-31,188,15"  onMouseOver="ShowInfo(event,3,16)" onMouseOut="HideInfo(3,16)">
+  <area shape ="rect" coords="188,-31,235,15"  onMouseOver="ShowInfo(event,4,16)" onMouseOut="HideInfo(4,16)">
+  <area shape ="rect" coords="235,-31,282,15"  onMouseOver="ShowInfo(event,5,16)" onMouseOut="HideInfo(5,16)">
+  <area shape ="rect" coords="282,-31,329,15"  onMouseOver="ShowInfo(event,6,16)" onMouseOut="HideInfo(6,16)">
+  <area shape ="rect" coords="329,-31,376,15"  onMouseOver="ShowInfo(event,7,16)" onMouseOut="HideInfo(7,16)">
+  <area shape ="rect" coords="376,-31,423,15"  onMouseOver="ShowInfo(event,8,16)" onMouseOut="HideInfo(8,16)">
+  <area shape ="rect" coords="423,-31,470,15"  onMouseOver="ShowInfo(event,9,16)" onMouseOut="HideInfo(9,16)">
+  <area shape ="rect" coords="470,-31,517,15"  onMouseOver="ShowInfo(event,10,16)" onMouseOut="HideInfo(10,16)">
+  <area shape ="rect" coords="517,-31,564,15"  onMouseOver="ShowInfo(event,11,16)" onMouseOut="HideInfo(11,16)">
+  <area shape ="rect" coords="564,-31,611,15"  onMouseOver="ShowInfo(event,12,16)" onMouseOut="HideInfo(12,16)">
+  <area shape ="rect" coords="611,-31,658,15"  onMouseOver="ShowInfo(event,13,16)" onMouseOut="HideInfo(13,16)">
+  <area shape ="rect" coords="658,-31,705,15"  onMouseOver="ShowInfo(event,14,16)" onMouseOut="HideInfo(14,16)">
+  <area shape ="rect" coords="705,-31,752,15"  onMouseOver="ShowInfo(event,15,16)" onMouseOut="HideInfo(15,16)">
+  <area shape ="rect" coords="752,-31,799,15"  onMouseOver="ShowInfo(event,16,16)" onMouseOut="HideInfo(16,16)">
+  <area shape ="rect" coords="799,-31,846,15"  onMouseOver="ShowInfo(event,17,16)" onMouseOut="HideInfo(17,16)">
+  <area shape ="rect" coords="846,-31,893,15"  onMouseOver="ShowInfo(event,18,16)" onMouseOut="HideInfo(18,16)">
+  <area shape ="rect" coords="893,-31,940,15"  onMouseOver="ShowInfo(event,19,16)" onMouseOut="HideInfo(19,16)">
+  <area shape ="rect" coords="940,-31,987,15"  onMouseOver="ShowInfo(event,20,16)" onMouseOut="HideInfo(20,16)">
+  <area shape ="rect" coords="987,-31,1034,15"  onMouseOver="ShowInfo(event,21,16)" onMouseOut="HideInfo(21,16)">
+  <area shape ="rect" coords="1034,-31,1081,15"  onMouseOver="ShowInfo(event,22,16)" onMouseOut="HideInfo(22,16)">
+  <area shape ="rect" coords="1081,-31,1128,15"  onMouseOver="ShowInfo(event,23,16)" onMouseOut="HideInfo(23,16)">
+  <area shape ="rect" coords="1128,-31,1175,15"  onMouseOver="ShowInfo(event,24,16)" onMouseOut="HideInfo(24,16)">
+  <area shape ="rect" coords="1175,-31,1222,15"  onMouseOver="ShowInfo(event,25,16)" onMouseOut="HideInfo(25,16)">
+  <area shape ="rect" coords="1222,-31,1269,15"  onMouseOver="ShowInfo(event,26,16)" onMouseOut="HideInfo(26,16)">
+  <area shape ="rect" coords="1269,-31,1316,15"  onMouseOver="ShowInfo(event,27,16)" onMouseOut="HideInfo(27,16)">
+  <area shape ="rect" coords="1316,-31,1363,15"  onMouseOver="ShowInfo(event,28,16)" onMouseOut="HideInfo(28,16)">
+  <area shape ="rect" coords="1363,-31,1410,15"  onMouseOver="ShowInfo(event,29,16)" onMouseOut="HideInfo(29,16)">
+  <area shape ="rect" coords="0,-78,47,-32"  onMouseOver="ShowInfo(event,0,17)" onMouseOut="HideInfo(0,17)">
+  <area shape ="rect" coords="47,-78,94,-32"  onMouseOver="ShowInfo(event,1,17)" onMouseOut="HideInfo(1,17)">
+  <area shape ="rect" coords="94,-78,141,-32"  onMouseOver="ShowInfo(event,2,17)" onMouseOut="HideInfo(2,17)">
+  <area shape ="rect" coords="141,-78,188,-32"  onMouseOver="ShowInfo(event,3,17)" onMouseOut="HideInfo(3,17)">
+  <area shape ="rect" coords="188,-78,235,-32"  onMouseOver="ShowInfo(event,4,17)" onMouseOut="HideInfo(4,17)">
+  <area shape ="rect" coords="235,-78,282,-32"  onMouseOver="ShowInfo(event,5,17)" onMouseOut="HideInfo(5,17)">
+  <area shape ="rect" coords="282,-78,329,-32"  onMouseOver="ShowInfo(event,6,17)" onMouseOut="HideInfo(6,17)">
+  <area shape ="rect" coords="329,-78,376,-32"  onMouseOver="ShowInfo(event,7,17)" onMouseOut="HideInfo(7,17)">
+  <area shape ="rect" coords="376,-78,423,-32"  onMouseOver="ShowInfo(event,8,17)" onMouseOut="HideInfo(8,17)">
+  <area shape ="rect" coords="423,-78,470,-32"  onMouseOver="ShowInfo(event,9,17)" onMouseOut="HideInfo(9,17)">
+  <area shape ="rect" coords="470,-78,517,-32"  onMouseOver="ShowInfo(event,10,17)" onMouseOut="HideInfo(10,17)">
+  <area shape ="rect" coords="517,-78,564,-32"  onMouseOver="ShowInfo(event,11,17)" onMouseOut="HideInfo(11,17)">
+  <area shape ="rect" coords="564,-78,611,-32"  onMouseOver="ShowInfo(event,12,17)" onMouseOut="HideInfo(12,17)">
+  <area shape ="rect" coords="611,-78,658,-32"  onMouseOver="ShowInfo(event,13,17)" onMouseOut="HideInfo(13,17)">
+  <area shape ="rect" coords="658,-78,705,-32"  onMouseOver="ShowInfo(event,14,17)" onMouseOut="HideInfo(14,17)">
+  <area shape ="rect" coords="705,-78,752,-32"  onMouseOver="ShowInfo(event,15,17)" onMouseOut="HideInfo(15,17)">
+  <area shape ="rect" coords="752,-78,799,-32"  onMouseOver="ShowInfo(event,16,17)" onMouseOut="HideInfo(16,17)">
+  <area shape ="rect" coords="799,-78,846,-32"  onMouseOver="ShowInfo(event,17,17)" onMouseOut="HideInfo(17,17)">
+  <area shape ="rect" coords="846,-78,893,-32"  onMouseOver="ShowInfo(event,18,17)" onMouseOut="HideInfo(18,17)">
+  <area shape ="rect" coords="893,-78,940,-32"  onMouseOver="ShowInfo(event,19,17)" onMouseOut="HideInfo(19,17)">
+  <area shape ="rect" coords="940,-78,987,-32"  onMouseOver="ShowInfo(event,20,17)" onMouseOut="HideInfo(20,17)">
+  <area shape ="rect" coords="987,-78,1034,-32"  onMouseOver="ShowInfo(event,21,17)" onMouseOut="HideInfo(21,17)">
+  <area shape ="rect" coords="1034,-78,1081,-32"  onMouseOver="ShowInfo(event,22,17)" onMouseOut="HideInfo(22,17)">
+  <area shape ="rect" coords="1081,-78,1128,-32"  onMouseOver="ShowInfo(event,23,17)" onMouseOut="HideInfo(23,17)">
+  <area shape ="rect" coords="1128,-78,1175,-32"  onMouseOver="ShowInfo(event,24,17)" onMouseOut="HideInfo(24,17)">
+  <area shape ="rect" coords="1175,-78,1222,-32"  onMouseOver="ShowInfo(event,25,17)" onMouseOut="HideInfo(25,17)">
+  <area shape ="rect" coords="1222,-78,1269,-32"  onMouseOver="ShowInfo(event,26,17)" onMouseOut="HideInfo(26,17)">
+  <area shape ="rect" coords="1269,-78,1316,-32"  onMouseOver="ShowInfo(event,27,17)" onMouseOut="HideInfo(27,17)">
+  <area shape ="rect" coords="1316,-78,1363,-32"  onMouseOver="ShowInfo(event,28,17)" onMouseOut="HideInfo(28,17)">
+  <area shape ="rect" coords="1363,-78,1410,-32"  onMouseOver="ShowInfo(event,29,17)" onMouseOut="HideInfo(29,17)">
+  <area shape ="rect" coords="0,-125,47,-79"  onMouseOver="ShowInfo(event,0,18)" onMouseOut="HideInfo(0,18)">
+  <area shape ="rect" coords="47,-125,94,-79"  onMouseOver="ShowInfo(event,1,18)" onMouseOut="HideInfo(1,18)">
+  <area shape ="rect" coords="94,-125,141,-79"  onMouseOver="ShowInfo(event,2,18)" onMouseOut="HideInfo(2,18)">
+  <area shape ="rect" coords="141,-125,188,-79"  onMouseOver="ShowInfo(event,3,18)" onMouseOut="HideInfo(3,18)">
+  <area shape ="rect" coords="188,-125,235,-79"  onMouseOver="ShowInfo(event,4,18)" onMouseOut="HideInfo(4,18)">
+  <area shape ="rect" coords="235,-125,282,-79"  onMouseOver="ShowInfo(event,5,18)" onMouseOut="HideInfo(5,18)">
+  <area shape ="rect" coords="282,-125,329,-79"  onMouseOver="ShowInfo(event,6,18)" onMouseOut="HideInfo(6,18)">
+  <area shape ="rect" coords="329,-125,376,-79"  onMouseOver="ShowInfo(event,7,18)" onMouseOut="HideInfo(7,18)">
+  <area shape ="rect" coords="376,-125,423,-79"  onMouseOver="ShowInfo(event,8,18)" onMouseOut="HideInfo(8,18)">
+  <area shape ="rect" coords="423,-125,470,-79"  onMouseOver="ShowInfo(event,9,18)" onMouseOut="HideInfo(9,18)">
+  <area shape ="rect" coords="470,-125,517,-79"  onMouseOver="ShowInfo(event,10,18)" onMouseOut="HideInfo(10,18)">
+  <area shape ="rect" coords="517,-125,564,-79"  onMouseOver="ShowInfo(event,11,18)" onMouseOut="HideInfo(11,18)">
+  <area shape ="rect" coords="564,-125,611,-79"  onMouseOver="ShowInfo(event,12,18)" onMouseOut="HideInfo(12,18)">
+  <area shape ="rect" coords="611,-125,658,-79"  onMouseOver="ShowInfo(event,13,18)" onMouseOut="HideInfo(13,18)">
+  <area shape ="rect" coords="658,-125,705,-79"  onMouseOver="ShowInfo(event,14,18)" onMouseOut="HideInfo(14,18)">
+  <area shape ="rect" coords="705,-125,752,-79"  onMouseOver="ShowInfo(event,15,18)" onMouseOut="HideInfo(15,18)">
+  <area shape ="rect" coords="752,-125,799,-79"  onMouseOver="ShowInfo(event,16,18)" onMouseOut="HideInfo(16,18)">
+  <area shape ="rect" coords="799,-125,846,-79"  onMouseOver="ShowInfo(event,17,18)" onMouseOut="HideInfo(17,18)">
+  <area shape ="rect" coords="846,-125,893,-79"  onMouseOver="ShowInfo(event,18,18)" onMouseOut="HideInfo(18,18)">
+  <area shape ="rect" coords="893,-125,940,-79"  onMouseOver="ShowInfo(event,19,18)" onMouseOut="HideInfo(19,18)">
+  <area shape ="rect" coords="940,-125,987,-79"  onMouseOver="ShowInfo(event,20,18)" onMouseOut="HideInfo(20,18)">
+  <area shape ="rect" coords="987,-125,1034,-79"  onMouseOver="ShowInfo(event,21,18)" onMouseOut="HideInfo(21,18)">
+  <area shape ="rect" coords="1034,-125,1081,-79"  onMouseOver="ShowInfo(event,22,18)" onMouseOut="HideInfo(22,18)">
+  <area shape ="rect" coords="1081,-125,1128,-79"  onMouseOver="ShowInfo(event,23,18)" onMouseOut="HideInfo(23,18)">
+  <area shape ="rect" coords="1128,-125,1175,-79"  onMouseOver="ShowInfo(event,24,18)" onMouseOut="HideInfo(24,18)">
+  <area shape ="rect" coords="1175,-125,1222,-79"  onMouseOver="ShowInfo(event,25,18)" onMouseOut="HideInfo(25,18)">
+  <area shape ="rect" coords="1222,-125,1269,-79"  onMouseOver="ShowInfo(event,26,18)" onMouseOut="HideInfo(26,18)">
+  <area shape ="rect" coords="1269,-125,1316,-79"  onMouseOver="ShowInfo(event,27,18)" onMouseOut="HideInfo(27,18)">
+  <area shape ="rect" coords="1316,-125,1363,-79"  onMouseOver="ShowInfo(event,28,18)" onMouseOut="HideInfo(28,18)">
+  <area shape ="rect" coords="1363,-125,1410,-79"  onMouseOver="ShowInfo(event,29,18)" onMouseOut="HideInfo(29,18)">
+  <area shape ="rect" coords="0,-172,47,-126"  onMouseOver="ShowInfo(event,0,19)" onMouseOut="HideInfo(0,19)">
+  <area shape ="rect" coords="47,-172,94,-126"  onMouseOver="ShowInfo(event,1,19)" onMouseOut="HideInfo(1,19)">
+  <area shape ="rect" coords="94,-172,141,-126"  onMouseOver="ShowInfo(event,2,19)" onMouseOut="HideInfo(2,19)">
+  <area shape ="rect" coords="141,-172,188,-126"  onMouseOver="ShowInfo(event,3,19)" onMouseOut="HideInfo(3,19)">
+  <area shape ="rect" coords="188,-172,235,-126"  onMouseOver="ShowInfo(event,4,19)" onMouseOut="HideInfo(4,19)">
+  <area shape ="rect" coords="235,-172,282,-126"  onMouseOver="ShowInfo(event,5,19)" onMouseOut="HideInfo(5,19)">
+  <area shape ="rect" coords="282,-172,329,-126"  onMouseOver="ShowInfo(event,6,19)" onMouseOut="HideInfo(6,19)">
+  <area shape ="rect" coords="329,-172,376,-126"  onMouseOver="ShowInfo(event,7,19)" onMouseOut="HideInfo(7,19)">
+  <area shape ="rect" coords="376,-172,423,-126"  onMouseOver="ShowInfo(event,8,19)" onMouseOut="HideInfo(8,19)">
+  <area shape ="rect" coords="423,-172,470,-126"  onMouseOver="ShowInfo(event,9,19)" onMouseOut="HideInfo(9,19)">
+  <area shape ="rect" coords="470,-172,517,-126"  onMouseOver="ShowInfo(event,10,19)" onMouseOut="HideInfo(10,19)">
+  <area shape ="rect" coords="517,-172,564,-126"  onMouseOver="ShowInfo(event,11,19)" onMouseOut="HideInfo(11,19)">
+  <area shape ="rect" coords="564,-172,611,-126"  onMouseOver="ShowInfo(event,12,19)" onMouseOut="HideInfo(12,19)">
+  <area shape ="rect" coords="611,-172,658,-126"  onMouseOver="ShowInfo(event,13,19)" onMouseOut="HideInfo(13,19)">
+  <area shape ="rect" coords="658,-172,705,-126"  onMouseOver="ShowInfo(event,14,19)" onMouseOut="HideInfo(14,19)">
+  <area shape ="rect" coords="705,-172,752,-126"  onMouseOver="ShowInfo(event,15,19)" onMouseOut="HideInfo(15,19)">
+  <area shape ="rect" coords="752,-172,799,-126"  onMouseOver="ShowInfo(event,16,19)" onMouseOut="HideInfo(16,19)">
+  <area shape ="rect" coords="799,-172,846,-126"  onMouseOver="ShowInfo(event,17,19)" onMouseOut="HideInfo(17,19)">
+  <area shape ="rect" coords="846,-172,893,-126"  onMouseOver="ShowInfo(event,18,19)" onMouseOut="HideInfo(18,19)">
+  <area shape ="rect" coords="893,-172,940,-126"  onMouseOver="ShowInfo(event,19,19)" onMouseOut="HideInfo(19,19)">
+  <area shape ="rect" coords="940,-172,987,-126"  onMouseOver="ShowInfo(event,20,19)" onMouseOut="HideInfo(20,19)">
+  <area shape ="rect" coords="987,-172,1034,-126"  onMouseOver="ShowInfo(event,21,19)" onMouseOut="HideInfo(21,19)">
+  <area shape ="rect" coords="1034,-172,1081,-126"  onMouseOver="ShowInfo(event,22,19)" onMouseOut="HideInfo(22,19)">
+  <area shape ="rect" coords="1081,-172,1128,-126"  onMouseOver="ShowInfo(event,23,19)" onMouseOut="HideInfo(23,19)">
+  <area shape ="rect" coords="1128,-172,1175,-126"  onMouseOver="ShowInfo(event,24,19)" onMouseOut="HideInfo(24,19)">
+  <area shape ="rect" coords="1175,-172,1222,-126"  onMouseOver="ShowInfo(event,25,19)" onMouseOut="HideInfo(25,19)">
+  <area shape ="rect" coords="1222,-172,1269,-126"  onMouseOver="ShowInfo(event,26,19)" onMouseOut="HideInfo(26,19)">
+  <area shape ="rect" coords="1269,-172,1316,-126"  onMouseOver="ShowInfo(event,27,19)" onMouseOut="HideInfo(27,19)">
+  <area shape ="rect" coords="1316,-172,1363,-126"  onMouseOver="ShowInfo(event,28,19)" onMouseOut="HideInfo(28,19)">
+  <area shape ="rect" coords="1363,-172,1410,-126"  onMouseOver="ShowInfo(event,29,19)" onMouseOut="HideInfo(29,19)">
+  <area shape ="rect" coords="0,-219,47,-173"  onMouseOver="ShowInfo(event,0,20)" onMouseOut="HideInfo(0,20)">
+  <area shape ="rect" coords="47,-219,94,-173"  onMouseOver="ShowInfo(event,1,20)" onMouseOut="HideInfo(1,20)">
+  <area shape ="rect" coords="94,-219,141,-173"  onMouseOver="ShowInfo(event,2,20)" onMouseOut="HideInfo(2,20)">
+  <area shape ="rect" coords="141,-219,188,-173"  onMouseOver="ShowInfo(event,3,20)" onMouseOut="HideInfo(3,20)">
+  <area shape ="rect" coords="188,-219,235,-173"  onMouseOver="ShowInfo(event,4,20)" onMouseOut="HideInfo(4,20)">
+  <area shape ="rect" coords="235,-219,282,-173"  onMouseOver="ShowInfo(event,5,20)" onMouseOut="HideInfo(5,20)">
+  <area shape ="rect" coords="282,-219,329,-173"  onMouseOver="ShowInfo(event,6,20)" onMouseOut="HideInfo(6,20)">
+  <area shape ="rect" coords="329,-219,376,-173"  onMouseOver="ShowInfo(event,7,20)" onMouseOut="HideInfo(7,20)">
+  <area shape ="rect" coords="376,-219,423,-173"  onMouseOver="ShowInfo(event,8,20)" onMouseOut="HideInfo(8,20)">
+  <area shape ="rect" coords="423,-219,470,-173"  onMouseOver="ShowInfo(event,9,20)" onMouseOut="HideInfo(9,20)">
+  <area shape ="rect" coords="470,-219,517,-173"  onMouseOver="ShowInfo(event,10,20)" onMouseOut="HideInfo(10,20)">
+  <area shape ="rect" coords="517,-219,564,-173"  onMouseOver="ShowInfo(event,11,20)" onMouseOut="HideInfo(11,20)">
+  <area shape ="rect" coords="564,-219,611,-173"  onMouseOver="ShowInfo(event,12,20)" onMouseOut="HideInfo(12,20)">
+  <area shape ="rect" coords="611,-219,658,-173"  onMouseOver="ShowInfo(event,13,20)" onMouseOut="HideInfo(13,20)">
+  <area shape ="rect" coords="658,-219,705,-173"  onMouseOver="ShowInfo(event,14,20)" onMouseOut="HideInfo(14,20)">
+  <area shape ="rect" coords="705,-219,752,-173"  onMouseOver="ShowInfo(event,15,20)" onMouseOut="HideInfo(15,20)">
+  <area shape ="rect" coords="752,-219,799,-173"  onMouseOver="ShowInfo(event,16,20)" onMouseOut="HideInfo(16,20)">
+  <area shape ="rect" coords="799,-219,846,-173"  onMouseOver="ShowInfo(event,17,20)" onMouseOut="HideInfo(17,20)">
+  <area shape ="rect" coords="846,-219,893,-173"  onMouseOver="ShowInfo(event,18,20)" onMouseOut="HideInfo(18,20)">
+  <area shape ="rect" coords="893,-219,940,-173"  onMouseOver="ShowInfo(event,19,20)" onMouseOut="HideInfo(19,20)">
+  <area shape ="rect" coords="940,-219,987,-173"  onMouseOver="ShowInfo(event,20,20)" onMouseOut="HideInfo(20,20)">
+  <area shape ="rect" coords="987,-219,1034,-173"  onMouseOver="ShowInfo(event,21,20)" onMouseOut="HideInfo(21,20)">
+  <area shape ="rect" coords="1034,-219,1081,-173"  onMouseOver="ShowInfo(event,22,20)" onMouseOut="HideInfo(22,20)">
+  <area shape ="rect" coords="1081,-219,1128,-173"  onMouseOver="ShowInfo(event,23,20)" onMouseOut="HideInfo(23,20)">
+  <area shape ="rect" coords="1128,-219,1175,-173"  onMouseOver="ShowInfo(event,24,20)" onMouseOut="HideInfo(24,20)">
+  <area shape ="rect" coords="1175,-219,1222,-173"  onMouseOver="ShowInfo(event,25,20)" onMouseOut="HideInfo(25,20)">
+  <area shape ="rect" coords="1222,-219,1269,-173"  onMouseOver="ShowInfo(event,26,20)" onMouseOut="HideInfo(26,20)">
+  <area shape ="rect" coords="1269,-219,1316,-173"  onMouseOver="ShowInfo(event,27,20)" onMouseOut="HideInfo(27,20)">
+  <area shape ="rect" coords="1316,-219,1363,-173"  onMouseOver="ShowInfo(event,28,20)" onMouseOut="HideInfo(28,20)">
+  <area shape ="rect" coords="1363,-219,1410,-173"  onMouseOver="ShowInfo(event,29,20)" onMouseOut="HideInfo(29,20)">
+  <area shape ="rect" coords="0,-266,47,-220"  onMouseOver="ShowInfo(event,0,21)" onMouseOut="HideInfo(0,21)">
+  <area shape ="rect" coords="47,-266,94,-220"  onMouseOver="ShowInfo(event,1,21)" onMouseOut="HideInfo(1,21)">
+  <area shape ="rect" coords="94,-266,141,-220"  onMouseOver="ShowInfo(event,2,21)" onMouseOut="HideInfo(2,21)">
+  <area shape ="rect" coords="141,-266,188,-220"  onMouseOver="ShowInfo(event,3,21)" onMouseOut="HideInfo(3,21)">
+  <area shape ="rect" coords="188,-266,235,-220"  onMouseOver="ShowInfo(event,4,21)" onMouseOut="HideInfo(4,21)">
+  <area shape ="rect" coords="235,-266,282,-220"  onMouseOver="ShowInfo(event,5,21)" onMouseOut="HideInfo(5,21)">
+  <area shape ="rect" coords="282,-266,329,-220"  onMouseOver="ShowInfo(event,6,21)" onMouseOut="HideInfo(6,21)">
+  <area shape ="rect" coords="329,-266,376,-220"  onMouseOver="ShowInfo(event,7,21)" onMouseOut="HideInfo(7,21)">
+  <area shape ="rect" coords="376,-266,423,-220"  onMouseOver="ShowInfo(event,8,21)" onMouseOut="HideInfo(8,21)">
+  <area shape ="rect" coords="423,-266,470,-220"  onMouseOver="ShowInfo(event,9,21)" onMouseOut="HideInfo(9,21)">
+  <area shape ="rect" coords="470,-266,517,-220"  onMouseOver="ShowInfo(event,10,21)" onMouseOut="HideInfo(10,21)">
+  <area shape ="rect" coords="517,-266,564,-220"  onMouseOver="ShowInfo(event,11,21)" onMouseOut="HideInfo(11,21)">
+  <area shape ="rect" coords="564,-266,611,-220"  onMouseOver="ShowInfo(event,12,21)" onMouseOut="HideInfo(12,21)">
+  <area shape ="rect" coords="611,-266,658,-220"  onMouseOver="ShowInfo(event,13,21)" onMouseOut="HideInfo(13,21)">
+  <area shape ="rect" coords="658,-266,705,-220"  onMouseOver="ShowInfo(event,14,21)" onMouseOut="HideInfo(14,21)">
+  <area shape ="rect" coords="705,-266,752,-220"  onMouseOver="ShowInfo(event,15,21)" onMouseOut="HideInfo(15,21)">
+  <area shape ="rect" coords="752,-266,799,-220"  onMouseOver="ShowInfo(event,16,21)" onMouseOut="HideInfo(16,21)">
+  <area shape ="rect" coords="799,-266,846,-220"  onMouseOver="ShowInfo(event,17,21)" onMouseOut="HideInfo(17,21)">
+  <area shape ="rect" coords="846,-266,893,-220"  onMouseOver="ShowInfo(event,18,21)" onMouseOut="HideInfo(18,21)">
+  <area shape ="rect" coords="893,-266,940,-220"  onMouseOver="ShowInfo(event,19,21)" onMouseOut="HideInfo(19,21)">
+  <area shape ="rect" coords="940,-266,987,-220"  onMouseOver="ShowInfo(event,20,21)" onMouseOut="HideInfo(20,21)">
+  <area shape ="rect" coords="987,-266,1034,-220"  onMouseOver="ShowInfo(event,21,21)" onMouseOut="HideInfo(21,21)">
+  <area shape ="rect" coords="1034,-266,1081,-220"  onMouseOver="ShowInfo(event,22,21)" onMouseOut="HideInfo(22,21)">
+  <area shape ="rect" coords="1081,-266,1128,-220"  onMouseOver="ShowInfo(event,23,21)" onMouseOut="HideInfo(23,21)">
+  <area shape ="rect" coords="1128,-266,1175,-220"  onMouseOver="ShowInfo(event,24,21)" onMouseOut="HideInfo(24,21)">
+  <area shape ="rect" coords="1175,-266,1222,-220"  onMouseOver="ShowInfo(event,25,21)" onMouseOut="HideInfo(25,21)">
+  <area shape ="rect" coords="1222,-266,1269,-220"  onMouseOver="ShowInfo(event,26,21)" onMouseOut="HideInfo(26,21)">
+  <area shape ="rect" coords="1269,-266,1316,-220"  onMouseOver="ShowInfo(event,27,21)" onMouseOut="HideInfo(27,21)">
+  <area shape ="rect" coords="1316,-266,1363,-220"  onMouseOver="ShowInfo(event,28,21)" onMouseOut="HideInfo(28,21)">
+  <area shape ="rect" coords="1363,-266,1410,-220"  onMouseOver="ShowInfo(event,29,21)" onMouseOut="HideInfo(29,21)">
+  <area shape ="rect" coords="0,-313,47,-267"  onMouseOver="ShowInfo(event,0,22)" onMouseOut="HideInfo(0,22)">
+  <area shape ="rect" coords="47,-313,94,-267"  onMouseOver="ShowInfo(event,1,22)" onMouseOut="HideInfo(1,22)">
+  <area shape ="rect" coords="94,-313,141,-267"  onMouseOver="ShowInfo(event,2,22)" onMouseOut="HideInfo(2,22)">
+  <area shape ="rect" coords="141,-313,188,-267"  onMouseOver="ShowInfo(event,3,22)" onMouseOut="HideInfo(3,22)">
+  <area shape ="rect" coords="188,-313,235,-267"  onMouseOver="ShowInfo(event,4,22)" onMouseOut="HideInfo(4,22)">
+  <area shape ="rect" coords="235,-313,282,-267"  onMouseOver="ShowInfo(event,5,22)" onMouseOut="HideInfo(5,22)">
+  <area shape ="rect" coords="282,-313,329,-267"  onMouseOver="ShowInfo(event,6,22)" onMouseOut="HideInfo(6,22)">
+  <area shape ="rect" coords="329,-313,376,-267"  onMouseOver="ShowInfo(event,7,22)" onMouseOut="HideInfo(7,22)">
+  <area shape ="rect" coords="376,-313,423,-267"  onMouseOver="ShowInfo(event,8,22)" onMouseOut="HideInfo(8,22)">
+  <area shape ="rect" coords="423,-313,470,-267"  onMouseOver="ShowInfo(event,9,22)" onMouseOut="HideInfo(9,22)">
+  <area shape ="rect" coords="470,-313,517,-267"  onMouseOver="ShowInfo(event,10,22)" onMouseOut="HideInfo(10,22)">
+  <area shape ="rect" coords="517,-313,564,-267"  onMouseOver="ShowInfo(event,11,22)" onMouseOut="HideInfo(11,22)">
+  <area shape ="rect" coords="564,-313,611,-267"  onMouseOver="ShowInfo(event,12,22)" onMouseOut="HideInfo(12,22)">
+  <area shape ="rect" coords="611,-313,658,-267"  onMouseOver="ShowInfo(event,13,22)" onMouseOut="HideInfo(13,22)">
+  <area shape ="rect" coords="658,-313,705,-267"  onMouseOver="ShowInfo(event,14,22)" onMouseOut="HideInfo(14,22)">
+  <area shape ="rect" coords="705,-313,752,-267"  onMouseOver="ShowInfo(event,15,22)" onMouseOut="HideInfo(15,22)">
+  <area shape ="rect" coords="752,-313,799,-267"  onMouseOver="ShowInfo(event,16,22)" onMouseOut="HideInfo(16,22)">
+  <area shape ="rect" coords="799,-313,846,-267"  onMouseOver="ShowInfo(event,17,22)" onMouseOut="HideInfo(17,22)">
+  <area shape ="rect" coords="846,-313,893,-267"  onMouseOver="ShowInfo(event,18,22)" onMouseOut="HideInfo(18,22)">
+  <area shape ="rect" coords="893,-313,940,-267"  onMouseOver="ShowInfo(event,19,22)" onMouseOut="HideInfo(19,22)">
+  <area shape ="rect" coords="940,-313,987,-267"  onMouseOver="ShowInfo(event,20,22)" onMouseOut="HideInfo(20,22)">
+  <area shape ="rect" coords="987,-313,1034,-267"  onMouseOver="ShowInfo(event,21,22)" onMouseOut="HideInfo(21,22)">
+  <area shape ="rect" coords="1034,-313,1081,-267"  onMouseOver="ShowInfo(event,22,22)" onMouseOut="HideInfo(22,22)">
+  <area shape ="rect" coords="1081,-313,1128,-267"  onMouseOver="ShowInfo(event,23,22)" onMouseOut="HideInfo(23,22)">
+  <area shape ="rect" coords="1128,-313,1175,-267"  onMouseOver="ShowInfo(event,24,22)" onMouseOut="HideInfo(24,22)">
+  <area shape ="rect" coords="1175,-313,1222,-267"  onMouseOver="ShowInfo(event,25,22)" onMouseOut="HideInfo(25,22)">
+  <area shape ="rect" coords="1222,-313,1269,-267"  onMouseOver="ShowInfo(event,26,22)" onMouseOut="HideInfo(26,22)">
+  <area shape ="rect" coords="1269,-313,1316,-267"  onMouseOver="ShowInfo(event,27,22)" onMouseOut="HideInfo(27,22)">
+  <area shape ="rect" coords="1316,-313,1363,-267"  onMouseOver="ShowInfo(event,28,22)" onMouseOut="HideInfo(28,22)">
+  <area shape ="rect" coords="1363,-313,1410,-267"  onMouseOver="ShowInfo(event,29,22)" onMouseOut="HideInfo(29,22)">
+  <area shape ="rect" coords="0,-360,47,-314"  onMouseOver="ShowInfo(event,0,23)" onMouseOut="HideInfo(0,23)">
+  <area shape ="rect" coords="47,-360,94,-314"  onMouseOver="ShowInfo(event,1,23)" onMouseOut="HideInfo(1,23)">
+  <area shape ="rect" coords="94,-360,141,-314"  onMouseOver="ShowInfo(event,2,23)" onMouseOut="HideInfo(2,23)">
+  <area shape ="rect" coords="141,-360,188,-314"  onMouseOver="ShowInfo(event,3,23)" onMouseOut="HideInfo(3,23)">
+  <area shape ="rect" coords="188,-360,235,-314"  onMouseOver="ShowInfo(event,4,23)" onMouseOut="HideInfo(4,23)">
+  <area shape ="rect" coords="235,-360,282,-314"  onMouseOver="ShowInfo(event,5,23)" onMouseOut="HideInfo(5,23)">
+  <area shape ="rect" coords="282,-360,329,-314"  onMouseOver="ShowInfo(event,6,23)" onMouseOut="HideInfo(6,23)">
+  <area shape ="rect" coords="329,-360,376,-314"  onMouseOver="ShowInfo(event,7,23)" onMouseOut="HideInfo(7,23)">
+  <area shape ="rect" coords="376,-360,423,-314"  onMouseOver="ShowInfo(event,8,23)" onMouseOut="HideInfo(8,23)">
+  <area shape ="rect" coords="423,-360,470,-314"  onMouseOver="ShowInfo(event,9,23)" onMouseOut="HideInfo(9,23)">
+  <area shape ="rect" coords="470,-360,517,-314"  onMouseOver="ShowInfo(event,10,23)" onMouseOut="HideInfo(10,23)">
+  <area shape ="rect" coords="517,-360,564,-314"  onMouseOver="ShowInfo(event,11,23)" onMouseOut="HideInfo(11,23)">
+  <area shape ="rect" coords="564,-360,611,-314"  onMouseOver="ShowInfo(event,12,23)" onMouseOut="HideInfo(12,23)">
+  <area shape ="rect" coords="611,-360,658,-314"  onMouseOver="ShowInfo(event,13,23)" onMouseOut="HideInfo(13,23)">
+  <area shape ="rect" coords="658,-360,705,-314"  onMouseOver="ShowInfo(event,14,23)" onMouseOut="HideInfo(14,23)">
+  <area shape ="rect" coords="705,-360,752,-314"  onMouseOver="ShowInfo(event,15,23)" onMouseOut="HideInfo(15,23)">
+  <area shape ="rect" coords="752,-360,799,-314"  onMouseOver="ShowInfo(event,16,23)" onMouseOut="HideInfo(16,23)">
+  <area shape ="rect" coords="799,-360,846,-314"  onMouseOver="ShowInfo(event,17,23)" onMouseOut="HideInfo(17,23)">
+  <area shape ="rect" coords="846,-360,893,-314"  onMouseOver="ShowInfo(event,18,23)" onMouseOut="HideInfo(18,23)">
+  <area shape ="rect" coords="893,-360,940,-314"  onMouseOver="ShowInfo(event,19,23)" onMouseOut="HideInfo(19,23)">
+  <area shape ="rect" coords="940,-360,987,-314"  onMouseOver="ShowInfo(event,20,23)" onMouseOut="HideInfo(20,23)">
+  <area shape ="rect" coords="987,-360,1034,-314"  onMouseOver="ShowInfo(event,21,23)" onMouseOut="HideInfo(21,23)">
+  <area shape ="rect" coords="1034,-360,1081,-314"  onMouseOver="ShowInfo(event,22,23)" onMouseOut="HideInfo(22,23)">
+  <area shape ="rect" coords="1081,-360,1128,-314"  onMouseOver="ShowInfo(event,23,23)" onMouseOut="HideInfo(23,23)">
+  <area shape ="rect" coords="1128,-360,1175,-314"  onMouseOver="ShowInfo(event,24,23)" onMouseOut="HideInfo(24,23)">
+  <area shape ="rect" coords="1175,-360,1222,-314"  onMouseOver="ShowInfo(event,25,23)" onMouseOut="HideInfo(25,23)">
+  <area shape ="rect" coords="1222,-360,1269,-314"  onMouseOver="ShowInfo(event,26,23)" onMouseOut="HideInfo(26,23)">
+  <area shape ="rect" coords="1269,-360,1316,-314"  onMouseOver="ShowInfo(event,27,23)" onMouseOut="HideInfo(27,23)">
+  <area shape ="rect" coords="1316,-360,1363,-314"  onMouseOver="ShowInfo(event,28,23)" onMouseOut="HideInfo(28,23)">
+  <area shape ="rect" coords="1363,-360,1410,-314"  onMouseOver="ShowInfo(event,29,23)" onMouseOut="HideInfo(29,23)">
+  <area shape ="rect" coords="0,-407,47,-361"  onMouseOver="ShowInfo(event,0,24)" onMouseOut="HideInfo(0,24)">
+  <area shape ="rect" coords="47,-407,94,-361"  onMouseOver="ShowInfo(event,1,24)" onMouseOut="HideInfo(1,24)">
+  <area shape ="rect" coords="94,-407,141,-361"  onMouseOver="ShowInfo(event,2,24)" onMouseOut="HideInfo(2,24)">
+  <area shape ="rect" coords="141,-407,188,-361"  onMouseOver="ShowInfo(event,3,24)" onMouseOut="HideInfo(3,24)">
+  <area shape ="rect" coords="188,-407,235,-361"  onMouseOver="ShowInfo(event,4,24)" onMouseOut="HideInfo(4,24)">
+  <area shape ="rect" coords="235,-407,282,-361"  onMouseOver="ShowInfo(event,5,24)" onMouseOut="HideInfo(5,24)">
+  <area shape ="rect" coords="282,-407,329,-361"  onMouseOver="ShowInfo(event,6,24)" onMouseOut="HideInfo(6,24)">
+  <area shape ="rect" coords="329,-407,376,-361"  onMouseOver="ShowInfo(event,7,24)" onMouseOut="HideInfo(7,24)">
+  <area shape ="rect" coords="376,-407,423,-361"  onMouseOver="ShowInfo(event,8,24)" onMouseOut="HideInfo(8,24)">
+  <area shape ="rect" coords="423,-407,470,-361"  onMouseOver="ShowInfo(event,9,24)" onMouseOut="HideInfo(9,24)">
+  <area shape ="rect" coords="470,-407,517,-361"  onMouseOver="ShowInfo(event,10,24)" onMouseOut="HideInfo(10,24)">
+  <area shape ="rect" coords="517,-407,564,-361"  onMouseOver="ShowInfo(event,11,24)" onMouseOut="HideInfo(11,24)">
+  <area shape ="rect" coords="564,-407,611,-361"  onMouseOver="ShowInfo(event,12,24)" onMouseOut="HideInfo(12,24)">
+  <area shape ="rect" coords="611,-407,658,-361"  onMouseOver="ShowInfo(event,13,24)" onMouseOut="HideInfo(13,24)">
+  <area shape ="rect" coords="658,-407,705,-361"  onMouseOver="ShowInfo(event,14,24)" onMouseOut="HideInfo(14,24)">
+  <area shape ="rect" coords="705,-407,752,-361"  onMouseOver="ShowInfo(event,15,24)" onMouseOut="HideInfo(15,24)">
+  <area shape ="rect" coords="752,-407,799,-361"  onMouseOver="ShowInfo(event,16,24)" onMouseOut="HideInfo(16,24)">
+  <area shape ="rect" coords="799,-407,846,-361"  onMouseOver="ShowInfo(event,17,24)" onMouseOut="HideInfo(17,24)">
+  <area shape ="rect" coords="846,-407,893,-361"  onMouseOver="ShowInfo(event,18,24)" onMouseOut="HideInfo(18,24)">
+  <area shape ="rect" coords="893,-407,940,-361"  onMouseOver="ShowInfo(event,19,24)" onMouseOut="HideInfo(19,24)">
+  <area shape ="rect" coords="940,-407,987,-361"  onMouseOver="ShowInfo(event,20,24)" onMouseOut="HideInfo(20,24)">
+  <area shape ="rect" coords="987,-407,1034,-361"  onMouseOver="ShowInfo(event,21,24)" onMouseOut="HideInfo(21,24)">
+  <area shape ="rect" coords="1034,-407,1081,-361"  onMouseOver="ShowInfo(event,22,24)" onMouseOut="HideInfo(22,24)">
+  <area shape ="rect" coords="1081,-407,1128,-361"  onMouseOver="ShowInfo(event,23,24)" onMouseOut="HideInfo(23,24)">
+  <area shape ="rect" coords="1128,-407,1175,-361"  onMouseOver="ShowInfo(event,24,24)" onMouseOut="HideInfo(24,24)">
+  <area shape ="rect" coords="1175,-407,1222,-361"  onMouseOver="ShowInfo(event,25,24)" onMouseOut="HideInfo(25,24)">
+  <area shape ="rect" coords="1222,-407,1269,-361"  onMouseOver="ShowInfo(event,26,24)" onMouseOut="HideInfo(26,24)">
+  <area shape ="rect" coords="1269,-407,1316,-361"  onMouseOver="ShowInfo(event,27,24)" onMouseOut="HideInfo(27,24)">
+  <area shape ="rect" coords="1316,-407,1363,-361"  onMouseOver="ShowInfo(event,28,24)" onMouseOut="HideInfo(28,24)">
+  <area shape ="rect" coords="1363,-407,1410,-361"  onMouseOver="ShowInfo(event,29,24)" onMouseOut="HideInfo(29,24)">
+ </map>
+ <div id="sector_0_0" name="sector_0_0" style="display: none; background-color: white;" align="left">sector--A01 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_0" name="sector_1_0" style="display: none; background-color: white;" align="left">sector--B01 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_0" name="sector_2_0" style="display: none; background-color: white;" align="left">sector--C01 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_0" name="sector_3_0" style="display: none; background-color: white;" align="left">sector--D01 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_0" name="sector_4_0" style="display: none; background-color: white;" align="left">sector--E01 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_0" name="sector_5_0" style="display: none; background-color: white;" align="left">sector--F01 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_0" name="sector_6_0" style="display: none; background-color: white;" align="left">sector--G01 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_0" name="sector_7_0" style="display: none; background-color: white;" align="left">sector--H01 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_0" name="sector_8_0" style="display: none; background-color: white;" align="left">sector--I01 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_0" name="sector_9_0" style="display: none; background-color: white;" align="left">sector--J01 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_0" name="sector_10_0" style="display: none; background-color: white;" align="left">sector--K01 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_0" name="sector_11_0" style="display: none; background-color: white;" align="left">sector--L01 Defend:30 Attack: 30</br></div>
+ <div id="sector_12_0" name="sector_12_0" style="display: none; background-color: white;" align="left">sector--M01 Defend:30 Attack: 30</br></div>
+ <div id="sector_13_0" name="sector_13_0" style="display: none; background-color: white;" align="left">sector--N01 Defend:30 Attack: 30</br></div>
+ <div id="sector_14_0" name="sector_14_0" style="display: none; background-color: white;" align="left">sector--O01 Defend:30 Attack: 0</br>City: Lotta Damage:0</br></div>
+ <div id="sector_15_0" name="sector_15_0" style="display: none; background-color: white;" align="left">sector--P01 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_0" name="sector_16_0" style="display: none; background-color: white;" align="left">sector--Q01 Defend:30 Attack: 0</br>City: Pristikent Damage:0</br></div>
+ <div id="sector_17_0" name="sector_17_0" style="display: none; background-color: white;" align="left">sector--R01 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_0" name="sector_18_0" style="display: none; background-color: white;" align="left">sector--S01 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_0" name="sector_19_0" style="display: none; background-color: white;" align="left">sector--T01 Defend:0 Attack: 0</br></div>
+ <div id="sector_20_0" name="sector_20_0" style="display: none; background-color: white;" align="left">sector--U01 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_0" name="sector_21_0" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_0" name="sector_22_0" style="display: none; background-color: white;" align="left">sector--W01 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_0" name="sector_23_0" style="display: none; background-color: white;" align="left">sector--X01 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_0" name="sector_24_0" style="display: none; background-color: white;" align="left">sector--Y01 Defend:30 Attack: 0</br></div>
+ <div id="sector_25_0" name="sector_25_0" style="display: none; background-color: white;" align="left">sector--Z01 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_0" name="sector_26_0" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_0" name="sector_27_0" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_0" name="sector_28_0" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_0" name="sector_29_0" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_1" name="sector_0_1" style="display: none; background-color: white;" align="left">sector--A02 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_1" name="sector_1_1" style="display: none; background-color: white;" align="left">sector--B02 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_1" name="sector_2_1" style="display: none; background-color: white;" align="left">sector--C02 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_1" name="sector_3_1" style="display: none; background-color: white;" align="left">sector--D02 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_1" name="sector_4_1" style="display: none; background-color: white;" align="left">sector--E02 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_1" name="sector_5_1" style="display: none; background-color: white;" align="left">sector--F02 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_1" name="sector_6_1" style="display: none; background-color: white;" align="left">sector--G02 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_1" name="sector_7_1" style="display: none; background-color: white;" align="left">sector--H02 Defend:15 Attack: 0</br></div>
+ <div id="sector_8_1" name="sector_8_1" style="display: none; background-color: white;" align="left">sector--I02 Defend:15 Attack: 0</br></div>
+ <div id="sector_9_1" name="sector_9_1" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_1" name="sector_10_1" style="display: none; background-color: white;" align="left">sector--K02 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_1" name="sector_11_1" style="display: none; background-color: white;" align="left">sector--L02 Defend:30 Attack: 30</br></div>
+ <div id="sector_12_1" name="sector_12_1" style="display: none; background-color: white;" align="left">sector--M02 Defend:30 Attack: 30</br></div>
+ <div id="sector_13_1" name="sector_13_1" style="display: none; background-color: white;" align="left">sector--N02 Defend:30 Attack: 30</br></div>
+ <div id="sector_14_1" name="sector_14_1" style="display: none; background-color: white;" align="left">sector--O02 Defend:30 Attack: 30</br></div>
+ <div id="sector_15_1" name="sector_15_1" style="display: none; background-color: white;" align="left">sector--P02 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_1" name="sector_16_1" style="display: none; background-color: white;" align="left">sector--Q02 Defend:30 Attack: 0</br></div>
+ <div id="sector_17_1" name="sector_17_1" style="display: none; background-color: white;" align="left">sector--R02 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_1" name="sector_18_1" style="display: none; background-color: white;" align="left">sector--S02 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_1" name="sector_19_1" style="display: none; background-color: white;" align="left">sector--T02 Defend:30 Attack: 0</br></div>
+ <div id="sector_20_1" name="sector_20_1" style="display: none; background-color: white;" align="left">sector--U02 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_1" name="sector_21_1" style="display: none; background-color: white;" align="left">sector--V02 Defend:30 Attack: 0</br>City: Murmashi Damage:0</br></div>
+ <div id="sector_22_1" name="sector_22_1" style="display: none; background-color: white;" align="left">MURMASHI--AW02 Damage:0</br>sector--W02 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_1" name="sector_23_1" style="display: none; background-color: white;" align="left">SHONGUI--AX02 Damage:0</br>sector--X02 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_1" name="sector_24_1" style="display: none; background-color: white;" align="left">sector--Y02 Defend:30 Attack: 0</br></div>
+ <div id="sector_25_1" name="sector_25_1" style="display: none; background-color: white;" align="left">sector--Z02 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_1" name="sector_26_1" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_1" name="sector_27_1" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_1" name="sector_28_1" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_1" name="sector_29_1" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_2" name="sector_0_2" style="display: none; background-color: white;" align="left">sector--A03 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_2" name="sector_1_2" style="display: none; background-color: white;" align="left">sector--B03 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_2" name="sector_2_2" style="display: none; background-color: white;" align="left">sector--C03 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_2" name="sector_3_2" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_4_2" name="sector_4_2" style="display: none; background-color: white;" align="left">sector--E03 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_2" name="sector_5_2" style="display: none; background-color: white;" align="left">sector--F03 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_2" name="sector_6_2" style="display: none; background-color: white;" align="left">sector--G03 Defend:30 Attack: 0</br></div>
+ <div id="sector_7_2" name="sector_7_2" style="display: none; background-color: white;" align="left">sector--H03 Defend:30 Attack: 0</br></div>
+ <div id="sector_8_2" name="sector_8_2" style="display: none; background-color: white;" align="left">sector--I03 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_2" name="sector_9_2" style="display: none; background-color: white;" align="left">sector--J03 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_2" name="sector_10_2" style="display: none; background-color: white;" align="left">sector--K03 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_2" name="sector_11_2" style="display: none; background-color: white;" align="left">sector--L03 Defend:30 Attack: 0</br>City: Skuad69 Damage:0</br></div>
+ <div id="sector_12_2" name="sector_12_2" style="display: none; background-color: white;" align="left">sector--M03 Defend:30 Attack: 30</br></div>
+ <div id="sector_13_2" name="sector_13_2" style="display: none; background-color: white;" align="left">sector--N03 Defend:30 Attack: 30</br></div>
+ <div id="sector_14_2" name="sector_14_2" style="display: none; background-color: white;" align="left">sector--O03 Defend:30 Attack: 30</br></div>
+ <div id="sector_15_2" name="sector_15_2" style="display: none; background-color: white;" align="left">sector--P03 Defend:30 Attack: 30</br></div>
+ <div id="sector_16_2" name="sector_16_2" style="display: none; background-color: white;" align="left">sector--Q03 Defend:30 Attack: 30</br></div>
+ <div id="sector_17_2" name="sector_17_2" style="display: none; background-color: white;" align="left">sector--R03 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_2" name="sector_18_2" style="display: none; background-color: white;" align="left">sector--S03 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_2" name="sector_19_2" style="display: none; background-color: white;" align="left">sector--T03 Defend:30 Attack: 0</br></div>
+ <div id="sector_20_2" name="sector_20_2" style="display: none; background-color: white;" align="left">sector--U03 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_2" name="sector_21_2" style="display: none; background-color: white;" align="left">sector--V03 Defend:30 Attack: 0</br></div>
+ <div id="sector_22_2" name="sector_22_2" style="display: none; background-color: white;" align="left">sector--W03 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_2" name="sector_23_2" style="display: none; background-color: white;" align="left">sector--X03 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_2" name="sector_24_2" style="display: none; background-color: white;" align="left">sector--Y03 Defend:30 Attack: 0</br>City: Leskhoz Damage:0</br></div>
+ <div id="sector_25_2" name="sector_25_2" style="display: none; background-color: white;" align="left">sector--Z03 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_2" name="sector_26_2" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_2" name="sector_27_2" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_2" name="sector_28_2" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_2" name="sector_29_2" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_3" name="sector_0_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_1_3" name="sector_1_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_3" name="sector_2_3" style="display: none; background-color: white;" align="left">sector--C04 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_3" name="sector_3_3" style="display: none; background-color: white;" align="left">sector--D04 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_3" name="sector_4_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_5_3" name="sector_5_3" style="display: none; background-color: white;" align="left">sector--F04 Defend:15 Attack: 0</br></div>
+ <div id="sector_6_3" name="sector_6_3" style="display: none; background-color: white;" align="left">sector--G04 Defend:30 Attack: 0</br></div>
+ <div id="sector_7_3" name="sector_7_3" style="display: none; background-color: white;" align="left">sector--H04 Defend:30 Attack: 0</br></div>
+ <div id="sector_8_3" name="sector_8_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_9_3" name="sector_9_3" style="display: none; background-color: white;" align="left">sector--J04 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_3" name="sector_10_3" style="display: none; background-color: white;" align="left">sector--K04 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_3" name="sector_11_3" style="display: none; background-color: white;" align="left">sector--L04 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_3" name="sector_12_3" style="display: none; background-color: white;" align="left">sector--M04 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_3" name="sector_13_3" style="display: none; background-color: white;" align="left">sector--N04 Defend:30 Attack: 30</br></div>
+ <div id="sector_14_3" name="sector_14_3" style="display: none; background-color: white;" align="left">sector--O04 Defend:30 Attack: 30</br></div>
+ <div id="sector_15_3" name="sector_15_3" style="display: none; background-color: white;" align="left">sector--P04 Defend:30 Attack: 19</br></div>
+ <div id="sector_16_3" name="sector_16_3" style="display: none; background-color: white;" align="left">sector--Q04 Defend:0 Attack: 30</br></div>
+ <div id="sector_17_3" name="sector_17_3" style="display: none; background-color: white;" align="left">sector--R04 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_3" name="sector_18_3" style="display: none; background-color: white;" align="left">sector--S04 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_3" name="sector_19_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_3" name="sector_20_3" style="display: none; background-color: white;" align="left">sector--U04 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_3" name="sector_21_3" style="display: none; background-color: white;" align="left">sector--V04 Defend:30 Attack: 0</br></div>
+ <div id="sector_22_3" name="sector_22_3" style="display: none; background-color: white;" align="left">sector--W04 Defend:30 Attack: 0</br>City: Murmansk Damage:0</br></div>
+ <div id="sector_23_3" name="sector_23_3" style="display: none; background-color: white;" align="left">sector--X04 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_3" name="sector_24_3" style="display: none; background-color: white;" align="left">VAYENGA--AY04 Damage:17.75</br>sector--Y04 Defend:30 Attack: 0</br></div>
+ <div id="sector_25_3" name="sector_25_3" style="display: none; background-color: white;" align="left">sector--Z04 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_3" name="sector_26_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_3" name="sector_27_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_3" name="sector_28_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_3" name="sector_29_3" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_4" name="sector_0_4" style="display: none; background-color: white;" align="left">sector--A05 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_4" name="sector_1_4" style="display: none; background-color: white;" align="left">sector--B05 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_4" name="sector_2_4" style="display: none; background-color: white;" align="left">sector--C05 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_4" name="sector_3_4" style="display: none; background-color: white;" align="left">sector--D05 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_4" name="sector_4_4" style="display: none; background-color: white;" align="left">sector--E05 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_4" name="sector_5_4" style="display: none; background-color: white;" align="left">sector--F05 Defend:15 Attack: 0</br></div>
+ <div id="sector_6_4" name="sector_6_4" style="display: none; background-color: white;" align="left">sector--G05 Defend:30 Attack: 0</br></div>
+ <div id="sector_7_4" name="sector_7_4" style="display: none; background-color: white;" align="left">sector--H05 Defend:30 Attack: 0</br>City: Nautsi Damage:0</br></div>
+ <div id="sector_8_4" name="sector_8_4" style="display: none; background-color: white;" align="left">NAUTSI--AI05 Damage:0</br>sector--I05 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_4" name="sector_9_4" style="display: none; background-color: white;" align="left">sector--J05 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_4" name="sector_10_4" style="display: none; background-color: white;" align="left">sector--K05 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_4" name="sector_11_4" style="display: none; background-color: white;" align="left">sector--L05 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_4" name="sector_12_4" style="display: none; background-color: white;" align="left">sector--M05 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_4" name="sector_13_4" style="display: none; background-color: white;" align="left">sector--N05 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_4" name="sector_14_4" style="display: none; background-color: white;" align="left">sector--O05 Defend:30 Attack: 0</br>City: Donoskti Damage:0</br></div>
+ <div id="sector_15_4" name="sector_15_4" style="display: none; background-color: white;" align="left">sector--P05 Defend:30 Attack: 3</br></div>
+ <div id="sector_16_4" name="sector_16_4" style="display: none; background-color: white;" align="left">sector--Q05 Defend:9 Attack: 30</br></div>
+ <div id="sector_17_4" name="sector_17_4" style="display: none; background-color: white;" align="left">sector--R05 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_4" name="sector_18_4" style="display: none; background-color: white;" align="left">sector--S05 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_4" name="sector_19_4" style="display: none; background-color: white;" align="left">sector--T05 Defend:30 Attack: 0</br>City: Njal Damage:0</br></div>
+ <div id="sector_20_4" name="sector_20_4" style="display: none; background-color: white;" align="left">sector--U05 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_4" name="sector_21_4" style="display: none; background-color: white;" align="left">sector--V05 Defend:30 Attack: 0</br></div>
+ <div id="sector_22_4" name="sector_22_4" style="display: none; background-color: white;" align="left">sector--W05 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_4" name="sector_23_4" style="display: none; background-color: white;" align="left">sector--X05 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_4" name="sector_24_4" style="display: none; background-color: white;" align="left">sector--Y05 Defend:30 Attack: 0</br></div>
+ <div id="sector_25_4" name="sector_25_4" style="display: none; background-color: white;" align="left">sector--Z05 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_4" name="sector_26_4" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_4" name="sector_27_4" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_4" name="sector_28_4" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_4" name="sector_29_4" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_5" name="sector_0_5" style="display: none; background-color: white;" align="left">sector--A06 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_5" name="sector_1_5" style="display: none; background-color: white;" align="left">sector--B06 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_5" name="sector_2_5" style="display: none; background-color: white;" align="left">sector--C06 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_5" name="sector_3_5" style="display: none; background-color: white;" align="left">sector--D06 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_5" name="sector_4_5" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_5_5" name="sector_5_5" style="display: none; background-color: white;" align="left">sector--F06 Defend:15 Attack: 0</br></div>
+ <div id="sector_6_5" name="sector_6_5" style="display: none; background-color: white;" align="left">sector--G06 Defend:30 Attack: 0</br></div>
+ <div id="sector_7_5" name="sector_7_5" style="display: none; background-color: white;" align="left">sector--H06 Defend:30 Attack: 0</br></div>
+ <div id="sector_8_5" name="sector_8_5" style="display: none; background-color: white;" align="left">sector--I06 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_5" name="sector_9_5" style="display: none; background-color: white;" align="left">City: Pityayarki Damage:0</br></div>
+ <div id="sector_10_5" name="sector_10_5" style="display: none; background-color: white;" align="left">sector--K06 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_5" name="sector_11_5" style="display: none; background-color: white;" align="left">sector--L06 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_5" name="sector_12_5" style="display: none; background-color: white;" align="left">sector--M06 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_5" name="sector_13_5" style="display: none; background-color: white;" align="left">sector--N06 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_5" name="sector_14_5" style="display: none; background-color: white;" align="left">sector--O06 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_5" name="sector_15_5" style="display: none; background-color: white;" align="left">sector--P06 Defend:30 Attack: 4</br></div>
+ <div id="sector_16_5" name="sector_16_5" style="display: none; background-color: white;" align="left">sector--Q06 Defend:0 Attack: 30</br></div>
+ <div id="sector_17_5" name="sector_17_5" style="display: none; background-color: white;" align="left">sector--R06 Defend:30 Attack: 30</br>City: Mokket Damage:8.69</br></div>
+ <div id="sector_18_5" name="sector_18_5" style="display: none; background-color: white;" align="left">sector--S06 Defend:30 Attack: 0</br></div>
+ <div id="sector_19_5" name="sector_19_5" style="display: none; background-color: white;" align="left">sector--T06 Defend:30 Attack: 0</br></div>
+ <div id="sector_20_5" name="sector_20_5" style="display: none; background-color: white;" align="left">sector--U06 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_5" name="sector_21_5" style="display: none; background-color: white;" align="left">sector--V06 Defend:30 Attack: 0</br></div>
+ <div id="sector_22_5" name="sector_22_5" style="display: none; background-color: white;" align="left">sector--W06 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_5" name="sector_23_5" style="display: none; background-color: white;" align="left">sector--X06 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_5" name="sector_24_5" style="display: none; background-color: white;" align="left">sector--Y06 Defend:30 Attack: 0</br>City: Polyarny Damage:0</br></div>
+ <div id="sector_25_5" name="sector_25_5" style="display: none; background-color: white;" align="left">sector--Z06 Defend:30 Attack: 0</br></div>
+ <div id="sector_26_5" name="sector_26_5" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_5" name="sector_27_5" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_5" name="sector_28_5" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_5" name="sector_29_5" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_6" name="sector_0_6" style="display: none; background-color: white;" align="left">sector--A07 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_6" name="sector_1_6" style="display: none; background-color: white;" align="left">sector--B07 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_6" name="sector_2_6" style="display: none; background-color: white;" align="left">sector--C07 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_6" name="sector_3_6" style="display: none; background-color: white;" align="left">sector--D07 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_6" name="sector_4_6" style="display: none; background-color: white;" align="left">sector--E07 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_6" name="sector_5_6" style="display: none; background-color: white;" align="left">sector--F07 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_6" name="sector_6_6" style="display: none; background-color: white;" align="left">sector--G07 Defend:15 Attack: 0</br></div>
+ <div id="sector_7_6" name="sector_7_6" style="display: none; background-color: white;" align="left">sector--H07 Defend:30 Attack: 0</br></div>
+ <div id="sector_8_6" name="sector_8_6" style="display: none; background-color: white;" align="left">sector--I07 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_6" name="sector_9_6" style="display: none; background-color: white;" align="left">sector--J07 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_6" name="sector_10_6" style="display: none; background-color: white;" align="left">sector--K07 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_6" name="sector_11_6" style="display: none; background-color: white;" align="left">sector--L07 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_6" name="sector_12_6" style="display: none; background-color: white;" align="left">sector--M07 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_6" name="sector_13_6" style="display: none; background-color: white;" align="left">sector--N07 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_6" name="sector_14_6" style="display: none; background-color: white;" align="left">sector--O07 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_6" name="sector_15_6" style="display: none; background-color: white;" align="left">sector--P07 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_6" name="sector_16_6" style="display: none; background-color: white;" align="left">sector--Q07 Defend:30 Attack: 10</br></div>
+ <div id="sector_17_6" name="sector_17_6" style="display: none; background-color: white;" align="left">sector--R07 Defend:0 Attack: 26</br></div>
+ <div id="sector_18_6" name="sector_18_6" style="display: none; background-color: white;" align="left">sector--S07 Defend:30 Attack: 22</br></div>
+ <div id="sector_19_6" name="sector_19_6" style="display: none; background-color: white;" align="left">sector--T07 Defend:30 Attack: 14</br></div>
+ <div id="sector_20_6" name="sector_20_6" style="display: none; background-color: white;" align="left">sector--U07 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_6" name="sector_21_6" style="display: none; background-color: white;" align="left">URA GUBA--AV07 Damage:57.95</br>sector--V07 Defend:30 Attack: 0</br>City: Uragba Damage:0</br></div>
+ <div id="sector_22_6" name="sector_22_6" style="display: none; background-color: white;" align="left">sector--W07 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_6" name="sector_23_6" style="display: none; background-color: white;" align="left">sector--X07 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_6" name="sector_24_6" style="display: none; background-color: white;" align="left">sector--Y07 Defend:30 Attack: 0</br></div>
+ <div id="sector_25_6" name="sector_25_6" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_6" name="sector_26_6" style="display: none; background-color: white;" align="left">KILDIN--BA07 Damage:33</br>City: Rushy Damage:0.09</br></div>
+ <div id="sector_27_6" name="sector_27_6" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_6" name="sector_28_6" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_6" name="sector_29_6" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_7" name="sector_0_7" style="display: none; background-color: white;" align="left">sector--A08 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_7" name="sector_1_7" style="display: none; background-color: white;" align="left">sector--B08 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_7" name="sector_2_7" style="display: none; background-color: white;" align="left">sector--C08 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_7" name="sector_3_7" style="display: none; background-color: white;" align="left">sector--D08 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_7" name="sector_4_7" style="display: none; background-color: white;" align="left">sector--E08 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_7" name="sector_5_7" style="display: none; background-color: white;" align="left">sector--F08 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_7" name="sector_6_7" style="display: none; background-color: white;" align="left">sector--G08 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_7" name="sector_7_7" style="display: none; background-color: white;" align="left">sector--H08 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_7" name="sector_8_7" style="display: none; background-color: white;" align="left">sector--I08 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_7" name="sector_9_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_7" name="sector_10_7" style="display: none; background-color: white;" align="left">sector--K08 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_7" name="sector_11_7" style="display: none; background-color: white;" align="left">sector--L08 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_7" name="sector_12_7" style="display: none; background-color: white;" align="left">NIKEL--AM08 Damage:0</br>sector--M08 Defend:30 Attack: 0</br>City: Nikel Damage:0</br></div>
+ <div id="sector_13_7" name="sector_13_7" style="display: none; background-color: white;" align="left">sector--N08 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_7" name="sector_14_7" style="display: none; background-color: white;" align="left">sector--O08 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_7" name="sector_15_7" style="display: none; background-color: white;" align="left">LUOSTARI--AP08 Damage:82.85</br>sector--P08 Defend:30 Attack: 0</br>City: Luostari Damage:0</br></div>
+ <div id="sector_16_7" name="sector_16_7" style="display: none; background-color: white;" align="left">sector--Q08 Defend:30 Attack: 0</br></div>
+ <div id="sector_17_7" name="sector_17_7" style="display: none; background-color: white;" align="left">sector--R08 Defend:30 Attack: 15</br></div>
+ <div id="sector_18_7" name="sector_18_7" style="display: none; background-color: white;" align="left">sector--S08 Defend:14 Attack: 18</br></div>
+ <div id="sector_19_7" name="sector_19_7" style="display: none; background-color: white;" align="left">sector--T08 Defend:30 Attack: 22</br>City: Bolshaya Damage:2</br></div>
+ <div id="sector_20_7" name="sector_20_7" style="display: none; background-color: white;" align="left">sector--U08 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_7" name="sector_21_7" style="display: none; background-color: white;" align="left">sector--V08 Defend:30 Attack: 0</br></div>
+ <div id="sector_22_7" name="sector_22_7" style="display: none; background-color: white;" align="left">sector--W08 Defend:30 Attack: 0</br></div>
+ <div id="sector_23_7" name="sector_23_7" style="display: none; background-color: white;" align="left">sector--X08 Defend:30 Attack: 0</br></div>
+ <div id="sector_24_7" name="sector_24_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_7" name="sector_25_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_7" name="sector_26_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_7" name="sector_27_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_7" name="sector_28_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_7" name="sector_29_7" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_8" name="sector_0_8" style="display: none; background-color: white;" align="left">sector--A09 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_8" name="sector_1_8" style="display: none; background-color: white;" align="left">sector--B09 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_8" name="sector_2_8" style="display: none; background-color: white;" align="left">sector--C09 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_8" name="sector_3_8" style="display: none; background-color: white;" align="left">sector--D09 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_8" name="sector_4_8" style="display: none; background-color: white;" align="left">sector--E09 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_8" name="sector_5_8" style="display: none; background-color: white;" align="left">sector--F09 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_8" name="sector_6_8" style="display: none; background-color: white;" align="left">sector--G09 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_8" name="sector_7_8" style="display: none; background-color: white;" align="left">sector--H09 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_8" name="sector_8_8" style="display: none; background-color: white;" align="left">sector--I09 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_8" name="sector_9_8" style="display: none; background-color: white;" align="left">sector--J09 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_8" name="sector_10_8" style="display: none; background-color: white;" align="left">sector--K09 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_8" name="sector_11_8" style="display: none; background-color: white;" align="left">sector--L09 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_8" name="sector_12_8" style="display: none; background-color: white;" align="left">sector--M09 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_8" name="sector_13_8" style="display: none; background-color: white;" align="left">sector--N09 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_8" name="sector_14_8" style="display: none; background-color: white;" align="left">sector--O09 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_8" name="sector_15_8" style="display: none; background-color: white;" align="left">sector--P09 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_8" name="sector_16_8" style="display: none; background-color: white;" align="left">sector--Q09 Defend:30 Attack: 0</br></div>
+ <div id="sector_17_8" name="sector_17_8" style="display: none; background-color: white;" align="left">sector--R09 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_8" name="sector_18_8" style="display: none; background-color: white;" align="left">sector--S09 Defend:30 Attack: 16</br>City: Staraya Damage:0</br></div>
+ <div id="sector_19_8" name="sector_19_8" style="display: none; background-color: white;" align="left">sector--T09 Defend:3 Attack: 26</br></div>
+ <div id="sector_20_8" name="sector_20_8" style="display: none; background-color: white;" align="left">sector--U09 Defend:18 Attack: 26</br></div>
+ <div id="sector_21_8" name="sector_21_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_8" name="sector_22_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_8" name="sector_23_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_8" name="sector_24_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_8" name="sector_25_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_8" name="sector_26_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_8" name="sector_27_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_8" name="sector_28_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_8" name="sector_29_8" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_9" name="sector_0_9" style="display: none; background-color: white;" align="left">sector--A10 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_9" name="sector_1_9" style="display: none; background-color: white;" align="left">sector--B10 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_9" name="sector_2_9" style="display: none; background-color: white;" align="left">sector--C10 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_9" name="sector_3_9" style="display: none; background-color: white;" align="left">sector--D10 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_9" name="sector_4_9" style="display: none; background-color: white;" align="left">sector--E10 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_9" name="sector_5_9" style="display: none; background-color: white;" align="left">sector--F10 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_9" name="sector_6_9" style="display: none; background-color: white;" align="left">sector--G10 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_9" name="sector_7_9" style="display: none; background-color: white;" align="left">sector--H10 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_9" name="sector_8_9" style="display: none; background-color: white;" align="left">sector--I10 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_9" name="sector_9_9" style="display: none; background-color: white;" align="left">sector--J10 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_9" name="sector_10_9" style="display: none; background-color: white;" align="left">sector--K10 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_9" name="sector_11_9" style="display: none; background-color: white;" align="left">sector--L10 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_9" name="sector_12_9" style="display: none; background-color: white;" align="left">sector--M10 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_9" name="sector_13_9" style="display: none; background-color: white;" align="left">sector--N10 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_9" name="sector_14_9" style="display: none; background-color: white;" align="left">sector--O10 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_9" name="sector_15_9" style="display: none; background-color: white;" align="left">sector--P10 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_9" name="sector_16_9" style="display: none; background-color: white;" align="left">sector--Q10 Defend:30 Attack: 0</br>City: Petsamo Damage:0</br></div>
+ <div id="sector_17_9" name="sector_17_9" style="display: none; background-color: white;" align="left">sector--R10 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_9" name="sector_18_9" style="display: none; background-color: white;" align="left">sector--S10 Defend:30 Attack: 3</br></div>
+ <div id="sector_19_9" name="sector_19_9" style="display: none; background-color: white;" align="left">sector--T10 Defend:30 Attack: 10</br></div>
+ <div id="sector_20_9" name="sector_20_9" style="display: none; background-color: white;" align="left">sector--U10 Defend:30 Attack: 10</br>City: Eyna Damage:39.29</br></div>
+ <div id="sector_21_9" name="sector_21_9" style="display: none; background-color: white;" align="left">sector--V10 Defend:19 Attack: 11</br></div>
+ <div id="sector_22_9" name="sector_22_9" style="display: none; background-color: white;" align="left">sector--W10 Defend:5 Attack: 14</br></div>
+ <div id="sector_23_9" name="sector_23_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_9" name="sector_24_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_9" name="sector_25_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_9" name="sector_26_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_9" name="sector_27_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_9" name="sector_28_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_9" name="sector_29_9" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_10" name="sector_0_10" style="display: none; background-color: white;" align="left">sector--A11 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_10" name="sector_1_10" style="display: none; background-color: white;" align="left">sector--B11 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_10" name="sector_2_10" style="display: none; background-color: white;" align="left">sector--C11 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_10" name="sector_3_10" style="display: none; background-color: white;" align="left">sector--D11 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_10" name="sector_4_10" style="display: none; background-color: white;" align="left">sector--E11 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_10" name="sector_5_10" style="display: none; background-color: white;" align="left">sector--F11 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_10" name="sector_6_10" style="display: none; background-color: white;" align="left">sector--G11 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_10" name="sector_7_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_8_10" name="sector_8_10" style="display: none; background-color: white;" align="left">sector--I11 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_10" name="sector_9_10" style="display: none; background-color: white;" align="left">sector--J11 Defend:30 Attack: 0</br>City: Nerden Damage:0</br></div>
+ <div id="sector_10_10" name="sector_10_10" style="display: none; background-color: white;" align="left">sector--K11 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_10" name="sector_11_10" style="display: none; background-color: white;" align="left">KIRKENES--AL11 Damage:5</br>sector--L11 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_10" name="sector_12_10" style="display: none; background-color: white;" align="left">sector--M11 Defend:30 Attack: 0</br>City: Kirkenes Damage:0</br></div>
+ <div id="sector_13_10" name="sector_13_10" style="display: none; background-color: white;" align="left">sector--N11 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_10" name="sector_14_10" style="display: none; background-color: white;" align="left">sector--O11 Defend:30 Attack: 0</br></div>
+ <div id="sector_15_10" name="sector_15_10" style="display: none; background-color: white;" align="left">sector--P11 Defend:30 Attack: 0</br></div>
+ <div id="sector_16_10" name="sector_16_10" style="display: none; background-color: white;" align="left">sector--Q11 Defend:30 Attack: 0</br></div>
+ <div id="sector_17_10" name="sector_17_10" style="display: none; background-color: white;" align="left">sector--R11 Defend:30 Attack: 0</br></div>
+ <div id="sector_18_10" name="sector_18_10" style="display: none; background-color: white;" align="left">sector--S11 Defend:15 Attack: 0</br></div>
+ <div id="sector_19_10" name="sector_19_10" style="display: none; background-color: white;" align="left">sector--T11 Defend:30 Attack: 0</br></div>
+ <div id="sector_20_10" name="sector_20_10" style="display: none; background-color: white;" align="left">sector--U11 Defend:30 Attack: 0</br></div>
+ <div id="sector_21_10" name="sector_21_10" style="display: none; background-color: white;" align="left">sector--V11 Defend:5 Attack: 5</br></div>
+ <div id="sector_22_10" name="sector_22_10" style="display: none; background-color: white;" align="left">sector--W11 Defend:20 Attack: 5</br>City: Tsyp Damage:99.89</br></div>
+ <div id="sector_23_10" name="sector_23_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_10" name="sector_24_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_10" name="sector_25_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_10" name="sector_26_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_10" name="sector_27_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_10" name="sector_28_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_10" name="sector_29_10" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_11" name="sector_0_11" style="display: none; background-color: white;" align="left">sector--A12 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_11" name="sector_1_11" style="display: none; background-color: white;" align="left">sector--B12 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_11" name="sector_2_11" style="display: none; background-color: white;" align="left">sector--C12 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_11" name="sector_3_11" style="display: none; background-color: white;" align="left">sector--D12 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_11" name="sector_4_11" style="display: none; background-color: white;" align="left">sector--E12 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_11" name="sector_5_11" style="display: none; background-color: white;" align="left">sector--F12 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_11" name="sector_6_11" style="display: none; background-color: white;" align="left">sector--G12 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_11" name="sector_7_11" style="display: none; background-color: white;" align="left">sector--H12 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_11" name="sector_8_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_9_11" name="sector_9_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_11" name="sector_10_11" style="display: none; background-color: white;" align="left">sector--K12 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_11" name="sector_11_11" style="display: none; background-color: white;" align="left">sector--L12 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_11" name="sector_12_11" style="display: none; background-color: white;" align="left">sector--M12 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_11" name="sector_13_11" style="display: none; background-color: white;" align="left">sector--N12 Defend:30 Attack: 0</br></div>
+ <div id="sector_14_11" name="sector_14_11" style="display: none; background-color: white;" align="left">sector--O12 Defend:0 Attack: 0</br></div>
+ <div id="sector_15_11" name="sector_15_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_11" name="sector_16_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_11" name="sector_17_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_11" name="sector_18_11" style="display: none; background-color: white;" align="left">PUMMANKI--AS12 Damage:50</br>sector--S12 Defend:0 Attack: 0</br></div>
+ <div id="sector_19_11" name="sector_19_11" style="display: none; background-color: white;" align="left">sector--T12 Defend:0 Attack: 0</br></div>
+ <div id="sector_20_11" name="sector_20_11" style="display: none; background-color: white;" align="left">sector--U12 Defend:0 Attack: 0</br></div>
+ <div id="sector_21_11" name="sector_21_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_11" name="sector_22_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_11" name="sector_23_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_11" name="sector_24_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_11" name="sector_25_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_11" name="sector_26_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_11" name="sector_27_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_11" name="sector_28_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_11" name="sector_29_11" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_12" name="sector_0_12" style="display: none; background-color: white;" align="left">sector--A13 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_12" name="sector_1_12" style="display: none; background-color: white;" align="left">sector--B13 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_12" name="sector_2_12" style="display: none; background-color: white;" align="left">sector--C13 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_12" name="sector_3_12" style="display: none; background-color: white;" align="left">sector--D13 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_12" name="sector_4_12" style="display: none; background-color: white;" align="left">sector--E13 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_12" name="sector_5_12" style="display: none; background-color: white;" align="left">sector--F13 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_12" name="sector_6_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_7_12" name="sector_7_12" style="display: none; background-color: white;" align="left">sector--H13 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_12" name="sector_8_12" style="display: none; background-color: white;" align="left">sector--I13 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_12" name="sector_9_12" style="display: none; background-color: white;" align="left">sector--J13 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_12" name="sector_10_12" style="display: none; background-color: white;" align="left">sector--K13 Defend:30 Attack: 0</br>City: Bagoynesvaer Damage:0</br></div>
+ <div id="sector_11_12" name="sector_11_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_12" name="sector_12_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_12" name="sector_13_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_12" name="sector_14_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_12" name="sector_15_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_12" name="sector_16_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_12" name="sector_17_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_12" name="sector_18_12" style="display: none; background-color: white;" align="left">sector--S13 Defend:0 Attack: 0</br></div>
+ <div id="sector_19_12" name="sector_19_12" style="display: none; background-color: white;" align="left">sector--T13 Defend:0 Attack: 0</br></div>
+ <div id="sector_20_12" name="sector_20_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_12" name="sector_21_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_12" name="sector_22_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_12" name="sector_23_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_12" name="sector_24_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_12" name="sector_25_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_12" name="sector_26_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_12" name="sector_27_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_12" name="sector_28_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_12" name="sector_29_12" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_13" name="sector_0_13" style="display: none; background-color: white;" align="left">sector--A14 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_13" name="sector_1_13" style="display: none; background-color: white;" align="left">sector--B14 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_13" name="sector_2_13" style="display: none; background-color: white;" align="left">sector--C14 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_13" name="sector_3_13" style="display: none; background-color: white;" align="left">sector--D14 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_13" name="sector_4_13" style="display: none; background-color: white;" align="left">sector--E14 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_13" name="sector_5_13" style="display: none; background-color: white;" align="left">sector--F14 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_13" name="sector_6_13" style="display: none; background-color: white;" align="left">sector--G14 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_13" name="sector_7_13" style="display: none; background-color: white;" align="left">sector--H14 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_13" name="sector_8_13" style="display: none; background-color: white;" align="left">sector--I14 Defend:30 Attack: 0</br></div>
+ <div id="sector_9_13" name="sector_9_13" style="display: none; background-color: white;" align="left">sector--J14 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_13" name="sector_10_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_11_13" name="sector_11_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_13" name="sector_12_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_13" name="sector_13_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_13" name="sector_14_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_13" name="sector_15_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_13" name="sector_16_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_13" name="sector_17_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_13" name="sector_18_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_13" name="sector_19_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_13" name="sector_20_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_13" name="sector_21_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_13" name="sector_22_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_13" name="sector_23_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_13" name="sector_24_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_13" name="sector_25_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_13" name="sector_26_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_13" name="sector_27_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_13" name="sector_28_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_13" name="sector_29_13" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_14" name="sector_0_14" style="display: none; background-color: white;" align="left">sector--A15 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_14" name="sector_1_14" style="display: none; background-color: white;" align="left">sector--B15 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_14" name="sector_2_14" style="display: none; background-color: white;" align="left">sector--C15 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_14" name="sector_3_14" style="display: none; background-color: white;" align="left">sector--D15 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_14" name="sector_4_14" style="display: none; background-color: white;" align="left">sector--E15 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_14" name="sector_5_14" style="display: none; background-color: white;" align="left">sector--F15 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_14" name="sector_6_14" style="display: none; background-color: white;" align="left">sector--G15 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_14" name="sector_7_14" style="display: none; background-color: white;" align="left">sector--H15 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_14" name="sector_8_14" style="display: none; background-color: white;" align="left">sector--I15 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_14" name="sector_9_14" style="display: none; background-color: white;" align="left">sector--J15 Defend:30 Attack: 0</br></div>
+ <div id="sector_10_14" name="sector_10_14" style="display: none; background-color: white;" align="left">sector--K15 Defend:30 Attack: 0</br></div>
+ <div id="sector_11_14" name="sector_11_14" style="display: none; background-color: white;" align="left">sector--L15 Defend:30 Attack: 0</br></div>
+ <div id="sector_12_14" name="sector_12_14" style="display: none; background-color: white;" align="left">sector--M15 Defend:30 Attack: 0</br></div>
+ <div id="sector_13_14" name="sector_13_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_14" name="sector_14_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_14" name="sector_15_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_14" name="sector_16_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_14" name="sector_17_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_14" name="sector_18_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_14" name="sector_19_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_14" name="sector_20_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_14" name="sector_21_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_14" name="sector_22_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_14" name="sector_23_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_14" name="sector_24_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_14" name="sector_25_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_14" name="sector_26_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_14" name="sector_27_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_14" name="sector_28_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_14" name="sector_29_14" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_15" name="sector_0_15" style="display: none; background-color: white;" align="left">sector--A16 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_15" name="sector_1_15" style="display: none; background-color: white;" align="left">sector--B16 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_15" name="sector_2_15" style="display: none; background-color: white;" align="left">sector--C16 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_15" name="sector_3_15" style="display: none; background-color: white;" align="left">sector--D16 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_15" name="sector_4_15" style="display: none; background-color: white;" align="left">sector--E16 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_15" name="sector_5_15" style="display: none; background-color: white;" align="left">sector--F16 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_15" name="sector_6_15" style="display: none; background-color: white;" align="left">sector--G16 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_15" name="sector_7_15" style="display: none; background-color: white;" align="left">sector--H16 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_15" name="sector_8_15" style="display: none; background-color: white;" align="left">sector--I16 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_15" name="sector_9_15" style="display: none; background-color: white;" align="left">sector--J16 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_15" name="sector_10_15" style="display: none; background-color: white;" align="left">sector--K16 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_15" name="sector_11_15" style="display: none; background-color: white;" align="left">sector--L16 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_15" name="sector_12_15" style="display: none; background-color: white;" align="left">sector--M16 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_15" name="sector_13_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_15" name="sector_14_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_15" name="sector_15_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_15" name="sector_16_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_15" name="sector_17_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_15" name="sector_18_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_15" name="sector_19_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_15" name="sector_20_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_15" name="sector_21_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_15" name="sector_22_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_15" name="sector_23_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_15" name="sector_24_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_15" name="sector_25_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_15" name="sector_26_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_15" name="sector_27_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_15" name="sector_28_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_15" name="sector_29_15" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_16" name="sector_0_16" style="display: none; background-color: white;" align="left">sector--A17 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_16" name="sector_1_16" style="display: none; background-color: white;" align="left">sector--B17 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_16" name="sector_2_16" style="display: none; background-color: white;" align="left">sector--C17 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_16" name="sector_3_16" style="display: none; background-color: white;" align="left">sector--D17 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_16" name="sector_4_16" style="display: none; background-color: white;" align="left">sector--E17 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_16" name="sector_5_16" style="display: none; background-color: white;" align="left">sector--F17 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_16" name="sector_6_16" style="display: none; background-color: white;" align="left">sector--G17 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_16" name="sector_7_16" style="display: none; background-color: white;" align="left">sector--H17 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_16" name="sector_8_16" style="display: none; background-color: white;" align="left">sector--I17 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_16" name="sector_9_16" style="display: none; background-color: white;" align="left">sector--J17 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_16" name="sector_10_16" style="display: none; background-color: white;" align="left">sector--K17 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_16" name="sector_11_16" style="display: none; background-color: white;" align="left">sector--L17 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_16" name="sector_12_16" style="display: none; background-color: white;" align="left">sector--M17 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_16" name="sector_13_16" style="display: none; background-color: white;" align="left">sector--N17 Defend:0 Attack: 0</br></div>
+ <div id="sector_14_16" name="sector_14_16" style="display: none; background-color: white;" align="left">sector--O17 Defend:0 Attack: 0</br></div>
+ <div id="sector_15_16" name="sector_15_16" style="display: none; background-color: white;" align="left">sector--P17 Defend:0 Attack: 0</br></div>
+ <div id="sector_16_16" name="sector_16_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_16" name="sector_17_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_16" name="sector_18_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_16" name="sector_19_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_16" name="sector_20_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_16" name="sector_21_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_16" name="sector_22_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_16" name="sector_23_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_16" name="sector_24_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_16" name="sector_25_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_16" name="sector_26_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_16" name="sector_27_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_16" name="sector_28_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_16" name="sector_29_16" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_17" name="sector_0_17" style="display: none; background-color: white;" align="left">sector--A18 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_17" name="sector_1_17" style="display: none; background-color: white;" align="left">sector--B18 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_17" name="sector_2_17" style="display: none; background-color: white;" align="left">sector--C18 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_17" name="sector_3_17" style="display: none; background-color: white;" align="left">sector--D18 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_17" name="sector_4_17" style="display: none; background-color: white;" align="left">sector--E18 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_17" name="sector_5_17" style="display: none; background-color: white;" align="left">sector--F18 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_17" name="sector_6_17" style="display: none; background-color: white;" align="left">sector--G18 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_17" name="sector_7_17" style="display: none; background-color: white;" align="left">sector--H18 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_17" name="sector_8_17" style="display: none; background-color: white;" align="left">sector--I18 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_17" name="sector_9_17" style="display: none; background-color: white;" align="left">sector--J18 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_17" name="sector_10_17" style="display: none; background-color: white;" align="left">sector--K18 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_17" name="sector_11_17" style="display: none; background-color: white;" align="left">sector--L18 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_17" name="sector_12_17" style="display: none; background-color: white;" align="left">sector--M18 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_17" name="sector_13_17" style="display: none; background-color: white;" align="left">sector--N18 Defend:0 Attack: 0</br></div>
+ <div id="sector_14_17" name="sector_14_17" style="display: none; background-color: white;" align="left">sector--O18 Defend:0 Attack: 0</br></div>
+ <div id="sector_15_17" name="sector_15_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_17" name="sector_16_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_17" name="sector_17_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_17" name="sector_18_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_17" name="sector_19_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_17" name="sector_20_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_17" name="sector_21_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_17" name="sector_22_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_17" name="sector_23_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_17" name="sector_24_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_17" name="sector_25_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_17" name="sector_26_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_17" name="sector_27_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_17" name="sector_28_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_17" name="sector_29_17" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_18" name="sector_0_18" style="display: none; background-color: white;" align="left">sector--A19 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_18" name="sector_1_18" style="display: none; background-color: white;" align="left">sector--B19 Defend:0 Attack: 0</br></div>
+ <div id="sector_2_18" name="sector_2_18" style="display: none; background-color: white;" align="left">sector--C19 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_18" name="sector_3_18" style="display: none; background-color: white;" align="left">sector--D19 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_18" name="sector_4_18" style="display: none; background-color: white;" align="left">sector--E19 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_18" name="sector_5_18" style="display: none; background-color: white;" align="left">sector--F19 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_18" name="sector_6_18" style="display: none; background-color: white;" align="left">sector--G19 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_18" name="sector_7_18" style="display: none; background-color: white;" align="left">sector--H19 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_18" name="sector_8_18" style="display: none; background-color: white;" align="left">sector--I19 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_18" name="sector_9_18" style="display: none; background-color: white;" align="left">sector--J19 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_18" name="sector_10_18" style="display: none; background-color: white;" align="left">sector--K19 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_18" name="sector_11_18" style="display: none; background-color: white;" align="left">sector--L19 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_18" name="sector_12_18" style="display: none; background-color: white;" align="left">sector--M19 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_18" name="sector_13_18" style="display: none; background-color: white;" align="left">sector--N19 Defend:0 Attack: 0</br></div>
+ <div id="sector_14_18" name="sector_14_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_18" name="sector_15_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_18" name="sector_16_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_18" name="sector_17_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_18" name="sector_18_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_18" name="sector_19_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_18" name="sector_20_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_18" name="sector_21_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_18" name="sector_22_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_18" name="sector_23_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_18" name="sector_24_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_18" name="sector_25_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_18" name="sector_26_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_18" name="sector_27_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_18" name="sector_28_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_18" name="sector_29_18" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_19" name="sector_0_19" style="display: none; background-color: white;" align="left">sector--A20 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_19" name="sector_1_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_19" name="sector_2_19" style="display: none; background-color: white;" align="left">sector--C20 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_19" name="sector_3_19" style="display: none; background-color: white;" align="left">sector--D20 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_19" name="sector_4_19" style="display: none; background-color: white;" align="left">sector--E20 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_19" name="sector_5_19" style="display: none; background-color: white;" align="left">sector--F20 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_19" name="sector_6_19" style="display: none; background-color: white;" align="left">sector--G20 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_19" name="sector_7_19" style="display: none; background-color: white;" align="left">sector--H20 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_19" name="sector_8_19" style="display: none; background-color: white;" align="left">sector--I20 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_19" name="sector_9_19" style="display: none; background-color: white;" align="left">sector--J20 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_19" name="sector_10_19" style="display: none; background-color: white;" align="left">sector--K20 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_19" name="sector_11_19" style="display: none; background-color: white;" align="left">sector--L20 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_19" name="sector_12_19" style="display: none; background-color: white;" align="left">sector--M20 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_19" name="sector_13_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_19" name="sector_14_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_19" name="sector_15_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_19" name="sector_16_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_19" name="sector_17_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_19" name="sector_18_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_19" name="sector_19_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_19" name="sector_20_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_19" name="sector_21_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_19" name="sector_22_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_19" name="sector_23_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_19" name="sector_24_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_19" name="sector_25_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_19" name="sector_26_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_19" name="sector_27_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_19" name="sector_28_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_19" name="sector_29_19" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_20" name="sector_0_20" style="display: none; background-color: white;" align="left">sector--A21 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_20" name="sector_1_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_20" name="sector_2_20" style="display: none; background-color: white;" align="left">sector--C21 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_20" name="sector_3_20" style="display: none; background-color: white;" align="left">sector--D21 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_20" name="sector_4_20" style="display: none; background-color: white;" align="left">sector--E21 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_20" name="sector_5_20" style="display: none; background-color: white;" align="left">sector--F21 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_20" name="sector_6_20" style="display: none; background-color: white;" align="left">sector--G21 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_20" name="sector_7_20" style="display: none; background-color: white;" align="left">sector--H21 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_20" name="sector_8_20" style="display: none; background-color: white;" align="left">sector--I21 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_20" name="sector_9_20" style="display: none; background-color: white;" align="left">sector--J21 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_20" name="sector_10_20" style="display: none; background-color: white;" align="left">sector--K21 Defend:0 Attack: 0</br></div>
+ <div id="sector_11_20" name="sector_11_20" style="display: none; background-color: white;" align="left">sector--L21 Defend:0 Attack: 0</br></div>
+ <div id="sector_12_20" name="sector_12_20" style="display: none; background-color: white;" align="left">sector--M21 Defend:0 Attack: 0</br></div>
+ <div id="sector_13_20" name="sector_13_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_20" name="sector_14_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_20" name="sector_15_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_20" name="sector_16_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_20" name="sector_17_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_20" name="sector_18_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_20" name="sector_19_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_20" name="sector_20_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_20" name="sector_21_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_20" name="sector_22_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_20" name="sector_23_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_20" name="sector_24_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_20" name="sector_25_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_20" name="sector_26_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_20" name="sector_27_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_20" name="sector_28_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_20" name="sector_29_20" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_21" name="sector_0_21" style="display: none; background-color: white;" align="left">sector--A22 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_21" name="sector_1_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_21" name="sector_2_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_3_21" name="sector_3_21" style="display: none; background-color: white;" align="left">sector--D22 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_21" name="sector_4_21" style="display: none; background-color: white;" align="left">sector--E22 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_21" name="sector_5_21" style="display: none; background-color: white;" align="left">sector--F22 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_21" name="sector_6_21" style="display: none; background-color: white;" align="left">sector--G22 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_21" name="sector_7_21" style="display: none; background-color: white;" align="left">sector--H22 Defend:0 Attack: 0</br></div>
+ <div id="sector_8_21" name="sector_8_21" style="display: none; background-color: white;" align="left">sector--I22 Defend:0 Attack: 0</br></div>
+ <div id="sector_9_21" name="sector_9_21" style="display: none; background-color: white;" align="left">sector--J22 Defend:0 Attack: 0</br></div>
+ <div id="sector_10_21" name="sector_10_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_11_21" name="sector_11_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_21" name="sector_12_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_21" name="sector_13_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_21" name="sector_14_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_21" name="sector_15_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_21" name="sector_16_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_21" name="sector_17_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_21" name="sector_18_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_21" name="sector_19_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_21" name="sector_20_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_21" name="sector_21_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_21" name="sector_22_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_21" name="sector_23_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_21" name="sector_24_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_21" name="sector_25_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_21" name="sector_26_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_21" name="sector_27_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_21" name="sector_28_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_21" name="sector_29_21" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_22" name="sector_0_22" style="display: none; background-color: white;" align="left">sector--A23 Defend:0 Attack: 0</br></div>
+ <div id="sector_1_22" name="sector_1_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_22" name="sector_2_22" style="display: none; background-color: white;" align="left">sector--C23 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_22" name="sector_3_22" style="display: none; background-color: white;" align="left">sector--D23 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_22" name="sector_4_22" style="display: none; background-color: white;" align="left">sector--E23 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_22" name="sector_5_22" style="display: none; background-color: white;" align="left">sector--F23 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_22" name="sector_6_22" style="display: none; background-color: white;" align="left">sector--G23 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_22" name="sector_7_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_8_22" name="sector_8_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_9_22" name="sector_9_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_22" name="sector_10_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_11_22" name="sector_11_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_22" name="sector_12_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_22" name="sector_13_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_22" name="sector_14_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_22" name="sector_15_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_22" name="sector_16_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_22" name="sector_17_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_22" name="sector_18_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_22" name="sector_19_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_22" name="sector_20_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_22" name="sector_21_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_22" name="sector_22_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_22" name="sector_23_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_22" name="sector_24_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_22" name="sector_25_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_22" name="sector_26_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_22" name="sector_27_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_22" name="sector_28_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_22" name="sector_29_22" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_23" name="sector_0_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_1_23" name="sector_1_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_23" name="sector_2_23" style="display: none; background-color: white;" align="left">sector--C24 Defend:0 Attack: 0</br></div>
+ <div id="sector_3_23" name="sector_3_23" style="display: none; background-color: white;" align="left">sector--D24 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_23" name="sector_4_23" style="display: none; background-color: white;" align="left">sector--E24 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_23" name="sector_5_23" style="display: none; background-color: white;" align="left">sector--F24 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_23" name="sector_6_23" style="display: none; background-color: white;" align="left">sector--G24 Defend:0 Attack: 0</br></div>
+ <div id="sector_7_23" name="sector_7_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_8_23" name="sector_8_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_9_23" name="sector_9_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_23" name="sector_10_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_11_23" name="sector_11_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_23" name="sector_12_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_23" name="sector_13_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_23" name="sector_14_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_23" name="sector_15_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_23" name="sector_16_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_23" name="sector_17_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_23" name="sector_18_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_23" name="sector_19_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_23" name="sector_20_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_23" name="sector_21_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_23" name="sector_22_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_23" name="sector_23_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_23" name="sector_24_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_23" name="sector_25_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_23" name="sector_26_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_23" name="sector_27_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_23" name="sector_28_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_23" name="sector_29_23" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_0_24" name="sector_0_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_1_24" name="sector_1_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_2_24" name="sector_2_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_3_24" name="sector_3_24" style="display: none; background-color: white;" align="left">sector--D25 Defend:0 Attack: 0</br></div>
+ <div id="sector_4_24" name="sector_4_24" style="display: none; background-color: white;" align="left">sector--E25 Defend:0 Attack: 0</br></div>
+ <div id="sector_5_24" name="sector_5_24" style="display: none; background-color: white;" align="left">sector--F25 Defend:0 Attack: 0</br></div>
+ <div id="sector_6_24" name="sector_6_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_7_24" name="sector_7_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_8_24" name="sector_8_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_9_24" name="sector_9_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_10_24" name="sector_10_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_11_24" name="sector_11_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_12_24" name="sector_12_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_13_24" name="sector_13_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_14_24" name="sector_14_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_15_24" name="sector_15_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_16_24" name="sector_16_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_17_24" name="sector_17_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_18_24" name="sector_18_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_19_24" name="sector_19_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_20_24" name="sector_20_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_21_24" name="sector_21_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_22_24" name="sector_22_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_23_24" name="sector_23_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_24_24" name="sector_24_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_25_24" name="sector_25_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_26_24" name="sector_26_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_27_24" name="sector_27_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_28_24" name="sector_28_24" style="display: none; background-color: white;" align="left"></div>
+ <div id="sector_29_24" name="sector_29_24" style="display: none; background-color: white;" align="left"></div>
+<script type="text/javascript">
+function ShowInfo(event,x,y)
+{
+	document.getElementById('sector_'+x+'_'+y).style.position="absolute";
+	document.getElementById('sector_'+x+'_'+y).style.left=(event.clientX+1-60)+"px";
+	document.getElementById('sector_'+x+'_'+y).style.top=(event.clientY+1-200)+"px";
+	document.getElementById('sector_'+x+'_'+y).style.zIndex=1;
+	document.getElementById('sector_'+x+'_'+y).style.display="block";
+	
+}
+function HideInfo(x,y)
+{
+	document.getElementById('sector_'+x+'_'+y).style.display="none";
+}
+</script>		

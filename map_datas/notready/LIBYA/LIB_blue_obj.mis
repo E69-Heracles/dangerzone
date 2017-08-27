@@ -1,0 +1,33 @@
+[MAIN]
+  MAP JV69_LYBIA_N-E/JV69_M_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  0_Static vehicles.planes.Plane$JU_52_3MG4E 2 215468.72 61754.36 211.48 0.0 null
+  1_Static vehicles.planes.Plane$JU_52_3MG4E 2 229751.74 113078.43 539.10 0.0 null
+  2_Static vehicles.planes.Plane$JU_52_3MG4E 2 233438.50 131152.12 269.10 0.0 null
+  3_Static vehicles.planes.Plane$JU_52_3MG4E 2 192473.23 158127.22 220.03 0.0 null
+  4_Static vehicles.planes.Plane$JU_52_3MG4E 2 178282.82 147527.29 224.10 0.0 null
+  5_Static vehicles.planes.Plane$JU_52_3MG4E 2 148634.38 137932.84 401.52 0.0 null
+  6_Static vehicles.planes.Plane$JU_52_3MG4E 2 134365.16 107584.39 187.75 0.0 null
+  7_Static vehicles.planes.Plane$JU_52_3MG4E 2 196626.42 88652.98 270.42 0.0 null
+  8_Static vehicles.planes.Plane$JU_52_3MG4E 2 215530.79 47350.44 231.42 0.0 null
+  9_Static vehicles.planes.Plane$JU_52_3MG4E 2 249888.90 39832.15 352.82 0.0 null
+  11_Static vehicles.planes.Plane$JU_52_3MG4E 2 273247.82 106232.71 239.91 0.0 null
+  12_Static vehicles.planes.Plane$JU_52_3MG4E 2 243051.04 110195.86 402.30 0.0 null
+  13_Static vehicles.planes.Plane$JU_52_3MG4E 2 126538.77 140178.13 538.60 0.0 null
+  14_Static vehicles.planes.Plane$JU_52_3MG4E 2 126085.44 161559.42 538.84 0.0 null
+  15_Static vehicles.planes.Plane$JU_52_3MG4E 2 129714.51 163695.02 538.71 0.0 null
+  16_Static vehicles.planes.Plane$JU_52_3MG4E 2 131809.34 167989.29 463.59 0.0 null
+  17_Static vehicles.planes.Plane$JU_52_3MG4E 2 72818.74 175946.38 223.59 0.0 null
+  18_Static vehicles.planes.Plane$JU_52_3MG4E 2 45705.22 193393.90 223.59 0.0 null
+  19_Static vehicles.planes.Plane$JU_52_3MG4E 2 51568.69 206812.60 315.00 0.0 null
+  20_Static vehicles.planes.Plane$JU_52_3MG4E 2 18111.14 221035.29 480.00 0.0 null
+  21_Static vehicles.planes.Plane$JU_52_3MG4E 2 4848.85 242267.94 480.00 0.0 null
+  22_Static vehicles.planes.Plane$JU_52_3MG4E 2 26759.30 146044.99 255.00 0.0 null
+[Buildings]
+[Bridge]
+[House]

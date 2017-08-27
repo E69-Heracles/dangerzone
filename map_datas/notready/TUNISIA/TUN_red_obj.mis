@@ -1,0 +1,38 @@
+[MAIN]
+MAP vol_ItalyAfricaGreece/vol_ita_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+ 0_Static vehicles.planes.Plane$LI_2 1 4033.49 140928.86 360.00 0.0
+ 1_Static vehicles.planes.Plane$LI_2 1 9206.50 136448.25 360.00 0.0
+ 2_Static vehicles.planes.Plane$LI_2 1 18045.41 136226.14 360.00 0.0
+ 3_Static vehicles.planes.Plane$LI_2 1 8867.74 127160.32 360.00 0.0
+ 4_Static vehicles.planes.Plane$LI_2 1 15318.05 117470.68 360.00 0.0
+ 5_Static vehicles.planes.Plane$LI_2 1 14572.55 97121.97 360.00 0.0
+ 6_Static vehicles.planes.Plane$LI_2 1 16280.56 78904.25 360.00 0.0
+ 7_Static vehicles.planes.Plane$LI_2 1 41338.78 59182.13 360.00 0.0
+ 8_Static vehicles.planes.Plane$LI_2 1 47189.39 44331.34 360.00 0.0
+ 9_Static vehicles.planes.Plane$LI_2 1 69391.76 58051.73 360.00 0.0
+ 10_Static vehicles.planes.Plane$LI_2 1 103469.99 46419.29 360.00 0.0
+ 11_Static vehicles.planes.Plane$LI_2 1 136099.45 21178.68 360.00 0.0
+ 12_Static vehicles.planes.Plane$LI_2 1 196209.75 7298.64 360.00 0.0
+ 13_Static vehicles.planes.Plane$LI_2 1 209006.24 42716.32 360.00 0.0
+ 14_Static vehicles.planes.Plane$LI_2 1 243856.66 55440.01 360.00 0.0
+ 15_Static vehicles.planes.Plane$LI_2 1 260383.20 51956.28 360.00 0.0
+ 16_Static vehicles.planes.Plane$LI_2 1 264812.78 47305.38 360.00 0.0
+ 17_Static vehicles.planes.Plane$LI_2 1 274071.86 43884.43 360.00 0.0
+ 18_Static vehicles.planes.Plane$LI_2 1 283030.59 42691.09 360.00 0.0
+ 19_Static vehicles.planes.Plane$LI_2 1 282975.88 37406.56 360.00 0.0
+ 20_Static vehicles.planes.Plane$LI_2 1 292672.20 37766.57 360.00 0.0
+ 21_Static vehicles.planes.Plane$LI_2 1 292726.80 16763.92 360.00 0.0
+ 22_Static vehicles.planes.Plane$LI_2 1 234250.39 25938.93 360.00 0.0
+ 23_Static vehicles.planes.Plane$LI_2 1 164471.01 7439.29 360.00 0.0
+ 24_Static vehicles.planes.Plane$LI_2 1 106857.20 13802.08 360.00 0.0
+ 25_Static vehicles.planes.Plane$LI_2 1 78767.89 27645.79 363.59 0.0
+ 26_Static vehicles.planes.Plane$LI_2 1 16107.49 45343.60 355.50 0.0
+[Buildings]
+[Bridge]
+[House]

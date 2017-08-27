@@ -1,0 +1,1061 @@
+[MAIN]
+  MAP JV69_LYBIA_N-E/JV69_M_load.ini
+  TIME 12.0
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[NStationary]
+  23_Static vehicles.stationary.Campfire$CampfireAirfield 0 301018.49 250672.51 360.00 0.0
+  30_Static vehicles.stationary.Campfire$CampfireAirfield 0 178827.39 148405.67 480.00 0.0
+  32_Static vehicles.stationary.Campfire$CampfireAirfield 0 178877.53 148365.31 480.00 0.0
+  33_Static vehicles.stationary.Campfire$CampfireAirfield 0 178959.67 148299.94 480.00 0.0
+  35_Static vehicles.stationary.Campfire$CampfireAirfield 0 179002.59 148265.56 480.00 0.0
+  38_Static vehicles.stationary.Campfire$CampfireAirfield 0 177772.49 147234.91 480.00 0.0
+  40_Static vehicles.stationary.Campfire$CampfireAirfield 0 177843.78 147171.88 480.00 0.0
+  43_Static vehicles.stationary.Campfire$CampfireAirfield 0 4208.05 242303.50 480.00 0.0
+  44_Static vehicles.stationary.Campfire$CampfireAirfield 0 4187.46 242267.71 480.00 0.0
+  45_Static vehicles.stationary.Campfire$CampfireAirfield 0 4269.29 242427.85 480.00 0.0
+  47_Static vehicles.stationary.Campfire$CampfireAirfield 0 4296.87 242490.29 480.00 0.0
+  48_Static vehicles.stationary.Campfire$CampfireAirfield 0 6267.31 241413.54 480.00 0.0
+  51_Static vehicles.stationary.Campfire$CampfireAirfield 0 6309.67 241484.84 480.00 0.0
+  53_Static vehicles.stationary.Campfire$CampfireAirfield 0 6340.98 241533.17 480.00 0.0
+  54_Static vehicles.stationary.Campfire$CampfireAirfield 0 17426.63 220885.41 480.00 0.0
+  56_Static vehicles.stationary.Campfire$CampfireAirfield 0 17391.48 220834.17 480.00 0.0
+  57_Static vehicles.stationary.Campfire$CampfireAirfield 0 17494.59 221013.00 480.00 0.0
+  59_Static vehicles.stationary.Campfire$CampfireAirfield 0 17530.45 221079.06 480.00 0.0
+  61_Static vehicles.stationary.Campfire$CampfireAirfield 0 18540.35 220253.68 480.00 0.0
+  62_Static vehicles.stationary.Campfire$CampfireAirfield 0 18513.41 220209.97 480.00 0.0
+  64_Static vehicles.stationary.Campfire$CampfireAirfield 0 18601.54 220365.82 480.00 0.0
+  65_Static vehicles.stationary.Campfire$CampfireAirfield 0 18619.51 220404.72 480.00 0.0
+  66_Static vehicles.stationary.Campfire$CampfireAirfield 0 50972.72 207951.00 480.00 0.0
+  68_Static vehicles.stationary.Campfire$CampfireAirfield 0 50933.51 207909.48 480.00 0.0
+  69_Static vehicles.stationary.Campfire$CampfireAirfield 0 51055.75 208038.65 480.00 0.0
+  71_Static vehicles.stationary.Campfire$CampfireAirfield 0 51085.73 208075.55 480.00 0.0
+  72_Static vehicles.stationary.Campfire$CampfireAirfield 0 53050.90 206056.65 480.00 0.0
+  74_Static vehicles.stationary.Campfire$CampfireAirfield 0 53086.66 206099.32 480.00 0.0
+  75_Static vehicles.stationary.Campfire$CampfireAirfield 0 52940.19 205948.24 480.00 0.0
+  77_Static vehicles.stationary.Campfire$CampfireAirfield 0 52897.52 205897.50 480.00 0.0
+  78_Static vehicles.stationary.Campfire$CampfireAirfield 0 44679.24 192540.57 480.00 0.0
+  80_Static vehicles.stationary.Campfire$CampfireAirfield 0 44645.81 192565.89 480.00 0.0
+  81_Static vehicles.stationary.Campfire$CampfireAirfield 0 44739.51 192482.58 480.00 0.0
+  83_Static vehicles.stationary.Campfire$CampfireAirfield 0 44757.24 192467.64 480.00 0.0
+  84_Static vehicles.stationary.Campfire$CampfireAirfield 0 45692.88 193615.10 480.00 0.0
+  86_Static vehicles.stationary.Campfire$CampfireAirfield 0 45720.55 193587.45 480.00 0.0
+  87_Static vehicles.stationary.Campfire$CampfireAirfield 0 45785.88 193520.34 480.00 0.0
+  89_Static vehicles.stationary.Campfire$CampfireAirfield 0 45819.61 193493.70 480.00 0.0
+  90_Static vehicles.stationary.Campfire$CampfireAirfield 0 25780.41 146254.44 480.00 0.0
+  92_Static vehicles.stationary.Campfire$CampfireAirfield 0 25777.14 146311.77 480.00 0.0
+  93_Static vehicles.stationary.Campfire$CampfireAirfield 0 25780.41 146162.71 480.00 0.0
+  95_Static vehicles.stationary.Campfire$CampfireAirfield 0 25783.69 146084.09 480.00 0.0
+  96_Static vehicles.stationary.Campfire$CampfireAirfield 0 27215.31 146256.08 480.00 0.0
+  98_Static vehicles.stationary.Campfire$CampfireAirfield 0 27212.04 146346.17 480.00 0.0
+  99_Static vehicles.stationary.Campfire$CampfireAirfield 0 27215.31 146159.44 480.00 0.0
+  101_Static vehicles.stationary.Campfire$CampfireAirfield 0 27212.04 146084.09 480.00 0.0
+  102_Static vehicles.stationary.Campfire$CampfireAirfield 0 71854.02 175300.31 480.00 0.0
+  104_Static vehicles.stationary.Campfire$CampfireAirfield 0 71805.42 175344.76 480.00 0.0
+  105_Static vehicles.stationary.Campfire$CampfireAirfield 0 71944.57 175214.77 480.00 0.0
+  107_Static vehicles.stationary.Campfire$CampfireAirfield 0 71995.82 175168.75 480.00 0.0
+  108_Static vehicles.stationary.Campfire$CampfireAirfield 0 72881.80 176417.17 480.00 0.0
+  110_Static vehicles.stationary.Campfire$CampfireAirfield 0 72933.76 176373.12 480.00 0.0
+  111_Static vehicles.stationary.Campfire$CampfireAirfield 0 73019.76 176294.65 480.00 0.0
+  113_Static vehicles.stationary.Campfire$CampfireAirfield 0 73078.36 176242.41 480.00 0.0
+  114_Static vehicles.stationary.Campfire$CampfireAirfield 0 130841.07 168042.51 480.00 0.0
+  116_Static vehicles.stationary.Campfire$CampfireAirfield 0 130846.32 168078.90 480.00 0.0
+  119_Static vehicles.stationary.Campfire$CampfireAirfield 0 130823.65 167961.99 480.00 0.0
+  122_Static vehicles.stationary.Campfire$CampfireAirfield 0 130815.93 167924.72 480.00 0.0
+  123_Static vehicles.stationary.Campfire$CampfireAirfield 0 131968.35 167703.77 480.00 0.0
+  125_Static vehicles.stationary.Campfire$CampfireAirfield 0 131974.35 167742.78 480.00 0.0
+  127_Static vehicles.stationary.Campfire$CampfireAirfield 0 131980.73 167782.17 480.00 0.0
+  129_Static vehicles.stationary.Campfire$CampfireAirfield 0 131988.60 167817.81 480.00 0.0
+  130_Static vehicles.stationary.Campfire$CampfireAirfield 0 129604.30 162157.94 480.00 0.0
+  131_Static vehicles.stationary.Campfire$CampfireAirfield 0 129533.70 162167.02 480.00 0.0
+  133_Static vehicles.stationary.Campfire$CampfireAirfield 0 129770.71 162159.96 480.00 0.0
+  135_Static vehicles.stationary.Campfire$CampfireAirfield 0 129833.24 162158.95 480.00 0.0
+  136_Static vehicles.stationary.Campfire$CampfireAirfield 0 129639.60 163483.20 480.00 0.0
+  138_Static vehicles.stationary.Campfire$CampfireAirfield 0 129546.81 163486.22 480.00 0.0
+  139_Static vehicles.stationary.Campfire$CampfireAirfield 0 129765.67 163483.20 480.00 0.0
+  141_Static vehicles.stationary.Campfire$CampfireAirfield 0 129844.34 163484.20 480.00 0.0
+  142_Static vehicles.stationary.Campfire$CampfireAirfield 0 126341.12 161075.72 480.00 0.0
+  144_Static vehicles.stationary.Campfire$CampfireAirfield 0 126362.47 161052.29 480.00 0.0
+  145_Static vehicles.stationary.Campfire$CampfireAirfield 0 126282.81 161159.28 480.00 0.0
+  147_Static vehicles.stationary.Campfire$CampfireAirfield 0 126258.60 161190.78 480.00 0.0
+  148_Static vehicles.stationary.Campfire$CampfireAirfield 0 127622.48 161969.36 480.00 0.0
+  150_Static vehicles.stationary.Campfire$CampfireAirfield 0 127654.17 161931.13 480.00 0.0
+  151_Static vehicles.stationary.Campfire$CampfireAirfield 0 127555.57 162066.94 480.00 0.0
+  153_Static vehicles.stationary.Campfire$CampfireAirfield 0 127530.93 162109.70 480.00 0.0
+  155_Static vehicles.stationary.Campfire$CampfireAirfield 0 124910.38 139770.05 480.00 0.0
+  156_Static vehicles.stationary.Campfire$CampfireAirfield 0 124910.23 139730.09 480.00 0.0
+  157_Static vehicles.stationary.Campfire$CampfireAirfield 0 124911.61 139843.71 480.00 0.0
+  159_Static vehicles.stationary.Campfire$CampfireAirfield 0 124912.89 139895.05 480.00 0.0
+  160_Static vehicles.stationary.Campfire$CampfireAirfield 0 126413.11 139841.86 480.00 0.0
+  162_Static vehicles.stationary.Campfire$CampfireAirfield 0 126411.30 139887.84 480.00 0.0
+  164_Static vehicles.stationary.Campfire$CampfireAirfield 0 126406.80 139777.85 480.00 0.0
+  166_Static vehicles.stationary.Campfire$CampfireAirfield 0 126368.93 139706.63 480.00 0.0
+  168_Static vehicles.stationary.Campfire$CampfireAirfield 0 126404.99 139731.87 480.00 0.0
+  169_Static vehicles.stationary.Campfire$CampfireAirfield 0 126329.27 139683.19 480.00 0.0
+  171_Static vehicles.stationary.Campfire$CampfireAirfield 0 126284.19 139656.15 480.00 0.0
+  172_Static vehicles.stationary.Campfire$CampfireAirfield 0 125645.92 141143.65 480.00 0.0
+  174_Static vehicles.stationary.Campfire$CampfireAirfield 0 125601.74 141130.12 480.00 0.0
+  175_Static vehicles.stationary.Campfire$CampfireAirfield 0 125684.71 141156.23 480.00 0.0
+  177_Static vehicles.stationary.Campfire$CampfireAirfield 0 125731.56 141182.41 480.00 0.0
+  178_Static vehicles.stationary.Campfire$CampfireAirfield 0 148294.58 137569.61 480.00 0.0
+  179_Static vehicles.stationary.Campfire$CampfireAirfield 0 148285.59 137579.05 480.00 0.0
+  180_Static vehicles.stationary.Campfire$CampfireAirfield 0 148275.26 137588.48 480.00 0.0
+  181_Static vehicles.stationary.Campfire$CampfireAirfield 0 148383.50 137479.34 480.00 0.0
+  182_Static vehicles.stationary.Campfire$CampfireAirfield 0 148396.98 137469.46 480.00 0.0
+  183_Static vehicles.stationary.Campfire$CampfireAirfield 0 148410.90 137460.48 480.00 0.0
+  184_Static vehicles.stationary.Campfire$CampfireAirfield 0 149119.37 138397.63 480.00 0.0
+  185_Static vehicles.stationary.Campfire$CampfireAirfield 0 149106.73 138410.15 480.00 0.0
+  186_Static vehicles.stationary.Campfire$CampfireAirfield 0 149091.54 138428.99 480.00 0.0
+  187_Static vehicles.stationary.Campfire$CampfireAirfield 0 149209.05 138306.41 480.00 0.0
+  188_Static vehicles.stationary.Campfire$CampfireAirfield 0 149223.26 138297.33 480.00 0.0
+  189_Static vehicles.stationary.Campfire$CampfireAirfield 0 149240.67 138280.93 480.00 0.0
+  190_Static vehicles.stationary.Campfire$CampfireAirfield 0 134097.84 106409.03 480.00 0.0
+  191_Static vehicles.stationary.Campfire$CampfireAirfield 0 134084.22 106407.57 480.00 0.0
+  192_Static vehicles.stationary.Campfire$CampfireAirfield 0 134068.18 106409.51 480.00 0.0
+  193_Static vehicles.stationary.Campfire$CampfireAirfield 0 134154.74 106409.03 480.00 0.0
+  194_Static vehicles.stationary.Campfire$CampfireAirfield 0 134170.78 106409.03 480.00 0.0
+  195_Static vehicles.stationary.Campfire$CampfireAirfield 0 134183.43 106407.08 480.00 0.0
+  196_Static vehicles.stationary.Campfire$CampfireAirfield 0 134100.97 107682.38 480.00 0.0
+  197_Static vehicles.stationary.Campfire$CampfireAirfield 0 134088.77 107683.35 480.00 0.0
+  198_Static vehicles.stationary.Campfire$CampfireAirfield 0 134064.37 107683.35 480.00 0.0
+  199_Static vehicles.stationary.Campfire$CampfireAirfield 0 134146.84 107684.32 480.00 0.0
+  200_Static vehicles.stationary.Campfire$CampfireAirfield 0 134162.46 107685.30 480.00 0.0
+  201_Static vehicles.stationary.Campfire$CampfireAirfield 0 134182.95 107683.84 480.00 0.0
+  202_Static vehicles.stationary.Campfire$CampfireAirfield 0 192349.90 158188.42 480.00 0.0
+  204_Static vehicles.stationary.Campfire$CampfireAirfield 0 192327.59 158204.32 480.00 0.0
+  205_Static vehicles.stationary.Campfire$CampfireAirfield 0 192378.32 158162.59 480.00 0.0
+  207_Static vehicles.stationary.Campfire$CampfireAirfield 0 192397.37 158148.90 480.00 0.0
+  208_Static vehicles.stationary.Campfire$CampfireAirfield 0 193214.37 159219.61 480.00 0.0
+  210_Static vehicles.stationary.Campfire$CampfireAirfield 0 193203.11 159233.08 480.00 0.0
+  211_Static vehicles.stationary.Campfire$CampfireAirfield 0 193239.76 159195.32 480.00 0.0
+  213_Static vehicles.stationary.Campfire$CampfireAirfield 0 193257.87 159180.97 480.00 0.0
+  214_Static vehicles.stationary.Campfire$CampfireAirfield 0 233266.22 131270.12 480.00 0.0
+  215_Static vehicles.stationary.Campfire$CampfireAirfield 0 233267.97 131319.34 480.00 0.0
+  216_Static vehicles.stationary.Campfire$CampfireAirfield 0 233266.22 131377.35 480.00 0.0
+  217_Static vehicles.stationary.Campfire$CampfireAirfield 0 233260.94 131212.10 480.00 0.0
+  218_Static vehicles.stationary.Campfire$CampfireAirfield 0 233259.78 131171.77 480.00 0.0
+  219_Static vehicles.stationary.Campfire$CampfireAirfield 0 233258.02 131129.41 480.00 0.0
+  220_Static vehicles.stationary.Campfire$CampfireAirfield 0 234534.87 131273.27 480.00 0.0
+  221_Static vehicles.stationary.Campfire$CampfireAirfield 0 234531.35 131334.80 480.00 0.0
+  222_Static vehicles.stationary.Campfire$CampfireAirfield 0 234534.87 131389.29 480.00 0.0
+  223_Static vehicles.stationary.Campfire$CampfireAirfield 0 234534.87 131208.22 480.00 0.0
+  224_Static vehicles.stationary.Campfire$CampfireAirfield 0 234538.36 131158.98 480.00 0.0
+  225_Static vehicles.stationary.Campfire$CampfireAirfield 0 234534.80 131116.72 480.00 0.0
+  226_Static vehicles.stationary.Campfire$CampfireAirfield 0 229310.14 112099.43 480.00 0.0
+  228_Static vehicles.stationary.Campfire$CampfireAirfield 0 229289.74 112099.93 480.00 0.0
+  229_Static vehicles.stationary.Campfire$CampfireAirfield 0 229480.96 112099.81 480.00 0.0
+  231_Static vehicles.stationary.Campfire$CampfireAirfield 0 229503.86 112099.43 480.00 0.0
+  232_Static vehicles.stationary.Campfire$CampfireAirfield 0 229369.22 114291.10 480.00 0.0
+  234_Static vehicles.stationary.Campfire$CampfireAirfield 0 229354.11 114291.39 480.00 0.0
+  235_Static vehicles.stationary.Campfire$CampfireAirfield 0 229435.37 114290.79 480.00 0.0
+  237_Static vehicles.stationary.Campfire$CampfireAirfield 0 229460.13 114289.88 480.00 0.0
+  238_Static vehicles.stationary.Campfire$CampfireAirfield 0 195706.09 88828.03 480.00 0.0
+  240_Static vehicles.stationary.Campfire$CampfireAirfield 0 195707.33 88845.21 480.00 0.0
+  241_Static vehicles.stationary.Campfire$CampfireAirfield 0 195705.79 88775.06 480.00 0.0
+  243_Static vehicles.stationary.Campfire$CampfireAirfield 0 195705.38 88756.80 480.00 0.0
+  244_Static vehicles.stationary.Campfire$CampfireAirfield 0 196706.77 88823.82 480.00 0.0
+  246_Static vehicles.stationary.Campfire$CampfireAirfield 0 196707.40 88841.87 480.00 0.0
+  247_Static vehicles.stationary.Campfire$CampfireAirfield 0 196705.49 88764.85 480.00 0.0
+  249_Static vehicles.stationary.Campfire$CampfireAirfield 0 196705.94 88746.21 480.00 0.0
+  250_Static vehicles.stationary.Campfire$CampfireAirfield 0 242596.07 109442.71 480.00 0.0
+  251_Static vehicles.stationary.Campfire$CampfireAirfield 0 242578.65 109462.62 480.00 0.0
+  252_Static vehicles.stationary.Campfire$CampfireAirfield 0 242559.98 109475.07 480.00 0.0
+  253_Static vehicles.stationary.Campfire$CampfireAirfield 0 242625.93 109422.80 480.00 0.0
+  254_Static vehicles.stationary.Campfire$CampfireAirfield 0 242639.62 109412.85 480.00 0.0
+  255_Static vehicles.stationary.Campfire$CampfireAirfield 0 242654.55 109402.89 480.00 0.0
+  256_Static vehicles.stationary.Campfire$CampfireAirfield 0 243337.71 110328.70 480.00 0.0
+  257_Static vehicles.stationary.Campfire$CampfireAirfield 0 243319.04 110341.14 480.00 0.0
+  258_Static vehicles.stationary.Campfire$CampfireAirfield 0 243300.38 110363.54 480.00 0.0
+  259_Static vehicles.stationary.Campfire$CampfireAirfield 0 243365.08 110306.30 480.00 0.0
+  260_Static vehicles.stationary.Campfire$CampfireAirfield 0 243389.97 110287.64 480.00 0.0
+  261_Static vehicles.stationary.Campfire$CampfireAirfield 0 243404.90 110277.68 480.00 0.0
+  262_Static vehicles.stationary.Campfire$CampfireAirfield 0 272290.32 105936.32 480.00 0.0
+  263_Static vehicles.stationary.Campfire$CampfireAirfield 0 272274.23 105951.40 480.00 0.0
+  265_Static vehicles.stationary.Campfire$CampfireAirfield 0 272338.61 105879.20 480.00 0.0
+  266_Static vehicles.stationary.Campfire$CampfireAirfield 0 272351.81 105865.29 480.00 0.0
+  267_Static vehicles.stationary.Campfire$CampfireAirfield 0 272327.88 105895.62 480.00 0.0
+  268_Static vehicles.stationary.Campfire$CampfireAirfield 0 273492.73 106639.22 480.00 0.0
+  269_Static vehicles.stationary.Campfire$CampfireAirfield 0 273485.22 106650.77 480.00 0.0
+  270_Static vehicles.stationary.Campfire$CampfireAirfield 0 273475.08 106662.95 480.00 0.0
+  271_Static vehicles.stationary.Campfire$CampfireAirfield 0 273529.81 106592.57 480.00 0.0
+  272_Static vehicles.stationary.Campfire$CampfireAirfield 0 273539.10 106576.57 480.00 0.0
+  273_Static vehicles.stationary.Campfire$CampfireAirfield 0 273549.20 106556.49 480.00 0.0
+  274_Static vehicles.stationary.Campfire$CampfireAirfield 0 215213.54 62294.70 480.00 0.0
+  279_Static vehicles.stationary.Campfire$CampfireAirfield 0 215194.57 62311.08 480.00 0.0
+  282_Static vehicles.stationary.Campfire$CampfireAirfield 0 215303.48 62207.47 480.00 0.0
+  285_Static vehicles.stationary.Campfire$CampfireAirfield 0 215318.10 62198.75 480.00 0.0
+  286_Static vehicles.stationary.Campfire$CampfireAirfield 0 214457.51 61539.31 480.00 0.0
+  288_Static vehicles.stationary.Campfire$CampfireAirfield 0 214432.95 61556.24 480.00 0.0
+  289_Static vehicles.stationary.Campfire$CampfireAirfield 0 214547.28 61453.06 480.00 0.0
+  291_Static vehicles.stationary.Campfire$CampfireAirfield 0 214563.99 61436.14 480.00 0.0
+  296_Static vehicles.stationary.Campfire$CampfireAirfield 0 214884.96 47120.24 480.00 0.0
+  297_Static vehicles.stationary.Campfire$CampfireAirfield 0 214881.10 47124.53 480.00 0.0
+  298_Static vehicles.stationary.Campfire$CampfireAirfield 0 214876.49 47127.86 480.00 0.0
+  299_Static vehicles.stationary.Campfire$CampfireAirfield 0 214931.92 47074.35 480.00 0.0
+  300_Static vehicles.stationary.Campfire$CampfireAirfield 0 214937.06 47069.64 480.00 0.0
+  301_Static vehicles.stationary.Campfire$CampfireAirfield 0 214942.21 47064.70 480.00 0.0
+  302_Static vehicles.stationary.Campfire$CampfireAirfield 0 215725.86 47965.32 480.00 0.0
+  303_Static vehicles.stationary.Campfire$CampfireAirfield 0 215720.71 47969.72 480.00 0.0
+  304_Static vehicles.stationary.Campfire$CampfireAirfield 0 215716.21 47974.44 480.00 0.0
+  305_Static vehicles.stationary.Campfire$CampfireAirfield 0 215777.21 47915.79 480.00 0.0
+  306_Static vehicles.stationary.Campfire$CampfireAirfield 0 215783.11 47909.89 480.00 0.0
+  307_Static vehicles.stationary.Campfire$CampfireAirfield 0 215790.94 47903.89 480.00 0.0
+  308_Static vehicles.stationary.Campfire$CampfireAirfield 0 250028.98 39965.70 480.00 0.0
+  309_Static vehicles.stationary.Campfire$CampfireAirfield 0 250027.16 39949.29 480.00 0.0
+  310_Static vehicles.stationary.Campfire$CampfireAirfield 0 250027.16 39931.79 480.00 0.0
+  311_Static vehicles.stationary.Campfire$CampfireAirfield 0 250027.89 40035.71 480.00 0.0
+  312_Static vehicles.stationary.Campfire$CampfireAirfield 0 250027.16 40053.22 480.00 0.0
+  313_Static vehicles.stationary.Campfire$CampfireAirfield 0 250025.70 40068.17 480.00 0.0
+  314_Static vehicles.stationary.Campfire$CampfireAirfield 0 251104.52 40036.10 480.00 0.0
+  315_Static vehicles.stationary.Campfire$CampfireAirfield 0 251104.89 40052.88 480.00 0.0
+  316_Static vehicles.stationary.Campfire$CampfireAirfield 0 251104.16 40066.73 480.00 0.0
+  317_Static vehicles.stationary.Campfire$CampfireAirfield 0 251103.79 39959.16 480.00 0.0
+  318_Static vehicles.stationary.Campfire$CampfireAirfield 0 251104.16 39930.35 480.00 0.0
+  319_Static vehicles.stationary.Campfire$CampfireAirfield 0 251106.35 39946.40 480.00 0.0
+  320_Static vehicles.stationary.Campfire$CampfireAirfield 0 239913.56 11056.25 480.00 0.0
+  322_Static vehicles.stationary.Campfire$CampfireAirfield 0 239948.06 11057.11 480.00 0.0
+  324_Static vehicles.stationary.Campfire$CampfireAirfield 0 239992.30 11055.18 480.00 0.0
+  325_Static vehicles.stationary.Campfire$CampfireAirfield 0 240013.27 11056.32 480.00 0.0
+  332_Static vehicles.stationary.Campfire$CampfireAirfield 0 239897.65 10004.16 480.00 0.0
+  334_Static vehicles.stationary.Campfire$CampfireAirfield 0 239942.92 10002.12 480.00 0.0
+  336_Static vehicles.stationary.Campfire$CampfireAirfield 0 239997.34 10005.18 480.00 0.0
+  338_Static vehicles.stationary.Campfire$CampfireAirfield 0 240044.13 10005.18 480.00 0.0
+  0_Static vehicles.stationary.Campfire$CampfireAirfield 0 17461.62 220947.30 360.00 0.0
+  10_Static vehicles.stationary.Campfire$CampfireAirfield 0 18566.25 220313.60 360.00 0.0
+  1_Static vehicles.stationary.Campfire$CampfireAirfield 0 17461.59 220955.51 480.00 0.0
+  3_Static vehicles.stationary.Campfire$CampfireAirfield 0 17595.78 220878.27 480.00 0.0
+  5_Static vehicles.stationary.Campfire$CampfireAirfield 0 17713.09 220809.99 480.00 0.0
+  7_Static vehicles.stationary.Campfire$CampfireAirfield 0 17810.64 220752.52 480.00 0.0
+  9_Static vehicles.stationary.Campfire$CampfireAirfield 0 17945.36 220675.01 480.00 0.0
+  12_Static vehicles.stationary.Campfire$CampfireAirfield 0 18085.35 220594.33 480.00 0.0
+  14_Static vehicles.stationary.Campfire$CampfireAirfield 0 18205.04 220523.68 480.00 0.0
+  16_Static vehicles.stationary.Campfire$CampfireAirfield 0 18320.50 220457.32 480.00 0.0
+  18_Static vehicles.stationary.Campfire$CampfireAirfield 0 18454.69 220379.28 480.00 0.0
+  22_Static vehicles.stationary.Campfire$CampfireAirfield 0 6184.35 241495.26 480.00 0.0
+  349_Static vehicles.stationary.Campfire$CampfireAirfield 0 6000.36 241580.31 480.00 0.0
+  351_Static vehicles.stationary.Campfire$CampfireAirfield 0 5647.92 241740.17 480.00 0.0
+  353_Static vehicles.stationary.Campfire$CampfireAirfield 0 5355.99 241874.69 480.00 0.0
+  355_Static vehicles.stationary.Campfire$CampfireAirfield 0 5056.29 242012.48 480.00 0.0
+  357_Static vehicles.stationary.Campfire$CampfireAirfield 0 4749.65 242153.94 480.00 0.0
+  359_Static vehicles.stationary.Campfire$CampfireAirfield 0 4442.59 242294.59 480.00 0.0
+  361_Static vehicles.stationary.Campfire$CampfireAirfield 0 4256.15 242379.64 480.00 0.0
+  362_Static vehicles.stationary.Campfire$CampfireAirfield 0 51015.78 207996.21 480.00 0.0
+  364_Static vehicles.stationary.Campfire$CampfireAirfield 0 51110.14 207903.01 480.00 0.0
+  365_Static vehicles.stationary.Campfire$CampfireAirfield 0 52888.34 206127.51 480.00 0.0
+  366_Static vehicles.stationary.Campfire$CampfireAirfield 0 51219.66 207792.57 480.00 0.0
+  370_Static vehicles.stationary.Campfire$CampfireAirfield 0 51454.76 207557.93 480.00 0.0
+  374_Static vehicles.stationary.Campfire$CampfireAirfield 0 51730.41 207282.98 480.00 0.0
+  375_Static vehicles.stationary.Campfire$CampfireAirfield 0 52229.55 206794.29 480.00 0.0
+  377_Static vehicles.stationary.Campfire$CampfireAirfield 0 52540.45 206480.57 480.00 0.0
+  378_Static vehicles.stationary.Campfire$CampfireAirfield 0 51940.11 207073.97 480.00 0.0
+  379_Static vehicles.stationary.Campfire$CampfireAirfield 0 52731.46 206283.93 480.00 0.0
+  369_Static vehicles.stationary.Campfire$CampfireAirfield 0 44864.90 192723.67 480.00 0.0
+  373_Static vehicles.stationary.Campfire$CampfireAirfield 0 45070.52 192926.73 480.00 0.0
+  381_Static vehicles.stationary.Campfire$CampfireAirfield 0 45228.23 193087.38 480.00 0.0
+  383_Static vehicles.stationary.Campfire$CampfireAirfield 0 45440.43 193293.87 480.00 0.0
+  388_Static vehicles.stationary.Campfire$CampfireAirfield 0 45479.93 193226.85 480.00 0.0
+  390_Static vehicles.stationary.Campfire$CampfireAirfield 0 45304.09 193048.23 480.00 0.0
+  391_Static vehicles.stationary.Campfire$CampfireAirfield 0 45125.47 192869.62 480.00 0.0
+  393_Static vehicles.stationary.Campfire$CampfireAirfield 0 44912.61 192659.54 480.00 0.0
+  396_Static vehicles.stationary.Campfire$CampfireAirfield 0 25957.44 146208.02 480.00 0.0
+  398_Static vehicles.stationary.Campfire$CampfireAirfield 0 26301.18 146208.22 480.00 0.0
+  400_Static vehicles.stationary.Campfire$CampfireAirfield 0 26638.32 146206.26 480.00 0.0
+  402_Static vehicles.stationary.Campfire$CampfireAirfield 0 26980.66 146205.36 480.00 0.0
+  406_Static vehicles.stationary.Campfire$CampfireAirfield 0 71977.55 175338.58 480.00 0.0
+  408_Static vehicles.stationary.Campfire$CampfireAirfield 0 72156.33 175514.63 480.00 0.0
+  410_Static vehicles.stationary.Campfire$CampfireAirfield 0 72440.38 175800.50 480.00 0.0
+  412_Static vehicles.stationary.Campfire$CampfireAirfield 0 72681.78 176044.61 480.00 0.0
+  414_Static vehicles.stationary.Campfire$CampfireAirfield 0 72881.43 176245.17 480.00 0.0
+  417_Static vehicles.stationary.Campfire$CampfireAirfield 0 131814.66 167798.85 480.00 0.0
+  419_Static vehicles.stationary.Campfire$CampfireAirfield 0 131510.82 167859.61 480.00 0.0
+  421_Static vehicles.stationary.Campfire$CampfireAirfield 0 131207.91 167916.41 480.00 0.0
+  423_Static vehicles.stationary.Campfire$CampfireAirfield 0 130962.78 167965.10 480.00 0.0
+  424_Static vehicles.stationary.Campfire$CampfireAirfield 0 129698.14 163382.73 480.00 0.0
+  425_Static vehicles.stationary.Campfire$CampfireAirfield 0 129698.72 163166.27 480.00 0.0
+  426_Static vehicles.stationary.Campfire$CampfireAirfield 0 129698.14 162895.39 480.00 0.0
+  427_Static vehicles.stationary.Campfire$CampfireAirfield 0 129693.75 162645.13 480.00 0.0
+  428_Static vehicles.stationary.Campfire$CampfireAirfield 0 129691.55 162427.80 480.00 0.0
+  432_Static vehicles.stationary.Campfire$CampfireAirfield 0 127518.48 161966.77 480.00 0.0
+  435_Static vehicles.stationary.Campfire$CampfireAirfield 0 127287.79 161804.56 480.00 0.0
+  438_Static vehicles.stationary.Campfire$CampfireAirfield 0 127020.98 161616.28 480.00 0.0
+  441_Static vehicles.stationary.Campfire$CampfireAirfield 0 126720.36 161403.64 480.00 0.0
+  444_Static vehicles.stationary.Campfire$CampfireAirfield 0 126470.18 161225.96 480.00 0.0
+  449_Static vehicles.stationary.Campfire$CampfireAirfield 0 149118.83 138273.38 480.00 0.0
+  451_Static vehicles.stationary.Campfire$CampfireAirfield 0 148975.66 138130.95 480.00 0.0
+  453_Static vehicles.stationary.Campfire$CampfireAirfield 0 148806.53 137967.75 480.00 0.0
+  455_Static vehicles.stationary.Campfire$CampfireAirfield 0 148630.72 137788.23 480.00 0.0
+  457_Static vehicles.stationary.Campfire$CampfireAirfield 0 148405.20 137567.16 480.00 0.0
+  459_Static vehicles.stationary.Campfire$CampfireAirfield 0 196569.92 88796.83 480.00 0.0
+  460_Static vehicles.stationary.Campfire$CampfireAirfield 0 196346.06 88795.47 480.00 0.0
+  462_Static vehicles.stationary.Campfire$CampfireAirfield 0 196014.35 88798.17 480.00 0.0
+  465_Static vehicles.stationary.Campfire$CampfireAirfield 0 195800.73 88800.29 480.00 0.0
+  466_Static vehicles.stationary.Campfire$CampfireAirfield 0 177809.45 147196.42 480.00 0.0
+  469_Static vehicles.stationary.Campfire$CampfireAirfield 0 178110.31 147501.22 480.00 0.0
+  471_Static vehicles.stationary.Campfire$CampfireAirfield 0 178428.83 147821.76 480.00 0.0
+  473_Static vehicles.stationary.Campfire$CampfireAirfield 0 178768.82 148165.77 480.00 0.0
+  474_Static vehicles.stationary.Campfire$CampfireAirfield 0 178893.55 148290.50 480.00 0.0
+  475_Static vehicles.stationary.Campfire$CampfireAirfield 0 229399.34 114114.49 480.00 0.0
+  477_Static vehicles.stationary.Campfire$CampfireAirfield 0 229399.34 113910.71 480.00 0.0
+  480_Static vehicles.stationary.Campfire$CampfireAirfield 0 229400.09 113550.94 480.00 0.0
+  483_Static vehicles.stationary.Campfire$CampfireAirfield 0 229398.60 113156.08 480.00 0.0
+  486_Static vehicles.stationary.Campfire$CampfireAirfield 0 229397.10 112600.74 480.00 0.0
+  489_Static vehicles.stationary.Campfire$CampfireAirfield 0 229394.86 112206.63 480.00 0.0
+  491_Static vehicles.stationary.Campfire$CampfireAirfield 0 215257.62 62251.43 480.00 0.0
+  493_Static vehicles.stationary.Campfire$CampfireAirfield 0 215141.30 62134.76 480.00 0.0
+  495_Static vehicles.stationary.Campfire$CampfireAirfield 0 214924.24 61917.35 480.00 0.0
+  497_Static vehicles.stationary.Campfire$CampfireAirfield 0 214708.05 61700.91 480.00 0.0
+  499_Static vehicles.stationary.Campfire$CampfireAirfield 0 214503.44 61496.54 480.00 0.0
+  500_Static vehicles.stationary.Campfire$CampfireAirfield 0 239970.64 10035.50 480.00 0.0
+  503_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.38 10149.93 480.00 0.0
+  506_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.63 10270.92 480.00 0.0
+  509_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.88 10389.89 480.00 0.0
+  512_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.88 10511.39 480.00 0.0
+  515_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.63 10630.11 480.00 0.0
+  518_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.12 10749.84 480.00 0.0
+  521_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.63 10869.82 480.00 0.0
+  524_Static vehicles.stationary.Campfire$CampfireAirfield 0 239969.12 10990.06 480.00 0.0
+  528_Static vehicles.stationary.Campfire$CampfireAirfield 0 250069.86 40000.10 480.00 0.0
+  531_Static vehicles.stationary.Campfire$CampfireAirfield 0 250211.16 40000.31 480.00 0.0
+  534_Static vehicles.stationary.Campfire$CampfireAirfield 0 250379.31 40000.31 480.00 0.0
+  537_Static vehicles.stationary.Campfire$CampfireAirfield 0 250503.98 39999.76 480.00 0.0
+  540_Static vehicles.stationary.Campfire$CampfireAirfield 0 250609.93 40000.31 480.00 0.0
+  543_Static vehicles.stationary.Campfire$CampfireAirfield 0 250720.01 40000.86 480.00 0.0
+  546_Static vehicles.stationary.Campfire$CampfireAirfield 0 250851.56 40001.13 480.00 0.0
+  549_Static vehicles.stationary.Campfire$CampfireAirfield 0 250960.82 40000.31 480.00 0.0
+  552_Static vehicles.stationary.Campfire$CampfireAirfield 0 251068.70 40000.86 480.00 0.0
+  264_Static vehicles.stationary.Campfire$CampfireAirfield 0 272264.62 105961.85 480.00 0.0
+[Buildings]
+  0_bld House$CrimeaBahchisarai 1 235594.62 131015.06 360.00
+  1_bld House$AirdromeFuelTank 1 240552.99 10573.09 360.00
+  2_bld House$AirdromeFuelTank 1 240551.51 10549.09 360.00
+  3_bld House$AirdromeFuelTank 1 240551.51 10527.75 360.00
+  4_bld House$AirdromeFuelTank 1 240551.51 10507.74 360.00
+  5_bld House$Luft_Late_Hangar 1 233478.53 131411.37 630.00
+  6_bld House$Luft_Late_Hangar 1 126573.11 140336.79 360.00
+  7_bld House$Luft_Late_Hangar 1 126483.36 161642.26 475.00
+  8_bld House$Luft_Late_Hangar 1 130188.70 163247.19 360.00
+  9_bld House$Luft_Late_Hangar 1 26040.23 145914.77 450.00
+  10_bld House$Luft_Late_Hangar 1 26139.86 145912.15 450.00
+  11_bld House$Luft_Late_Hangar 1 72978.79 175889.41 405.00
+  12_bld House$Luft_Late_Hangar 1 73042.73 175949.53 405.00
+  13_bld House$TypeJ 1 44762.04 193240.26 585.00
+  14_bld House$TypeJ 1 50987.26 207256.45 495.00
+  15_bld House$TypeJ 1 51166.25 207082.30 495.00
+  16_bld House$TypeJ 1 18156.06 221086.95 660.00
+  17_bld House$Henderstower 1 178613.19 147586.77 480.00
+  18_bld House$Henderstower 1 4707.52 241967.79 480.00
+  19_bld House$Henderstower 1 18154.56 220779.69 480.00
+  20_bld House$Henderstower 1 44826.92 193269.03 480.00
+  21_bld House$Henderstower 1 72907.46 175853.87 480.00
+  22_bld House$Henderstower 1 26230.22 145900.30 480.00
+  23_bld House$Henderstower 1 134459.28 107354.78 480.00
+  24_bld House$Henderstower 1 126770.60 161582.48 480.00
+  25_bld House$Henderstower 1 129857.64 163044.73 480.00
+  26_bld House$Henderstower 1 148892.49 137884.85 480.00
+  27_bld House$Henderstower 1 193029.48 158568.93 480.00
+  28_bld House$Henderstower 1 196170.10 88911.65 480.00
+  29_bld House$Henderstower 1 233904.50 131270.99 480.00
+  30_bld House$Henderstower 1 229025.80 113030.15 480.00
+  31_bld House$Henderstower 1 243059.23 110141.42 480.00
+  32_bld House$Henderstower 1 272844.75 106192.17 480.00
+  33_bld House$Henderstower 1 214888.51 62091.72 480.00
+  34_bld House$Henderstower 1 215442.38 47348.73 480.00
+  35_bld House$Henderstower 1 250490.42 40176.25 480.00
+  36_bld House$Henderstower 1 240123.36 10636.09 480.00
+  37_bld House$TypeJ 1 134461.46 107502.05 360.00
+  38_bld House$TypeJ 1 148586.99 138074.01 580.00
+  39_bld House$TypeJ 1 178580.10 147510.47 400.00
+  40_bld House$TypeJ 1 178686.43 147635.64 400.00
+  41_bld House$TypeJ 1 192998.84 158480.22 400.00
+  42_bld House$TypeJ 1 192934.52 158410.73 400.00
+  43_bld House$TypeJ 1 195986.52 89144.59 630.00
+  44_bld House$TypeJ 1 234166.55 131401.90 630.00
+  45_bld House$TypeJ 1 229880.73 113264.82 360.00
+  46_bld House$TypeJ 1 230237.43 112628.35 360.00
+  47_bld House$TypeJ 1 242981.11 110275.47 585.00
+  48_bld House$TypeJ 1 243069.37 110354.55 585.00
+  49_bld House$TypeJ 1 273102.22 105775.69 405.00
+  50_bld House$TypeJ 1 272983.36 105691.44 405.00
+  51_bld House$TypeJ 1 215564.31 61623.84 400.00
+  52_bld House$TypeJ 1 215646.50 61723.54 400.00
+  53_bld House$TypeJ 1 215585.79 47265.44 405.00
+  54_bld House$TypeJ 1 215493.28 47176.86 405.00
+  55_bld House$TypeJ 1 240438.23 10570.43 360.00
+  56_bld House$TypeJ 1 240436.92 10662.00 360.00
+  57_bld House$TypeJ 1 250405.01 40195.61 630.00
+  58_bld House$TypeJ 1 250571.77 40187.69 630.00
+  59_bld House$Luft_Late_Hangar 1 4788.05 241893.25 475.00
+  60_bld House$Luft_Late_Hangar 1 5632.85 241541.56 480.00
+  61_bld House$IndustrialFactoryWarenHouse1 1 13560.60 205745.63 450.00
+  62_bld House$IndustrialFactoryWarenHouse1 1 13560.60 205782.68 450.00
+  63_bld House$IndustrialFactoryWarenHouse1 1 13560.60 205819.59 450.00
+  64_bld House$IndustrialFactoryWarenHouse1 1 13588.50 205956.59 360.00
+  65_bld House$IndustrialFactoryWarenHouse1 1 13625.80 205956.62 360.00
+  66_bld House$IndustrialFactoryWarenHouse1 1 13663.00 205956.62 360.00
+  67_bld House$IndustrialFactoryWarenHouse1 1 13700.30 205956.62 360.00
+  68_bld House$IndustrialFactoryWarenHouse1 1 13839.30 205956.90 360.00
+  69_bld House$IndustrialFactoryWarenHouse1 1 13876.30 205956.93 360.00
+  70_bld House$IndustrialFactoryWarenHouse1 1 13950.70 205956.93 360.00
+  71_bld House$IndustrialFactoryWarenHouse1 1 13987.90 205956.93 360.00
+  72_bld House$IndustrialFactoryHouse1 1 14029.00 205916.16 405.00
+  73_bld House$AirdromeHangar2 1 14043.20 205856.65 360.00
+  74_bld House$AirdromeHangar2 1 14043.80 205828.66 360.00
+  75_bld House$AirdromeHangar2 1 14044.00 205797.26 360.00
+  76_bld House$AirdromeHangar2 1 14044.00 205764.36 360.00
+  77_bld House$AirdromeHangar1 1 13995.20 205718.54 360.00
+  78_bld House$AirdromeHangar1 1 13970.60 205718.54 360.00
+  79_bld House$AirdromeHangar1 1 13945.40 205718.54 360.00
+  80_bld House$AirdromeMaskingnet 1 13845.20 205722.06 630.00
+  81_bld House$AirdromeMaskingnet 1 13863.30 205721.93 630.00
+  82_bld House$AirdromeMaskingnet 1 13882.10 205721.93 630.00
+  83_bld House$AirdromeMaskingnet 1 13901.60 205721.93 630.00
+  84_bld House$AirdromeMaskingnet 1 13826.40 205721.93 630.00
+  85_bld House$AirdromeMaskingnet 1 13567.80 205866.44 360.00
+  86_bld House$FurniturePole 1 13718.90 205957.20 360.00
+  87_bld House$FurniturePalmAg2 1 13633.60 205739.59 600.00
+  88_bld House$GermanyCountryHouse3 1 13954.90 205812.33 630.00
+  89_bld House$GermanyCountryHouse3 1 13936.60 205812.40 630.00
+  90_bld House$GermanyBigCountryHouse 1 13910.80 205840.73 630.00
+  91_bld House$GermanyBigCountryHouse 1 13893.70 205841.56 360.00
+  92_bld House$GermanyBigCountryHouse 1 13883.40 205860.05 360.00
+  93_bld House$GermanyCountryHouse3 1 13931.20 205868.84 360.00
+  94_bld House$GermanyCountryHouse3 1 13950.00 205868.84 360.00
+  95_bld House$GermanyCountryHouse3 1 13838.00 205830.16 660.00
+  96_bld House$RussiaClutterMoscow3 1 13869.50 205811.72 630.00
+  97_bld House$RussiaClutterMoscow3 1 13838.00 205811.75 630.00
+  98_bld House$RussiaClutterMoscow3 1 13803.60 205824.84 360.00
+  99_bld House$HangarPBY 1 13647.30 205826.79 360.00
+  100_bld House$HangarPBY 1 13680.40 205826.66 540.00
+  101_bld House$shacks 1 13554.00 205733.88 630.00
+  102_bld House$FurniturePalmAg2 1 13633.30 205768.20 540.00
+  103_bld House$FurniturePalmAg2 1 13629.70 205793.72 510.00
+  104_bld House$AirdromeBarrelBlock1 1 13629.40 205798.81 510.00
+  105_bld House$AirdromeBarrelBlock1 1 13621.10 205800.52 510.00
+  106_bld House$AirdromeBarrelBlock2 1 13631.50 205852.81 450.00
+  107_bld House$Housepacif4 1 13913.60 205795.09 540.00
+  108_bld House$Water_Tower 1 13584.00 205951.79 540.00
+  109_bld House$FinlandHangar 1 13652.20 205944.55 450.00
+  110_bld House$FinlandHangar 1 13696.80 205944.70 450.00
+  111_bld House$FinlandHangar 1 13955.50 205944.23 450.00
+  112_bld House$FinlandHangar 1 13981.90 205944.23 450.00
+  113_bld House$FurniturePalmBg1 1 13857.70 205868.27 465.00
+  114_bld House$FurniturePalmBg2 1 13962.00 205869.93 510.00
+  115_bld House$FurniturePalmAg2 1 13935.20 205799.59 465.00
+  116_bld House$FurniturePalmAg2 1 14011.00 205942.88 420.00
+  117_bld House$FurniturePalmBg1 1 13572.60 205922.91 420.00
+  118_bld House$FurniturePalmBg1 1 13567.80 205902.01 645.00
+  119_bld House$FurniturePalmAg1 1 13574.70 205852.83 435.00
+  120_bld House$FurniturePalmBg2 1 13810.90 205727.84 405.00
+  121_bld House$FurniturePalmAg1 1 13920.00 205732.83 360.00
+  122_bld House$FurnitureFenceShortVert 1 13953.50 205792.88 630.00
+  123_bld House$FurnitureFenceShortVert 1 13938.80 205787.97 360.00
+  124_bld House$FurnitureFenceShortVert 1 13919.70 205787.97 360.00
+  125_bld House$FurnitureFenceShortVert 1 13955.00 205849.05 450.00
+  126_bld House$FurnitureFenceShortVert 1 13955.00 205862.77 630.00
+  127_bld House$FurnitureFenceShortVert 1 13911.90 205870.43 360.00
+  128_bld House$FurnitureFenceShortVert 1 13874.40 205869.23 530.00
+  129_bld House$FurnitureFenceShortVert 1 13857.10 205861.08 510.00
+  130_bld House$RussiaClutterMoscow2 1 13596.20 205301.77 630.00
+  131_bld House$RussiaClutterMoscow2 1 13618.00 205301.77 630.00
+  132_bld House$RussiaClutterMoscow2 1 13623.80 205312.86 540.00
+  133_bld House$IndustrialFactoryHouse1 1 13700.60 205297.71 570.00
+  134_bld House$IndustrialFactoryHouse1 1 13707.30 205264.70 630.00
+  135_bld House$FurnitureSandbag_Wall 1 13705.50 205254.36 630.00
+  136_bld House$FurniturePalmBg1 1 13569.70 205300.57 615.00
+  137_bld House$FinlandHangar 1 13702.90 205262.93 540.00
+  138_bld House$BlastPen 1 13661.70 205287.93 540.00
+  139_bld House$FurnitureSandbag_Wall 1 13711.10 205254.34 630.00
+  140_bld House$FurnitureSandbag_Wall 1 13700.10 205254.34 630.00
+  141_bld House$FurnitureGermanyCountryFenceVert 1 13711.10 205245.48 560.00
+  142_bld House$FurnitureGermanyCountryFenceVert 1 13712.30 205252.30 540.00
+  143_bld House$FurniturePalmBg1 1 13708.70 205248.78 640.00
+  144_bld House$FurniturePalmAg2 1 13690.20 205311.71 625.00
+  145_bld House$FurniturePalmAg1 1 13612.30 205332.00 625.00
+  146_bld House$IndustrialFactoryWarenHouse1 1 13553.90 205525.94 630.00
+  147_bld House$IndustrialFactoryWarenHouse1 1 13553.90 205563.22 630.00
+  148_bld House$IndustrialFactoryWarenHouse1 1 13553.90 205600.64 630.00
+  149_bld House$AirdromeBarrelBlock1 1 13569.40 205553.20 630.00
+  150_bld House$AirdromeTank1 1 13569.40 205544.04 540.00
+  151_bld House$AirdromeMaskingnet 1 13568.40 205552.17 630.00
+  152_bld House$FurnitureFenceShortVert 1 13568.00 205538.98 540.00
+  153_bld House$FurnitureFenceShortVert 1 13577.80 205539.01 540.00
+  154_bld House$FurniturePalmAg1 1 13536.60 205517.87 540.00
+  155_bld House$FurniturePalmAg1 1 13528.30 205533.61 420.00
+  156_bld House$FinlandHangar 1 13567.30 205525.95 360.00
+  157_bld House$FinlandHangar 1 13567.80 205572.72 360.00
+  158_bld House$FinlandHangar 1 13568.50 205609.57 360.00
+  159_bld House$BeachObstacleB 1 13577.10 205555.69 360.00
+  160_bld House$BeachObstacleB 1 13577.30 205551.26 360.00
+  161_bld House$BeachObstacleB 1 13576.80 205547.89 390.00
+  162_bld House$Bunker3 1 13576.50 205518.65 690.00
+  163_bld House$Bunker3 1 13576.70 205533.14 555.00
+  164_bld House$Bunker3 1 13577.10 205579.89 555.00
+  165_bld House$Bunker3 1 13577.80 205616.80 555.00
+  166_bld House$Bunker3 1 13576.70 205565.34 700.00
+  167_bld House$Bunker3 1 13577.40 205602.25 700.00
+  168_bld House$Water_Tower 1 13547.30 205512.87 700.00
+  169_bld House$SmallCrane 1 13560.00 205572.83 630.00
+  170_bld House$SudakFortressWall 1 14316.60 206366.40 470.00
+  171_bld House$SudakFortressWall 1 14277.20 206294.38 620.00
+  172_bld House$SudakFortressWall 1 14257.40 206296.16 650.00
+  173_bld House$SudakFortressWall 1 14259.30 206381.79 620.00
+  174_bld House$SudakFortressTower 1 14175.20 206328.69 360.00
+  175_bld House$shacks 1 14208.40 206369.66 710.00
+  176_bld House$Metal_hut 1 14248.90 206373.05 620.00
+  177_bld House$SudakFortressWall 1 14298.20 206323.34 405.00
+  178_bld House$SudakFortressTower 1 14291.20 206319.08 405.00
+  179_bld House$SudakFortressTower 1 14279.20 206308.13 405.00
+  180_bld House$SudakFortressWall 1 14326.00 206312.84 360.00
+  181_bld House$SudakFortressWall 1 14316.20 206301.27 620.00
+  182_bld House$SudakFortressWall 1 14326.00 206352.88 360.00
+  183_bld House$SudakFortressWall 1 14239.70 206378.34 620.00
+  184_bld House$SudakFortressWall 1 14220.10 206374.88 620.00
+  185_bld House$SudakFortressWall 1 14200.50 206371.47 620.00
+  186_bld House$SudakFortressWall 1 14182.70 206368.36 620.00
+  187_bld House$SudakFortressWall 1 14238.80 206302.94 650.00
+  188_bld House$SudakFortressWall 1 14220.20 206309.67 650.00
+  189_bld House$SudakFortressWall 1 14201.30 206316.51 650.00
+  190_bld House$SudakFortressWall 1 14182.70 206323.24 650.00
+  191_bld House$SudakFortressTower 1 14175.20 206345.83 360.00
+  192_bld House$SudakFortressTower 1 14174.30 206364.47 360.00
+  193_bld House$Metal_hut 1 14240.80 206371.51 620.00
+  194_bld House$Metal_hut 1 14231.60 206370.09 620.00
+  195_bld House$shacks 1 14299.90 206301.88 530.00
+  196_bld House$CrimeaHouse1 1 14046.20 205209.14 630.00
+  197_bld House$CrimeaHouse3 1 14054.10 205210.57 540.00
+  198_bld House$RussiaCountryBarn 1 14044.30 205227.77 630.00
+  199_bld House$FurniturePole 1 13988.80 205220.11 715.00
+  200_bld House$FurniturePole 1 13937.00 205201.32 700.00
+  201_bld House$FurnitureObserv_Bunker 1 13936.80 205201.78 600.00
+  202_bld House$FurnitureGermanyCountryFenceLand 1 14042.30 205230.20 540.00
+  203_bld House$FurnitureGermanyCountryFenceLand 1 14060.10 205196.04 630.00
+  204_bld House$FurnitureGermanyCountryFenceLand 1 14067.00 205196.04 630.00
+  205_bld House$FurniturePalmAg1 1 14078.40 205194.68 420.00
+  206_bld House$FurniturePalmAg2 1 14045.40 205204.07 490.00
+  207_bld House$RacingPoleBlue 1 13953.10 205191.00 360.00
+  208_bld House$FurniturePalmBg2 1 13936.40 205194.75 495.00
+  209_bld House$Metal_hut 1 14539.20 205309.63 450.00
+  210_bld House$AirdromeMaskingnet 1 14541.90 205318.51 630.00
+  211_bld House$Bunker3 1 14537.10 205317.16 460.00
+  212_bld House$AirdromeMaskingnet 1 14706.70 205898.02 655.00
+  213_bld House$AirdromeBarrelBlock2 1 14701.10 205899.48 595.00
+  214_bld House$CrimeaBarnWood 1 14711.10 205894.99 475.00
+  215_bld House$CrimeaBarnWood 1 14710.80 205899.22 385.00
+  216_bld House$Tent_Pyramid_US 1 14703.30 205888.48 385.00
+  217_bld House$Tent_Pyramid_US 1 14699.50 205890.20 385.00
+  218_bld House$Metal_hut 1 14771.70 205866.16 715.00
+  219_bld House$Metal_hut 1 14770.60 205875.55 715.00
+  220_bld House$Water_Tower 1 14782.30 205875.61 715.00
+  221_bld House$CrimeaBarnStucco 1 14759.20 205884.84 385.00
+  222_bld House$CrimeaBarnStucco 1 14745.00 205886.63 715.00
+  223_bld House$Tent_Pyramid_US 1 14738.00 205875.54 715.00
+  224_bld House$Tent_Pyramid_US 1 14738.30 205871.20 715.00
+  225_bld House$Tent_Pyramid_US 1 14738.70 205866.99 715.00
+  226_bld House$Tent_Pyramid_US 1 14734.30 205866.66 715.00
+  227_bld House$Tent_HQ_US 1 14740.70 205871.34 715.00
+  228_bld House$AirdromeBarrelBlock1 1 14735.40 205881.41 510.00
+  229_bld House$AirdromeBarrelBlock1 1 14781.80 205865.55 630.00
+  230_bld House$AirdromeMaskingnet 1 14971.60 205816.61 480.00
+  231_bld House$AirdromeBarrelBlock2 1 14977.10 205814.65 420.00
+  232_bld House$CrimeaBarnWood 1 14967.50 205820.00 660.00
+  233_bld House$CrimeaBarnWood 1 14967.40 205815.77 570.00
+  234_bld House$Metal_hut 1 14909.90 205844.55 540.00
+  235_bld House$Water_Tower 1 14898.30 205845.51 540.00
+  236_bld House$AirdromeMaskingnet 1 14879.50 205847.41 540.00
+  237_bld House$AirdromeBarrelBlock2 1 14880.00 205850.09 450.00
+  238_bld House$AirdromeBarrelBlock2 1 14879.00 205850.44 690.00
+  239_bld House$AirdromeBarrelBlock2 1 14880.20 205844.69 660.00
+  240_bld House$CrimeaBarnStucco 1 14920.40 205834.30 570.00
+  241_bld House$CrimeaBarnStucco 1 14934.50 205831.27 540.00
+  242_bld House$Tent_Pyramid_US 1 14942.40 205841.72 540.00
+  243_bld House$Tent_Pyramid_US 1 14942.40 205850.30 540.00
+  244_bld House$AirdromeBarrelBlock2 1 14942.00 205853.16 450.00
+  245_bld House$AirdromeBarrelBlock1 1 14944.50 205835.65 695.00
+  246_bld House$Metal_hut 1 14790.40 206033.52 360.00
+  247_bld House$AirdromeMaskingnet 1 14728.40 206080.23 660.00
+  248_bld House$AirdromeBarrelBlock2 1 14722.90 206082.20 600.00
+  249_bld House$CrimeaBarnWood 1 14732.60 206081.08 390.00
+  250_bld House$Metal_hut 1 14790.40 206042.84 360.00
+  251_bld House$Water_Tower 1 14801.70 206051.34 360.00
+  252_bld House$AirdromeBarrelBlock2 1 14794.90 206029.82 630.00
+  253_bld House$CrimeaBarnStucco 1 14779.60 206062.54 390.00
+  254_bld House$CrimeaBarnStucco 1 14765.50 206065.57 360.00
+  255_bld House$AirdromeBarrelBlock1 1 14800.90 206028.33 695.00
+  256_bld House$AirdromeBarrelBlock1 1 14800.40 206041.36 635.00
+  257_bld House$Metal_hut 1 15042.90 206029.71 540.00
+  258_bld House$AirdromeMaskingnet 1 15104.90 205982.99 480.00
+  259_bld House$AirdromeBarrelBlock2 1 15110.40 205981.03 420.00
+  260_bld House$CrimeaBarnWood 1 15100.80 205986.38 660.00
+  261_bld House$CrimeaBarnWood 1 15100.80 205982.15 570.00
+  262_bld House$Metal_hut 1 15043.00 206020.38 540.00
+  263_bld House$Metal_hut 1 15043.20 206010.93 540.00
+  264_bld House$AirdromeBarrelBlock2 1 15038.50 206033.41 450.00
+  265_bld House$CrimeaBarnStucco 1 15053.80 206000.69 570.00
+  266_bld House$CrimeaBarnStucco 1 15067.80 205997.66 540.00
+  267_bld House$AirdromeBarrelBlock1 1 15032.40 206034.90 515.00
+  268_bld House$FinlandHangar 1 14967.30 205552.91 640.00
+  269_bld House$AirdromeMaskingnet 1 14897.10 205319.15 370.00
+  270_bld House$CrimeaFarm 1 15018.40 205343.93 400.00
+  271_bld House$FurniturePalmBg2 1 14956.20 205320.64 520.00
+  272_bld House$FurniturePalmBg1 1 14892.40 205307.61 460.00
+  273_bld House$Hangarmed 1 15030.00 205477.39 550.00
+  274_bld House$IndustrialFactoryHouse1 1 15020.00 205460.97 550.00
+  275_bld House$IndustrialFactoryHouse1 1 15033.70 205458.52 550.00
+  276_bld House$Hangarmed 1 15023.30 205442.14 550.00
+  277_bld House$Hangarmed 1 15016.00 205398.64 550.00
+  278_bld House$HangarPBY 1 14980.50 205526.82 640.00
+  279_bld House$IndustrialFactoryWarenHouse1 1 14946.40 205534.75 460.00
+  280_bld House$IndustrialFactoryHouse1 1 14928.00 205550.80 370.00
+  281_bld House$IndustrialFactoryHouse1 1 14901.00 205337.15 640.00
+  282_bld House$CrimeaFarm 1 15026.20 205337.37 400.00
+  283_bld House$CrimeaFarm 1 15034.00 205330.78 400.00
+  284_bld House$CrimeaFarm 1 15016.30 205325.42 400.00
+  285_bld House$CrimeaFarm 1 15032.00 205312.20 400.00
+  286_bld House$CrimeaFarm 1 14998.40 205320.05 400.00
+  287_bld House$CrimeaFarm 1 15021.90 205300.24 400.00
+  288_bld House$CrimeaFarm 1 14988.30 205307.97 400.00
+  289_bld House$CrimeaFarm 1 15011.90 205288.18 400.00
+  290_bld House$shacks 1 14963.50 205339.95 460.00
+  291_bld House$shacks 1 15013.70 205384.76 370.00
+  292_bld House$FinlandHangar 1 14982.90 205550.12 640.00
+  293_bld House$FinlandHangar 1 14998.60 205547.32 640.00
+  294_bld House$AirdromeMaskingnet 1 14923.50 205279.91 610.00
+  295_bld House$AirdromeMaskingnet 1 14934.80 205284.14 610.00
+  296_bld House$AirdromeMaskingnet 1 14946.70 205288.37 610.00
+  297_bld House$IndustrialFactoryWarenHouse1 1 13562.20 206258.70 540.00
+  298_bld House$IndustrialFactoryHouse1 1 13569.70 206222.09 540.00
+  299_bld House$AirdromeFuelTank 1 13500.20 206136.86 540.00
+  300_bld House$AirdromeBarrack 1 13409.40 206180.95 450.00
+  301_bld House$RailBigStation 1 13405.20 206277.01 540.00
+  302_bld House$FurniturePalmBg2 1 13430.70 206143.61 585.00
+  303_bld House$Metal_hut 1 13520.60 206150.72 540.00
+  304_bld House$RussiaPiterHouse3 1 13557.50 206272.61 630.00
+  305_bld House$RussiaPiterHouse3 1 13517.30 206272.70 630.00
+  306_bld House$IndustrialFactoryWarenHouse1 1 13534.80 206249.91 630.00
+  307_bld House$IndustrialFactoryWarenHouse1 1 13470.50 206259.09 540.00
+  308_bld House$RailBigStation 1 13405.20 206256.88 540.00
+  309_bld House$IndustrialFactoryHouse1 1 13406.40 206222.86 450.00
+  310_bld House$IndustrialFactoryHouse1 1 13418.00 206223.02 360.00
+  311_bld House$IndustrialFactoryHouse1 1 13417.80 206211.12 360.00
+  312_bld House$IndustrialFactoryHouse1 1 13406.40 206201.24 630.00
+  313_bld House$46Warehouse 1 13530.50 206136.29 360.00
+  314_bld House$Metal_hut 1 13520.40 206158.20 360.00
+  315_bld House$Metal_hut 1 13520.40 206166.16 360.00
+  316_bld House$Metal_hut 1 13520.40 206173.87 360.00
+  317_bld House$AirdromeBarrack 1 13420.90 206172.19 360.00
+  318_bld House$AirdromeBarrack 1 13443.00 206172.19 360.00
+  319_bld House$AirdromeFuelTank 1 13470.70 206137.01 360.00
+  320_bld House$AirdromeFuelTank 1 13441.80 206137.48 360.00
+  321_bld House$FurniturePalmBg1 1 13462.00 206150.72 630.00
+  322_bld House$FurniturePalmAg1 1 13504.70 206145.09 675.00
+  323_bld House$46ConcrWall4 1 13565.40 206118.20 450.00
+  324_bld House$46ConcrWall4 1 13536.00 206118.20 630.00
+  325_bld House$46ConcrWall4 1 13506.30 206118.20 630.00
+  326_bld House$46ConcrWall4 1 13476.80 206118.33 630.00
+  327_bld House$46ConcrWall4 1 13447.60 206118.33 630.00
+  328_bld House$46ConcrWall4 1 13419.10 206118.33 630.00
+  329_bld House$46ConcrWall4 1 13403.60 206132.95 540.00
+  330_bld House$46ConcrWall4 1 13403.60 206162.34 540.00
+  331_bld House$46ConcrWall4 1 13401.70 206241.90 540.00
+  332_bld House$Tent_Pyramid_US 1 14341.40 206001.98 420.00
+  333_bld House$Tent_Pyramid_US 1 14359.70 205976.27 380.00
+  334_bld House$Tent_Pyramid_US 1 14363.60 205984.20 390.00
+  335_bld House$Tent_Pyramid_US 1 14390.50 206010.37 360.00
+  336_bld House$Tent_Pyramid_US 1 14401.00 206007.77 360.00
+  337_bld House$Tent_Pyramid_US 1 14398.70 205992.47 690.00
+  338_bld House$Tent_HQ_US 1 14390.70 205997.69 540.00
+  339_bld House$Tent_HQ_US 1 14340.90 205985.95 660.00
+  340_bld House$Tent_HQ_US 1 14371.10 206006.91 450.00
+  341_bld House$Tent_HQ_US 1 14381.90 206005.10 450.00
+  342_bld House$Tent_Pup_US 1 14376.30 206011.23 450.00
+  343_bld House$Tent_Pup_US 1 14367.90 205976.77 450.00
+  344_bld House$Tent_Pup_US 1 14376.90 205975.98 450.00
+  345_bld House$FurnitureSandbag_Wall 1 14335.30 205993.70 360.00
+  346_bld House$FurnitureSandbag_Wall 1 14336.40 205998.56 390.00
+  347_bld House$FurnitureSandbag_Wall 1 14404.00 206002.27 525.00
+  348_bld House$Tent_Pyramid_US 1 14191.10 205971.63 450.00
+  349_bld House$Tent_Pyramid_US 1 14195.40 205971.63 450.00
+  350_bld House$Tent_Pyramid_US 1 14199.70 205971.63 450.00
+  351_bld House$Tent_Pyramid_US 1 14174.70 205968.71 420.00
+  352_bld House$Tent_Pyramid_US 1 14171.70 205958.04 390.00
+  353_bld House$Tent_Pyramid_US 1 14185.40 205946.06 390.00
+  354_bld House$Tent_Pyramid_US 1 14193.10 205942.99 380.00
+  355_bld House$Tent_Pyramid_US 1 14223.90 205977.09 360.00
+  356_bld House$Tent_Pyramid_US 1 14234.30 205974.49 360.00
+  357_bld House$Tent_Pyramid_US 1 14232.00 205959.20 690.00
+  358_bld House$Tent_HQ_US 1 14174.20 205952.67 660.00
+  359_bld House$Tent_HQ_US 1 14215.30 205971.83 450.00
+  360_bld House$Tent_Pup_US 1 14214.60 205977.71 450.00
+  361_bld House$Tent_Pup_US 1 14205.50 205943.84 450.00
+  362_bld House$Tent_Pup_US 1 14210.30 205942.70 450.00
+  363_bld House$FurnitureSandbag_Wall 1 14168.60 205960.42 360.00
+  364_bld House$FurnitureSandbag_Wall 1 14169.80 205965.29 390.00
+  365_bld House$FurnitureSandbag_Wall 1 14178.90 205974.77 420.00
+  366_bld House$FurnitureSandbag_Wall 1 14183.70 205976.93 435.00
+  367_bld House$FurnitureSandbag_Wall 1 14229.30 205977.26 465.00
+  368_bld House$FurnitureSandbag_Wall 1 14237.40 205969.00 525.00
+  369_bld House$FurnitureSandbag_Wall 1 14236.50 205964.95 585.00
+  370_bld House$AirdromeFuelTank 1 13778.77 206290.08 360.00
+  371_bld House$AirdromeFuelTank 1 13777.48 206269.52 360.00
+  372_bld House$AirdromeFuelTank 1 13778.33 206251.32 360.00
+  373_bld House$AirdromeFuelTank 1 13804.97 206290.82 360.00
+  374_bld House$AirdromeFuelTank 1 13804.94 206269.07 360.00
+  375_bld House$AirdromeFuelTank 1 13804.31 206252.12 360.00
+  376_bld House$AirdromeFuelTank 1 13831.72 206290.82 360.00
+  377_bld House$AirdromeFuelTank 1 13833.25 206270.28 360.00
+  378_bld House$AirdromeFuelTank 1 13832.95 206253.33 360.00
+  379_bld House$AirdromeFuelTank 1 13779.75 206184.20 360.00
+  380_bld House$AirdromeFuelTank 1 13780.61 206172.27 360.00
+  381_bld House$AirdromeFuelTank 1 13779.38 206153.59 360.00
+  382_bld House$AirdromeFuelTank 1 13802.07 206187.27 360.00
+  383_bld House$AirdromeFuelTank 1 13803.28 206171.36 360.00
+  384_bld House$AirdromeFuelTank 1 13802.91 206155.08 360.00
+  385_bld House$AirdromeFuelTank 1 13831.43 206186.62 360.00
+  386_bld House$AirdromeFuelTank 1 13829.61 206169.83 360.00
+  387_bld House$AirdromeFuelTank 1 13827.77 206152.35 360.00
+  388_bld House$AirdromeFuelTank 1 13911.58 206291.55 360.00
+  389_bld House$AirdromeFuelTank 1 13911.58 206273.65 360.00
+  390_bld House$AirdromeFuelTank 1 13910.06 206254.54 360.00
+  391_bld House$AirdromeFuelTank 1 13939.24 206292.24 360.00
+  392_bld House$AirdromeFuelTank 1 13939.85 206274.04 360.00
+  393_bld House$AirdromeFuelTank 1 13938.61 206257.49 360.00
+  394_bld House$AirdromeFuelTank 1 13963.16 206294.06 360.00
+  395_bld House$AirdromeFuelTank 1 13963.16 206274.80 360.00
+  396_bld House$AirdromeFuelTank 1 13962.86 206257.87 360.00
+  397_bld House$AirdromeFuelTank 1 13910.32 206186.56 360.00
+  398_bld House$AirdromeFuelTank 1 13911.18 206169.24 360.00
+  399_bld House$AirdromeFuelTank 1 13910.82 206154.63 360.00
+  400_bld House$AirdromeFuelTank 1 13940.73 206185.63 360.00
+  401_bld House$AirdromeFuelTank 1 13940.39 206169.55 360.00
+  402_bld House$AirdromeFuelTank 1 13964.67 206185.90 360.00
+  403_bld House$AirdromeFuelTank 1 13964.08 206170.47 360.00
+  404_bld House$AirdromeFuelTank 1 13964.69 206156.81 360.00
+  405_bld House$AirdromeFuelTank 1 13939.54 206153.56 360.00
+  406_bld House$CrimeaBahchisarai 1 14328.42 205501.12 360.00
+  407_bld House$FurniturePalmAg2 1 14271.81 205537.56 360.00
+  408_bld House$FurniturePalmAg2 1 14331.07 205543.86 360.00
+  409_bld House$FurniturePalmAg2 1 14261.72 205487.13 360.00
+  410_bld House$FurniturePalmAg2 1 14270.51 205455.66 360.00
+  411_bld House$FurniturePalmAg2 1 14336.97 205438.36 360.00
+  412_bld House$FurniturePalmBg1 1 14390.10 205545.23 360.00
+  413_bld House$FurniturePalmBg1 1 14387.39 205502.52 360.00
+  414_bld House$FurniturePalmBg1 1 14387.21 205467.39 360.00
+  415_bld House$FurniturePalmBg1 1 14389.58 205438.58 360.00
+  416_bld House$FurniturePalmBg1 1 14260.45 205511.10 360.00
+  417_bld House$FurniturePalmBg1 1 14193.42 206349.47 360.00
+  418_bld House$FurniturePalmBg1 1 14227.27 206333.05 360.00
+  419_bld House$FurniturePalmBg1 1 14259.89 206360.64 360.00
+  420_bld House$FurniturePalmBg1 1 14269.95 206334.20 360.00
+  421_bld House$PiterWPetropavlSE 1 13447.13 206385.05 645.00
+  422_bld House$PiterWPetropavlSW 1 13434.13 205186.69 450.00
+  423_bld House$46BoxCoverBig 1 13497.39 205926.76 645.00
+  424_bld House$46BoxCoverBig 1 13492.35 205907.88 645.00
+  425_bld House$46BoxCoverBig 1 13488.58 205877.67 645.00
+  426_bld House$46BoxCoverBig 1 13483.54 205861.31 645.00
+  427_bld House$46BoxCoverBig 1 13467.17 205883.95 645.00
+  428_bld House$46BoxCoverBig 1 13467.17 205907.88 645.00
+  429_bld House$46BoxCoverBig 1 13469.69 205925.51 645.00
+  430_bld House$46BoxCoverBig 1 13449.53 205922.10 645.00
+  431_bld House$46BoxCoverBig 1 13440.71 205894.02 645.00
+  432_bld House$46BoxCoverBig 1 13449.53 205878.90 645.00
+  433_bld House$46BoxCoverBig 1 13444.49 205854.96 645.00
+  434_bld House$PiterWPetropavlSE 1 15219.00 206353.94 375.00
+  435_bld House$PiterWPetropavlSE 1 15086.19 205116.45 465.00
+  436_bld House$IndustrialFactoryWarenHouse1 1 233560.60 65745.63 450.00
+  437_bld House$IndustrialFactoryWarenHouse1 1 233560.60 65782.68 450.00
+  438_bld House$IndustrialFactoryWarenHouse1 1 233560.60 65819.59 450.00
+  439_bld House$IndustrialFactoryWarenHouse1 1 233588.50 65956.59 360.00
+  440_bld House$IndustrialFactoryWarenHouse1 1 233625.80 65956.62 360.00
+  441_bld House$IndustrialFactoryWarenHouse1 1 233663.00 65956.62 360.00
+  442_bld House$IndustrialFactoryWarenHouse1 1 233700.30 65956.62 360.00
+  443_bld House$IndustrialFactoryWarenHouse1 1 233839.30 65956.90 360.00
+  444_bld House$IndustrialFactoryWarenHouse1 1 233876.30 65956.93 360.00
+  445_bld House$IndustrialFactoryWarenHouse1 1 233913.60 65956.93 360.00
+  446_bld House$IndustrialFactoryWarenHouse1 1 233950.70 65956.93 360.00
+  447_bld House$IndustrialFactoryWarenHouse1 1 233987.90 65956.93 360.00
+  448_bld House$IndustrialFactoryHouse1 1 234044.10 65901.05 405.00
+  449_bld House$AirdromeHangar2 1 234043.20 65856.65 360.00
+  450_bld House$AirdromeHangar2 1 234043.80 65828.66 360.00
+  451_bld House$AirdromeHangar2 1 234044.00 65797.26 360.00
+  452_bld House$AirdromeHangar2 1 234044.00 65764.36 360.00
+  453_bld House$AirdromeHangar1 1 233970.60 65718.54 360.00
+  454_bld House$AirdromeHangar1 1 233945.40 65718.54 360.00
+  455_bld House$AirdromeBarrack 1 233945.10 65726.31 540.00
+  456_bld House$AirdromeBarrack 1 233967.00 65726.31 540.00
+  457_bld House$AirdromeMaskingnet 1 233845.20 65722.06 630.00
+  458_bld House$AirdromeMaskingnet 1 233863.30 65721.93 630.00
+  459_bld House$AirdromeMaskingnet 1 233882.10 65721.93 630.00
+  460_bld House$AirdromeMaskingnet 1 233901.60 65721.93 630.00
+  461_bld House$AirdromeMaskingnet 1 233826.40 65721.93 630.00
+  462_bld House$AirdromeMaskingnet 1 233567.80 65866.44 360.00
+  463_bld House$AirdromeMaskingnet 1 233569.10 65888.93 360.00
+  464_bld House$FurniturePole 1 233576.80 65892.20 635.00
+  465_bld House$FurniturePole 1 233718.90 65957.20 360.00
+  466_bld House$FurniturePalmAg2 1 233633.60 65739.59 600.00
+  467_bld House$GermanyCountryHouse3 1 233954.90 65840.09 630.00
+  468_bld House$GermanyCountryHouse3 1 233954.90 65821.61 630.00
+  469_bld House$GermanyCountryHouse3 1 233936.60 65840.09 630.00
+  470_bld House$GermanyCountryHouse3 1 233936.60 65812.40 630.00
+  471_bld House$GermanyCountryHouse3 1 233950.00 65868.84 360.00
+  472_bld House$GermanyCountryHouse3 1 233838.00 65830.16 660.00
+  473_bld House$RussiaClutterMoscow3 1 233869.50 65811.72 630.00
+  474_bld House$RussiaClutterMoscow3 1 233838.00 65811.75 630.00
+  475_bld House$RussiaClutterMoscow3 1 233803.60 65824.84 360.00
+  476_bld House$BlastPen 1 233768.80 65946.75 510.00
+  477_bld House$BlastPen 1 233803.40 65945.56 510.00
+  478_bld House$HangarPBY 1 233647.30 65826.79 360.00
+  479_bld House$HangarPBY 1 233680.40 65826.66 540.00
+  480_bld House$FurniturePalmAg2 1 233633.30 65768.20 540.00
+  481_bld House$FurniturePalmAg2 1 233629.70 65793.72 510.00
+  482_bld House$AirdromeBarrelBlock1 1 233629.40 65798.81 510.00
+  483_bld House$AirdromeBarrelBlock1 1 233621.10 65800.52 510.00
+  484_bld House$AirdromeBarrelBlock2 1 233631.50 65852.81 450.00
+  485_bld House$Housepacif4 1 233913.60 65795.09 540.00
+  486_bld House$Water_Tower 1 233584.00 65951.79 540.00
+  487_bld House$FinlandHangar 1 233608.40 65943.70 450.00
+  488_bld House$FinlandHangar 1 233573.10 65817.43 360.00
+  489_bld House$FinlandHangar 1 233572.80 65785.11 360.00
+  490_bld House$FinlandHangar 1 233573.90 65749.40 360.00
+  491_bld House$FinlandHangar 1 233955.50 65944.23 450.00
+  492_bld House$FinlandHangar 1 233981.90 65944.23 450.00
+  493_bld House$FurniturePalmBg1 1 233857.70 65868.27 465.00
+  494_bld House$FurniturePalmBg2 1 233962.00 65869.93 510.00
+  495_bld House$FurniturePalmAg2 1 234011.00 65942.88 420.00
+  496_bld House$FurniturePalmBg1 1 233567.80 65902.01 645.00
+  497_bld House$FurniturePalmAg1 1 233574.70 65852.83 435.00
+  498_bld House$FurniturePalmAg2 1 233726.30 65729.73 435.00
+  499_bld House$FurniturePalmBg2 1 233810.90 65727.84 405.00
+  500_bld House$FurnitureFenceShortVert 1 233955.00 65849.05 450.00
+  501_bld House$FurnitureFenceShortVert 1 233955.00 65862.77 630.00
+  502_bld House$RussiaClutterMoscow2 1 233596.20 65301.77 630.00
+  503_bld House$RussiaClutterMoscow2 1 233618.00 65301.77 630.00
+  504_bld House$RussiaClutterMoscow2 1 233623.80 65312.86 540.00
+  505_bld House$IndustrialFactoryHouse1 1 233700.60 65297.71 570.00
+  506_bld House$IndustrialFactoryHouse1 1 233707.30 65286.46 630.00
+  507_bld House$FurniturePalmBg1 1 233569.70 65300.57 615.00
+  508_bld House$FinlandHangar 1 233702.90 65262.93 540.00
+  509_bld House$BlastPen 1 233661.70 65287.93 540.00
+  510_bld House$AirdromeBarrelBlock2 1 233683.80 65290.84 360.00
+  511_bld House$FurniturePalmAg2 1 233690.20 65311.71 625.00
+  512_bld House$FurniturePalmAg1 1 233612.30 65332.00 625.00
+  513_bld House$IndustrialFactoryWarenHouse1 1 233553.90 65563.22 630.00
+  514_bld House$IndustrialFactoryWarenHouse1 1 233553.90 65600.64 630.00
+  515_bld House$FurniturePalmAg1 1 233536.60 65517.87 540.00
+  516_bld House$FurniturePalmAg1 1 233528.30 65533.61 420.00
+  517_bld House$SudakFortressWall 1 234316.60 66366.40 470.00
+  518_bld House$SudakFortressWall 1 234257.40 66296.16 650.00
+  519_bld House$SudakFortressWall 1 234259.30 66381.79 620.00
+  520_bld House$SudakFortressTower 1 234175.20 66328.69 360.00
+  521_bld House$shacks 1 234208.40 66369.66 710.00
+  522_bld House$Metal_hut 1 234248.90 66373.05 620.00
+  523_bld House$SudakFortressTower 1 234279.20 66308.13 405.00
+  524_bld House$SudakFortressWall 1 234326.00 66312.84 360.00
+  525_bld House$SudakFortressWall 1 234326.00 66352.88 360.00
+  526_bld House$SudakFortressWall 1 234239.70 66378.34 620.00
+  527_bld House$SudakFortressWall 1 234220.10 66374.88 620.00
+  528_bld House$SudakFortressWall 1 234200.50 66371.47 620.00
+  529_bld House$SudakFortressWall 1 234182.70 66368.36 620.00
+  530_bld House$SudakFortressWall 1 234238.80 66302.94 650.00
+  531_bld House$SudakFortressWall 1 234220.20 66309.67 650.00
+  532_bld House$SudakFortressWall 1 234201.30 66316.51 650.00
+  533_bld House$SudakFortressWall 1 234182.70 66323.24 650.00
+  534_bld House$SudakFortressWall 1 234173.30 66336.73 360.00
+  535_bld House$SudakFortressTower 1 234175.20 66345.83 360.00
+  536_bld House$SudakFortressTower 1 234174.30 66364.47 360.00
+  537_bld House$Metal_hut 1 234240.80 66371.51 620.00
+  538_bld House$Metal_hut 1 234231.60 66370.09 620.00
+  539_bld House$FurnitureSandbag_Wall 1 234230.70 66309.70 380.00
+  540_bld House$SudakFortressWall 1 234316.00 66357.49 630.00
+  541_bld House$CrimeaHouse1 1 234046.20 65209.14 630.00
+  542_bld House$CrimeaHouse3 1 233995.73 65188.60 540.00
+  543_bld House$FurniturePole 1 233988.80 65220.11 715.00
+  544_bld House$FurniturePole 1 233937.00 65201.32 700.00
+  545_bld House$FurnitureObserv_Bunker 1 233936.80 65201.78 600.00
+  546_bld House$AirdromeMaskingnet 1 234063.40 65201.52 630.00
+  547_bld House$FurniturePalmAg1 1 234078.40 65194.68 420.00
+  548_bld House$FurniturePalmAg2 1 234045.40 65204.07 490.00
+  549_bld House$FurniturePalmBg2 1 234127.40 65223.48 705.00
+  550_bld House$AirdromeMaskingnet 1 234116.80 65217.21 450.00
+  551_bld House$RacingPoleBlue 1 233953.10 65191.00 360.00
+  552_bld House$FurniturePalmBg2 1 233936.40 65194.75 495.00
+  553_bld House$Metal_hut 1 234772.60 65856.88 715.00
+  554_bld House$AirdromeMaskingnet 1 234706.70 65898.02 655.00
+  555_bld House$Bunker3 1 234706.80 65888.41 385.00
+  556_bld House$Tent_Pyramid_US 1 234699.50 65890.20 385.00
+  557_bld House$Metal_hut 1 234771.70 65866.16 715.00
+  558_bld House$Metal_hut 1 234770.60 65875.55 715.00
+  559_bld House$Water_Tower 1 234782.30 65875.61 715.00
+  560_bld House$AirdromeBarrelBlock2 1 234777.30 65853.58 625.00
+  561_bld House$CrimeaBarnStucco 1 234759.20 65884.84 385.00
+  562_bld House$CrimeaBarnStucco 1 234745.00 65886.63 715.00
+  563_bld House$AirdromeBarrelBlock1 1 234783.70 65858.90 690.00
+  564_bld House$AirdromeBarrelBlock1 1 234781.80 65865.55 630.00
+  565_bld House$CrimeaBarnWood 1 234967.40 65815.77 570.00
+  566_bld House$AirdromeTank1 1 234883.80 65867.26 450.00
+  567_bld House$Metal_hut 1 234909.60 65854.00 540.00
+  568_bld House$Metal_hut 1 234909.90 65844.55 540.00
+  569_bld House$Water_Tower 1 234898.30 65845.51 540.00
+  570_bld House$AirdromeMaskingnet 1 234879.50 65847.41 540.00
+  571_bld House$CrimeaBarnStucco 1 234920.40 65834.30 570.00
+  572_bld House$CrimeaBarnStucco 1 234934.50 65831.27 540.00
+  573_bld House$Tent_Pyramid_US 1 234942.40 65850.30 540.00
+  574_bld House$AirdromeBarrelBlock1 1 234898.30 65862.29 515.00
+  575_bld House$AirdromeBarrelBlock1 1 234899.60 65855.48 455.00
+  576_bld House$FurnitureSandbag_Wall 1 234884.80 65862.48 630.00
+  577_bld House$AirdromeMaskingnet 1 234728.40 66080.23 660.00
+  578_bld House$Bunker3 1 234730.70 66070.45 690.00
+  579_bld House$AirdromeBarrelBlock2 1 234722.90 66082.20 600.00
+  580_bld House$Bunker3 1 234727.60 66070.68 390.00
+  581_bld House$Tent_Pyramid_US 1 234720.60 66073.08 390.00
+  582_bld House$Metal_hut 1 235042.90 66029.71 540.00
+  583_bld House$AirdromeMaskingnet 1 235104.90 65982.99 480.00
+  584_bld House$Metal_hut 1 235043.00 66020.38 540.00
+  585_bld House$Metal_hut 1 235043.20 66010.93 540.00
+  586_bld House$Water_Tower 1 235031.60 66011.89 540.00
+  587_bld House$AirdromeMaskingnet 1 235012.90 66013.80 540.00
+  588_bld House$AirdromeBarrelBlock2 1 235038.50 66033.41 450.00
+  589_bld House$CrimeaBarnStucco 1 235053.80 66000.69 570.00
+  590_bld House$AirdromeBarrelBlock1 1 235032.90 66021.87 455.00
+  591_bld House$FurnitureSandbag_Wall 1 235020.20 66030.55 540.00
+  592_bld House$FurnitureSandbag_Wall 1 235001.20 66028.81 630.00
+  593_bld House$FurnitureSandbag_Wall 1 234997.10 66036.34 360.00
+  594_bld House$FinlandHangar 1 234967.30 65552.91 640.00
+  595_bld House$AirdromeMaskingnet 1 234897.10 65319.15 370.00
+  596_bld House$CrimeaFarm 1 235018.40 65343.93 400.00
+  597_bld House$FurniturePalmBg2 1 234956.20 65320.64 520.00
+  598_bld House$Hangarmed 1 235030.00 65477.39 550.00
+  599_bld House$Hangarmed 1 235023.30 65442.14 550.00
+  600_bld House$Hangarmed 1 235016.00 65398.64 550.00
+  601_bld House$HangarPBY 1 234980.50 65526.82 640.00
+  602_bld House$IndustrialFactoryWarenHouse1 1 234946.40 65534.75 460.00
+  603_bld House$IndustrialFactoryHouse1 1 234928.00 65550.80 370.00
+  604_bld House$Norwaysplinterbox_02 1 234921.40 65542.40 370.00
+  605_bld House$AirdromeBarrelBlock1 1 234920.80 65541.26 505.00
+  606_bld House$IndustrialFactoryHouse1 1 234901.00 65337.15 640.00
+  607_bld House$Norwaysplinterbox_02 1 234891.00 65343.22 460.00
+  608_bld House$AirdromeControlTowerBig 1 234971.70 65362.20 370.00
+  609_bld House$CrimeaFarm 1 235026.20 65337.37 400.00
+  610_bld House$CrimeaFarm 1 235034.00 65330.78 400.00
+  611_bld House$CrimeaFarm 1 235041.90 65324.18 400.00
+  612_bld House$CrimeaFarm 1 235008.40 65332.01 400.00
+  613_bld House$CrimeaFarm 1 235016.30 65325.42 400.00
+  614_bld House$CrimeaFarm 1 235024.10 65318.82 400.00
+  615_bld House$CrimeaFarm 1 235032.00 65312.20 400.00
+  616_bld House$CrimeaFarm 1 234998.40 65320.05 400.00
+  617_bld House$CrimeaFarm 1 235006.30 65313.41 400.00
+  618_bld House$CrimeaFarm 1 235014.10 65306.80 400.00
+  619_bld House$CrimeaFarm 1 235021.90 65300.24 400.00
+  620_bld House$CrimeaFarm 1 234988.30 65307.97 400.00
+  621_bld House$CrimeaFarm 1 234996.10 65301.37 400.00
+  622_bld House$CrimeaFarm 1 235004.00 65294.76 400.00
+  623_bld House$CrimeaFarm 1 235011.90 65288.18 400.00
+  624_bld House$FinlandHangar 1 234982.90 65550.12 640.00
+  625_bld House$FinlandHangar 1 234998.60 65547.32 640.00
+  626_bld House$Metal_hut 1 234927.60 65522.08 370.00
+  627_bld House$Metal_hut 1 234929.00 65528.83 370.00
+  628_bld House$Norwaysplinterbox_02 1 234924.70 65278.90 520.00
+  629_bld House$Norwaysplinterbox_02 1 234946.90 65287.02 520.00
+  630_bld House$AirdromeMaskingnet 1 234923.50 65279.91 610.00
+  631_bld House$AirdromeMaskingnet 1 234934.80 65284.14 610.00
+  632_bld House$AirdromeMaskingnet 1 234946.70 65288.37 610.00
+  633_bld House$IndustrialFactoryWarenHouse1 1 233562.20 66258.70 540.00
+  634_bld House$IndustrialFactoryHouse1 1 233569.70 66222.09 540.00
+  635_bld House$AirdromeFuelTank 1 233500.20 66136.86 540.00
+  636_bld House$AirdromeBarrack 1 233409.40 66180.95 450.00
+  637_bld House$RailPassage 1 233573.90 66237.80 540.00
+  638_bld House$PortLightHouse 1 233575.00 66281.98 540.00
+  639_bld House$FurniturePalmBg2 1 233430.70 66143.61 585.00
+  640_bld House$RussiaPiterHouse3 1 233557.50 66282.13 630.00
+  641_bld House$FinlandHangar 1 233534.50 66231.49 450.00
+  642_bld House$46ConcrWall4 1 233579.70 66239.23 540.00
+  643_bld House$RussiaPiterHouse3 1 233517.30 66282.23 630.00
+  644_bld House$RussiaPiterHouse3 1 233476.30 66282.41 630.00
+  645_bld House$IndustrialFactoryWarenHouse1 1 233507.60 66258.92 540.00
+  646_bld House$IndustrialFactoryWarenHouse1 1 233470.50 66259.09 540.00
+  647_bld House$RailBigStation 1 233405.20 66256.88 540.00
+  648_bld House$IndustrialFactoryHouse1 1 233406.40 66222.86 450.00
+  649_bld House$IndustrialFactoryHouse1 1 233406.40 66201.24 630.00
+  650_bld House$46Warehouse 1 233530.50 66136.29 360.00
+  651_bld House$46Watower 1 233512.40 66254.09 360.00
+  652_bld House$AirdromeFuelTank 1 233485.40 66137.01 360.00
+  653_bld House$AirdromeFuelTank 1 233470.70 66137.01 360.00
+  654_bld House$AirdromeFuelTank 1 233456.30 66137.01 360.00
+  655_bld House$AirdromeFuelTank 1 233441.80 66137.48 360.00
+  656_bld House$FinlandHangar 1 233460.80 66249.73 450.00
+  657_bld House$FurniturePalmBg1 1 233462.00 66150.72 630.00
+  658_bld House$FurniturePalmAg1 1 233504.70 66145.09 675.00
+  659_bld House$46SteeLadder 1 233483.50 66142.16 610.00
+  660_bld House$46BoxCoverBig 1 233516.10 66179.80 610.00
+  661_bld House$46BoxCoverBig 1 233512.20 66175.90 625.00
+  662_bld House$46ConcrWall4 1 233536.00 66118.20 630.00
+  663_bld House$46ConcrWall4 1 233506.30 66118.20 630.00
+  664_bld House$46ConcrWall4 1 233476.80 66118.33 630.00
+  665_bld House$46ConcrWall4 1 233447.60 66118.33 630.00
+  666_bld House$46ConcrWall4 1 233419.10 66118.33 630.00
+  667_bld House$46ConcrWall4 1 233403.60 66132.95 540.00
+  668_bld House$46ConcrWall4 1 233403.60 66162.34 540.00
+  669_bld House$46ConcrWall4 1 233403.60 66191.65 540.00
+  670_bld House$46ConcrWall4 1 233401.70 66241.90 540.00
+  671_bld House$46ConcrWall3 1 233416.50 66286.77 450.00
+  672_bld House$46ConcrWall4 1 233446.10 66286.84 450.00
+  673_bld House$Tent_Pyramid_US 1 234171.70 65958.04 390.00
+  674_bld House$FurnitureSandbag_Wall 1 234168.60 65960.42 360.00
+  675_bld House$FurnitureSandbag_Wall 1 234169.80 65965.29 390.00
+  676_bld House$AirdromeFuelTank 1 233620.53 66279.60 360.00
+  677_bld House$AirdromeFuelTank 1 233619.93 66266.24 360.00
+  678_bld House$AirdromeFuelTank 1 233619.94 66250.79 360.00
+  679_bld House$AirdromeFuelTank 1 233648.42 66283.53 360.00
+  680_bld House$AirdromeFuelTank 1 233646.36 66264.78 360.00
+  681_bld House$AirdromeFuelTank 1 233646.10 66252.03 360.00
+  682_bld House$AirdromeFuelTank 1 233644.33 66181.61 360.00
+  683_bld House$AirdromeFuelTank 1 233675.08 66284.13 360.00
+  684_bld House$AirdromeFuelTank 1 233677.04 66261.03 360.00
+  685_bld House$AirdromeFuelTank 1 233678.32 66248.20 360.00
+  686_bld House$AirdromeFuelTank 1 233671.08 66180.34 360.00
+  687_bld House$AirdromeFuelTank 1 233671.93 66162.78 360.00
+  688_bld House$AirdromeFuelTank 1 233673.70 66144.95 360.00
+  689_bld House$AirdromeFuelTank 1 233778.77 66290.08 360.00
+  690_bld House$AirdromeFuelTank 1 233780.61 66172.27 360.00
+  691_bld House$AirdromeFuelTank 1 233779.38 66153.59 360.00
+  692_bld House$AirdromeFuelTank 1 233802.91 66155.08 360.00
+  693_bld House$AirdromeFuelTank 1 233939.24 66292.24 360.00
+  694_bld House$AirdromeFuelTank 1 233963.16 66294.06 360.00
+  695_bld House$AirdromeFuelTank 1 233963.16 66274.80 360.00
+  696_bld House$AirdromeFuelTank 1 233962.86 66257.87 360.00
+  697_bld House$AirdromeFuelTank 1 233910.82 66154.63 360.00
+  698_bld House$AirdromeFuelTank 1 233940.73 66185.63 360.00
+  699_bld House$AirdromeFuelTank 1 233940.39 66169.55 360.00
+  700_bld House$AirdromeFuelTank 1 233964.67 66185.90 360.00
+  701_bld House$AirdromeFuelTank 1 233964.08 66170.47 360.00
+  702_bld House$AirdromeFuelTank 1 233964.69 66156.81 360.00
+  703_bld House$AirdromeFuelTank 1 233939.54 66153.56 360.00
+  704_bld House$CrimeaBahchisarai 1 234328.42 65501.12 360.00
+  705_bld House$FurniturePalmAg2 1 234271.81 65537.56 360.00
+  706_bld House$FurniturePalmAg2 1 234331.07 65543.86 360.00
+  707_bld House$FurniturePalmAg2 1 234261.72 65487.13 360.00
+  708_bld House$FurniturePalmAg2 1 234270.51 65455.66 360.00
+  709_bld House$FurniturePalmAg2 1 234336.97 65438.36 360.00
+  710_bld House$FurniturePalmBg1 1 234390.10 65545.23 360.00
+  711_bld House$FurniturePalmBg1 1 234387.39 65502.52 360.00
+  712_bld House$FurniturePalmBg1 1 234387.21 65467.39 360.00
+  713_bld House$FurniturePalmBg1 1 234389.58 65438.58 360.00
+  714_bld House$FurniturePalmBg1 1 234260.45 65511.10 360.00
+  715_bld House$FurniturePalmBg1 1 234193.42 66349.47 360.00
+  716_bld House$FurniturePalmBg1 1 234227.27 66333.05 360.00
+  717_bld House$FurniturePalmBg1 1 234269.95 66334.20 360.00
+  718_bld House$PiterWPetropavlSE 1 233447.13 66385.05 645.00
+  719_bld House$PiterWPetropavlSW 1 233443.73 65190.18 455.00
+  720_bld House$46BoxCoverBig 1 233497.39 65926.76 645.00
+  721_bld House$46BoxCoverBig 1 233492.35 65907.88 645.00
+  722_bld House$46BoxCoverBig 1 233488.58 65877.67 645.00
+  723_bld House$46BoxCoverBig 1 233483.54 65861.31 645.00
+  724_bld House$46BoxCoverBig 1 233467.17 65883.95 645.00
+  725_bld House$46BoxCoverBig 1 233469.69 65925.51 645.00
+  726_bld House$46BoxCoverBig 1 233449.53 65878.90 645.00
+  727_bld House$46BoxCoverBig 1 233444.49 65854.96 645.00
+  728_bld House$PiterWPetropavlSE 1 235219.00 66353.94 375.00
+  729_bld House$PiterWPetropavlSE 1 235086.19 65116.45 465.00
+[Bridge]
+[House]

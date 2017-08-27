@@ -4,67 +4,6 @@ use IO::Handle;   # because autoflush
 use DBI();
 use POSIX;
 
-## @Heracles@20110827
-## Calcula el valor de capacidad SUA diario para un bando. Ojo! Necesita para el calculo las variables globales $red_stock y $blue_stock
-## Parametros: armada
-sub calc_sua_capacity($) {
-    my $army = shift @_;
-    my $capacity = ($army == 1) ? $VDAY_PRODUCTION_RED : $VDAY_PRODUCTION_BLUE;
-    
-    return $capacity;
-}
-
-## @Heracles@20110827
-## Da valor a la capacidad SUA de un bando.
-## Parametros: capacidad, armada
-sub set_sua_capacity($$){
-    my $capacity = shift @_;
-    my $army = shift @_;
-    my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
-    
-    printdebug ("set_sua_capacity(): Entrando con capacidad $capacity\n");
-    
-    open (TEMPGEO, ">temp_geo.data"); #
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) {
-	$_ =~  s/^(SUC[0-9]{2},SUM-$hq,[^,]+,[^,]+),[^,]+,([^,]+,[^,]+,[^,]+,[^:]+):$army/$1,$capacity,$2:$army/;
-	print TEMPGEO;
-    }
-    
-    close(TEMPGEO);
-    close(GEO_OBJ);
-    unlink $GEOGRAFIC_COORDINATES;
-    rename "temp_geo.data",$GEOGRAFIC_COORDINATES;
-    if (!open (GEO_OBJ, "<$GEOGRAFIC_COORDINATES")) {
-	print "$big_red FATAL ERROR: Can't open File $GEOGRAFIC_COORDINATES: $! on sub eventos_aire <br>\n";
-	print "Please NOTIFY this error.\n";
-	print &print_end_html();
-	printdebug ("set_sua_capacity(): ERROR: Can't open File $GEOGRAFIC_COORDINATES: $!\n");
-	exit(0);
-    }    
-}
-
-## @Heracles@20110827
-## Retorna la capacidad SUA de un bando. Si la capacidad SUA no esta especificada en el geo_obj, se escribe el nuevo valor.
-## Parametros: armada
-sub get_sua_capacity($) {
-    my $army = shift @_;
-    my $hq = ($army == 1) ? $RED_HQ : $BLUE_HQ;
-    my $capacity = 0;
-    
-    my $line_back=tell GEO_OBJ; 
-    seek GEO_OBJ, 0, 0;
-    while(<GEO_OBJ>) { 
-	if ($_ =~  m/^SUC[0-9]{2},SUM-$hq,[^,]+,[^,]+,([^,]+),[^,]+,[^,]+,[^,]+,[^:]+:$army/) {
-	    $capacity = $1;
-	    last;
-	}
-    }
-    seek GEO_OBJ,$line_back,0; # regresamos
-    
-    return $capacity;     
-}
-
 ## @Heracles@20110816
 ## Retorna las bases del cuartel general
 ## Parametros: armada
@@ -296,112 +235,82 @@ sub get_sum_radius($) {
 sub calc_stocks_plane() {
     my @redstock_matrix=();
     my @bluestock_matrix=();
-    my $planereal = 0;
+    my $red_sua_capacity = 0;
+    my $blue_sua_capacity = 0;
     my $red_stock = 0;
     my $blue_stock = 0;
     my $red_losts = 0;
     my $blue_losts =0;
+    my $red_initial = 0;
+    my $blue_initial = 0;
     
-    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) {
-	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
-	print "Please NOTIFY this error.\n";
-	print &print_end_html();
-	printdebug (" ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n");
-	exit(0);
+    if (!open (FLIGHTS, "<$FLIGHTS_DEF")) 
+    {
+    	print "$big_red ERROR Can't open File $FLIGHTS_DEF: $! on get_flight()\n";
+    	print "Please NOTIFY this error.\n";
+    	print &print_end_html();
+    	printdebug (" ERROR: Can't open File $FLIGHTS_DEF: $! on get_flight()\n");
+    	exit(0);
     }    
 
     seek FLIGHTS,0,0;
-    while (<FLIGHTS>) {
-	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones, $5:perdidas
-	    push(@redstock_matrix,[$1,$2,$3,$4,$5]);
-	}
-	if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/){ # $1: Modelo, $2: Stock inicial, $3:Sock actual, $4: aparacion en misiones, $5:perdidas
-	    push(@bluestock_matrix,[$1,$2,$3,$4,$5]);
-	}
+    while (<FLIGHTS>) 
+    {
+    	if ($_ =~ m/^IR,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/)
+        { # $1: Modelo, $2: Stock inicial + producidos, $3:Stock actual, $4: aparacion en misiones, $5:perdidas
+    	    push(@redstock_matrix,[$1,$2,$3,$4,$5]);
+    	}
+    	
+        if ($_ =~ m/^IA,([^,]+),([^,]+),([^,]+),([^,]+),([^,]+),/)
+        { # $1: Modelo, $2: Stock inicial + producidos, $3:Stock actual, $4: aparacion en misiones, $5:perdidas
+    	    push(@bluestock_matrix,[$1,$2,$3,$4,$5]);
+    	}
     }
 	
     close(FLIGHTS);
 
-    ## Calculo de total de aviones iniciales rojos
-    for ( my $i=0; $i < scalar(@redstock_matrix); $i++) {
-	$planereal += $redstock_matrix[$i][2];
-	$red_losts += $redstock_matrix[$i][4];
+    ## Calculo de total de aviones rojos
+    for ( my $i=0; $i < scalar(@redstock_matrix); $i++) 
+    {
+        $red_initial += $redstock_matrix[$i][1];
+    	$red_stock += $redstock_matrix[$i][2];
+    	$red_losts += $redstock_matrix[$i][4];
     }    
     
-    $red_stock = $planereal;
-    $planereal = 0;
     
-    ## Calculo de total de aviones iniciales azules
-    for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) {
-	$planereal += $bluestock_matrix[$i][2];
-	$blue_losts += $bluestock_matrix[$i][4];
+    ## Calculo de total de aviones azules
+    for ( my $i=0; $i < scalar(@bluestock_matrix); $i++) 
+    {
+        $blue_initial += $bluestock_matrix[$i][1];
+    	$blue_stock += $bluestock_matrix[$i][2];
+    	$blue_losts += $bluestock_matrix[$i][4];
     }
+
+    $red_sua_capacity = sprintf("%.2f", 1 - ($red_losts / $red_initial));
+    $blue_sua_capacity = sprintf("%.2f", 1 - ($blue_losts / $blue_initial));
     
-    $blue_stock = $planereal;
-    printdebug ("calc_stocks_plane(): rojos/perdidas $red_stock/$red_losts azules/perdidas $blue_stock/$blue_losts\n");    
-    return($red_stock, $blue_stock, $red_losts, $blue_losts);
+
+    printdebug ("calc_stocks_plane(): rojos/sua/inicial/actual/perdidas $red_sua_capacity/$red_initial/$red_stock/$red_losts azules/sua/inicial/actual/perdidas $blue_sua_capacity/$blue_initial/$blue_stock/$blue_losts\n");    
+    
+    return($red_sua_capacity, $blue_sua_capacity, $red_initial, $blue_initial, $red_stock, $blue_stock, $red_losts, $blue_losts);
 }
 
 # @Heracles@20110730@
 # Calcula el suministro a aerodromo por avion SUM
-# Parámetros: stock rojo, stock azul
+# Parámetros: capacidad sua roja, capacidad sua azul
 sub calc_sum_plane_supply($$) {
-    my $red_stock = shift @_;
-    my $blue_stock = shift @_;
+    my $red_sua_capacity = shift @_;
+    my $blue_sua_capacity = shift @_;
 
     my $red_supply = 0;
     my $blue_supply = 0;
     
-    $red_supply = ceil (($red_stock * $SUM_STOCK_RATE_PLANE)/100);
-    $blue_supply = ceil (($blue_stock * $SUM_STOCK_RATE_PLANE)/100);
+    $red_supply = floor ($red_sua_capacity * $AF_SUA_RED);
+    $blue_supply = floor ($blue_sua_capacity * $AF_SUA_BLUE);
     
     printdebug ("calc_sum_plane_supply(): Suministro avión rojo $red_supply");
     printdebug ("calc_sum_plane_supply(): Suministro avión azul $blue_supply");    
     return ($red_supply, $blue_supply);
-}
-
-# @Heracles@20110730
-# Calcula el suministro diario a bases del CG
-# Parámetros: stock rojo, stock azul
-sub calc_daily_cg_bases_supply($$) {
-    my $red_stock = shift @_;
-    my $blue_stock = shift @_;
-
-    my $CG_red_base_supply = 0;
-    my $CG_blue_base_supply = 0;
-    
-    my $cg_blue_cx = 0;
-    my $cg_blue_cy = 0;
-    my $cg_blue_sum_radius = 0;
-    my $cg_red_cx = 0;
-    my $cg_red_cy = 0;
-    my $cg_red_sum_radius = 0;
-    my $cg_blue_bases = 0;
-    my $cg_red_bases = 0;
-    my @blue_bases = ();
-    my @red_bases = ();
-	    
-    $CG_red_base_supply = get_sua_capacity(1);
-    $CG_blue_base_supply = get_sua_capacity(2);
-    printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases rojas $CG_red_base_supply");
-    printdebug ("calc_daily_cg_bases_supply(): Suministro disponible para bases azules $CG_blue_base_supply");    
-	    
-    ($cg_blue_cx, $cg_blue_cy) = get_coord_city($BLUE_HQ);
-    $cg_blue_sum_radius = get_sum_radius($BLUE_HQ);
-    ($cg_red_cx, $cg_red_cy) = get_coord_city($RED_HQ);
-    $cg_red_sum_radius = get_sum_radius($RED_HQ);
-	    
-    ($cg_blue_bases, @blue_bases) = get_af_in_radius($cg_blue_cx, $cg_blue_cy, $cg_blue_sum_radius, 2);
-    ($cg_red_bases, @red_bases) = get_af_in_radius($cg_red_cx, $cg_red_cy, $cg_red_sum_radius, 1);
-    printdebug ("calc_daily_cg_bases_supply(): Bases rojas de CG $cg_red_bases");
-    printdebug ("calc_daily_cg_bases_supply(): Bases azules de CG $cg_blue_bases");
-
-    $CG_blue_base_supply = ( $cg_blue_bases == 0 ) ? 0 : floor ($CG_blue_base_supply/$cg_blue_bases);
-    $CG_red_base_supply = ($cg_red_bases == 0) ? 0 :floor ($CG_red_base_supply/$cg_red_bases);
-    printdebug ("calc_daily_cg_bases_supply(): Suministro por bases roja de CG $CG_red_base_supply");
-    printdebug ("calc_daily_cg_bases_supply(): Suministro por bases azul de CG $CG_blue_base_supply");
-    
-    return ($CG_red_base_supply, $CG_blue_base_supply);
 }
 
 # @Heracles@20110730@

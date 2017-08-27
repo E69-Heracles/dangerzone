@@ -1,0 +1,1760 @@
+[MAIN]
+  MAP mixx_Zapolar'e/mix_load.ini
+  TIME 12.000002
+  CloudType 0
+  CloudHeight 1000.0
+  army 1
+  playerNum 0
+[SEASON]
+  Year 1940
+  Month 10
+  Day 15
+[WEATHER]
+  WindDirection 0.0
+  WindSpeed 0.0
+  Gust 0
+  Turbulence 0
+[MDS]
+  MDS_Radar_SetRadarToAdvanceMode 0
+  MDS_Radar_RefreshInterval 0
+  MDS_Radar_DisableVectoring 0
+  MDS_Radar_EnableTowerCommunications 1
+  MDS_Radar_ShipsAsRadar 0
+  MDS_Radar_ShipRadar_MaxRange 100
+  MDS_Radar_ShipRadar_MinHeight 100
+  MDS_Radar_ShipRadar_MaxHeight 5000
+  MDS_Radar_ShipSmallRadar_MaxRange 25
+  MDS_Radar_ShipSmallRadar_MinHeight 0
+  MDS_Radar_ShipSmallRadar_MaxHeight 2000
+  MDS_Radar_ScoutsAsRadar 0
+  MDS_Radar_ScoutRadar_MaxRange 2
+  MDS_Radar_ScoutRadar_DeltaHeight 1500
+  MDS_Radar_HideUnpopulatedAirstripsFromMinimap 0
+  MDS_Radar_ScoutGroundObjects_Alpha 5
+  MDS_Radar_ScoutCompleteRecon 0
+  MDS_Misc_DisableAIRadioChatter 0
+  MDS_Misc_DespawnAIPlanesAfterLanding 1
+  MDS_Misc_HidePlayersCountOnHomeBase 0
+  MDS_Misc_BombsCat1_CratersVisibilityMultiplier 1.0
+  MDS_Misc_BombsCat2_CratersVisibilityMultiplier 1.0
+  MDS_Misc_BombsCat3_CratersVisibilityMultiplier 1.0
+[RespawnTime]
+  Bigship 1800
+  Ship 1800
+  Aeroanchored 1800
+  Artillery 1800
+  Searchlight 1800
+[NStationary]
+  200_Static vehicles.artillery.Artillery$PzVA 2 5000.00 405000.00 360.00 0.0 0 1 1
+  203_Static vehicles.artillery.Artillery$PzVA 2 9100.00 409200.00 360.00 0.0 0 1 1
+  204_Static vehicles.artillery.Artillery$PzVA 2 1100.00 408800.00 360.00 0.0 0 1 1
+  405_Static vehicles.artillery.Artillery$PzVA 2 15000.00 405000.00 360.00 0.0 0 1 1
+  408_Static vehicles.artillery.Artillery$PzVA 2 19100.00 409200.00 360.00 0.0 0 1 1
+  409_Static vehicles.artillery.Artillery$PzVA 2 11100.00 408800.00 360.00 0.0 0 1 1
+  610_Static vehicles.artillery.Artillery$PzVA 2 25000.00 405000.00 360.00 0.0 0 1 1
+  613_Static vehicles.artillery.Artillery$PzVA 2 29100.00 409200.00 360.00 0.0 0 1 1
+  614_Static vehicles.artillery.Artillery$PzVA 2 21100.00 408800.00 360.00 0.0 0 1 1
+  737_Static vehicles.artillery.Artillery$PzVA 2 39100.00 241214.58 360.00 0.0 0 1 1
+  815_Static vehicles.artillery.Artillery$PzVA 2 35000.00 405000.00 360.00 0.0 0 1 1
+  818_Static vehicles.artillery.Artillery$PzVA 2 39100.00 409200.00 360.00 0.0 0 1 1
+  819_Static vehicles.artillery.Artillery$PzVA 2 31100.00 408800.00 360.00 0.0 0 1 1
+  941_Static vehicles.artillery.Artillery$PzVA 2 41400.00 241200.00 360.00 0.0 0 1 1
+  1020_Static vehicles.artillery.Artillery$PzVA 2 45000.00 405000.00 360.00 0.0 0 1 1
+  1023_Static vehicles.artillery.Artillery$PzVA 2 49100.00 409200.00 360.00 0.0 0 1 1
+  1024_Static vehicles.artillery.Artillery$PzVA 2 41100.00 408800.00 360.00 0.0 0 1 1
+  1063_Static vehicles.artillery.Artillery$PzVA 2 55511.84 79653.67 360.00 0.0 0 1 1
+  1065_Static vehicles.artillery.Artillery$PzVA 2 55000.00 85000.00 360.00 0.0 0 1 1
+  1068_Static vehicles.artillery.Artillery$PzVA 2 59182.49 88622.60 360.00 0.0 0 1 1
+  1070_Static vehicles.artillery.Artillery$PzVA 2 50710.71 95123.73 360.00 0.0 0 1 1
+  1072_Static vehicles.artillery.Artillery$PzVA 2 52047.42 90540.11 360.00 0.0 0 1 1
+  1075_Static vehicles.artillery.Artillery$PzVA 2 51071.59 102274.89 360.00 0.0 0 1 1
+  1078_Static vehicles.artillery.Artillery$PzVA 2 52658.83 108952.26 360.00 0.0 0 1 1
+  1080_Static vehicles.artillery.Artillery$PzVA 2 54115.22 114823.04 360.00 0.0 0 1 1
+  1083_Static vehicles.artillery.Artillery$PzVA 2 55348.55 119058.44 360.00 0.0 0 1 1
+  1085_Static vehicles.artillery.Artillery$PzVA 2 54186.01 124221.40 360.00 0.0 0 1 1
+  1087_Static vehicles.artillery.Artillery$PzVA 2 56551.84 120386.01 360.00 0.0 0 1 1
+  1090_Static vehicles.artillery.Artillery$PzVA 2 52416.45 139034.58 360.00 0.0 0 1 1
+  1092_Static vehicles.artillery.Artillery$PzVA 2 51986.40 135022.23 360.00 0.0 0 1 1
+  1225_Static vehicles.artillery.Artillery$PzVA 2 55000.00 405000.00 360.00 0.0 0 1 1
+  1228_Static vehicles.artillery.Artillery$PzVA 2 59100.00 409200.00 360.00 0.0 0 1 1
+  1229_Static vehicles.artillery.Artillery$PzVA 2 51100.00 408800.00 360.00 0.0 0 1 1
+  1270_Static vehicles.artillery.Artillery$PzVA 2 61741.79 85329.95 360.00 0.0 0 1 1
+  1273_Static vehicles.artillery.Artillery$PzVA 2 65099.41 88127.68 360.00 0.0 0 1 1
+  1276_Static vehicles.artillery.Artillery$PzVA 2 63503.40 92437.30 360.00 0.0 0 1 1
+  1277_Static vehicles.artillery.Artillery$PzVA 2 69100.00 91200.00 360.00 0.0 0 1 1
+  1279_Static vehicles.artillery.Artillery$PzVA 2 61100.00 98800.00 360.00 0.0 0 1 1
+  1280_Static vehicles.artillery.Artillery$PzVA 2 64752.26 103442.79 360.00 0.0 0 1 1
+  1283_Static vehicles.artillery.Artillery$PzVA 2 67578.18 109553.91 360.00 0.0 0 1 1
+  1285_Static vehicles.artillery.Artillery$PzVA 2 67477.37 115637.04 360.00 0.0 0 1 1
+  1286_Static vehicles.artillery.Artillery$PzVA 2 65257.63 110562.96 360.00 0.0 0 1 1
+  1295_Static vehicles.artillery.Artillery$PzVA 2 64433.74 136486.42 360.00 0.0 0 1 1
+  1299_Static vehicles.artillery.Artillery$PzVA 2 62798.77 139507.82 360.00 0.0 0 1 1
+  1430_Static vehicles.artillery.Artillery$PzVA 2 65000.00 405000.00 360.00 0.0 0 1 1
+  1433_Static vehicles.artillery.Artillery$PzVA 2 69100.00 409200.00 360.00 0.0 0 1 1
+  1434_Static vehicles.artillery.Artillery$PzVA 2 61100.00 408800.00 360.00 0.0 0 1 1
+  1475_Static vehicles.artillery.Artillery$PzVA 2 75371.19 82814.11 360.00 0.0 0 1 1
+  1477_Static vehicles.artillery.Artillery$PzVA 2 79594.92 80540.11 360.00 0.0 0 1 1
+  1478_Static vehicles.artillery.Artillery$PzVA 2 79801.13 86354.22 360.00 0.0 0 1 1
+  1480_Static vehicles.artillery.Artillery$PzVA 2 72814.11 93185.30 360.00 0.0 0 1 1
+  1483_Static vehicles.artillery.Artillery$PzVA 2 78110.16 97055.35 360.00 0.0 0 1 1
+  1490_Static vehicles.artillery.Artillery$PzVA 2 75743.21 119813.18 360.00 0.0 0 1 1
+  1494_Static vehicles.artillery.Artillery$PzVA 2 71064.61 117030.45 360.00 0.0 0 1 1
+  1495_Static vehicles.artillery.Artillery$PzVA 2 75601.65 126946.51 360.00 0.0 0 1 1
+  1499_Static vehicles.artillery.Artillery$PzVA 2 77682.74 129720.17 360.00 0.0 0 1 1
+  1500_Static vehicles.artillery.Artillery$PzVA 2 79459.27 136238.69 360.00 0.0 0 1 1
+  1502_Static vehicles.artillery.Artillery$PzVA 2 77542.79 131235.39 360.00 0.0 0 1 1
+  1635_Static vehicles.artillery.Artillery$PzVA 2 75000.00 405000.00 360.00 0.0 0 1 1
+  1638_Static vehicles.artillery.Artillery$PzVA 2 79100.00 409200.00 360.00 0.0 0 1 1
+  1639_Static vehicles.artillery.Artillery$PzVA 2 71100.00 408800.00 360.00 0.0 0 1 1
+  1680_Static vehicles.artillery.Artillery$PzVA 2 85824.86 87309.62 360.00 0.0 0 1 1
+  1681_Static vehicles.artillery.Artillery$PzVA 2 80946.33 83097.19 360.00 0.0 0 1 1
+  1684_Static vehicles.artillery.Artillery$PzVA 2 82254.81 88263.84 360.00 0.0 0 1 1
+  1685_Static vehicles.artillery.Artillery$PzVA 2 82525.41 94381.35 360.00 0.0 0 1 1
+  1689_Static vehicles.artillery.Artillery$PzVA 2 87451.45 96820.33 360.00 0.0 0 1 1
+  1690_Static vehicles.artillery.Artillery$PzVA 2 85453.67 104505.08 360.00 0.0 0 1 1
+  1691_Static vehicles.artillery.Artillery$PzVA 2 82843.51 100251.41 360.00 0.0 0 1 1
+  1695_Static vehicles.artillery.Artillery$PzVA 2 86525.10 114340.11 360.00 0.0 0 1 1
+  1700_Static vehicles.artillery.Artillery$PzVA 2 86521.82 126769.55 360.00 0.0 0 1 1
+  1704_Static vehicles.artillery.Artillery$PzVA 2 82798.77 129295.47 360.00 0.0 0 1 1
+  1705_Static vehicles.artillery.Artillery$PzVA 2 89034.58 136344.86 360.00 0.0 0 1 1
+  1709_Static vehicles.artillery.Artillery$PzVA 2 82975.73 138729.22 360.00 0.0 0 1 1
+  1840_Static vehicles.artillery.Artillery$PzVA 2 85000.00 405000.00 360.00 0.0 0 1 1
+  1843_Static vehicles.artillery.Artillery$PzVA 2 89100.00 409200.00 360.00 0.0 0 1 1
+  1844_Static vehicles.artillery.Artillery$PzVA 2 81100.00 408800.00 360.00 0.0 0 1 1
+  2045_Static vehicles.artillery.Artillery$PzVA 2 95000.00 405000.00 360.00 0.0 0 1 1
+  2048_Static vehicles.artillery.Artillery$PzVA 2 99100.00 409200.00 360.00 0.0 0 1 1
+  2049_Static vehicles.artillery.Artillery$PzVA 2 91100.00 408800.00 360.00 0.0 0 1 1
+  2250_Static vehicles.artillery.Artillery$PzVA 2 105000.00 405000.00 360.00 0.0 0 1 1
+  2253_Static vehicles.artillery.Artillery$PzVA 2 109100.00 409200.00 360.00 0.0 0 1 1
+  2254_Static vehicles.artillery.Artillery$PzVA 2 101100.00 408800.00 360.00 0.0 0 1 1
+  2455_Static vehicles.artillery.Artillery$PzVA 2 115000.00 405000.00 360.00 0.0 0 1 1
+  2458_Static vehicles.artillery.Artillery$PzVA 2 119100.00 409200.00 360.00 0.0 0 1 1
+  2459_Static vehicles.artillery.Artillery$PzVA 2 111100.00 408800.00 360.00 0.0 0 1 1
+  2660_Static vehicles.artillery.Artillery$PzVA 2 125000.00 405000.00 360.00 0.0 0 1 1
+  2663_Static vehicles.artillery.Artillery$PzVA 2 129100.00 409200.00 360.00 0.0 0 1 1
+  2664_Static vehicles.artillery.Artillery$PzVA 2 121100.00 408800.00 360.00 0.0 0 1 1
+  2865_Static vehicles.artillery.Artillery$PzVA 2 135000.00 405000.00 360.00 0.0 0 1 1
+  2868_Static vehicles.artillery.Artillery$PzVA 2 139100.00 409200.00 360.00 0.0 0 1 1
+  2869_Static vehicles.artillery.Artillery$PzVA 2 131100.00 408800.00 360.00 0.0 0 1 1
+  3070_Static vehicles.artillery.Artillery$PzVA 2 145000.00 405000.00 360.00 0.0 0 1 1
+  3073_Static vehicles.artillery.Artillery$PzVA 2 149100.00 409200.00 360.00 0.0 0 1 1
+  3074_Static vehicles.artillery.Artillery$PzVA 2 141100.00 408800.00 360.00 0.0 0 1 1
+  3275_Static vehicles.artillery.Artillery$PzVA 2 155000.00 405000.00 360.00 0.0 0 1 1
+  3278_Static vehicles.artillery.Artillery$PzVA 2 159100.00 409200.00 360.00 0.0 0 1 1
+  3279_Static vehicles.artillery.Artillery$PzVA 2 151100.00 408800.00 360.00 0.0 0 1 1
+  3480_Static vehicles.artillery.Artillery$PzVA 2 165000.00 405000.00 360.00 0.0 0 1 1
+  3483_Static vehicles.artillery.Artillery$PzVA 2 169100.00 409200.00 360.00 0.0 0 1 1
+  3484_Static vehicles.artillery.Artillery$PzVA 2 161100.00 408800.00 360.00 0.0 0 1 1
+  3685_Static vehicles.artillery.Artillery$PzVA 2 175000.00 405000.00 360.00 0.0 0 1 1
+  3688_Static vehicles.artillery.Artillery$PzVA 2 179100.00 409200.00 360.00 0.0 0 1 1
+  3689_Static vehicles.artillery.Artillery$PzVA 2 171100.00 408800.00 360.00 0.0 0 1 1
+  3890_Static vehicles.artillery.Artillery$PzVA 2 185000.00 405000.00 360.00 0.0 0 1 1
+  3893_Static vehicles.artillery.Artillery$PzVA 2 189100.00 409200.00 360.00 0.0 0 1 1
+  3894_Static vehicles.artillery.Artillery$PzVA 2 181100.00 408800.00 360.00 0.0 0 1 1
+  4095_Static vehicles.artillery.Artillery$PzVA 2 195000.00 405000.00 360.00 0.0 0 1 1
+  4098_Static vehicles.artillery.Artillery$PzVA 2 199100.00 409200.00 360.00 0.0 0 1 1
+  4099_Static vehicles.artillery.Artillery$PzVA 2 191100.00 408800.00 360.00 0.0 0 1 1
+  4300_Static vehicles.artillery.Artillery$PzVA 2 205000.00 405000.00 360.00 0.0 0 1 1
+  4303_Static vehicles.artillery.Artillery$PzVA 2 209100.00 409200.00 360.00 0.0 0 1 1
+  4304_Static vehicles.artillery.Artillery$PzVA 2 201100.00 408800.00 360.00 0.0 0 1 1
+  4505_Static vehicles.artillery.Artillery$PzVA 2 215000.00 405000.00 360.00 0.0 0 1 1
+  4508_Static vehicles.artillery.Artillery$PzVA 2 219100.00 409200.00 360.00 0.0 0 1 1
+  4509_Static vehicles.artillery.Artillery$PzVA 2 211100.00 408800.00 360.00 0.0 0 1 1
+  4710_Static vehicles.artillery.Artillery$PzVA 2 225000.00 405000.00 360.00 0.0 0 1 1
+  4713_Static vehicles.artillery.Artillery$PzVA 2 229100.00 409200.00 360.00 0.0 0 1 1
+  4714_Static vehicles.artillery.Artillery$PzVA 2 221100.00 408800.00 360.00 0.0 0 1 1
+  4915_Static vehicles.artillery.Artillery$PzVA 2 235000.00 405000.00 360.00 0.0 0 1 1
+  4918_Static vehicles.artillery.Artillery$PzVA 2 239100.00 409200.00 360.00 0.0 0 1 1
+  4919_Static vehicles.artillery.Artillery$PzVA 2 231100.00 408800.00 360.00 0.0 0 1 1
+  5120_Static vehicles.artillery.Artillery$PzVA 2 245000.00 405000.00 360.00 0.0 0 1 1
+  5123_Static vehicles.artillery.Artillery$PzVA 2 249100.00 409200.00 360.00 0.0 0 1 1
+  5124_Static vehicles.artillery.Artillery$PzVA 2 241100.00 408800.00 360.00 0.0 0 1 1
+  5325_Static vehicles.artillery.Artillery$PzVA 2 255000.00 405000.00 360.00 0.0 0 1 1
+  5328_Static vehicles.artillery.Artillery$PzVA 2 259100.00 409200.00 360.00 0.0 0 1 1
+  5329_Static vehicles.artillery.Artillery$PzVA 2 251100.00 408800.00 360.00 0.0 0 1 1
+  5530_Static vehicles.artillery.Artillery$PzVA 2 265000.00 405000.00 360.00 0.0 0 1 1
+  5533_Static vehicles.artillery.Artillery$PzVA 2 269100.00 409200.00 360.00 0.0 0 1 1
+  5534_Static vehicles.artillery.Artillery$PzVA 2 261100.00 408800.00 360.00 0.0 0 1 1
+  5735_Static vehicles.artillery.Artillery$PzVA 2 275000.00 405000.00 360.00 0.0 0 1 1
+  5738_Static vehicles.artillery.Artillery$PzVA 2 279100.00 409200.00 360.00 0.0 0 1 1
+  5739_Static vehicles.artillery.Artillery$PzVA 2 271100.00 408800.00 360.00 0.0 0 1 1
+  5940_Static vehicles.artillery.Artillery$PzVA 2 285000.00 405000.00 360.00 0.0 0 1 1
+  5943_Static vehicles.artillery.Artillery$PzVA 2 289100.00 409200.00 360.00 0.0 0 1 1
+  5944_Static vehicles.artillery.Artillery$PzVA 2 281100.00 408800.00 360.00 0.0 0 1 1
+  6145_Static vehicles.artillery.Artillery$PzVA 2 295000.00 405000.00 360.00 0.0 0 1 1
+  6148_Static vehicles.artillery.Artillery$PzVA 2 299100.00 409200.00 360.00 0.0 0 1 1
+  6149_Static vehicles.artillery.Artillery$PzVA 2 291100.00 408800.00 360.00 0.0 0 1 1
+  6152_Static vehicles.artillery.Artillery$PzVA 2 309100.00 1200.00 360.00 0.0 0 1 1
+  6153_Static vehicles.artillery.Artillery$PzVA 2 309100.00 9200.00 360.00 0.0 0 1 1
+  6157_Static vehicles.artillery.Artillery$PzVA 2 309100.00 11200.00 360.00 0.0 0 1 1
+  6158_Static vehicles.artillery.Artillery$PzVA 2 309100.00 19200.00 360.00 0.0 0 1 1
+  6162_Static vehicles.artillery.Artillery$PzVA 2 309100.00 21200.00 360.00 0.0 0 1 1
+  6163_Static vehicles.artillery.Artillery$PzVA 2 309100.00 29200.00 360.00 0.0 0 1 1
+  6167_Static vehicles.artillery.Artillery$PzVA 2 309100.00 31200.00 360.00 0.0 0 1 1
+  6168_Static vehicles.artillery.Artillery$PzVA 2 309100.00 39200.00 360.00 0.0 0 1 1
+  6172_Static vehicles.artillery.Artillery$PzVA 2 309100.00 41200.00 360.00 0.0 0 1 1
+  6173_Static vehicles.artillery.Artillery$PzVA 2 309100.00 49200.00 360.00 0.0 0 1 1
+  6177_Static vehicles.artillery.Artillery$PzVA 2 309100.00 51200.00 360.00 0.0 0 1 1
+  6178_Static vehicles.artillery.Artillery$PzVA 2 309100.00 59200.00 360.00 0.0 0 1 1
+  6182_Static vehicles.artillery.Artillery$PzVA 2 309100.00 61200.00 360.00 0.0 0 1 1
+  6183_Static vehicles.artillery.Artillery$PzVA 2 309100.00 69200.00 360.00 0.0 0 1 1
+  6187_Static vehicles.artillery.Artillery$PzVA 2 309100.00 71200.00 360.00 0.0 0 1 1
+  6188_Static vehicles.artillery.Artillery$PzVA 2 309100.00 79200.00 360.00 0.0 0 1 1
+  6192_Static vehicles.artillery.Artillery$PzVA 2 309100.00 81200.00 360.00 0.0 0 1 1
+  6193_Static vehicles.artillery.Artillery$PzVA 2 309100.00 89200.00 360.00 0.0 0 1 1
+  6197_Static vehicles.artillery.Artillery$PzVA 2 309100.00 91200.00 360.00 0.0 0 1 1
+  6198_Static vehicles.artillery.Artillery$PzVA 2 309100.00 99200.00 360.00 0.0 0 1 1
+  6202_Static vehicles.artillery.Artillery$PzVA 2 309100.00 101200.00 360.00 0.0 0 1 1
+  6203_Static vehicles.artillery.Artillery$PzVA 2 309100.00 109200.00 360.00 0.0 0 1 1
+  6207_Static vehicles.artillery.Artillery$PzVA 2 309100.00 111200.00 360.00 0.0 0 1 1
+  6208_Static vehicles.artillery.Artillery$PzVA 2 309100.00 119200.00 360.00 0.0 0 1 1
+  6212_Static vehicles.artillery.Artillery$PzVA 2 309100.00 121200.00 360.00 0.0 0 1 1
+  6213_Static vehicles.artillery.Artillery$PzVA 2 309100.00 129200.00 360.00 0.0 0 1 1
+  6217_Static vehicles.artillery.Artillery$PzVA 2 309100.00 131200.00 360.00 0.0 0 1 1
+  6218_Static vehicles.artillery.Artillery$PzVA 2 309100.00 139200.00 360.00 0.0 0 1 1
+  6220_Static vehicles.artillery.Artillery$PzVA 2 305000.00 145000.00 360.00 0.0 0 1 1
+  6222_Static vehicles.artillery.Artillery$PzVA 2 309100.00 141200.00 360.00 0.0 0 1 1
+  6223_Static vehicles.artillery.Artillery$PzVA 2 309100.00 149200.00 360.00 0.0 0 1 1
+  6225_Static vehicles.artillery.Artillery$PzVA 2 305000.00 155000.00 360.00 0.0 0 1 1
+  6227_Static vehicles.artillery.Artillery$PzVA 2 309100.00 151200.00 360.00 0.0 0 1 1
+  6228_Static vehicles.artillery.Artillery$PzVA 2 309100.00 159200.00 360.00 0.0 0 1 1
+  6230_Static vehicles.artillery.Artillery$PzVA 2 305000.00 165000.00 360.00 0.0 0 1 1
+  6232_Static vehicles.artillery.Artillery$PzVA 2 309100.00 161200.00 360.00 0.0 0 1 1
+  6233_Static vehicles.artillery.Artillery$PzVA 2 309100.00 169200.00 360.00 0.0 0 1 1
+  6235_Static vehicles.artillery.Artillery$PzVA 2 305000.00 175000.00 360.00 0.0 0 1 1
+  6237_Static vehicles.artillery.Artillery$PzVA 2 309100.00 171200.00 360.00 0.0 0 1 1
+  6238_Static vehicles.artillery.Artillery$PzVA 2 309100.00 179200.00 360.00 0.0 0 1 1
+  6240_Static vehicles.artillery.Artillery$PzVA 2 305000.00 185000.00 360.00 0.0 0 1 1
+  6242_Static vehicles.artillery.Artillery$PzVA 2 309100.00 181200.00 360.00 0.0 0 1 1
+  6243_Static vehicles.artillery.Artillery$PzVA 2 309100.00 189200.00 360.00 0.0 0 1 1
+  6245_Static vehicles.artillery.Artillery$PzVA 2 305000.00 195000.00 360.00 0.0 0 1 1
+  6247_Static vehicles.artillery.Artillery$PzVA 2 309100.00 191200.00 360.00 0.0 0 1 1
+  6248_Static vehicles.artillery.Artillery$PzVA 2 309100.00 199200.00 360.00 0.0 0 1 1
+  6250_Static vehicles.artillery.Artillery$PzVA 2 305000.00 205000.00 360.00 0.0 0 1 1
+  6252_Static vehicles.artillery.Artillery$PzVA 2 309100.00 201200.00 360.00 0.0 0 1 1
+  6253_Static vehicles.artillery.Artillery$PzVA 2 309100.00 209200.00 360.00 0.0 0 1 1
+  6255_Static vehicles.artillery.Artillery$PzVA 2 305000.00 215000.00 360.00 0.0 0 1 1
+  6257_Static vehicles.artillery.Artillery$PzVA 2 309100.00 211200.00 360.00 0.0 0 1 1
+  6258_Static vehicles.artillery.Artillery$PzVA 2 309100.00 219200.00 360.00 0.0 0 1 1
+  6260_Static vehicles.artillery.Artillery$PzVA 2 305000.00 225000.00 360.00 0.0 0 1 1
+  6262_Static vehicles.artillery.Artillery$PzVA 2 309100.00 221200.00 360.00 0.0 0 1 1
+  6263_Static vehicles.artillery.Artillery$PzVA 2 309100.00 229200.00 360.00 0.0 0 1 1
+  6265_Static vehicles.artillery.Artillery$PzVA 2 305000.00 235000.00 360.00 0.0 0 1 1
+  6267_Static vehicles.artillery.Artillery$PzVA 2 309100.00 231200.00 360.00 0.0 0 1 1
+  6268_Static vehicles.artillery.Artillery$PzVA 2 309100.00 239200.00 360.00 0.0 0 1 1
+  6270_Static vehicles.artillery.Artillery$PzVA 2 305000.00 245000.00 360.00 0.0 0 1 1
+  6272_Static vehicles.artillery.Artillery$PzVA 2 309100.00 241200.00 360.00 0.0 0 1 1
+  6273_Static vehicles.artillery.Artillery$PzVA 2 309100.00 249200.00 360.00 0.0 0 1 1
+  6275_Static vehicles.artillery.Artillery$PzVA 2 305000.00 255000.00 360.00 0.0 0 1 1
+  6277_Static vehicles.artillery.Artillery$PzVA 2 309100.00 251200.00 360.00 0.0 0 1 1
+  6278_Static vehicles.artillery.Artillery$PzVA 2 309100.00 259200.00 360.00 0.0 0 1 1
+  6280_Static vehicles.artillery.Artillery$PzVA 2 305000.00 265000.00 360.00 0.0 0 1 1
+  6282_Static vehicles.artillery.Artillery$PzVA 2 309100.00 261200.00 360.00 0.0 0 1 1
+  6283_Static vehicles.artillery.Artillery$PzVA 2 309100.00 269200.00 360.00 0.0 0 1 1
+  6285_Static vehicles.artillery.Artillery$PzVA 2 305000.00 275000.00 360.00 0.0 0 1 1
+  6287_Static vehicles.artillery.Artillery$PzVA 2 309100.00 271200.00 360.00 0.0 0 1 1
+  6288_Static vehicles.artillery.Artillery$PzVA 2 309100.00 279200.00 360.00 0.0 0 1 1
+  6290_Static vehicles.artillery.Artillery$PzVA 2 305000.00 285000.00 360.00 0.0 0 1 1
+  6292_Static vehicles.artillery.Artillery$PzVA 2 309100.00 281200.00 360.00 0.0 0 1 1
+  6293_Static vehicles.artillery.Artillery$PzVA 2 309100.00 289200.00 360.00 0.0 0 1 1
+  6295_Static vehicles.artillery.Artillery$PzVA 2 305000.00 295000.00 360.00 0.0 0 1 1
+  6297_Static vehicles.artillery.Artillery$PzVA 2 309100.00 291200.00 360.00 0.0 0 1 1
+  6298_Static vehicles.artillery.Artillery$PzVA 2 309100.00 299200.00 360.00 0.0 0 1 1
+  6300_Static vehicles.artillery.Artillery$PzVA 2 305000.00 305000.00 360.00 0.0 0 1 1
+  6302_Static vehicles.artillery.Artillery$PzVA 2 309100.00 301200.00 360.00 0.0 0 1 1
+  6303_Static vehicles.artillery.Artillery$PzVA 2 309100.00 309200.00 360.00 0.0 0 1 1
+  6305_Static vehicles.artillery.Artillery$PzVA 2 305000.00 315000.00 360.00 0.0 0 1 1
+  6307_Static vehicles.artillery.Artillery$PzVA 2 309100.00 311200.00 360.00 0.0 0 1 1
+  6308_Static vehicles.artillery.Artillery$PzVA 2 309100.00 319200.00 360.00 0.0 0 1 1
+  6310_Static vehicles.artillery.Artillery$PzVA 2 305000.00 325000.00 360.00 0.0 0 1 1
+  6312_Static vehicles.artillery.Artillery$PzVA 2 309100.00 321200.00 360.00 0.0 0 1 1
+  6313_Static vehicles.artillery.Artillery$PzVA 2 309100.00 329200.00 360.00 0.0 0 1 1
+  6315_Static vehicles.artillery.Artillery$PzVA 2 305000.00 335000.00 360.00 0.0 0 1 1
+  6317_Static vehicles.artillery.Artillery$PzVA 2 309100.00 331200.00 360.00 0.0 0 1 1
+  6318_Static vehicles.artillery.Artillery$PzVA 2 309100.00 339200.00 360.00 0.0 0 1 1
+  6320_Static vehicles.artillery.Artillery$PzVA 2 305000.00 345000.00 360.00 0.0 0 1 1
+  6322_Static vehicles.artillery.Artillery$PzVA 2 309100.00 341200.00 360.00 0.0 0 1 1
+  6323_Static vehicles.artillery.Artillery$PzVA 2 309100.00 349200.00 360.00 0.0 0 1 1
+  6325_Static vehicles.artillery.Artillery$PzVA 2 305000.00 355000.00 360.00 0.0 0 1 1
+  6327_Static vehicles.artillery.Artillery$PzVA 2 309100.00 351200.00 360.00 0.0 0 1 1
+  6328_Static vehicles.artillery.Artillery$PzVA 2 309100.00 359200.00 360.00 0.0 0 1 1
+  6330_Static vehicles.artillery.Artillery$PzVA 2 305000.00 365000.00 360.00 0.0 0 1 1
+  6332_Static vehicles.artillery.Artillery$PzVA 2 309100.00 361200.00 360.00 0.0 0 1 1
+  6333_Static vehicles.artillery.Artillery$PzVA 2 309100.00 369200.00 360.00 0.0 0 1 1
+  6335_Static vehicles.artillery.Artillery$PzVA 2 305000.00 375000.00 360.00 0.0 0 1 1
+  6337_Static vehicles.artillery.Artillery$PzVA 2 309100.00 371200.00 360.00 0.0 0 1 1
+  6338_Static vehicles.artillery.Artillery$PzVA 2 309100.00 379200.00 360.00 0.0 0 1 1
+  6340_Static vehicles.artillery.Artillery$PzVA 2 305000.00 385000.00 360.00 0.0 0 1 1
+  6342_Static vehicles.artillery.Artillery$PzVA 2 309100.00 381200.00 360.00 0.0 0 1 1
+  6343_Static vehicles.artillery.Artillery$PzVA 2 309100.00 389200.00 360.00 0.0 0 1 1
+  6345_Static vehicles.artillery.Artillery$PzVA 2 305000.00 395000.00 360.00 0.0 0 1 1
+  6347_Static vehicles.artillery.Artillery$PzVA 2 309100.00 391200.00 360.00 0.0 0 1 1
+  6348_Static vehicles.artillery.Artillery$PzVA 2 309100.00 399200.00 360.00 0.0 0 1 1
+  6350_Static vehicles.artillery.Artillery$PzVA 2 305000.00 405000.00 360.00 0.0 0 1 1
+  6352_Static vehicles.artillery.Artillery$PzVA 2 309100.00 401200.00 360.00 0.0 0 1 1
+  6353_Static vehicles.artillery.Artillery$PzVA 2 309100.00 409200.00 360.00 0.0 0 1 1
+  6354_Static vehicles.artillery.Artillery$PzVA 2 301100.00 408800.00 360.00 0.0 0 1 1
+  0_Static vehicles.artillery.Artillery$PzVA 2 91172.38 135362.33 360.00 0.0 0 1 1
+  1_Static vehicles.artillery.Artillery$PzVA 2 99412.02 130873.57 360.00 0.0 0 1 1
+  2_Static vehicles.artillery.Artillery$PzVA 2 99104.57 129766.75 360.00 0.0 0 1 1
+  3_Static vehicles.artillery.Artillery$PzVA 2 98305.21 124478.62 360.00 0.0 0 1 1
+  4_Static vehicles.artillery.Artillery$PzVA 2 95191.13 84409.89 360.00 0.0 0 1 1
+  5_Static vehicles.artillery.Artillery$PzVA 2 98120.74 110704.90 360.00 0.0 0 1 1
+  6_Static vehicles.artillery.Artillery$PzVA 2 109803.81 116607.92 360.00 0.0 0 1 1
+  7_Static vehicles.artillery.Artillery$PzVA 2 106421.87 110028.51 360.00 0.0 0 1 1
+  8_Static vehicles.artillery.Artillery$PzVA 2 104208.23 115316.64 360.00 0.0 0 1 1
+  9_Static vehicles.artillery.Artillery$PzVA 2 90864.93 104740.38 360.00 0.0 0 1 1
+  10_Static vehicles.artillery.Artillery$PzVA 2 98858.62 104125.48 360.00 0.0 0 1 1
+  11_Static vehicles.artillery.Artillery$PzVA 2 95282.63 95467.20 360.00 0.0 0 1 1
+  12_Static vehicles.artillery.Artillery$PzVA 2 94003.97 90600.02 360.00 0.0 0 1 1
+  13_Static vehicles.artillery.Artillery$PzVA 2 96025.09 87258.98 360.00 0.0 0 1 1
+  14_Static vehicles.artillery.Artillery$PzVA 2 91652.87 82350.55 360.00 0.0 0 1 1
+  15_Static vehicles.artillery.Artillery$PzVA 2 98334.94 82721.77 360.00 0.0 0 1 1
+  16_Static vehicles.artillery.Artillery$PzVA 2 76968.82 78555.79 360.00 0.0 0 1 1
+  17_Static vehicles.artillery.Artillery$PzVA 2 73751.52 72121.21 360.00 0.0 0 1 1
+  18_Static vehicles.artillery.Artillery$PzVA 2 102088.44 89032.62 360.00 0.0 0 1 1
+  19_Static vehicles.artillery.Artillery$PzVA 2 100809.78 84825.39 360.00 0.0 0 1 1
+  20_Static vehicles.artillery.Artillery$PzVA 2 106501.91 88661.39 360.00 0.0 0 1 1
+  21_Static vehicles.artillery.Artillery$PzVA 2 105223.24 85320.36 360.00 0.0 0 1 1
+  22_Static vehicles.artillery.Artillery$PzVA 2 108844.39 78166.48 360.00 0.0 0 1 1
+  23_Static vehicles.artillery.Artillery$PzVA 2 104637.59 73588.49 360.00 0.0 0 1 1
+  24_Static vehicles.artillery.Artillery$PzVA 2 111360.23 79197.56 360.00 0.0 0 1 1
+  25_Static vehicles.artillery.Artillery$PzVA 2 117093.03 79280.05 360.00 0.0 0 1 1
+  26_Static vehicles.artillery.Artillery$PzVA 2 113999.79 76351.78 360.00 0.0 0 1 1
+  27_Static vehicles.artillery.Artillery$PzVA 2 110906.55 80847.29 360.00 0.0 0 1 1
+  28_Static vehicles.artillery.Artillery$PzVA 2 116268.16 84930.36 360.00 0.0 0 1 1
+  29_Static vehicles.artillery.Artillery$PzVA 2 115443.30 80517.34 360.00 0.0 0 1 1
+  30_Static vehicles.artillery.Artillery$PzVA 2 81582.66 76310.54 360.00 0.0 0 1 1
+  31_Static vehicles.artillery.Artillery$PzVA 2 86119.41 79115.07 360.00 0.0 0 1 1
+  32_Static vehicles.artillery.Artillery$PzVA 2 73292.78 60514.40 360.00 0.0 0 1 1
+  33_Static vehicles.artillery.Artillery$PzVA 2 77169.64 63236.45 360.00 0.0 0 1 1
+  34_Static vehicles.artillery.Artillery$PzVA 2 82448.76 66205.96 360.00 0.0 0 1 1
+  35_Static vehicles.artillery.Artillery$PzVA 2 87521.67 68845.52 360.00 0.0 0 1 1
+  36_Static vehicles.artillery.Artillery$PzVA 2 92099.67 63648.88 360.00 0.0 0 1 1
+  37_Static vehicles.artillery.Artillery$PzVA 2 97543.76 65092.39 360.00 0.0 0 1 1
+  38_Static vehicles.artillery.Artillery$PzVA 2 103524.02 61627.97 360.00 0.0 0 1 1
+  39_Static vehicles.artillery.Artillery$PzVA 2 108225.75 65298.61 360.00 0.0 0 1 1
+  40_Static vehicles.artillery.Artillery$PzVA 2 107689.58 62122.89 360.00 0.0 0 1 1
+  41_Static vehicles.artillery.Artillery$PzVA 2 50881.09 76700.67 360.00 0.0 0 1 1
+  42_Static vehicles.artillery.Artillery$PzVA 2 62796.76 71670.52 360.00 0.0 0 1 1
+  43_Static vehicles.artillery.Artillery$PzVA 2 66342.60 75175.13 360.00 0.0 0 1 1
+  44_Static vehicles.artillery.Artillery$PzVA 2 65517.98 63094.54 360.00 0.0 0 1 1
+  45_Static vehicles.artillery.Artillery$PzVA 2 69682.28 65609.61 360.00 0.0 0 1 1
+  46_Static vehicles.artillery.Artillery$PzVA 2 51128.47 62352.39 360.00 0.0 0 1 1
+  47_Static vehicles.artillery.Artillery$PzVA 2 57601.69 64207.77 360.00 0.0 0 1 1
+  48_Static vehicles.artillery.Artillery$PzVA 2 54715.54 60455.77 360.00 0.0 0 1 1
+  49_Static vehicles.artillery.Artillery$PzVA 2 67208.44 54436.09 360.00 0.0 0 1 1
+  50_Static vehicles.artillery.Artillery$PzVA 2 69641.05 57487.16 360.00 0.0 0 1 1
+  51_Static vehicles.artillery.Artillery$PzVA 2 50963.55 51879.79 360.00 0.0 0 1 1
+  52_Static vehicles.artillery.Artillery$PzVA 2 51210.94 58146.86 360.00 0.0 0 1 1
+  53_Static vehicles.artillery.Artillery$PzVA 2 73722.89 54065.02 360.00 0.0 0 1 1
+  54_Static vehicles.artillery.Artillery$PzVA 2 78629.34 58724.09 360.00 0.0 0 1 1
+  55_Static vehicles.artillery.Artillery$PzVA 2 85102.56 54394.86 360.00 0.0 0 1 1
+  56_Static vehicles.artillery.Artillery$PzVA 2 86050.87 50395.49 360.00 0.0 0 1 1
+  57_Static vehicles.artillery.Artillery$PzVA 2 89473.02 55137.02 360.00 0.0 0 1 1
+  58_Static vehicles.artillery.Artillery$PzVA 2 72984.52 45243.15 360.00 0.0 0 1 1
+  59_Static vehicles.artillery.Artillery$PzVA 2 78465.40 47576.60 360.00 0.0 0 1 1
+  60_Static vehicles.artillery.Artillery$PzVA 2 85989.57 44888.29 360.00 0.0 0 1 1
+  61_Static vehicles.artillery.Artillery$PzVA 2 83516.00 49340.17 360.00 0.0 0 1 1
+  62_Static vehicles.artillery.Artillery$PzVA 2 89339.52 49586.23 360.00 0.0 0 1 1
+  63_Static vehicles.artillery.Artillery$PzVA 2 96786.35 47831.44 360.00 0.0 0 1 1
+  64_Static vehicles.artillery.Artillery$PzVA 2 93205.03 45054.08 360.00 0.0 0 1 1
+  65_Static vehicles.artillery.Artillery$PzVA 2 96640.18 43738.49 360.00 0.0 0 1 1
+  66_Static vehicles.artillery.Artillery$PzVA 2 73617.35 33359.95 360.00 0.0 0 1 1
+  67_Static vehicles.artillery.Artillery$PzVA 2 76979.42 36137.30 360.00 0.0 0 1 1
+  68_Static vehicles.artillery.Artillery$PzVA 2 68062.64 30801.86 360.00 0.0 0 1 1
+  69_Static vehicles.artillery.Artillery$PzVA 2 66089.25 34237.01 360.00 0.0 0 1 1
+  70_Static vehicles.artillery.Artillery$PzVA 2 68574.26 40449.52 360.00 0.0 0 1 1
+  71_Static vehicles.artillery.Artillery$PzVA 2 69670.58 44030.84 360.00 0.0 0 1 1
+  72_Static vehicles.artillery.Artillery$PzVA 2 56223.73 44136.93 360.00 0.0 0 1 1
+  73_Static vehicles.artillery.Artillery$PzVA 2 58293.28 46247.47 360.00 0.0 0 1 1
+  74_Static vehicles.artillery.Artillery$PzVA 2 44470.69 47289.80 360.00 0.0 0 1 1
+  75_Static vehicles.artillery.Artillery$PzVA 2 48056.56 48398.16 360.00 0.0 0 1 1
+  76_Static vehicles.artillery.Artillery$PzVA 2 56846.95 30234.18 360.00 0.0 0 1 1
+  77_Static vehicles.artillery.Artillery$PzVA 2 59448.98 31535.20 360.00 0.0 0 1 1
+  78_Static vehicles.artillery.Artillery$PzVA 2 70584.15 26981.64 360.00 0.0 0 1 1
+  79_Static vehicles.artillery.Artillery$PzVA 2 70966.80 22925.53 360.00 0.0 0 1 1
+  80_Static vehicles.artillery.Artillery$PzVA 2 74525.46 24762.26 360.00 0.0 0 1 1
+  81_Static vehicles.artillery.Artillery$PzVA 2 81068.81 28359.19 360.00 0.0 0 1 1
+  82_Static vehicles.artillery.Artillery$PzVA 2 80405.88 23843.89 360.00 0.0 0 1 1
+  83_Static vehicles.artillery.Artillery$PzVA 2 83747.37 23882.16 360.00 0.0 0 1 1
+  84_Static vehicles.artillery.Artillery$PzVA 2 65150.49 23767.36 360.00 0.0 0 1 1
+  85_Static vehicles.artillery.Artillery$PzVA 2 65035.70 27708.68 360.00 0.0 0 1 1
+  86_Static vehicles.artillery.Artillery$PzVA 2 58836.74 23499.51 360.00 0.0 0 1 1
+  87_Static vehicles.artillery.Artillery$PzVA 2 59334.19 26063.28 360.00 0.0 0 1 1
+  88_Static vehicles.artillery.Artillery$PzVA 2 46362.29 26675.52 360.00 0.0 0 1 1
+  89_Static vehicles.artillery.Artillery$PzVA 2 48926.06 29813.26 360.00 0.0 0 1 1
+  90_Static vehicles.artillery.Artillery$PzVA 2 49308.71 18295.44 360.00 0.0 0 1 1
+  91_Static vehicles.artillery.Artillery$PzVA 2 48772.99 12593.93 360.00 0.0 0 1 1
+  92_Static vehicles.artillery.Artillery$PzVA 2 57153.07 10527.61 360.00 0.0 0 1 1
+  93_Static vehicles.artillery.Artillery$PzVA 2 59640.31 14277.60 360.00 0.0 0 1 1
+  94_Static vehicles.artillery.Artillery$PzVA 2 54857.16 14813.31 360.00 0.0 0 1 1
+  95_Static vehicles.artillery.Artillery$PzVA 2 60443.88 10374.55 360.00 0.0 0 1 1
+  96_Static vehicles.artillery.Artillery$PzVA 2 60520.41 13971.48 360.00 0.0 0 1 1
+  97_Static vehicles.artillery.Artillery$PzVA 2 63466.83 12823.52 360.00 0.0 0 1 1
+  98_Static vehicles.artillery.Artillery$PzVA 2 76017.81 19481.66 360.00 0.0 0 1 1
+  99_Static vehicles.artillery.Artillery$PzVA 2 78198.92 15846.47 360.00 0.0 0 1 1
+  100_Static vehicles.artillery.Artillery$PzVA 2 87577.20 14239.33 360.00 0.0 0 1 1
+  101_Static vehicles.artillery.Artillery$PzVA 2 89640.21 18180.65 360.00 0.0 0 1 1
+  102_Static vehicles.artillery.Artillery$PzVA 2 89487.15 11823.94 360.00 0.0 0 1 1
+  103_Static vehicles.artillery.Artillery$PzVA 2 51786.14 978.99 360.00 0.0 0 1 1
+  104_Static vehicles.artillery.Artillery$PzVA 2 54396.77 5155.99 360.00 0.0 0 1 1
+  105_Static vehicles.artillery.Artillery$PzVA 2 58834.84 5188.62 360.00 0.0 0 1 1
+  106_Static vehicles.artillery.Artillery$PzVA 2 59095.90 750.56 360.00 0.0 0 1 1
+  107_Static vehicles.artillery.Artillery$PzVA 2 56093.68 2708.53 360.00 0.0 0 1 1
+  108_Static vehicles.artillery.Artillery$PzVA 2 61641.26 326.33 360.00 0.0 0 1 1
+  109_Static vehicles.artillery.Artillery$PzVA 2 68363.62 424.23 360.00 0.0 0 1 1
+  110_Static vehicles.artillery.Artillery$PzVA 2 71398.48 3556.98 360.00 0.0 0 1 1
+  111_Static vehicles.artillery.Artillery$PzVA 2 74368.07 6265.50 360.00 0.0 0 1 1
+  112_Static vehicles.artillery.Artillery$PzVA 2 77141.86 4927.56 360.00 0.0 0 1 1
+  113_Static vehicles.artillery.Artillery$PzVA 2 89379.17 2088.50 360.00 0.0 0 1 1
+  114_Static vehicles.artillery.Artillery$PzVA 2 89574.97 8190.84 360.00 0.0 0 1 1
+  115_Static vehicles.artillery.Artillery$PzVA 2 86376.95 6559.20 360.00 0.0 0 1 1
+  116_Static vehicles.artillery.Artillery$PzVA 2 92185.60 8517.17 360.00 0.0 0 1 1
+  117_Static vehicles.artillery.Artillery$PzVA 2 90782.38 1501.11 360.00 0.0 0 1 1
+  118_Static vehicles.artillery.Artillery$PzVA 2 95775.21 1762.17 360.00 0.0 0 1 1
+  119_Static vehicles.artillery.Artillery$PzVA 2 96036.27 7570.82 360.00 0.0 0 1 1
+  120_Static vehicles.artillery.Artillery$PzVA 2 93393.01 4209.64 360.00 0.0 0 1 1
+  121_Static vehicles.artillery.Artillery$PzVA 2 103574.46 2969.59 360.00 0.0 0 1 1
+  122_Static vehicles.artillery.Artillery$PzVA 2 101910.18 8810.87 360.00 0.0 0 1 1
+  123_Static vehicles.artillery.Artillery$PzVA 2 110753.68 4601.23 360.00 0.0 0 1 1
+  124_Static vehicles.artillery.Artillery$PzVA 2 115648.61 7668.72 360.00 0.0 0 1 1
+  125_Static vehicles.artillery.Artillery$PzVA 2 114963.32 10540.41 360.00 0.0 0 1 1
+  126_Static vehicles.artillery.Artillery$PzVA 2 118520.30 14195.28 360.00 0.0 0 1 1
+  127_Static vehicles.artillery.Artillery$PzVA 2 101420.69 10834.10 360.00 0.0 0 1 1
+  128_Static vehicles.artillery.Artillery$PzVA 2 103770.25 15500.60 360.00 0.0 0 1 1
+  129_Static vehicles.artillery.Artillery$PzVA 2 100833.30 21015.55 360.00 0.0 0 1 1
+  130_Static vehicles.artillery.Artillery$PzVA 2 103900.78 22745.09 360.00 0.0 0 1 1
+  131_Static vehicles.artillery.Artillery$PzVA 2 95612.04 27640.01 360.00 0.0 0 1 1
+  132_Static vehicles.artillery.Artillery$PzVA 2 100833.30 31523.32 360.00 0.0 0 1 1
+  133_Static vehicles.artillery.Artillery$PzVA 2 99266.92 25453.61 360.00 0.0 0 1 1
+  134_Static vehicles.artillery.Artillery$PzVA 2 110525.25 26889.46 360.00 0.0 0 1 1
+  135_Static vehicles.artillery.Artillery$PzVA 2 114571.72 29532.72 360.00 0.0 0 1 1
+  136_Static vehicles.artillery.Artillery$PzVA 2 95677.31 33742.35 360.00 0.0 0 1 1
+  137_Static vehicles.artillery.Artillery$PzVA 2 93686.71 30576.97 360.00 0.0 0 1 1
+  138_Static vehicles.artillery.Artillery$PzVA 2 99136.39 31653.85 360.00 0.0 0 1 1
+  139_Static vehicles.artillery.Artillery$PzVA 2 121816.21 8615.07 360.00 0.0 0 1 1
+  140_Static vehicles.artillery.Artillery$PzVA 2 128538.58 8778.23 360.00 0.0 0 1 1
+  141_Static vehicles.artillery.Artillery$PzVA 2 125079.50 6037.07 360.00 0.0 0 1 1
+  142_Static vehicles.artillery.Artillery$PzVA 2 129419.66 11388.86 360.00 0.0 0 1 1
+  143_Static vehicles.artillery.Artillery$PzVA 2 126319.54 16414.32 360.00 0.0 0 1 1
+  144_Static vehicles.artillery.Artillery$PzVA 2 122860.46 26563.13 360.00 0.0 0 1 1
+  145_Static vehicles.artillery.Artillery$PzVA 2 126091.11 23691.44 360.00 0.0 0 1 1
+  146_Static vehicles.artillery.Artillery$PzVA 2 103509.19 32665.47 360.00 0.0 0 1 1
+  147_Static vehicles.artillery.Artillery$PzVA 2 112483.22 33742.35 360.00 0.0 0 1 1
+  148_Static vehicles.artillery.Artillery$PzVA 2 112581.12 38767.81 360.00 0.0 0 1 1
+  149_Static vehicles.artillery.Artillery$PzVA 2 120413.00 37625.66 360.00 0.0 0 1 1
+  150_Static vehicles.artillery.Artillery$PzVA 2 124557.37 37625.66 360.00 0.0 0 1 1
+  151_Static vehicles.artillery.Artillery$PzVA 2 135130.41 6559.20 360.00 0.0 0 1 1
+  152_Static vehicles.artillery.Artillery$PzVA 2 134281.96 9528.79 360.00 0.0 0 1 1
+  153_Static vehicles.artillery.Artillery$PzVA 2 139111.62 9561.42 360.00 0.0 0 1 1
+  154_Static vehicles.artillery.Artillery$PzVA 2 134673.55 10573.04 360.00 0.0 0 1 1
+  155_Static vehicles.artillery.Artillery$PzVA 2 137121.01 13379.46 360.00 0.0 0 1 1
+  156_Static vehicles.artillery.Artillery$PzVA 2 139503.21 10670.94 360.00 0.0 0 1 1
+  157_Static vehicles.artillery.Artillery$PzVA 2 131377.63 20526.05 360.00 0.0 0 1 1
+  158_Static vehicles.artillery.Artillery$PzVA 2 130594.45 24605.16 360.00 0.0 0 1 1
+  159_Static vehicles.artillery.Artillery$PzVA 2 136500.99 30446.44 360.00 0.0 0 1 1
+  160_Static vehicles.artillery.Artillery$PzVA 2 139078.98 33154.96 360.00 0.0 0 1 1
+  161_Static vehicles.artillery.Artillery$PzVA 2 103084.96 45718.61 360.00 0.0 0 1 1
+  162_Static vehicles.artillery.Artillery$PzVA 2 102399.67 49406.12 360.00 0.0 0 1 1
+  163_Static vehicles.artillery.Artillery$PzVA 2 113886.43 48525.03 360.00 0.0 0 1 1
+  164_Static vehicles.artillery.Artillery$PzVA 2 117214.98 49601.91 360.00 0.0 0 1 1
+  165_Static vehicles.artillery.Artillery$PzVA 2 127755.39 45098.58 360.00 0.0 0 1 1
+  166_Static vehicles.artillery.Artillery$PzVA 2 126254.28 49210.32 360.00 0.0 0 1 1
+  167_Static vehicles.artillery.Artillery$PzVA 2 129060.70 48622.93 360.00 0.0 0 1 1
+  168_Static vehicles.artillery.Artillery$PzVA 2 130724.98 45033.32 360.00 0.0 0 1 1
+  169_Static vehicles.artillery.Artillery$PzVA 2 131083.94 48883.99 360.00 0.0 0 1 1
+  170_Static vehicles.artillery.Artillery$PzVA 2 134118.79 49732.44 360.00 0.0 0 1 1
+  171_Static vehicles.artillery.Artillery$PzVA 2 101420.69 51364.09 360.00 0.0 0 1 1
+  172_Static vehicles.artillery.Artillery$PzVA 2 100311.17 55638.99 360.00 0.0 0 1 1
+  173_Static vehicles.artillery.Artillery$PzVA 2 110982.11 53191.53 360.00 0.0 0 1 1
+  174_Static vehicles.artillery.Artillery$PzVA 2 110949.48 59261.23 360.00 0.0 0 1 1
+  175_Static vehicles.artillery.Artillery$PzVA 2 113560.10 57401.16 360.00 0.0 0 1 1
+  176_Static vehicles.artillery.Artillery$PzVA 2 120804.59 59457.03 360.00 0.0 0 1 1
+  177_Static vehicles.artillery.Artillery$PzVA 2 126384.81 59228.60 360.00 0.0 0 1 1
+  178_Static vehicles.artillery.Artillery$PzVA 2 124100.51 54496.84 360.00 0.0 0 1 1
+  179_Static vehicles.artillery.Artillery$PzVA 2 120413.00 56259.01 360.00 0.0 0 1 1
+  180_Static vehicles.artillery.Artillery$PzVA 2 131769.23 58902.27 360.00 0.0 0 1 1
+  181_Static vehicles.artillery.Artillery$PzVA 2 137447.34 57760.12 360.00 0.0 0 1 1
+  182_Static vehicles.artillery.Artillery$PzVA 2 116105.47 60599.18 360.00 0.0 0 1 1
+  183_Static vehicles.artillery.Artillery$PzVA 2 114636.99 65950.96 360.00 0.0 0 1 1
+  184_Static vehicles.artillery.Artillery$PzVA 2 119564.55 63666.67 360.00 0.0 0 1 1
+  185_Static vehicles.artillery.Artillery$PzVA 2 122534.13 60990.77 360.00 0.0 0 1 1
+  186_Static vehicles.artillery.Artillery$PzVA 2 129321.77 62263.45 360.00 0.0 0 1 1
+  187_Static vehicles.artillery.Artillery$PzVA 2 128701.74 66212.03 360.00 0.0 0 1 1
+  188_Static vehicles.artillery.Artillery$PzVA 2 124981.60 67191.01 360.00 0.0 0 1 1
+  189_Static vehicles.artillery.Artillery$PzVA 2 125340.56 64123.53 360.00 0.0 0 1 1
+  190_Static vehicles.artillery.Artillery$PzVA 2 131083.94 68692.12 360.00 0.0 0 1 1
+  191_Static vehicles.artillery.Artillery$PzVA 2 138752.66 68659.49 360.00 0.0 0 1 1
+  192_Static vehicles.artillery.Artillery$PzVA 2 135065.14 66407.82 360.00 0.0 0 1 1
+  193_Static vehicles.artillery.Artillery$PzVA 2 133107.17 63014.01 360.00 0.0 0 1 1
+  194_Static vehicles.artillery.Artillery$PzVA 2 138850.55 61741.33 360.00 0.0 0 1 1
+  195_Static vehicles.artillery.Artillery$PzVA 2 141265.38 61610.80 360.00 0.0 0 1 1
+  196_Static vehicles.artillery.Artillery$PzVA 2 140906.42 68790.02 360.00 0.0 0 1 1
+  197_Static vehicles.artillery.Artillery$PzVA 2 145409.75 68659.49 360.00 0.0 0 1 1
+  198_Static vehicles.artillery.Artillery$PzVA 2 145801.35 65657.27 360.00 0.0 0 1 1
+  199_Static vehicles.artillery.Artillery$PzVA 2 142146.47 65069.88 360.00 0.0 0 1 1
+  201_Static vehicles.artillery.Artillery$PzVA 2 125471.09 77437.72 360.00 0.0 0 1 1
+  202_Static vehicles.artillery.Artillery$PzVA 2 129484.93 79689.39 360.00 0.0 0 1 1
+  205_Static vehicles.artillery.Artillery$PzVA 2 129419.66 75545.02 360.00 0.0 0 1 1
+  206_Static vehicles.artillery.Artillery$PzVA 2 130790.24 79134.63 360.00 0.0 0 1 1
+  207_Static vehicles.artillery.Artillery$PzVA 2 135065.14 79363.06 360.00 0.0 0 1 1
+  208_Static vehicles.artillery.Artillery$PzVA 2 141069.59 75447.12 360.00 0.0 0 1 1
+  209_Static vehicles.artillery.Artillery$PzVA 2 145344.49 75055.53 360.00 0.0 0 1 1
+  210_Static vehicles.artillery.Artillery$PzVA 2 143223.35 77959.85 360.00 0.0 0 1 1
+  211_Static vehicles.artillery.Artillery$PzVA 2 130822.88 80701.01 360.00 0.0 0 1 1
+  212_Static vehicles.artillery.Artillery$PzVA 2 130692.34 85856.10 360.00 0.0 0 1 1
+  213_Static vehicles.artillery.Artillery$PzVA 2 135619.90 81190.50 360.00 0.0 0 1 1
+  214_Static vehicles.artillery.Artillery$PzVA 2 140677.99 87292.84 360.00 0.0 0 1 1
+  215_Static vehicles.artillery.Artillery$PzVA 2 145311.86 86118.06 360.00 0.0 0 1 1
+  216_Static vehicles.artillery.Artillery$PzVA 2 142146.47 82430.55 360.00 0.0 0 1 1
+  217_Static vehicles.artillery.Artillery$PzVA 2 150794.17 86738.08 360.00 0.0 0 1 1
+  218_Static vehicles.artillery.Artillery$PzVA 2 153829.03 84127.46 360.00 0.0 0 1 1
+  219_Static vehicles.artillery.Artillery$PzVA 2 150696.27 82136.85 360.00 0.0 0 1 1
+  220_Static vehicles.artillery.Artillery$PzVA 2 128636.48 81125.23 360.00 0.0 0 1 1
+  221_Static vehicles.artillery.Artillery$PzVA 2 128244.88 87260.21 360.00 0.0 0 1 1
+  222_Static vehicles.artillery.Artillery$PzVA 2 126972.20 84486.42 360.00 0.0 0 1 1
+  223_Static vehicles.artillery.Artillery$PzVA 2 106054.55 93656.24 360.00 0.0 0 1 1
+  224_Static vehicles.artillery.Artillery$PzVA 2 109742.06 93395.18 360.00 0.0 0 1 1
+  225_Static vehicles.artillery.Artillery$PzVA 2 113462.21 96332.14 360.00 0.0 0 1 1
+  226_Static vehicles.artillery.Artillery$PzVA 2 116366.53 98159.58 360.00 0.0 0 1 1
+  227_Static vehicles.artillery.Artillery$PzVA 2 128930.17 98290.11 360.00 0.0 0 1 1
+  228_Static vehicles.artillery.Artillery$PzVA 2 128864.91 91567.74 360.00 0.0 0 1 1
+  229_Static vehicles.artillery.Artillery$PzVA 2 131573.43 97702.72 360.00 0.0 0 1 1
+  230_Static vehicles.artillery.Artillery$PzVA 2 131149.20 93134.12 360.00 0.0 0 1 1
+  231_Static vehicles.artillery.Artillery$PzVA 2 135848.33 93819.41 360.00 0.0 0 1 1
+  232_Static vehicles.artillery.Artillery$PzVA 2 134706.18 98975.40 360.00 0.0 0 1 1
+  233_Static vehicles.artillery.Artillery$PzVA 2 129223.87 100574.41 360.00 0.0 0 1 1
+  234_Static vehicles.artillery.Artillery$PzVA 2 124753.17 103837.69 360.00 0.0 0 1 1
+  235_Static vehicles.artillery.Artillery$PzVA 2 130790.24 102695.54 360.00 0.0 0 1 1
+  236_Static vehicles.artillery.Artillery$PzVA 2 130594.45 109058.94 360.00 0.0 0 1 1
+  237_Static vehicles.artillery.Artillery$PzVA 2 132454.52 106024.09 360.00 0.0 0 1 1
+  238_Static vehicles.artillery.Artillery$PzVA 2 135815.70 109744.23 360.00 0.0 0 1 1
+  239_Static vehicles.artillery.Artillery$PzVA 2 134999.88 106872.54 360.00 0.0 0 1 1
+  240_Static vehicles.artillery.Artillery$PzVA 2 139470.58 106774.64 360.00 0.0 0 1 1
+  241_Static vehicles.artillery.Artillery$PzVA 2 111145.27 106513.58 360.00 0.0 0 1 1
+  242_Static vehicles.artillery.Artillery$PzVA 2 113951.70 104816.67 360.00 0.0 0 1 1
+  243_Static vehicles.artillery.Artillery$PzVA 2 105434.53 103478.73 360.00 0.0 0 1 1
+  244_Static vehicles.artillery.Artillery$PzVA 2 109415.73 105730.39 360.00 0.0 0 1 1
+  245_Static vehicles.artillery.Artillery$PzVA 2 113037.98 118848.79 360.00 0.0 0 1 1
+  246_Static vehicles.artillery.Artillery$PzVA 2 116888.65 117151.89 360.00 0.0 0 1 1
+  247_Static vehicles.artillery.Artillery$PzVA 2 125242.66 119175.12 360.00 0.0 0 1 1
+  248_Static vehicles.artillery.Artillery$PzVA 2 130039.69 115454.98 360.00 0.0 0 1 1
+  249_Static vehicles.artillery.Artillery$PzVA 2 125242.66 115193.92 360.00 0.0 0 1 1
+  250_Static vehicles.artillery.Artillery$PzVA 2 136044.13 114475.99 360.00 0.0 0 1 1
+  251_Static vehicles.artillery.Artillery$PzVA 2 136370.46 110951.65 360.00 0.0 0 1 1
+  252_Static vehicles.artillery.Artillery$PzVA 2 140449.56 110266.36 360.00 0.0 0 1 1
+  253_Static vehicles.artillery.Artillery$PzVA 2 143419.15 112713.82 360.00 0.0 0 1 1
+  254_Static vehicles.artillery.Artillery$PzVA 2 101106.55 125461.62 360.00 0.0 0 1 1
+  255_Static vehicles.artillery.Artillery$PzVA 2 104702.77 129167.65 360.00 0.0 0 1 1
+  256_Static vehicles.artillery.Artillery$PzVA 2 100282.99 129689.24 360.00 0.0 0 1 1
+  257_Static vehicles.artillery.Artillery$PzVA 2 145456.51 109606.25 360.00 0.0 0 1 1
+  258_Static vehicles.artillery.Artillery$PzVA 2 149414.26 109441.35 360.00 0.0 0 1 1
+  259_Static vehicles.artillery.Artillery$PzVA 2 148342.37 104370.49 360.00 0.0 0 1 1
+  260_Static vehicles.artillery.Artillery$PzVA 2 145621.42 105030.11 360.00 0.0 0 1 1
+  261_Static vehicles.artillery.Artillery$PzVA 2 142900.46 90806.96 360.00 0.0 0 1 1
+  262_Static vehicles.artillery.Artillery$PzVA 2 144714.43 95754.14 360.00 0.0 0 1 1
+  263_Static vehicles.artillery.Artillery$PzVA 2 148259.91 92497.25 360.00 0.0 0 1 1
+  264_Static vehicles.artillery.Artillery$PzVA 2 157041.16 97650.56 360.00 0.0 0 1 1
+  265_Static vehicles.artillery.Artillery$PzVA 2 159597.21 94187.53 360.00 0.0 0 1 1
+  266_Static vehicles.artillery.Artillery$PzVA 2 156299.09 93321.78 360.00 0.0 0 1 1
+  267_Static vehicles.artillery.Artillery$PzVA 2 156257.86 109812.39 360.00 0.0 0 1 1
+  268_Static vehicles.artillery.Artillery$PzVA 2 155185.97 106143.23 360.00 0.0 0 1 1
+  269_Static vehicles.artillery.Artillery$PzVA 2 159679.66 106266.91 360.00 0.0 0 1 1
+  270_Static vehicles.artillery.Artillery$PzVA 2 160792.78 102927.56 360.00 0.0 0 1 1
+  271_Static vehicles.artillery.Artillery$PzVA 2 163060.24 104823.98 360.00 0.0 0 1 1
+  272_Static vehicles.artillery.Artillery$PzVA 2 168213.55 96248.86 360.00 0.0 0 1 1
+  273_Static vehicles.artillery.Artillery$PzVA 2 166069.77 92249.89 360.00 0.0 0 1 1
+  274_Static vehicles.artillery.Artillery$PzVA 2 169532.80 91219.22 360.00 0.0 0 1 1
+  275_Static vehicles.artillery.Artillery$PzVA 2 171140.64 94847.16 360.00 0.0 0 1 1
+  276_Static vehicles.artillery.Artillery$PzVA 2 176664.99 94723.48 360.00 0.0 0 1 1
+  277_Static vehicles.artillery.Artillery$PzVA 2 174727.34 91713.94 360.00 0.0 0 1 1
+  278_Static vehicles.artillery.Artillery$PzVA 2 178355.28 91631.49 360.00 0.0 0 1 1
+  279_Static vehicles.artillery.Artillery$PzVA 2 183055.10 96083.95 360.00 0.0 0 1 1
+  280_Static vehicles.artillery.Artillery$PzVA 2 187837.38 95548.01 360.00 0.0 0 1 1
+  281_Static vehicles.artillery.Artillery$PzVA 2 184374.35 93363.00 360.00 0.0 0 1 1
+  282_Static vehicles.artillery.Artillery$PzVA 2 181035.00 114924.48 360.00 0.0 0 1 1
+  283_Static vehicles.artillery.Artillery$PzVA 2 184869.07 112657.02 360.00 0.0 0 1 1
+  284_Static vehicles.artillery.Artillery$PzVA 2 180952.55 111172.86 360.00 0.0 0 1 1
+  285_Static vehicles.artillery.Artillery$PzVA 2 179509.62 109152.76 360.00 0.0 0 1 1
+  286_Static vehicles.artillery.Artillery$PzVA 2 178561.41 105566.05 360.00 0.0 0 1 1
+  287_Static vehicles.artillery.Artillery$PzVA 2 182230.57 106596.72 360.00 0.0 0 1 1
+  288_Static vehicles.artillery.Artillery$PzVA 2 182972.65 102391.61 360.00 0.0 0 1 1
+  289_Static vehicles.artillery.Artillery$PzVA 2 153083.42 77944.28 360.00 0.0 0 1 1
+  290_Static vehicles.artillery.Artillery$PzVA 2 151186.10 75800.50 360.00 0.0 0 1 1
+  291_Static vehicles.artillery.Artillery$PzVA 2 163183.92 83633.54 360.00 0.0 0 1 1
+  292_Static vehicles.artillery.Artillery$PzVA 2 165080.34 81613.44 360.00 0.0 0 1 1
+  293_Static vehicles.artillery.Artillery$PzVA 2 176417.63 88127.23 360.00 0.0 0 1 1
+  294_Static vehicles.artillery.Artillery$PzVA 2 179385.94 85983.45 360.00 0.0 0 1 1
+  295_Static vehicles.artillery.Artillery$PzVA 2 177242.16 84087.03 360.00 0.0 0 1 1
+  296_Static vehicles.artillery.Artillery$PzVA 2 164255.81 79057.40 360.00 0.0 0 1 1
+  297_Static vehicles.artillery.Artillery$PzVA 2 160627.87 75470.69 360.00 0.0 0 1 1
+  298_Static vehicles.artillery.Artillery$PzVA 2 164008.45 74893.52 360.00 0.0 0 1 1
+  299_Static vehicles.artillery.Artillery$PzVA 2 170398.56 71059.45 360.00 0.0 0 1 1
+  300_Static vehicles.artillery.Artillery$PzVA 2 171594.13 75223.33 360.00 0.0 0 1 1
+  301_Static vehicles.artillery.Artillery$PzVA 2 189486.44 79510.89 360.00 0.0 0 1 1
+  302_Static vehicles.artillery.Artillery$PzVA 2 185982.19 78727.58 360.00 0.0 0 1 1
+  303_Static vehicles.artillery.Artillery$PzVA 2 189074.18 75553.14 360.00 0.0 0 1 1
+  304_Static vehicles.artillery.Artillery$PzVA 2 190640.78 79222.30 360.00 0.0 0 1 1
+  305_Static vehicles.artillery.Artillery$PzVA 2 194062.59 78315.32 360.00 0.0 0 1 1
+  306_Static vehicles.artillery.Artillery$PzVA 2 191960.03 73574.27 360.00 0.0 0 1 1
+  307_Static vehicles.artillery.Artillery$PzVA 2 175922.91 69080.58 360.00 0.0 0 1 1
+  308_Static vehicles.artillery.Artillery$PzVA 2 173573.00 65741.23 360.00 0.0 0 1 1
+  309_Static vehicles.artillery.Artillery$PzVA 2 176335.18 65576.32 360.00 0.0 0 1 1
+  310_Static vehicles.artillery.Artillery$PzVA 2 154938.61 67802.55 360.00 0.0 0 1 1
+  311_Static vehicles.artillery.Artillery$PzVA 2 159143.72 68833.22 360.00 0.0 0 1 1
+  312_Static vehicles.artillery.Artillery$PzVA 2 159102.49 62814.14 360.00 0.0 0 1 1
+  313_Static vehicles.artillery.Artillery$PzVA 2 155557.01 63308.86 360.00 0.0 0 1 1
+  314_Static vehicles.artillery.Artillery$PzVA 2 160669.10 69080.58 360.00 0.0 0 1 1
+  315_Static vehicles.artillery.Artillery$PzVA 2 164173.35 68214.82 360.00 0.0 0 1 1
+  316_Static vehicles.artillery.Artillery$PzVA 2 163348.82 64215.85 360.00 0.0 0 1 1
+  317_Static vehicles.artillery.Artillery$PzVA 2 160669.10 63350.09 360.00 0.0 0 1 1
+  318_Static vehicles.artillery.Artillery$PzVA 2 180746.42 69369.16 360.00 0.0 0 1 1
+  319_Static vehicles.artillery.Artillery$PzVA 2 184333.13 69163.03 360.00 0.0 0 1 1
+  320_Static vehicles.artillery.Artillery$PzVA 2 183549.82 65782.45 360.00 0.0 0 1 1
+  321_Static vehicles.artillery.Artillery$PzVA 2 191053.05 68585.86 360.00 0.0 0 1 1
+  322_Static vehicles.artillery.Artillery$PzVA 2 194309.95 68338.50 360.00 0.0 0 1 1
+  323_Static vehicles.artillery.Artillery$PzVA 2 194639.76 64339.53 360.00 0.0 0 1 1
+  324_Static vehicles.artillery.Artillery$PzVA 2 190970.60 63102.73 360.00 0.0 0 1 1
+  325_Static vehicles.artillery.Artillery$PzVA 2 192289.85 65906.13 360.00 0.0 0 1 1
+  326_Static vehicles.artillery.Artillery$PzVA 2 192578.43 80912.59 360.00 0.0 0 1 1
+  327_Static vehicles.artillery.Artillery$PzVA 2 194969.57 84416.85 360.00 0.0 0 1 1
+  328_Static vehicles.artillery.Artillery$PzVA 2 191753.90 84499.30 360.00 0.0 0 1 1
+  329_Static vehicles.artillery.Artillery$PzVA 2 180787.64 85694.87 360.00 0.0 0 1 1
+  330_Static vehicles.artillery.Artillery$PzVA 2 184456.81 88663.18 360.00 0.0 0 1 1
+  331_Static vehicles.artillery.Artillery$PzVA 2 146734.53 58691.49 360.00 0.0 0 1 1
+  332_Static vehicles.artillery.Artillery$PzVA 2 149579.16 56506.49 360.00 0.0 0 1 1
+  333_Static vehicles.artillery.Artillery$PzVA 2 145621.42 51806.66 360.00 0.0 0 1 1
+  334_Static vehicles.artillery.Artillery$PzVA 2 155309.65 53414.50 360.00 0.0 0 1 1
+  335_Static vehicles.artillery.Artillery$PzVA 2 154443.89 58691.49 360.00 0.0 0 1 1
+  336_Static vehicles.artillery.Artillery$PzVA 2 159102.49 58031.87 360.00 0.0 0 1 1
+  337_Static vehicles.artillery.Artillery$PzVA 2 155350.88 46983.16 360.00 0.0 0 1 1
+  338_Static vehicles.artillery.Artillery$PzVA 2 152629.93 41005.31 360.00 0.0 0 1 1
+  339_Static vehicles.artillery.Artillery$PzVA 2 158896.36 40716.73 360.00 0.0 0 1 1
+  340_Static vehicles.artillery.Artillery$PzVA 2 155598.24 43726.26 360.00 0.0 0 1 1
+  341_Static vehicles.artillery.Artillery$PzVA 2 166399.59 59186.21 360.00 0.0 0 1 1
+  342_Static vehicles.artillery.Artillery$PzVA 2 169409.12 57702.06 360.00 0.0 0 1 1
+  343_Static vehicles.artillery.Artillery$PzVA 2 166853.08 54651.29 360.00 0.0 0 1 1
+  344_Static vehicles.artillery.Artillery$PzVA 2 170316.11 55846.86 360.00 0.0 0 1 1
+  345_Static vehicles.artillery.Artillery$PzVA 2 173449.32 57537.15 360.00 0.0 0 1 1
+  346_Static vehicles.artillery.Artillery$PzVA 2 181941.99 57331.02 360.00 0.0 0 1 1
+  347_Static vehicles.artillery.Artillery$PzVA 2 186064.64 56300.35 360.00 0.0 0 1 1
+  348_Static vehicles.artillery.Artillery$PzVA 2 185116.43 52672.42 360.00 0.0 0 1 1
+  349_Static vehicles.artillery.Artillery$PzVA 2 172212.53 49291.84 360.00 0.0 0 1 1
+  350_Static vehicles.artillery.Artillery$PzVA 2 173902.81 46117.40 360.00 0.0 0 1 1
+  351_Static vehicles.artillery.Artillery$PzVA 2 176335.18 49126.94 360.00 0.0 0 1 1
+  352_Static vehicles.artillery.Artillery$PzVA 2 160380.51 40386.91 360.00 0.0 0 1 1
+  353_Static vehicles.artillery.Artillery$PzVA 2 164297.03 44056.07 360.00 0.0 0 1 1
+  354_Static vehicles.artillery.Artillery$PzVA 2 165368.92 40428.14 360.00 0.0 0 1 1
+  355_Static vehicles.artillery.Artillery$PzVA 2 154278.99 39479.93 360.00 0.0 0 1 1
+  356_Static vehicles.artillery.Artillery$PzVA 2 159308.62 39438.70 360.00 0.0 0 1 1
+  357_Static vehicles.artillery.Artillery$PzVA 2 160834.00 39397.48 360.00 0.0 0 1 1
+  358_Static vehicles.artillery.Artillery$PzVA 2 164585.62 35893.22 360.00 0.0 0 1 1
+  359_Static vehicles.artillery.Artillery$PzVA 2 168749.50 38902.76 360.00 0.0 0 1 1
+  360_Static vehicles.artillery.Artillery$PzVA 2 175716.78 38985.21 360.00 0.0 0 1 1
+  361_Static vehicles.artillery.Artillery$PzVA 2 173325.64 33955.57 360.00 0.0 0 1 1
+  362_Static vehicles.artillery.Artillery$PzVA 2 181777.08 38531.72 360.00 0.0 0 1 1
+  363_Static vehicles.artillery.Artillery$PzVA 2 182354.25 33295.95 360.00 0.0 0 1 1
+  364_Static vehicles.artillery.Artillery$PzVA 2 143931.13 37459.83 360.00 0.0 0 1 1
+  365_Static vehicles.artillery.Artillery$PzVA 2 149249.35 39727.29 360.00 0.0 0 1 1
+  366_Static vehicles.artillery.Artillery$PzVA 2 146816.98 49415.52 360.00 0.0 0 1 1
+  367_Static vehicles.artillery.Artillery$PzVA 2 148960.76 47189.29 360.00 0.0 0 1 1
+  368_Static vehicles.artillery.Artillery$PzVA 2 143106.60 43849.94 360.00 0.0 0 1 1
+  369_Static vehicles.artillery.Artillery$PzVA 2 142694.33 21422.71 360.00 0.0 0 1 1
+  370_Static vehicles.artillery.Artillery$PzVA 2 142818.01 25957.63 360.00 0.0 0 1 1
+  371_Static vehicles.artillery.Artillery$PzVA 2 151186.10 20556.95 360.00 0.0 0 1 1
+  372_Static vehicles.artillery.Artillery$PzVA 2 156670.13 20515.73 360.00 0.0 0 1 1
+  373_Static vehicles.artillery.Artillery$PzVA 2 153907.95 22329.69 360.00 0.0 0 1 1
+  374_Static vehicles.artillery.Artillery$PzVA 2 162029.57 28761.03 360.00 0.0 0 1 1
+  375_Static vehicles.artillery.Artillery$PzVA 2 167100.44 24473.47 360.00 0.0 0 1 1
+  376_Static vehicles.artillery.Artillery$PzVA 2 163101.46 21175.35 360.00 0.0 0 1 1
+  377_Static vehicles.artillery.Artillery$PzVA 2 171099.41 26204.99 360.00 0.0 0 1 1
+  378_Static vehicles.artillery.Artillery$PzVA 2 175304.52 21670.07 360.00 0.0 0 1 1
+  379_Static vehicles.artillery.Artillery$PzVA 2 172130.07 21216.58 360.00 0.0 0 1 1
+  380_Static vehicles.artillery.Artillery$PzVA 2 186311.10 20062.23 360.00 0.0 0 1 1
+  381_Static vehicles.artillery.Artillery$PzVA 2 188249.65 24432.25 360.00 0.0 0 1 1
+  382_Static vehicles.artillery.Artillery$PzVA 2 191341.64 25710.27 360.00 0.0 0 1 1
+  383_Static vehicles.artillery.Artillery$PzVA 2 191341.64 29090.84 360.00 0.0 0 1 1
+  384_Static vehicles.artillery.Artillery$PzVA 2 149015.67 19370.58 360.00 0.0 0 1 1
+  385_Static vehicles.artillery.Artillery$PzVA 2 145965.22 14959.79 360.00 0.0 0 1 1
+  386_Static vehicles.artillery.Artillery$PzVA 2 149098.12 13104.78 360.00 0.0 0 1 1
+  387_Static vehicles.artillery.Artillery$PzVA 2 151530.24 18958.36 360.00 0.0 0 1 1
+  388_Static vehicles.artillery.Artillery$PzVA 2 151365.35 13063.56 360.00 0.0 0 1 1
+  389_Static vehicles.artillery.Artillery$PzVA 2 155734.92 18628.58 360.00 0.0 0 1 1
+  390_Static vehicles.artillery.Artillery$PzVA 2 156188.37 12981.12 360.00 0.0 0 1 1
+  391_Static vehicles.artillery.Artillery$PzVA 2 161093.83 18999.58 360.00 0.0 0 1 1
+  392_Static vehicles.artillery.Artillery$PzVA 2 167813.07 18875.91 360.00 0.0 0 1 1
+  393_Static vehicles.artillery.Artillery$PzVA 2 165051.18 14465.12 360.00 0.0 0 1 1
+  394_Static vehicles.artillery.Artillery$PzVA 2 173007.09 15619.35 360.00 0.0 0 1 1
+  395_Static vehicles.artillery.Artillery$PzVA 2 174120.10 19370.58 360.00 0.0 0 1 1
+  396_Static vehicles.artillery.Artillery$PzVA 2 181086.68 13846.78 360.00 0.0 0 1 1
+  397_Static vehicles.artillery.Artillery$PzVA 2 184714.25 15124.68 360.00 0.0 0 1 1
+  398_Static vehicles.artillery.Artillery$PzVA 2 191144.93 17062.13 360.00 0.0 0 1 1
+  399_Static vehicles.artillery.Artillery$PzVA 2 195720.62 14547.57 360.00 0.0 0 1 1
+  400_Static vehicles.artillery.Artillery$PzVA 2 194112.95 36601.53 360.00 0.0 0 1 1
+  401_Static vehicles.artillery.Artillery$PzVA 2 193316.38 30752.71 360.00 0.0 0 1 1
+  402_Static vehicles.artillery.Artillery$PzVA 2 140647.53 9481.14 360.00 0.0 0 1 1
+  403_Static vehicles.artillery.Artillery$PzVA 2 140853.65 4823.02 360.00 0.0 0 1 1
+  404_Static vehicles.artillery.Artillery$PzVA 2 144563.66 6142.13 360.00 0.0 0 1 1
+  406_Static vehicles.artillery.Artillery$PzVA 2 151241.68 9110.14 360.00 0.0 0 1 1
+  407_Static vehicles.artillery.Artillery$PzVA 2 156930.37 8739.14 360.00 0.0 0 1 1
+  410_Static vehicles.artillery.Artillery$PzVA 2 156229.59 3215.34 360.00 0.0 0 1 1
+  411_Static vehicles.artillery.Artillery$PzVA 2 150705.79 3050.46 360.00 0.0 0 1 1
+  412_Static vehicles.artillery.Artillery$PzVA 2 154621.92 6348.24 360.00 0.0 0 1 1
+  413_Static vehicles.artillery.Artillery$PzVA 2 162412.94 9068.92 360.00 0.0 0 1 1
+  414_Static vehicles.artillery.Artillery$PzVA 2 163855.73 5771.13 360.00 0.0 0 1 1
+  415_Static vehicles.artillery.Artillery$PzVA 2 171069.64 8368.14 360.00 0.0 0 1 1
+  416_Static vehicles.artillery.Artillery$PzVA 2 176428.55 6307.02 360.00 0.0 0 1 1
+  417_Static vehicles.artillery.Artillery$PzVA 2 175233.10 2061.12 360.00 0.0 0 1 1
+  418_Static vehicles.artillery.Artillery$PzVA 2 172594.87 4781.79 360.00 0.0 0 1 1
+  419_Static vehicles.artillery.Artillery$PzVA 2 188877.70 6636.80 360.00 0.0 0 1 1
+  420_Static vehicles.artillery.Artillery$PzVA 2 188259.37 948.11 360.00 0.0 0 1 1
+  421_Static vehicles.artillery.Artillery$PzVA 2 190650.27 2555.79 360.00 0.0 0 1 1
+  422_Static vehicles.artillery.Artillery$PzVA 2 193494.61 5812.35 360.00 0.0 0 1 1
+  423_Static vehicles.artillery.Artillery$PzVA 2 190567.82 6471.91 360.00 0.0 0 1 1
+  424_Static vehicles.artillery.Artillery$PzVA 2 208169.77 3792.46 360.00 0.0 0 1 1
+  425_Static vehicles.artillery.Artillery$PzVA 2 205778.88 8203.25 360.00 0.0 0 1 1
+  426_Static vehicles.artillery.Artillery$PzVA 2 216496.69 9357.48 360.00 0.0 0 1 1
+  427_Static vehicles.artillery.Artillery$PzVA 2 217568.21 13925.45 360.00 0.0 0 1 1
+  428_Static vehicles.artillery.Artillery$PzVA 2 213652.35 10882.71 360.00 0.0 0 1 1
+  429_Static vehicles.artillery.Artillery$PzVA 2 217321.14 13438.49 360.00 0.0 0 1 1
+  430_Static vehicles.artillery.Artillery$PzVA 2 207427.77 13727.05 360.00 0.0 0 1 1
+  431_Static vehicles.artillery.Artillery$PzVA 2 204253.65 16736.28 360.00 0.0 0 1 1
+  432_Static vehicles.artillery.Artillery$PzVA 2 203387.98 23290.64 360.00 0.0 0 1 1
+  433_Static vehicles.artillery.Artillery$PzVA 2 206644.55 20569.96 360.00 0.0 0 1 1
+  434_Static vehicles.artillery.Artillery$PzVA 2 211137.78 24650.98 360.00 0.0 0 1 1
+  435_Static vehicles.artillery.Artillery$PzVA 2 216991.36 19786.74 360.00 0.0 0 1 1
+  436_Static vehicles.artillery.Artillery$PzVA 2 215589.80 25557.87 360.00 0.0 0 1 1
+  437_Static vehicles.artillery.Artillery$PzVA 2 224246.50 15004.94 360.00 0.0 0 1 1
+  438_Static vehicles.artillery.Artillery$PzVA 2 224741.16 11501.04 360.00 0.0 0 1 1
+  439_Static vehicles.artillery.Artillery$PzVA 2 232326.08 17395.84 360.00 0.0 0 1 1
+  440_Static vehicles.artillery.Artillery$PzVA 2 234593.31 19415.74 360.00 0.0 0 1 1
+  441_Static vehicles.artillery.Artillery$PzVA 2 246506.57 14262.94 360.00 0.0 0 1 1
+  442_Static vehicles.artillery.Artillery$PzVA 2 248938.69 16406.50 360.00 0.0 0 1 1
+  443_Static vehicles.artillery.Artillery$PzVA 2 232161.19 20322.63 360.00 0.0 0 1 1
+  444_Static vehicles.artillery.Artillery$PzVA 2 235665.09 20363.85 360.00 0.0 0 1 1
+  445_Static vehicles.artillery.Artillery$PzVA 2 220495.26 27701.43 360.00 0.0 0 1 1
+  446_Static vehicles.artillery.Artillery$PzVA 2 223999.16 25887.65 360.00 0.0 0 1 1
+  447_Static vehicles.artillery.Artillery$PzVA 2 222309.04 3462.68 360.00 0.0 0 1 1
+  448_Static vehicles.artillery.Artillery$PzVA 2 220618.93 7461.25 360.00 0.0 0 1 1
+  449_Static vehicles.artillery.Artillery$PzVA 2 238839.21 6471.91 360.00 0.0 0 1 1
+  450_Static vehicles.artillery.Artillery$PzVA 2 235087.98 1071.78 360.00 0.0 0 1 1
+  451_Static vehicles.artillery.Artillery$PzVA 2 239333.88 577.11 360.00 0.0 0 1 1
+  452_Static vehicles.artillery.Artillery$PzVA 2 235912.43 4575.68 360.00 0.0 0 1 1
+  453_Static vehicles.artillery.Artillery$PzVA 2 240652.10 7832.25 360.00 0.0 0 1 1
+  454_Static vehicles.artillery.Artillery$PzVA 2 249021.14 7667.36 360.00 0.0 0 1 1
+  455_Static vehicles.artillery.Artillery$PzVA 2 245105.01 4328.35 360.00 0.0 0 1 1
+  456_Static vehicles.artillery.Artillery$PzVA 2 240900.33 989.34 360.00 0.0 0 1 1
+  457_Static vehicles.artillery.Artillery$PzVA 2 248856.25 948.11 360.00 0.0 0 1 1
+  458_Static vehicles.artillery.Artillery$PzVA 2 245105.01 26464.76 360.00 0.0 0 1 1
+  459_Static vehicles.artillery.Artillery$PzVA 2 248526.47 22713.52 360.00 0.0 0 1 1
+  460_Static vehicles.artillery.Artillery$PzVA 2 204500.98 37388.69 360.00 0.0 0 1 1
+  461_Static vehicles.artillery.Artillery$PzVA 2 203058.20 32029.78 360.00 0.0 0 1 1
+  462_Static vehicles.artillery.Artillery$PzVA 2 209241.55 31864.89 360.00 0.0 0 1 1
+  463_Static vehicles.artillery.Artillery$PzVA 2 208252.22 36110.79 360.00 0.0 0 1 1
+  464_Static vehicles.artillery.Artillery$PzVA 2 214353.13 30504.55 360.00 0.0 0 1 1
+  465_Static vehicles.artillery.Artillery$PzVA 2 214641.68 35368.79 360.00 0.0 0 1 1
+  466_Static vehicles.artillery.Artillery$PzVA 2 223339.60 32854.23 360.00 0.0 0 1 1
+  467_Static vehicles.artillery.Artillery$PzVA 2 223751.83 30339.66 360.00 0.0 0 1 1
+  468_Static vehicles.artillery.Artillery$PzVA 2 236365.87 33555.01 360.00 0.0 0 1 1
+  469_Static vehicles.artillery.Artillery$PzVA 2 237190.32 30875.55 360.00 0.0 0 1 1
+  470_Static vehicles.artillery.Artillery$PzVA 2 240611.78 32813.00 360.00 0.0 0 1 1
+  471_Static vehicles.artillery.Artillery$PzVA 2 242137.00 35657.35 360.00 0.0 0 1 1
+  472_Static vehicles.artillery.Artillery$PzVA 2 227420.62 40315.48 360.00 0.0 0 1 1
+  473_Static vehicles.artillery.Artillery$PzVA 2 229358.07 43365.93 360.00 0.0 0 1 1
+  474_Static vehicles.artillery.Artillery$PzVA 2 217815.81 42211.70 360.00 0.0 0 1 1
+  475_Static vehicles.artillery.Artillery$PzVA 2 217238.69 46333.94 360.00 0.0 0 1 1
+  476_Static vehicles.artillery.Artillery$PzVA 2 215424.91 44025.49 360.00 0.0 0 1 1
+  477_Static vehicles.artillery.Artillery$PzVA 2 202357.42 46911.05 360.00 0.0 0 1 1
+  478_Static vehicles.artillery.Artillery$PzVA 2 200378.75 41881.93 360.00 0.0 0 1 1
+  479_Static vehicles.artillery.Artillery$PzVA 2 203552.87 43448.38 360.00 0.0 0 1 1
+  480_Static vehicles.artillery.Artillery$PzVA 2 204583.43 50538.62 360.00 0.0 0 1 1
+  481_Static vehicles.artillery.Artillery$PzVA 2 209159.11 51940.18 360.00 0.0 0 1 1
+  482_Static vehicles.artillery.Artillery$PzVA 2 212292.01 50414.96 360.00 0.0 0 1 1
+  483_Static vehicles.artillery.Artillery$PzVA 2 217857.03 50785.96 360.00 0.0 0 1 1
+  484_Static vehicles.artillery.Artillery$PzVA 2 224122.83 50373.73 360.00 0.0 0 1 1
+  485_Static vehicles.artillery.Artillery$PzVA 2 227296.95 52723.41 360.00 0.0 0 1 1
+  486_Static vehicles.artillery.Artillery$PzVA 2 230471.07 55815.09 360.00 0.0 0 1 1
+  487_Static vehicles.artillery.Artillery$PzVA 2 231501.63 51734.07 360.00 0.0 0 1 1
+  488_Static vehicles.artillery.Artillery$PzVA 2 233315.42 43365.93 360.00 0.0 0 1 1
+  489_Static vehicles.artillery.Artillery$PzVA 2 236242.21 47117.17 360.00 0.0 0 1 1
+  490_Static vehicles.artillery.Artillery$PzVA 2 237149.10 44190.38 360.00 0.0 0 1 1
+  491_Static vehicles.artillery.Artillery$PzVA 2 246877.58 42211.70 360.00 0.0 0 1 1
+  492_Static vehicles.artillery.Artillery$PzVA 2 246053.13 47982.84 360.00 0.0 0 1 1
+  493_Static vehicles.artillery.Artillery$PzVA 2 250670.03 47199.61 360.00 0.0 0 1 1
+  494_Static vehicles.artillery.Artillery$PzVA 2 251247.15 42871.26 360.00 0.0 0 1 1
+  495_Static vehicles.artillery.Artillery$PzVA 2 251535.70 34544.34 360.00 0.0 0 1 1
+  496_Static vehicles.artillery.Artillery$PzVA 2 251783.04 38171.91 360.00 0.0 0 1 1
+  497_Static vehicles.artillery.Artillery$PzVA 2 245805.79 57340.31 360.00 0.0 0 1 1
+  498_Static vehicles.artillery.Artillery$PzVA 2 248444.03 54124.97 360.00 0.0 0 1 1
+  499_Static vehicles.artillery.Artillery$PzVA 2 201161.97 85907.41 360.00 0.0 0 1 1
+  500_Static vehicles.artillery.Artillery$PzVA 2 201409.30 81908.85 360.00 0.0 0 1 1
+  501_Static vehicles.artillery.Artillery$PzVA 2 208087.33 78404.94 360.00 0.0 0 1 1
+  502_Static vehicles.artillery.Artillery$PzVA 2 201285.64 71685.70 360.00 0.0 0 1 1
+  503_Static vehicles.artillery.Artillery$PzVA 2 208994.22 70778.81 360.00 0.0 0 1 1
+  504_Static vehicles.artillery.Artillery$PzVA 2 203800.20 75807.93 360.00 0.0 0 1 1
+  505_Static vehicles.artillery.Artillery$PzVA 2 208499.55 74653.71 360.00 0.0 0 1 1
+  506_Static vehicles.artillery.Artillery$PzVA 2 210766.78 72757.48 360.00 0.0 0 1 1
+  507_Static vehicles.artillery.Artillery$PzVA 2 215837.13 76879.72 360.00 0.0 0 1 1
+  508_Static vehicles.artillery.Artillery$PzVA 2 211632.45 76137.71 360.00 0.0 0 1 1
+  509_Static vehicles.artillery.Artillery$PzVA 2 210478.23 67398.57 360.00 0.0 0 1 1
+  510_Static vehicles.artillery.Artillery$PzVA 2 215177.58 69377.25 360.00 0.0 0 1 1
+  511_Static vehicles.artillery.Artillery$PzVA 2 220701.37 76508.71 360.00 0.0 0 1 1
+  512_Static vehicles.artillery.Artillery$PzVA 2 226142.73 78652.28 360.00 0.0 0 1 1
+  513_Static vehicles.artillery.Artillery$PzVA 2 232861.97 74365.15 360.00 0.0 0 1 1
+  514_Static vehicles.artillery.Artillery$PzVA 2 236778.10 72551.37 360.00 0.0 0 1 1
+  515_Static vehicles.artillery.Artillery$PzVA 2 236407.09 64059.56 360.00 0.0 0 1 1
+  516_Static vehicles.artillery.Artillery$PzVA 2 238962.88 66656.57 360.00 0.0 0 1 1
+  517_Static vehicles.artillery.Artillery$PzVA 2 222844.94 65255.01 360.00 0.0 0 1 1
+  518_Static vehicles.artillery.Artillery$PzVA 2 223875.49 69542.13 360.00 0.0 0 1 1
+  519_Static vehicles.artillery.Artillery$PzVA 2 245063.79 60390.77 360.00 0.0 0 1 1
+  520_Static vehicles.artillery.Artillery$PzVA 2 246753.91 63235.11 360.00 0.0 0 1 1
+  521_Static vehicles.artillery.Artillery$PzVA 2 212044.68 61833.55 360.00 0.0 0 1 1
+  522_Static vehicles.artillery.Artillery$PzVA 2 214682.91 65213.79 360.00 0.0 0 1 1
+  523_Static vehicles.artillery.Artillery$PzVA 2 215795.91 61668.66 360.00 0.0 0 1 1
+  524_Static vehicles.artillery.Artillery$PzVA 2 200914.64 68758.91 360.00 0.0 0 1 1
+  525_Static vehicles.artillery.Artillery$PzVA 2 200667.30 62204.55 360.00 0.0 0 1 1
+  526_Static vehicles.artillery.Artillery$PzVA 2 204212.43 65832.12 360.00 0.0 0 1 1
+  527_Static vehicles.artillery.Artillery$PzVA 2 265798.64 69171.13 360.00 0.0 0 1 1
+  528_Static vehicles.artillery.Artillery$PzVA 2 268313.21 66697.79 360.00 0.0 0 1 1
+  529_Static vehicles.artillery.Artillery$PzVA 2 260810.74 61173.99 360.00 0.0 0 1 1
+  530_Static vehicles.artillery.Artillery$PzVA 2 263325.30 60308.32 360.00 0.0 0 1 1
+  531_Static vehicles.artillery.Artillery$PzVA 2 259038.17 57711.32 360.00 0.0 0 1 1
+  532_Static vehicles.artillery.Artillery$PzVA 2 259079.40 53960.08 360.00 0.0 0 1 1
+  533_Static vehicles.artillery.Artillery$PzVA 2 260687.07 56928.09 360.00 0.0 0 1 1
+  534_Static vehicles.artillery.Artillery$PzVA 2 260563.40 52393.63 360.00 0.0 0 1 1
+  535_Static vehicles.artillery.Artillery$PzVA 2 270374.33 50662.29 360.00 0.0 0 1 1
+  536_Static vehicles.artillery.Artillery$PzVA 2 273795.78 53960.08 360.00 0.0 0 1 1
+  537_Static vehicles.artillery.Artillery$PzVA 2 282246.37 57834.98 360.00 0.0 0 1 1
+  538_Static vehicles.artillery.Artillery$PzVA 2 281257.03 53176.85 360.00 0.0 0 1 1
+  539_Static vehicles.artillery.Artillery$PzVA 2 291356.51 54784.53 360.00 0.0 0 1 1
+  540_Static vehicles.artillery.Artillery$PzVA 2 291191.62 50909.62 360.00 0.0 0 1 1
+  541_Static vehicles.artillery.Artillery$PzVA 2 261814.17 45056.05 360.00 0.0 0 1 1
+  542_Static vehicles.artillery.Artillery$PzVA 2 261237.06 40604.03 360.00 0.0 0 1 1
+  543_Static vehicles.artillery.Artillery$PzVA 2 270512.09 47323.28 360.00 0.0 0 1 1
+  544_Static vehicles.artillery.Artillery$PzVA 2 273026.66 42953.71 360.00 0.0 0 1 1
+  545_Static vehicles.artillery.Artillery$PzVA 2 286630.04 40686.48 360.00 0.0 0 1 1
+  546_Static vehicles.artillery.Artillery$PzVA 2 288691.16 45179.72 360.00 0.0 0 1 1
+  547_Static vehicles.artillery.Artillery$PzVA 2 293431.73 48024.06 360.00 0.0 0 1 1
+  548_Static vehicles.artillery.Artillery$PzVA 2 294214.95 44685.05 360.00 0.0 0 1 1
+  549_Static vehicles.artillery.Artillery$PzVA 2 261195.84 39161.25 360.00 0.0 0 1 1
+  550_Static vehicles.artillery.Artillery$PzVA 2 266389.86 38007.02 360.00 0.0 0 1 1
+  551_Static vehicles.artillery.Artillery$PzVA 2 263710.40 35739.79 360.00 0.0 0 1 1
+  552_Static vehicles.artillery.Artillery$PzVA 2 272449.54 39284.92 360.00 0.0 0 1 1
+  553_Static vehicles.artillery.Artillery$PzVA 2 275912.22 36935.24 360.00 0.0 0 1 1
+  554_Static vehicles.artillery.Artillery$PzVA 2 288072.82 33884.79 360.00 0.0 0 1 1
+  555_Static vehicles.artillery.Artillery$PzVA 2 289639.27 38913.92 360.00 0.0 0 1 1
+  556_Static vehicles.artillery.Artillery$PzVA 2 296399.74 34214.57 360.00 0.0 0 1 1
+  557_Static vehicles.artillery.Artillery$PzVA 2 296234.85 37924.58 360.00 0.0 0 1 1
+  558_Static vehicles.artillery.Artillery$PzVA 2 303531.28 43490.61 360.00 0.0 0 1 1
+  559_Static vehicles.artillery.Artillery$PzVA 2 303489.24 46871.63 360.00 0.0 0 1 1
+  560_Static vehicles.artillery.Artillery$PzVA 2 300439.53 36275.68 360.00 0.0 0 1 1
+  561_Static vehicles.artillery.Artillery$PzVA 2 301387.65 39573.47 360.00 0.0 0 1 1
+  562_Static vehicles.artillery.Artillery$PzVA 2 255878.15 25021.98 360.00 0.0 0 1 1
+  563_Static vehicles.artillery.Artillery$PzVA 2 258640.05 23331.86 360.00 0.0 0 1 1
+  564_Static vehicles.artillery.Artillery$PzVA 2 266060.08 24238.75 360.00 0.0 0 1 1
+  565_Static vehicles.artillery.Artillery$PzVA 2 264740.96 28443.43 360.00 0.0 0 1 1
+  566_Static vehicles.artillery.Artillery$PzVA 2 273480.10 25970.09 360.00 0.0 0 1 1
+  567_Static vehicles.artillery.Artillery$PzVA 2 274428.22 29102.99 360.00 0.0 0 1 1
+  568_Static vehicles.artillery.Artillery$PzVA 2 288691.16 24609.75 360.00 0.0 0 1 1
+  569_Static vehicles.artillery.Artillery$PzVA 2 288649.93 28525.88 360.00 0.0 0 1 1
+  570_Static vehicles.artillery.Artillery$PzVA 2 295781.40 23537.97 360.00 0.0 0 1 1
+  571_Static vehicles.artillery.Artillery$PzVA 2 298625.75 21435.63 360.00 0.0 0 1 1
+  572_Static vehicles.artillery.Artillery$PzVA 2 302789.21 22631.08 360.00 0.0 0 1 1
+  573_Static vehicles.artillery.Artillery$PzVA 2 304314.43 27247.99 360.00 0.0 0 1 1
+  574_Static vehicles.artillery.Artillery$PzVA 2 302995.32 13520.94 360.00 0.0 0 1 1
+  575_Static vehicles.artillery.Artillery$PzVA 2 304314.43 16365.28 360.00 0.0 0 1 1
+  576_Static vehicles.artillery.Artillery$PzVA 2 298213.52 10305.59 360.00 0.0 0 1 1
+  577_Static vehicles.artillery.Artillery$PzVA 2 293761.51 10965.15 360.00 0.0 0 1 1
+  578_Static vehicles.artillery.Artillery$PzVA 2 285764.37 12366.71 360.00 0.0 0 1 1
+  579_Static vehicles.artillery.Artillery$PzVA 2 282672.69 15788.17 360.00 0.0 0 1 1
+  580_Static vehicles.artillery.Artillery$PzVA 2 278591.68 10470.48 360.00 0.0 0 1 1
+  581_Static vehicles.artillery.Artillery$PzVA 2 279663.46 14139.27 360.00 0.0 0 1 1
+  582_Static vehicles.artillery.Artillery$PzVA 2 265895.19 12407.93 360.00 0.0 0 1 1
+  583_Static vehicles.artillery.Artillery$PzVA 2 269522.76 15499.61 360.00 0.0 0 1 1
+  584_Static vehicles.artillery.Artillery$PzVA 2 251920.80 12160.60 360.00 0.0 0 1 1
+  585_Static vehicles.artillery.Artillery$PzVA 2 252827.70 15953.06 360.00 0.0 0 1 1
+  586_Static vehicles.artillery.Artillery$PzVA 2 255259.82 7049.02 360.00 0.0 0 1 1
+  587_Static vehicles.artillery.Artillery$PzVA 2 251013.91 4452.02 360.00 0.0 0 1 1
+  588_Static vehicles.artillery.Artillery$PzVA 2 258681.27 2679.45 360.00 0.0 0 1 1
+  589_Static vehicles.artillery.Artillery$PzVA 2 253693.37 2308.45 360.00 0.0 0 1 1
+  590_Static vehicles.artillery.Artillery$PzVA 2 261731.73 5894.80 360.00 0.0 0 1 1
+  591_Static vehicles.artillery.Artillery$PzVA 2 261154.62 2514.56 360.00 0.0 0 1 1
+  592_Static vehicles.artillery.Artillery$PzVA 2 266884.52 3215.34 360.00 0.0 0 1 1
+  593_Static vehicles.artillery.Artillery$PzVA 2 274386.10 4122.24 360.00 0.0 0 1 1
+  594_Static vehicles.artillery.Artillery$PzVA 2 272119.76 2102.34 360.00 0.0 0 1 1
+  595_Static vehicles.artillery.Artillery$PzVA 2 276283.22 2019.90 360.00 0.0 0 1 1
+  596_Static vehicles.artillery.Artillery$PzVA 2 284404.03 1772.56 360.00 0.0 0 1 1
+  597_Static vehicles.artillery.Artillery$PzVA 2 286918.59 4410.79 360.00 0.0 0 1 1
+  598_Static vehicles.artillery.Artillery$PzVA 2 302088.43 9563.59 360.00 0.0 0 1 1
+  599_Static vehicles.artillery.Artillery$PzVA 2 304314.43 6389.47 360.00 0.0 0 1 1
+  600_Static vehicles.artillery.Artillery$PzVA 2 292362.44 879.55 360.00 0.0 0 1 1
+  601_Static vehicles.artillery.Artillery$PzVA 2 298213.33 726.58 360.00 0.0 0 1 1
+  602_Static vehicles.artillery.Artillery$PzVA 2 195086.05 99480.02 360.00 0.0 0 1 1
+  603_Static vehicles.artillery.Artillery$PzVA 2 199160.99 97850.04 360.00 0.0 0 1 1
+  604_Static vehicles.artillery.Artillery$PzVA 2 201377.76 99512.62 360.00 0.0 0 1 1
+  605_Static vehicles.artillery.Artillery$PzVA 2 208777.85 99480.02 360.00 0.0 0 1 1
+  606_Static vehicles.artillery.Artillery$PzVA 2 205550.50 97524.05 360.00 0.0 0 1 1
+  607_Static vehicles.artillery.Artillery$PzVA 2 210505.63 99740.82 360.00 0.0 0 1 1
+  608_Static vehicles.artillery.Artillery$PzVA 2 219274.90 98893.23 360.00 0.0 0 1 1
+  609_Static vehicles.artillery.Artillery$PzVA 2 210831.62 94720.49 360.00 0.0 0 1 1
+  611_Static vehicles.artillery.Artillery$PzVA 2 218883.71 93612.11 360.00 0.0 0 1 1
+  612_Static vehicles.artillery.Artillery$PzVA 2 214841.36 96709.06 360.00 0.0 0 1 1
+  615_Static vehicles.artillery.Artillery$PzVA 2 220709.28 99219.22 360.00 0.0 0 1 1
+  616_Static vehicles.artillery.Artillery$PzVA 2 220904.88 95991.87 360.00 0.0 0 1 1
+  617_Static vehicles.artillery.Artillery$PzVA 2 224327.83 99447.42 360.00 0.0 0 1 1
+  618_Static vehicles.artillery.Artillery$PzVA 2 222665.25 100555.81 360.00 0.0 0 1 1
+  619_Static vehicles.artillery.Artillery$PzVA 2 224979.82 104435.15 360.00 0.0 0 1 1
+  620_Static vehicles.artillery.Artillery$PzVA 2 211190.22 109162.08 360.00 0.0 0 1 1
+  621_Static vehicles.artillery.Artillery$PzVA 2 218329.51 107662.50 360.00 0.0 0 1 1
+  622_Static vehicles.artillery.Artillery$PzVA 2 215199.96 105054.54 360.00 0.0 0 1 1
+  623_Static vehicles.artillery.Artillery$PzVA 2 210831.62 101435.99 360.00 0.0 0 1 1
+  624_Static vehicles.artillery.Artillery$PzVA 2 217025.53 101566.39 360.00 0.0 0 1 1
+  625_Static vehicles.artillery.Artillery$PzVA 2 201051.76 101175.20 360.00 0.0 0 1 1
+  626_Static vehicles.artillery.Artillery$PzVA 2 203170.73 106521.52 360.00 0.0 0 1 1
+  627_Static vehicles.artillery.Artillery$PzVA 2 209560.24 106749.72 360.00 0.0 0 1 1
+  628_Static vehicles.artillery.Artillery$PzVA 2 208093.26 101631.59 360.00 0.0 0 1 1
+  629_Static vehicles.artillery.Artillery$PzVA 2 198900.19 108868.69 360.00 0.0 0 1 1
+  630_Static vehicles.artillery.Artillery$PzVA 2 197824.41 101827.19 360.00 0.0 0 1 1
+  631_Static vehicles.artillery.Artillery$PzVA 2 195803.24 106619.32 360.00 0.0 0 1 1
+  632_Static vehicles.artillery.Artillery$PzVA 2 200888.77 119593.93 360.00 0.0 0 1 1
+  633_Static vehicles.artillery.Artillery$PzVA 2 201508.16 114345.41 360.00 0.0 0 1 1
+  634_Static vehicles.artillery.Artillery$PzVA 2 204833.31 116659.97 360.00 0.0 0 1 1
+  635_Static vehicles.artillery.Artillery$PzVA 2 199454.39 119691.73 360.00 0.0 0 1 1
+  636_Static vehicles.artillery.Artillery$PzVA 2 198965.39 115160.39 360.00 0.0 0 1 1
+  637_Static vehicles.artillery.Artillery$PzVA 2 191206.71 127352.62 360.00 0.0 0 1 1
+  638_Static vehicles.artillery.Artillery$PzVA 2 190685.11 122495.29 360.00 0.0 0 1 1
+  639_Static vehicles.artillery.Artillery$PzVA 2 194727.45 125005.45 360.00 0.0 0 1 1
+  640_Static vehicles.artillery.Artillery$PzVA 2 189087.74 121875.90 360.00 0.0 0 1 1
+  641_Static vehicles.artillery.Artillery$PzVA 2 189446.33 127483.02 360.00 0.0 0 1 1
+  642_Static vehicles.artillery.Artillery$PzVA 2 186023.38 125983.44 360.00 0.0 0 1 1
+  643_Static vehicles.artillery.Artillery$PzVA 2 1033.16 765.30 360.00 0.0 0 1 1
+  644_Static vehicles.artillery.Artillery$PzVA 2 1033.16 5471.92 360.00 0.0 0 1 1
+  645_Static vehicles.artillery.Artillery$PzVA 2 11938.74 6352.02 360.00 0.0 0 1 1
+  646_Static vehicles.artillery.Artillery$PzVA 2 16147.91 5548.45 360.00 0.0 0 1 1
+  647_Static vehicles.artillery.Artillery$PzVA 2 24451.45 8112.22 360.00 0.0 0 1 1
+  648_Static vehicles.artillery.Artillery$PzVA 2 21466.77 4285.70 360.00 0.0 0 1 1
+  649_Static vehicles.artillery.Artillery$PzVA 2 32334.08 841.83 360.00 0.0 0 1 1
+  650_Static vehicles.artillery.Artillery$PzVA 2 36811.11 803.57 360.00 0.0 0 1 1
+  651_Static vehicles.artillery.Artillery$PzVA 2 42895.27 1033.16 360.00 0.0 0 1 1
+  652_Static vehicles.artillery.Artillery$PzVA 2 49323.82 650.51 360.00 0.0 0 1 1
+  653_Static vehicles.artillery.Artillery$PzVA 2 2448.97 11517.82 360.00 0.0 0 1 1
+  654_Static vehicles.artillery.Artillery$PzVA 2 8073.95 11288.23 360.00 0.0 0 1 1
+  655_Static vehicles.artillery.Artillery$PzVA 2 10178.54 13737.20 360.00 0.0 0 1 1
+  656_Static vehicles.artillery.Artillery$PzVA 2 13392.81 17525.45 360.00 0.0 0 1 1
+  657_Static vehicles.artillery.Artillery$PzVA 2 21313.71 10714.25 360.00 0.0 0 1 1
+  658_Static vehicles.artillery.Artillery$PzVA 2 25522.88 11517.82 360.00 0.0 0 1 1
+  659_Static vehicles.artillery.Artillery$PzVA 2 22691.25 14732.10 360.00 0.0 0 1 1
+  660_Static vehicles.artillery.Artillery$PzVA 2 37652.94 10331.60 360.00 0.0 0 1 1
+  661_Static vehicles.artillery.Artillery$PzVA 2 34515.20 12015.27 360.00 0.0 0 1 1
+  662_Static vehicles.artillery.Artillery$PzVA 2 1071.43 22308.60 360.00 0.0 0 1 1
+  663_Static vehicles.artillery.Artillery$PzVA 2 918.36 27818.79 360.00 0.0 0 1 1
+  664_Static vehicles.artillery.Artillery$PzVA 2 12550.98 21428.50 360.00 0.0 0 1 1
+  665_Static vehicles.artillery.Artillery$PzVA 2 17104.54 25637.67 360.00 0.0 0 1 1
+  666_Static vehicles.artillery.Artillery$PzVA 2 13354.55 24948.90 360.00 0.0 0 1 1
+  667_Static vehicles.artillery.Artillery$PzVA 2 20510.14 29425.93 360.00 0.0 0 1 1
+  668_Static vehicles.artillery.Artillery$PzVA 2 26785.63 29234.60 360.00 0.0 0 1 1
+  669_Static vehicles.artillery.Artillery$PzVA 2 22576.46 33711.63 360.00 0.0 0 1 1
+  670_Static vehicles.artillery.Artillery$PzVA 2 28124.91 35548.36 360.00 0.0 0 1 1
+  671_Static vehicles.artillery.Artillery$PzVA 2 24183.60 38609.57 360.00 0.0 0 1 1
+  672_Static vehicles.artillery.Artillery$PzVA 2 33412.80 38150.03 360.00 0.0 0 1 1
+  673_Static vehicles.artillery.Artillery$PzVA 2 37483.22 38150.03 360.00 0.0 0 1 1
+  674_Static vehicles.artillery.Artillery$PzVA 2 30439.63 49582.59 360.00 0.0 0 1 1
+  675_Static vehicles.artillery.Artillery$PzVA 2 37200.06 49582.59 360.00 0.0 0 1 1
+  676_Static vehicles.artillery.Artillery$PzVA 2 30758.18 44414.93 360.00 0.0 0 1 1
+  677_Static vehicles.artillery.Artillery$PzVA 2 25909.08 41689.52 360.00 0.0 0 1 1
+  678_Static vehicles.artillery.Artillery$PzVA 2 28953.04 45582.96 360.00 0.0 0 1 1
+  679_Static vehicles.artillery.Artillery$PzVA 2 15396.79 45689.15 360.00 0.0 0 1 1
+  680_Static vehicles.artillery.Artillery$PzVA 2 11574.14 49724.17 360.00 0.0 0 1 1
+  681_Static vehicles.artillery.Artillery$PzVA 2 637.11 40946.23 360.00 0.0 0 1 1
+  682_Static vehicles.artillery.Artillery$PzVA 2 6123.32 40698.46 360.00 0.0 0 1 1
+  683_Static vehicles.artillery.Artillery$PzVA 2 1061.85 58148.16 360.00 0.0 0 1 1
+  684_Static vehicles.artillery.Artillery$PzVA 2 7999.25 58218.95 360.00 0.0 0 1 1
+  685_Static vehicles.artillery.Artillery$PzVA 2 4424.36 52591.16 360.00 0.0 0 1 1
+  686_Static vehicles.artillery.Artillery$PzVA 2 884.87 53299.05 360.00 0.0 0 1 1
+  687_Static vehicles.artillery.Artillery$PzVA 2 4778.31 55741.30 360.00 0.0 0 1 1
+  688_Static vehicles.artillery.Artillery$PzVA 2 16246.27 51777.07 360.00 0.0 0 1 1
+  689_Static vehicles.artillery.Artillery$PzVA 2 15290.60 56059.86 360.00 0.0 0 1 1
+  690_Static vehicles.artillery.Artillery$PzVA 2 28280.54 59563.95 360.00 0.0 0 1 1
+  691_Static vehicles.artillery.Artillery$PzVA 2 24670.26 54821.04 360.00 0.0 0 1 1
+  692_Static vehicles.artillery.Artillery$PzVA 2 37235.45 58714.48 360.00 0.0 0 1 1
+  693_Static vehicles.artillery.Artillery$PzVA 2 33235.83 53086.68 360.00 0.0 0 1 1
+  694_Static vehicles.artillery.Artillery$PzVA 2 32103.19 57794.21 360.00 0.0 0 1 1
+  695_Static vehicles.artillery.Artillery$PzVA 2 33165.04 60944.36 360.00 0.0 0 1 1
+  696_Static vehicles.artillery.Artillery$PzVA 2 36916.90 65439.51 360.00 0.0 0 1 1
+  697_Static vehicles.artillery.Artillery$PzVA 2 22900.51 63351.21 360.00 0.0 0 1 1
+  698_Static vehicles.artillery.Artillery$PzVA 2 28917.65 64483.85 360.00 0.0 0 1 1
+  699_Static vehicles.artillery.Artillery$PzVA 2 28351.33 60731.99 360.00 0.0 0 1 1
+  700_Static vehicles.artillery.Artillery$PzVA 2 11928.09 60484.22 360.00 0.0 0 1 1
+  701_Static vehicles.artillery.Artillery$PzVA 2 17095.75 60590.41 360.00 0.0 0 1 1
+  702_Static vehicles.artillery.Artillery$PzVA 2 15255.21 64377.66 360.00 0.0 0 1 1
+  703_Static vehicles.artillery.Artillery$PzVA 2 389.34 69439.14 360.00 0.0 0 1 1
+  704_Static vehicles.artillery.Artillery$PzVA 2 3504.10 64306.87 360.00 0.0 0 1 1
+  705_Static vehicles.artillery.Artillery$PzVA 2 42863.25 64413.06 360.00 0.0 0 1 1
+  706_Static vehicles.artillery.Artillery$PzVA 2 44703.78 68766.63 360.00 0.0 0 1 1
+  707_Static vehicles.artillery.Artillery$PzVA 2 45411.68 71138.09 360.00 0.0 0 1 1
+  708_Static vehicles.artillery.Artillery$PzVA 2 48632.62 74712.98 360.00 0.0 0 1 1
+  709_Static vehicles.artillery.Artillery$PzVA 2 31501.48 79349.71 360.00 0.0 0 1 1
+  710_Static vehicles.artillery.Artillery$PzVA 2 37624.80 77544.57 360.00 0.0 0 1 1
+  711_Static vehicles.artillery.Artillery$PzVA 2 24174.73 70536.38 360.00 0.0 0 1 1
+  712_Static vehicles.artillery.Artillery$PzVA 2 24599.47 74500.61 360.00 0.0 0 1 1
+  713_Static vehicles.artillery.Artillery$PzVA 2 10972.42 79491.29 360.00 0.0 0 1 1
+  714_Static vehicles.artillery.Artillery$PzVA 2 16883.38 78712.61 360.00 0.0 0 1 1
+  715_Static vehicles.artillery.Artillery$PzVA 2 11007.82 75350.09 360.00 0.0 0 1 1
+  716_Static vehicles.artillery.Artillery$PzVA 2 601.71 79243.53 360.00 0.0 0 1 1
+  717_Static vehicles.artillery.Artillery$PzVA 2 9238.07 78500.24 360.00 0.0 0 1 1
+  718_Static vehicles.artillery.Artillery$PzVA 2 6725.03 72943.23 360.00 0.0 0 1 1
+  719_Static vehicles.artillery.Artillery$PzVA 2 1274.22 71916.78 360.00 0.0 0 1 1
+  720_Static vehicles.artillery.Artillery$PzVA 2 5309.24 76164.17 360.00 0.0 0 1 1
+  721_Static vehicles.artillery.Artillery$PzVA 2 1911.33 81367.22 360.00 0.0 0 1 1
+  722_Static vehicles.artillery.Artillery$PzVA 2 8070.04 87490.55 360.00 0.0 0 1 1
+  723_Static vehicles.artillery.Artillery$PzVA 2 7751.49 82075.12 360.00 0.0 0 1 1
+  724_Static vehicles.artillery.Artillery$PzVA 2 11821.90 89366.48 360.00 0.0 0 1 1
+  725_Static vehicles.artillery.Artillery$PzVA 2 16564.82 86924.23 360.00 0.0 0 1 1
+  726_Static vehicles.artillery.Artillery$PzVA 2 18723.91 82429.07 360.00 0.0 0 1 1
+  727_Static vehicles.artillery.Artillery$PzVA 2 11538.74 81331.83 360.00 0.0 0 1 1
+  728_Static vehicles.artillery.Artillery$PzVA 2 12069.67 85508.43 360.00 0.0 0 1 1
+  729_Static vehicles.artillery.Artillery$PzVA 2 21520.11 88127.65 360.00 0.0 0 1 1
+  730_Static vehicles.artillery.Artillery$PzVA 2 27537.25 85012.90 360.00 0.0 0 1 1
+  731_Static vehicles.artillery.Artillery$PzVA 2 21484.72 82075.12 360.00 0.0 0 1 1
+  732_Static vehicles.artillery.Artillery$PzVA 2 31147.53 80730.12 360.00 0.0 0 1 1
+  733_Static vehicles.artillery.Artillery$PzVA 2 35253.34 81048.67 360.00 0.0 0 1 1
+  734_Static vehicles.artillery.Artillery$PzVA 2 40916.53 86145.54 360.00 0.0 0 1 1
+  735_Static vehicles.artillery.Artillery$PzVA 2 44349.83 88481.60 360.00 0.0 0 1 1
+  736_Static vehicles.artillery.Artillery$PzVA 2 495.53 99595.61 360.00 0.0 0 1 1
+  738_Static vehicles.artillery.Artillery$PzVA 2 495.53 95171.24 360.00 0.0 0 1 1
+  739_Static vehicles.artillery.Artillery$PzVA 2 12812.96 95595.98 360.00 0.0 0 1 1
+  740_Static vehicles.artillery.Artillery$PzVA 2 18051.41 98993.89 360.00 0.0 0 1 1
+  741_Static vehicles.artillery.Artillery$PzVA 2 18369.96 92764.39 360.00 0.0 0 1 1
+  742_Static vehicles.artillery.Artillery$PzVA 2 14016.39 91844.12 360.00 0.0 0 1 1
+  743_Static vehicles.artillery.Artillery$PzVA 2 23820.78 91030.04 360.00 0.0 0 1 1
+  744_Static vehicles.artillery.Artillery$PzVA 2 24139.33 95312.82 360.00 0.0 0 1 1
+  745_Static vehicles.artillery.Artillery$PzVA 2 33200.43 92799.78 360.00 0.0 0 1 1
+  746_Static vehicles.artillery.Artillery$PzVA 2 37270.85 96940.99 360.00 0.0 0 1 1
+  747_Static vehicles.artillery.Artillery$PzVA 2 42013.77 95135.85 360.00 0.0 0 1 1
+  748_Static vehicles.artillery.Artillery$PzVA 2 46296.55 97896.65 360.00 0.0 0 1 1
+  749_Static vehicles.artillery.Artillery$PzVA 2 41482.84 98958.50 360.00 0.0 0 1 1
+  750_Static vehicles.artillery.Artillery$PzVA 2 41270.47 101860.88 360.00 0.0 0 1 1
+  751_Static vehicles.artillery.Artillery$PzVA 2 44774.57 104480.11 360.00 0.0 0 1 1
+  752_Static vehicles.artillery.Artillery$PzVA 2 46615.11 101577.72 360.00 0.0 0 1 1
+  753_Static vehicles.artillery.Artillery$PzVA 2 13131.51 100799.03 360.00 0.0 0 1 1
+  754_Static vehicles.artillery.Artillery$PzVA 2 11715.72 104055.37 360.00 0.0 0 1 1
+  755_Static vehicles.artillery.Artillery$PzVA 2 18334.57 106179.06 360.00 0.0 0 1 1
+  756_Static vehicles.artillery.Artillery$PzVA 2 17237.33 102391.81 360.00 0.0 0 1 1
+  757_Static vehicles.artillery.Artillery$PzVA 2 6052.53 103241.28 360.00 0.0 0 1 1
+  758_Static vehicles.artillery.Artillery$PzVA 2 5875.56 107524.07 360.00 0.0 0 1 1
+  759_Static vehicles.artillery.Artillery$PzVA 2 8848.73 105860.51 360.00 0.0 0 1 1
+  760_Static vehicles.artillery.Artillery$PzVA 2 22546.56 101506.93 360.00 0.0 0 1 1
+  761_Static vehicles.artillery.Artillery$PzVA 2 24174.73 104409.32 360.00 0.0 0 1 1
+  762_Static vehicles.artillery.Artillery$PzVA 2 33731.36 104161.55 360.00 0.0 0 1 1
+  763_Static vehicles.artillery.Artillery$PzVA 2 38686.65 104303.13 360.00 0.0 0 1 1
+  764_Static vehicles.artillery.Artillery$PzVA 2 601.71 111382.12 360.00 0.0 0 1 1
+  765_Static vehicles.artillery.Artillery$PzVA 2 849.48 118425.70 360.00 0.0 0 1 1
+  766_Static vehicles.artillery.Artillery$PzVA 2 14016.39 110709.61 360.00 0.0 0 1 1
+  767_Static vehicles.artillery.Artillery$PzVA 2 16458.64 112656.33 360.00 0.0 0 1 1
+  768_Static vehicles.artillery.Artillery$PzVA 2 24103.94 115700.30 360.00 0.0 0 1 1
+  769_Static vehicles.artillery.Artillery$PzVA 2 28174.35 119310.58 360.00 0.0 0 1 1
+  770_Static vehicles.artillery.Artillery$PzVA 2 34793.20 118779.65 360.00 0.0 0 1 1
+  771_Static vehicles.artillery.Artillery$PzVA 2 37306.24 115452.53 360.00 0.0 0 1 1
+  772_Static vehicles.artillery.Artillery$PzVA 2 40527.18 112408.57 360.00 0.0 0 1 1
+  773_Static vehicles.artillery.Artillery$PzVA 2 43146.41 115204.77 360.00 0.0 0 1 1
+  774_Static vehicles.artillery.Artillery$PzVA 2 45093.13 121434.27 360.00 0.0 0 1 1
+  775_Static vehicles.artillery.Artillery$PzVA 2 46296.55 127522.20 360.00 0.0 0 1 1
+  776_Static vehicles.artillery.Artillery$PzVA 2 30404.23 128831.81 360.00 0.0 0 1 1
+  777_Static vehicles.artillery.Artillery$PzVA 2 34580.84 128902.60 360.00 0.0 0 1 1
+  778_Static vehicles.artillery.Artillery$PzVA 2 28917.65 127522.20 360.00 0.0 0 1 1
+  779_Static vehicles.artillery.Artillery$PzVA 2 28988.44 123487.18 360.00 0.0 0 1 1
+  780_Static vehicles.artillery.Artillery$PzVA 2 12494.41 129185.76 360.00 0.0 0 1 1
+  781_Static vehicles.artillery.Artillery$PzVA 2 18086.80 129044.18 360.00 0.0 0 1 1
+  782_Static vehicles.artillery.Artillery$PzVA 2 2336.06 128973.39 360.00 0.0 0 1 1
+  783_Static vehicles.artillery.Artillery$PzVA 2 1132.64 122814.67 360.00 0.0 0 1 1
+  784_Static vehicles.artillery.Artillery$PzVA 2 4530.55 125504.69 360.00 0.0 0 1 1
+  785_Static vehicles.artillery.Artillery$PzVA 2 32988.06 134955.13 360.00 0.0 0 1 1
+  786_Static vehicles.artillery.Artillery$PzVA 2 37589.40 137999.09 360.00 0.0 0 1 1
+  787_Static vehicles.artillery.Artillery$PzVA 2 25448.95 138919.36 360.00 0.0 0 1 1
+  788_Static vehicles.artillery.Artillery$PzVA 2 29590.15 133999.47 360.00 0.0 0 1 1
+  789_Static vehicles.artillery.Artillery$PzVA 2 12246.64 138565.41 360.00 0.0 0 1 1
+  790_Static vehicles.artillery.Artillery$PzVA 2 15219.81 139556.47 360.00 0.0 0 1 1
+  791_Static vehicles.artillery.Artillery$PzVA 2 6264.90 134990.53 360.00 0.0 0 1 1
+  792_Static vehicles.artillery.Artillery$PzVA 2 2406.85 139485.68 360.00 0.0 0 1 1
+  793_Static vehicles.artillery.Artillery$PzVA 2 9238.07 139379.50 360.00 0.0 0 1 1
+  794_Static vehicles.artillery.Artillery$PzVA 2 1415.80 146069.14 360.00 0.0 0 1 1
+  795_Static vehicles.artillery.Artillery$PzVA 2 1486.59 141397.01 360.00 0.0 0 1 1
+  796_Static vehicles.artillery.Artillery$PzVA 2 18900.89 146316.90 360.00 0.0 0 1 1
+  797_Static vehicles.artillery.Artillery$PzVA 2 18228.38 142918.99 360.00 0.0 0 1 1
+  798_Static vehicles.artillery.Artillery$PzVA 2 20883.00 143414.52 360.00 0.0 0 1 1
+  799_Static vehicles.artillery.Artillery$PzVA 2 23643.81 141397.01 360.00 0.0 0 1 1
+  800_Static vehicles.artillery.Artillery$PzVA 2 39359.15 144688.73 360.00 0.0 0 1 1
+  801_Static vehicles.artillery.Artillery$PzVA 2 39323.75 141078.45 360.00 0.0 0 1 1
+  802_Static vehicles.artillery.Artillery$PzVA 2 43464.96 144263.99 360.00 0.0 0 1 1
+  803_Static vehicles.artillery.Artillery$PzVA 2 40881.13 140724.50 360.00 0.0 0 1 1
+  804_Static vehicles.artillery.Artillery$PzVA 2 41376.66 138742.39 360.00 0.0 0 1 1
+  805_Static vehicles.artillery.Artillery$PzVA 2 44916.15 139131.73 360.00 0.0 0 1 1
+  806_Static vehicles.artillery.Artillery$PzVA 2 2869.89 157307.79 360.00 0.0 0 1 1
+  807_Static vehicles.artillery.Artillery$PzVA 2 6045.90 155126.67 360.00 0.0 0 1 1
+  808_Static vehicles.artillery.Artillery$PzVA 2 16951.48 156848.61 360.00 0.0 0 1 1
+  809_Static vehicles.artillery.Artillery$PzVA 2 16377.50 152218.52 360.00 0.0 0 1 1
+  810_Static vehicles.artillery.Artillery$PzVA 2 23380.03 156542.48 360.00 0.0 0 1 1
+  811_Static vehicles.artillery.Artillery$PzVA 2 27359.61 158264.42 360.00 0.0 0 1 1
+  812_Static vehicles.artillery.Artillery$PzVA 2 38992.22 154361.37 360.00 0.0 0 1 1
+  813_Static vehicles.artillery.Artillery$PzVA 2 36543.25 152141.99 360.00 0.0 0 1 1
+  814_Static vehicles.artillery.Artillery$PzVA 2 42397.82 151376.68 360.00 0.0 0 1 1
+  816_Static vehicles.artillery.Artillery$PzVA 2 45152.92 151223.62 360.00 0.0 0 1 1
+  817_Static vehicles.artillery.Artillery$PzVA 2 48749.84 169284.79 360.00 0.0 0 1 1
+  820_Static vehicles.artillery.Artillery$PzVA 2 47525.36 165955.72 360.00 0.0 0 1 1
+  821_Static vehicles.artillery.Artillery$PzVA 2 39336.61 168596.02 360.00 0.0 0 1 1
+  822_Static vehicles.artillery.Artillery$PzVA 2 36543.25 165573.07 360.00 0.0 0 1 1
+  823_Static vehicles.artillery.Artillery$PzVA 2 28545.83 168251.63 360.00 0.0 0 1 1
+  824_Static vehicles.artillery.Artillery$PzVA 2 28622.36 163506.75 360.00 0.0 0 1 1
+  825_Static vehicles.artillery.Artillery$PzVA 2 15420.87 165649.60 360.00 0.0 0 1 1
+  826_Static vehicles.artillery.Artillery$PzVA 2 15306.07 160751.65 360.00 0.0 0 1 1
+  827_Static vehicles.artillery.Artillery$PzVA 2 535.71 162014.41 360.00 0.0 0 1 1
+  828_Static vehicles.artillery.Artillery$PzVA 2 4553.56 161478.69 360.00 0.0 0 1 1
+  829_Static vehicles.artillery.Artillery$PzVA 2 727.04 171733.76 360.00 0.0 0 1 1
+  830_Static vehicles.artillery.Artillery$PzVA 2 1492.34 177435.27 360.00 0.0 0 1 1
+  831_Static vehicles.artillery.Artillery$PzVA 2 15497.40 172231.21 360.00 0.0 0 1 1
+  832_Static vehicles.artillery.Artillery$PzVA 2 19362.18 172537.33 360.00 0.0 0 1 1
+  833_Static vehicles.artillery.Artillery$PzVA 2 24910.63 172384.27 360.00 0.0 0 1 1
+  834_Static vehicles.artillery.Artillery$PzVA 2 29502.46 171274.58 360.00 0.0 0 1 1
+  835_Static vehicles.artillery.Artillery$PzVA 2 34668.26 170662.34 360.00 0.0 0 1 1
+  836_Static vehicles.artillery.Artillery$PzVA 2 33367.24 175062.83 360.00 0.0 0 1 1
+  837_Static vehicles.artillery.Artillery$PzVA 2 42053.44 171772.03 360.00 0.0 0 1 1
+  838_Static vehicles.artillery.Artillery$PzVA 2 45612.10 175024.57 360.00 0.0 0 1 1
+  839_Static vehicles.artillery.Artillery$PzVA 2 41555.99 181644.44 360.00 0.0 0 1 1
+  840_Static vehicles.artillery.Artillery$PzVA 2 46339.14 184935.25 360.00 0.0 0 1 1
+  841_Static vehicles.artillery.Artillery$PzVA 2 34591.73 181606.18 360.00 0.0 0 1 1
+  842_Static vehicles.artillery.Artillery$PzVA 2 38800.90 185088.31 360.00 0.0 0 1 1
+  843_Static vehicles.artillery.Artillery$PzVA 2 28431.03 181606.18 360.00 0.0 0 1 1
+  844_Static vehicles.artillery.Artillery$PzVA 2 28622.36 185585.76 360.00 0.0 0 1 1
+  845_Static vehicles.artillery.Artillery$PzVA 2 1874.99 181567.91 360.00 0.0 0 1 1
+  846_Static vehicles.artillery.Artillery$PzVA 2 1951.52 186963.30 360.00 0.0 0 1 1
+  847_Static vehicles.artillery.Artillery$PzVA 2 2640.30 191669.92 360.00 0.0 0 1 1
+  848_Static vehicles.artillery.Artillery$PzVA 2 4936.21 194539.81 360.00 0.0 0 1 1
+  849_Static vehicles.artillery.Artillery$PzVA 2 19591.77 184131.68 360.00 0.0 0 1 1
+  850_Static vehicles.artillery.Artillery$PzVA 2 18367.29 186925.04 360.00 0.0 0 1 1
+  851_Static vehicles.artillery.Artillery$PzVA 2 34744.79 190560.23 360.00 0.0 0 1 1
+  852_Static vehicles.artillery.Artillery$PzVA 2 39413.14 192779.61 360.00 0.0 0 1 1
+  853_Static vehicles.artillery.Artillery$PzVA 2 41135.07 190521.97 360.00 0.0 0 1 1
+  854_Static vehicles.artillery.Artillery$PzVA 2 44693.73 193391.86 360.00 0.0 0 1 1
+  855_Static vehicles.artillery.Artillery$PzVA 2 23800.94 197180.11 360.00 0.0 0 1 1
+  856_Static vehicles.artillery.Artillery$PzVA 2 29234.60 194386.75 360.00 0.0 0 1 1
+  857_Static vehicles.artillery.Artillery$PzVA 2 2525.50 204297.43 360.00 0.0 0 1 1
+  858_Static vehicles.artillery.Artillery$PzVA 2 6198.96 206287.22 360.00 0.0 0 1 1
+  859_Static vehicles.artillery.Artillery$PzVA 2 4056.11 210764.25 360.00 0.0 0 1 1
+  860_Static vehicles.artillery.Artillery$PzVA 2 3711.72 214858.62 360.00 0.0 0 1 1
+  861_Static vehicles.artillery.Artillery$PzVA 2 29081.54 200623.98 360.00 0.0 0 1 1
+  862_Static vehicles.artillery.Artillery$PzVA 2 24604.51 204527.02 360.00 0.0 0 1 1
+  863_Static vehicles.artillery.Artillery$PzVA 2 31607.04 204603.55 360.00 0.0 0 1 1
+  864_Static vehicles.artillery.Artillery$PzVA 2 33022.85 207626.50 360.00 0.0 0 1 1
+  865_Static vehicles.artillery.Artillery$PzVA 2 30688.68 213519.34 360.00 0.0 0 1 1
+  866_Static vehicles.artillery.Artillery$PzVA 2 35318.76 211606.08 360.00 0.0 0 1 1
+  867_Static vehicles.artillery.Artillery$PzVA 2 41479.46 201389.28 360.00 0.0 0 1 1
+  868_Static vehicles.artillery.Artillery$PzVA 2 44387.61 204335.70 360.00 0.0 0 1 1
+  869_Static vehicles.artillery.Artillery$PzVA 2 4668.35 221401.97 360.00 0.0 0 1 1
+  870_Static vehicles.artillery.Artillery$PzVA 2 7308.65 226720.83 360.00 0.0 0 1 1
+  871_Static vehicles.artillery.Artillery$PzVA 2 24527.98 227830.52 360.00 0.0 0 1 1
+  872_Static vehicles.artillery.Artillery$PzVA 2 27665.73 224463.18 360.00 0.0 0 1 1
+  873_Static vehicles.artillery.Artillery$PzVA 2 32563.67 228251.44 360.00 0.0 0 1 1
+  874_Static vehicles.artillery.Artillery$PzVA 2 30650.41 224807.57 360.00 0.0 0 1 1
+  875_Static vehicles.artillery.Artillery$PzVA 2 41823.85 226261.65 360.00 0.0 0 1 1
+  876_Static vehicles.artillery.Artillery$PzVA 2 41555.99 221669.83 360.00 0.0 0 1 1
+  877_Static vehicles.artillery.Artillery$PzVA 2 43163.13 216197.90 360.00 0.0 0 1 1
+  878_Static vehicles.artillery.Artillery$PzVA 2 43469.25 211950.47 360.00 0.0 0 1 1
+  879_Static vehicles.artillery.Artillery$PzVA 2 34170.81 230776.94 360.00 0.0 0 1 1
+  880_Static vehicles.artillery.Artillery$PzVA 2 32334.08 234029.48 360.00 0.0 0 1 1
+  881_Static vehicles.artillery.Artillery$PzVA 2 28010.11 235866.21 360.00 0.0 0 1 1
+  882_Static vehicles.artillery.Artillery$PzVA 2 29234.60 232307.55 360.00 0.0 0 1 1
+  883_Static vehicles.artillery.Artillery$PzVA 2 41288.13 236363.66 360.00 0.0 0 1 1
+  884_Static vehicles.artillery.Artillery$PzVA 2 42053.44 230623.88 360.00 0.0 0 1 1
+  885_Static vehicles.artillery.Artillery$PzVA 2 41249.87 244552.41 360.00 0.0 0 1 1
+  886_Static vehicles.artillery.Artillery$PzVA 2 53953.91 235407.03 360.00 0.0 0 1 1
+  887_Static vehicles.artillery.Artillery$PzVA 2 53724.32 231465.71 360.00 0.0 0 1 1
+  888_Static vehicles.artillery.Artillery$PzVA 2 56135.02 240343.24 360.00 0.0 0 1 1
+  889_Static vehicles.artillery.Artillery$PzVA 2 59119.71 242026.90 360.00 0.0 0 1 1
+  890_Static vehicles.artillery.Artillery$PzVA 2 53150.34 228901.95 360.00 0.0 0 1 1
+  891_Static vehicles.artillery.Artillery$PzVA 2 51466.67 225917.26 360.00 0.0 0 1 1
+  892_Static vehicles.artillery.Artillery$PzVA 2 62640.11 230700.41 360.00 0.0 0 1 1
+  893_Static vehicles.artillery.Artillery$PzVA 2 67882.44 230547.35 360.00 0.0 0 1 1
+  894_Static vehicles.artillery.Artillery$PzVA 2 61453.88 228901.95 360.00 0.0 0 1 1
+  895_Static vehicles.artillery.Artillery$PzVA 2 66964.07 227868.79 360.00 0.0 0 1 1
+  896_Static vehicles.artillery.Artillery$PzVA 2 62219.19 224692.78 360.00 0.0 0 1 1
+  897_Static vehicles.artillery.Artillery$PzVA 2 60612.05 219565.24 360.00 0.0 0 1 1
+  898_Static vehicles.artillery.Artillery$PzVA 2 63175.82 217001.47 360.00 0.0 0 1 1
+  899_Static vehicles.artillery.Artillery$PzVA 2 79400.26 217116.27 360.00 0.0 0 1 1
+  900_Static vehicles.artillery.Artillery$PzVA 2 76109.45 214246.38 360.00 0.0 0 1 1
+  901_Static vehicles.artillery.Artillery$PzVA 2 85293.09 218761.67 360.00 0.0 0 1 1
+  902_Static vehicles.artillery.Artillery$PzVA 2 81275.25 217537.19 360.00 0.0 0 1 1
+  903_Static vehicles.artillery.Artillery$PzVA 2 90879.81 216695.35 360.00 0.0 0 1 1
+  904_Static vehicles.artillery.Artillery$PzVA 2 90611.95 213825.46 360.00 0.0 0 1 1
+  905_Static vehicles.artillery.Artillery$PzVA 2 54068.70 217116.27 360.00 0.0 0 1 1
+  906_Static vehicles.artillery.Artillery$PzVA 2 58163.08 214973.42 360.00 0.0 0 1 1
+  907_Static vehicles.artillery.Artillery$PzVA 2 51160.55 207205.59 360.00 0.0 0 1 1
+  908_Static vehicles.artillery.Artillery$PzVA 2 50854.43 203226.01 360.00 0.0 0 1 1
+  909_Static vehicles.artillery.Artillery$PzVA 2 55790.64 195419.91 360.00 0.0 0 1 1
+  910_Static vehicles.artillery.Artillery$PzVA 2 58737.06 197983.68 360.00 0.0 0 1 1
+  911_Static vehicles.artillery.Artillery$PzVA 2 61798.27 200432.65 360.00 0.0 0 1 1
+  912_Static vehicles.artillery.Artillery$PzVA 2 61568.68 203991.31 360.00 0.0 0 1 1
+  913_Static vehicles.artillery.Artillery$PzVA 2 61568.68 199361.22 360.00 0.0 0 1 1
+  914_Static vehicles.artillery.Artillery$PzVA 2 60420.72 195993.89 360.00 0.0 0 1 1
+  915_Static vehicles.artillery.Artillery$PzVA 2 75152.82 203914.78 360.00 0.0 0 1 1
+  916_Static vehicles.artillery.Artillery$PzVA 2 76453.84 208468.34 360.00 0.0 0 1 1
+  917_Static vehicles.artillery.Artillery$PzVA 2 81887.49 203187.74 360.00 0.0 0 1 1
+  918_Static vehicles.artillery.Artillery$PzVA 2 84374.73 205445.39 360.00 0.0 0 1 1
+  919_Static vehicles.artillery.Artillery$PzVA 2 90497.16 209578.03 360.00 0.0 0 1 1
+  920_Static vehicles.artillery.Artillery$PzVA 2 91874.71 206784.67 360.00 0.0 0 1 1
+  921_Static vehicles.artillery.Artillery$PzVA 2 88851.76 198863.78 360.00 0.0 0 1 1
+  922_Static vehicles.artillery.Artillery$PzVA 2 88277.78 194960.73 360.00 0.0 0 1 1
+  923_Static vehicles.artillery.Artillery$PzVA 2 85101.77 197754.09 360.00 0.0 0 1 1
+  924_Static vehicles.artillery.Artillery$PzVA 2 91989.50 199437.75 360.00 0.0 0 1 1
+  925_Static vehicles.artillery.Artillery$PzVA 2 90573.69 196606.13 360.00 0.0 0 1 1
+  926_Static vehicles.artillery.Artillery$PzVA 2 72321.20 197983.68 360.00 0.0 0 1 1
+  927_Static vehicles.artillery.Artillery$PzVA 2 75765.06 194845.93 360.00 0.0 0 1 1
+  928_Static vehicles.artillery.Artillery$PzVA 2 52652.89 189259.22 360.00 0.0 0 1 1
+  929_Static vehicles.artillery.Artillery$PzVA 2 50624.84 186465.86 360.00 0.0 0 1 1
+  930_Static vehicles.artillery.Artillery$PzVA 2 61300.82 180266.90 360.00 0.0 0 1 1
+  931_Static vehicles.artillery.Artillery$PzVA 2 63902.86 182792.40 360.00 0.0 0 1 1
+  932_Static vehicles.artillery.Artillery$PzVA 2 74578.84 186771.98 360.00 0.0 0 1 1
+  933_Static vehicles.artillery.Artillery$PzVA 2 77180.87 183978.62 360.00 0.0 0 1 1
+  934_Static vehicles.artillery.Artillery$PzVA 2 87397.68 180496.49 360.00 0.0 0 1 1
+  935_Static vehicles.artillery.Artillery$PzVA 2 87665.54 186006.68 360.00 0.0 0 1 1
+  936_Static vehicles.artillery.Artillery$PzVA 2 97920.60 188876.56 360.00 0.0 0 1 1
+  937_Static vehicles.artillery.Artillery$PzVA 2 94323.68 186044.94 360.00 0.0 0 1 1
+  938_Static vehicles.artillery.Artillery$PzVA 2 85293.09 171236.31 360.00 0.0 0 1 1
+  939_Static vehicles.artillery.Artillery$PzVA 2 81466.58 173647.02 360.00 0.0 0 1 1
+  940_Static vehicles.artillery.Artillery$PzVA 2 79285.46 171925.09 360.00 0.0 0 1 1
+  942_Static vehicles.artillery.Artillery$PzVA 2 75918.12 174182.73 360.00 0.0 0 1 1
+  943_Static vehicles.artillery.Artillery$PzVA 2 68609.47 177243.95 360.00 0.0 0 1 1
+  944_Static vehicles.artillery.Artillery$PzVA 2 68112.03 173953.14 360.00 0.0 0 1 1
+  945_Static vehicles.artillery.Artillery$PzVA 2 55599.31 166185.31 360.00 0.0 0 1 1
+  946_Static vehicles.artillery.Artillery$PzVA 2 52423.30 162971.03 360.00 0.0 0 1 1
+  947_Static vehicles.artillery.Artillery$PzVA 2 55637.58 162205.73 360.00 0.0 0 1 1
+  948_Static vehicles.artillery.Artillery$PzVA 2 67652.84 163812.87 360.00 0.0 0 1 1
+  949_Static vehicles.artillery.Artillery$PzVA 2 67423.25 168481.22 360.00 0.0 0 1 1
+  950_Static vehicles.artillery.Artillery$PzVA 2 77027.81 167677.65 360.00 0.0 0 1 1
+  951_Static vehicles.artillery.Artillery$PzVA 2 78481.89 164463.38 360.00 0.0 0 1 1
+  952_Static vehicles.artillery.Artillery$PzVA 2 83839.02 165534.80 360.00 0.0 0 1 1
+  953_Static vehicles.artillery.Artillery$PzVA 2 80739.54 161861.34 360.00 0.0 0 1 1
+  954_Static vehicles.artillery.Artillery$PzVA 2 93596.64 164731.23 360.00 0.0 0 1 1
+  955_Static vehicles.artillery.Artillery$PzVA 2 90879.81 162014.41 360.00 0.0 0 1 1
+  956_Static vehicles.artillery.Artillery$PzVA 2 81045.66 159182.78 360.00 0.0 0 1 1
+  957_Static vehicles.artillery.Artillery$PzVA 2 87129.82 158838.39 360.00 0.0 0 1 1
+  958_Static vehicles.artillery.Artillery$PzVA 2 83724.22 155624.12 360.00 0.0 0 1 1
+  959_Static vehicles.artillery.Artillery$PzVA 2 76071.18 159182.78 360.00 0.0 0 1 1
+  960_Static vehicles.artillery.Artillery$PzVA 2 75841.59 155356.26 360.00 0.0 0 1 1
+  961_Static vehicles.artillery.Artillery$PzVA 2 60918.17 158494.01 360.00 0.0 0 1 1
+  962_Static vehicles.artillery.Artillery$PzVA 2 65586.52 158953.19 360.00 0.0 0 1 1
+  963_Static vehicles.artillery.Artillery$PzVA 2 52805.95 159450.64 360.00 0.0 0 1 1
+  964_Static vehicles.artillery.Artillery$PzVA 2 51122.29 156236.36 360.00 0.0 0 1 1
+  965_Static vehicles.artillery.Artillery$PzVA 2 91300.73 158838.39 360.00 0.0 0 1 1
+  966_Static vehicles.artillery.Artillery$PzVA 2 94323.68 156542.48 360.00 0.0 0 1 1
+  967_Static vehicles.artillery.Artillery$PzVA 2 94897.65 179539.86 360.00 0.0 0 1 1
+  968_Static vehicles.artillery.Artillery$PzVA 2 95471.63 175636.81 360.00 0.0 0 1 1
+  969_Static vehicles.artillery.Artillery$PzVA 2 51772.79 174871.51 360.00 0.0 0 1 1
+  970_Static vehicles.artillery.Artillery$PzVA 2 51084.02 170815.40 360.00 0.0 0 1 1
+  971_Static vehicles.artillery.Artillery$PzVA 2 51466.67 147435.37 360.00 0.0 0 1 1
+  972_Static vehicles.artillery.Artillery$PzVA 2 55637.58 149157.30 360.00 0.0 0 1 1
+  973_Static vehicles.artillery.Artillery$PzVA 2 61645.21 146440.48 360.00 0.0 0 1 1
+  974_Static vehicles.artillery.Artillery$PzVA 2 68800.80 146210.88 360.00 0.0 0 1 1
+  975_Static vehicles.artillery.Artillery$PzVA 2 68265.09 142384.37 360.00 0.0 0 1 1
+  976_Static vehicles.artillery.Artillery$PzVA 2 62410.51 141542.53 360.00 0.0 0 1 1
+  977_Static vehicles.artillery.Artillery$PzVA 2 65356.93 143991.50 360.00 0.0 0 1 1
+  978_Static vehicles.artillery.Artillery$PzVA 2 71134.98 143455.79 360.00 0.0 0 1 1
+  979_Static vehicles.artillery.Artillery$PzVA 2 74884.96 141006.82 360.00 0.0 0 1 1
+  980_Static vehicles.artillery.Artillery$PzVA 2 85273.53 147514.36 360.00 0.0 0 1 1
+  981_Static vehicles.artillery.Artillery$PzVA 2 89274.52 146771.91 360.00 0.0 0 1 1
+  982_Static vehicles.artillery.Artillery$PzVA 2 95090.39 149452.99 360.00 0.0 0 1 1
+  983_Static vehicles.artillery.Artillery$PzVA 2 99050.14 149494.23 360.00 0.0 0 1 1
+  984_Static vehicles.artillery.Artillery$PzVA 2 103999.82 147349.37 360.00 0.0 0 1 1
+  985_Static vehicles.artillery.Artillery$PzVA 2 107877.07 143018.40 360.00 0.0 0 1 1
+  986_Static vehicles.artillery.Artillery$PzVA 2 115920.30 140461.07 360.00 0.0 0 1 1
+  987_Static vehicles.artillery.Artillery$PzVA 2 119632.56 143348.38 360.00 0.0 0 1 1
+  988_Static vehicles.artillery.Artillery$PzVA 2 121323.70 144090.83 360.00 0.0 0 1 1
+  989_Static vehicles.artillery.Artillery$PzVA 2 126438.37 146318.19 360.00 0.0 0 1 1
+  990_Static vehicles.artillery.Artillery$PzVA 2 123138.58 147060.64 360.00 0.0 0 1 1
+  991_Static vehicles.artillery.Artillery$PzVA 2 121488.69 153288.99 360.00 0.0 0 1 1
+  992_Static vehicles.artillery.Artillery$PzVA 2 124540.99 156423.79 360.00 0.0 0 1 1
+  993_Static vehicles.artillery.Artillery$PzVA 2 110888.12 152752.77 360.00 0.0 0 1 1
+  994_Static vehicles.artillery.Artillery$PzVA 2 115177.85 151267.87 360.00 0.0 0 1 1
+  995_Static vehicles.artillery.Artillery$PzVA 2 101401.24 150979.14 360.00 0.0 0 1 1
+  996_Static vehicles.artillery.Artillery$PzVA 2 104989.75 152381.55 360.00 0.0 0 1 1
+  997_Static vehicles.artillery.Artillery$PzVA 2 100328.80 163559.57 360.00 0.0 0 1 1
+  998_Static vehicles.artillery.Artillery$PzVA 2 101071.26 160507.27 360.00 0.0 0 1 1
+  999_Static vehicles.artillery.Artillery$PzVA 2 112125.54 160713.51 360.00 0.0 0 1 1
+  1000_Static vehicles.artillery.Artillery$PzVA 2 117941.42 163765.81 360.00 0.0 0 1 1
+  1001_Static vehicles.artillery.Artillery$PzVA 2 121488.69 164755.75 360.00 0.0 0 1 1
+  1002_Static vehicles.artillery.Artillery$PzVA 2 125159.70 162693.38 360.00 0.0 0 1 1
+  1003_Static vehicles.artillery.Artillery$PzVA 2 129036.95 173500.18 360.00 0.0 0 1 1
+  1004_Static vehicles.artillery.Artillery$PzVA 2 126355.87 170819.11 360.00 0.0 0 1 1
+  1005_Static vehicles.artillery.Artillery$PzVA 2 131965.51 174531.37 360.00 0.0 0 1 1
+  1006_Static vehicles.artillery.Artillery$PzVA 2 136832.70 176428.74 360.00 0.0 0 1 1
+  1007_Static vehicles.artillery.Artillery$PzVA 2 138853.82 173128.96 360.00 0.0 0 1 1
+  1008_Static vehicles.artillery.Artillery$PzVA 2 132707.96 171107.84 360.00 0.0 0 1 1
+  1009_Static vehicles.artillery.Artillery$PzVA 2 130480.61 169045.47 360.00 0.0 0 1 1
+  1010_Static vehicles.artillery.Artillery$PzVA 2 134646.59 169086.72 360.00 0.0 0 1 1
+  1011_Static vehicles.artillery.Artillery$PzVA 2 102102.44 173912.66 360.00 0.0 0 1 1
+  1012_Static vehicles.artillery.Artillery$PzVA 2 105567.22 173623.92 360.00 0.0 0 1 1
+  1013_Static vehicles.artillery.Artillery$PzVA 2 114064.17 177542.42 360.00 0.0 0 1 1
+  1014_Static vehicles.artillery.Artillery$PzVA 2 118230.15 179481.05 360.00 0.0 0 1 1
+  1015_Static vehicles.artillery.Artillery$PzVA 2 123592.30 174696.35 360.00 0.0 0 1 1
+  1016_Static vehicles.artillery.Artillery$PzVA 2 126520.86 177624.92 360.00 0.0 0 1 1
+  1017_Static vehicles.artillery.Artillery$PzVA 2 100947.51 180800.96 360.00 0.0 0 1 1
+  1018_Static vehicles.artillery.Artillery$PzVA 2 105360.98 180883.45 360.00 0.0 0 1 1
+  1019_Static vehicles.artillery.Artillery$PzVA 2 111465.58 188802.94 360.00 0.0 0 1 1
+  1021_Static vehicles.artillery.Artillery$PzVA 2 116827.74 188472.96 360.00 0.0 0 1 1
+  1022_Static vehicles.artillery.Artillery$PzVA 2 113321.72 193092.67 360.00 0.0 0 1 1
+  1025_Static vehicles.artillery.Artillery$PzVA 2 117116.47 190659.07 360.00 0.0 0 1 1
+  1026_Static vehicles.artillery.Artillery$PzVA 2 120746.24 190782.82 360.00 0.0 0 1 1
+  1027_Static vehicles.artillery.Artillery$PzVA 2 124252.26 190824.06 360.00 0.0 0 1 1
+  1028_Static vehicles.artillery.Artillery$PzVA 2 137203.92 185585.65 360.00 0.0 0 1 1
+  1029_Static vehicles.artillery.Artillery$PzVA 2 132419.23 183812.02 360.00 0.0 0 1 1
+  1030_Static vehicles.artillery.Artillery$PzVA 2 120498.75 180718.47 360.00 0.0 0 1 1
+  1031_Static vehicles.artillery.Artillery$PzVA 2 125242.19 180677.22 360.00 0.0 0 1 1
+  1032_Static vehicles.artillery.Artillery$PzVA 2 109279.48 184389.48 360.00 0.0 0 1 1
+  1033_Static vehicles.artillery.Artillery$PzVA 2 109568.21 188225.48 360.00 0.0 0 1 1
+  1034_Static vehicles.artillery.Artillery$PzVA 2 101401.24 193381.40 360.00 0.0 0 1 1
+  1035_Static vehicles.artillery.Artillery$PzVA 2 103669.84 196309.96 360.00 0.0 0 1 1
+  1036_Static vehicles.artillery.Artillery$PzVA 2 92863.04 191731.50 360.00 0.0 0 1 1
+  1037_Static vehicles.artillery.Artillery$PzVA 2 96327.81 191731.50 360.00 0.0 0 1 1
+  1038_Static vehicles.artillery.Artillery$PzVA 2 105773.45 200434.69 360.00 0.0 0 1 1
+  1039_Static vehicles.artillery.Artillery$PzVA 2 108743.26 202043.34 360.00 0.0 0 1 1
+  1040_Static vehicles.artillery.Artillery$PzVA 2 118230.15 200352.20 360.00 0.0 0 1 1
+  1041_Static vehicles.artillery.Artillery$PzVA 2 119673.80 201919.60 360.00 0.0 0 1 1
+  1042_Static vehicles.artillery.Artillery$PzVA 2 120375.01 201754.61 360.00 0.0 0 1 1
+  1043_Static vehicles.artillery.Artillery$PzVA 2 122620.36 200363.32 360.00 0.0 0 1 1
+  1044_Static vehicles.artillery.Artillery$PzVA 2 144195.07 160592.61 360.00 0.0 0 1 1
+  1045_Static vehicles.artillery.Artillery$PzVA 2 148478.52 161051.55 360.00 0.0 0 1 1
+  1046_Static vehicles.artillery.Artillery$PzVA 2 151616.38 162432.24 360.00 0.0 0 1 1
+  1047_Static vehicles.artillery.Artillery$PzVA 2 152366.51 165171.84 360.00 0.0 0 1 1
+  1048_Static vehicles.artillery.Artillery$PzVA 2 141832.08 173618.95 360.00 0.0 0 1 1
+  1049_Static vehicles.artillery.Artillery$PzVA 2 141277.64 178184.96 360.00 0.0 0 1 1
+  1050_Static vehicles.artillery.Artillery$PzVA 2 182738.87 40729.66 360.00 0.0 0 1 1
+  1051_Static vehicles.artillery.Artillery$PzVA 2 185004.50 44931.38 360.00 0.0 0 1 1
+  1052_Static vehicles.artillery.Artillery$PzVA 2 187764.45 49174.28 360.00 0.0 0 1 1
+  1053_Static vehicles.artillery.Artillery$PzVA 2 190524.40 44643.02 360.00 0.0 0 1 1
+  1054_Static vehicles.artillery.Artillery$PzVA 2 192625.25 46949.85 360.00 0.0 0 1 1
+  1055_Static vehicles.artillery.Artillery$PzVA 2 197774.41 50904.40 360.00 0.0 0 1 1
+  1056_Static vehicles.artillery.Artillery$PzVA 2 197032.93 55806.39 360.00 0.0 0 1 1
+  1057_Static vehicles.artillery.Artillery$PzVA 2 199504.52 57042.19 360.00 0.0 0 1 1
+  1058_Static vehicles.artillery.Artillery$PzVA 2 36397.73 240503.11 360.00 0.0 0 1 1
+  1059_Static vehicles.artillery.Artillery$PzVA 2 85960.56 110695.15 360.00 0.0 0 1 1
+  1060_Static vehicles.artillery.Artillery$PzVA 2 97845.78 114426.55 360.00 0.0 0 1 1
+  1061_Static vehicles.artillery.Artillery$PzVA 2 217074.47 5182.51 360.00 0.0 0 1 1
+[Buildings]
+[Bridge]
+[House]
+[FrontMarker]
+FrontMarker0 5000 5000 2
+FrontMarker1 5000 15000 2
+FrontMarker2 5000 25000 2
+FrontMarker3 5000 45000 2
+FrontMarker4 5000 55000 2
+FrontMarker5 5000 65000 2
+FrontMarker6 5000 75000 2
+FrontMarker7 5000 85000 2
+FrontMarker8 5000 95000 2
+FrontMarker9 5000 105000 2
+FrontMarker10 5000 115000 2
+FrontMarker11 5000 125000 2
+FrontMarker12 5000 135000 2
+FrontMarker13 5000 145000 2
+FrontMarker14 5000 155000 2
+FrontMarker15 5000 165000 2
+FrontMarker16 5000 175000 2
+FrontMarker17 5000 185000 2
+FrontMarker18 5000 195000 2
+FrontMarker19 5000 205000 2
+FrontMarker20 5000 215000 2
+FrontMarker21 5000 225000 2
+FrontMarker22 15000 5000 2
+FrontMarker23 15000 15000 2
+FrontMarker24 15000 25000 2
+FrontMarker25 15000 45000 2
+FrontMarker26 15000 55000 2
+FrontMarker27 15000 65000 2
+FrontMarker28 15000 75000 2
+FrontMarker29 15000 85000 2
+FrontMarker30 15000 95000 2
+FrontMarker31 15000 105000 2
+FrontMarker32 15000 115000 2
+FrontMarker33 15000 125000 2
+FrontMarker34 15000 135000 2
+FrontMarker35 15000 145000 2
+FrontMarker36 15000 155000 2
+FrontMarker37 15000 165000 2
+FrontMarker38 15000 175000 2
+FrontMarker39 15000 185000 2
+FrontMarker40 25000 5000 2
+FrontMarker41 25000 15000 2
+FrontMarker42 25000 25000 2
+FrontMarker43 25000 35000 2
+FrontMarker44 25000 45000 2
+FrontMarker45 25000 55000 2
+FrontMarker46 25000 65000 2
+FrontMarker47 25000 75000 2
+FrontMarker48 25000 85000 2
+FrontMarker49 25000 95000 2
+FrontMarker50 25000 105000 2
+FrontMarker51 25000 115000 2
+FrontMarker52 25000 125000 2
+FrontMarker53 25000 135000 2
+FrontMarker54 25000 145000 2
+FrontMarker55 25000 155000 2
+FrontMarker56 25000 165000 2
+FrontMarker57 25000 175000 2
+FrontMarker58 25000 185000 2
+FrontMarker59 25000 195000 2
+FrontMarker60 25000 205000 2
+FrontMarker61 25000 225000 2
+FrontMarker62 25000 235000 2
+FrontMarker63 35000 5000 2
+FrontMarker64 35000 15000 2
+FrontMarker65 35000 35000 2
+FrontMarker66 35000 45000 2
+FrontMarker67 35000 55000 2
+FrontMarker68 35000 65000 2
+FrontMarker69 35000 75000 2
+FrontMarker70 35000 85000 2
+FrontMarker71 35000 95000 2
+FrontMarker72 35000 105000 2
+FrontMarker73 35000 115000 2
+FrontMarker74 35000 125000 2
+FrontMarker75 35000 135000 2
+FrontMarker76 35000 145000 2
+FrontMarker77 35000 155000 2
+FrontMarker78 35000 165000 2
+FrontMarker79 35000 175000 2
+FrontMarker80 35000 185000 2
+FrontMarker81 35000 195000 2
+FrontMarker82 35000 205000 2
+FrontMarker83 35000 215000 2
+FrontMarker84 35000 225000 2
+FrontMarker85 35000 235000 2
+FrontMarker86 35000 245000 2
+FrontMarker87 45000 5000 2
+FrontMarker88 45000 15000 2
+FrontMarker89 45000 25000 2
+FrontMarker90 45000 45000 2
+FrontMarker91 45000 65000 2
+FrontMarker92 45000 75000 2
+FrontMarker93 45000 85000 2
+FrontMarker94 45000 95000 2
+FrontMarker95 45000 105000 2
+FrontMarker96 45000 115000 2
+FrontMarker97 45000 125000 2
+FrontMarker98 45000 135000 2
+FrontMarker99 45000 145000 2
+FrontMarker100 45000 155000 2
+FrontMarker101 45000 165000 2
+FrontMarker102 45000 175000 2
+FrontMarker103 45000 185000 2
+FrontMarker104 45000 195000 2
+FrontMarker105 45000 205000 2
+FrontMarker106 45000 215000 2
+FrontMarker107 45000 225000 2
+FrontMarker108 45000 235000 2
+FrontMarker109 45000 245000 2
+FrontMarker110 55000 5000 2
+FrontMarker111 55000 15000 2
+FrontMarker112 55000 25000 2
+FrontMarker113 55000 35000 2
+FrontMarker114 55000 45000 2
+FrontMarker115 55000 55000 2
+FrontMarker116 55000 65000 2
+FrontMarker117 55000 75000 2
+FrontMarker118 55000 85000 2
+FrontMarker119 55000 95000 2
+FrontMarker120 55000 105000 2
+FrontMarker121 55000 115000 2
+FrontMarker122 55000 125000 2
+FrontMarker123 55000 135000 2
+FrontMarker124 55000 145000 2
+FrontMarker125 55000 155000 2
+FrontMarker126 55000 165000 2
+FrontMarker127 55000 175000 2
+FrontMarker128 55000 185000 2
+FrontMarker129 55000 195000 2
+FrontMarker130 55000 205000 2
+FrontMarker131 55000 215000 2
+FrontMarker132 55000 225000 2
+FrontMarker133 55000 235000 2
+FrontMarker134 55000 245000 2
+FrontMarker135 65000 5000 2
+FrontMarker136 65000 15000 2
+FrontMarker137 65000 25000 2
+FrontMarker138 65000 35000 2
+FrontMarker139 65000 45000 2
+FrontMarker140 65000 55000 2
+FrontMarker141 65000 65000 2
+FrontMarker142 65000 75000 2
+FrontMarker143 65000 85000 2
+FrontMarker144 65000 95000 2
+FrontMarker145 65000 105000 2
+FrontMarker146 65000 115000 2
+FrontMarker147 65000 135000 2
+FrontMarker148 65000 145000 2
+FrontMarker149 65000 155000 2
+FrontMarker150 65000 165000 2
+FrontMarker151 65000 175000 2
+FrontMarker152 65000 185000 2
+FrontMarker153 65000 195000 2
+FrontMarker154 65000 205000 2
+FrontMarker155 65000 215000 2
+FrontMarker156 65000 225000 2
+FrontMarker157 65000 235000 2
+FrontMarker158 75000 5000 2
+FrontMarker159 75000 15000 2
+FrontMarker160 75000 25000 2
+FrontMarker161 75000 35000 2
+FrontMarker162 75000 45000 2
+FrontMarker163 75000 55000 2
+FrontMarker164 75000 65000 2
+FrontMarker165 75000 75000 2
+FrontMarker166 75000 85000 2
+FrontMarker167 75000 95000 2
+FrontMarker168 75000 115000 2
+FrontMarker169 75000 125000 2
+FrontMarker170 75000 135000 2
+FrontMarker171 75000 145000 2
+FrontMarker172 75000 155000 2
+FrontMarker173 75000 165000 2
+FrontMarker174 75000 175000 2
+FrontMarker175 75000 185000 2
+FrontMarker176 75000 195000 2
+FrontMarker177 75000 205000 2
+FrontMarker178 75000 215000 2
+FrontMarker179 85000 5000 2
+FrontMarker180 85000 15000 2
+FrontMarker181 85000 25000 2
+FrontMarker182 85000 45000 2
+FrontMarker183 85000 55000 2
+FrontMarker184 85000 65000 2
+FrontMarker185 85000 75000 2
+FrontMarker186 85000 85000 2
+FrontMarker187 85000 95000 2
+FrontMarker188 85000 105000 2
+FrontMarker189 85000 125000 2
+FrontMarker190 85000 135000 2
+FrontMarker191 85000 145000 2
+FrontMarker192 85000 155000 2
+FrontMarker193 85000 165000 2
+FrontMarker194 85000 175000 2
+FrontMarker195 85000 185000 2
+FrontMarker196 85000 195000 2
+FrontMarker197 85000 205000 2
+FrontMarker198 85000 215000 2
+FrontMarker199 95000 5000 2
+FrontMarker200 95000 25000 2
+FrontMarker201 95000 35000 2
+FrontMarker202 95000 45000 2
+FrontMarker203 95000 65000 2
+FrontMarker204 95000 85000 2
+FrontMarker205 95000 95000 2
+FrontMarker206 95000 105000 2
+FrontMarker207 95000 125000 2
+FrontMarker208 95000 135000 2
+FrontMarker209 95000 145000 2
+FrontMarker210 95000 155000 2
+FrontMarker211 95000 165000 2
+FrontMarker212 95000 175000 2
+FrontMarker213 95000 185000 2
+FrontMarker214 95000 195000 2
+FrontMarker215 95000 205000 2
+FrontMarker216 95000 215000 2
+FrontMarker217 105000 5000 2
+FrontMarker218 105000 15000 2
+FrontMarker219 105000 25000 2
+FrontMarker220 105000 35000 2
+FrontMarker221 105000 45000 2
+FrontMarker222 105000 55000 2
+FrontMarker223 105000 65000 2
+FrontMarker224 105000 75000 2
+FrontMarker225 105000 85000 2
+FrontMarker226 105000 95000 2
+FrontMarker227 105000 105000 2
+FrontMarker228 105000 115000 2
+FrontMarker229 105000 125000 2
+FrontMarker230 105000 145000 2
+FrontMarker231 105000 155000 2
+FrontMarker232 105000 165000 2
+FrontMarker233 105000 175000 2
+FrontMarker234 105000 185000 2
+FrontMarker235 105000 195000 2
+FrontMarker236 105000 205000 2
+FrontMarker237 115000 5000 2
+FrontMarker238 115000 15000 2
+FrontMarker239 115000 25000 2
+FrontMarker240 115000 35000 2
+FrontMarker241 115000 45000 2
+FrontMarker242 115000 55000 2
+FrontMarker243 115000 65000 2
+FrontMarker244 115000 75000 2
+FrontMarker245 115000 85000 2
+FrontMarker246 115000 95000 2
+FrontMarker247 115000 105000 2
+FrontMarker248 115000 115000 2
+FrontMarker249 115000 145000 2
+FrontMarker250 115000 155000 2
+FrontMarker251 115000 165000 2
+FrontMarker252 115000 175000 2
+FrontMarker253 115000 185000 2
+FrontMarker254 115000 195000 2
+FrontMarker255 115000 205000 2
+FrontMarker256 125000 5000 1
+FrontMarker257 125000 15000 2
+FrontMarker258 125000 25000 2
+FrontMarker259 125000 35000 2
+FrontMarker260 125000 45000 2
+FrontMarker261 125000 55000 2
+FrontMarker262 125000 65000 2
+FrontMarker263 125000 75000 2
+FrontMarker264 125000 85000 2
+FrontMarker265 125000 95000 2
+FrontMarker266 125000 105000 2
+FrontMarker267 125000 115000 2
+FrontMarker268 125000 145000 2
+FrontMarker269 125000 155000 2
+FrontMarker270 125000 165000 2
+FrontMarker271 125000 175000 2
+FrontMarker272 125000 185000 2
+FrontMarker273 125000 195000 2
+FrontMarker274 125000 205000 2
+FrontMarker275 135000 5000 1
+FrontMarker276 135000 15000 1
+FrontMarker277 135000 25000 2
+FrontMarker278 135000 35000 2
+FrontMarker279 135000 45000 2
+FrontMarker280 135000 55000 2
+FrontMarker281 135000 65000 2
+FrontMarker282 135000 75000 2
+FrontMarker283 135000 85000 2
+FrontMarker284 135000 95000 2
+FrontMarker285 135000 105000 2
+FrontMarker286 135000 115000 2
+FrontMarker287 135000 165000 2
+FrontMarker288 135000 175000 2
+FrontMarker289 135000 185000 2
+FrontMarker290 145000 5000 1
+FrontMarker291 145000 15000 1
+FrontMarker292 145000 25000 1
+FrontMarker293 145000 35000 2
+FrontMarker294 145000 45000 2
+FrontMarker295 145000 55000 2
+FrontMarker296 145000 65000 2
+FrontMarker297 145000 75000 2
+FrontMarker298 145000 85000 2
+FrontMarker299 145000 95000 2
+FrontMarker300 145000 105000 2
+FrontMarker301 145000 115000 2
+FrontMarker302 145000 165000 2
+FrontMarker303 145000 175000 2
+FrontMarker304 155000 5000 1
+FrontMarker305 155000 15000 1
+FrontMarker306 155000 25000 1
+FrontMarker307 155000 35000 2
+FrontMarker308 155000 45000 2
+FrontMarker309 155000 55000 2
+FrontMarker310 155000 65000 2
+FrontMarker311 155000 75000 2
+FrontMarker312 155000 85000 2
+FrontMarker313 155000 95000 2
+FrontMarker314 155000 105000 2
+FrontMarker315 155000 165000 2
+FrontMarker316 165000 5000 1
+FrontMarker317 165000 15000 1
+FrontMarker318 165000 25000 1
+FrontMarker319 165000 35000 1
+FrontMarker320 165000 45000 2
+FrontMarker321 165000 55000 2
+FrontMarker322 165000 65000 2
+FrontMarker323 165000 75000 2
+FrontMarker324 165000 85000 2
+FrontMarker325 165000 95000 2
+FrontMarker326 165000 105000 2
+FrontMarker327 175000 5000 1
+FrontMarker328 175000 15000 1
+FrontMarker329 175000 25000 1
+FrontMarker330 175000 35000 1
+FrontMarker331 175000 45000 1
+FrontMarker332 175000 55000 1
+FrontMarker333 175000 65000 1
+FrontMarker334 175000 75000 2
+FrontMarker335 175000 85000 2
+FrontMarker336 175000 95000 2
+FrontMarker337 175000 105000 2
+FrontMarker338 185000 5000 1
+FrontMarker339 185000 15000 1
+FrontMarker340 185000 25000 1
+FrontMarker341 185000 35000 1
+FrontMarker342 185000 45000 1
+FrontMarker343 185000 55000 1
+FrontMarker344 185000 65000 1
+FrontMarker345 185000 75000 1
+FrontMarker346 185000 85000 1
+FrontMarker347 185000 95000 2
+FrontMarker348 185000 105000 2
+FrontMarker349 185000 115000 2
+FrontMarker350 185000 125000 2
+FrontMarker351 195000 5000 1
+FrontMarker352 195000 15000 1
+FrontMarker353 195000 25000 1
+FrontMarker354 195000 45000 1
+FrontMarker355 195000 55000 1
+FrontMarker356 195000 65000 1
+FrontMarker357 195000 75000 1
+FrontMarker358 195000 85000 1
+FrontMarker359 195000 95000 2
+FrontMarker360 195000 105000 2
+FrontMarker361 195000 115000 2
+FrontMarker362 195000 125000 2
+FrontMarker363 205000 5000 1
+FrontMarker364 205000 15000 1
+FrontMarker365 205000 25000 1
+FrontMarker366 205000 35000 1
+FrontMarker367 205000 45000 1
+FrontMarker368 205000 55000 1
+FrontMarker369 205000 65000 1
+FrontMarker370 205000 75000 1
+FrontMarker371 205000 85000 1
+FrontMarker372 205000 95000 2
+FrontMarker373 205000 105000 2
+FrontMarker374 205000 115000 2
+FrontMarker375 215000 15000 1
+FrontMarker376 215000 25000 1
+FrontMarker377 215000 35000 1
+FrontMarker378 215000 45000 1
+FrontMarker379 215000 55000 1
+FrontMarker380 215000 65000 1
+FrontMarker381 215000 75000 1
+FrontMarker382 215000 95000 1
+FrontMarker383 215000 105000 1
+FrontMarker384 225000 5000 1
+FrontMarker385 225000 15000 1
+FrontMarker386 225000 25000 1
+FrontMarker387 225000 35000 1
+FrontMarker388 225000 45000 1
+FrontMarker389 225000 55000 1
+FrontMarker390 225000 65000 1
+FrontMarker391 225000 75000 1
+FrontMarker392 225000 95000 1
+FrontMarker393 225000 105000 1
+FrontMarker394 235000 5000 1
+FrontMarker395 235000 15000 1
+FrontMarker396 235000 25000 1
+FrontMarker397 235000 35000 1
+FrontMarker398 235000 45000 1
+FrontMarker399 235000 55000 1
+FrontMarker400 235000 65000 1
+FrontMarker401 235000 75000 1
+FrontMarker402 245000 5000 1
+FrontMarker403 245000 15000 1
+FrontMarker404 245000 25000 1
+FrontMarker405 245000 35000 1
+FrontMarker406 245000 45000 1
+FrontMarker407 245000 55000 1
+FrontMarker408 245000 65000 1
+FrontMarker409 255000 5000 1
+FrontMarker410 255000 15000 1
+FrontMarker411 255000 25000 1
+FrontMarker412 255000 35000 1
+FrontMarker413 255000 45000 1
+FrontMarker414 255000 55000 1
